@@ -11,7 +11,7 @@
 
 <div class="row">
     <div class="span5">
-        <img class="thumbnail" src="<?php echo $product['image']; ?>" width="260" />
+        <img class="thumbnail" src="<?php echo $product['image']; ?>" width="260" alt="<?php echo $product['name']; ?>" />
     </div>
     <div class="span10">
         <?php echo $textile->textileThis($product['description']); ?>
