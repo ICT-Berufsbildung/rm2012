@@ -1,5 +1,6 @@
 <?php
 
+require_once 'includes/session.php';
 require_once 'includes/database.php';
 require_once 'includes/webshop.php';
 
@@ -12,6 +13,7 @@ if ($product) {
 
     $_SESSION['success'] = 'Das Produkt wurde in den Warenkorb gelegt.';
 
+    session_commit();
     header('Location: cart.php');
 
 } else {

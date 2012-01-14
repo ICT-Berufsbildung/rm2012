@@ -1,5 +1,6 @@
 <?php
 
+require_once 'includes/session.php';
 require_once 'includes/database.php';
 
 $statement = $database->prepare('SELECT * FROM `categories`');

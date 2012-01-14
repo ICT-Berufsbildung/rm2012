@@ -18,3 +18,10 @@
 
         <div class="container">
 
+            <?php if (isset($_SESSION['success'])): ?>
+            <div class="alert-message success">
+                <p><?php echo htmlentities($_SESSION['success']); ?></p>
+            </div>
+            <?php unset($_SESSION['success']); ?>
+            <?php endif; ?>
+

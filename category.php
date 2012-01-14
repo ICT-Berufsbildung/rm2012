@@ -1,5 +1,6 @@
 <?php
 
+require_once 'includes/session.php';
 require_once 'includes/database.php';
 
 $id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
