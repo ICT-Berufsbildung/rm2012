@@ -3,12 +3,12 @@
 require_once 'includes/session.php';
 require_once 'includes/database.php';
 require_once 'includes/textile.php';
+require_once 'includes/webshop.php';
 
 $id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
 
-$statement = $database->prepare('SELECT * FROM `products` WHERE `id` = ?');
-$statement->execute(array($id));
-$product = $statement->fetch();
+$products = new Products($database);
+$product = $products->get($id);
 
 if (!$product) {    
     header('Location: ./'); // redirect to home if product is not found
