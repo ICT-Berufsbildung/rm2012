@@ -32,6 +32,10 @@ body {
     width: 163px;
 }
 
+.header .basket a {
+    color: inherit;
+}
+
 .container {
     background-color: #f5f6f7;
     padding: 30px;
@@ -53,6 +57,10 @@ img.thumbnail {
 
 .form-basket .actions {
     padding-left: 0;
+}
+
+.form-cart .actions {
+    padding-left: 620px;
 }
 
 .home a {

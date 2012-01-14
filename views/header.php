@@ -13,7 +13,7 @@
         <div class="header">
             <a href="./" class="logo" title="Home">Jungfrau - Top Of Europe</a>
             <h1><?php echo isset($title) ? $title : 'Webshop'; ?></h1>
-            <p class="basket">3 Artikel&nbsp;&nbsp;<strong>CHF 22.00</strong></p>
+            <p class="basket"><a href="cart.php"><?php echo array_sum($_SESSION['cart']); ?> Artikel</a></p>
         </div>
 
         <div class="container">
