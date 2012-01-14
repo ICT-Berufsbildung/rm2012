@@ -1,0 +1,94 @@
+body {
+    background-image: url('../images/wood.jpg');
+}
+
+.header {
+    background-image: url('../images/header.png');
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    height: 230px;
+    width: 1000px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.header .logo {
+    display: block;
+    text-indent: -9000px;
+    width: 300px;
+    height: 230px;
+}
+
+.header h1 {
+    position: absolute;
+    left: 330px;
+    top: 170px;
+}
+
+.header .basket {
+    position: absolute;
+    right: 0;
+    top: 111px;
+    width: 163px;
+}
+
+.container {
+    background-color: #f5f6f7;
+    padding: 30px;
+}
+
+.breadcrumb {
+    margin-bottom: 32px;
+}
+
+h1, h2, h3 {
+    font-weight: normal;
+}
+
+img.thumbnail {
+    border: 1px solid #ddd;
+    padding: 9px;
+    background-color: #fff;
+}
+
+.form-basket .actions {
+    padding-left: 0;
+}
+
+.home a {
+    text-decoration: none;
+}
+
+.categories {
+    border-right: 1px solid #ddd;
+}
+
+.categories a {
+    display: block;
+    text-decoration: none;
+    color: #404040;
+    height: 80px;
+    border-bottom: 1px solid #ddd;
+    padding-top: 20px;
+    padding-left: 24px;
+}
+
+.categories a:hover {
+    background-color: #fff;
+    text-decoration: none;
+}
+
+.categories a img {
+    display: block;
+    float: left;
+    padding-right: 15px;
+}
+
+.categories a span {
+    display: block;
+    padding-top: 13px;
+}
+
+.categories a:hover span {
+    text-decoration: underline;
+}
