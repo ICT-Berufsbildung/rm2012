@@ -48,7 +48,7 @@ h1, h2, h3 {
 img.thumbnail {
     border: 1px solid #ddd;
     padding: 9px;
-    background-color: #fff;
+    background-color: #fafbfb;
 }
 
 .form-basket .actions {
@@ -70,12 +70,11 @@ img.thumbnail {
     height: 80px;
     border-bottom: 1px solid #ddd;
     padding-top: 20px;
-    padding-left: 24px;
+    padding-left: 22px;
 }
 
 .categories a:hover {
-    background-color: #fff;
-    text-decoration: none;
+    background-color: #fafbfb;
 }
 
 .categories a img {
@@ -87,8 +86,4 @@ img.thumbnail {
 .categories a span {
     display: block;
     padding-top: 13px;
-}
-
-.categories a:hover span {
-    text-decoration: underline;
 }
