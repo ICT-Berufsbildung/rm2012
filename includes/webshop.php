@@ -53,6 +53,17 @@ class Categories extends Model {
         $statement->execute(array($id));
         return $statement->fetch();
     }
+
+    /**
+     * Fetch all categories
+     *
+     * @return array Categories
+     */
+    public function all() {
+        $statement = $this->database->prepare('SELECT * FROM `categories`');
+        $statement->execute();
+        return $statement->fetchAll();
+    }
 }
 
 /**

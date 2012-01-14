@@ -2,9 +2,9 @@
 
 require_once 'includes/session.php';
 require_once 'includes/database.php';
+require_once 'includes/webshop.php';
 
-$statement = $database->prepare('SELECT * FROM `categories`');
-$statement->execute();
-$categories = $statement->fetchAll();
+$model = new Categories($database);
+$categories = $model->all();
 
 require 'views/home.php';
