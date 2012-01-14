@@ -15,3 +15,6 @@
             <h1><?php echo isset($title) ? $title : 'Webshop'; ?></h1>
             <p class="basket">3 Artikel&nbsp;&nbsp;<strong>CHF 22.00</strong></p>
         </div>
+
+        <div class="container">
+

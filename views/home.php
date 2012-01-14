@@ -1,7 +1,5 @@
 <?php require 'header.php'; ?>
 
-<div class="container">
-
 <div class="row">
     <div class="span5 categories">
         <?php foreach ($categories as $category): ?>
@@ -19,12 +17,6 @@
             <h2>Aktuell: Hard-Kulm <small>ab CHF 32.00</small></h2>
         </a>
     </div>
-</div>
-
-<footer>
-    <p>&copy; 2012 Jungfraubahnen Management AG</p>
-</footer>
-
 </div>
 
 <?php require 'footer.php'; ?>

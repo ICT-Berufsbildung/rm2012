@@ -1,8 +1,6 @@
 <?php $title = $category['name']; ?>
 <?php require 'header.php'; ?>
 
-<div class="container">
-
 <ul class="breadcrumb">
     <li><a href="./">Home</a> <span class="divider">/</span></li>
     <li class="active"><?php echo $title; ?></li>
@@ -17,12 +15,6 @@
     </a>
 </div>
 <?php endforeach; ?>
-</div>
-
-<footer>
-    <p>&copy; 2012 Jungfraubahnen Management AG</p>
-</footer>
-
 </div>
 
 <?php require 'footer.php'; ?>

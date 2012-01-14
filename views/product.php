@@ -1,8 +1,6 @@
 <?php $title = $product['name']; ?>
 <?php require 'header.php'; ?>
 
-<div class="container">
-
 <ul class="breadcrumb">
     <li><a href="./">Home</a> <span class="divider">/</span></li>
     <li><a href="category.php?id=<?php echo $category['id']; ?>"><?php echo $category['name']; ?></a> <span class="divider">/</span></li>
@@ -23,12 +21,6 @@
             </div>
         </form>
     </div>
-</div>
-
-<footer>
-    <p>&copy; 2012 Jungfraubahnen Management AG</p>
-</footer>
-
 </div>
 
 <?php require 'footer.php'; ?>
