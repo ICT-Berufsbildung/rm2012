@@ -38,6 +38,24 @@ class Products extends Model {
 }
 
 /**
+ * Model to fetch categories from the database.
+ */
+class Categories extends Model {
+
+    /**
+     * Get a category by its ID.
+     *
+     * @param int $id ID of the category
+     * @return array Category data
+     */
+    public function get($id) {
+        $statement = $this->database->prepare('SELECT * FROM `categories` WHERE `id` = ?');
+        $statement->execute(array($id));
+        return $statement->fetch();
+    }
+}
+
+/**
  * Abstract model for database access.
  */
 abstract class Model {

@@ -14,8 +14,7 @@ if (!$product) {
     header('Location: ./'); // redirect to home if product is not found
 }
 
-$statement = $database->prepare('SELECT * FROM `categories` WHERE `id` = ?');
-$statement->execute(array($product['category']));
-$category = $statement->fetch();
+$categories = new Products($database);
+$category = $categories->get($product['category']);
 
 require 'views/product.php';
