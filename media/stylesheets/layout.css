@@ -59,8 +59,17 @@ img.thumbnail {
     padding-left: 0;
 }
 
+.form-cart .remove {
+    border: 0;
+    background-color: transparent;
+}
+
+.form-cart .remove img {
+     vertical-align: text-bottom;
+}
+
 .form-cart .actions {
-    padding-left: 620px;
+    padding-left: 750px;
 }
 
 .home a {

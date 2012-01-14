@@ -28,19 +28,26 @@
                 <tr>
                     <td><a href="product.php?id=<?php echo $product['id']; ?>"><?php echo $product['name']; ?></td>
                     <td>CHF <?php echo $product['price']; ?></td>
-                    <td><input name="cart[<?php echo $product['id']; ?>]" value="<?php echo $product['qty']; ?>" class="span2" /></td>
+                    <td>
+                        <?php $name = 'cart[' . $product['id'] . ']'; ?>
+                        <input name="<?php echo $name; ?>" value="<?php echo $product['qty']; ?>" class="span2" />
+                        <button type="submit" name="<?php echo $name; ?>" class="remove" value="0">
+                            <img src="media/images/delete.png" alt="Löschen" />
+                        </button>
+                    </td>
                     <td>CHF <?php echo $product['row_total']; ?></td>
                 </tr>
                 <?php endforeach; ?>
                 <tr>
-                    <td colspan="3">&nbsp;</td>
+                    <td colspan="3">
+                        <button class="btn">Warenkorb aktualisieren</button>
+                    </td>
                     <td><strong>CHF <?php echo $total; ?></strong></td>
                 </tr>
             </tbody>
         </table>
         
         <p class="actions">
-            <button class="btn">Anzahl anpassen</button>
             <a href="checkout.php" class="btn primary">Zur Kasse</a>
         </p>
     </form>
