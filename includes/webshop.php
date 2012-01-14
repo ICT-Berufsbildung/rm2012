@@ -35,6 +35,18 @@ class Products extends Model {
         $statement->execute(array());
         return $statement->fetchAll();
     }
+
+    /**
+     * Fetches all products from a category.
+     *
+     * @param int $id ID of the category
+     * @return array Products
+     */
+    public function category($category) {
+        $statement = $this->database->prepare('SELECT * FROM `products` WHERE `category` = ?');
+        $statement->execute(array($category));
+        return $statement->fetchAll();
+    }
 }
 
 /**

@@ -13,8 +13,7 @@ if (!$category) {
     header('Location: ./'); // redirect to home if category is not found
 }
 
-$statement = $database->prepare('SELECT * FROM `products` WHERE `category` = ?');
-$statement->execute(array($category['id']));
-$products = $statement->fetchAll();
+$model = new Products($database);
+$products = $model->category($category['id']);
 
 require 'views/category.php';
