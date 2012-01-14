@@ -16,7 +16,8 @@
     <div class="span10">
         <?php echo $textile->textileThis($product['description']); ?>
         <h3>CHF <?php echo $product['price']; ?></h3>
-        <form action="" class="form-basket">
+        <form action="add.php" class="form-basket" method="POST">
+            <input type="hidden" name="id" value="<?php echo $product['id']; ?>" />
             <div class="actions">
                 <button type="submit" class="btn primary">In den Warenkorb</button>
             </div>
