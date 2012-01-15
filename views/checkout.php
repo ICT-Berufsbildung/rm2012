@@ -1,29 +1,28 @@
-<?php $title = 'Checkout'; ?>
+<?php $title = 'Kasse'; ?>
 <?php require 'header.php'; ?>
 
 <ul class="breadcrumb">
     <li><a href="./">Home</a> <span class="divider">/</span></li>
     <li class="active">Warenkorb</li>
 </ul>
-<div class="row">
-    <div class="span4">
-        <h2>Zusammenfassung</h2>
-        <p>
+
+<form action="create.php" method="POST" class="form-checkout">
+    <div class="row">
+        <div class="span4">
+            <h2>Zusammenfassung</h2>
             <?php foreach ($summary as $product): ?>
-            <br/><?php echo $product['qty']; ?>x <?php echo $product['name']; ?>
+                <p><?php echo $product['qty']; ?>x <?php echo $product['name']; ?></p>
             <?php endforeach; ?>
-        </p>
-        <h3>Total: CHF <?php echo $total; ?></h3>
-    </div>
-    <div class="span12">
-        <form action="refresh.php" method="POST">
+            <h3>Total: CHF <?php echo $total; ?></h3>
+            <p></p>
+        </div>
+        <div class="span12">
             <fieldset>
                 <legend>Rechnungsadresse</legend>
-                <div class="clearfix error">
+                <div class="clearfix">
                     <label for="name">Name</label>
                     <div class="input">
                         <input class="xlarge" id="name" name="name" size="255" type="text">
-                        <span class="help-inline">Small snippet of help text</span>
                     </div>
                 </div>
                 <div class="clearfix">
@@ -48,6 +47,8 @@
             </fieldset>
             <p class="actions">
                 <input type="submit" class="btn primary" value="Bestellen" />
+                &nbsp;
+                <a href="cart.php" class="">Abbrechen</a>
             </p>
         </div>
     </div>

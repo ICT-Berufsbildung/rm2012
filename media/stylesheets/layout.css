@@ -72,6 +72,10 @@ img.thumbnail {
     padding-left: 750px;
 }
 
+.form-checkout h2 {
+    margin-bottom: 10px;
+}
+
 .home a {
     text-decoration: none;
 }
