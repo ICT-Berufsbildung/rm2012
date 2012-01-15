@@ -19,9 +19,16 @@
         <div class="container">
 
             <?php if (isset($_SESSION['success'])): ?>
-            <div class="alert-message success">
-                <p><?php echo htmlentities($_SESSION['success']); ?></p>
-            </div>
-            <?php unset($_SESSION['success']); ?>
+                <div class="alert-message success">
+                    <p><?php echo htmlentities($_SESSION['success']); ?></p>
+                </div>
+                <?php unset($_SESSION['success']); ?>
+            <?php endif; ?>
+
+            <?php if (isset($_SESSION['error'])): ?>
+                <div class="alert-message error">
+                    <p><?php echo htmlentities($_SESSION['error']); ?></p>
+                </div>
+                <?php unset($_SESSION['error']); ?>
             <?php endif; ?>
 
