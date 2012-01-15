@@ -92,3 +92,66 @@ abstract class Model {
         $this->database = $database;
     }
 }
+
+/**
+ * Cart model for cart operations.
+ */
+class Cart {
+
+    /**
+     * @var array Cart array
+     */
+    protected $cart;
+
+    /**
+     * @var Products Products model
+     */
+    protected $products;
+
+    /**
+     * @var int Total
+     */
+    protected $total;
+
+    /**
+     * @var array $cart Cart array
+     * @var Products $procuts Products model
+     */
+    public function __construct(array $cart, Products $products) {
+        $this->cart = $cart;
+        $this->products = $products;
+    }
+
+    /**
+     * Returns all products in cart with their qty and row total.
+     *
+     * @return array Products
+     */
+    public function summary() {
+
+        $summary = $this->products->some(array_keys($this->cart));
+
+        $this->total = 0;
+        foreach ($summary as &$product) {
+
+            $qty = $this->cart[$product['id']];
+            $rowTotal = number_format($qty * $product['price'], 2);
+
+            $product['qty'] = $qty;
+            $product['row_total'] = $rowTotal;
+
+            $this->total += $rowTotal;
+        }
+        $this->total = number_format($this->total, 2);
+
+        return $summary;
+    }
+
+    /**
+     * @return float
+     */
+    public function getTotal() {
+        return $this->total;
+    }
+}
+
