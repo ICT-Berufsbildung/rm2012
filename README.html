@@ -24,7 +24,7 @@
 				</header>
 				<section class="column width2 first">
 				    <p>This document describes the tasks for the Regionalmeisterschaft 2012. You have 175 minutes to complete as many tasks as possible. Each task has only a short description, you’re expected to apply your knowledge and experience to implement your own solutions.</p>
-					<p>The project is a web shop for the region near Eiger, Mönch &amp; Jungfrau. Customers can browse on the website through the categories to different products. The products can be added to a cart and ordered in the checkout.</p>
+					<p><img src="readme/images/jungfrau.png" alt="Jungfrau - Top Of Europe" align="right" /> The project is a <a href="./">web shop</a> for the region near Eiger, Mönch &amp; Jungfrau. Customers can browse on the website through the categories to different products. The products can be added to a cart and ordered in the checkout.</p>
 					<p>Parts of the website are not finished yet and need to be implemented by you. You are free to use and extend existing parts of the project or implement your own.</p>
 
 					<h4>Rating Criteria</h4>
@@ -48,7 +48,7 @@
 					</ul>
 				</section>
 				<section class="column width2">
-					<div class="column width1 first">
+					<div class="column width2 first">
 					    <h4>Task I: Random Product</h4>
 						<p>The product displayed on the current <a href="./">home page</a> is statically hardcoded in the template (views/home.php).</p>
 						<p>Your task, should you decide to accept it, is to display a new random product after each page reload on the home page. All product information needs to be fetched from the database. The product image and title link to the detail page of the product.</p>
@@ -59,8 +59,7 @@
 						<p>An order consists of a unique identification and a creation date. In addition they contain the name, the address, the phone number and the email address of the customer.</p>
 						<p>Each order can have multiple order items. And order item is always linked to one product and a request quantity.</p>
 						<p>Keep in mind that product prices and names need to be changed in the future without having any side effects on the existing orders. Add the missing field(s) to the appropriate table(s).</p>
-					</div>
-					<div class="column width1">
+
 					    <h4>Task II: Checkout</h4>
 						<p>The current <a href="checkout.php">checkout</a> displays the form but does not have any functionality to save the order.</p>
 						<p>Your task should you decide to accept it, is to implement the PHP code in the file <em>create.php</em> to save the orders to the database tables created in Task I0. Before creating the order all values have to be validated. All fields are required, the email address has to contain @ and the phone numbers must match this regular expression:</p>
