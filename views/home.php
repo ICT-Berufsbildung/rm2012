@@ -14,7 +14,7 @@
     <div class="span10 home">
         <a href="product.php?id=1">
             <img class="thumbnail" src="media/images/banner.jpg" width="520"alt="Hard-Kulm" />
-            <h2>Aktuell: Hard-Kulm <small>ab CHF 32.00</small></h2>
+            <h2>Hard-Kulm <small>ab CHF 32.00</small></h2>
         </a>
     </div>
 </div>
