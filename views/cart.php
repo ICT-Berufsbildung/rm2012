@@ -1,13 +1,13 @@
-<?php $title = 'Warenkorb'; ?>
+<?php $title = 'Cart'; ?>
 <?php require 'header.php'; ?>
 
 <ul class="breadcrumb">
     <li><a href="./">Home</a> <span class="divider">/</span></li>
-    <li class="active">Warenkorb</li>
+    <li class="active">Cart</li>
 </ul>
 
 <?php if ($total > 0): ?>
-    <form action="refresh.php" method="POST" class="form-cart">
+    <form action="update.php" method="POST" class="form-cart">
         <table class="bordered-table zebra-striped">
             <colgroup>
                 <col width="40%" />
@@ -17,9 +17,9 @@
             </colgroup>
             <thead>
                 <tr>
-                    <th>Produkt</th>
-                    <th>Preis</th>
-                    <th>Anzahl</th>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
                     <th>Total</th>
                 </tr>
             </thead>
@@ -40,7 +40,7 @@
                 <?php endforeach; ?>
                 <tr>
                     <td colspan="3">
-                        <button class="btn">Warenkorb aktualisieren</button>
+                        <button class="btn">Update Cart</button>
                     </td>
                     <td><strong>CHF <?php echo $total; ?></strong></td>
                 </tr>
@@ -48,7 +48,7 @@
         </table>
         
         <p class="actions">
-            <a href="checkout.php" class="btn primary">Zur Kasse</a>
+            <a href="checkout.php" class="btn primary">Checkout</a>
         </p>
     </form>
 <?php else: ?>

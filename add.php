@@ -20,7 +20,7 @@ if (!isset($_SESSION['cart'][$id])) {
 $_SESSION['cart'][$id]++;
 
 // notify user
-$_SESSION['success'] = 'Das Produkt wurde in den Warenkorb gelegt.';
+$_SESSION['success'] = 'The product has been added to your cart.';
 
 // redirect to cart
 session_commit();

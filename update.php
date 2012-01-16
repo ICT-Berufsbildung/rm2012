@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Refresh cart.
+ * Update cart.
  */
 
 require_once 'includes/session.php';
@@ -25,7 +25,7 @@ foreach ($cart as $product => $qty) {
 }
 
 // notify user
-$_SESSION['success'] = 'Der Warenkorb wurde aktualisiert.';
+$_SESSION['success'] = 'Your cart has been refreshed.';
 
 // redirect back to cart
 session_commit();

@@ -17,7 +17,7 @@
         <form action="add.php" class="form-basket" method="POST">
             <input type="hidden" name="id" value="<?php echo $product['id']; ?>" />
             <div class="actions">
-                <button type="submit" class="btn primary">In den Warenkorb</button>
+                <button type="submit" class="btn primary">Add to cart</button>
             </div>
         </form>
     </div>

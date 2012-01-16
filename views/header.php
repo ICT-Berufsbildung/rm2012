@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
     <head>
         <meta charset="utf-8" />
         <title><?php echo isset($title) ? $title : 'Jungfrau - Top Of Europe'; ?></title>
@@ -14,7 +14,7 @@
         <div class="header">
             <a href="./" class="logo" title="Home">Jungfrau - Top Of Europe</a>
             <h1><?php echo isset($title) ? $title : 'Webshop'; ?></h1>
-            <p class="basket"><a href="cart.php"><?php echo array_sum($_SESSION['cart']); ?> Artikel</a></p>
+            <p class="basket"><a href="cart.php"><?php echo array_sum($_SESSION['cart']); ?> Items</a></p>
         </div>
 
         <div class="container">
