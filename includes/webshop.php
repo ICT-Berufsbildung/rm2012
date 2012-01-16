@@ -131,12 +131,15 @@ class Cart {
 
         $summary = $this->products->some(array_keys($this->cart));
 
+        // calculate total
         $this->total = 0;
         foreach ($summary as &$product) {
 
+            // calculate row total
             $qty = $this->cart[$product['id']];
             $rowTotal = number_format($qty * $product['price'], 2);
 
+            // add quantity and row total to product
             $product['qty'] = $qty;
             $product['row_total'] = $rowTotal;
 
