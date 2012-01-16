@@ -22,7 +22,7 @@ if (!$product) {
 }
 
 // load category for breadcrumb
-$categories = new Products($database);
+$categories = new Categories($database);
 $category = $categories->get($product['category']);
 
 // render product view
