@@ -6,7 +6,7 @@
     <li class="active">Warenkorb</li>
 </ul>
 
-<?php if (count($cart) > 0): ?>
+<?php if ($total > 0): ?>
     <form action="refresh.php" method="POST" class="form-cart">
         <table class="bordered-table zebra-striped">
             <colgroup>
@@ -24,7 +24,7 @@
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($cart as $product): ?>
+                <?php foreach ($summary as $product): ?>
                 <tr>
                     <td><a href="product.php?id=<?php echo $product['id']; ?>"><?php echo $product['name']; ?></td>
                     <td>CHF <?php echo $product['price']; ?></td>
