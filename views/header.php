@@ -7,6 +7,7 @@
         <script src="media/javascripts/modernizr.custom.29803.js"></script>
         <link href="media/bootstrap/bootstrap.css" rel="stylesheet" />
         <link href="media/stylesheets/layout.css" rel="stylesheet" />
+        <link rel="shortcut icon" href="favicon.ico">
     </head>
     <body>
     
