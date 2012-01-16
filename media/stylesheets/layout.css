@@ -108,3 +108,7 @@ img.thumbnail {
     display: block;
     padding-top: 13px;
 }
+
+.product {
+    padding-bottom: 32px;
+}

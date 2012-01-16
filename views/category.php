@@ -8,7 +8,7 @@
 
 <div class="row">
 <?php foreach ($products as $product): ?>
-<div class="span5">
+<div class="span5 product">
     <a href="product.php?id=<?php echo $product['id']; ?>">
         <img class="thumbnail" src="<?php echo $product['image']; ?>" width="260" alt="<?php echo $product['name']; ?>" />
         <h2><?php echo $product['name']; ?></h2>

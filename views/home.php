@@ -12,7 +12,7 @@
         <?php endforeach; ?>
     </div>
     <div class="span10 home">
-        <a href="product.php?id=1">
+        <a href="product.php?id=2">
             <img class="thumbnail" src="media/images/banner.jpg" width="520"alt="Hard-Kulm" />
             <h2>Hard-Kulm <small>ab CHF 32.00</small></h2>
         </a>
