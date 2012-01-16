@@ -42,6 +42,10 @@ header h3 {
     padding-top: 72px;
 }
 
+header .skill h3 {
+    text-align: right;
+}
+
 h4, h5 {
     font-weight: normal;
 }
