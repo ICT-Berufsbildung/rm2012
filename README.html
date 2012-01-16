@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Regionalmeisterschaft IIIII0III00</title>
+		<meta name="author" content="Fabian Vogler">
+
+ 		<script src="readme/javascripts/html5.js"></script>
+ 		<link rel="stylesheet" media="screen" href="readme/stylesheets/baseline.compress.css">
+ 		<link rel="stylesheet" media="screen" href="readme/stylesheets/screen.css">
+	</head>
+
+	<body class="page-grid">
+	    <div id="white"></div>
+		<div id="page">
+			<div class="full layout-grid">
+				<header class="column width4">
+    				<div class="column unitx1 first">
+    					<img src="readme/images/logo.png" width="107" height="90" alt="SwissSkills" />
+    				</div>
+    				<div class="column unitx7">
+    					<h3>Regionalmeisterschaft IIIII0III00</h3>
+    				</div>
+				</header>
+				<section class="column width2 first">
+				    <p>This document describes the tasks for the Regionalmeisterschaft 2012. You have 175 minutes to complete as many tasks as possible. Each task has only a short description, you’re expected to apply your knowledge and experience to implement your own solutions.</p>
+					<p>The project is a web shop for the region near Eiger, Mönch &amp; Jungfrau. Customers can browse on the website through the categories to different products. The products can be added to a cart and ordered in the checkout.</p>
+					<p>Parts of the website are not finished yet and need to be implemented by you. You are free to use and extend existing parts of the project or implement your own.</p>
+
+					<h4>Rating Criteria</h4>
+					<p>Each task gets rated by the implementation of the required functionality. In addition the following criteria apply to all tasks and must match your solution:</p>
+					<p>All code needs to be nicely formatted, indented and commented where needed. PHP functions have to be documented inline (except getter and setter). The generated output is needed to comply to the HTML5 specification. SQL queries have to be protected against injection. No errors must be issued with the PHP error reporting level set to <var>E_NOTICE</var>. Database access, input handling and output generation have to be  separated. The web shop must practice good usability principles.</p>
+
+					<h4>Requirements</h4>
+					<p>The following software and references are needed to run this project. Please make sure you have all requirements before beginning.</p>
+					<ul>
+					    <li>Apache 2.2</li>
+					    <li>MySQL 5.5</li>
+					    <li>PHP 5.3</li>
+					    <li>phpMyAdmin 3.3</li>
+					    <li>Notepad++ 5.9</li>
+					    <li>or Sublime Text 2 Beta</li>
+					    <li>Mozilla Firefox 9.0</li>
+					    <li>with Firebug 1.9</li>
+					    <li>or Google Chrome 16</li>
+					    <li>SELFHTML 8.1</li>
+					    <li>PHP manual 2012</li>
+					</ul>
+				</section>
+				<section class="column width2">
+					<div class="column width1 first">
+					    <h4>Task I: Random Product</h4>
+						<p>The product displayed on the current <a href="./">home page</a> is statically hardcoded in the template (views/home.php).</p>
+						<p>Your task, should you decide to accept it, is to display a new random product after each page reload on the home page. All product information needs to be fetched from the database. The product image and title link to the detail page of the product.</p>
+
+					    <h4>Task I0: Order Tables</h4>
+						<p>Please study the database tables carefully. There are no tables to store orders from the customer</p>
+						<p>Your task, should you decide to accept it, is to create two new tables <em>orders</em> and <em>order_items</em> to store orders in the database and add them to the file create.sql. </p>
+						<p>An order consists of a unique identification and a creation date. In addition they contain the name, the address, the phone number and the email address of the customer.</p>
+						<p>Each order can have multiple order items. And order item is always linked to one product and a request quantity.</p>
+						<p>Keep in mind that product prices and names need to be changed in the future without having any side effects on the existing orders. Add the missing field(s) to the appropriate table(s).</p>
+					</div>
+					<div class="column width1">
+					    <h4>Task II: Checkout</h4>
+						<p>The current <a href="checkout.php">checkout</a> displays the form but does not have any functionality to save the order.</p>
+						<p>Your task should you decide to accept it, is to implement the PHP code in the file <em>create.php</em> to save the orders to the database tables created in Task I0. Before creating the order all values have to be validated. All fields are required, the email address has to contain @ and the phone numbers must match this regular expression:</p>
+					    <p><code>^([0-9\(\)\/\+ \-]*)$</code></p>
+					    <p>In case of a validation error inform the customer and display the checkout again.</p>
+
+					    <h4>Task I00: Ajax Cart</h4>
+						<p>Removing a product from the <a href="cart.php">cart</a> reloads the page and therefor destroys all quantity modifications of other products.</p>
+						<p>Your task should you decide to accept it, is to write JavaScript code to execute this action with Ajax. After a successful response the product has to be removed from the cart table. All quantity modifications of the other products don’t get lost during this operation.</p>
+						<h4>Task I0I: Wish List (Bonus)</h4>
+						<p>This bonus task has no existing functionality and includes different skills (HTML, JavaScript and PHP).</p>
+						<p>Your task, should you decide to accept it, is to implement a wish list for products. The customer can add a product on its detail page to the wish list. After a click on a button an Ajax call is made to save the product in the session. A link in the site header leads to a separate page where all products in the wish list are displayed. The customer can also remove a product from the wish list.</p>
+					</div>
+				</section>
+			</div>
+		</div>
+	</body>
+</html>
