@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE textzeilen SYSTEM "textzeilen.dtd">
+<textzeilen>
+Das ist Text, aber wo beginnt die<neuezeile />
+neue Zeile?
+</textzeilen>
+

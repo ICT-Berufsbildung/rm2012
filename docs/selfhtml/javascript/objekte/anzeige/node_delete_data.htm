@@ -1,0 +1,20 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>Test</title>
+<script type="text/javascript">
+function loeschen () {
+  var AnzahlZeichen = document.getElementsByTagName("p")[0].firstChild.nodeValue.length;
+  document.getElementsByTagName("p")[0].firstChild.deleteData(0, AnzahlZeichen);
+}
+</script>
+</head>
+<body>
+<p>Die Beredtsamkeit an sich ist die Tugend des Redens
+und die Lust des Schweigens an seinem Gegenteil.
+Die Beredtsamkeit ist also ...
+<a href="javascript:loeschen()">och nee, besser nicht!</a></p>
+
+<p><a href="../node.htm#delete_data">zur&uuml;ck</a></p>
+</body>
+</html>

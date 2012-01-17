@@ -1,0 +1,696 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: Internationalisierung / Das Unicode-System</title>
+<link rel="stylesheet" type="text/css" href="../src/selfhtml.css">
+<meta name="description"    content="Wie das Unicode-System aufgebaut ist, das zur Darstellung internationaler, formaler und symbolischer Zeichen dient.">
+<meta name="keywords"       content="SELFHTML, Internationalisierung, Zeichen, Unicode, ISO/IEC 10646, Basic Multilingual Plane (BMP), Eurozeichen">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-11-16T01:48:05+01:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/inter/unicode.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../src/favicon.ico">
+<link rel="author" title="Impressum" href="../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../index.htm">
+<link rel="up" title="Internationalisierung" href="index.htm">
+<link rel="next" title="Downloadbare Schriftarten" href="downloadschriftarten.htm">
+<link rel="prev" title="Zeichenkodierungen (ISO-8859-Familie und andere)" href="zeichenkodierungen.htm">
+<link rel="first" title="Computer und geschriebene Sprache" href="sprache.htm">
+<link rel="last" title="Downloadbare Schriftarten" href="downloadschriftarten.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../index.htm">SELFHTML</a>/<a href="../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Internationalisierung</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../index.htm"><img src="../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Das Unicode-System</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#allgemeines">Allgemeines zu Unicode</a><br>
+<img src="../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#aufbau">Aufbau des Unicode-Systems</a><br>
+</p>
+</td>
+</tr><tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><a class="an" name="allgemeines">Allgemeines zu Unicode</a></h2>
+
+<p>Unicode ist ein System, in dem die Zeichen oder Elemente aller bekannten Schriftkulturen und Zeichensysteme festgehalten werden. Durch dieses System wird es möglich, einem Computer "weltweit" zu sagen, welches Zeichen man dargestellt bekommen will. Voraussetzung ist natürlich, dass der Computer bzw. das ausgeführte Programm das Unicode-System unterstützt.</p>
+
+<p>Unicode strebt die möglichst vollständige Erfassung aller bekannten Zeichen aus gegenwärtigen und vergangenen Schriftkulturen an. Die Zeichen werden nach Klassen katalogisiert und erhalten eine Zeichennummer (Code). Alle nur erdenklichen Zeichen und Zeichensorten werden erfasst. Auch für Steuerzeichen wie Silbentrennzeichen, erzwungene Leerzeichen oder Tabulator-Zeichen gibt es Nummern. Die Zeichen mathematischer Formeln fehlen ebensowenig wie die Silben- oder Wortzeichen fernöstlicher Schriftkulturen. Auch Einzelteile von Zeichen, so genannte diakritische Zeichen wie etwa die Doppelpunkte über den deutschen Umlauten, haben einen eigenen Code. Zeichen lassen sich auch dynamisch kombinieren - so gibt es zwar natürlich auch ein deutsches "ä", aber der gleiche Buchstabe lässt sich auch aus "a" und dem Element für Doppelpunkt über dem Zeichen erzeugen.</p>
+
+<p>Neben der bloßen Adressierung eines Zeichens oder Elements ist im Unicode-System für jedes Zeichen auch ein Set von Eigenschaften definiert. Zur Eigenschaft eines Zeichens gehört z.B. die Schreibrichtung (bei arabischen Zeichen etwa ist die Schreibrichtung von rechts nach links). Insgesamt stecken hinter dem Unicode-System unzählige Forschungsergebnisse der weltweiten Sprachwissenschaft.</p>
+
+<p>Das Unicode-Konsortium, das 1991 gegründet wurde und aus Linguisten und anderen Fachleuten besteht, ermittelt die aufzunehmenden Zeichen. Die vergebenen Zeichencodes haben verbindlichen Charakter. Seit Version 2.0 ist das Unicode-System auch mit der internationalen Norm ISO/IEC 10646 synchronisiert. Das ist insofern wichtig, als <img src="../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../html/index.htm">HTML</a> seit Version 4.0 und auch <img src="../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../xml/index.htm">XML</a> ab Version 1.0 auf der Norm ISO/IEC 10646 aufsetzen. Wenn Sie also wissen wollen, wie man ein bestimmtes Zeichen in HTML oder XML notieren soll, müssen Sie in den Unicode-Zeichentabellen nachsehen, welche Zeichennummer das gewünschte Zeichen hat. Anschließend können Sie das gewünschte Zeichen durch eine numerische Notation wie z.B. <code>&amp;#9871;</code> (dezimale Schreibweise) oder <code>&amp;#x268F;</code> (hexadezimale Schreibweise mit <code>x</code>) im Quelltext der HTML- oder XML-Datei notieren.</p>
+
+<p>Die Zeichennummern der von Unicode erfassten Zeichen wurden zuerst ausschließlich durch eine zwei Byte lange Zahl ausgedrückt. Auf diese Weise lassen sich bis zu 65536 verschiedene Zeichen in dem System unterbringen (2 Byte = 16 Bit = 2<sup>16</sup> Kombinationsmöglichkeiten). In der Unicode-Version 3.0 vom September 1999 wurden bereits 49.194 Zeichen aus aller Welt aufgelistet. Die Version 3.1 vom März 2001 durchbrach mit 94.140 Zeichen die Zwei-Byte-Grenze. Die Version 4.0 vom April 2003 umfasst 96.382 Zeichen, die Unterversion 4.1.0 fügt noch einmal 1.273 Zeichen hinzu. Das Zwei-Byte-Schema, im Unicode-System als <var>Basic Multilingual Plane (BMP)</var> bezeichnet, wird deshalb von einem Vier-Byte-Schema abgelöst, wodurch sich die beruhigende Anzahl von 4.294.967.296 Zeichen (2<sup>32</sup> Kombinationsmöglichkeiten für Bits) adressieren lässt.</p>
+
+<p>Informationen zum Unicode-Konsortium finden Sie im Web auf der <img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/">Homepage des Unicode-Konsortiums</a>.</p>
+
+<p>Das große Problem mit Unicode ist eigentlich nur, wie all die vielen Zeichen an einem Computer dargestellt werden sollen. Denn Unicode definiert nur Zeichennummern und Eigenschaften von Zeichen, aber es enthält ebenso wenig wie Codetabellen herkömmlicher Zeichenkodierungen Angaben darüber, wie das Zeichen darzustellen ist. Dazu sind am Computer Schnittstellen wie Schriftarten erforderlich. Die klassischen Computerschriftarten sind dazu jedoch nicht geeignet, da sie sich weitgehend an bestimmten Kodierungen mit eingeschränktem Zeichenvorrat orientieren. Neue, Unicode-orientierte Schriftarten verbreiten sich allmählich. In Verbindung mit modernen Betriebssystemen und Anwendungen unterstützen solche Schriftarten zumindest die zwei-byte-breite Adressierung, also den BMP-Anteil des Unicode-Systems.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="aufbau">Aufbau des Unicode-Systems</a></h2>
+
+<p>Bei neuen Unicode-Versionen wird das Buch <var>The Unicode Standard</var>, herausgegeben vom Unicode-Konsortium, neu aufgelegt. Im internationalen Buchhandel ist dieses Buch erhältlich. Darin sind alle Zeichen, Zeichennummern, Zeichenklassen usw. genau aufgeschlüsselt und dargestellt. Dieses Buch ist das verbindliche Normwerk. Auf den Web-Seiten des Unicode-Konsortiums finden sich zum schnellen Nachschlagen PDF-Dateien mit den einzelnen Codetabellen. Die Verweise in der Tabelle weiter unten führen direkt zu den entsprechenden PDF-Dateien. Um diese Dateien betrachten zu können, benötigen Sie ein gesondertes PDF-Leseprogramm wie beispielsweise den Adobe Reader.</p>
+
+<p>Das Unicode-System ist in Zahlenbereiche aufgeteilt. Die Zahlen selbst werden in der Form U+XXXX notiert. Das U steht für Unicode, und die X für je eine hexadezimale Ziffer. Zeichennummern sind in diesen Tabellen also hexadezimal dargestellt. Falls Sie für die Notation eines oder mehrerer Zeichen aus dem Unicode-Bereich in HTML oder XML eine dezimale Darstellung verwenden wollen, können Sie den <img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../helferlein/dezhex.htm">Dezimal/Hexadezimal-Umrechner</a> benutzen.</p>
+
+<p>Die einzelnen Zeichen im Unicode-System sind nicht wahllos angeordnet. Das gesamte System ist in Zeichenbereiche (engl. <i>blocks</i>, Blöcke) aufgeteilt. Die Zeichenbereiche spiegeln jeweils eine bestimmte Schriftkultur oder ein Set von Sonderzeichen wider.</p>
+
+<p>Im folgenden werden die einzelnen Unicode-Zeichenbereiche aufgelistet. Bei jedem Zeichenbereich finden Sie einen Verweis. Der Verweis führt jeweils zu einer PDF-Datei auf der Homepage des Unicode-Konsortiums. Darauf finden Sie zu dem betreffenden Zeichenbereich Hinweise sowie eine grafische Tabelle mit Abbildungen der einzelnen Zeichen des Bereichs und der zugehörigen Unicode-Zeichennummern (hexadezimal).</p>
+
+
+
+<h3>BMP-Teil des Unicode-Systems (mit zwei Byte breiten Zeichen darstellbar):</h3>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1">
+
+<tr>
+<th>Name des Zeichenbereichs</th>
+<th>Zeichenbereich<br>(hexadezimale Angabe)</th>
+<th>Link zur Codetabelle</th>
+</tr>
+
+<tr>
+<td class="code">Basic Latin (ASCII-Codetabelle)</td>
+<td class="tabxpl">U+0000 bis U+007F</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/U0000.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">Latin-1 (Codetabelle von ISO 8859-1)</td>
+<td class="tabxpl">U+0080 bis U+00FF</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/U0080.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">Latin Extended-A</td>
+<td class="tabxpl">U+0100 bis U+017F</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/U0100.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">Latin Extended-B</td>
+<td class="tabxpl">U+0180 bis U+024F</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/U0180.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">IPA Extensions</td>
+<td class="tabxpl">U+0250 bis U+02AF</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/U0250.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">Spacing Modifier Letters</td>
+<td class="tabxpl">U+02B0 bis U+02FF</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/U02B0.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">Combining Diacritical Marks</td>
+<td class="tabxpl">U+0300 bis U+036F</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/U0300.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">Greek</td>
+<td class="tabxpl">U+0370 bis U+03FF</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/U0370.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">Cyrillic</td>
+<td class="tabxpl">U+0400 bis U+04FF</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/U0400.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">Armenian</td>
+<td class="tabxpl">U+0530 bis U+058F</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/U0530.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">Hebrew</td>
+<td class="tabxpl">U+0590 bis U+05FF</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/U0590.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">Arabic</td>
+<td class="tabxpl">U+0600 bis U+06FF</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/U0600.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">Devanagari</td>
+<td class="tabxpl">U+0900 bis U+097F</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/U0900.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">Bengali</td>
+<td class="tabxpl">U+0980 bis U+09FF</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/U0980.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">Gurmukhi</td>
+<td class="tabxpl">U+0A00 bis U+0A7F</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/U0A00.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">Gujarati</td>
+<td class="tabxpl">U+0A80 bis U+0AFF</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/U0A80.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">Oriya</td>
+<td class="tabxpl">U+0B00 bis U+0B7F</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/U0B00.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">Tamil</td>
+<td class="tabxpl">U+0B80 bis U+0BFF</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/U0B80.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">Telugu</td>
+<td class="tabxpl">U+0C00 bis U+0C7F</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/U0C00.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">Kannada</td>
+<td class="tabxpl">U+0C80 bis U+0CFF</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/U0C80.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">Malayalam</td>
+<td class="tabxpl">U+0D00 bis U+0D7F</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/U0D00.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">Thai</td>
+<td class="tabxpl">U+0E00 bis U+0E7F</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/U0E00.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">Lao</td>
+<td class="tabxpl">U+0E80 bis U+0EFF</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/U0E80.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">Tibetan</td>
+<td class="tabxpl">U+0F00 bis U+0FBF</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/U0F00.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">Georgian</td>
+<td class="tabxpl">U+10A0 bis U+10FF</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/U10A0.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">Hangul Jamo</td>
+<td class="tabxpl">U+1100 bis U+11FF</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/U1100.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">Latin Extended Additional</td>
+<td class="tabxpl">U+1E00 bis U+1EFF</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/U1E00.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">Greek Extended</td>
+<td class="tabxpl">U+1F00 bis U+1FFF</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/U1F00.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">General Punctuation</td>
+<td class="tabxpl">U+2000 bis U+206F</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/U2000.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">Superscripts and Subscripts</td>
+<td class="tabxpl">U+2070 bis U+209F</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/U2070.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">Currency Symbols</td>
+<td class="tabxpl">U+20A0 bis U+20CF</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/U20A0.pdf">Codetabelle mit grafischer Zeichendarstellung</a><br>
+Hier ist auch das <b>Eurozeichen</b>-Symbol mit dabei.<br>Es hat den Wert <code>U+20AC</code>. In HTML dezimal notiert:<br><code>&amp;#8364;</code> oder einfacher: <code>&amp;euro;</code>.</td>
+</tr>
+
+<tr>
+<td class="code">Combining Diacritical Marks for Symbols</td>
+<td class="tabxpl">U+20D0 bis U+20FF</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/U20D0.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">Letterlike Symbols</td>
+<td class="tabxpl">U+2100 bis U+214F</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/U2100.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">Number Forms</td>
+<td class="tabxpl">U+2150 bis U+218F</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/U2150.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">Arrows</td>
+<td class="tabxpl">U+2190 bis U+21FF</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/U2190.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">Mathematical Operators</td>
+<td class="tabxpl">U+2200 bis U+22FF</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/U2200.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">Miscellaneous Technical</td>
+<td class="tabxpl">U+2300 bis U+23FF</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/U2300.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">Control Pictures</td>
+<td class="tabxpl">U+2400 bis U+243F</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/U2400.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">Optical Character Recognition</td>
+<td class="tabxpl">U+2440 bis U+245F</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/U2440.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">Enclosed Alphanumerics</td>
+<td class="tabxpl">U+2460 bis U+24FF</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/U2460.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">Box Drawing</td>
+<td class="tabxpl">U+2500 bis U+257F</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/U2500.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">Block Elements</td>
+<td class="tabxpl">U+2580 bis U+259F</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/U2580.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">Geometric Shapes</td>
+<td class="tabxpl">U+25A0 bis U+25FF</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/U25A0.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">Miscellaneous Symbols</td>
+<td class="tabxpl">U+2600 bis U+26FF</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/U2600.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">Dingbats</td>
+<td class="tabxpl">U+2700 bis U+27BF</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/U2700.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">CJK Symbols and Punctuation</td>
+<td class="tabxpl">U+3000 bis U+303F</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/U3000.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">Hiragana</td>
+<td class="tabxpl">U+3040 bis U+309F</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/U3040.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">Katakana</td>
+<td class="tabxpl">U+30A0 bis U+30FF</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/U30A0.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">Bopomofo</td>
+<td class="tabxpl">U+3100 bis U+312F</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/U3100.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">Hangul Compatibility Jamo</td>
+<td class="tabxpl">U+3130 bis U+318F</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/U3130.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">Kanbun</td>
+<td class="tabxpl">U+3190 bis U+319F</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/U3190.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">Enclosed CJK Letters and Months</td>
+<td class="tabxpl">U+3200 bis U+32FF</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/U3200.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">CJK Compatibility</td>
+<td class="tabxpl">U+3300 bis U+33FF</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/U3300.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">CJK Unified Ideographs</td>
+<td class="tabxpl">U+4E00 bis U+9FA5</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/U4E00.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">Hangul Syllables</td>
+<td class="tabxpl">U+AC00 bis U+D7A3</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/UAC00.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">High Surrogates</td>
+<td class="tabxpl">U+D800 bis U+DB7F</td>
+<td class="tabxpl">&nbsp;</td>
+</tr>
+
+<tr>
+<td class="code">Private Use High Surrogates</td>
+<td class="tabxpl">U+DB80 bis U+DBFF</td>
+<td class="tabxpl">&nbsp;</td>
+</tr>
+
+<tr>
+<td class="code">Low Surrogates</td>
+<td class="tabxpl">U+DC00 bis U+DFFF</td>
+<td class="tabxpl">&nbsp;</td>
+</tr>
+
+<tr>
+<td class="code">Private Use Area</td>
+<td class="tabxpl">U+E000 bis U+F8FF</td>
+<td class="tabxpl">&nbsp;</td>
+</tr>
+
+<tr>
+<td class="code">CJK Compatibility Ideographs</td>
+<td class="tabxpl">U+F900 bis U+FAFF</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/UF900.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">Alphabetic Presentation Forms</td>
+<td class="tabxpl">U+FB00 bis U+FB4F</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/UFB00.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">Arabic Presentation Forms-A</td>
+<td class="tabxpl">U+FB50 bis U+FDFF</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/UFB50.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">Combining Half Marks</td>
+<td class="tabxpl">U+FE20 bis U+FE2F</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/UFE20.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">CJK Compatibility Forms</td>
+<td class="tabxpl">U+FE30 bis U+FE4F</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/UFE30.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">Small Form Variants</td>
+<td class="tabxpl">U+FE50 bis U+FE6F</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/UFE50.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">Arabic Presentation Forms-B</td>
+<td class="tabxpl">U+FE70 bis U+FEFF</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/UFE70.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">Halfwidth and Fullwidth Forms</td>
+<td class="tabxpl">U+FF00 bis U+FFEF</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/UFF00.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">Specials</td>
+<td class="tabxpl">U+FFF0 bis U+FFFF</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/UFFF0.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+</table>
+
+
+
+<h3>Erweiterter Bereich des Unicode-Systems (mit vier Byte breiten Zeichen darstellbar):</h3>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1">
+
+<tr>
+<th>Name des Zeichenbereichs</th>
+<th>Zeichenbereich<br>(hexadezimale Angabe)</th>
+<th>Link zur Codetabelle</th>
+</tr>
+
+<tr>
+<td class="code">Linear B Syllabary</td>
+<td class="tabxpl">U+10000 bis U+1007F</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/U10000.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">Linear B Ideograms</td>
+<td class="tabxpl">U+10080 bis U+100FF</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/U10080.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">Aegean Numbers</td>
+<td class="tabxpl">U+10100 bis U+1013F</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/U10100.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">Ancient Greek Numbers</td>
+<td class="tabxpl">U+10140 bis U+1018F</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/U10140.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">Old Italic</td>
+<td class="tabxpl">U+10300 bis U+1032F</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/U10300.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">Gothic</td>
+<td class="tabxpl">U+10330 bis U+1034F</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/U10330.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">Ugaritic</td>
+<td class="tabxpl">U+10380 bis U+1039F</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/U10380.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">Old Persian</td>
+<td class="tabxpl">U+103A0 bis U+103DF</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/U103A0.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">Deseret</td>
+<td class="tabxpl">U+10400 bis U+1044F</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/U10400.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">Shavian</td>
+<td class="tabxpl">U+10450 bis U+1047F</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/U10450.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">Osmanya</td>
+<td class="tabxpl">U+10480 bis U+104AF</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/U10480.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">Cypriot Syllabary</td>
+<td class="tabxpl">U+10800 bis U+1083F</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/U10800.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">Kharoshthi</td>
+<td class="tabxpl">U+10A00 bis U+10A5F</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/U10A00.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">Byzantine Musical Symbols</td>
+<td class="tabxpl">U+1D000 bis U+1D0FF</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/U1D000.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">Musical Symbols</td>
+<td class="tabxpl">U+1D100 bis U+1D1FF</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/U1D100.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">Ancient Greek Musical Notation</td>
+<td class="tabxpl">U+1D200 bis U+1D24F</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/U1D200.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">Tai Xuan Jing Symbols</td>
+<td class="tabxpl">U+1D300 bis U+1D35F</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/U1D300.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">Mathematical Alphanumeric Symbols</td>
+<td class="tabxpl">U+1D400 bis U+1D7FF</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/U1D400.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">CJK Unified Ideographs Extension B</td>
+<td class="tabxpl">U+20000 bis U+2A6D6</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/U20000.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">CJK Compatibility Ideographs Supplement</td>
+<td class="tabxpl">U+2F800 bis U+2FA1F</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/U2F800.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">Tags</td>
+<td class="tabxpl">U+E0000 bis U+E007F</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/UE0000.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">Variation Selectors Supplement</td>
+<td class="tabxpl">U+E0100 bis U+E01EF</td>
+<td class="tabxpl"><img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.unicode.org/charts/PDF/UE0100.pdf">Codetabelle mit grafischer Zeichendarstellung</a></td>
+</tr>
+
+<tr>
+<td class="code">Supplementary Private Use Area-A</td>
+<td class="tabxpl">U+F0000 bis U+E01EF</td>
+<td class="tabxpl">&nbsp;</td>
+</tr>
+
+<tr>
+<td class="code">Supplementary Private Use Area-B</td>
+<td class="tabxpl">U+100000 bis U+10FFFF</td>
+<td class="tabxpl">&nbsp;</td>
+</tr>
+
+</table>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="downloadschriftarten.htm"><img src="../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="downloadschriftarten.htm">Downloadbare Schriftarten</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="zeichenkodierungen.htm"><img src="../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="zeichenkodierungen.htm">Zeichenkodierungen (ISO-8859-Familie und andere)</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../index.htm">SELFHTML</a>/<a href="../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Internationalisierung</a></td>
+</tr>
+</table>
+
+<p>&copy; 2007 <img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

@@ -1,0 +1,238 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: Dynamisches HTML / Beispiele für die Praxis / Dynamische Navigationsleiste</title>
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<meta name="description"    content="Wie Sie mit dynamischem HTML ein seitliches Menü nur beim Annähern mit der Maus einblenden, ähnlich wie die Windows-Taskbar.">
+<meta name="keywords"       content="SELFHTML, Dynamisches HTML, Dynamic HTML, DHTML, Document Object Model, DOM, Menü, Navigation, DHTML-Menü">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-09-20T06:02:21+02:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/dhtml/beispiele/navigation.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="Beispiele für die Praxis" href="index.htm">
+<link rel="next" title="Laufende Datums-/Uhrzeitanzeige" href="datumuhr.htm">
+<link rel="prev" title="Allgemeine DHTML-Bibliothek" href="dhtml_bibliothek.htm">
+<link rel="first" title="Allgemeine DHTML-Bibliothek" href="dhtml_bibliothek.htm">
+<link rel="last" title="Bilderbuch zum Umblättern" href="bilderbuch.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">Dynamisches HTML</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Beispiele für die Praxis</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Dynamische Navigationsleiste</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#hinweise">Hinweise zu diesem Beispiel</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#quelltext">Quelltext mit Erläuterungen</a><br>
+</p>
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/navigation.htm">Anzeigebeispiel: So sieht's aus</a>
+</p>
+</td>
+</tr><tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><a class="an" name="hinweise">Hinweise zu diesem Beispiel</a></h2>
+
+<p>Auf vielen Web-Seiten nimmt die Navigation eigentlich viel zu viel Platz weg. Da wird oft ein Drittel des Anzeigefensters geopfert, um eine oder zwei Handvoll Links zu anderen Projektseiten anzubieten. Mit diesen Platzproblemen macht das Beispiel auf dieser Seite Schluss. Bei dieser Lösung gehört die Web-Seite der freien inhaltlichen Gestaltung und dem Text. Die Navigation blendet sich nur dann ein, wenn der Anwender es will. Dazu muss er auch nicht extra irgendwo hinklicken. Er bewegt einfach die Maus Richtung linken Fensterrand, und schon blendet sich dort die Navigationsleiste ein. Bewegt er die Maus wieder weg vom linken Fensterrand, blendet sich die Navigationsleiste automatisch wieder aus. Diesen Effekt kennen viele Anwender in ähnlicher Form von der Windows-Taskleiste und sind deshalb damit vertraut.</p>
+
+<p>Das Beispiel funktioniert mit den Browsern ab der 4er-Generation. Das Beispiel zeigt vor allem, wie man das Problem der unterschiedlichen Event-Handling-Modelle bei den Browsern in den Griff bekommen kann. Das Beispiel benutzt ferner die <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="dhtml_bibliothek.htm">DHTML-Bibliothek</a>, um auf Elemente zuzugreifen.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/dom10.gif" width="30" height="30" alt="DOM 1.0" title="DOM 1.0"><img src="../../src/js12.gif" width="30" height="30" alt="JavaScript 1.2" title="JavaScript 1.2"><img src="../../src/netsc4.gif" width="30" height="30" alt="Netscape 4.0" title="Netscape 4.0"><img src="../../src/msie4.gif" width="30" height="30" alt="MS IE 4.0" title="MS IE 4.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="quelltext">Quelltext mit Erläuterungen</a></h2>
+
+<p>Das Beispiel zeigt eine vollständige HTML-Datei mit der dynamischen Navigation. Wenn Sie die Navigation auf mehreren Seiten haben wollen, müssen Sie den JavaScript-Code entweder in alle Seiten einbauen, oder Sie lagern ihn in eine externe JavaScript-Datei aus und binden diese einfach nur ein.</p>
+
+<p>Die Datei <code>dhtml.js</code>, in der die Funktionen der DHTML-Bibliothek enthalten sind, muss vorhanden sein und sich im Beispiel im gleichen Verzeichnis befinden wie die HTML-Datei.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/navigation.htm">Anzeigebeispiel: So sieht's aus</a> (<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="dhtml_bibliothek.htm#quelltext">DHTML-Bibliothek</a>)</p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;script type="text/javascript" src="dhtml.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript"&gt;
+function Menue () {
+  if (typeof window.pageYOffset == "number") {
+    if (NS4) {
+      getElement("id", "Nav").top = window.pageYOffset + 50;
+    } else {
+      getElement("id", "Nav").style.top = window.pageYOffset + 50;
+    }
+  } else {
+    if (typeof document.body.scrollTop == "number")
+      getElement("id", "Nav").style.top = document.body.scrollTop + 50;
+  }
+  if (OP)
+    getElement("id", "NavLinks").style.pixelTop = NavLinksPos;
+  if (NS4) {
+    getElement("id", "Nav").visibility = "show";
+  } else {
+    getElement("id", "Nav").style.visibility = "visible";
+  }
+}
+
+function noMenue () {
+  if (NS4) {
+    getElement("id", "Nav").visibility = "hide";
+  } else {
+    getElement("id", "Nav").style.visibility = "hidden";
+  }
+}
+
+function handleMove (ev) {
+  if (!ev)
+    ev = window.event;
+  var mausposition = ev.pageX ? ev.pageX : ev.clientX;
+  if (mausposition &lt; 20) {
+      Menue();
+  } else {
+    if (mausposition &gt; 250) {
+      noMenue();
+    }
+  }
+}
+
+function Event_init () {
+  if (document.addEventListener) {
+    document.addEventListener("mousemove", handleMove, true);
+  } else {
+    if (NS4) {
+      document.captureEvents(Event.MOUSEMOVE);
+      document.onmousemove = handleMove;
+    } else {
+      document.body.onmousemove = handleMove;
+    }
+  }
+  if (OP) {
+    NavLinksPos = 42; // Position des Bereiches NavLinks
+    getElement("id", "NavLinks").style.pixelTop = NavLinksPos;
+  }
+}
+&lt;/script&gt;
+&lt;style type="text/css"&gt;
+body { color:black; background-color:white; background-image:url(navigation_back.gif);
+  margin:0; padding:20px 50px; font-family:Tahoma,sans-serif; }
+#Nav { position:absolute; top:50px; left:0; visibility:hidden; }
+#NavLinks { position:absolute; top:42px; left:42px; }
+#Nav a:link {color:#000080; font-weight:bold; font-size:13px; text-decoration:none; }
+#Nav a:visited { color:#000080; font-weight:bold; font-size:13px; text-decoration:none; }
+#Nav a:hover { color:#FFFFFF; background-color:#000080; font-weight:bold;
+  font-size:13px; text-decoration:none; }
+#Nav a:active { color:#000080; font-weight:bold; font-size:13px; text-decoration:none; }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body onload="Event_init()"&gt;
+
+&lt;div id="Nav"&gt;
+ &lt;img src="navigation.gif" width="250" height="450" border="0" alt=""&gt;
+ &lt;div id="NavLinks"&gt;
+  &lt;a href="http://de.selfhtml.org/"&gt;SELFHTML&lt;/a&gt;&lt;br&gt;
+  &lt;a href="http://aktuell.de.selfhtml.org/"&gt;SELFHTML aktuell&lt;/a&gt;&lt;br&gt;
+  &lt;a href="http://forum.de.selfhtml.org/"&gt;SELFHTML-Forum&lt;/a&gt;&lt;br&gt;
+  &lt;a href="http://aktuell.de.selfhtml.org/artikel/"&gt;Artikel&lt;/a&gt;&lt;br&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h1&gt;Die Seite mit der pfiffigen Navigation&lt;/h1&gt;
+
+&lt;p&gt;Einfach mit die Maus Richtung linken Fensterrand bewegen.
+Um das Men&amp;uuml; wieder wegzubekommen, Maus wieder zum rechten Fensterrand bewegen.&lt;/p&gt;
+
+&lt;p&gt;Und jetzt kommen noch etliche leere Abs&amp;auml;tze, damit auch sichtbar wird,
+dass das Men&amp;uuml; immer an der gleichen Stelle angezeigt wird, egal wie weit man scrollt.&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;Na, das d&amp;uuml;rfte reichen :-)&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Im sichtbaren HTML-Bereich der Datei ist zunächst ein größerer <code>div</code>-Bereich notiert, der mit Hilfe von CSS-Eigenschaften im <code>style</code>-Bereich im Dateikopf absolut positioniert wird. Durch die Angabe <code>visibility:hidden</code> wird zunächst einmal alles, was sich in diesem Bereich befindet, nicht angezeigt. Innerhalb dieses Bereichs mit dem id-Namen <code>Nav</code> ist zunächst eine Grafik notiert (<var>navigation.gif</var>) und anschließend ein weiterer, absolut positionierter <code>div</code>-Bereich, wobei aber dort CSS-Zuweisungen wie <code>top:42px</code> oder <code>left:42px</code> als relativ zur oberen linken Ecke des Eltern-<code>div</code>-Bereichs zu interpretieren sind. Die Grafik <img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/navigation.gif">navigation.gif</a> ist einfach eine optische Unterlage für den nachfolgenden <code>div</code>-Bereich, der die eigentlichen Verweise der Navigationsleiste enthält.</p>
+
+<p>Der Rest des in der Datei notierten statischen HTML-Codes ist für das Beispiel nicht wichtig. Die vielen Textabsätze mit dem erzwungenen Leerzeichen <code>&amp;nbsp;</code> dazwischen dienen nur dazu, viel Dokumenthöhe zu erzeugen, sodass man in der Datei scrollen kann. Denn es soll demonstriert werden, dass die dynamische Navigationsleiste immer an der gleichen Stelle erscheint, auch wenn im Dokument gescrollt wird.</p>
+
+<p>Im einleitenden <code>&lt;body&gt;</code>-Tag der Datei ist der <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../javascript/sprache/eventhandler.htm">Event-Handler</a> <code>onload</code> notiert. Wenn das Dokument vollständig geladen ist, wird die Funktion <code>Event_init()</code> aufgerufen. <code>Event_init()</code> stößt die Überwachung der Mausbewegungen im Dokument an. Denn nur wenn eine solche Überwachung stattfindet, kann die Navigationsleiste dynamisch eingeblendet werden.</p>
+
+<p>Event-Handling ist leider ein schwieriges Kapitel, da die Implementierungen bislang doch noch recht unterschiedlich sind. Das Beispiel versucht es erst mal nach der neueren DOM-Syntax. Die Abfrage <code>if (document.addEventListener)</code> stellt sicher, dass nur die Browser in den diesen Ausführungszweig nicht gelangen, die Event-Handling nach DOM-Syntax interpretieren. In den entsprechenden Zweig gelangt aber Netscape 6, der die Methode <code>addEventListener()</code> versteht. Mit <code>addEventListener()</code> wird nach DOM-Syntax eine Funktion bestimmt, die aufgerufen wird, wenn ein bestimmtes Ereignis eintritt. Im Beispiel wird das Ereignis <code>mousemove</code> überwacht. Während der Anwender im Dokumentbereich die Maus bewegt, bewirkt diese "Registrierung", dass dann so oft es geht die Funktion <code>handleMove()</code> aufgerufen wird. Zur Bestimmung des zu überwachenden Elementes wird die Funktion <code>getElement()</code> der <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="dhtml_bibliothek.htm">DHTML-Bibliothek</a> aufgerufen.</p>
+
+<p>Mit <code>if (NS4)</code> fragt die Funktion <code>Event_init()</code> ab, ob ein Netscape-Browser der 4er-Generation am Werk ist. Dort gibt es ebenfalls eine "Registrierung" für Ereignisse. Mit <code>document.captureEvents(Event.MOUSEMOVE)</code> wird das Ereignis "Mausbewegung" registriert, und mit <code>document.onmousemove = handleMove</code> wird die Funktion <code>handleMove()</code> aufgerufen, wenn das Ereignis eintritt.</p>
+
+<p>Für die übrigen Browser erfolgt die Initialisierung der Eventüberwachung mit <code>document.onmousemove = handleMove</code>. Da Opera 5 unter Windows offensichtlich die Position des Div-Bereich <code>NavLinks</code> vergisst, wird die im Stylessheet-Bereich festgelegte Position in der Variablen <code>NavLinksPos</code> gespeichert. Anschließend wird der Bereich <code>NavLinks</code> neu positioniert. Damit auch ältere Versionen von Opera 5 damit zurecht kommen, wird die Eigenschaft <code>pixelTop</code> verwendet. Zur Bestimmung des Elementes wird die Funktion <code>getElement()</code> der DHTML-Bibliothek aufgerufen.</p>
+
+<p>In der Funktion <code>handleMove()</code> sind verschiedene Fallunterscheidungen nötig, um die Mausposition in Erfahrung zu bringen. Im Internet Explorer wird auf das Event-Objekt, das die Daten des Ereignisses enthält, über <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../javascript/objekte/event.htm">window.event</a> zugegriffen. In DOM-kompatiblen Browsern sowie in Netscape 4 wird das Event-Objekt als Parameter an die Funktion übergeben, im Beispiel trägt er den Namen <code>ev</code>. Mit <code>if (!ev)</code> wird abgefragt, ob der Parameter gesetzt wurde. Wenn dies nicht der Fall ist, wird mit in <code>ev</code> eine Referenz auf <code>window.event</code> gespeichert. Somit kann das Event-Objekt in jedem Fall über <code>ev</code> angesprochen werden.<br>
+Neben den verschiedenen Arten, auf das Event-Objekt zuzugreifen, werden zwei Varianten verwendet, um je nach Browser die Mausposition abzufragen. Die Eigenschaft <code>pageX</code> enthält die horizontale Mausposition gemessen vom linken Dokumentrand, die Eigenschaft <code>clientX</code> gemessen vom linken Fensterrand. In der Praxis sollte dies keinen Unterschied machen. Während <code>clientX</code> dem Internet Explorer und älteren Opera-Versionen bekannt ist, wird <code>pageX</code> von Netscape 4, Netscape 6 sowie neueren Opera-Versionen verstanden. Der Wert der jeweiligen Eigenschaft wird in der Variable <code>mausposition</code> gespeichert.<br>
+Wenn nun der Abstand des Mauszeigers vom linken Rand geringer ist als 20 Pixel, wird die Funktion <code>Menu()</code> aufgerufen. Wenn er höher als 250 Pixel ist, die Funktion <code>noMenu()</code>.</p>
+
+<p>Die Funktion <code>Menu()</code> blendet die Navigationsleiste ein, und die Funktion <code>noMenu()</code> sorgt dafür, dass die Navigationsleiste nicht oder nicht mehr sichtbar ist. Beide Funktionen führen zu diesem Zweck wieder diverse <code>if</code>-Abfragen zur DHTML-Modellunterscheidung durch und ändern letztendlich hauptsächlich die CSS-Eigenschaft <code>visibility</code> (<i>Sichtbarkeit</i>) des großen <code>div</code>-Bereichs mit dem ID-Namen <code>Nav</code>. Die Funktion <code>Menu()</code> sorgt allerdings außerdem dafür, dass der von ihr auf sichtbar geschaltete Navigationsbereich auch immer schön im sichtbaren Bereich des Dokuments angezeigt wird, egal, wohin der Anwender im Dokument gescrollt hat. Dazu muss die Funktion die aktuelle Pixelposition der "Klopapierrolle" ermitteln, die ein langes Dokument darstellt. Auch dabei ist die Syntax leider wieder völlig unterschiedlich bei den Browsern. Beim Internet Explorer kommt die Funktion über die Eigenschaft <code>document.body.scrollTop</code> an den gewünschten Wert, und bei Netscape-Browsern und Opera über <code>window.pageYOffset</code>. Zu dem ermittelten Wert werden noch mal 50 Pixel dazugezählt, denn in dem <code>div</code>-Bereich mit dem ID-Namen <code>Nav</code> ist ja als <code>top</code>-Angabe, also als Startposition von oben gesehen, ebenfalls der Wert 50 angegeben.<br>
+Da Opera 5 beim Ändern der Fenstergröße mit JavaScript gesetzte Positionen "vergisst", wird vor jedem Einblenden des Menüs dem Bereich <code>NavLinks</code> die in der Variablen <code>NavLinksTop</code> gespeicherte Position zugewiesen.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Erklären Sie dem Anwender auf der ersten Seite, wo Sie eine solche Navigation verwenden, kurz mit einem Satz das Handling der Navigation. Seien Sie sich auch im Klaren darüber, dass Anwender mit nicht DHTML-fähigen Browsern oder deaktiviertem JavaScript so wie das Beispiel oben notiert ist überhaupt keine Möglichkeit zur Navigation haben. Um zumindest Anwendern, die JavaScript deaktiviert haben, ein Navigieren zu ermöglichen, könnten Sie beispielsweise an einer geeigneten Stelle im normalen Text einen <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/transit/scripts.htm#noscript">noscript-Bereich</a> notieren, in dem Sie die Navigationsverweise noch mal notieren.</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="datumuhr.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="datumuhr.htm">Laufende Datums-/Uhrzeitanzeige</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="dhtml_bibliothek.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="dhtml_bibliothek.htm">Allgemeine DHTML-Bibliothek</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">Dynamisches HTML</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Beispiele für die Praxis</a></td>
+</tr>
+</table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

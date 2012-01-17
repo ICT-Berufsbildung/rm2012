@@ -1,0 +1,130 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: HTML/XHTML / Grafiken / Grafiken als Verweise</title>
+<meta name="description"    content="Wie Sie Grafiken anklickbar machen können, sodass sie als Verweise fungieren.">
+<meta name="keywords"       content="SELFHTML, HTML, XHTML, Grafiken, Bilder, Verweise, Links, Hyperlinks, Verweis-Grafiken, img, a">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-10-31T12:25:34+01:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/html/grafiken/verweise.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="Grafiken" href="index.htm">
+<link rel="next" title="Verweis-sensitive Grafiken (Image Maps)" href="verweis_sensitive.htm">
+<link rel="prev" title="Grafiken ausrichten" href="ausrichten.htm">
+<link rel="first" title="Grafiken einbinden" href="einbinden.htm">
+<link rel="last" title="Verweis-sensitive Grafiken (Image Maps)" href="verweis_sensitive.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">HTML/XHTML</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Grafiken</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Grafiken als Verweise</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#definieren">Grafiken anstelle von Verweistext definieren</a><br>
+</p>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><img src="../../src/html20.gif" width="30" height="30" alt="HTML 2.0" title="HTML 2.0"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../../src/msie1.gif" width="30" height="30" alt="MS IE 1.0" title="MS IE 1.0"><img src="../../src/netsc1.gif" width="30" height="30" alt="Netscape 1.0" title="Netscape 1.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="definieren">Grafiken anstelle von Verweistext definieren</a></h2>
+
+<p>Wenn Sie Verweise setzen, müssen Sie immer auch einen Verweistext definieren, also den Text, der dem Anwender als anklickbar dargestellt wird. Anstelle eines Verweistextes können Sie jedoch auch eine Grafikreferenz notieren. Dann ist die gesamte Grafik anklickbar, und beim Anklicken der Grafik wird der Verweis ausgeführt. Von dieser Möglichkeit wird in der Praxis sehr oft Gebrauch gemacht, bei Werbe-Bannern zum Beispiel, aber auch bei grafischen Navigationsleisten.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/verweis.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+       "http://www.w3.org/TR/html4/loose.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Grafiken anstelle von Verweistext definieren&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h1&gt;Navigationsleisten&lt;/h1&gt;
+
+&lt;p&gt;
+  &lt;a href="home.htm"&gt;&lt;img src="button1.jpg" width="160" height="34" border="0" alt="Home"&gt;&lt;/a&gt;
+  &lt;a href="seite.htm"&gt;&lt;img src="button2.jpg" width="160" height="34" border="0" alt="zur&uuml;ck"&gt;&lt;/a&gt;
+  &lt;a href="seite.htm"&gt;&lt;img src="button3.jpg" width="160" height="34" border="0" alt="weiter"&gt;&lt;/a&gt;
+  &lt;a href="thema.htm"&gt;&lt;img src="button4.jpg" width="160" height="34" border="0" alt="THEMA"&gt;&lt;/a&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Was w&amp;auml;re das Web ohne sie!&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel zeigt eine horizontale Navigationsleiste. Die vier Buttons der Leiste liegen in Form der Grafiken <var>button1.jpg</var> bis <var>button4.jpg</var> vor. Alle Grafiken sind gleich groß und haben ein einheitliches Aussehen. Sie unterscheiden sich lediglich durch die Beschriftung.</p>
+
+<p>Definiert wird eine Zeile mit vier Zellen. In jeder der Zellen wird ein Verweis notiert. Zwischen <code>&lt;a&nbsp;href=&gt;</code> und <code>&lt;/a&gt;</code> wird jedoch kein Verweistext notiert, sondern die Grafikreferenz für je einen der Buttons. Auf diese Weise wird die jeweilige Grafik anklickbar und führt beim Anklicken zu dem Ziel, das in <code>href</code> notiert ist.</p>
+
+<p>Wichtig ist auch die Angabe <code>border="0"</code> in den Grafikreferenzen (siehe auch <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="einbinden.htm#rahmen">Rahmen um Grafiken</a>). Würde diese Angabe fehlen, dann würde der Browser einen Rahmen um die Grafik anzeigen, und zwar in der Farbe für Verweise, um diese als Verweis zu kennzeichnen. Da die Buttons im Beispiel aber für den Anwender eindeutig als Grafiken mit Verweis-Funktion identifizierbar sind, wird der Rahmen unterdrückt.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Wenn Sie mit <code>border="0"</code> den Rahmen um eine als Verweis dienende Grafik unterdrücken, kann der Anwender die Grafik nicht mehr unmittelbar als Verweis erkennen. Nur wenn er mit dem Mauszeiger über die Grafik fährt, kann er an dem Mauszeigersymbol erkennen, dass es sich um einen Verweis handelt. Deshalb sollten Sie den verweiskennzeichnenden Rahmen nur dann unterdrücken, wenn die Grafik auf den ersten Blick als Verweis erkennbar ist.</p>
+
+<p>Wegen der Angabe <code>border="0"</code> benutzt das obige Beispiel die HTML-Variante Transitional, denn das <code>border</code>-Attribut ist im HTML-Standard als <i>deprecated</i> gekennzeichnet. Mit einem <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/formate/zentrale.htm">zentralen CSS-Format</a> <code>img&nbsp;{&nbsp;border:none&nbsp;}</code> wäre dieses Problem allerdings elegant zu umgehen, und in allen <code>&lt;img&gt;</code>-Tags innerhalb von Verweisen könnte auf das <code>border</code>-Attribut verzichtet werden. Bei nicht CSS-fähigen Browsern würde dann aber doch der Rahmen angezeigt.</p>
+
+<p>Nur zum Verständnis: am obigen Anzeigebeispiel sind in Wirklichkeit vier Dateien beteiligt, die alle den gleichen Aufbau und immer an der gleichen Stelle die Navigationsleiste haben. Nur sind die anklickbaren Grafiken in jeder der Dateien mit unterschiedlichen Verweiszielen verknüpft. Damit zeigt das Beispiel, wie sich mit verschiedenen Dateien, die ein einheitliches Layout und die Navigationsleiste stets an der gleichen Stelle haben, ein in sich geschlossenes Web-Projekt realisieren lässt.</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="verweis_sensitive.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="verweis_sensitive.htm">Verweis-sensitive Grafiken (Image Maps)</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="ausrichten.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="ausrichten.htm">Grafiken ausrichten</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">HTML/XHTML</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Grafiken</a></td>
+</tr></table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

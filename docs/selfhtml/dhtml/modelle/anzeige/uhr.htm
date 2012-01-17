@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>Test</title>
+<script language="JScript" type="text/jscript">
+var Wochentagname = new Array("Sonntag", "Montag", "Dienstag", "Mittwoch",
+  "Donnerstag", "Freitag", "Samstag");
+function ZeitAnzeigen () {
+  var Jetzt = new Date();
+  var Tag = Jetzt.getDate();
+  var Monat = Jetzt.getMonth() + 1;
+  var Jahr = Jetzt.getYear();
+  var Stunden = Jetzt.getHours();
+  var Minuten = Jetzt.getMinutes();
+  var Sekunden = Jetzt.getSeconds();
+  var WoTag = Jetzt.getDay();
+  var Vortag  = (Tag < 10) ? "0" : "";
+  var Vormon  = (Monat < 10) ? ".0" : ".";
+  var Vorstd  = (Stunden < 10) ? "0" : "";
+  var Vormin  = (Minuten < 10) ? ":0" : ":";
+  var Vorsek  = (Sekunden < 10) ? ":0" : ":";
+  var Datum = Vortag + Tag + Vormon + Monat  + "." + Jahr;
+  var Uhrzeit = Vorstd + Stunden + Vormin + Minuten + Vorsek + Sekunden;
+  document.all.Uhr.innerHTML = Datum + " (" + Wochentagname[WoTag] + ")<br>" + Uhrzeit;
+  window.setTimeout("ZeitAnzeigen()",1000);
+}
+</script>
+</head>
+<body>
+<p id="Uhr" style="font-family:Verdana; font-size:200%; font-weight:bold; color:#CC00CC"></p>
+<script language="JScript" type="text/jscript">
+window.setTimeout("ZeitAnzeigen()", 1000);
+</script>
+
+<p><a href="../microsoft.htm#all_objekt">zur&uuml;ck</a></p>
+</body>
+</html>

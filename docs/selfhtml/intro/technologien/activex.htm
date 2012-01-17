@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: Einführung / Web-Technologien / ActiveX</title>
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<meta name="description"    content="Welche Rolle ActiveX im Web spielt, und was Sie darüber wissen sollten.">
+<meta name="keywords"       content="SELFHTML, Web-Technologien, Technologien, ActiveX, Component Object Model, COM">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-08-22T21:21:39+02:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/intro/technologien/activex.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="Web-Technologien" href="index.htm">
+<link rel="next" title="Flash" href="flash.htm">
+<link rel="prev" title="Java" href="java.htm">
+<link rel="first" title="HTML" href="html.htm">
+<link rel="last" title="Flash" href="flash.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">Einführung</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Web-Technologien</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">ActiveX</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#html">ActiveX und HTML</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#infos">ActiveX-Informationen</a><br>
+</p>
+</td>
+</tr><tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><a class="an" name="html">ActiveX und HTML</a></h2>
+
+<p>ActiveX ist eine von Microsoft eingeführte Technologie für ausführbaren Programmcode auf Web-Seiten und dem Anspruch nach eine Alternative oder Konkurrenz zu <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="java.htm">Java</a>. ActiveX ist dabei ein Überbegriff für verschiedene Software-Komponenten. Alle diese Komponenten basieren auf dem so genannten <b>Component Object Model (COM)</b>. ActiveX ist jedoch kein Internet-Standard im herkömmlichen Sinn, sondern der Versuch, spezifische Eigenschaften des MS-Windows-Betriebssystems für Web-Seiten nutzbar zu machen. So ist es mit Hilfe von ActiveX beispielsweise möglich, Eingaben aus HTML-Formularen einer Web-Seite über die OLE-Schnittstelle von Windows direkt in eine Excel-Tabelle oder eine Access-Datenbank einzulesen (oder umgekehrt). ActiveX-Controls benutzen nämlich die OLE-Schnittstelle von Windows, um mit ihrer Umgebung zu kommunizieren. Microsoft bemüht sich zwar um Lösungen, die sich auch auf Macintosh- und Unix-Rechner übertragen lassen. Doch letztendlich ist ActiveX für MS-Windows optimiert, und das mit Absicht.</p>
+
+<p>Ein wesentlicher Bestandteil von ActiveX sind die so genannten ActiveX-Controls. Solche Controls sind Programme oder Programm-Module, die sich in HTML-Dateien als Objekt einbinden lassen, ähnlich wie Java-Applets. Der Programmcode wird im Arbeitsspeicher des Client-Rechners (also des Anwenders, der eine Web-Seite aufruft) ausgeführt. Normalerweise wird dabei auch eine so genannte ActiveX-Layoutdatei auf dem Rechner des Anwenders installiert. Mit ActiveX-Controls lassen sich alle Arten von Anwendungen usw. realisieren.</p>
+
+<p>Es gibt keine festen Vorschriften dafür, in welcher Programmiersprache ActiveX-Code geschrieben ist. Der Compiler muss jedoch das Component Object Model (COM) unterstützen. Um ActiveX-Controls zu erstellen, brauchen Sie also keine bestimmte Software, aber Sie brauchen einen COM-fähigen Compiler. Das kann Visual Basic sein, Microsoft C++ usw.</p>
+
+<p>ActiveX wird derzeit nur vom Internet Explorer direkt ausgeführt. Für Netscape gibt es ein ActiveX-Plugin zum Downloaden. Bei Netscape-Anwendern, die das Plugin installiert haben, sind ActiveX-Controls dann auch ausführbar.</p>
+
+<p>Diskutiert wird häufig über das Sicherheitskonzept von ActiveX. Wenn Sie als Anwender erlauben, dass ein ActiveX-Control auf Ihren Rechner geladen wird, kann dieses Programm auf dem Rechner so ziemlich tun und lassen was es will. Es gibt also keine "Sandbox"-Beschränkungen bei ActiveX, sondern nur eine "Vertrauensbarriere" (nämlich die Abfrage des Web-Browsers, ob der Anwender mit der Ausführung des Programms auf seinem Rechner einverstanden ist oder nicht). Dadurch ist mit ActiveX aus Programmierersicht zwar viel mehr realisierbar als mit Java-Applets, doch aus Anwendersicht sind ActiveX-Module tendenziell unsicherer als Java-Applets.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="infos">ActiveX-Informationen</a></h2>
+
+<p>Auf den <img src="../../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.microsoft.com/">Web-Seiten von Microsoft</a> können Sie nach Informationen zu ActiveX suchen. Microsoft bietet an verschiedenen Stellen Informationen dazu an. Über die Domain <img src="../../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.activex.com/">activex.com</a> werden Sie auf eine Adresse weitergeleitet, an der Sie geeignete Software und vorhandene ActiveX-Controls finden.</p>
+
+<p>Innerhalb der vorliegenden Dokumentation wird die ActiveX-Technologie nicht weiter behandelt.</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="flash.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="flash.htm">Flash</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="java.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="java.htm">Java</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">Einführung</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Web-Technologien</a></td>
+</tr>
+</table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

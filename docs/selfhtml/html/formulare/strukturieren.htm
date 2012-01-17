@@ -1,0 +1,222 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: HTML/XHTML / Formulare / Gruppierung von Elementen und Label für Elemente</title>
+<meta name="description"    content="Wie Sie in HTML-Formularen Elemente gruppieren können und Elemente und ihre Beschriftung durch ein Label einander zuordnen können.">
+<meta name="keywords"       content="SELFHTML, HTML, XHTML, Formulare, Label, Gruppierung, Gruppenüberschrift, fieldset, legend, label, for">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-10-31T12:25:34+01:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/html/formulare/strukturieren.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="Formulare" href="index.htm">
+<link rel="next" title="Tabulator-Reihenfolge, Tastaturkürzel und Ausgrauen" href="tastatur.htm">
+<link rel="prev" title="Versteckte Elemente" href="versteckte.htm">
+<link rel="first" title="Formulare definieren" href="definieren.htm">
+<link rel="last" title="Formulare verarbeiten" href="verarbeiten.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">HTML/XHTML</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Formulare</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Gruppierung von Elementen und Label für Elemente</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#gruppieren">Elemente gruppieren</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#label">Label für Elemente</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#weitere_infos">Weitere Informationen</a><br>
+</p>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><img src="../../src/html40.gif" width="30" height="30" alt="HTML 4.0" title="HTML 4.0"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../../src/msie4.gif" width="30" height="30" alt="MS IE 4.0" title="MS IE 4.0"><img src="../../src/netsc6.gif" width="30" height="30" alt="Netscape 6.0" title="Netscape 6.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="gruppieren">Elemente gruppieren</a></h2>
+
+<p>Größere Formulare bestehen häufig aus Gruppen von Elementen. Ein typisches Bestellformular besteht beispielsweise aus Elementgruppen wie "Absender", "bestellte Produkte" und "Formular absenden/abbrechen". Solche Elementgruppen können Sie ab HTML 4.0 eigens auszeichnen. Ein Web-Browser kann Elementgruppen durch Linien oder ähnliche Effekte optisch sichtbar machen.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/fieldset_legend.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+       "http://www.w3.org/TR/html4/strict.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Elemente gruppieren&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h1&gt;W&amp;uuml;nschen Sie sich was!&lt;/h1&gt;
+
+&lt;form action="fieldset_legend.htm"&gt;
+  &lt;fieldset&gt;
+    &lt;legend&gt;Absender&lt;/legend&gt;
+    &lt;table&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Ihr Vorname:&lt;/td&gt;
+        &lt;td&gt;&lt;input type="text" size="40" maxlength="40" name="Vorname"&gt;&lt;/td&gt;
+      &lt;/tr&gt;&lt;tr&gt;
+        &lt;td&gt;Ihr Zuname:&lt;/td&gt;
+        &lt;td&gt;&lt;input type="text" size="40" maxlength="40" name="Zuname"&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/table&gt;
+  &lt;/fieldset&gt;
+  &lt;fieldset&gt;
+    &lt;legend&gt;Wunsch&lt;/legend&gt;
+    &lt;table&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Ihr Hauptwunsch:&lt;/td&gt;
+        &lt;td&gt;&lt;input type="text" size="40" maxlength="40" name="Hauptwunsch"&gt;&lt;/td&gt;
+      &lt;/tr&gt;&lt;tr&gt;
+        &lt;td&gt;Ihr Zusatzwunsch:&lt;/td&gt;
+        &lt;td&gt;&lt;input type="text" size="40" maxlength="40" name="Zusatzwunsch"&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/table&gt;
+  &lt;/fieldset&gt;
+&lt;/form&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Eine zusammengehörige Gruppe von Formularelementen schließen Sie in die Tags <code>&lt;fieldset&gt;</code>...<code>&lt;/fieldset&gt;</code> ein (<i>fieldset = Feldgruppe</i>). Dazwischen können Sie beliebige Teile Ihres Formulars definieren.</p>
+
+<p>Unterhalb des einleitenden <code>&lt;fieldset&gt;</code>-Tags und vor den ersten Formularinhalten der Gruppe sollten Sie ferner eine Gruppenüberschrift (Legende) für die Elementgruppe vergeben. Schließen Sie den Gruppenüberschriftentext in die Tags <code>&lt;legend&gt;</code>...<code>&lt;/legend&gt;</code> ein. Den Text innerhalb davon können Sie mit Hilfe von HTML/CSS nach Wunsch formatieren.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/html40.gif" width="30" height="30" alt="HTML 4.0" title="HTML 4.0"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../../src/msie4.gif" width="30" height="30" alt="MS IE 4.0" title="MS IE 4.0"><img src="../../src/netsc6.gif" width="30" height="30" alt="Netscape 6.0" title="Netscape 6.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="label">Label für Elemente</a></h2>
+
+<p>Für Formularelemente wie Eingabefelder oder Auswahllisten gibt es normalerweise keine logische Beschriftungsmöglichkeit. Sie können zwar Text vor ein solches Element setzen wie "E-Mail-Adresse:", aber ein solcher Text ist normaler HTML-Text, der keinen definierten Bezug zu dem Element hat, für das er als Beschriftung dient. Mit Hilfe von Labels können Sie jedoch einen solchen logischen Bezug zwischen Formularelement und Beschriftungstext herstellen.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/label.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+       "http://www.w3.org/TR/html4/strict.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Label für Elemente&lt;/title&gt;
+&lt;style type="text/css"&gt;
+label { cursor:pointer; }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h1&gt;Meine Beschriftung geh&amp;ouml;rt zu mir wie mein Name an der T&amp;uuml;r!&lt;/h1&gt;
+
+&lt;form action="label.htm"&gt;
+  &lt;fieldset&gt;
+    &lt;legend&gt;Formular&lt;/legend&gt;
+    &lt;table&gt;
+      &lt;tr&gt;
+        &lt;td&gt;&lt;label for="vorname"&gt;Vorname:&lt;/label&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;input type="text" id="vorname" name="Vorname" value="Ihr Vorname"&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;&lt;label for="nachname"&gt;Zuname:&lt;/label&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;input type="text" id="nachname" name="Zuname" value="Ihr Nachname"&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;&lt;label for="auswahl"&gt;Auswahl:&lt;/label&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;input type="checkbox" id="auswahl" name="Auswahl"&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/table&gt;
+  &lt;/fieldset&gt;
+&lt;/form&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel zeigt, wie Sie mit Hilfe einer "blinden" <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../tabellen/index.htm">Tabelle</a> Beschriftung und Eingabefelder eines Formulars ordentlich formatieren können. Das Besondere dabei ist, dass ein logischer Bezug zwischen Beschriftung und Eingabefeld hergestellt wird.</p>
+
+<p>Dazu muss das Formularelement selbst, im obigen Beispiel zwei Eingabefelder, mit Hilfe des <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../attribute/index.htm">Universalattributs</a> <code>id</code> einen eindeutigen Namen erhalten. Vergeben Sie keine zu langen Namen. Die Namen dürfen keine Leerzeichen und keine deutschen Umlaute enthalten. Das erste Zeichen muss ein Buchstabe sein. Danach sind auch Ziffern erlaubt. Benutzen Sie als Sonderzeichen im Namen höchstens den Unterstrich (<code>_</code>), den Bindestrich (<code>-</code>), den Doppelpunkt (<code>:</code>) oder den Punkt (<code>.</code>).</p>
+
+<p>Den Beschriftungstext, den Sie einem solchen Formularelement zuordnen, notieren Sie als Inhalt zwischen <code>&lt;label&gt;</code> und<code>&lt;/label&gt;</code>. Der Beschriftungstext kann auch jede Art von HTML/CSS-Formatierung enthalten. Das <code>label</code>-Element selbst hat keine sichtbare Wirkung am Bildschirm, es dient lediglich dem Zweck, den logischen Bezug zum Formularelement herzustellen. Diesen Bezug definieren Sie innerhalb des einleitenden <code>&lt;label&gt;</code>-Tags mit dem Attribut <code>for</code> (<i>for = für</i>). Dahinter geben Sie, in Anführungszeichen, exakt den id-Namen des Formularelements an, auf das sich das Label beziehen soll.</p>
+
+<p>Beim Klick auf den Inhalt eines Labels (im Beispiel <em>Vorname, Zuname, Auswahl</em>) wird in aktuellen Browsern das Formularelement fokussiert bzw. ausgewählt, auf das sich das Label bezieht. Diese Funktion erleichtert unter anderem die Auswahl von Checkboxen.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Das <code>label</code>-Element ist auch auf andere Formularelemente, zum Beispiel auf <code>textarea</code> oder <code>select</code>, anwendbar.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="weitere_infos">Weitere Informationen</a></h2>
+
+<p>In der <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../referenz/index.htm">HTML-Referenz</a> finden Sie Angaben darüber, wo die hier beschriebenen Elemente vorkommen dürfen, welche Attribute erlaubt sind und was bei den einzelnen Attributen zu beachten ist:<br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/elemente.htm#fieldset">Element-Referenz</a> für Elementgruppierung (<code>&lt;fieldset&gt;...&lt;/fieldset&gt;</code>)<br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/attribute.htm#fieldset">Attribut-Referenz</a> für Elementgruppierung (<code>&lt;fieldset&gt;...&lt;/fieldset&gt;</code>)<br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/elemente.htm#legend">Element-Referenz</a> für Gruppenüberschriften (<code>&lt;legend&gt;...&lt;/legend&gt;</code>)<br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/attribute.htm#legend">Attribut-Referenz</a> für Gruppenüberschriften (<code>&lt;legend&gt;...&lt;/legend&gt;</code>)<br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/elemente.htm#label">Element-Referenz</a> für Label (<code>&lt;label&gt;...&lt;/label&gt;</code>)<br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/attribute.htm#label">Attribut-Referenz</a> für Label (<code>&lt;label&gt;...&lt;/label&gt;</code>)</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="tastatur.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="tastatur.htm">Tabulator-Reihenfolge, Tastaturkürzel und Ausgrauen</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="versteckte.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="versteckte.htm">Versteckte Elemente</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">HTML/XHTML</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Formulare</a></td>
+</tr></table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

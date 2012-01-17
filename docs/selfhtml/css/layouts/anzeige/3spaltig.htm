@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+       "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>Dreispaltiges Layout</title>
+<style type="text/css">
+  body {
+    color: black; background-color: white;
+    font-size: 100.01%;
+    font-family: Helvetica,Arial,sans-serif;
+    margin: 0; padding: 1em;
+    min-width: 40em; /* Mindestbreite verhindert Umbruch und Anzeigefehler in modernen Browsern */
+  }
+
+  ul#Navigation {
+    font-size: 0.83em;
+    float: left; width: 18em;
+    margin: 0; padding: 0;
+    border: 1px dashed silver;
+  }
+  ul#Navigation li {
+    list-style: none;
+    margin: 0; padding: 0.5em;
+  }
+  ul#Navigation a {
+    display: block;
+    padding: 0.2em;
+    font-weight: bold;
+  }
+  ul#Navigation a:link {
+    color: black; background-color: #eee;
+  }
+  ul#Navigation a:visited {
+    color: #666; background-color: #eee;
+  }
+  ul#Navigation a:hover {
+    color: black; background-color: white;
+  }
+  ul#Navigation a:active {
+    color: white; background-color: gray;
+  }
+
+  div#Info {
+    font-size: 0.9em;
+    float: right; width: 12em;
+    margin: 0; padding: 0;
+    border: 1px dashed silver; background-color: #eee;
+  }
+  div#Info strong {
+    font-size: 1.33em;
+    margin: 0.2em 0.5em;
+  }
+  div#Info p {
+    font-size: 1em;
+    margin: 0.5em;
+  }
+
+  div#Inhalt {
+    margin: 0 12em 0 16em;
+    padding: 0 1em;
+    border: 1px dashed silver;
+  }
+  div#Inhalt h1 {
+    font-size: 1.5em;
+    margin: 0 0 0.5em;
+  }
+  div#Inhalt h2 {
+    font-size: 1.2em;
+    margin: 0.2em 0;
+  }
+  div#Inhalt p {
+    font-size: 1em;
+    margin: 1em 0;
+  }
+</style>
+</head>
+<body>
+
+<ul id="Navigation">
+  <li><a href="../einfuehrung.htm">Einf&uuml;hrung in CSS-basierte Layouts</a></li>
+  <li><a href="../mehrspaltige.htm">Mehrspaltige CSS-basierte Layouts</a></li>
+  <li><a href="../fixbereiche.htm">Fixe Bereiche mit CSS-basierten Layouts</a></li>
+  <li><a href="../navigationsleisten.htm">CSS-basierte Navigationsleisten</a></li>
+  <li><a href="../browserweichen.htm">CSS-Browserweichen</a></li>
+</ul>
+
+<div id="Info">
+  <strong>Info-Box</strong>
+  <p>Auch wenn diese Info- Box am Bildschirm als letzte angezeigt wird, ist sie
+     im Quelltext vor dem im Fluss belassenen Inhaltsbereich zu notieren.</p>
+  <p>Dadurch, dass f&uuml;r den Inhaltsbereich kein float definiert ist, kann auf
+     die Angabe einer Breite verzichtet werden und die Seite den ihr zur
+     Verf&uuml;gung stehenden Raum ausnutzen.</p>
+  <p>Diese Methode, ein Element im Fluss zu belassen und dadurch auf eine
+     Breitenangabe verzichten zu k&ouml;nnen, hat au&szlig;erdem den Vorteil, Abweichungen
+     durch das falsche Box-Modell des Internet Explorer auszugleichen.</p>
+</div>
+
+<div id="Inhalt">
+  <h1>CSS-basierte Layouts</h1>
+  <h2>3-spaltiges Layout</h2>
+  <p>In diesem Beispiel ist die Breite der Navigation etwas reduziert,
+     um einer zus&auml;tzlichen Info-Box an der rechten Seite Platz zu machen;
+     die Schriftgr&ouml;&szlig;e der Navigation und Info-Box ist etwas verringert,
+     um den relativ geringen Breiten Rechnung zu tragen.</p>
+  <p>Nur f&uuml;r die &auml;u&szlig;eren Boxen ist eine Breite und float angegeben.
+     Durch die Angabe der Breiten relativ zur Schriftgr&ouml;&szlig;e in 'em'
+     k&ouml;nnen sich die Boxen einer &Auml;nderung des Schriftgrades anpassen.</p>
+  <p>Dieser mittlere Inhaltsbereich wird &uuml;ber seitliches margin auf Abstand
+     gehalten und passt sich flexibel an die Fensterbreite an.</p>
+</div>
+
+<p><a style="color:black" href="../mehrspaltige.htm#dreispaltig">zur&uuml;ck</a></p>
+</body>
+</html>

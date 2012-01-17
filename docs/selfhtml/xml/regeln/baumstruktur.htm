@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: XML / Regeln für XML-Dateien / Baumstruktur und Knoten einer XML-Datei</title>
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<meta name="description"    content="Wie sich XML-Dateien als Baumstruktur begreifen und darstellen lassen, und welche Bedeutung die Begriffe &quot;Knoten&quot; und &quot;Knotenset&quot; in diesem Zusammenhang haben">
+<meta name="keywords"       content="SELFHTML, XML, Baumstruktur, Knoten, Knotenset">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-08-22T21:21:39+02:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/xml/regeln/baumstruktur.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="Regeln für XML-Dateien" href="index.htm">
+<link rel="next" title="XML-Namensräume" href="namensraeume.htm">
+<link rel="prev" title="Wohlgeformtheit, Gültigkeit und Vollständigkeit einer XML-Datei" href="begriffe.htm">
+<link rel="first" title="XML-Deklaration und Verarbeitungsanweisungen" href="xmldeklaration.htm">
+<link rel="last" title="Regeln beim Editieren von XML und Dateinamenkonventionen" href="allgemein.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">XML/DTDs</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Regeln für XML-Dateien</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Baumstruktur und Knoten einer XML-Datei</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#baumstruktur">Die Baumstruktur von XML-Dokumenten</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#knoten_knotensets">Knoten und Knoten-Sets in der Baumstruktur</a><br>
+</p>
+</td>
+</tr><tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><a class="an" name="baumstruktur">Die Baumstruktur von XML-Dokumenten</a></h2>
+
+<p>Ein XML-gerechtes Dokument besteht aus Elementen, Attributen, ihren Wertzuweisungen, und dem Inhalt der Elemente, der aus Text oder aus untergeordneten Elementen bestehen kann, die ihrerseits wieder Attribute mit Wertzuweisungen und Inhalt haben können. Es gibt Elemente mit und ohne Attribute, Elemente, innerhalb deren viele andere Elemente vorkommen können, und solche, innerhalb deren nur Text vorkommen kann, und sogar leere Elemente, die keinen Inhalt haben können. Die Struktur, die aus diesen Bestandteilen und ihren Grundregeln entsteht, lässt sich als Baumstruktur begreifen.</p>
+
+<h3 class="xmp"><a name="beispiel">Beispiel-Code (XML):</a></h3>
+
+<pre>
+&lt;spielfilme&gt;
+ &lt;film regie="Tom Tykwer" titel="Lola rennt"&gt;
+  &lt;beschreibung&gt;
+    &lt;name typ="w"&gt;Lola&lt;/name&gt; rennt für &lt;name typ="m"&gt;Manni&lt;/name&gt;, der 100000 Mark
+    liegengelassen hat und noch 20 Minuten Zeit hat, das Geld auszuliefern.
+  &lt;/beschreibung&gt;
+ &lt;/film&gt;
+&lt;/spielfilme&gt;
+</pre>
+
+<h3 class="xpl">Darstellung als Baumstruktur:</h3>
+
+<p><img src="baumstruktur.gif" width="279" height="269" alt="Beispiel-Code als Baumstruktur"></p>
+
+<p>Anstelle von "Baumstruktur" zu reden, könnte man auch den Vergleich zu einer Verzeichnis- und Dateistruktur verwenden.</p>
+
+<h3 class="xpl">Konsequenzen für die Datenverarbeitung:</h3>
+
+<p>Die Datenstruktur einer XML-Datei lässt sich nicht nur genauso abbilden wie eine Verzeichnis- und Dateistruktur, sie wird von der verarbeitenden Software auch ganz ähnlich gehandhabt.</p>
+
+<p>Ein <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../intro.htm#parser">XML-Parser</a> arbeitet eine XML-Datei ab, indem er der Hierarchie folgt, die sich durch die Baumstruktur der Daten ergibt. Jedes Element, jedes Attribut, jede Wertzuweisung an ein Attribut, jeder Zeicheninhalt eines Elements wird dabei zu einem eigenen Bestandteil des Baums. Jeder dieser Bestandteile ist einzeln adressierbar.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="knoten_knotensets">Knoten und Knoten-Sets in der Baumstruktur</a></h2>
+
+<p>Um über die Bestandteile einer XML-Baumstruktur korrekt reden zu können, gibt es die beiden Begriffe <b>Knoten</b> und <b>Knoten-Set</b>. Beide Begriffe beleuchten die Baumstruktur einfach nur aus unterschiedlichen Blickwinkeln.</p>
+
+<h3 class="xpl">Knoten</h3>
+
+<p>Wenn man von Knoten redet, meint man die Bestandteile der Baumstruktur.<br>
+Jedes XML-Dokument beginnt mit einem <b>Wurzelknoten</b>. Dieser hat jedoch keine konkrete Ausprägung, sondern ist nur der abstrakte "Ursprung" der Daten. Erst sein unmittelbarer Abkömmling in der Baumstruktur hat eine konkrete Ausprägung: nämlich das Dokument-Element, also das äußerste, den gesamten übrigen Inhalt umfassende Element. Im obigen <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#beispiel">Beispiel</a> ist dies das Element <code>spielfilme</code>. Dieser oberste Knoten unterhalb des abstrakten Wurzelknotens hat im Beispiel einen Kindknoten namens <code>film</code>. Aus Sicht des Knotens <code>film</code> ist der Knoten <code>spielfilme</code> der <b>Elternknoten</b>. Der Knoten <code>film</code> hat drei untergeordnete Knoten, nämlich die Attribute <code>regie</code> und <code>titel</code> sowie das Element <code>beschreibung</code>. In der XML-Praxis werden jedoch Attribute eines Elements anders eingestuft als der Inhalt des Elements. Bei Attributknoten spricht man von <b>assoziierten Knoten</b>, beim Inhalt dagegen von <b>Kindknoten</b>. Diese feine Unterscheidung bleibt in der obigen Abbildung unberücksichtigt.</p>
+
+<p>Ein Attribut wie <code>regie</code> hat zwar selber noch mal einen eigenen Kindknoten, nämlich den Text <code>Tom Tykwer</code>, aber der Wert eines Attributes kann in XML nicht direkt adressiert werden. Jeder andere in der Baumstruktur abbildbare Bestandteil ist also ein Knoten.</p>
+
+<h3 class="xpl">Knoten-Sets</h3>
+
+<p>Wenn man von Knoten-Sets redet, denkt man aus Sicht der Wege zu den einzelnen Knoten.<br>
+Um einzelne Knoten zu adressieren, kann man den Pfad dorthin angeben, ganz ähnlich wie in einer Struktur aus Verzeichnissen, Unterverzeichnissen und Dateien. So hat im Beispiel das erste vorkommende Element <code>name</code>, das ja auch ein Knoten ist, den Pfad <code>/spielfilme/film/beschreibung</code>. Das zweite vorkommende Element <code>name</code> hat allerdings den gleichen Pfad, ebenso wie der restliche Text, der den Inhalt des Elements <code>beschreibung</code> bildet. Wenn man also aus Sicht eines Pfades in der Baumstruktur denkt, gibt es unterhalb eines solchen Pfades keinen, einen oder mehrere Knoten. Diese zunächst unbestimmte Anzahl Knoten, die unterhalb eines bestimmten Pfades liegen, bezeichnet man als Knoten-Set.</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="namensraeume.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="namensraeume.htm">XML-Namensräume</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="begriffe.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="begriffe.htm">Wohlgeformtheit, Gültigkeit und Vollständigkeit einer XML-Datei</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">XML/DTDs</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Regeln für XML-Dateien</a></td>
+</tr>
+</table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

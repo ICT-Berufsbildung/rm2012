@@ -1,0 +1,234 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: HTML/XHTML / Layer (Netscape)/ Layer anordnen und kontrollieren</title>
+<meta name="description"    content="Wie Sie die Schichtposition von Netscape-Layern festlegen und die Anzeige von Layern kontrollieren.">
+<meta name="keywords"       content="SELFHTML, HTML, Layer, Netscape, above, below, z-index, visibility">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-10-31T12:25:34+01:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/html/layer/anordnen.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="Layer (Netscape)" href="index.htm">
+<link rel="next" title="Stylesheet-Bereiche in HTML" href="../transit/stylesheets.htm">
+<link rel="prev" title="Layer definieren und positionieren" href="definieren.htm">
+<link rel="first" title="Layer definieren und positionieren" href="definieren.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">HTML/XHTML</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Layer (Netscape)</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Layer anordnen und kontrollieren</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#position_name">Angaben zur Schichtposition mit Layer-Namen</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#position_index">Angaben zur Schichtposition mit Indexnummern</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#anzeige">Layer verstecken und anzeigen</a><br>
+</p>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><img src="../../src/netsc4.gif" width="30" height="30" alt="Netscape 4.0" title="Netscape 4.0">&nbsp;<a class="an" name="position_name">Angaben zur Schichtposition mit Layer-Namen</a></h2>
+
+<p>Wenn Sie mehrere Layer in einer HTML-Datei definieren, deren Anzeigebereiche sich überlappen, werden die Layer normalerweise in der Reihenfolge übereinander angezeigt, in der sie definiert werden. Sie können jedoch die Reihenfolge ändern und angeben, welcher andere Layer unmittelbar über oder unter dem aktuellen Layer liegen soll. Auf diese Weise können Sie das Überdecken von Layern kontrollieren. Voraussetzung ist, dass Sie für jeden Layer einen Namen vergeben.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/layer_above_below.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Angaben zur Schichtposition mit Layer-Namen&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;layer name="erster" top="0" left="0" width="300" height="200" bgcolor="FFFF99"&gt;
+  &lt;h1&gt;ERSTER&lt;/h1&gt;
+&lt;/layer&gt;
+
+&lt;layer name="zweiter" top="50" left="100" width="300" height="200" bgcolor="99FF99"&gt;
+  &lt;h1&gt;ZWEITER&lt;/h1&gt;
+&lt;/layer&gt;
+
+&lt;layer name="dritter" above="zweiter" top="100" left="200" width="300" height="200" bgcolor="9999FF"&gt;
+  &lt;h1&gt;DRITTER&lt;/h1&gt;
+&lt;/layer&gt;
+
+&lt;layer name="vierter" below="erster" top="150" left="300" width="300" height="200" bgcolor="FF99FF"&gt;
+  &lt;h1&gt;VIERTER&lt;/h1&gt;
+&lt;/layer&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Mit dem Attribut <code>above</code> im einleitenden <code>&lt;layer&gt;</code>- oder <code>&lt;ilayer&gt;</code>-Tag können Sie bestimmen, dass ein zuvor definierter, benannter Layer unmittelbar über dem aktuellen Layer liegt (<i>above = oberhalb</i>). Das heißt, der aktuelle Layer soll bei Überschneidung von dem genannten Layer überdeckt werden.<br>
+Mit dem Attribut <code>below</code> im einleitenden <code>&lt;layer&gt;</code>- oder <code>&lt;ilayer&gt;</code>-Tag können Sie bestimmen, dass ein zuvor definierter, benannter Layer unmittelbar unter dem aktuellen Layer liegt (<i>below = unterhalb</i>). Das heißt, der aktuelle Layer soll bei Überschneidung den genannten Layer überdecken.<br>
+Die Layer-Namen hinter <code>above</code> und <code>below</code> sollten in Anführungszeichen stehen.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Bei <code>above</code> und <code>below</code> dürfen Sie nur Namen von Layern angeben, die in der Datei bereits zuvor definiert wurden. Die Angabe von Layern, die erst nach dem aktuellen Layer definiert werden, kann zu Anzeigefehlern führen. Im ersten definierten Layer einer HTML-Datei sollten deshalb keine Angaben zu <code>above</code> oder <code>below</code> vorkommen.</p>
+
+<p>Es ist nur je eine Angabe für <code>above</code> und <code>below</code> bei der Definition eines Layers erlaubt. Denn mit diesen Angaben legen Sie immer nur fest, welcher andere Layer direkt unter oder über dem aktuellen Layer.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/netsc4.gif" width="30" height="30" alt="Netscape 4.0" title="Netscape 4.0">&nbsp;<a class="an" name="position_index">Angaben zur Schichtposition mit Indexnummern</a></h2>
+
+<p>Wenn Sie mehrere Layer in einer HTML-Datei definieren, deren Anzeigebereiche sich überlappen, werden die Layer normalerweise in der Reihenfolge übereinander angezeigt, in der sie definiert werden. Sie können die Reihenfolge ändern, indem Sie für die einzelnen Layer Nummern vergeben. Layer mit höherer Nummer überdecken Layer mit niedrigerer Nummer.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/layer_z_index.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Angaben zur Schichtposition mit Indexnummern&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;layer z-index="3" top="0" left="0" width="300" height="200" bgcolor="FFFF99"&gt;
+  &lt;h1&gt;ERSTER&lt;/h1&gt;
+&lt;/layer&gt;
+
+&lt;layer z-index="1" top="50" left="100" width="300" height="200" bgcolor="99FF99"&gt;
+  &lt;h1&gt;ZWEITER&lt;/h1&gt;
+&lt;/layer&gt;
+
+&lt;layer z-index="4" top="100" left="200" width="300" height="200" bgcolor="9999FF"&gt;
+  &lt;h1&gt;DRITTER&lt;/h1&gt;
+&lt;/layer&gt;
+
+&lt;layer z-index="2" top="150" left="300" width="300" height="200" bgcolor="FF99FF"&gt;
+  &lt;h1&gt;VIERTER&lt;/h1&gt;
+&lt;/layer&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>&nbsp;</p>
+
+<p>Mit dem Attribut <code>z-index</code> im einleitenden <code>&lt;layer&gt;</code>- oder <code>&lt;ilayer&gt;</code>-Tag bestimmen Sie die Reihenfolge der Layer bei Überlappungen (<i>z-index = Reihenfolge</i>). Geben Sie bei jedem definierten Layer <code>z-index</code> und dahinter eine Nummer an. Der Layer mit der höchsten Nummer überdeckt alle anderen. Der Layer mit der niedrigsten Nummer wird von allen anderen überdeckt.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Bei den Angaben zu <code>z-index</code> sind auch negative Werte erlaubt. Dadurch bewirken Sie bei <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="definieren.htm#verschachteln">verschachtelten Layern</a>, dass Layer, die innerhalb eines anderen Layers definiert werden, von ihren Eltern-Layern überdeckt werden. Bei positiven Zahlen ist dies umgekehrt.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/netsc4.gif" width="30" height="30" alt="Netscape 4.0" title="Netscape 4.0">&nbsp;<a class="an" name="anzeige">Layer verstecken und anzeigen</a></h2>
+
+<p>Sie können bei der Definition von Layern festlegen, ob diese zunächst angezeigt werden sollen oder nicht. Das ist von Bedeutung, wenn Sie die Anzeige der Layer mit Hilfe von <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../../javascript/index.htm">JavaScript</a> dynamisch ein-/ausschalten wollen.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/layer_visibility.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Layer verstecken und anzeigen&lt;/title&gt;
+&lt;script type="text/javascript"&gt;
+function hideLayer (nr) {
+  document.layers[nr].visibility = "hide";
+}
+
+function showLayer (nr) {
+  document.layers[nr].visibility = "show";
+}
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;layer top="10" left="10" bgcolor="#DDFFDD"&gt;
+  &lt;p&gt;&lt;a href="javascript:showLayer(1)"&gt;&lt;b&gt;Anderen Layer anzeigen&lt;/b&gt;&lt;/a&gt;&lt;br&gt;
+  (dazu wird ein einfaches JavaScript eingesetzt)&lt;/p&gt;
+&lt;/layer&gt;
+
+&lt;layer top="60" left="60" bgcolor="#CCEEFF" visibility="hide"&gt;
+  &lt;p&gt;&lt;a href="javascript:hideLayer(1)"&gt;&lt;b&gt;Diesen Layer verstecken&lt;/b&gt;&lt;/a&gt;&lt;br&gt;
+  (dazu wird ein einfaches JavaScript eingesetzt)&lt;/p&gt;
+&lt;/layer&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Mit dem Attribut <code>visibility</code> im einleitenden <code>&lt;layer&gt;</code>- oder <code>&lt;ilayer&gt;</code>-Tag können Sie die Anzeige des Layers explizit erzwingen oder verhindern (<i>visibility = Sichtbarkeit</i>).<br>
+Mit <code>visibility="show"</code> legen Sie fest, dass der Layer in jedem Fall angezeigt wird (<i>show = zeigen</i>).<br>
+Mit <code>visibility="hide"</code> legen Sie fest, dass der Layer nicht angezeigt, also versteckt wird (<i>hide = verstecken</i>).<br>
+Mit <code>visibility="inherit"</code> legen Sie fest, dass der Layer nur dann angezeigt wird, wenn sein Elternelement ebenfalls angezeigt wird (<i>inherit = erben</i>). Diese Angabe ist nur bei inneren Layern in <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="definieren.htm#verschachteln">verschachtelten Layern</a> von Bedeutung.</p>
+
+<p>Das obige Beispiel zeigt, wozu das Verstecken von Layern gut ist: erst mit Hilfe von JavaScript wird dieses Attribut verständlich.</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="../transit/stylesheets.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../transit/stylesheets.htm">Stylesheet-Bereiche in HTML</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="definieren.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="definieren.htm">Layer definieren und positionieren</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">HTML/XHTML</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Layer (Netscape)</a></td>
+</tr></table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

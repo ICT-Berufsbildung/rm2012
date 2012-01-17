@@ -1,0 +1,6 @@
+<!ELEMENT produktnews (#PCDATA | beschreibung)*>
+<!ELEMENT beschreibung (#PCDATA | hersteller | produkt | preis)*>
+<!ELEMENT hersteller (#PCDATA)>
+<!ELEMENT produkt (#PCDATA)>
+<!ELEMENT preis (#PCDATA)>
+

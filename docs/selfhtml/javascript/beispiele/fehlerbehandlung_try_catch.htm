@@ -1,0 +1,183 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: JavaScript / Anwendungsbeispiele / Fehlerbehandlung mit dem try..catch-Statement</title>
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<meta name="description"    content="Wie Sie Fehler in JavaScripts abfangen können.">
+<meta name="keywords"       content="SELFHTML, JavaScript, Fehler, Error, try, throw, catch">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-08-22T21:21:39+02:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/javascript/beispiele/fehlerbehandlung_try_catch.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="Anwendungsbeispiele" href="index.htm">
+<link rel="next" title="Änderungen der Fenstergröße überwachen" href="fensterueberwachen.htm">
+<link rel="prev" title="Fehlerbehandlung mit dem Event-Handler onerror" href="fehlerbehandlung.htm">
+<link rel="first" title="Zwei Frames gleichzeitig ändern" href="zweiframes.htm">
+<link rel="last" title="Änderungen der Fenstergröße überwachen" href="fensterueberwachen.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">JavaScript/DOM</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Anwendungsbeispiele</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Fehlerbehandlung mit dem try..catch-Statement</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#hinweise">Hinweise zu diesen Beispielen</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#quelltext">Quelltext mit Erläuterungen</a><br>
+</p>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/fehlerbehandlung_try_catch.htm">Anzeigebeispiel: So sieht's aus</a></p>
+</td>
+</tr><tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><a class="an" name="hinweise">Hinweise zu diesem Beispiel</a></h2>
+
+<p>Mit Hilfe der <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="fehlerbehandlung.htm">Fehlerbehandlung mit dem Event-Handler onerror</a> können Sie in einem JavaScript Fehler abfangen, <b>nachdem</b> diese aufgetreten sind. Mit der hier vorgestellten Methode können Sie jedoch bereits im Vorfeld verhindern, dass in kritischen Situationen überhaupt Fehler auftreten. Dazu steht seit der JavaScript-Version 1.5 das <code>try..catch</code>-Statement zur Verfügung. Es erlaubt Ihnen, Variablen und Werte zu überprüfen und je nach Ergebnis zu reagieren. Dieses Statement wird vom Internet Explorer ab Version 5.0, von Netscape ab Version 6.0 und von Opera ab Version 5 interpretiert.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/js15.gif" width="30" height="30" alt="JavaScript 1.5" title="JavaScript 1.5"><img src="../../src/netsc6.gif" width="30" height="30" alt="Netscape 6.0" title="Netscape 6.0"><img src="../../src/msie5.gif" width="30" height="30" alt="MS IE 5.0" title="MS IE 5.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="quelltext">Quelltext mit Erläuterungen</a></h2>
+
+<p>Das Beispiel ist so konstruiert, dass es auf eine Variable zugreift, die zunächst noch gar nicht existiert. Das würde zu einem Fehler führen. Das Script "weiß" jedoch, dass dieser Fehler auftreten kann und überprüft deshalb mit dem <code>try..catch</code>-Statement laufend, ob die Variable schon existiert. Erst wenn die Variable existiert, wird die Überwachung beendet.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/fehlerbehandlung_try_catch.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;script type="text/javascript"&gt;
+setTimeout("x=3", 200);
+
+function zeigeErgebnis (Zaehler, Ergebnis) {
+  alert("Nach " + (Zaehler) + " Durchläufen existierte x.\nDie Zahl x ist " + Ergebnis + ".")
+}
+
+function teste_x (Zaehler) {
+  try {
+    if (x == 2) {
+      throw "richtig";
+    } else if (x == 3) {
+      throw "falsch";
+    }
+  } catch (e) {
+    if (e == "richtig") {
+      zeigeErgebnis(Zaehler, e);
+      return;
+    } else if (e == "falsch") {
+      zeigeErgebnis(Zaehler, e);
+      return;
+    }
+  } finally {
+    Zaehler++;
+  }
+
+  setTimeout("teste_x(" + Zaehler + ")", 30);
+
+}
+teste_x(0);
+&lt;/script&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Im Dateikopf der Datei ist ein Script-Bereich notiert. Darin werden die erste und die letzte Anweisung sofort beim Einlesen ausgeführt. Die restlichen Anweisungen stehen in Funktionen.</p>
+
+<h4>Die Variable x</h4>
+
+<p>Während des Ladens der Datei wird eine Variable <code>x</code> zeitverzögert mit dem Wert <code>3</code> belegt. Dazu dient die Methode <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../objekte/window.htm#set_timeout">setTimeout()</a>. Die Variable ist also erst nach 200 Millisekunden verfügbar. Jeder Versuch, vorher auf diese Variable zuzugreifen, würde zu einem Fehler führen.</p>
+
+<p>Die nächste Anweisung, die im Beispiel direkt ausgeführt wird, ist die letzte im Script-Bereich, nämlich <code>teste_x(0)</code>. Damit wird die <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../sprache/funktionen.htm">Funktion</a> <code>teste_x()</code> aufgerufen, die oberhalb notiert ist.</p>
+
+<h4>Die Funktion teste_x()</h4>
+
+<p>Diese Funktion versucht, auf die Variable <code>x</code> zugreifen. Da zum Zeitpunkt des Aufrufes der Funktion jedoch noch nicht sicher ist, ob die Variable <code>x</code> bereits existiert, ist innerhalb der Funktion zur Vermeidung von Fehlermeldungen das <code>try..catch</code>-Statement notiert.<br>
+Beim Aufruf erhält die Funktion <code>teste_x()</code> einen Parameter namens <code>Zaehler</code> übergeben. Das dient im Beispiel zu Kontrollzwecken.</p>
+
+<h4>Aufbau des <code>try..catch</code>-Statements</h4>
+
+<p>Das <code>try..catch</code>-Statement hat generell folgenden Aufbau: Nach dem Schlüsselwort <code>try</code> (<i>try = versuchen</i>) wird eine öffnende geschweifte Klammer, gefolgt von der zu prüfenden <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../sprache/bedingt.htm">Bedingung</a>, notiert. Je nach Erfordernissen können Sie dann mit <code>throw</code> (<i>throw = auswerfen</i>) eigene Fehler definieren. Die <code>throw</code>-Definition ist jedoch optional. Anschließend folgt eine schließende geschweifte Klammer, die den <code>try</code>-Block beendet.<br>
+Daran anschließend notieren Sie das Schlüsselwort <code>catch</code> (<i>catch = abfangen</i>). <code>catch</code> hat Funktions-Charakter und erwartet einen Parameter <code>e</code>. Die Variable <code>e</code> ist erforderlich, da Sie über diese Variable letztlich die Reaktion des Scripts auf den aktuellen Zustand kontrollieren. Den Namen der Variablen können Sie frei wählen (der Name muss also nicht <code>e</code> sein). Innerhalb des Funktionsblocks von <code>catch()</code>, der wie üblich in geschweiften Klammern steht, können Sie die mit <code>throw</code> definierten Fehler auswerten und darauf reagieren.<br>
+Zuletzt können Sie noch das Schlüsselwort <code>finally</code> notieren. In dem davon abhängigen Anweisungsblock können Sie weitere Anweisungen notieren. Diese Anweisungen werden unabhängig von der Fehlerbehandlung in jedem Fall ausgeführt.</p>
+
+<h4>Anwendung des <code>try..catch</code>-Statements im Beispiel</h4>
+
+<p>Im ersten Teil der Anweisung wird geprüft, ob die Variable <code>x</code> den Wert 2 oder 3 besitzt. Je nach Ergebnis werden mit <code>throw</code> verschiedene Fehlerwerte definiert. Hat <code>x</code> den Wert 2, so wird der "Fehler" mit dem Wert <code>richtig</code> generiert. Hat sie den Wert 3 so erhält der Fehler den Wert <code>falsch</code>. Weitere Fehlervarianten werden nicht behandelt.</p>
+
+<p>Im ersten Durchlauf existiert die Variable <code>x</code> im Beispiel noch gar nicht, da sie ja erst nach 200 Millisekunden existiert. Sie kann damit weder den Wert 2 noch den Wert 3 besitzen. In der nachfolgenden Fehlerbehandlungsroutine <code>catch(e)</code> wird geprüft, ob einer der definierten Fehler, also <code>richtig</code> oder <code>falsch</code>, aufgetreten ist. Zunächst ist das offensichtlich nicht der Fall. Die Anweisungen, die von den "Fehlerwerten" <code>richtig</code> und <code>falsch</code> abhängig sind, werden deshalb nicht ausgeführt. Die <code>finally</code>-Anweisung wird dagegen in jedem Fall ausgeführt. Sie bewirkt im Beispiel, dass der übergebene Parameter <code>Zaehler</code> um 1 erhöht wird.</p>
+
+<h4>Gesamtkontrolle</h4>
+
+<p>Am Ende ruft sich die Funktion <code>teste_x()</code> mit <code>setTimeout()</code> um 30 Millisekunden zeitverzögert selbst wieder auf. So behält sie die Kontrolle über das Geschehen, bis ein definierter Zustand eintritt. Der Parameter Zaehler wird dabei mit Hilfe einer <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../sprache/operatoren.htm#zeichenkettenverknuepfung">Zeichenkettenverknüpfung</a> übergeben.</p>
+
+<p>Interessant wird es, wenn der Zeitpunkt erreicht ist, zu dem die Variable <code>x</code> existiert. In diesem Fall tritt einer der vordefinierten Fälle ein. Da <code>x</code> den Wert 3 besitzt, wird der <code>throw</code>-Fehler mit dem Wert <code>falsch</code> generiert (dies soll im Beispiel einfach zeigen, dass <code>throw</code> zur Erzeugung von Werten gedacht ist, die durchaus und oft auch Fehlerzustände bezeichnen). Im nachfolgenden <code>catch(e)</code>-Block führt dies dazu, dass die Funktion <code>zeigeErgebnis()</code> aufgerufen wird. Im Beispiel wird für beide definierten <code>throw</code>-Werte die gleiche Funktion aufgerufen. Sie können an dieser Stelle jedoch auch völlig verschiedene Anweisungen notieren. Jede dieser Fehlerbehandlungsroutinen bricht gleichzeitig die Funktion <code>teste_x()</code> mit <code>return</code> ab, da <code>x</code> ja nun existiert und der "kritische Zustand" beendet ist.</p>
+
+<h4>Ausgabe des Ergebnisses</h4>
+
+<p>Die Funktion <code>zeigeErgebnis()</code> erhält als Parameter die Variablen <code>Zaehler</code> und <code>Ergebnis</code> übergeben. In der Variablen <code>Zaehler</code> ist die Anzahl der Durchläufe bis zur Existenz der Variablen <code>x</code> gespeichert und in der Variablen <code>Ergebnis</code> das Resultat der Fehlerbehandlung. Mit <code>alert()</code> wird im Beispiel zur Kontrolle ausgegeben, wie viele Durchläufe benötigt wurden und was für ein Ergebnis erreicht wurde.</p>
+
+<p>Die Ausgabe zeigt übrigens sehr deutlich, wie unterschiedlich die Browser mit <code>setTimeout()</code> umgehen. Während Internet Explorer 6 und Netscape 6 bei Tests im Schnitt sieben Durchläufe benötigten, brauchten Opera 8.5 und Firefox 1.5 durchschnittlich drei.</p>
+
+<h4>Anwendungsfälle</h4>
+
+<p>Prüfungen mit dem <code>try..catch</code>-Statement sind z.B. dann sinnvoll, wenn Sie wie im Beispiel mit <code>setTimeout()</code> zeitversetzte Aktionen ausführen und davon abhängige Anweisungen ausführen wollen. Ebenfalls sinnvoll ist das Statement, wenn Sie z.B. auf Variablen oder Funktionen zugreifen wollen, die in anderen Frame-Fenstern notiert sind, wobei das Script nicht wissen kann, ob die Datei im anderen Frame-Fenster, in der das entsprechende Script notiert ist, bereits eingelesen oder überhaupt die dort aktuell angezeigte Seite ist.</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="fensterueberwachen.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="fensterueberwachen.htm">Änderungen der Fenstergröße überwachen</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="fehlerbehandlung.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="fehlerbehandlung.htm">Fehlerbehandlung mit dem Event-Handler onerror</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">JavaScript/DOM</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Anwendungsbeispiele</a></td>
+</tr>
+</table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

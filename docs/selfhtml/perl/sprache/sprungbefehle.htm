@@ -1,0 +1,307 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: Perl / Perl-Sprachelemente / Sprungbefehle</title>
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<meta name="description"    content="Welche Sprungbefehle es in Perl gibt, und welche Auswirkungen sie auf den Programmablauf haben">
+<meta name="keywords"       content="SELFHTML, Perl, Sprungbefehle, goto, next, continue, last, redo, Schleifen">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-11-09T00:29:27+01:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/perl/sprache/sprungbefehle.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="Perl-Sprachelemente" href="index.htm">
+<link rel="next" title="Operatoren" href="operatoren.htm">
+<link rel="prev" title="Schleifen" href="schleifen.htm">
+<link rel="first" title="CGI-notwendige Anweisungen in Perl" href="cginotwendig.htm">
+<link rel="last" title="CGI-typische Aufgaben in Perl" href="cgitypisch.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">Perl</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Perl-Sprachelemente</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Sprungbefehle</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#goto">goto</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#next">next</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#continue">continue</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#last">last</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#redo">redo</a><br>
+</p>
+</td>
+</tr><tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><a class="an" name="goto">goto</a></h2>
+
+<p>Der Sprungbefehl <code>goto</code>, der es erlaubt, jederzeit an eine beliebige andere, bestimmbare Stelle im Script-Ablauf zu springen, ist längst gebrandmarkt als Inbegriff schlechter Programmierung und Spaghetti-Code-Verursacher. Er ist im Normalfall auch durch ordentlich programmierte <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="schleifen.htm">Schleifen</a> oder gut strukturierte <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="bedingt.htm">bedingte Anweisungen</a> vermeidbar.</p>
+
+<h3 class="xmp"><a class="an" name="beispiel1">Beispiel eines vollständigen CGI-Scripts in Perl:</a></h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="http://de.selfhtml.org/cgi-bin/812/sprungbefehle1.pl">Anzeigebeispiel: So sieht's aus</a> (Zum Aufruf des Scripts ist eine Internet-Verbindung erforderlich)</p>
+
+<pre>
+#!/usr/bin/perl -w
+
+use strict;
+use CGI::Carp qw(fatalsToBrowser);
+
+print "Content-type: text/html\n\n";
+print '&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"&gt;', "\n";
+print "&lt;html&gt;&lt;head&gt;&lt;title&gt;Testausgabe&lt;/title&gt;\n";
+print "&lt;/head&gt;&lt;body&gt;\n";
+
+print "&lt;h1&gt;Hallo User&lt;/h1&gt;\n";
+goto MITTEILUNG;
+
+AUFMUNTERUNG:
+print "&lt;p&gt;Das Wetter ist ja so sch&amp;ouml;n, dass man etwas unternehmen kann&lt;/p&gt;";
+goto ENDE;
+
+MITTEILUNG:
+print "&lt;p&gt;Dieser Service ist zur Zeit nicht verf&amp;uuml;gbar&lt;/p&gt;\n";
+goto AUFMUNTERUNG;
+
+ENDE:
+print "&lt;/body&gt;&lt;/html&gt;\n";
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Script gibt HTML-Code zurück. Um herauszufinden, welche <code>print</code>-Anweisungen in welcher Reihenfolge ausgegeben werden, müssen Sie den <code>goto</code>-Anweisungen folgen. Bei jeder <code>goto</code>-Anweisung wird eine Sprungmarke, ein so genanntes <strong>Label</strong> angegeben. Das sind im Beispiel die großgeschriebenen Namen. Unter diesem Namen muss das Label irgendwo im Script existieren, und zwar mit abschließendem Doppelpunkt. Anschließend geht es dann mit der Ausführung des Scripts weiter, wenn das Label angesprungen wird.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="next">next</a></h2>
+
+<p>Der Sprungbefehl <code>next</code> ist zur Verwendung innerhalb von Schleifen gedacht. Der aktuelle Schleifendurchgang wird abgebrochen. Der nächste Schleifendurchgang wird gestartet, und die Schleifenbedingung wird dabei neu ausgewertet.</p>
+
+<h3 class="xmp"><a class="an" name="beispiel2">Beispiel eines vollständigen CGI-Scripts in Perl:</a></h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="http://de.selfhtml.org/cgi-bin/812/sprungbefehle2.pl">Anzeigebeispiel: So sieht's aus</a> (Zum Aufruf des Scripts ist eine Internet-Verbindung erforderlich)</p>
+
+<pre>
+#!/usr/bin/perl -w
+
+use strict;
+use CGI::Carp qw(fatalsToBrowser);
+
+print "Content-type: text/html\n\n";
+print '&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"&gt;', "\n";
+print "&lt;html&gt;&lt;head&gt;&lt;title&gt;Testausgabe&lt;/title&gt;\n";
+print "&lt;/head&gt;&lt;body&gt;\n";
+
+my $Schluessel;
+my $Wert;
+while (($Schluessel, $Wert) = each(%ENV)) {
+  next unless $Schluessel =~ /^HTTP_.*/;
+  print "&lt;b&gt;$Schluessel&lt;/b&gt; hat den Wert &lt;b&gt;$Wert&lt;/b&gt;&lt;br&gt;\n";
+}
+
+print "&lt;/body&gt;&lt;/html&gt;\n";
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel-Script gibt <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../servercgi/cgi/umgebungsvariablen.htm">CGI-Umgebungsvariablen</a> aus, jedoch nur solche, die mit <code>HTTP_</code> beginnen. Dazu liest das Script den <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="vordefiniert.htm">vordefinierten</a> Hash <code>%ENV</code> in einer <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="schleifen.htm#schleifen_hashes">Schleife für Hashes</a> ein. Mit <code>next</code> und <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="bedingt.htm#nachgestellte">nachgestellter bedingter Anweisung</a> sowie einem entsprechenden <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="regexpr.htm">regulären Ausdruck</a> <code>/^HTTP_.*/</code> als Bedingung, die mit <code>unless</code> verneint wird, erreicht die Anweisung, dass der nachfolgende <code>print</code>-Befehl nicht ausgeführt wird, wenn die aktuelle Umgebungsvariable nicht mit <code>HTTP_</code> beginnt. Auf diese Weise werden also nur solche Variablen ausgegeben, bei denen das der Fall ist.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="continue">continue</a></h2>
+
+<p><code>continue</code> gehört genaugenommen nicht zu den Sprungbefehlen, ist aber eng mit diesen verknüpft, da <code>continue</code> angesprungen wird. Das Schlüsselwort leitet einen eigenen Anweisungsblock ein. Innerhalb dieses Anweisungsblocks, der wie üblich mit <strong>geschweiften</strong> Klammern <code>{</code> und <code>}</code> markiert wird, können Sie beliebige Anweisungen notieren. Wenn ein solcher <code>continue</code>-Block unmittelbar <strong>hinter</strong> einem Schleifenblock steht, wird er mit jedem Schleifendurchlauf ebenfalls durchlaufen und dann (außer beim allerersten Durchlauf) direkt vor der Prüfung der Schleifenbedingung ausgeführt.</p>
+
+<h3 class="xmp"><a class="an" name="beispiel3">Beispiel eines vollständigen CGI-Scripts in Perl:</a></h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="http://de.selfhtml.org/cgi-bin/812/sprungbefehle3.pl">Anzeigebeispiel: So sieht's aus</a> (Zum Aufruf des Scripts ist eine Internet-Verbindung erforderlich)</p>
+
+<pre>
+#!/usr/bin/perl -w
+
+use strict;
+use CGI::Carp qw(fatalsToBrowser);
+
+print "Content-type: text/html\n\n";
+print '&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"&gt;', "\n";
+print "&lt;html&gt;&lt;head&gt;&lt;title&gt;Testausgabe&lt;/title&gt;\n";
+print "&lt;/head&gt;&lt;body&gt;\n";
+
+my $i = 1;
+while($i &lt;= 100) {
+  next if ($i % 7 != 0);
+  print "$i ist durch 7 teilbar&lt;br&gt;\n";
+}
+continue {
+     $i++;
+}
+
+print "&lt;/body&gt;&lt;/html&gt;\n";
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel gibt alle Zahlen zwischen 1 und 100 aus, die durch 7 teilbar sind. Dabei wird eine <code>while</code>-Schleife verwendet, deren Bedingung abfragt, ob <code>$i</code> kleiner gleich <code>100</code> ist. Da <code>$i</code> mit <code>1</code> initialisiert wird, wird der Schleifenblock also erreicht. Innerhalb des Schleifenblocks wird <code>$i</code> jedoch nicht hochgezählt, was zu einer hoffnungslosen Endlosschleife führen würde. Doch dazu dient im Beispiel der <code>continue</code>-Block, der nach der abschließenden geschweiften Klammer des Schleifenblocks folgt. Innerhalb des <code>continue</code>-Blocks wird <code>$i</code> hochgezählt.</p>
+
+<p>Innerhalb der Schleife wird mit der Bedingung <code>$i % 7 != 0</code> abgefragt, ob der aktuelle Wert von <code>$i</code> durch 7 geteilt den Rest 0 ergibt (siehe Modulo-Division bei den <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="operatoren.htm#berechnung">Berechnungsoperatoren</a>). Durch <code>next</code> wird zwar sofort der nächste Schleifendurchgang gestartet, wenn die Zahl nicht ohne Rest durch 7 teilbar ist, doch die Anweisung aus dem <code>continue</code>-Block wird in jedem Fall noch ausgeführt.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="last">last</a></h2>
+
+<p>Der Sprungbefehl <code>last</code> bricht eine Schleife sofort ab.</p>
+
+<h3 class="xmp"><a class="an" name="beispiel4">Beispiel eines vollständigen CGI-Scripts in Perl:</a></h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="http://de.selfhtml.org/cgi-bin/812/sprungbefehle4.pl">Anzeigebeispiel: So sieht's aus</a> (Zum Aufruf des Scripts ist eine Internet-Verbindung erforderlich)</p>
+
+<pre>
+#!/usr/bin/perl -w
+
+use strict;
+use CGI::Carp qw(fatalsToBrowser);
+
+print "Content-type: text/html\n\n";
+print '&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"&gt;', "\n";
+print "&lt;html&gt;&lt;head&gt;&lt;title&gt;Testausgabe&lt;/title&gt;\n";
+print "&lt;/head&gt;&lt;body&gt;\n";
+
+my $jetzt;
+while(1) {
+  $jetzt = time;
+  last if ($jetzt % 2 == 0);
+}
+print "$jetzt \n";
+
+print "&lt;/body&gt;&lt;/html&gt;\n";
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel-Script ermittelt mit der Funktion <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../funktionen/datumzeit.htm#time">time</a> innerhalb einer klassischen Endlosschleife, formuliert mit <code>while(1)</code> ("Bedingung ist immer wahr") den aktuellen Zeitwert in Sekunden und speichert ihn in dem Skalar <code>$jetzt</code>. Mit der Bedingung <code>$i&nbsp;%&nbsp;2&nbsp;==&nbsp;0</code> wird abgefragt, ob der aktuelle Wert von <code>$jetzt</code> durch 2 geteilt den Rest 0 ergibt (siehe Modulo-Division bei den <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="operatoren.htm#berechnung">Berechnungsoperatoren</a>). Ist diese Bedingung der nachgestellten <code>if</code>-Anweisung erfüllt, wird der voranstehende <code>last</code>-Befehl ausgeführt. Die Schleife wird dann abgebrochen. Falls das Script also zu einem Zeitpunkt mit ungeradem Sekundenwert aufgerufen wird, wird so oft der aktuelle Sekundenwert ausgegeben, bis <code>time</code> den nächsthöheren Sekundenwert zurückliefert.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="redo">redo</a></h2>
+
+<p>Der Sprungbefehl <code>redo</code> wiederholt den aktuellen Schleifendurchlauf einfach noch einmal. Dabei wird die Schleifenbedingung nicht noch einmal ausgewertet.</p>
+
+<h3 class="xmp">Beispiel der Textdatei <var>text.txt</var>:</h3>
+
+<pre>
+das ist \
+eine Datei mit einer Konvention.
+Ein Backslash am Ende \
+einer Zeile bedeutet: \
+keine neue Zeile!
+</pre>
+
+<h3 class="xmp"><a class="an" name="beispiel5">Beispiel eines vollständigen CGI-Scripts in Perl:</a></h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="http://de.selfhtml.org/cgi-bin/812/sprungbefehle5.pl">Anzeigebeispiel: So sieht's aus</a> (Zum Aufruf des Scripts ist eine Internet-Verbindung erforderlich)</p>
+
+<pre>
+#!/usr/bin/perl -w
+
+use strict;
+use CGI::Carp qw(fatalsToBrowser);
+
+open(FH,"&lt;text.txt");
+my @Zeilen;
+while(&lt;FH&gt;) {
+  chomp;
+  if(s/\\$//) {
+   $_ .= &lt;FH&gt;;
+   redo unless(eof(FH));
+  }
+  push(@Zeilen,$_."\n");
+}
+close(FH);
+
+print "Content-type: text/html\n\n";
+print '&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"&gt;', "\n";
+print "&lt;html&gt;&lt;head&gt;&lt;title&gt;Testausgabe&lt;/title&gt;\n";
+print "&lt;/head&gt;&lt;body&gt;&lt;pre&gt;\n";
+print @Zeilen;
+print "&lt;/pre&gt;&lt;/body&gt;&lt;/html&gt;\n";
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel zeigt eine klassische Verwendung von <code>redo</code>. Dabei geht es darum, mehrere Zeilen aufgrund einer Konvention zu einer zusammenzufassen. Die zuvor gezeigte Textdatei enthält zwar fünf Zeilen, aber am Ende sollen daraus nur zwei Zeilen gemacht werden. Zeilen, die mit Backslash enden, sollen in der nächsten Zeile weitergehen.</p>
+
+<p>Das Script öffnet die Textdatei mit der Funktion <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../funktionen/einausgabe.htm#open">open</a>. In einer <code>while</code>-Schleife liest es die jeweils nächste Zeile der Datei ein. Die Schleifenbedingung ist dabei <code>&lt;FH&gt;</code>. Dies bedeutet: nächste Portion aus der mit dem Datei-Handle <code>FH</code> verbundenen Datei, und zwar im skalaren Kontext. In diesem Kontext wird dann die nächste Zeile der Datei geliefert.</p>
+
+<p>Innerhalb der Schleife wird mit der Funktion <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../funktionen/zeichenketten.htm#chomp">chomp</a> erst einmal das abschließende Zeilenumbruch-Zeichen der aktuellen Zeile entfernt. Dann wird mit dem <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="regexpr.htm">regulären Ausdruck</a> <code>s/\\$//</code> ein eventuell vorhandener Backslash am Ende der Zeile gesucht und ersetzt. Falls tatsächlich ein Backslash gefunden und ersetzt wurde, ist zugleich die Bedingung für das <code>if</code> wahr, und es wird der davon abhängige Anweisungsblock ausgeführt. In diesem Block wird mit <code>$_&nbsp;.= &nbsp;&lt;FH&gt;;</code> die nächste Zeile eingelesen und an die aktuelle angehängt. Benutzt wird dabei die <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="vordefiniert.htm">vordefinierte Variable</a> <code>$_</code> und der <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="operatoren.htm#zeichenkettenverknuepfung">Operator für Zeichenkettenverknüpfung</a> (<code>.</code>). Anschließend wird mit <code>redo</code> wieder an den Beginn der Schleife gesprungen, sofern nicht (<code>unless</code>) das Dateiende (<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../funktionen/einausgabe.htm#eof">eof</a>) erreicht ist.</p>
+
+<p><code>redo</code> bewirkt, dass die Schleifenbedingung nicht neu ausgewertet wird. Es wird also keine nächste Zeile eingelesen. Die Variable <code>$_</code>, auf die sich sowohl die Anweisung <code>chomp;</code> als auch der reguläre Ausdruck beziehen, wurde ja schon innerhalb des <code>if</code>-Blocks mit einem neuen Wert versorgt. Zum Verständnis: mit <code>chomp;</code> ist so viel gemeint wie: <code>chomp($_);</code>, und mit <code>if(s/\\$//)</code> so viel wie: <code>if($_&nbsp;=~&nbsp;s/\\$//)</code>. Sowohl das Entfernen des abschließenden Zeilenumbruchs als auch das Bewerten, ob ein abschließender Backslash vorkommt, bezieht sich also implizit auf die vordefinierte Variable <code>$_</code>.</p>
+
+<p>Wenn im Beispiel die <code>if</code>-Bedingung nicht mehr wahr ist, gelangt das Script dorthin, wo mit der Funktion <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../funktionen/listenhashes.htm#push">push</a> die aktuelle Zeile dem Array <code>@Zeilen</code> hinzugefügt wird. Darin sind am Ende nur die beiden Zeilen der Datei gespeichert, die per Konvention übrig bleiben sollen. Das Script gibt den Inhalt von <code>@Zeilen</code> am Ende aus.</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="operatoren.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="operatoren.htm">Operatoren</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="schleifen.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="schleifen.htm">Schleifen</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">Perl</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Perl-Sprachelemente</a></td>
+</tr>
+</table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

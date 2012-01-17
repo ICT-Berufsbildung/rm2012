@@ -1,0 +1,195 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: Einführung / Web-Technologien / HTML</title>
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<meta name="description"    content="Welche Aufgaben HTML hat, und nach welchen Prinzipien es aufgebaut ist.">
+<meta name="keywords"       content="SELFHTML, Web-Technologien, Technologien, HTML, Hypertext Markup Language, HTML 2.0, HTML 3.2, HTML 4.0, HTML 4.01, XHTML, XHTML 1.0, XHTML 1.1">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-08-22T21:21:39+02:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/intro/technologien/html.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="Web-Technologien" href="index.htm">
+<link rel="next" title="Stylesheets" href="css.htm">
+<link rel="prev" title="Entstehung des World Wide Web" href="../internet/www.htm">
+<link rel="last" title="Flash" href="flash.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">Einführung</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Web-Technologien</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">HTML</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#lingua_franca">HTML als "lingua franca" des Web</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#klartextformat">HTML als software-unabhängiges Klartextformat</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#auszeichnungssprache">HTML als Auszeichnungssprache</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#hypertext">HTML für Hypertext</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#versionen">HTML-Versionen</a><br>
+</p>
+</td>
+</tr><tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><a class="an" name="lingua_franca">HTML als "lingua franca" des Web</a></h2>
+
+<p>Unter einer "lingua franca" versteht man eine "Brot- und Buttersprache", eine Sprache, die jeder kennt, jeder spricht, jeder leicht erlernen kann und jeder braucht. HTML ist eine solche Sprache. Vom Web-Gründer Tim Berners-Lee entwickelt, wurde HTML im Zuge des Web-Booms zum erfolgreichsten und verbreitetsten Dateiformat der Welt. Immer wieder rümpfen Entwickler, die gerne alles, was einfach sein könnte, durch tausend Filter und Übersetzer jagen, um es kompliziert zu machen und ihren technischen Durst zu stillen, über HTML die Nase - eben weil es so einfach ist. Aber erstens ist es bei genauerem Hinsehen gar nicht so einfach - fast kein namhaftes Web-Angebot - egal ob Suchmaschine, Online-Magazin oder Firmenauftritt - ist bis heute in der Lage, fehlerfreies und standardkonformes HTML auf seinen Web-Seiten zu realisieren. Und zweitens reicht HTML für die Mehrzahl der Inhalte, die heute im Web angeboten werden, vollkommen aus. Denn HTML ist eine Sprache zur Strukturierung von Texten, wobei aber auch die Möglichkeit besteht, Grafiken und multimediale Inhalte in Form einer Referenz einzubinden und in den Text zu integrieren.</p>
+
+<p>Mit HTML können Sie Überschriften, Textabsätze, Listen und Tabellen erzeugen. Sie können anklickbare Verweise auf beliebige andere Web-Seiten oder Datenquellen im Internet erzeugen. Nicht-textuelle Inhalte können Sie wie bereits erwähnt referenzieren. Sie können Formulare in den Text integrieren. Und last but not least bietet HTML Schnittstellen für Erweiterungssprachen wie <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="css.htm">Stylesheets</a> oder <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="javascript.htm">JavaScript</a> an, mit deren Hilfe Sie HTML-Elemente nach Wunsch gestalten und formatieren oder Interaktion mit dem Anwender realisieren können.</p>
+
+<p>HTML ist also sehr durchdacht und in ein Gesamtkonzept an weiteren Sprachen eingebunden. Wer behauptet, HTML sei nichts mehr für professionelles Web-Publishing, outet sich meistens nur als feuchtäugiger Technik-Junkie und behauptet letztlich nur, normale Texte seien nichts mehr für professionelles Web-Publishing. Und wer das behauptet, stellt sich selber ins Abseits der gewachsenen schriftlichen Kultur. Solange es Autoren gibt, die Texte schreiben und dazu die üblichen Mittel zur Textstrukturierung benötigen, wird es aus web-technischer Sicht Leute geben, die HTML gut brauchen können.</p>
+
+<p>Als "lingua franca" ist HTML allerdings mit diversen spezielleren Anforderungen schlichtweg überfordert. HTML allein kann weder Grafik-Designer befriedigen, die jeden Pixel am Bildschirm kontrollieren wollen, noch Daten-Designer, die aus der Welt der relationalen Datenbanken kommen und sich anwendungsspezifische Lösungen wünschen. Deshalb gibt es heute Style-Sprachen wie CSS, und es gibt Lösungen wie <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="xml.htm">XML</a>, um anwendungsspezifisches Daten-Design zu ermöglichen.</p>
+
+<p>All das ändert aber nichts daran, dass HTML eine hervorragend geeignete, standardisierte und wegen der weiten Verbreitung der Web-Browser praktisch überall verfügbare Sprache für Text und Hypertext darstellt. Das <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../internet/www.htm#w3c">W3-Konsortium</a>, das für die Standardisierung von HTML zuständig ist, ist zwar bemüht, HTML von allen Sünden der Anfangsjahre zu reinigen und es als einfache, reine Text-Strukturierungssprache zu etablieren. Doch in der Praxis dient HTML heute auch als Basis zum Erstellen von Web-Seiten-Layouts, und daran wird sich wohl auch so schnell nichts ändern.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="klartextformat">HTML als software-unabhängiges Klartextformat</a></h2>
+
+<p>HTML ist ein so genanntes Klartextformat. HTML-Dateien können Sie mit jedem beliebigen Texteditor bearbeiten, der Daten als reine Textdateien abspeichern kann. Es gibt also keine bestimmte Software, die man zum Erstellen von HTML-Dateien benötigt. Zwar gibt es längst mächtige Programme, die auf das Editieren von HTML spezialisiert sind, doch das ändert nichts an der entscheidenden Eigenschaft: HTML ist nicht an irgendein bestimmtes, kommerzielles Software-Produkt gebunden. Diese wichtige, vielleicht sogar wichtigste Eigenschaft von HTML sollten Sie immer im Auge behalten, wenn man Ihnen erzählen will, dass Web Publishing nur mit bestimmten Software-Produkten möglich sei.</p>
+
+<p>Da HTML ein Klartextformat ist, lässt es sich auch hervorragend mit Hilfe von Programmen generieren. Von dieser Möglichkeit machen beispielsweise <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../servercgi/cgi/cgihtml.htm">CGI-Scripts</a> Gebrauch. Wenn Sie im Web zum Beispiel einen Suchdienst benutzen und nach einer Suchanfrage die Ergebnisse präsentiert bekommen, dann ist das, was Sie am Bildschirm sehen, HTML-Code, der von einem Script generiert wurde.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="auszeichnungssprache">HTML als Auszeichnungssprache</a></h2>
+
+<p>HTML bedeutet <b>H</b>yper<b>T</b>ext <b>M</b>arkup <b>L</b>anguage. Es handelt sich dabei um eine Sprache, die mit Hilfe von SGML (Standard Generalized Markup Language) definiert wird. SGML ist als ISO-Norm 8879 festgeschrieben. Mittlerweile gibt es einen Ableger von HTML namens XHTML. In der Sprachversion 1.0 ist XHTML eine Redefinition von HTML mit Hilfe von XML. XML hat nämlich ähnliche Aufgaben wie SGML.</p>
+
+<p>HTML ist eine so genannte Auszeichnungssprache (Markup Language). Sie hat die Aufgabe, die logischen Bestandteile eines textorientierten Dokuments zu beschreiben. Als Auszeichnungssprache bietet HTML daher die Möglichkeit an, typische Elemente eines textorientierten Dokuments, wie Überschriften, Textabsätze, Listen, Tabellen oder Grafikreferenzen, als solche auszuzeichnen.</p>
+
+<p>Das Auszeichnungsschema von HTML geht von einer hierarchischen Gliederung aus. HTML zeichnet Inhalte von Dokumenten aus. Dokumente haben globale Eigenschaften wie zum Beispiel Kopfdaten. Der eigentliche Inhalt besteht aus Elementen, zum Beispiel einer Überschrift 1. Ordnung, Textabsätzen, Tabellen und Grafiken. Einige dieser Elemente haben wiederum Unterelemente. So enthält ein Textabsatz zum Beispiel eine als betont oder fett markierte Textstelle, eine Aufzählungsliste besteht aus einzelnen Listenpunkten, und eine Tabelle gliedert sich in einzelne Tabellenzellen.</p>
+
+<p>Die meisten dieser Elemente haben einen fest definierbaren Erstreckungsraum. So geht eine Überschrift vom ersten bis zum letzten Zeichen, eine Aufzählungsliste vom ersten bis zum letzten Listenpunkt, oder eine Tabelle von der ersten bis zur letzten Zelle. Auszeichnungen markieren Anfang und Ende von Elementen. Um etwa eine Überschrift auszuzeichnen, lautet das Schema:</p>
+<table><tr><td><code>[Überschrift]</code> <i>Text der Überschrift </i><code>[Ende Überschrift]</code></td></tr></table>
+
+<p>Bei einem Element, das wiederum Unterelemente besitzt, etwa einer Aufzählungsliste, lässt sich das gleiche Schema anwenden:</p>
+<table><tr><td><code>[Liste]</code><br>
+<code>[Listenpunkt]</code> <i>Text des Listenpunkts </i><code>[Ende Listenpunkt]</code><br>
+<code>[Listenpunkt]</code> <i>Text des Listenpunkts </i><code>[Ende Listenpunkt]</code><br>
+<code>[Ende Liste]</code></td></tr></table>
+
+<p>Web-Browser, die HTML-Dateien am Bildschirm anzeigen, lösen die Auszeichnungsmarkierungen auf und stellen die Elemente dann in optisch gut erkennbarer Form am Bildschirm dar. Dabei ist die Bildschirmdarstellung aber nicht die einzige denkbare Ausgabeform. HTML kann beispielsweise genauso gut mit Hilfe synthetisch erzeugter Stimmen auf Audio-Systemen ausgegeben werden.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="hypertext">HTML für Hypertext</a></h2>
+
+<p>Eine der wichtigsten Eigenschaften von HTML ist die Möglichkeit, Verweise zu definieren. Verweise ("Hyperlinks") können zu anderen Stellen im eigenen Projekt führen, aber auch zu beliebigen anderen Adressen im World Wide Web und sogar zu Internet-Adressen, die nicht Teil des Web sind.</p>
+
+<p>Durch diese einfache Grundeigenschaft eröffnet HTML völlig neue Welten. Das Bewegen zwischen räumlich weit entfernten Rechnern wird bei modernen grafischen Web-Browsern auf einen Mausklick reduziert. In Ihren eigenen HTML-Dateien können Sie Verweise notieren und dadurch inhaltliche Verknüpfungen zwischen Ihren eigenen Inhalten und denen anderer Anbieter herstellen. Auf dieser Grundidee beruht letztlich das gesamte World Wide Web, und dieser Grundidee verdankt es seinen Namen.</p>
+
+<p>Im Zeitalter der Kommerzialisierung des Internet sind natürlich auch die Verweise zu einem kommerziellen Gegenstand geworden. Anklickbare Werbe-Grafiken ("Banner") auf häufig besuchten Seiten führen zu Anbietern, die für die Platzierung der Banner Miete bezahlen. Auch das sind Verweise. Glücklicherweise gibt es daneben aber weiterhin genügend "herkömmliche" Verweise im WWW, die einfach nur die Grundidee des Web verfolgen und zur weltweiten Vernetzung von Information beitragen wollen.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="versionen">HTML-Versionen</a></h2>
+
+<p>Die erste Sprachversion von HTML gilt heute nicht mehr als erwähnenswert. Die Spezifikation zu dieser HTML-Version ist auf den Seiten des W3-Konsortiums, das für die Standardisierung von HTML verantwortlich ist, auch gar nicht mehr verfügbar.</p>
+
+<p>HTML 1.0 enthielt Auszeichnungen für Standard-Elemente wie Überschriften, Textabsätze, für Grafikreferenzen und natürlich für Verweise.</p>
+
+<p>HTML 2.0 wurde im November 1995 offizieller Sprachstandard. Die Spezifikation für HTML 2.0 ist beim W3-Konsortium noch verfügbar:</p>
+
+<p><img src="../../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.w3.org/MarkUp/html-spec/html-pubtext.html">HTML 2.0 Spezifikation</a></p>
+
+<p>Die Version 2.0 von HTML gilt heute als der allerkleinste gemeinsame Nenner. Allerdings enthält HTML 2.0 durchaus Sprachelemente, die bis auf den heutigen Tag von den großen Browsern nicht oder nicht vollständig unterstützt werden, etwa das <code>&lt;link&gt;</code>-Element.</p>
+
+<p>HTML 2.0 wurde allgemein als Enttäuschung empfunden, da gerade Netscape in seiner Entwicklung schon viel weiter war: So war HTML 2.0 Standard, als der Navigator in seiner überwältigenden Produktversion 2.0 auf den Markt kam. Darin waren bereits solche Dinge wie Frames (Mehrfenstertechnik) und Multimedia-Referenzen implementiert, die meilenweit über den offiziellen HTML-Standard hinausgingen. Die meisten Ersteller von Web-Seiten berauschten sich damals an den neuen Möglichkeiten von Netscape und hatten wenig Verständnis für die Restriktionen von HTML 2.0.</p>
+
+<p>HTML 3.2 wurde nach langen Diskussionen am 14.1.1997 offizieller Sprachstandard. Die Spezifikation zu HTML 3.2 ist auf den Seiten des W3-Konsortiums verfügbar:</p>
+
+<p><img src="../../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.w3.org/TR/REC-html32.html">HTML 3.2 Spezifikation</a></p>
+
+<p>Dass diese Version eine schwere Geburt war, lässt sich schon an der merkwürdigen Versionsnummer erahnen. Das W3-Konsortium, von den Erfolgen eines Netscape-Browsers unbeeindruckt, entwickelte zunächst eine geplante Version 3.0. Die Vorschläge zu HTML 3.0 enthielten zwar etliche interessante Bestandteile. Doch insgesamt liefen die Vorschläge völlig an den neuen Realitäten im Web vorbei. HTML 3.2 ist das Ergebnis einer völligen Umarbeitung der Vorschläge zu dem niemals offiziell gewordenen HTML 3.0. Endlich wurden zumindest Tabellen offizieller Bestandteil von HTML. Daneben aber auch diverse Elemente zur physischen Textauszeichnung. Aus letzterem Grund stellt HTML 3.2 aus heutiger Sicht ein mittleres Unglück für die Entwicklung von HTML dar. Denn in dieser Version wurde versucht, HTML als Sprache für optisches Design zu etablieren, was jedoch nicht dem Wesen der Sprache entsprach und auch nur halbherzig implementiert war. Viele Sprachbestandteile, die in HTML 3.2 eingeführt wurden, sind mittlerweile als <i>deprecated</i> (missbilligt) eingestuft und sollen künftig wieder aus dem HTML-Sprachstandard entfallen, weil sie durch andere, ergänzende Technologien wie <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="css.htm">CSS</a> realisierbar sind.</p>
+
+<p>HTML 4.0 wurde erstmals am 18.2.1998 als Sprachstandard verabschiedet. Diese Sprachversion wurde jedoch mehrfach überarbeitet und liegt mittlerweile in einer Version 4.01 vor. Die jeweils aktuelle Version von HTML 4.x finden Sie auf den Seiten des W3-Konsortiums:</p>
+
+<p><img src="../../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.w3.org/TR/html4/">HTML 4.x Spezifikation</a></p>
+
+<p>HTML 4.0 stellt den Versuch dar, sich auf die Kernaufgaben von HTML zurückzubesinnen. Das Arsenal der Sprachbestandteile dieser Version regelt vor allem die Einbindung von Cascading Style Sheets (CSS) und von Script-Sprachen wie JavaScript in HTML. Ein weiterer wichtiger Schwerpunkt ist das Thema <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../../inter/index.htm">Internationalisierung</a>. HTML 4.0 setzt im Gegensatz zu seinen Vorläufern voll auf das Unicode-System und erlaubt damit, Texte in allen nur erdenklichen Sprachen der Welt HTML-gerecht zu notieren. Es gibt allerdings auch viel Verwirrendes in HTML 4.0. Dazu gehören vor allem die drei Sprachvarianten, die das W3-Konsortium anbietet: "HTML Strict", "HTML Transitional" und "HTML Frameset". Für Anfänger ist die Politik, die hinter dieser Aufteilung steckt, kaum nachvollziehbar, und so ist es kein Wunder, dass sich die meisten Web-Entwickler bis heute wenig Gedanken über diese Feinheiten machen. Das ist zwar schade, weil es sich durchaus lohnt, sich mit den Bestrebungen des W3-Konsortiums eingehender auseinanderzusetzen. Andererseits ist es verständlich, dass jemand, der "mal eben" seine Homepage im Web veröffentlichen will, keine Lust hat, sich mit konzept-theoretischen Aspekten des Designs von Auszeichnungssprachen auseinanderzusetzen. Mit diesem Widerspruch lebt HTML 4.0 leider.</p>
+
+<p>Verkompliziert wurde die Sache außerdem noch dadurch, dass HTML im Zuge der Etablierung von <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="xml.htm">XML</a> in Gestalt von XHTML neu definiert wurde. So existiert heute neben dem SGML-basierten, klassischen HTML das XML-basierte XHTML. Letzteres ist zwar auch "nur" HTML, aber aufgrund XML-bedingter Gegebenheiten gibt es einige Unterschiede zu HTML. Von XHTML gibt es mittlerweile auch schon zwei Versionen: eine Version 1.0 und eine Version 1.1:</p>
+
+<p><img src="../../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.w3.org/TR/xhtml1/">XHTML 1.0 Spezifikation</a><br>
+<img src="../../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.w3.org/TR/xhtml11/">XHTML 1.1 Spezifikation</a></p>
+
+<p>Angesichts dieser verwirrenden Versionen-Politik, die einen Kompromiss aus den Vorstellungen verschiedener Seiten und Interessen darstellt, gilt es für HTML-Anfänger vor allem, Ruhe zu bewahren und nicht gleich angewidert davonzurennen. Es ist durchaus möglich, HTML-4.0- oder XHTML-1.0-gerechte Web-Seiten zu erstellen, die richtig gut aussehen. Es gehört einfach ein wenig Kenntnis der Sachlage dazu. Innerhalb des HTML-Kapitels der vorliegenden Dokumentation wird versucht, die "Philosophie" des heutigen HTML so zu vermitteln, dass keine Entmutigungs-Effekte eintreten.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Im Link-Verzeichnis des Online-Angebots von SELFHTML aktuell finden Sie weitere relevante und aktuelle Verweise, z.B. zu deutschen Übersetzungen und weiteren Quellen:</p>
+
+<p><img src="../../src/serverdok.gif" width="15" height="10" alt="Online-Seite">&nbsp;<a target="_top" href="http://aktuell.de.selfhtml.org/links/html.htm">SELFHTML-Linkverzeichnis: HTML/XHTML</a></p>
+
+<p>Innerhalb der vorliegenden Dokumentation werden HTML 4.0 und XHTML 1.0 im Kapitel <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../../html/index.htm">HTML</a> beschrieben.</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="css.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="css.htm">Stylesheets</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="../internet/www.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../internet/www.htm">Entstehung des World Wide Web</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">Einführung</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Web-Technologien</a></td>
+</tr>
+</table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

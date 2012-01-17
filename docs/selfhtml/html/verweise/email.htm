@@ -1,0 +1,284 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: HTML/XHTML / Verweise (Links) / E-Mail-Verweise</title>
+<meta name="description"    content="Wie Sie in HTML Verweise auf E-Mail-Adressen setzen können, und welche Optionen dabei möglich sind.">
+<meta name="keywords"       content="SELFHTML, HTML, XHTML, Verweise, Links, Hyperlinks, E-Mail-Verweise, mailto-Verweise, a, href, mailto, subject, body, cc, bcc, vordefiniertes Subject, vordefinierter Body, Sonderzeichen">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-10-31T12:25:34+01:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/html/verweise/email.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="Verweise (Links)" href="index.htm">
+<link rel="next" title="Download-Verweise und Verweise auf beliebige Dateien" href="dateitypen.htm">
+<link rel="prev" title="Projekt-externe Verweise" href="projektextern.htm">
+<link rel="first" title="Verweise definieren und gestalten" href="definieren.htm">
+<link rel="last" title="Tabulator-Reihenfolge und Tastaturkürzel für Verweise" href="tastatur.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">HTML/XHTML</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Verweise (Links)</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">E-Mail-Verweise</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#definieren">Verweis zu E-Mail-Adresse definieren</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#optionen">Optionen bei E-Mail-Verweisen</a><br>
+</p>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><img src="../../src/html20.gif" width="30" height="30" alt="HTML 2.0" title="HTML 2.0"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../../src/msie4.gif" width="30" height="30" alt="MS IE 4.0" title="MS IE 4.0"><img src="../../src/netsc2.gif" width="30" height="30" alt="Netscape 2.0" title="Netscape 2.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="definieren">Verweis zu E-Mail-Adresse definieren</a></h2>
+
+<p>Sie können auf jede beliebige E-Mail-Adresse im Internet-Format einen Verweis setzen. Eine Internet-gerechte E-Mail-Adresse erkennen Sie an dem Zeichen <var>@</var> in der Mitte der Adresse. Wenn der Anwender auf den Verweis klickt, kann er eine E-Mail an den betreffenden Empfänger absetzen. Normalerweise benutzen Anbieter von WWW-Seiten diese Möglichkeit, um Besuchern die Möglichkeit zu bieten, eine E-Mail an die eigene Adresse zu senden, zum Beispiel wegen Feedback zum Angebot. Sie können aber auch Verweise zu anderen E-Mail-Adressen anbieten.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/a_href_mailto.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+       "http://www.w3.org/TR/html4/strict.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;E-Mail-Verweise definieren&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h1&gt;Impressum&lt;/h1&gt;
+
+&lt;p&gt;Verantwortlich f&amp;uuml;r den Inhalt dieser Seiten ist:&lt;br&gt;
+  &lt;a href="mailto:fritz.eierschale@example.org"&gt;Fritz Eierschale, fritz.eierschale@example.org&lt;/a&gt;
+&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Verweise auf E-Mail-Adressen funktionieren nach dem gleichen Schema wie alle anderen Verweise. Beim <code>href</code>-Attribut des einleitenden <code>&lt;a&gt;</code>-Tags wird das Verweisziel angegeben. Verweisziele vom Typ "E-Mail" beginnen immer mit <code>mailto:</code> (<b>ohne</b> <code>//</code> dahinter!).</p>
+
+<p>Der Verweis ist bei Anwendern nur ausführbar, wenn der Web-Browser das Erstellen und Absenden von E-Mails unterstützt (z.B. Netscape), oder wenn bei solchen Verweisen automatisch ein E-Mail-Programm gestartet wird (dies ist z.B. beim Internet Explorer der Fall).</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Es ist sinnvoll, im Verweistext die E-Mail-Adresse noch einmal explizit zu nennen, so wie im obigen Beispiel, damit Anwender, bei denen der E-Mail-Verweis nicht ausführbar ist, auf Wunsch separat eine E-Mail senden können.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/msie4.gif" width="30" height="30" alt="MS IE 4.0" title="MS IE 4.0"><img src="../../src/netsc2.gif" width="30" height="30" alt="Netscape 2.0" title="Netscape 2.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="optionen">Optionen bei E-Mail-Verweisen</a></h2>
+
+<p>Die hier beschriebenen Optionen sind nicht im HTML-Standard verankert, widersprechen diesem aber auch nicht unbedingt, solange die Kodierungsregeln für URIs eingehalten werden. Da sie von vielen Browsern interpretiert werden, sollen sie hier erwähnt werden.</p>
+
+<p>Sie können:</p>
+
+<ul>
+<li>E-Mail-Verweise an mehrere Empfänger senden, wahlweise <code>cc</code> (sichtbare Kopienempfänger) oder <code>bcc</code> (unsichtbare Kopienempfänger),</li>
+<li>anstelle einer einfachen E-Mail-Adresse ein vollständiges Empfängerschema angeben von der Art:<br>
+<code>Fritz Eierschale &lt;fritz.eierschale@example.org&gt;</code></li>
+<li>ein Subject vordefinieren, sodass beim Öffnen des E-Mail-Editors das Betreff-Feld bereits mit einem Text Ihrer Wahl ausgefüllt ist,</li>
+<li>einen Body-Inhalt vordefinieren, sodass beim Öffnen des E-Mail-Editors bereits Text im Nachrichtentext der E-Mail steht, z.B. eine Anrede,</li>
+<li>alle Optionen kombinieren.</li>
+</ul>
+
+<p>Es besteht jedoch keinerlei Garantie, dass alle Möglichkeiten in allen Browsern und allen Kombinationen mit E-Mail-Programmen funktionieren.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/a_href_mailto_opt.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+       "http://www.w3.org/TR/html4/strict.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Optionen bei E-Mail-Verweisen&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h1&gt;Tolle E-Mails&lt;/h1&gt;
+
+&lt;p&gt;Mail an einen Hauptempf&amp;auml;nger und einen sichtbaren Kopienempf&amp;auml;nger:&lt;br&gt;
+  &lt;a href="mailto:beispiel@example.org?cc=heidi.bratze@example.org"&gt;Mail mit Kopie&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;Mail an einen Hauptempf&amp;auml;nger und einen unsichtbaren Kopienempf&amp;auml;nger:&lt;br&gt;
+  &lt;a href="mailto:beispiel@example.org?bcc=heidi.bratze@example.org"&gt;Mail mit Geheimkopie&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;Mail mit vordefiniertem Subject (Betreff):&lt;br&gt;
+  &lt;a href="mailto:beispiel@example.org?subject=eine%20Mail%20von%20deinen%20Web-Seiten"&gt;Mail mit Betreff&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;Mail mit vordefiniertem Body (Nachrichtentext):&lt;br&gt;
+  &lt;a href="mailto:beispiel@example.org?body=Hallo%20Fritz,%0D%0A%0D%0Aich%20wollte%20nur%20sagen,%20dass%20"&gt;Mail mit Body&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;Mail mit kombinierten Optionen:&lt;br&gt;
+  &lt;a href="mailto:fritz.eierschale@example.org?cc=heidi.bratze@example.org&amp;amp;subject=Hallo%20Fritz,%20hallo%20Heidi"&gt;cc und Subject&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;Mail an zwei Hauptempf&amp;auml;nger:&lt;br&gt;
+  &lt;a href="mailto:beispiel@example.org,%20heidi.bratze@example.org"&gt;Mail an zwei&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;Mail mit vollst&amp;auml;ndigem Adressierungsschema:&lt;br&gt;
+  &lt;a href="mailto:Fritz%20Eierschale%20%3Cfritz.eierschale@example.org%3E"&gt;Mail mit Adressierungsschema&lt;/a&gt;
+&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Die Optionen werden in dem Wert notiert, der dem <code>href</code>-Attribut zugewiesen wird. Es gibt also keine speziellen HTML-Attribute für diese Optionen, und deshalb ist die Handhabung auch etwas umständlich. Zuerst wird wie üblich der Empfänger notiert. In den obigen Beispielen (mit Ausnahme des letzten) geschieht das jeweils durch <code>mailto:beispiel@example.org</code>. Dahinter wird ein Fragezeichen <code>?</code> notiert. Das ist in der URI-Syntax das übliche Zeichen, um Parameter an eine aufgerufene Adresse zu übergeben. Hinter dem Fragezeichen folgen die Parameter. Jede Option ist so ein Parameter und besteht aus einem Namen, einem Istgleichzeichen und einem zugewiesenen Wert. Als Optionsnamen sind erlaubt:<br>
+<code>cc</code> (sichtbarer Kopienempfänger),<br>
+<code>bcc</code> (unsichtbarer Kopienempfänger),<br>
+<code>subject</code> (Betreff) und<br>
+<code>body</code> (Nachrichtentext).<br>
+Ein Konstrukt wie <code>cc=heidi.bratze@example.org</code> ist also ein vollständiger Parameter und bedeutet: "sichtbare Kopie an heidi.bratze@example.org".</p>
+
+<p>Bei den Wertzuweisungen an die Parameter können Zeichen vorkommen, die nicht zu einer gültigen URI gehören. Damit die URI gültig bleibt (andernfalls wäre das Dokument auch kein gültiges HTML mehr), müssen diverse Zeichen maskiert werden. Die Maskierung besteht darin, ein Prozentzeichen <code>%</code> zu notieren, gefolgt von der hexadezimal ausgedrückten Zeichennummer des gewünschten Zeichens.</p>
+
+<p>Die folgende Tabelle listet Zeichen auf, die maskiert werden müssen, weil sie innerhalb von URIs nicht vorkommen dürfen oder eine bestimmte Bedeutung haben. Links steht das Zeichen, rechts die Zeichenkette, mit der Sie das Zeichen maskieren müssen:</p>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<th>Zeichen</th>
+<th>Zeichenkette für Maskierung</th>
+</tr><tr>
+<td class="code" nowrap="nowrap"><code>[neue Zeile]</code></td>
+<td class="code" nowrap="nowrap"><code>%0A</code></td>
+</tr><tr>
+<td class="code" nowrap="nowrap"><code>[Wagenrücklauf]</code></td>
+<td class="code" nowrap="nowrap"><code>%0D</code></td>
+</tr><tr>
+<td class="code" nowrap="nowrap"><code>[Leerzeichen]</code></td>
+<td class="code" nowrap="nowrap"><code>%20</code></td>
+</tr><tr>
+<td class="code" nowrap="nowrap"><code>!</code></td>
+<td class="code" nowrap="nowrap"><code>%21</code></td>
+</tr><tr>
+<td class="code" nowrap="nowrap"><code>#</code></td>
+<td class="code" nowrap="nowrap"><code>%23</code></td>
+</tr><tr>
+<td class="code" nowrap="nowrap"><code>%</code></td>
+<td class="code" nowrap="nowrap"><code>%25</code></td>
+</tr><tr>
+<td class="code" nowrap="nowrap"><code>*</code></td>
+<td class="code" nowrap="nowrap"><code>%2A</code></td>
+</tr><tr>
+<td class="code" nowrap="nowrap"><code>/</code></td>
+<td class="code" nowrap="nowrap"><code>%2F</code></td>
+</tr><tr>
+<td class="code" nowrap="nowrap"><code>&lt;</code></td>
+<td class="code" nowrap="nowrap"><code>%3C</code></td>
+</tr>
+</tr><tr>
+<td class="code" nowrap="nowrap"><code>&gt;</code></td>
+<td class="code" nowrap="nowrap"><code>%3E</code></td>
+</tr><tr>
+<td class="code" nowrap="nowrap"><code>?</code></td>
+<td class="code" nowrap="nowrap"><code>%3F</code></td>
+</tr>
+</tr></table>
+
+<p>Ferner müssen Sie alle Zeichen maskieren, die nicht in der <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../inter/zeichenkodierungen.htm">ASCII-Zeichentabelle</a> vorkommen, also z.B. deutsche Umlaute und scharfes S. Die folgende Tabelle listet die wichtigsten Zeichen und ihre Maskierung auf:</p>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<th>Zeichen</th>
+<th>Zeichenkette für Maskierung</th>
+<th>Zeichen</th>
+<th>Zeichenkette für Maskierung</th>
+</tr><tr>
+<td class="code" nowrap="nowrap"><code>Ä</code></td>
+<td class="code" nowrap="nowrap"><code>%C4</code></td>
+<td class="code" nowrap="nowrap"><code>ä</code></td>
+<td class="code" nowrap="nowrap"><code>%E4</code></td>
+</tr><tr>
+<td class="code" nowrap="nowrap"><code>Ö</code></td>
+<td class="code" nowrap="nowrap"><code>%D6</code></td>
+<td class="code" nowrap="nowrap"><code>ö</code></td>
+<td class="code" nowrap="nowrap"><code>%F6</code></td>
+</tr><tr>
+<td class="code" nowrap="nowrap"><code>Ü</code></td>
+<td class="code" nowrap="nowrap"><code>%DC</code></td>
+<td class="code" nowrap="nowrap"><code>ü</code></td>
+<td class="code" nowrap="nowrap"><code>%FC</code></td>
+</tr><tr>
+<td class="code" nowrap="nowrap"><code>ß</code></td>
+<td class="code" nowrap="nowrap"><code>%DF</code></td>
+<td class="code" nowrap="nowrap"><code>&nbsp;</code></td>
+<td class="code" nowrap="nowrap"><code>&nbsp;</code></td>
+</tr>
+</table>
+
+<p>Zur Ermittlung weiterer Zeichen können Sie beispielsweise in der <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../inter/zeichenkodierungen.htm#iso8859_liste">Codetabelle der ISO-8859-1-Kodierung</a> die dezimale Nummer des gewünschten Zeichens ermitteln, von dieser Dezimalzahl dann mit dem <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../helferlein/dezhex.htm">Dezimal/Hexadezimal-Umrechner</a> den Hexadezimalwert ermitteln, und noch ein Prozentzeichen davor notieren.</p>
+
+<p>Wenn Sie mehrere Optionen kombinieren wollen, müssen Sie die Optionen durch ein kaufmännisches Und (<code>&amp;</code>) voneinander trennen. Nun darf ein solches Zeichen in HTML - auch nicht bei einer Wertzuweisung an ein Attribut - nicht unmaskiert vorkommen. Deshalb sollten Sie es wie in HTML üblich mit <code>&amp;amp;</code> maskieren. Leider gibt es einige ältere Browser (z.B. Netscape 3.x), die damit nicht klarkommen. Die E-Mail-Clients von Netscape 4.x, Outlook Express 5.x und Outlook 97/2000 (sowie eventuell auch neuere Versionen) interpretieren das maskierte &amp; sogar völlig falsch. Hier <strong>muss</strong> ein unmaskiertes <code>&amp;</code> im Link verwendet werden, da sonst die Optionen ab dieser Stelle einfach ignoriert werden.</p>
+
+<p>Die folgende Zeichenkette:<br>
+<code>cc=heidi.bratze@example.org&amp;amp;subject=Hallo%20Fritz,%20hallo%20Heidi</code><br>
+kombiniert im obigen Beispiel also die Optionen für <code>cc</code> und <code>subject</code>. Um weitere Optionen hinzufügen, notieren Sie ein weiteres <code>&amp;amp;</code> und dahinter eine weitere Option, bestehend aus Optionsname, Istgleichzeichen und zugewiesenem Wert.</p>
+
+<p>Das letzte der obigen Beispiele zeigt, wie Sie ein vollständiges Adressierungsschema gemäß RFC 822 als <code>mailto</code>-Adresse angeben. Ein solches Schema, wie Sie es vermutlich aus Ihrer E-Mail-Korrespondenz kennen, lautet beispielsweise:<br>
+<code>Fritz Eierschale &lt;fritz.eierschale@example.org&gt;</code><br>
+In einem E-Mail-Verweis muss die Zuweisung an das <code>href</code>-Attribut jedoch so aussehen:<br>
+<code>mailto:Fritz%20Eierschale%20%3Cfritz.eierschale@example.org%3E</code><br>
+Auch in diesem Fall müssen Sie also alle weiter oben erwähnten Zeichen einschließlich <code>&lt;</code> und <code>&gt;</code> maskieren.</p>
+
+<p>Um Browserprobleme zu vermeiden, sollten Sie auch das Zeichen "<code>-</code>" durch "<code>%2D</code>" kodieren.</p>
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="dateitypen.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="dateitypen.htm">Download-Verweise und Verweise auf beliebige Dateien</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="projektextern.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="projektextern.htm">Projekt-externe Verweise</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">HTML/XHTML</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Verweise (Links)</a></td>
+</tr></table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

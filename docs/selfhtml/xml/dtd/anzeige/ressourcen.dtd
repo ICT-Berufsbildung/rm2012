@@ -1,0 +1,8 @@
+<!ELEMENT ressourcen (ressource)*>
+<!ELEMENT ressource (#PCDATA)>
+<!ATTLIST ressource
+   url            CDATA #REQUIRED
+   sprache        CDATA #IMPLIED
+   erfasst        CDATA #REQUIRED
+   geaendert      CDATA #IMPLIED
+>

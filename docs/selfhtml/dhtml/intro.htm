@@ -1,0 +1,120 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: JavaScript / Allgemeines zu Dynamischem HTML</title>
+<link rel="stylesheet" type="text/css" href="../src/selfhtml.css">
+<meta name="description"    content="Wie HTML und Dynamisches HTML zusammenhängen und was es mit den derzeitigen Realisierungen von Dynamischem HTML auf sich hat.">
+<meta name="keywords"       content="SELFHTML, Dynamisches HTML, Dynamic HTML, DHTML, JavaScript, CSS, HTML, DOM">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-08-22T21:21:39+02:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/dhtml/intro.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../src/favicon.ico">
+<link rel="author" title="Impressum" href="../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../index.htm">
+<link rel="up" title="Dynamisches HTML" href="index.htm">
+<link rel="next" title="Das Document Object Model (DOM)" href="modelle/dom.htm">
+<link rel="prev" title="Verweisliste als Auswahlliste" href="../javascript/beispiele/verweisliste.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../index.htm">SELFHTML</a>/<a href="../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Dynamisches HTML</a> </td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../index.htm"><img src="../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Allgemeines zu Dynamischem HTML</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#das_dynamische">Das "Dynamische" an Dynamischem HTML</a><br>
+<img src="../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#inkompatibilitaeten">Das Problem der inkompatiblen Modelle</a><br>
+</p>
+</td>
+</tr><tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><a class="an" name="das_dynamische">Das "Dynamische" an Dynamischem HTML</a></h2>
+
+<p>Dynamisches HTML (engl. "Dynamic HTML" oder abgekürzt "DHTML") ist eine Erfindung von Marktstrategen, sagen Kritiker. In der Tat ist Dynamisches HTML keine klassische HTML-Erweiterung in Gestalt neuer HTML-Elemente. Es ist auch keine neue Sprache. Dynamisches HTML ist vielmehr der Sammelbegriff für verschiedene Lösungen, um dem Autor einer Web-Seite zu ermöglichen, Elemente der Web-Seite während der Anzeige dynamisch zu ändern, sei es automatisch oder durch Einwirken des Anwenders.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;p id="Absatz"
+onclick="document.getElementById('Absatz').firstChild.nodeValue = 'Sehen Sie!'"&gt;
+Ich bin dynamisch&lt;/p&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das kleine Beispiel zeigt Dynamisches HTML nach dem Document Object Model (DOM) in seiner JavaScript-Umsetzung, das in dieser Form allerdings nur mit neueren Browsern (Internet Explorer ab V5.x und Netscape ab Version 6.x) funktioniert. Es dient hier nur dem Zweck, das "Typische" an Dynamischem HTML zu verdeutlichen. In dem Beispiel wird mit <code>&lt;p&gt;...&lt;/p&gt;</code> ein gewöhnlicher HTML-Textabsatz definiert. Am Bildschirm steht dann: <code>Ich bin dynamisch</code>. Damit der Textabsatz sein Versprechen auch halten kann, enthält er im einleitenden <code>&lt;p&gt;</code>-Tag einen so genannten <img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../javascript/sprache/eventhandler.htm">Event-Handler</a>, im Beispiel den Event-Handler <code>onclick</code>. Dieser Event-Handler tritt in Aktion, wenn der Anwender mit der Maus auf den angezeigten Text klickt. Im Beispiel verwandelt sich nach dem Anklicken des Textes dessen Inhalt in: <code>Sehen Sie!</code>.</p>
+
+<p>Wie Sie an dem Beispiel erkennen, können Sie also bestimmte angezeigte Inhalte austauschen, ohne dafür jedesmal vollständige neue Seiten laden zu müssen. Das ist eine charakteristische Eigenschaft von Dynamischem HTML. Eine Web-Seite verhält sich also plötzlich wie eine Anwendung, die einmal in den Arbeitsspeicher geladen wird und dann z.B. durch Interaktion mit dem Anwender das Geschehen am Bildschirm bestimmt.</p>
+
+<p>Dynamisches HTML bietet Gestaltern anspruchsvoller Web-Seiten schier unerschöpfliche Möglichkeiten bei der Kontrolle über das Geschehen am Bildschirm. Es fängt mit Kleinigkeiten wie dem obigen Beispiel an. Es geht weiter mit animierten Grafiken, die über den angezeigten Inhalt gleiten oder hüpfen - manche Web-Seiten versuchen, ganze Aquarien abzubilden. Und es geht hin bis zu der Möglichkeit, mit Hilfe von Grafiken und anderen Elementen komplexe, interaktive Spiele, Lernsituationen oder auch selbstablaufende Animationen zu programmieren. Der Phantasie sind kaum Grenzen gesetzt. Der Anwender kann beim Anzeigen einer dynamischen HTML-Datei auch mit viel mehr Reaktionen konfrontiert werden als beim Betrachten einer normalen, statischen Web-Seite. Das hat Vor- und Nachteile. Es kommt immer darauf an, wie man die Features nutzt, ob zur bloßen Selbstdarstellung und Angeberei, oder zum Nutzen des Anwenders. Außerdem sollte sich jeder Entwickler darüber im Klaren sein, dass dynamische Web-Seiten nicht unbedingt für Suchmaschinen-Robots und erst Recht nicht für sehbehinderte Anwender geeignet sind.</p>
+
+<p>"Programmieren" ist auf jeden Fall bei allem angesagt, was mit Dynamischem HTML zu tun hat: Fortgeschrittene Programmierkenntnisse in  <img src="../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../javascript/index.htm">JavaScript</a> sind Voraussetzung. Im Web finden Sie zwar fertige Lösungen zum Abkupfern, aber wer sich ernsthaft mit der Materie beschäftigen will, um eigene kreative Lösungen zu entwickeln, kommt um die Programmierung nicht herum. Das soll jedoch keine Entmutigung sein. Es gibt durchaus nützliche Anwendungsmöglichkeiten von Dynamischem HTML, die ohne allzugroßen Programmieraufwand auskommen.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="inkompatibilitaeten">Das Problem der inkompatiblen Modelle</a></h2>
+
+<p>Dynamisches HTML wird von Netscape ab Version 4.0 und vom Internet Explorer ab Version 4.0 interpretiert. Leider ist das Thema "Dynamic HTML" bei diesen beiden Browser-Versionen jedoch zu einem Schauplatz im Browser-Krieg verkommen. Denn die Realisierungen sind in beiden Browsern grundverschieden. Vieles muss für das 4er-Level der beiden Browser getrennt kodiert werden (mit doppeltem Kenntnisaufwand), sofern man für beide Browser schreiben will. Vieles funktioniert überhaupt nur mit dem einen oder mit dem anderen Browser. Vor allem kann sich das "echte" dynamische HTML (beliebiger Zugriff auf alle HTML-Elemente einer Web-Seite), wie es der Internet Explorer ab Version 4.0 bereits beherrscht, auf dem 4er-Level der Browser noch nicht richtig durchsetzen, da dort stets auf das wesentlich primitivere, layer-orientierte Modell von Netscape Rücksicht genommen werden muss.</p>
+
+<p>Mittlerweile zeichnet sich jedoch ein einheitlicher Standard ab. Zu verdanken ist dieser Standard dem W3-Konsortium, das auch HTML und CSS normiert. Für den Script-Sprachen-Zugriff auf Elemente einer Web-Seite hat das W3-Konsortium das <b>Document Object Model (DOM)</b> entworfen. Die neueren Versionen der führenden Browser setzen das DOM - wenn auch noch mit deutlichen Schwächen im Detail - in JavaScript um, sodass es in absehbarer Zeit wohl einfacher werden wird, Dynamisches HTML zu programmieren.</p>
+
+<p>In der vorliegenden Dokumentation werden zunächst alle drei Modelle (Microsoft 4er-Level, Netscape 4er-Level und DOM) getrennt vorgestellt (<img src="../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="modelle/index.htm">Die verschiedenen DHTML-Modelle</a>). Denn nur wenn Sie die Konzepte klar unterscheiden können, sind Sie in der Lage, Dynamisches HTML so zu schreiben, dass es mit verschiedenen Browsern funktioniert. Im zweiten Schritt können Sie dann sehen, wie sich Dynamisches HTML browser-übergreifend realisieren lässt (<img src="../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="beispiele/index.htm">Lösungen für die Praxis</a>).</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="modelle/dom.htm"><img src="../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="modelle/dom.htm">Das Document Object Model (DOM)</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="../javascript/beispiele/verweisliste.htm"><img src="../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../javascript/beispiele/verweisliste.htm">Verweisliste als Auswahlliste</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../index.htm">SELFHTML</a>/<a href="../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Dynamisches HTML</a> </td>
+</tr>
+</table>
+
+<p>&copy; 2007 <img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

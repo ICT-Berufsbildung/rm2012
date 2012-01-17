@@ -1,0 +1,831 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: Stylesheets / CSS-basierte Layouts / Mehrspaltige Layouts</title>
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<meta name="description"    content="Mehrspaltige CSS-basierte Layouts">
+<meta name="keywords"       content="SELFHTML, CSS, Stylesheets, Cascading Stylesheets, CSS-basierte Layouts">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-11-10T04:37:24+01:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/css/layouts/mehrspaltige.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2004-10-01T00:00+02:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="CSS-basierte Layouts" href="index.htm">
+<link rel="next" title="Fixe Bereiche mit CSS-basierten Layouts" href="fixbereiche.htm">
+<link rel="prev" title="Einführung in CSS-basierte Layouts" href="einfuehrung.htm">
+<link rel="first" title="Einführung in CSS-basierte Layouts" href="einfuehrung.htm">
+<link rel="last" title="CSS-Browserweichen zum Ausschließen älterer Browser" href="browserweichen.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"> <a href="../index.htm">Stylesheets</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"> <a href="index.htm">CSS-basierte Layouts</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Mehrspaltige CSS-basierte Layouts</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#zweispaltig">Zweispaltiges Layout</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#dreispaltig">Dreispaltiges Layout</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#kopf_fuss">Mehrspaltiges Layout mit Kopf- und Fußzeile</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#gestaltung">Gestaltungstipps</a>
+</p>
+</td>
+</tr><tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><a class="an" name="zweispaltig">Zweispaltiges Layout</a></h2>
+
+<p>Die klassische Anwendung eines zweispaltigen Layouts ist die Anordnung einer Navigation neben dem Inhaltsbereich. Hierzu wird im HTML-Quelltext zunächst der Inhalt logisch ausgezeichnet und die Struktur vorgegeben.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/2spaltig.htm">Anzeigebeispiel: So sieht's ohne CSS aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+       "http://www.w3.org/TR/html4/strict.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Zweispaltiges Layout - Struktur&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;ul id="Navigation"&gt;
+  &lt;li&gt;&lt;a href="einfuehrung.htm"&gt;Einführung in CSS-basierte Layouts&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="mehrspaltige.htm"&gt;Mehrspaltige CSS-basierte Layouts&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="fixbereiche.htm"&gt;Fixe Bereiche mit CSS-basierten Layouts&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="navigationsleisten.htm"&gt;CSS-basierte Navigationsleisten&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="browserweichen.htm"&gt;CSS-Browserweichen&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div id="Inhalt"&gt;
+  &lt;h1&gt;CSS-basierte Layouts&lt;/h1&gt;
+  &lt;h2&gt;HTML-Struktur ohne CSS&lt;/h2&gt;
+  &lt;p&gt;Diese Seite enthält zunächst nur die Struktur und den Inhalt.
+     Das Aussehen wird erst im folgenden Beispiel über CSS definiert.&lt;/p&gt;
+  &lt;p&gt;Dennoch ist diese Seite schon nutzbar und wird vom Browser
+     entsprechend dessen Voreinstellungen bereits sinnvoll angezeigt.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Für die Navigationspunkte wird hier eine <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/text/listen.htm#aufzaehlung">Aufzählungsliste</a> verwendet, deren <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../formate/zentrale.htm#individualformate">ID</a> <code>Navigation</code> später als Selektor für die CSS-Definitionen dient. Die Elemente des Inhaltsbereichs werden mit einem <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/text/bereiche.htm#block"><code>div</code>-Element</a> gruppiert, das ebenfalls eine ID (<code>Inhalt</code>) erhält und die spätere Formatierung des Inhaltsbereichs und seiner Elemente über CSS erleichtert.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Im HTML-Quelltext sind Elemente, die Sie über die CSS-Eigenschaft <code>float</code> ausrichten wollen, zuerst zu notieren.<br>
+Verwenden Sie eine <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../formate/box_modell.htm#standardkonform">Dokumenttyp-Deklaration für den standardkonformen Modus</a>, um Anzeigefehler zu vermeiden.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<p>Um die <a class="an" name="zweispaltig_links"><strong>Navigation links neben dem Inhaltsbereich</strong></a> zu platzieren, aber auch die Aufzählungspunkte der Listenelemente zu entfernen und die Präsentation der übrigen Elemente selbst zu definieren und nicht den Voreinstellungen der Browser zu überlassen, wird das folgende <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../formate/einbinden.htm">Stylesheet &nbsp;in&nbsp;die&nbsp;HTML-Datei&nbsp;eingebunden</a>.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/2spaltig_links.htm">Anzeigebeispiel: So sieht's mit CSS aus</a></p>
+
+<pre>
+body {
+  color: black; background-color: white;
+  font-size: 100.01%;
+  font-family: Helvetica,Arial,sans-serif;
+  margin: 0; padding: 1em;
+}
+
+ul#Navigation {
+  font-size: 0.91em;
+  <strong>float: left; width: 22em;</strong>
+  margin: 0; padding: 0;
+  border: 1px dashed silver;
+}
+ul#Navigation li {
+  list-style: none;
+  margin: 0; padding: 0.5em;
+}
+ul#Navigation a {
+  display: block;
+  padding: 0.2em;
+  font-weight: bold;
+}
+ul#Navigation a:link {
+  color: black; background-color: #eee;
+}
+ul#Navigation a:visited {
+  color: #666; background-color: #eee;
+}
+ul#Navigation a:hover {
+  color: black; background-color: white;
+}
+ul#Navigation a:active {
+  color: white; background-color: gray;
+}
+
+div#Inhalt {
+  <strong>margin-left: 22em;</strong>
+  padding: 0 1em;
+  border: 1px dashed silver;
+  min-width: 16em; /* Mindestbreite (der Ueberschrift) verhindert Anzeigefehler in modernen Browsern */
+}
+div#Inhalt h1 {
+  font-size: 1.5em;
+  margin: 0 0 1em;
+}
+div#Inhalt h2 {
+  font-size: 1.2em;
+  margin: 0 0 1em;
+}
+div#Inhalt p {
+  font-size:1em;
+  margin: 1em 0;
+}
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Die Navigation wird hier links "gefloatet" und ihre Breite in <code>em</code> passend zum längsten Linktext angegeben, wodurch sie sich an eine Schriftgradänderung anpassen kann (dies ist übrigens auch bei Grafiken möglich, wenn für <code>&lt;img&gt;</code> die Breite und/oder Höhe in <code>em</code> wie im Beispiel zum <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="fixbereiche.htm#definieren">Layout&nbsp;mit fixem Bereich</a> angegeben wird). Für den Inhaltsbereich wird über <code>margin-left</code> ein <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../eigenschaften/randabstand.htm#margin_left">Abstand zum linken Seitenrand</a> definiert, der etwas größer als die Breite der Navigation ist. Die <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../formate/wertzuweisung.htm#numerische">relative Einheit</a> <code>em</code> richtet sich hier nach der <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../eigenschaften/schrift.htm#font_size">Schriftgröße</a> (<code>font-size</code>), die für die Navigation geringer angegeben ist.</p>
+
+<p>Dem Inhaltsbereich ist keine Breite zugewiesen, wodurch eine Anpassung der Seite an die Fenstergröße ermöglicht und auch der <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../formate/box_modell.htm#box_model_bug">Box-Modell-Fehler</a> des Internet Explorer kompensiert wird. Für moderne Browser, die <code>min-width</code> unterstützen, ist für den Inhaltsbereich eine Mindestbreite angegeben, um einen Umbruch der Überschrift zu vermeiden und sicherzustellen, dass der Inhaltsbereich in sehr kleinen Fenstern nicht zu schmal wird.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Um Anzeigefehler - besonders bei einer Schriftgradänderung im Internet Explorer - zu vermeiden, ist bei der Verwendung von <code>em</code> die Schriftgröße für das äußerste Element in der Einheit <code>%</code> anzugeben und hierbei exakt 100% zu vermeiden. In diesen Beispielen wird daher <code>body {font-size:100.01%}</code> notiert.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<p>Lässt man den Abstand weg, würde der Inhalt die Navigation <a class="an" name="zweispaltig_rechts">umfließen</a>, d.h. unterhalb der Navigation am Seitenrand fortgesetzt. Dies ermöglicht eine optimale Ausnutzung des Anzeigebereichs, wie dieses Anzeigebeispiel einer rechts-floatenden Navigation zeigt.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/2spaltig_rechts.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+/* Folgende Modifikationen sind am vorherigen Beispiel vorgenommen: */
+
+  ul#Navigation {
+    font-size: 0.91em;
+    <strong>float: right;</strong> width: 22em;
+    <strong>margin: 0 0 1em 1em;</strong> padding: 0;
+    border: 1px dashed silver;
+  }
+
+  div#Inhalt { }  /* <strong>keine Formatierungen</strong> (das div kann wegfallen) */
+  body {
+    min-width: 20em; /* Mindestbreite (der Navigation) verhindert Anzeigefehler in modernen Browsern */
+  }
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Die Navigation wird hier per <code>float:right</code> platziert, was sich besonders gut für einen Textumfluss eignet und über <code>margin-left</code> und <code>margin-bottom</code> auf Abstand zum Inhaltsbereich gehalten, für den selbst kein Abstand mehr definiert ist.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<p>Um die <a class="an" name="zweispaltig_breite">Breite</a> des Inhaltsbereichs zu begrenzen und zu lange Textzeilen zu vermeiden, werden im folgenden Beispiel alle Elemente der Seite in einem zusätzlichen <code>div</code>-Element gruppiert, welches eine feste Breite von <code>760px</code> aufweist und zentriert wird.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/2spaltig_breite.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+       "http://www.w3.org/TR/html4/strict.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Zweispaltiges Layout mit fester Breite&lt;/title&gt;
+&lt;style type="text/css"&gt;
+  body {
+    color: black; background-color: white;
+    font-size: 100.01%;
+    font-family: Helvetica,Arial,sans-serif;
+    margin: 0; padding: 1em 0;
+    <strong>text-align: center;</strong>  /* Zentrierung im Internet Explorer */
+  }
+
+  <strong>div#Seite</strong> {
+    <strong>text-align: left;</strong>    /* Seiteninhalt wieder links ausrichten */
+    <strong>margin: 0 auto;</strong>      /* standardkonforme horizontale Zentrierung */
+    <strong>width: 760px;</strong>
+    padding: 0.5em;
+    border: 2px ridge silver;
+  }
+
+  ul#Navigation {
+    font-size: 0.91em;
+    float: left; width: 22em;
+    margin: 0; padding: 0;
+    border: 1px dashed silver;
+  }
+  ul#Navigation li {
+    list-style: none;
+    margin: 0; padding: 0.5em;
+  }
+  ul#Navigation a {
+    display: block;
+    padding: 0.2em;
+    font-weight: bold;
+  }
+  ul#Navigation a:link {
+    color: black; background-color: #eee;
+  }
+  ul#Navigation a:visited {
+    color: #666; background-color: #eee;
+  }
+  ul#Navigation a:hover {
+    color: black; background-color: white;
+  }
+  ul#Navigation a:active {
+    color: white; background-color: gray;
+  }
+
+  div#Inhalt {
+    margin-left: 22em;
+    padding: 0 1em;
+    border: 1px dashed silver;
+  }
+  div#Inhalt h1 {
+    font-size: 1.5em;
+    margin: 0 0 1em;
+  }
+  div#Inhalt h2 {
+    font-size: 1.2em;
+    margin: 0 0 1em;
+  }
+  div#Inhalt p {
+    font-size:1em;
+    margin: 1em 0;
+  }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+<strong>&lt;div id="Seite"&gt;</strong>
+  &lt;ul id="Navigation"&gt;
+    &lt;li&gt;&lt;a href="einfuehrung.htm"&gt;Einführung in CSS-basierte Layouts&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="mehrspaltige.htm"&gt;Mehrspaltige CSS-basierte Layouts&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="fixbereiche.htm"&gt;Fixe Bereiche mit CSS-basierten Layouts&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="navigationsleisten.htm"&gt;CSS-basierte Navigationsleisten&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="browserweichen.htm"&gt;CSS-Browserweichen&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+
+  &lt;div id="Inhalt"&gt;
+    &lt;h1&gt;CSS-basierte Layouts&lt;/h1&gt;
+    &lt;h2&gt;Seite mit fester Breite&lt;/h2&gt;
+    &lt;p&gt;Diese Seite ist hat eine feste Breite von 760px und ist zentriert.&lt;/p&gt;
+    &lt;p&gt;Die Breite ist so gewählt, dass in 800px breiten Fenstern nicht horizontal
+       gescrollt werden muss und auch ein Ausdruck keine Probleme bereiten sollte.&lt;/p&gt;
+  &lt;/div&gt;
+<strong>&lt;/div&gt;</strong>
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das zusätzliche Block-Element <code>&lt;div id="Seite"&gt;</code> ist erforderlich, um der Seite eine feste Breite zu geben und sie zu zentrieren; der Rahmen ist nur zur Verdeutlichung angeführt und kann weggelassen werden. Für <code>&lt;body&gt;</code> ist die CSS-Eigenschaft <code>text-align:center</code> angegeben (und für <code>div#Seite</code> wieder zurückgesetzt), da der Internet Explorer ab Version 6 im standardkonformen Modus zwar Block-Elemente über <code>margin:auto</code> zentriert, allerdings <code>text-align</code> fälschlich auch auf Block-Elemente anwendet.</p>
+
+<p>Die Breite ist mit 760px angegeben, damit die Seite auch in ein 800px breites Fenster mit vertikalem Scrollbalken passt und auf einer DIN-A-4-Seite bei normalen Randeinstellungen vollständig ausgedruckt werden kann. Hierzu wurde auch auf einen seitlichen Randabstand verzichtet.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="dreispaltig">Dreispaltiges Layout</a></h2>
+
+<p>Häufig sieht man ein Layout mit einer linksseitigen Navigation, einem mittleren Inhaltsbereich mit flexibler Breite und rechts einer Spalte für zusätzliche Informationen. Dieses CSS-basiert umzusetzen erfordert lediglich eine weitere Box mit der CSS-Eigenschaft <code>float:right</code> und einer geeigneten Angabe zu <code>width</code>.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/3spaltig.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+       "http://www.w3.org/TR/html4/strict.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Dreispaltiges Layout&lt;/title&gt;
+&lt;style type="text/css"&gt;
+  body {
+    color: black; background-color: white;
+    font-size: 100.01%;
+    font-family: Helvetica,Arial,sans-serif;
+    margin: 0; padding: 1em;
+    min-width: 40em; /* Mindestbreite verhindert Umbruch und Anzeigefehler in modernen Browsern */
+  }
+
+  ul#Navigation {
+    font-size: 0.83em;
+    <strong>float: left; width: 18em;</strong>
+    margin: 0; padding: 0;
+    border: 1px dashed silver;
+  }
+  ul#Navigation li {
+    list-style: none;
+    margin: 0; padding: 0.5em;
+  }
+  ul#Navigation a {
+    display: block;
+    padding: 0.2em;
+    font-weight: bold;
+  }
+  ul#Navigation a:link {
+    color: black; background-color: #eee;
+  }
+  ul#Navigation a:visited {
+    color: #666; background-color: #eee;
+  }
+  ul#Navigation a:hover {
+    color: black; background-color: white;
+  }
+  ul#Navigation a:active {
+    color: white; background-color: gray;
+  }
+
+  div#Info {
+    font-size: 0.9em;
+    <strong>float: right; width: 12em;</strong>
+    margin: 0; padding: 0;
+    border: 1px dashed silver; background-color: #eee;
+  }
+  div#Info strong {
+    font-size: 1.33em;
+    margin: 0.2em 0.5em;
+  }
+  div#Info p {
+    font-size: 1em;
+    margin: 0.5em;
+  }
+
+  div#Inhalt {
+    <strong>margin: 0 12em 0 16em;</strong>
+    padding: 0 1em;
+    border: 1px dashed silver;
+  }
+  div#Inhalt h1 {
+    font-size: 1.5em;
+    margin: 0 0 0.5em;
+  }
+  div#Inhalt h2 {
+    font-size: 1.2em;
+    margin: 0.2em 0;
+  }
+  div#Inhalt p {
+    font-size: 1em;
+    margin: 1em 0;
+  }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;ul id="Navigation"&gt;
+    &lt;li&gt;&lt;a href="einfuehrung.htm"&gt;Einführung in CSS-basierte Layouts&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="mehrspaltige.htm"&gt;Mehrspaltige CSS-basierte Layouts&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="fixbereiche.htm"&gt;Fixe Bereiche mit CSS-basierten Layouts&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="navigationsleisten.htm"&gt;CSS-basierte Navigationsleisten&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="browserweichen.htm"&gt;CSS-Browserweichen&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+
+  &lt;div id="Info"&gt;
+    &lt;strong&gt;Info-Box&lt;/strong&gt;
+    &lt;p&gt;Auch wenn diese Info- Box am Bildschirm als letzte angezeigt wird, ist sie
+       im Quelltext vor dem im Fluss belassenem Inhaltsbereich zu notieren.&lt;/p&gt;
+    &lt;p&gt;Dadurch, dass für den Inhaltsbereich kein float definiert ist, kann auf
+       die Angabe einer Breite verzichtet werden und die Seite den ihr zur
+       Verfügung stehenden Raum ausnutzen.&lt;/p&gt;
+    &lt;p&gt;Diese Methode, ein Element im Fluss zu belassen und dadurch auf eine
+       Breitenangabe verzichten zu können, hat außerdem den Vorteil, Abweichungen
+       durch das falsche Box-Modell des Internet Explorer auszugleichen.&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;div id="Inhalt"&gt;
+    &lt;h1&gt;CSS-basierte Layouts&lt;/h1&gt;
+    &lt;h2&gt;3-spaltiges Layout&lt;/h2&gt;
+    &lt;p&gt;In diesem Beispiel ist die Breite der Navigation etwas reduziert,
+       um einer zusätzlichen Info-Box an der rechten Seite Platz zu machen;
+       die Schriftgröße der Navigation und Info-Box ist etwas verringert,
+       um den relativ geringen Breiten Rechnung zu tragen.&lt;/p&gt;
+    &lt;p&gt;Nur für die äußeren Boxen ist eine Breite und float angegeben.
+       Durch die Angabe der Breiten relativ zur Schriftgröße in 'em'
+       können sich die Boxen einer Änderung des Schriftgrades anpassen.&lt;/p&gt;
+    &lt;p&gt;Dieser mittlere Inhaltsbereich wird über seitliches margin auf Abstand
+       gehalten und passt sich flexibel an die Fensterbreite an.&lt;/p&gt;
+  &lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Um mehrere Boxen über <code>float</code> nebeneinander zu setzen, kann bei <em>einer</em> Box - hier dem Inhaltsbereich - auf die Definition von <code>float</code> und <code>width</code> verzichtet werden. Hierdurch nimmt sie den gesamten zur Verfügung stehenden Raum ein. Dies erfordert allerdings, die floatenden Boxen vorher in den Quelltext zu setzen, damit sie zuerst ihre definierte Breite reservieren können.</p>
+
+<p>Damit der Inhaltsbereich die nebenstehenden Boxen nicht umfließt, wird er über <code>margin-left</code> und <code>margin-right</code> eingegrenzt. Die Werte für <code>margin</code> beziehen sich auf die Seitenränder und entsprechen den Breiten der nebenstehenden aus dem Fluss genommenen Boxen zuzüglich einem hierzu gewünschten Abstand. Falls Sie sich wundern, warum der Wert von <code>margin</code> hier gleich oder sogar kleiner als der Wert von <code>width</code> für die nebenstehenden Boxen ist und sich trotzdem ein Abstand ergibt: die verwendete Einheit <code>em</code> ist bei Längenangaben abhängig von der Schriftgröße des Elements - diese ist für den Inhaltsbereich größer definiert.<br>
+Über eine geeignete Angabe zu <code>min-width</code> kann in modernen Browsern bei zu schmalen Fenstern ein Umbruch der Boxen verhindert werden.</p>
+
+<p>Anhand des Beispiels sehen Sie auch, dass sich Boxen nicht gegenseitig in ihrer Höhe beeinflussen. Dies muss kein Nachteil sein, sondern kann bewusst zur Gestaltung der Seite eingesetzt werden, erfordert allerdings ein Umdenken und die Abkehr vom althergebrachten "Spaltendenken" bei Tabellen-Layouts.</p>
+
+<h3 class="inf"><a class="an" name="relative_groessen">Beachten Sie:</a></h3>
+
+<p><strong><a class="an" name="vererbung">Die für ein Element in <code>em</code> angegebene Schriftgröße wird an darin enthaltene Elemente vererbt.</a></strong></p>
+
+<p>In diesem Beispiel ist für <code>div#Info</code> die Schriftgröße mit <code>font-size:0.9em</code> angegeben. Der für <code>div#Info&nbsp;strong</code> erhöhte Wert <code>font-size:1.33em</code> ergibt nach Anwendung auf die zuvor notierte Größe von <code>0.9em</code> als Resultat <code><em>1.197em</em></code> (0.9 mal 1.33), was in etwa der für <code>div#Inhalt&nbsp;h2</code> mit <code>font-size:1.2em</code> angegebenen Schriftgröße entspricht.</p>
+
+<p>Berücksichtigen Sie die Vererbung bei allen verschachtelten Elementen, denen Sie eine von <code>1em</code> oder <code>100%</code> abweichende Schriftgröße mittels relativer Einheiten zuweisen. Sie können sich den Umrechnungsaufwand ersparen, wenn Sie nur für die äußersten <em>oder</em> nur für die innersten Elemente eine Schriftgröße angeben. Im ersten Fall wird die Schriftgröße an alle enthaltenen Elemente vererbt (wobei der Internet Explorer allerdings mit der Vererbung auf Tabellenzellen Probleme hat) und im zweiten Fall ist die Basis für die Schriftgröße der innersten Elemente dieselbe.</p>
+
+<p>Die Problematik der Vererbung stellt sich nicht, wenn Sie die Einheit <code>px</code> für Schriftgrößen verwenden. Allerdings haben Sie dann auch nicht mehr die Möglichkeit, die Längenangaben passend zur Schriftgröße in <code>em</code> anzugeben, damit sich das Layout an den jeweils eingestellten Schriftgrad anpasst. Darüber hinaus unterbindet der Einsatz von <code>px</code> die Anpassung von Schriftgrößen im Internet Explorer, was eine Barriere für Benutzer darstellen kann.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="kopf_fuss">Mehrspaltiges Layout mit Kopf- und Fußzeile</a></h2>
+
+<p>Viele Layouts werden von einem "Header" und einem "Footer" umschlossen, wobei in der Kopfzeile die Seitenüberschrift oder ein grafischer Banner platziert wird und die Fußzeile eine Copyright-Angabe oder allgemeine Links (z.B. 'nach oben', 'Impressum' oder 'Sitemap') enthält. Dies hat für CSS-Layouts auch praktische Vorteile:</p>
+
+<p>Die Kopfzeile wird am Anfang des Quelltextes notiert und als Seitenüberschrift mit <code>h1</code> ausgezeichnet, was in den folgenden Boxen die hierarchisch korrekte Verwendung von Überschriften zweiten Grades ermöglicht. Über die CSS-Eigenschaft <code>clear</code> der Fußzeile wird der Umfluss (<code>float</code>) der seitlich platzierten Elemente aufgehoben, was z.B. bei Verwendung eines Seitenhintergrundes erforderlich sein kann, wie das <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#hintergrund">letzte&nbsp;Beispiel</a> zeigen wird.<br>
+Außerdem beinhalten diese beiden Beispiele einen Workaround für den Internet Explorer bis Version 6 gegen die um <code>3px</code> erweiterte Einrückung des Textes neben der Navigation.</p>
+
+<p>Das folgende Beispiel erweitert das vorangegangene dreispaltige Layout um eine Kopf- und Fußzeile.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/kopfundfuss.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+       "http://www.w3.org/TR/html4/strict.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Dreispaltiges Layout mit Kopf- und Fußzeile&lt;/title&gt;
+&lt;style type="text/css"&gt;
+  body {
+    color: black; background-color: white;
+    font-size: 100.01%;
+    font-family: Helvetica,Arial,sans-serif;
+    margin: 0; padding: 1em;
+    min-width: 41em; /* Mindestbreite verhindert Umbruch und Anzeigefehler in modernen Browsern */
+  }
+
+  <strong>h1</strong> {
+    font-size: 1.5em;
+    margin: 0 0 0.7em; padding: 0.3em;
+    text-align: center;
+    background-color: #fed;
+    border: 2px ridge silver;
+  }
+
+  ul#Navigation {
+    font-size: 0.83em;
+    float: left; width: 18em;
+    margin: 0 0 1.2em; padding: 0;
+    border: 1px dashed silver;
+  }
+  ul#Navigation li {
+    list-style: none;
+    margin: 0; padding: 0.5em;
+  }
+  ul#Navigation a {
+    display: block;
+    padding: 0.2em;
+    font-weight: bold;
+  }
+  ul#Navigation a:link {
+    color: black; background-color: #eee;
+  }
+  ul#Navigation a:visited {
+    color: #666; background-color: #eee;
+  }
+  ul#Navigation a:hover {
+    color: black; background-color: white;
+  }
+  ul#Navigation a:active {
+    color: white; background-color: gray;
+  }
+
+  div#Info {
+    font-size: 0.9em;
+    float: right; width: 12em;
+    margin: 0 0 1.1em; padding: 0;
+    background-color: #eee; border: 1px dashed silver;
+  }
+  div#Info h2 {
+    font-size: 1.33em;
+    margin: 0.2em 0.5em;
+  }
+  div#Info p {
+    font-size: 1em;
+    margin: 0.5em;
+  }
+
+  div#Inhalt {
+    margin: 0 12em 1em 16em;
+    padding: 0 1em;
+    border: 1px dashed silver;
+  }
+  * html div#Inhalt {
+    height: 1em;  /* Workaround gegen den 3-Pixel-Bug des Internet Explorer bis Version 6 */
+  }
+  div#Inhalt h2 {
+    font-size: 1.2em;
+    margin: 0.2em 0;
+  }
+  div#Inhalt p {
+    font-size: 1em;
+    margin: 1em 0;
+  }
+
+  <strong>p#Fusszeile</strong> {
+    <strong>clear: both;</strong>
+    font-size: 0.9em;
+    margin: 0; padding: 0.1em;
+    text-align: center;
+    background-color: #fed; border: 1px solid silver;
+  }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  <strong>&lt;h1&gt;</strong>CSS-basierte Layouts<strong>&lt;/h1&gt;</strong>
+
+  &lt;ul id="Navigation"&gt;
+    &lt;li&gt;&lt;a href="einfuehrung.htm"&gt;Einführung in CSS-basierte Layouts&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="mehrspaltige.htm"&gt;Mehrspaltige CSS-basierte Layouts&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="fixbereiche.htm"&gt;Fixe Bereiche mit CSS-basierten Layouts&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="navigationsleisten.htm"&gt;CSS-basierte Navigationsleisten&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="browserweichen.htm"&gt;CSS-Browserweichen&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+
+  &lt;div id="Info"&gt;
+    &lt;h2&gt;Info-Box&lt;/h2&gt;
+    &lt;p&gt;Hatten Sie sich im letzten Beispiel gewundert,
+       warum die Überschrift dieser Box nicht als solche ausgezeichnet war?
+       Da diese Info-Box im Quelltext vor dem Inhaltsbereich steht
+       und erst in diesem die Hauptüberschrift notiert war,
+       wäre hier eine Überschrift zweiten Grades noch nicht sinnvoll gewesen.&lt;/p&gt;
+    &lt;p&gt;Im Quelltext dieses Beispiels ist nun zuerst die Seitenüberschrift notiert,
+       wodurch auch dieses semantische Problem gelöst ist.&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;div id="Inhalt"&gt;
+    &lt;h2&gt;3-spaltiges Layout mit Kopf- und Fußzeile&lt;/h2&gt;
+    &lt;p&gt;Dieses Beispiel ist um eine Kopf- und Fußzeile erweitert.&lt;/p&gt;
+    &lt;p&gt;Die Kopfzeile ist als Seitenüberschrift mit &lt;h1&gt; ausgezeichnet
+       und kann genauso gut wie ein &lt;div&gt; über CSS formatiert
+       - hier mit einem Rahmen und einer Hintergrundfarbe versehen - werden.
+       Auch eine Grafik könnte in &lt;h1&gt; als Hintergrundbild definiert
+       oder über &lt;img&gt; eingebunden werden.&lt;/p&gt;
+    &lt;p&gt;Betrachten Sie dieses Beispiel nicht als fertige Layout-Vorlage.
+       Nutzen Sie das HTML-Grundgerüst für die Inhalte Ihrer Seite
+       und passen Sie das CSS nach Belieben Ihren Vorstellungen an:
+       experimentieren Sie mit den Größenangaben, Farben und Rändern
+       und fügen Sie z.B. individuelle grafische Elemente ein.&lt;/p&gt;
+  &lt;/div&gt;
+
+  <strong>&lt;p id="Fusszeile"&gt;</strong>Diese Fußzeile stellt über die CSS-Eigenschaft 'clear'
+     den Elementenfluss wieder her.<strong>&lt;/p&gt;</strong>
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Über die sogenannte <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="browserweichen.htm#star_html_hack">Star-HTML</a>-Browserweiche wird dem Inhaltsbereich nur für den Internet Explorer bis Version 6 eine Höhe zugewiesen. Die viel zu geringe Höhenangabe wird von diesem Browser erweitert und bewirkt, dass der Internet Explorer den neben der "gefloateten" Navigation stehenden Text nicht mehr wie bei den vorherigen Beispielen um weitere drei Pixel einrückt.</p>
+<p>Sie können dieses Beispiel individuell anpassen und erweitern, um ein dreispaltiges Layout zu erstellen, das sich flexibel an Schriftgradänderungen und unterschiedliche Fenstergrößen anpasst. Diese Flexibilität bewirkt allerdings, dass sich die Elemente in zu schmalen Fenstern oder bei zu großer Schrifteinstellung untereinander platzieren und verhindert auch eine optische Aufteilung in Spalten mit unterschiedlicher Hintergrundfarbe, wie Sie es bei herkömmlichen Tabellen-Layouts oft sehen.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<p>Das <a class="an" name="hintergrund">letzte Beispiel</a> stellt Ihnen ein zweispaltiges Layout mit festen Breiten zur Verfügung, in dem die links platzierte Navigation optisch durch einen anders farbigen Hintergrund vom Inhaltsbereich abgegrenzt wird. Der Kopfzeile ist hier zur Demonstration als Hintergrundbild das SELFHTML-Logo zugewiesen, von welchem bei normalem Schriftgrad ein passender Ausschnitt dargestellt wird.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/hintergrund.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+       "http://www.w3.org/TR/html4/strict.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Layout mit grafischer Spaltenaufteilung&lt;/title&gt;
+&lt;style type="text/css"&gt;
+  body {
+    color: black; background-color: white;
+    font-size: 100.01%;
+    font-family: Helvetica,Arial,sans-serif;
+    margin: 0; padding: 1em 0;
+    text-align: center;  /* Zentrierung im Internet Explorer */
+  }
+
+  div#Seite {
+    text-align: left;    /* Seiteninhalt wieder links ausrichten */
+    margin: 0 auto;      /* standardkonforme horizontale Zentrierung */
+    width: 760px;
+    padding: 0;
+    <strong>background: #ffffe0 url(hintergrund.gif) repeat-y;</strong>
+    border: 2px ridge silver;
+  }
+
+  h1 {
+    font-size: 1.5em;
+    margin: 0; padding: 0.3em;
+    text-align: center;
+    <strong>background: #fed url(../../../src/logo.gif) no-repeat 100% 45%;</strong>
+    border-bottom: 1px solid silver;
+  }
+
+  ul#Navigation {
+    font-size: 0.83em;
+    float: left; <strong>width: 200px;</strong>
+    margin: 0 0 1.2em; padding: 0;
+  }
+  ul#Navigation li {
+    list-style: none;
+    margin: 0; padding: 0.5em;
+  }
+  ul#Navigation a {
+    display: block;
+    padding: 0.2em;
+    font-weight: bold;
+  }
+  ul#Navigation a:link {
+    color: black; background-color: white;
+  }
+  ul#Navigation a:visited {
+    color: #666; background-color: white;
+  }
+  ul#Navigation a:hover {
+    color: black; background-color: #eee;
+  }
+  ul#Navigation a:active {
+    color: white; background-color: gray;
+  }
+
+  div#Inhalt {
+    <strong>margin:</strong> 0 0 1em <strong>220px;</strong>
+    padding: 0 1em;
+  }
+  * html div#Inhalt {
+    height: 1em;  /* Workaround gegen den 3-Pixel-Bug des Internet Explorer bis Version 6 */
+    margin-bottom: 0;
+  }
+  div#Inhalt h2 {
+    font-size: 1.2em;
+    margin: 0.2em 0;
+    color: navy;
+  }
+  div#Inhalt p {
+    font-size: 1em;
+    margin: 1em 0;
+  }
+
+  p#Fusszeile {
+    clear: both;
+    font-size: 0.83em;
+    margin: 0; padding: 0.1em;
+    text-align: center;
+    <strong>background-color: #fed;</strong>
+    border-top: 1px solid silver;
+  }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div id="Seite"&gt;
+  &lt;h1&gt;CSS-basierte Layouts&lt;/h1&gt;
+
+  &lt;ul id="Navigation"&gt;
+    &lt;li&gt;&lt;a href="einfuehrung.htm"&gt;Einführung in CSS-basierte Layouts&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="mehrspaltige.htm"&gt;Mehrspaltige CSS-basierte Layouts&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="fixbereiche.htm"&gt;Fixe Bereiche mit CSS-basierten Layouts&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="navigationsleisten.htm"&gt;CSS-basierte Navigationsleisten&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="browserweichen.htm"&gt;CSS-Browserweichen&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+
+  &lt;div id="Inhalt"&gt;
+    &lt;h2&gt;2-spaltiges Layout mit Hintergrundgrafik&lt;/h2&gt;
+    &lt;p&gt;In diesem Beispiel wird eine Hintergrundgrafik
+       zur optischen Trennung der Spalten verwendet.&lt;/p&gt;
+    &lt;p&gt;Dies erfordert leider, dass die Breite der links stehenden Navigation
+       passend zur Hintergrundgrafik in 'px' angegeben wird.
+       Dadurch kann sich die Breite dieser Box einer Änderung des Schriftgrades
+       nicht anpassen.&lt;/p&gt;
+    &lt;p&gt;Wie die links graue Hintergrundgrafik ist auch die gelbe Hintergrundfarbe
+       des Inhaltsbereichs dem die Seitenelemente umschließenden DIV zugewiesen.
+       Sowohl für die Navigation als auch für diese Inhaltsbox ist selbst
+       kein Hintergrund angegeben.&lt;br&gt;
+       Die durchgehende Trennung der Boxen wird somit lediglich optisch simuliert
+       und ist unabhängig von deren Höhe.&lt;/p&gt;
+    &lt;p&gt;Der Kopf- und der Fußzeile wurde eine Hintergrundfarbe zugewiesen,
+       damit sich die optische Trennung nicht auf diese Bereiche ausdehnt.&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;p id="Fusszeile"&gt;Diese Fußzeile stellt innerhalb des umschließenden DIVs
+     den Elementenfluss wieder her.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Da nebeneinander platzierte Elemente sich nicht in ihrer Höhe beeinflussen, wurden der Hintergrund der linken Spalte und die Trennlinie (zur Demonstration hier als Zierrahmen) über dieses Hintergrundbild realisiert:</p>
+
+<p>[<img src="anzeige/hintergrund.gif" width="237" height="6" alt="Hintergrundbild">]</p>
+
+<p>Es ist nur wenige Pixel hoch und so breit wie die linke Navigationsbox einschließlich des Abstands zum rechten Inhaltsbereich. Als Hintergrundbild für das umschließende <code>div#Seite</code> definiert, wird es in der y-Achse wiederholt und passt sich so dessen Gesamthöhe an. Zusätzlich ist gelbe Farbe als Hintergrund angegeben und füllt den rechten Inhaltsbereich aus.</p>
+
+<p>Diese optische Aufteilung der Seite erfordert eine feste Breitenangabe in <code>px</code> für die Navigation. Achten Sie daher darauf, dass die enthaltenen Linktexte auch bei Schriftvergrößerung noch in die Box passen oder ermöglichen Sie Textumbrüche durch Leerzeichen wie in diesem Beispiel im Menüpunkt "CSS-Browserweichen".</p>
+
+<p>Durch Kombination der hier aufgeführten Beispiele sollte es Ihnen nun auch möglich sein, ein solches Layout mit durchgehendem Spaltenhintergrund ohne Begrenzung der Seitenbreite oder mit drei Spalten zu erstellen. Falls Sie mehr als drei Spalten benötigen, definieren Sie für die weiteren Boxen die CSS-Eigenschaften <code>float</code> und <code>width</code>. Sie können dabei stets die zuletzt im Quelltext notierte Box im Elementenfluss belassen und dadurch auf die Angabe einer Breite verzichten. Hierdurch vermeiden Sie auch Anzeigefehler und müssen den <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../formate/box_modell.htm#box_model_bug">Box-Modell-Fehler</a> des Internet Explorer nicht über eine <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="browserweichen.htm">CSS-Browserweiche</a> korrigieren.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="gestaltung">Gestaltungstipps</a></h2>
+
+<p>Während sich mit Tabellen erstellte Layouts oft durch gleich hohe, über unterschiedliche Hintergrundfarben voneinander abgesetzte Spalten auszeichnen, können CSS-basierte Layouts dazu verleiten, jede <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../formate/box_modell.htm#w3c">Box</a> mit einem durchgehenden, gestrichelten oder gar gepunkteten Rahmen abzugrenzen. Auch wenn dies bei den hier aufgeführten Beispielen zu Demonstrationszwecken der Fall ist: seien Sie kreativ und nutzen Sie die CSS-Eigenschaft <code>border</code> für <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../eigenschaften/rahmen.htm">Rahmen</a> sinnvoll und sparsam.</p>
+
+<p>Wenn Sie Bereiche mit Rahmen, einfachen Linien oder über eine Hintergrundfarbe abgrenzen, setzen Sie für den enthaltenen Text auch einen passenden <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../eigenschaften/innenabstand.htm">Innenabstand</a>.</p>
+
+<p>Nutzen Sie die erweiterten Möglichkeiten, die ein CSS-basiertes Layout im Gegensatz zu Tabellen bietet und denken Sie nicht in Spalten, sondern lassen Sie ein Umfließen von Elementen zu. Tolerieren Sie auch, wenn sich floatende Elemente bei zu schmalen Fenstern untereinander anordnen - das kann benutzerfreundlicher sein, als einen Text horizontal zu scrollen. Andernfalls können Sie ein umschließendes Element mit ausreichender Breite wie im <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#hintergrund">obigen&nbsp;Beispiel</a> verwenden, um unterschiedliche Anordnungen zu verhindern oder einen Spalteneindruck zu erzeugen.</p>
+
+<p>Bringen Sie Farbe in Ihre Seiten - aber übertreiben Sie es nicht. Wählen Sie zueinander passende, ähnliche Farbtöne. Darüber hinaus können Sie Akzente in Komplementärfarben setzen. Achten Sie aber bitte auf einen ausreichenden Farb- und Helligkeitskontrast, damit Ihre Texte auch ohne Anstrengung gelesen werden können. Hierzu eignet sich dunkle Schrift vor hellem Hintergrund am besten. Setzen Sie bitte auch nicht voraus, dass in jedem Browser Schwarz als Schriftfarbe und Weiß als Hintergrundfarbe voreingestellt ist. Wenn Sie den Hintergrund definieren, vergessen Sie auf keinen Fall, die <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../eigenschaften/schrift.htm#color">Vordergrundfarben</a> und <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../eigenschaften/pseudoformate.htm#link_visited_focus_hover_active">Linkfarben</a> anzugeben, da Sie hier nicht immer mit einheitlichen Voreinstellungen rechnen können. Hierbei ist es für Ihre Besucher hilfreich, wenn besuchte Links von unbesuchten zu unterscheiden sind.</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="fixbereiche.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="fixbereiche.htm">Fixe Bereiche mit CSS-basierten Layouts</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="einfuehrung.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="einfuehrung.htm">Einführung in CSS-basierte Layouts</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"> <a href="../index.htm">Stylesheets</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"> <a href="index.htm">CSS-basierte Layouts</a></td>
+</tr>
+</table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

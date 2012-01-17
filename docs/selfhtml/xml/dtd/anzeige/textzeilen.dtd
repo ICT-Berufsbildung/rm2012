@@ -1,0 +1,3 @@
+<!ELEMENT textzeilen (#PCDATA | neuezeile)*>
+<!ELEMENT neuezeile EMPTY>
+

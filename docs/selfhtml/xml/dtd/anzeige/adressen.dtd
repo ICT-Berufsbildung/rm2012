@@ -1,0 +1,10 @@
+<!ELEMENT adressen (adresse)*>
+
+<!ELEMENT adresse (anrede?, name, (postfach | wohnanschrift), plzort)>
+
+<!ELEMENT anrede (#PCDATA)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT postfach (#PCDATA)>
+<!ELEMENT wohnanschrift (#PCDATA)>
+<!ELEMENT plzort (#PCDATA)>
+

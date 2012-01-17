@@ -1,0 +1,229 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: XML / Regeln für XML-Dateien / XML-Deklaration und Verarbeitungsanweisungen</title>
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<meta name="description"    content="Welche Bedeutung die XML-Deklaration &lt;?xml... ?&gt; in XML-Dateien hat und welche Aufgaben Verarbeitungsanweisungen (processing instructions) innerhalb der XML-Daten haben.">
+<meta name="keywords"       content="SELFHTML, XML, XML-Deklaration, Verarbeitungsanweisung, processing instructions">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-08-22T21:21:39+02:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/xml/regeln/xmldeklaration.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="Regeln für XML-Dateien" href="index.htm">
+<link rel="next" title="Die Dokumenttyp-Deklaration" href="dokumenttypdeklaration.htm">
+<link rel="prev" title="Einführung in XML" href="../intro.htm">
+<link rel="last" title="Regeln beim Editieren von XML und Dateinamenkonventionen" href="allgemein.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">XML/DTDs</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Regeln für XML-Dateien</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">XML-Deklaration und Verarbeitungsanweisungen</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#einfach">Einfache XML-Deklaration</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#zusatzangaben">Zusätzliche Angaben zur Zeichenkodierung und zum DTD-Bezug</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#verarbeitungsanweisungen">Verarbeitungsanweisungen innerhalb einer XML-Datei</a><br>
+</p>
+</td>
+</tr><tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><img src="../../src/xml10.gif" width="30" height="30" alt="XML 1.0" title="XML 1.0"><img src="../../src/msie5.gif" width="30" height="30" alt="MS IE 5.0" title="MS IE 5.0"><img src="../../src/netsc6.gif" width="30" height="30" alt="Netscape 6.0" title="Netscape 6.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/saf12.gif" width="30" height="30" alt="Safari 1.2" title="Safari 1.2">&nbsp;<a class="an" name="einfach">Einfache XML-Deklaration</a></h2>
+
+<p>Jede XML-Datei sollte mit einer Auszeichnung beginnen, die den Bezug zu XML herstellt. Dazu dient die XML-Deklaration am Beginn der Datei.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<pre>
+&lt;?xml version="1.0"?&gt;
+&lt;!-- restliche XML-Datei folgt ab hier --&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Die XML-Deklaration ist also eine besondere, alleinstehende Auszeichnung, deren erstes und letztes Zeichen innerhalb der spitzen Klammern <code>&lt;</code> und <code>&gt;</code> ein Fragezeichen <code>?</code> ist. Unmittelbar hinter dem Anfangsfragezeichen muss <code>xml</code> (kleingeschrieben) stehen. Dahinter können in Form von Attributen verschiedene Angaben folgen. Die Angabe der XML-Versionsnummer ist obligatorisch und deshalb auch in der einfachen Variante erforderlich. "Versionsnummer" bezieht sich dabei auf die Version der Sprachspezifikation von XML. Derzeit ist die Version 1.0 von XML maßgeblich. Es gibt zwar bereits eine Version 1.1, doch die gegenwärtigen XML-Parser unterstützen normalerweise nur die Version 1.0. Da das Konzept von XML syntaktisch weitgehend ausgereift ist, ist auch nicht mit einer Versionenflut zu rechnen. Benutzen Sie also außer in begründeten Ausnahmefällen die Angabe <code>version="1.0"</code>.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Die XML-Deklaration sieht vom Typ her aus wie eine <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#verarbeitungsanweisungen">Verarbeitungsanweisung</a>. Sie gehört jedoch nicht zu den eigentlichen Daten der XML-Datei und wird in der <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="baumstruktur.htm">Baumstruktur</a> der Daten auch nicht repräsentiert.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/xml10.gif" width="30" height="30" alt="XML 1.0" title="XML 1.0"><img src="../../src/msie5.gif" width="30" height="30" alt="MS IE 5.0" title="MS IE 5.0"><img src="../../src/netsc6.gif" width="30" height="30" alt="Netscape 6.0" title="Netscape 6.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/saf12.gif" width="30" height="30" alt="Safari 1.2" title="Safari 1.2">&nbsp;<a class="an" name="zusatzangaben">Zusätzliche Angaben zur Zeichenkodierung und zum DTD-Bezug</a></h2>
+
+<p>Neben der Versionsangabe kann die XML-Deklaration einer XML-Datei zwei weitere Attribute enthalten: eines zur verwendeten Zeichenkodierung, und ein Ja/Nein-Attribut, ob die zugehörige DTD in der aktuellen Datei steht oder in einer separaten Datei.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<pre>
+&lt;?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Mit dem Attribut <code>encoding</code> geben Sie an, welchen <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../inter/zeichenkodierungen.htm">Zeichenkodierung</a> Sie zum Speichern der XML-Datei verwenden. Folgende Angaben sollte jeder XML-Parser kennen:</p>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<th>Anweisung</th>
+<th>Bedeutung</th>
+<th>Hinweis</th>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>encoding="UTF-8"</code></td>
+<td class="tabxpl">internationaler Kodierung auf Basis der ISO/IEC-10646-Norm mit mindestens 8 Bit Zeichenbreite</td>
+<td class="tabxpl" nowrap="nowrap"></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>encoding="UTF-16"</code></td>
+<td class="tabxpl">internationale Kodierung auf Basis der ISO/IEC-10646-Norm mit mindestens 16 Bit Zeichenbreite</td>
+<td class="tabxpl" nowrap="nowrap"></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>encoding="ISO-8859-1"</code></td>
+<td class="tabxpl">ISO-Kodierung für westeuropäische Sprachen</td>
+<td class="tabxpl" nowrap="nowrap">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../inter/zeichenkodierungen.htm#iso8859_1">ISO-8859-1</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>encoding="ISO-8859-2"</code></td>
+<td class="tabxpl">ISO-Kodierung für osteuropäische Sprachen</td>
+<td class="tabxpl" nowrap="nowrap">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../inter/zeichenkodierungen.htm#iso8859_2">ISO-8859-2</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>encoding="ISO-8859-3"</code></td>
+<td class="tabxpl">ISO-Kodierung für südeuropäische Sprachen</td>
+<td class="tabxpl" nowrap="nowrap">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../inter/zeichenkodierungen.htm#iso8859_3">ISO-8859-3</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>encoding="ISO-8859-4"</code></td>
+<td class="tabxpl">ISO-Kodierung für nordeuropäische Sprachen</td>
+<td class="tabxpl" nowrap="nowrap">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../inter/zeichenkodierungen.htm#iso8859_4">ISO-8859-4</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>encoding="ISO-8859-5"</code></td>
+<td class="tabxpl">ISO-Kodierung für kyrillische Sprachen</td>
+<td class="tabxpl" nowrap="nowrap">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../inter/zeichenkodierungen.htm#iso8859_5">ISO-8859-5</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>encoding="ISO-8859-6"</code></td>
+<td class="tabxpl">ISO-Kodierung für arabische Sprachen</td>
+<td class="tabxpl" nowrap="nowrap">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../inter/zeichenkodierungen.htm#iso8859_6">ISO-8859-6</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>encoding="ISO-8859-7"</code></td>
+<td class="tabxpl">ISO-Kodierung für griechische Sprache</td>
+<td class="tabxpl" nowrap="nowrap">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../inter/zeichenkodierungen.htm#iso8859_7">ISO-8859-7</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>encoding="ISO-8859-8"</code></td>
+<td class="tabxpl">ISO-Kodierung für hebräische Sprache</td>
+<td class="tabxpl" nowrap="nowrap">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../inter/zeichenkodierungen.htm#iso8859_8">ISO-8859-8</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>encoding="ISO-8859-9"</code></td>
+<td class="tabxpl">ISO-Kodierung für türkische Sprache</td>
+<td class="tabxpl" nowrap="nowrap">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../inter/zeichenkodierungen.htm#iso8859_9">ISO-8859-9</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>encoding="ISO-8859-10"</code></td>
+<td class="tabxpl">ISO-Kodierung für nordische Sprache</td>
+<td class="tabxpl" nowrap="nowrap">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../inter/zeichenkodierungen.htm#iso8859_10">ISO-8859-10</a></td>
+</tr>
+</table>
+
+<p>Wenn Sie keine Angaben zur Kodierung der XML-Datei machen, wird per Voreinstellung UTF-8 angenommen (siehe dazu <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="zeichen.htm#zeichenkodierung">Standard-Zeichenkodierung und Unicode-Unterstützung</a>).</p>
+
+<p>Mit dem Attribut <code>standalone</code> können Sie dem XML-Parser vorab mitteilen, ob die vorliegende Datei sich auf eine externe DTD bezieht oder nicht. Mit <code>standalone="yes"</code> geben Sie an, dass sich die DTD <b>innerhalb der aktuellen Datei</b> befindet. Mit <code>standalone="no"</code> teilen Sie mit, dass sich die DTD <b>in einer separaten Datei</b> befindet. Die Quelle müssen Sie in diesem Fall mit Hilfe der Dokumenttyp-Deklaration angeben.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Obwohl die beiden Attribute <code>standalone</code> und <code>encoding</code> optional sind, müssen sie, wenn sie verwendet werden, in einer bestimmten Reihenfolge notiert werden, nämlich in dieser:<br>
+<code>version - encoding - standalone</code></p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/xml10.gif" width="30" height="30" alt="XML 1.0" title="XML 1.0"><img src="../../src/msie5.gif" width="30" height="30" alt="MS IE 5.0" title="MS IE 5.0"><img src="../../src/netsc6.gif" width="30" height="30" alt="Netscape 6.0" title="Netscape 6.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/saf12.gif" width="30" height="30" alt="Safari 1.2" title="Safari 1.2">&nbsp;<a class="an" name="verarbeitungsanweisungen">Verarbeitungsanweisungen innerhalb einer XML-Datei</a></h2>
+
+<p>Hin und wieder kann es notwendig sein, dass auch innerhalb der XML-Datei spezielle Anweisungen für die auslesende Software notiert werden müssen. Solche Anweisungen nennt man <b>Verarbeitungsanweisungen</b> (<i>processing instructions</i>).</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<pre>
+&lt;?xml version="1.0"?&gt;
+&lt;!-- Daten --&gt;
+&lt;?xml-stylesheet type="text/css" href="styles.css"?&gt;
+&lt;!-- Daten --&gt;
+&lt;?PLZprozessor alertBox("es sind ungültige Postleitzahlen angegeben")?&gt;
+&lt;!-- Daten --&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Die Verarbeitungsanweisung ist ein alleinstehendes Tag, dessen erstes und letztes Zeichen innerhalb der spitzen Klammern <code>&lt;</code> und <code>&gt;</code> ein Fragezeichen <code>?</code> ist. Unmittelbar hinter dem Anfangsfrageziechen folgt ein symbolischer Name derjenigen Software, an die sich die Verarbeitungsanweisung richtet. Die auslesende Software muss diesen symbolischen Namen natürlich kennen und wissen, dass die Verarbeitungsanweisung an sie gerichtet ist. Das Beispiel zeigt zwei typische Verarbeitungsanweisungen innerhalb der XML-Daten. Mit <code>xml-stylesheet</code> wird beispielsweise ein Browser angesprochen, der die XML-Daten anzeigen soll und durch die entsprechende Verarbeitungsanweisung erfährt, wo die Stylesheet-Datei abgelegt ist, in der die Formatdefinitionen für die XML-Elemente dieser Datei notiert sind. Die zweite Verarbeitungsanweisung innerhalb der XML-Daten im Beispiel ist eine Phantasie-Anweisung, die zeigen soll, dass Verarbeitungsanweisungen ganz verschiedener Natur sein können.</p>
+
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Die Browser reagieren nur auf die standardisierte Verarbeitungsanweisung <code>&lt;?xml-stylesheet?&gt;</code>. </p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="dokumenttypdeklaration.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="dokumenttypdeklaration.htm">Die Dokumenttyp-Deklaration</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="../intro.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../intro.htm">Einführung in XML</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">XML/DTDs</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Regeln für XML-Dateien</a></td>
+</tr>
+</table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

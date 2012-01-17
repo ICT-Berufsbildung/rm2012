@@ -1,0 +1,7 @@
+<!ELEMENT feiertage (feiertag)*>
+<!ELEMENT feiertag EMPTY>
+<!ATTLIST feiertag
+   datum            NMTOKEN              #REQUIRED
+   ereignis         CDATA                #REQUIRED
+>
+

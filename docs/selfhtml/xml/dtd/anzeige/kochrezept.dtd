@@ -1,0 +1,7 @@
+<!ELEMENT kochrezept (zutatenliste, anweisungsfolge)>
+
+<!ELEMENT zutatenliste (zutat)+>
+<!ELEMENT zutat (#PCDATA)>
+
+<!ELEMENT anweisungsfolge (anweisung)*>
+<!ELEMENT anweisung (#PCDATA)>

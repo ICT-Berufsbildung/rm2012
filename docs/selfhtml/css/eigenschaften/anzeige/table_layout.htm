@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>table-layout</title>
+<style type="text/css">
+table { width:100%; }
+td { border:1px solid #000; vertical-align:top; overflow:hidden; }
+</style>
+</head><body>
+
+<h1>table-layout</h1>
+
+<h2>table-layout:auto ohne Breitenangabe</h2>
+
+<table>
+ <tr>
+  <td>ohne Breitenangabe</td>
+  <td>ohne Breitenangabe</td>
+  <td>ohne Breitenangabe - Spalten mit h&ouml;herem Platzbedarf wird mehr Breite zur Verf&uuml;gung gestellt, wenn andere Spalten diese f&uuml;r eine vollst&auml;ndige Darstellung ihrer Inhalte nicht ben&ouml;tigen.</td>
+ </tr>
+</table>
+
+<h2>table-layout:fixed ohne Breitenangabe</h2>
+
+<table style="table-layout:fixed">
+ <tr>
+  <td>ohne Breitenangabe</td>
+  <td>ohne Breitenangabe</td>
+  <td>ohne Breitenangabe - Der verf&uuml;gbare Platz wird unabh&auml;ngig vom Inhalt der Zellen auf alle Spalten gleichm&auml;&szlig;ig aufgeteilt.</td>
+ </tr>
+</table>
+
+<h2>table-layout:fixed mit teilweiser Breitenangabe</h2>
+
+<table style="table-layout:fixed">
+ <tr>
+  <td style="width:25%">width:25%</td>
+  <td style="width:120px">width:120px Donaudampfschifffahrtsgesellschaft</td>
+  <td>ohne Breitenangabe - Noch verf&uuml;gbarer Platz wird auf alle Spalten ohne Breitenangabe aufgeteilt. Zu breiter Inhalt wird, wie in der mittleren Spalte dargestellt, abgeschnitten, wenn overflow:hidden definiert wurde.</td>
+ </tr>
+</table>
+
+<h2>table-layout:fixed mit Breitenangabe in allen Spalten</h2>
+
+<table style="table-layout:fixed">
+ <tr>
+  <td style="width:25%">width:25%</td>
+  <td style="width:25%">width:25%</td>
+  <td style="width:25%">width:25% - Ist die Breite der gesamten Tabelle gr&ouml;&szlig;er, als von allen Spalten gemeinsam ben&ouml;tigt wird, wird verf&uuml;gbarer Platz zu gleichen Teilen auf alle Spalten aufgeteilt. In diesem Beispiel betr&auml;gt die Breite jeder Spalte daher effektiv 33 % anstatt der definierten 25 %.</td>
+ </tr>
+</table>
+
+<p><a href="../tabellen.htm#table_layout">zur&uuml;ck</a></p>
+</body></html>

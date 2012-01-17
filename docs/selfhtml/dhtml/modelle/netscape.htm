@@ -1,0 +1,737 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: Dynamisches HTML / DHTML-Modelle / Das ältere DHTML-Modell von Netscape</title>
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<meta name="description"    content="Wie Sie die ältere DHTML-Technik von Netscape, die auf Layern basiert, einsetzen">
+<meta name="keywords"       content="SELFHTML, Dynamisches HTML, Dynamic HTML, DHTML, Netscape, Layer, layers-Objekt">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-08-22T21:21:39+02:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/dhtml/modelle/netscape.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="DHTML-Modelle" href="index.htm">
+<link rel="next" title="Datenanbindung (nur Microsoft)" href="datenanbindung.htm">
+<link rel="prev" title="Das ältere DHTML-Modell von Microsoft" href="microsoft.htm">
+<link rel="first" title="Das Document Object Model (DOM)" href="dom.htm">
+<link rel="last" title="Dynamische Filter (nur Microsoft)" href="dynamische_filter.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">Dynamisches HTML</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">DHTML-Modelle</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Das ältere DHTML-Modell von Netscape</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#allgemeines">Allgemeines zum DHTML-Modell von Netscape 4.x</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#verstecken">Layer-Bereiche dynamisch anzeigen/verstecken</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#ueberlappen">Layer-Bereiche dynamisch überlappen</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#bewegen">Layer-Bereiche dynamisch bewegen</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#vergroessern">Layer-Bereiche dynamisch vergrößern/verkleinern</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#austauschen">Layer-Inhalte dynamisch austauschen</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#simulieren">Layer ohne layer-Element simulieren</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#event_objekt">Das Event-Objekt</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#inline_scripts">Inline-Scripts bei Layern</a><br>
+</p>
+</td>
+</tr><tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><a class="an" name="allgemeines">Allgemeines zum DHTML-Modell von Netscape 4.x</a></h2>
+
+<p>Die hier vorgestellte Layer-Technik funktioniert <b>nur mit Netscape in der Version 4.x</b>. In der völlig neu programmierten Version 6.0 und den Mozilla-Quellen dazu ist die gesamte Layer-Technik nicht mehr implementiert und funktioniert nicht mehr. Der Grund ist, dass das W3-Konsortium die Layer-Technik abgelehnt hat. Stattdessen wird das <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="dom.htm">Document Object Model (DOM)</a> empfohlen, das auch in Netscape ab Version 6.0 implementiert ist. Die Layer-Technik, wie sie hier beschrieben wird, ist also nur noch im Hinblick auf die Rückwärtskompatibilität zur 4er-Serie der Netscape-Browser von Bedeutung.</p>
+
+<p>"Dynamisches HTML" - das ist bei Netscape 4.x <b>nicht</b> wie im DOM oder beim älteren Modell des Internet Explorers der beliebige nachträgliche Zugriff auf alle Elemente einer HTML-Datei. Sie können mit Netscape 4.x also nicht einfach nachträglich einen Textabsatz, der mit <code>&lt;p&gt;</code>...<code>&lt;/p&gt;</code> definiert ist, völlig anders formatieren, oder in eine Überschrift 1. Ordnung verwandeln.</p>
+
+<p>Dynamisches HTML gibt es bei Netscape 4.x nur im Zusammenhang mit positionierten Elementen. Bei Netscape ist Dynamisches HTML die Möglichkeit, positionierte Layer dynamisch zu behandeln, also ein- und auszublenden, zu verschieben usw.</p>
+
+<p>Die Layer-Technologie von Netscape ist allerdings sehr mächtig. Voraussetzung dabei ist das Definieren von Layern in HTML. Es besteht zwar auch die Möglichkeit, ohne das <code>layer</code>-Element Dynamisches HTML für Netscape zu schreiben, doch das ganze Konzept, das Netscape seinem Browser in der Version 4.x als Dynamisches HTML eingebaut hat, basiert auf dem <code>layer</code>-Element. Wenn man auf das <code>layer</code>-Element verzichten will, bleibt einem nur, die Layer zu "simulieren".</p>
+
+<p>Die Beispiele auf dieser Seite konzentrieren sich deshalb im wesentlichen auf die Layer-Technologie. Denn nur so wird der Ansatz deutlich, den Netscape mit seiner Implementierung von Dynamischem HTML verfolgt.</p>
+
+<p>Um die Beispiele auf dieser Seite zu verstehen, müssen Sie vor allem die <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../../html/layer/index.htm">Layer</a> in HTML kennen sowie Vorkenntnisse in <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../../javascript/index.htm">JavaScript</a> mitbringen. Für die Layer-Technik ist vor allem das JavaScript-Objekt <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../javascript/objekte/layers.htm">layers</a> entscheidend. Dort werden die einzelnen Eigenschaften und Methoden systematisch beschrieben, die hier in den Beispielen verwendet werden.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/js12.gif" width="30" height="30" alt="JavaScript 1.2" title="JavaScript 1.2"><img src="../../src/netsc4.gif" width="30" height="30" alt="Netscape 4.0" title="Netscape 4.0">&nbsp;<a class="an" name="verstecken">Layer-Bereiche dynamisch anzeigen/verstecken</a></h2>
+
+<p>Sie können Layer mit Hilfe von JavaScript dynamisch anzeigen und verstecken. Je nachdem, wie Sie Ihre Layer definieren, können Sie dadurch die verschiedensten Effekte erzielen. Das folgende Beispiel demonstriert, wie Sie eine "Dia-Show" aus kurzen Texten definieren können. Der Anwender braucht nicht mehr scrollen, sondern klickt sich von einem Text zum nächsten. Die Texte werden in einer "Box" angezeigt.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/aphorismen.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;script type="text/javascript"&gt;
+var AktuellerText = 0;
+var Texte = 3;
+
+function NextText () {
+  ++AktuellerText;
+  if (AktuellerText &gt;= Texte)
+    AktuellerText = 0;
+  for (var i = 0; i &lt; Texte; i++)
+    document.layers[i].visibility = "hide";
+  document.layers[AktuellerText].visibility = "show";
+}
+&lt;/script&gt;
+&lt;/head&gt;&lt;body&gt;
+
+&lt;layer visibility="show" top="150" left="50" width="400" height="125" bgcolor="#DDFFDD"&gt;
+ &lt;p style="color:#006600; font-family:Arial,Helvetica,Sans-Serif; font-size:1.2em; font-weight:bold;"&gt;
+ &lt;span style="color:#000000; font-family:Arial,Helvetica,Sans-Serif; font-size:1.8em; font-weight:bold;"&gt;
+ 1.&lt;/span&gt;&lt;br&gt;Man kann nur Brücken schlagen zwischen Ufern, die man auseinanderhält.&lt;/p&gt;
+&lt;/layer&gt;
+
+&lt;layer visibility="hide" top="150" left="50" width="400" height="125" bgcolor="#DDFFDD"&gt;
+&lt;p style="color:#006600; font-family:Arial,Helvetica,Sans-Serif; font-size:1.2em; font-weight:bold;"&gt;
+&lt;span style="color:#000000; font-family:Arial,Helvetica,Sans-Serif; font-size:1.8em; font-weight:bold;"&gt;
+2.&lt;/span&gt;&lt;br&gt;Je größer die Erwartung, desto unmöglicher die Erfüllung.&lt;/p&gt;
+&lt;/layer&gt;
+
+&lt;layer visibility="hide" top="150" left="50" width="400" height="125" bgcolor="#DDFFDD"&gt;
+&lt;p style="color:#006600; font-family:Arial,Helvetica,Sans-Serif; font-size:1.2em; font-weight:bold;"&gt;
+&lt;span style="color:#000000; font-family:Arial,Helvetica,Sans-Serif; font-size:1.8em; font-weight:bold;"&gt;
+3.&lt;/span&gt;&lt;br&gt;Wer sich aufgibt, liebt nicht, weil er sich nicht liebt; nur wer
+sich verschenkt, liebt, weil er sich liebt.&lt;/p&gt;
+&lt;/layer&gt;
+
+&lt;layer top="275" left="50" width="400" bgcolor="#DDFFDD"&gt;
+&lt;center&gt;&lt;form name="Formular" action=""&gt;&lt;input type="button" value=" weiter &amp;gt;&amp;gt; "
+onclick="NextText()"&gt;&lt;/form&gt;&lt;/center&gt;
+&lt;/layer&gt;
+
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Im Körper der Beispiel-HTML-Datei werden insgesamt vier Layer definiert. Die ersten drei Layer enthalten Texte, die dynamisch wechseln sollen. Der vierte Layer enthält einen Button. Wenn der Anwender auf den Button klickt, wird eine JavaScript-<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../javascript/sprache/funktionen.htm">Funktion</a> mit Namen <code>NextText()</code> aufgerufen. Diese Funktion wird im Kopf der HTML-Datei in einem JavaScript-Bereich definiert. Die Funktion sorgt dafür, dass der jeweils nächste Text angezeigt wird.</p>
+
+<p>Beachten Sie, dass die ersten drei Layer identische Angaben zur Position enthalten. Die Angaben <code>top="150"</code> (linke obere Ecke beginnt 150 Pixel von oben), <code>left="50"</code> (linke obere Ecke beginnt 50 Pixel von links), <code>width="400"</code> (Breite des Layers: 400 Pixel), und <code>height="125"</code> (Höhe des Layers: 125 Pixel), sind in allen Layern die gleichen. Die drei Layer unterscheiden sich lediglich durch die Angabe des Attributs <code>visibility</code>. Der erste Layer wird mit <code>visibilty="show"</code> auf "sichtbar" gesetzt, die beiden anderen mit <code>visibilty="hide"</code> auf "unsichtbar". Dadurch wird erreicht, dass zunächst nur der erste Layer am Bildschirm angezeigt wird.</p>
+
+<p>Der vierte Layer, also der mit dem Kontroll-Button, enthält ebenfalls Angaben zur Position. Er hat die gleiche Breite wie die beiden ersten Layer und beginnt auch links an der gleichen Position. In der Höhe beginnt er genau 125 Pixel tiefer als die beiden ersten Layer. Da diese eine Höhe von 125 Pixeln haben, schließt der "Kontroll-Button-Layer" also nahtlos an die oberen Layer an. Er enthält keine Angabe zur Sichtbarkeit. Das bedeutet, er ist sichtbar, und das wird sich auch im Verlauf des JavaScripts nicht ändern. Denn der Inhalt dieses Layers steuert ja das Geschehen.</p>
+
+<p>In dem JavaScript-Bereich im Kopf der Datei werden zunächst zwei globale <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../javascript/sprache/variablen.htm">Variablen</a> definiert. Da sie außerhalb jeder Funktion stehen, behält ihr aktueller Wert solange Gültigkeit, wie die HTML-Datei angezeigt wird. In der Variablen <code>AktuellerText</code> wird die Indexnummer des aktuellen Textlayers gespeichert. In <code>Texte</code> wird die Anzahl der dynamisch austauschbaren Texte bzw. Layer gespeichert. Sie könnten anstelle der drei Layer mit Texten auch 10 oder 100 solcher Layer definieren. Entsprechend der Anzahl der definierten Layer müssten Sie nur den Anfangswert von Texte anders zuweisen.</p>
+
+<p>Innerhalb der Funktion <code>NextText()</code> wird zunächst die Nummer von <code>AktuellerText</code> erhöht, denn es soll ja der jeweils nächste Text angezeigt werden. Anschließend werden in einer for-Schleife alle Layer mit Texten auf "unsichtbar" gesetzt. Am Ende wird der Layer desjenigen Textes, der angezeigt werden soll (<code>AktuellerText</code>) auf "sichtbar" gesetzt. Dadurch entsteht der Dia-Show-Effekt.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Netscape dehnt die Layer entsprechend ihres Inhalts aus. Wenn der Inhalt eines Textes im obigen Beispiel größer ist als der definierte Layer-Bereich, überschneidet er sich mit dem Layer des Kontroll-Buttons, jedoch so, dass der Layer mit dem Kontroll-Button über dem unteren Teil des Layers mit dem Text liegt. Der Grund dafür ist, dass der Layer mit dem Kontroll-Button hinter dem Layer mit dem Text definiert wird und daher im "Stack" (Stapel) weiter oben liegt. Wenn Sie die Größe eines Layers unabhängig vom Inhalt fest machen wollen, müssen Sie das Attribut <code>clip</code> benutzen (siehe auch: <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/layer/definieren.htm#anzeigebereich">Anzeigebereich von Layern beschneiden</a>).</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/js12.gif" width="30" height="30" alt="JavaScript 1.2" title="JavaScript 1.2"><img src="../../src/netsc4.gif" width="30" height="30" alt="Netscape 4.0" title="Netscape 4.0">&nbsp;<a class="an" name="ueberlappen">Layer-Bereiche dynamisch überlappen</a></h2>
+
+<p>Sie können Layer so positionieren, dass diese sich überlappen. Das hat ohne JavaScript meistens allerdings wenig Sinn, denn der Anwender soll die Inhalte der Layer ja sehen können. Mit Hilfe von JavaScript können Sie jedoch bewirken, dass der Anwender sich einen einzelnen Layer in den Vordergrund holen kann, um dessen Inhalt anzuzeigen. Auf diese Weise können Sie auf einer WWW-Seite durchaus verschiedene Inhalte unterbringen, für die normalerweise mehrere Seiten angebracht wären. Im folgenden Beispiel sind die Layer wie in einem Karteikastenstapel aufgereiht. Der Anwender kann einen Layer "herausgreifen".</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/cardpage.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;style type="text/css"&gt;
+layer.Text { padding:5px; font-size:12px; font-family:Arial,Helvetica,Sans-Serif; }
+layer.Kopf { font-size:12px; font-family:Arial,Helvetica,Sans-Serif; font-weight:bold; text-align:right; }
+a:link, a:visited, a:active { color:white; }
+a.normal:link { color:#AA5522; text-decoration:underline; }
+a.normal:visited { color:#772200; text-decoration:underline; }
+a.normal:active { color:#000000; text-decoration:underline; }
+&lt;/style&gt;
+&lt;script type="text/javascript"&gt;
+var aktiv = "Home";
+function Hervorheben (neu_aktiv) {
+  document.layers["Feedback"].zIndex = 1;
+  document.layers["Support"].zIndex = 2;
+  document.layers["Produkte"].zIndex = 3;
+  document.layers["Home"].zIndex = 4;
+  document.layers[aktiv].bgColor = "#CCCCCC";
+  document.layers[aktiv].layers[0].bgColor = "#666666";
+  document.layers[aktiv].layers[1].visibility = "hide";
+  document.layers[neu_aktiv].zIndex = 5;
+  document.layers[neu_aktiv].bgColor = "#FFCCFF";
+  document.layers[neu_aktiv].layers[0].bgColor = "#000000";
+  document.layers[neu_aktiv].layers[1].visibility = "show";
+  aktiv = neu_aktiv;
+}
+&lt;/script&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;layer id="Feedback" top="130" left="10" width="360" height="230" bgcolor="#CCCCCC"&gt;
+  &lt;layer class="Kopf" width="360" height="25" bgcolor="#666666"&gt;
+  &lt;a href="javascript:Hervorheben('Feedback')"&gt;Feedback&lt;/a&gt;
+  &lt;/layer&gt;
+  &lt;layer class="Text" top="25" visibility="hide"&gt;
+  Hier Ihr Feedback:
+  &lt;form name="Formular" action=""&gt;&lt;textarea rows="5" cols="25"&gt;Bla Bla&lt;/textarea&gt;&lt;/form&gt;
+  &lt;/layer&gt;
+&lt;/layer&gt;
+&lt;layer id="Support" top="155" left="70" width="360" height="230" bgcolor="#CCCCCC"&gt;
+  &lt;layer class="Kopf" width="360" height="25" bgcolor="#666666"&gt;
+  &lt;a href="javascript:Hervorheben('Support')"&gt;Support&lt;/a&gt;
+  &lt;/layer&gt;
+  &lt;layer class="Text" top="25" visibility="hide"&gt;
+  Unser Support ist wirklich Bla Bla
+  &lt;/layer&gt;
+&lt;/layer&gt;
+&lt;layer id="Produkte" top="180" left="130" width="360" height="230" bgcolor="#CCCCCC"&gt;
+  &lt;layer class="Kopf" width="360" height="25" bgcolor="#666666"&gt;
+  &lt;a href="javascript:Hervorheben('Produkte')"&gt;Produkte&lt;/a&gt;
+  &lt;/layer&gt;
+  &lt;layer class="Text" top="25" visibility=hide&gt;
+  Unsere Produkte sind ja so wahnsinnig Bla Bla
+  &lt;/layer&gt;
+&lt;/layer&gt;
+&lt;layer id="Home" top="205" left="190" width="360" height="230" bgcolor="#FFCCFF"&gt;
+  &lt;layer class="Kopf" width="360" height="25" bgcolor="#000000"&gt;
+  &lt;a href="javascript:Hervorheben('Home')"&gt;HOME&lt;/a&gt;
+  &lt;/layer&gt;
+  &lt;layer class="Text" top="25" visibility="show"&gt;
+  Unser Home ist unser Bla Bla
+  &lt;/layer&gt;
+&lt;/layer&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Im Beispiel werden vier "große" Layer definiert: einer für "Feedback", einer für "Support", einer für "Produkte" und einer für "Home", was bedeuten soll, dass dieser Layer eine Art Homepage, einen Home-Layer darstellt. Dieser Layer wird auch zuerst im Vordergrund angezeigt. Und zwar deshalb, weil er als letzter definiert wird. Wenn Sie bei Layern kein Attribut  <code>z-index</code> notieren, liegt immer derjenige Layer ganz oben, der als letzter definiert wird.</p>
+
+<p>Dem Beispiel können Sie auch entnehmen, dass innerhalb der vier großen Layer jeweils zwei "innere" Layer definiert werden. Layer, die innerhalb anderer Layer definiert werden, werden relativ zu ihrem Eltern-Layer positioniert. Dazu müssen Sie sich einen Layer vorstellen wie einen neuen kleinen Dateikörper. Alles, was innerhalb davon notiert wird, wird relativ dazu positioniert.</p>
+
+<p>Die Angaben zu <code>top</code>, <code>left</code>, <code>height</code> und <code>width</code> in den Layern im obigen Beispiel sind alle genau ermittelt, und zwar so, dass die Layer optisch einen sauber sortierten Karteikastenstapel darstellen. Versuchen Sie, die Abhängigkeiten der Positionierungsangaben im Beispiel zu ermitteln. So können Sie erkennen, wie Sie vorgehen müssen, um mehrere Layer nach einem von Ihnen gewünschten Kriterium ordentlich verteilt im Anzeigefenster zu platzieren.</p>
+
+<p>Jeder der "großen" Layer enthält im obigen Beispiel zwei innere Layer: einen Layer, der wie eine Titelleiste wirkt und einen Verweis enthält, und einen Layer, der den eigentlichen Inhalt enthält. Die Verweise in den Titelleisten-Layern rufen eine JavaScript-Funktion namens <code>Hervorheben()</code> auf. Diese Funktion bewirkt das dynamische Hervorholen des "großen" Layers, der zu dem angeklickten Verweis gehört (also des Eltern-Layers von dem Layer, in dem der Verweis steht).</p>
+
+<p>In dem Script-Bereich, in dem die Funktion <code>Hervorheben()</code> steht, wird vor der Funktion eine Variable <code>aktuell</code> definiert. Sie bekommt zu Beginn den Namen des vorne liegenden Layers zugewiesen. Das ist derjenige Name, der beim entsprechenden Layer im <code>id</code>-Attribut vergeben wurde.<br>
+Die Funktion <code>Hervorheben()</code> erwartet einen Parameter, nämlich den Namen desjenigen Layers, der anstelle des bisher vorne liegenden Layers hervorgeholt werden soll. Bei den Verweisen, die die Funktion aufrufen, wird denn auch wieder der Name übergeben, der im entsprechenden Layer bei <code>id</code> vergeben ist.</p>
+
+<p>Innerhalb der Funktion <code>Hervorheben()</code> wird zunächst die normale Layer-Reihenfolge hergestellt. Das geschieht durch Zuweisen einer Zahl an die Layer-Objekteigenschaft <code>zIndex</code>. Je höher die Zahl, desto weiter vorne im Stapel liegt der Layer. Das Wiederherstellen der normalen Layer-Reihenfolge bewirkt, dass der "Karteikastenstapel", den das Beispiel darstellt, immer aufgeräumt erscheint.</p>
+
+<p>Anschließend wird der bisher aktive Layer, bezeichnet durch <code>document.layers[aktiv]</code>, mit mehreren Anweisungen behandelt. Die Angabe <code>aktiv</code> in den eckigen Klammern zeigt zunächst auf den Layer <code>"Home"</code>. Am Ende der Funktion wird der Wert der Variablen <code>aktiv</code> jedoch geändert. Dort wird ihr der Name des neuen hervorgehobenen Layers zugewiesen. Dadurch ist beim nächsten Aufruf der Funktion dieser Layer derjenige, der von <code>document.layers[aktiv]</code> betroffen ist.<br>
+Die Anweisungen, die den bisher aktiven Layer betreffen, weisen diesem Attribute zu, die ihn optisch zu einem "untenliegenden" Layer im Karteikastenstapel machen.</p>
+
+<p>Derjenige Layer mit dem Namen, der mit dem Parameter <code>neu_aktiv</code> übergeben wurde, erhält dagegen diejenigen optischen Attribute, die ihn als hervorgehobenen Layer auszeichnen. Er bekommt auch die höchste Zahl für <code>zIndex</code>. Dadurch wird er als oberster Layer angezeigt.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Im Layer <code>Feedback</code> ist ein Formular definiert. Dieses Formular wird im Netscape 4 mit <code>document.layers.Feedback.document.Formular</code> angesprochen, da es Bestandteil des Layers <code>Feedback</code> ist. Ein Layer stellt aus Sicht von Netscape ein Dokument im Dokument dar und hat ein eigenes <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../javascript/objekte/document.htm">document</a>-Objekt.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/js12.gif" width="30" height="30" alt="JavaScript 1.2" title="JavaScript 1.2"><img src="../../src/netsc4.gif" width="30" height="30" alt="Netscape 4.0" title="Netscape 4.0">&nbsp;<a class="an" name="bewegen">Layer-Bereiche dynamisch bewegen</a></h2>
+
+<p>Sie können Layer mit beliebigen Inhalten über das Anzeigefenster springen oder wandern lassen. Das Springen zu einer Stelle ist dabei nur ein einziger Befehl, da dies als Methode im Layer-Objekt von JavaScript zur Verfügung steht. Wenn Sie dagegen zeitgesteuerte Bewegungseffekte wollen, müssen Sie die Positionsberechung vom Startpunkt bis zum Endpunkt des Bewegungsvorgangs "zu Fuß" programmieren. Das folgende Beispiel zeigt, wie so etwas im Prinzip funktioniert.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/springenlassen.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;style type="text/css"&gt;
+p { font-weight:bold }
+a.Navlink:link { color:#FF0000 }
+a.Navlink:visited { color:#FF0000 }
+a.Navlink:active { color:#000000 }
+&lt;/style&gt;
+&lt;script type="text/javascript"&gt;
+function hBeweg (LayerNum, bis_links, Pixel, Pause) {
+  var Restpixel = bis_links - document.layers[LayerNum].left;
+  if (bis_links &lt; document.layers[LayerNum].left)
+    Pixel = 0 - Pixel;
+  if (Math.abs(Restpixel) &gt; Math.abs(Pixel)) {
+    document.layers[LayerNum].moveBy(Pixel, 0);
+  } else {
+    document.layers[LayerNum].moveBy(Restpixel, 0);
+  }
+  if (document.layers[LayerNum].left != bis_links)
+    window.setTimeout("hBeweg(" + LayerNum + "," + bis_links + "," + Math.abs(Pixel) + ")", Pause);
+}
+
+function vBeweg (LayerNum, bis_oben, Pixel, Pause) {
+  var Restpixel = bis_oben - document.layers[LayerNum].top;
+  if (bis_oben &lt; document.layers[LayerNum].top)
+    Pixel = 0 - Pixel;
+  if (Math.abs(Restpixel) &gt; Math.abs(Pixel)) {
+    document.layers[LayerNum].moveBy(0, Pixel);
+  } else {
+    document.layers[LayerNum].moveBy(0, Restpixel);
+  }
+  if (document.layers[LayerNum].top != bis_oben)
+    window.setTimeout("vBeweg(" + LayerNum + "," + bis_oben + "," + Math.abs(Pixel) + ")", Pause);
+}
+&lt;/script&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;layer left="10" top="30" width="450" height="250" bgcolor="#FFFF66"&gt;
+&lt;h1&gt;Einen springen lassen...&lt;/h1&gt;
+&lt;p&gt;Springe nach:
+&lt;a class="Navlink" href="javascript:document.layers[0].moveTo(10,30)"&gt;links oben&lt;/a&gt; |
+&lt;a class="Navlink" href="javascript:document.layers[0].moveTo(260,30)"&gt;rechts oben&lt;/a&gt; |
+&lt;a class="Navlink" href="javascript:document.layers[0].moveTo(10,260)"&gt;links unten&lt;/a&gt; |
+&lt;a class="Navlink" href="javascript:document.layers[0].moveTo(260,260)"&gt;rechts unten&lt;/a&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;Bewege nach:
+&lt;a class="Navlink" href="javascript:hBeweg(0,10,4,2)"&gt;links&lt;/a&gt; |
+&lt;a class="Navlink" href="javascript:hBeweg(0,260,4,2)"&gt;rechts&lt;/a&gt; |
+&lt;a class="Navlink" href="javascript:vBeweg(0,30,4,2)"&gt;oben&lt;/a&gt; |
+&lt;a class="Navlink" href="javascript:vBeweg(0,260,4,2)"&gt;unten&lt;/a&gt;&lt;/p&gt;
+&lt;/layer&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Innerhalb des Dateikörpers der HTML-Datei im obigen Beispiel wird ein Layer definiert. Dieser Layer enthält insgesamt acht Verweise. Bei jedem Verweis wird JavaScript-Code ausgeführt. Dabei wird der Befehl, den der Verweis dem Anwender anbietet, in die Tat umgesetzt.</p>
+
+<p>Alle Verweise sorgen für eine Neupositionierung des Layers, in dem sie sich selber befinden. Das muss nicht so sein - es ist im obigen Beispiel einfach zu Demo-Zwecken so gelöst. Der Layer, den es dynamisch zu positionieren gilt, könnte auch etwas ganz anderes enthalten, etwa Grafiken, Tabellen usw.</p>
+
+<p>Die ersten vier Verweise führen lediglich Sprünge aus, d.h. beim Klicken auf einen dieser Verweise wird der Layer-Inhalt einfach sofort an einer anderen Stelle im Anzeigefenster angezeigt. Für diese Aufgabe stellt das Layer-Objekt von JavaScript die Methode <code>moveTo()</code> zur Verfügung. Mit einer Anweisung wie <code>document.layers[0].moveTo(...)</code> positionieren Sie den ersten Layer der Datei (der den Index 0 hat) an einer neuen Position. Die Methode <code>moveTo()</code> setzt die neue Position der linken oberen Ecke des Layers. Dazu erwartet die Methode zwei Parameter, und zwar zuerst den Wert für links, und als zweites den Wert für oben. Mit einer Anweisung wie <code>document.layers[0].moveTo(260,10)</code> wird also die linke obere Ecke des Layers auf 260 Pixel von links und 10 Pixel von oben gesetzt. Die Angaben beziehen sich auf das jeweilige Elternelement des Layers. Da der Layer im obigen Beispiel kein Layer innerhalb eines anderen Layers ist, ist das normale Anzeigefenster das Elternelement.</p>
+
+<p>Während das einfache Neupositionieren mit einer einzigen JavaScript-Anweisung möglich ist, die im obigen Beispiel direkt in den entsprechenden Verweisen steht, muss zum dynamischen Bewegen von Layern eine eigene Funktion aufgerufen werden, die den Bewegungsablauf bestimmt. Im obigen Beispiel gibt es zwei solcher Funktionen. Die Funktion <code>hBeweg()</code> kann Layer horizontal nach links oder rechts verschieben, die Funktion <code>vBeweg()</code> leistet das gleiche, nur vertikal nach oben oder unten. Entsprechend werden die Funktionen aufgerufen. Wenn der Anwender einen der Verweise zum Bewegen nach rechts oder links angeklickt, wird <code>hBeweg()</code> aufgerufen, und bei den Verweisen zum Bewegen nach unten oder oben wird <code>vBeweg()</code> aufgerufen.</p>
+
+<p>Beide Funktionen sind allgemein geschrieben. Deshalb erwarten sie als Input auch verschiedene Parameter, die beim Funktionsaufruf zu übergeben sind:<br>
+<code>LayerNum</code> ist die Indexnummer des Layers, der bewegt werden soll. Da im Beispiel immer der gleiche und einzige vorhandene Layer bewegt werden soll, wird beim Aufruf der Funktionen immer dessen Indexnummer 0 übergeben.<br>
+<code>bis_links</code> (bei <code>hBeweg()</code>) bzw. <code>bis_oben</code> (bei  <code>vBeweg()</code>) ist der neue Endwert, bei dem die Bewegung gestoppt werden soll. Je nachdem, ob der Wert, den Sie dabei übergeben, größer oder kleiner ist als die aktuelle Position des Layers, ergibt sich automatisch die Bewegungsrichtung.<br>
+<code>Pixel</code> ist die Anzahl der Pixel, um die pro Bewegungsschritt weiter gesprungen wird. Je höher der Wert ist, den Sie dafür übergeben, desto schneller und ruckartiger die Bewegung. Im obigen Beispiel wird in allen Fällen 4 übergeben.<br>
+<code>Pause</code> ist ein weiterer Parameter zur Beeinflussung der Geschwindigkeit. Je höher der Wert, desto langsamer die Bewegung.</p>
+
+<p>Ein Bewegen von Layern besteht in nichts anderem als einem schrittweise neuen Positionieren des Layers. In den Funktionenen <code>hBeweg()</code> und <code>vBeweg()</code> stehen jeweils etwa in der Mitte zwei Anweisungen der Art <code>document.layers[LayerNum].moveBy(...)</code>, von denen immer nur eine ausgeführt wird. Das ist diejenige Anweisung, mit der der Layer jeweils neu positioniert wird. Es handelt sich einfach um den Aufruf der Methode <code>moveBy()</code> des Layer-Objekts. Diese Methode funktioniert genauso wie <code>moveTo()</code>, nur mit relativen Angaben statt mit absoluten.</p>
+
+<p>Damit der Layer nicht nur einmal, sondern weiter bewegt wird, rufen sich die beiden Funktionen <code>hBeweg()</code> und <code>vBeweg()</code> am Ende jeweils selbst wieder auf. Der Schleifen-Effekt, der dadurch entsteht, wird erst abgebrochen, wenn der gewünschte Endwert erreicht ist.<br>
+Der Selbstaufruf der Funktion ist in die JavaScript-Methode <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../javascript/objekte/window.htm#set_timeout">window.setTimeout()</a> eingebunden. Dadurch kann die Verzögerung berücksichtigt werden, die mit dem Parameter <code>Pause</code> übergeben wurde. Der Selbstaufruf der Funktion wirkt etwas kompliziert. Das liegt daran, dass die Funktion sich auch wieder mit den von ihr erwarteten Parametern aufrufen muss. Leider ist es nicht möglich, dazu einen normalen Funktionsaufruf zu notieren und einfach die übergeben bekommenen Parameter wieder zu übergeben. Stattdessen wird eine Zeichenkette zusammengebaut, welche die Funktion beim Neuaufruf mit tatsächlichen Werten versorgt.</p>
+
+<p>Die übrigen Anweisungen in den beiden Funktionen dienen zur Kontrolle des Bewegungsablaufs, vor allem dazu, dass trotz unterschiedlicher Aufrufparameter am Ende tatsächlich die gewünschte Endposition erreicht wird. So ist <code>Restpixel</code> eine Hilfsvariable, die ermittelt, wie viele Pixel noch zwischen aktueller Layerposition und dem gewünschten Endwert liegen. Wichtig ist auch die korrekte Bestimmung der Bewegungsrichtung. Wenn der gewünschte Endwert der Bewegung kleiner ist als die Position des Layers beim Start der Bewegung, dann muss der Schrittwert, der mit dem Parameter <code>Pixel</code> übergeben wird, als negative Zahl interpretiert werden. Denn nur so kann es "rückwärts" gehen, also nach links oder nach oben. Mit dem Ausdruck <code>Pixel=0-Pixel</code> wird der Schrittwert bei Bedarf auf eine negative Zahl "umgepolt".</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Komplexere Bewegungsabläufe benötigen entsprechend komplexere Programmierung. Bei diagonalen Bewegungen ist es nur einfach, solange die Anzahl der Pixel, um die pro Bewegungsschritt weiter positioniert wird, horizontal und vertikal immer proportional ist. Sobald Sie aber "krumme" Aufgaben lösen wollen, etwa die, von oben 10 links 10 nach oben 86 links 623 auf möglichst geradem Weg zu kommen, dürfen Sie in die Tiefen der Arithmetik eintauchen. Und wenn Sie gar Kreis- oder Ellipsenbewegungen wollen, müssen Sie entsprechende geometrische Formeln kennen und die dafür vorgesehenen Methoden des <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../javascript/objekte/math.htm">Math</a>-Objekts von JavaScript benutzen.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/js12.gif" width="30" height="30" alt="JavaScript 1.2" title="JavaScript 1.2"><img src="../../src/netsc4.gif" width="30" height="30" alt="Netscape 4.0" title="Netscape 4.0">&nbsp;<a class="an" name="vergroessern">Layer-Bereiche dynamisch vergrößern/verkleinern</a></h2>
+
+<p>Durch dynamisches Verändern des angezeigten Bereichs eines Layers lassen sich unzählige interessante Effekte erzielen, zum Beispiel zum dynamischen Aufklappen und Zuklappen von Teilen einer WWW-Seite. Das folgende Beispiel bewirkt drei "Blöcke", von denen zunächst nur Titelzeilen sichtbar sind. Jede Titelzeile enthält einen Verweis. Beim Anklicken des Verweises wird unterhalb der Titelzeile ein Bereich mit Inhalt nach unten aufgerollt. Beim nächsten Anklicken des Verweises wird er wieder zugerollt.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/htmlcssjs.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;style type="text/css"&gt;
+layer.Text { padding:5px; font-size:18px; font-family:Arial,Helvetica,Sans-Serif; color:#FFFFFF }
+layer.Kopf { padding:5px; font-size:14px; font-family:Arial,Helvetica,Sans-Serif; font-weight:bold; }
+a:link, a:visited, a:active { color:#FFFFE0; }
+a.normal:link { color:#AA5522; text-decoration:underline; }
+a.normal:visited { color:#772200; text-decoration:underline; }
+a.normal:active { color:#000000; text-decoration:underline; }
+&lt;/style&gt;
+&lt;script type="text/javascript"&gt;
+var Status = new Array("zu", "zu", "zu");
+function AufUndZu (LayerNum) {
+  var i;
+  if (Status[LayerNum] == "zu") {
+    for (i = 2; i &lt; 250; ++i)
+      document.layers[LayerNum].clip.bottom = i;
+    Status[LayerNum] = "auf";
+  } else {
+    for (i = 250; i &gt; 2; --i)
+      document.layers[LayerNum].clip.bottom = i;
+    Status[LayerNum] = "zu";
+  }
+}
+&lt;/script&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;layer class="Text" left="10" top="70" width="198" height="250" bgcolor="#000099" clip="0,0,198,2"&gt;
+HTML ist die Sprache für die Strukturierung von Hypertext-Projekten. Logos und Godfather aller
+Web-Seiten. Vermutlich das erfolgreichste Dateiformat der EDV-Geschichte.
+&lt;/layer&gt;
+&lt;layer class="Text" left="210" top="70" width="198" height="250" bgcolor="#994000" clip="0,0,198,2"&gt;
+CSS ist die Sprache für die Formatierung von Web-Seiten. Physis und Sohnprinzip. Klinkt sich
+nahtlos in HTML ein und sorgt dafür, das Strukturen zu Farben und Formen werden.
+&lt;/layer&gt;
+&lt;layer class="Text" left="410" top="70" width="198" height="250" bgcolor="#008000" clip="0,0,198,2"&gt;
+JavaScript ist die Sprache für Dynamische Web-Seiten. Kinesis und Geistprinzip. Klinkt sich nahtlos
+in HTML ein und zunehmend auch in CSS. Ist allerdings am schwersten zu verstehen.
+&lt;/layer&gt;
+&lt;layer class="Kopf" left="10" top="45" width="198" height="25" bgcolor="#000000"&gt;
+&lt;a href="javascript:AufUndZu(0)"&gt;HTML&lt;/a&gt;
+&lt;/layer&gt;
+&lt;layer class="Kopf" left="210" top="45" width="198" height="25" bgcolor="#000000"&gt;
+&lt;a href="javascript:AufUndZu(1)"&gt;CSS&lt;/a&gt;
+&lt;/layer&gt;
+&lt;layer class="Kopf" left="410" top="45" width="198" height="25" bgcolor="#000000"&gt;
+&lt;a href="javascript:AufUndZu(2)"&gt;JavaScript&lt;/a&gt;
+&lt;/layer&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>In dem Beispiel werden insgesamt sechs Layer definiert. Die ersten drei Layer sind diejenigen, die auf- und zuklappbar sind. Zunächst sind diese Layer zugeklappt. Das wird durch das Attribut <code>clip</code> erreicht. Durch diese Angabe lässt sich der angezeigte Bereich eines Layers beliebig einschränken. Die auf-/zuklappbaren Layer im obigen Beispiel etwa haben durch die Angaben <code>width="198" height="250"</code> eine Breite von 198 und eine Höhe von 250 Pixeln. Durch die Angabe <code>clip="0,0,198,2"</code> wird folgendes erreicht: trotz der definierten Breite und Höhe ist nur der Bereich von links 0 oben 0 bis links 198 oben 2 sichtbar. Das ist nur ein ganz dünner Streifen, der aus optischen Gründen zugelassen wird. Mit <code>0,0,198,0</code> wäre von den Layern überhaupt nichts zu sehen.</p>
+
+<p>Die drei unteren Layer sind mit Hilfe der Angaben zu <code>top</code>, <code>left</code>, <code>width</code> und <code>height</code> so positioniert, dass sie genau über den auf-/zuklappbaren Layern stehen. Diese "Kopf"-Layer enthalten Verweise. Bei jedem Klick auf einen Verweis in einem der Kopf-Layer wird der Layer unterhalb davon auf- oder wieder zugeklappt. Dazu wird bei jedem Klick auf einen der Verweise eine JavaScript-Funktion aufgerufen: die Funktion <code>AufUndZu()</code>, die im Kopf der Datei in einem JavaScript-Bereich definiert ist.</p>
+
+<p>In dem JavaScript-Bereich wird vor der Funktion <code>AufUndZu()</code> bereits ein Array, bestehend aus drei Werten, definiert: der Array <code>Status</code>. Alle seine drei Werte erhalten den Anfangszustand <code>"zu"</code>. Da dieser Array außerhalb jeder Funktion definiert ist, stehen seine Daten jederzeit zur Verfügung.</p>
+
+<p>Innerhalb der Funktion <code>AufUndZu()</code> wird geprüft, ob ein Layer derzeit auf- oder zugeklappt ist. Dazu bekommt die Funktion beim Aufruf einen Parameter <code>LayNum</code> übergeben. Das ist die Indexnummer des Layers, der auf- oder zugeklappt werden soll. Da im Beispiel die ersten drei definierten Layer davon betroffen sein sollen, kommen also nur die Indexnummern 0, 1 und 2 in Frage. Beim Aufruf der Funktion in den unteren drei Layern werden denn auch genau diese drei Werte übergeben. Mit der Abfrage <code>if (Status[LayerNum] == "zu")</code> vergleicht die Funktion <code>AufUndZu()</code>, was im Array <code>Status</code> als Wert für die übergebene Indexnummer steht. Wenn dort <code>"zu"</code> steht, wird der Layer aufgeklappt. Wenn er aufgeklappt wird, wird der Wert im Array am Ende auf den Wert <code>"auf"</code> gesetzt. Dadurch gelangt die Funktion bei der nächsten Abfrage für den gleichen Layer in den else-Zweig, wo sie genau die umgekehrten Arbeiten durchführt.</p>
+
+<p>Das eigentliche Auf- und Zuklappen geschieht innerhalb der for-Schleife. Dort wird beim Aufklappen von 2 bis 250 gezählt und beim Zuklappen von 250 zurück auf 2. Abhängig vom aktuellen Schleifenwert wird die Unterseite des Clip-Bereichs des Layers mit <code>document.layers[LayerNum].clip.bottom</code> dynamisch verändert. Die Grenzwerte von 2 und 250 hängen mit den definierten Layern zusammen: die 2 ist jener Wert, der bei den Angaben <code>clip="0,0,198,2"</code> vorkommt, und 250 ist die Höhe der definierten Layer (<code>height="250"</code>). Beim Aufklappen wird also der Clip-Bereich im Script dynamisch auf 0,0,198,250 verändert. Das bedeutet: der Layer ist vollständig sichtbar. Beim Zuklappen wird dagegen wieder der Clip-Anfangszustand von 0,0,198,2 wiederhergestellt.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/js12.gif" width="30" height="30" alt="JavaScript 1.2" title="JavaScript 1.2"><img src="../../src/netsc4.gif" width="30" height="30" alt="Netscape 4.0" title="Netscape 4.0">&nbsp;<a class="an" name="austauschen">Layer-Inhalte dynamisch austauschen</a></h2>
+
+<p>Einen der großen Vorteile des Microsoft-Ansatzes für Dynamisches HTML, nämlich das beliebige Austauschenkönnen von HTML-Elementinhalten, können Sie mit Hilfe von Netscape-Layern zumindest "nachstellen". Der Grund ist, dass Netscape einen Layer wie ein eigenes kleines neues Dokument innerhalb des Elterndokuments behandelt. So sind auch alle JavaScript-Objekte darauf anwendbar, die unterhalb des document-Objekts liegen. Das folgende Beispiel verdeutlicht, wie dies bei Layern im einzelnen funktioniert, und welche Möglichkeiten sich dabei eröffnen.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/interaktion.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;script type="text/javascript"&gt;
+function DatenSchreiben () {
+  var Text = document.Input.document.Eingabe.Feld.value;
+  var Laenge = document.Input.document.Eingabe.Feld.value.length;
+  document.Output.document.clear();
+  document.Output.document.write("&lt;p&gt;Sie haben folgenden Text eingegeben:&lt;br&gt;");
+  document.Output.document.write("&lt;b&gt;" + Text + "&lt;\/b&gt;&lt;\/p&gt;");
+  document.Output.document.write("&lt;p&gt;Der Text hat eine Laenge von ");
+  document.Output.document.write("&lt;b&gt;" + Laenge + " Zeichen&lt;\/b&gt;&lt;\/p&gt;");
+  document.Output.document.close();
+}
+&lt;/script&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;layer id="Input" bgcolor="#E4EEFF" style="padding:18px" left="10" top="100" width="280" height="280"&gt;
+&lt;p&gt;Geben Sie in dem Feld Text ein und klicken Sie dann auf "Interaktion"&lt;/p&gt;
+&lt;form name="Eingabe" action=""&gt;
+&lt;textarea name="Feld" cols="25" rows="6" wrap="virtual"&gt;&lt;/textarea&gt;&lt;br&gt;
+&lt;input type="button" value="Interaktion" width="220" onclick="DatenSchreiben()"&gt;
+&lt;/form&gt;
+&lt;/layer&gt;
+&lt;layer id="Output" style="padding:18px" left="310"
+top="100" width="280" height="280"&gt;
+&lt;/layer&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Im Beispiel werden zwei Layer definiert: einer mit dem Namen (id) <code>Input</code> und einer mit dem Namen <code>Output</code>. Beide Layer sind so positioniert, dass der Layer für den Output neben dem Layer für den Input erscheint. Der Layer für den Output erhält jedoch zunächst keinen Inhalt. Im Layer für den Input wird dagegen ein Formular definiert. Das Formular besteht aus einem mehrzeiligen Eingabefeld und einem Button. Wenn der Anwender auf den Button klickt, wird die JavaScript-Funktion <code>SchreibeDaten()</code> aufgerufen, die im Kopf der Datei innerhalb eines JavaScript-Bereichs definiert ist.</p>
+
+<p>Die Funktion ermittelt zunächst den eingegebenen Text und dessen Länge. Anschließend schreibt sie diese Daten zur Kontrolle in den Layer mit dem Namen <code>Output</code>. Wichtig ist, dass vor dem dynamischen Schreiben des Inhalts die Methode <code>clear()</code> aufgerufen wird, die den aktuellen Inhalt des Layers löscht, und nach dem Schreiben die Methode <code>close()</code>, die den Vorgang abschließt, sodass beim nächsten Mal ein neuer Schreibzugriff möglich ist. Dazwischen werden die eigentlichen Daten geschrieben, und zwar mit der Methode <code>write()</code>.</p>
+
+<p>Alle drei Methoden sind altbekannte Methoden des document-Objekts von JavaScript. Das besondere im Fall der Layer ist, dass das document-Objekt bei den Anweisungen gleich doppelt verwendet wird. Ein Beispiel ist die Anweisung: <code>document.Output.document.clear();</code>. Auch zu Beginn der Funktion, beim Ermitteln des Formularfeldinhalts, kommt diese doppelte Verwendung von <code>document</code> vor. Solche Konstruktionen müssen Sie so verstehen: über das vorne notierte <code>document</code> sind Layer-Objekte ansprechbar, da diese unterhalb des document-Objekts liegen. <code>Output</code> ist im Beispiel der Name eines Layers. Dadurch wird dieser Layer angesprochen. Ein Layer gilt nun aber selbst wieder als "Dokument". Deshalb müssen Sie dahinter nochmals <code>document</code> und dahinter erlaubte Eigenschaften und Methoden des document-Objekts notieren. Die Anweisungen beziehen sich dann auf die Elemente innerhalb des entsprechenden Layers. Im obigen Beispiel etwa kommen Sie an den Formularfeldinhalt nur mit <code>document.Input.document.Eingabe.Feld.value</code> (<code>document.Eingabe.Feld.value</code> würde dagegen eine Fehlermeldung erzeugen).</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Der Phantasie sind hierbei kaum Grenzen gesetzt. Alles, was Sie beispielsweise durch Interaktion mit dem Anwender mit Hilfe eines Formulars in JavaScript ermitteln und berechnen können, können Sie auf diese Weise dynamisch ausgeben. Mit Methoden wie <code>window.setTimeout()</code> können Sie auch zeitgesteuert Inhalte in Layer schreiben.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/js12.gif" width="30" height="30" alt="JavaScript 1.2" title="JavaScript 1.2"><img src="../../src/netsc4.gif" width="30" height="30" alt="Netscape 4.0" title="Netscape 4.0">&nbsp;<a class="an" name="simulieren">Layer ohne <code>layer</code>-Element simulieren</a></h2>
+
+<p>Unter dem Druck von Microsoft und angesichts der Tatsache, dass das W3-Konsortium keine Anstalten machte, das <code>layer</code>-Element und damit die Grundlage für Dynamisches HTML nach dem Netscape-Ansatz in den HTML-Standard zu übernehmen, hat Netscape in die Fähigkeit zum Dynamischen Positionieren auch auf die beiden "abstrakten" HTML-Elemente <code>&lt;div&gt;</code>...<code>&lt;/div&gt;</code> und <code>&lt;span&gt;</code>...<code>&lt;/span&gt;</code> ausgedehnt. Wenn Sie innerhalb solcher HTML-Tags mit Hilfe Stylesheet-Angaben zur Positionierung des Elements notieren, können Sie mit JavaScript auf solche Angaben zugreifen. Netscape interpretiert die Angaben dann genau so wie bei Layern.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/denker.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;script type="text/javascript"&gt;
+function Zeigen () {
+  document.BildAnzeige.visibility = "visible";
+  document.ZeigenVerweis.visibility = "hidden";
+  document.VersteckenVerweis.visibility = "visible";
+}
+
+function Verstecken () {
+  document.BildAnzeige.visibility = "hidden";
+  document.VersteckenVerweis.visibility = "hidden";
+  document.ZeigenVerweis.visibility = "visible";
+}
+&lt;/script&gt;
+&lt;style type="text/css"&gt;
+#ZeigenVerweis {
+position:absolute; left:100; top:140; width:400; height:30; visibility:visible; }
+#VersteckenVerweis {
+position:absolute; left:100; top:140; width:400; height:30; visibility:hidden; }
+#BildAnzeige {
+position:absolute; left:100; top:170; width:400; height:230; visibility:hidden; }
+&lt;/style&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;div id="ZeigenVerweis"&gt;
+&lt;a href="javascript:Zeigen()"&gt;&lt;b&gt;Zeig das Bild an&lt;/b&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;div id="VersteckenVerweis"&gt;
+&lt;a href="javascript:Verstecken()"&gt;&lt;b&gt;Versteck das Bild&lt;/b&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;div id="BildAnzeige"&gt;
+&lt;img src="denker.jpg" width="91" height="177" border="0" alt="Denker"&gt;
+&lt;/div&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel bewirkt, dass beim Anklicken eines Verweises ein Bild angezeigt wird, das zunächst nicht sichtbar ist. Gleichzeitig erscheint ein neuer Verweis, der das Ausblenden des Bildes erlaubt. Auf diese Weise lässt sich das Bild immer wieder ein- und ausblenden.</p>
+
+<p>In dem Beispiel werden dazu innerhalb des Dateikörpers drei Bereiche mit <code>&lt;div&gt;</code>...<code>&lt;/div&gt;</code> definiert. Alle <code>div</code>-Bereiche erhalten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/positionierung.htm">CSS-Eigenschaften zur Positionierung</a>, und zwar im Dateikopf in dem <code>style</code>-Bereich. Ohne solche Angaben ist bei Netscape kein dynamischer Zugriff auf das entsprechende Element möglich. Dass die CSS-Angaben zentral definiert werden, hat seine Ursache darin, dass einige Netscape-4-Versionen mit Angaben direkt im einleitenden <code>&lt;div&gt;</code>-Tag Probleme haben.</p>
+
+<p>Die beiden ersten <code>&lt;div&gt;</code>-Bereiche im Beispiel haben die gleichen Angaben zur Positionierung. Sie unterscheiden sich lediglich durch die <code>visibility</code>-Eigenschaft. Dadurch wird bewirkt, dass beide Bereiche an der gleichen Stelle angezeigt werden, der eine Bereich zunächst jedoch ausgeblendet bleibt, während der andere angezeigt wird.<br>
+Der dritte <code>&lt;div&gt;</code>-Bereich ist der Behälter für das anzuzeigende Bild. Er ist zunächst auch nicht sichtbar.</p>
+
+<p>Die beiden ersten Bereiche enthalten jeweils einen Verweis. Beim Anklicken des Verweises wird jeweils eine JavaScript-Funktion aufgerufen, die im Kopf der Datei in einem JavaScript-Bereich definiert ist. Der Bereich, der zunächst angezeigt wird, enthält einen Verweis, bei dessen Anklicken die Funktion <code>Zeigen()</code> aufgerufen wird.</p>
+
+<p>Die Funktion <code>Zeigen()</code> tut nichts anderes, als die Anzeigeverhältnisse unter den drei <code>&lt;div&gt;</code>-Bereichen zu ändern. Der erste Bereich, über  dessen Verweis die Funktion aufgerufen wurde, wird mit <code>document.ZeigenVerweis.visibility = "hidden"</code> auf unsichtbar gesetzt. Der zweite Bereich, der mit dem anderen Verweis, wird dagegen auf sichtbar gesetzt. Auch der Bereich mit dem Bild wird sichtbar.<br>
+Nun werden der zweite Verweis ("Versteck das Bild") und das Bild selbst angezeigt. Beim Klicken auf den Verweis wird die andere JavaScript-Funktion <code>Verstecken()</code> aufgerufen. Diese Funktion arbeitet genau so wie die Funktion <code>Zeigen()</code>, nur umgekehrt.</p>
+
+<p>Der Zugriff auf die <code>&lt;div&gt;</code>-Bereiche wird dadurch möglich, dass ihnen mit dem <code>id</code>-Attribut ein Name gegeben wird. Über <code>document.BereichName</code> ist dann der Zugriff auf Eigenschaften wie <code>visibility</code>, <code>top</code>, <code>left</code>, <code>width</code>, <code>height</code> oder <code>clip</code> möglich. So lassen sich praktisch alle Aufgaben lösen, ohne das <code>&lt;layer&gt;</code>-Tag einzusetzen.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Ein <code>layer</code>-Element lässt sich nur simulieren, wenn der <code>div</code>-Bereich absolut positioniert ist.</p>
+
+<p>Sie können - wie im Beispiel - statt der <code>visibility</code>-Eigenschaften <code>hide</code> und <code>show</code> die Eigenschaften <code>hidden</code> und <code>visible</code> verwenden, da Netscape 4 diese Angaben ebenfalls korrekt interpretiert.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/js12.gif" width="30" height="30" alt="JavaScript 1.2" title="JavaScript 1.2"><img src="../../src/netsc4.gif" width="30" height="30" alt="Netscape 4.0" title="Netscape 4.0">&nbsp;<a class="an" name="event_objekt">Das Event-Objekt</a></h2>
+
+<p>Das Event-Objekt von JavaScript erlaubt es, auf Anwenderereignisse zu reagieren. Es stellt eine Erweiterung der klassischen Event-Handler dar. Das folgende Beispiel demonstriert die Möglichkeiten des Event-Objekts.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/verschiebbar.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;style type="text/css"&gt;
+layer { font-size:14px; font-family:Arial }
+layer.Kopf { color:#FFFFFF; padding:4px; cursor:hand; }
+layer.Text { color:#000000; padding-top:30px; padding-left:4px; padding-right:4px }
+&lt;/style&gt;
+&lt;/head&gt;&lt;body&gt;
+
+&lt;layer id="Gruen" class="Text" bgcolor="#99FF99" top="170" left="10" width="200" height="180"&gt;
+&lt;layer id="Gruenkopf" class="Kopf" bgcolor="#000000" top="0" left="0" width="200" height="25"&gt;
+Titelleiste des grünen Layers
+&lt;/layer&gt;
+Klicken Sie mal mit der Maus in die Titelleiste dieses Layers,
+halten Sie die Maustaste gedrückt und ziehen Sie dann die Maus an eine andere Stelle.
+&lt;/layer&gt;
+&lt;layer id="Gelb" class="Text" bgcolor="#FFFF66" top="10" left="310" width="300" height="120"&gt;
+&lt;layer id="Gelbkopf" class="Kopf" bgcolor="#000000" top="0" left="0" width="300" height="25"&gt;
+Titelleiste des gelben Layers
+&lt;/layer&gt;
+Klicken Sie mal mit der Maus in die Titelleiste dieses Layers,
+halten Sie die Maustaste gedrückt und ziehen Sie dann die Maus an eine andere Stelle.
+&lt;/layer&gt;
+
+&lt;script type="text/javascript"&gt;
+Gruen = document.layers["Gruen"];
+Gruentitel = document.layers["Gruen"].document.layers["Gruenkopf"].document;
+
+Gelb = document.layers["Gelb"];
+Gelbtitel = document.layers["Gelb"].document.layers["Gelbkopf"].document;
+
+Gruentitel.captureEvents(Event.MOUSEUP | Event.MOUSEDOWN | Event.MOUSEDRAG);
+Gruentitel.onmousedown = StartGruen;
+Gruentitel.onmouseup = EndGruen;
+document.layers["Gruen"].document.layers["Gruenkopf"].onload = GruenReset;
+
+Gelbtitel.captureEvents(Event.MOUSEUP | Event.MOUSEDOWN | Event.MOUSEDRAG);
+Gelbtitel.onmousedown = StartGelb;
+Gelbtitel.onmouseup = EndGelb;
+document.layers["Gelb"].document.layers["Gelbkopf"].onload = GelbReset;
+
+function GruenReset () {
+  Gruentitel.captureEvents(Event.MOUSEUP | Event.MOUSEDOWN | Event.MOUSEDRAG);
+}
+
+function GelbReset () {
+  Gelbtitel.captureEvents(Event.MOUSEUP | Event.MOUSEDOWN | Event.MOUSEDRAG);
+}
+
+function StartGruen () {
+  Gruentitel.captureEvents(Event.MOUSEMOVE);
+  Gruentitel.onmousemove = ZiehGruen;
+}
+
+function StartGelb () {
+  Gelbtitel.captureEvents(Event.MOUSEMOVE);
+  Gelbtitel.onmousemove = ZiehGelb;
+}
+
+function ZiehGruen (Ereignis) {
+  Gruen.left = Ereignis.pageX;
+  Gruen.top = Ereignis.pageY;
+}
+
+function ZiehGelb (Ereignis) {
+  Gelb.left = Ereignis.pageX;
+  Gelb.top = Ereignis.pageY;
+}
+
+function EndGruen () {
+  Gruentitel.onmousemove = 0;
+  Gruentitel.releaseEvents(Event.MOUSEMOVE);
+}
+
+function EndGelb () {
+  Gelbtitel.onmousemove = 0;
+  Gelbtitel.releaseEvents(Event.MOUSEMOVE);
+}
+&lt;/script&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Im Beispiel werden insgesamt vier Layer definiert, davon zwei "äußere" (mit <code>id="Gruen"</code> bzw. <code>id="Gelb"</code>) und zu jedem jeweils ein "innerer" (mit <code>id="Gruenkopf"</code> bzw. <code>id="Gelbkopf"</code>). Die inneren Layer sind so gestaltet, dass sie wie Titelleisten zu den jeweils äußeren Layern wirken, daher auch die id-Namen.</p>
+
+<p>Wie Sie erkennen können, steht nirgendwo bei der Layerdefinition oder innerhalb eines der Layer ein JavaScript-Aufruf. Dennoch sind die beiden Titelleisten "sensitiv": wenn der Anwender mit der Maus darauf klickt, die Maustaste gedrückt hält und die Maus bewegt, bewegt sich der gesamte zugehörige "äußere" Layer mit. Der Grund dafür ist das Konzept des Event-Objekts. Es benötigt keine Event-Handler innerhalb von HTML, um JavaScript-Aktionen anzustoßen.</p>
+
+<p>Der JavaScript-Bereich des obigen Beispiels enthält dafür einige "ungewohnte" Dinge. Er wird unterhalb der Layer definiert, weil gleich bei seinem Einlesen Code ausgeführt wird, der sich auf die definierten Layer bezieht. Die Layer müssen zu diesem Zeitpunkt bereits eingelesen sein, sonst gibt es eine Fehlermeldung.</p>
+
+<p>Die ersten vier Zeilen des JavaScript-Codes im Beispiel speichern einfach nur ziemlich lange Objekt-Eigenschaften-Ketten in Variablen, da diese im weiteren Verlauf häufig notiert werden müssen. Danach folgen jeweils vier Anweisungen, und zwar je für den grünen Layer und für den gelben. Die Methode <code>captureEvents()</code> bewirkt, dass Anwenderaktionen überwacht und bei Eintritt gemeldet werden. Die Methode <code>captureEvents()</code> erwartet als Parameter einen Wert. Notieren Sie dazu nach dem Prinzip <code>Event.WELCHER</code> die Events, die überwacht werden sollen. Die gewünschten Events sind durch bitweises Oder (einfacher Vertikalstrich) zu trennen. Welche Events es neben denen im obigen Beispiel gibt, erfahren Sie in der <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../../javascript/objekte/index.htm">JavaScript-Objektreferenz</a> beim Objekt <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../javascript/objekte/event.htm">event</a>.</p>
+
+<p>Beim Eintritt von überwachten Ereignissen werden Funktionen aufgerufen. Beachten Sie dabei die etwas merkwürdige Syntax: mit einer Anweisung wie <code>Gruentitel.onmousedown = StartGruen</code> wird die selbstgeschriebene Funktion <code>StartGruen()</code> aufgerufen, die weiter unten im Script definiert ist. Beim Aufruf dürfen Sie in diesem Fall jedoch keine Klammern hinter dem Funktionsnamen notieren!</p>
+
+<p>Verfolgen Sie nun mal im Beispiel den Fall, dass der Anwender auf die Titelleiste des grünen Layers klickt. Dann wird das Ereignis <code>MOUSEDOWN</code> für <code>Gruentitel</code> gemeldet. Für diesen Fall (<code>onmousedown</code>) wird die Funktion <code>StartGruen</code> aufgerufen. Innerhalb dieser Funktion wird wiederum überwacht, ob der Anwender die Maus bei gedrückter Maustaste bewegt. Wenn ja, wird dort nach dem gleichen Schema die Funktion <code>ZiehGruen</code> aufgerufen. Obwohl die Funktion keinen Parameter übergeben bekommt, erwartet sie einen - auch das gegen alle sonstige Regeln. Der erwartete Parameter ist aber kein "Wert" wie sonst üblich, sondern einfach ein Name für den aktuellen Event. Im Beispiel wurde der Name <code>Ereignis</code> gewählt. Unter dem vergebenen Namen lassen sich Eigenschaften des Event-Objekts ansprechen. Da innerhalb der Funktion <code>ZiehGruen</code> davon Gebrauch gemacht wird, ist ein solcher Name erforderlich. Aktiv ist die Funktion <code>ZiehGruen</code> solange, wie der Anwender die Maustaste bewegt und nicht loslässt. Während dieser Zeit werden "so oft wie möglich" die Eigenschaften <code>PageX</code> (aktuelle Mausposition von links) und <code>PageY</code>  (aktuelle Mausposition von oben) von <code>Ereignis</code> abgefragt. Diese Werte werden dem betroffenen Layer dynamisch als neue Werte für die linke obere Ecke zugewiesen. So entsteht der Bewegungseffekt.</p>
+
+<p>Wenn der Anwender die Maustaste loslässt, wird die Funktion <code>ZiehGruen</code> sofort verlassen. Da die Event-Überwachung ja noch aktiv ist, wird jetzt das Ereignis <code>MOUSEUP</code> gemeldet. Für diesen Fall wird die Funktion <code>EndGruen</code> aufgerufen. Diese Funktion enthält zwei Befehle zum "Aufräumen".</p>
+
+<p>Wenn Sie sonst nichts weiter unternehmen würden, wäre der Layer nach dem ersten Bewegen nicht mehr bewegungsfähig. Damit er immer wieder bewegbar ist, tritt automatisch ein LOAD-Ereignis ein. Dieses wird mit <code>onload</code> abgefangen. Dabei wird die Funktion <code>GruenReset</code> aufgerufen. Diese Funktion startet die erneute Überwachung der Ereignisse.</p>
+
+<p>Analog zu dem Handling für den grünen Layer wird mit dem Handling für den gelben Layer verfahren.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/js12.gif" width="30" height="30" alt="JavaScript 1.2" title="JavaScript 1.2"><img src="../../src/netsc4.gif" width="30" height="30" alt="Netscape 4.0" title="Netscape 4.0">&nbsp;<a class="an" name="inline_scripts">Inline-Scripts bei Layern</a></h2>
+
+<p>Netscape bietet eine vereinfachte JavaScript-Syntax an, um Layer-Eigenschaften innerhalb eines Layers dynamisch zu ändern.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/sechs.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;style type="text/css"&gt;
+layer { padding:5px; }
+p.Verweis { font-size:14px; font-weight:bold; font-family:Arial; color:yellow; }
+p.Text { font-size:14px; font-family:Arial; color:white; }
+&lt;/style&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;layer class="Kopf" bgcolor="#000000" top="175" left="50" width="500" height="200"
+clip="0,0,500,25" onmouseover="Zeigen()" onmouseout="Verstecken()"&gt;
+&lt;p class="Verweis"&gt;Was Sie schon immer wissen wollten über ...&lt;/p&gt;
+&lt;p class="Text"&gt;&lt;span style="color:red; font-size:64px"&gt;SECHS&lt;/span&gt;&lt;br&gt;
+Es handelt sich dabei einfach um eine Zahl, die exakt ein halbes Dutzend bezeichnet.&lt;/p&gt;
+&lt;script type="text/javascript"&gt;
+function Zeigen () {
+  clip.bottom = 200;
+}
+
+function Verstecken () {
+  clip.bottom = 25;
+}
+&lt;/script&gt;
+&lt;/layer&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Im Beispiel wird ein Layer definiert. Mit dem <code>clip</code>-Attribut wird der Anzeigebereich des Layers jedoch zunächst beschnitten, und zwar so, dass gerade der erste Textabsatz sichtbar ist. Wenn der Anwender mit der Maus über den sichtbaren Layer-Bereich fährt, wird die JavaScript-Funktion <code>Zeigen()</code> aufgerufen. Diese Funktion verändert den Clip-Bereich des Layers so, dass er in ganzer Größe angezeigt wird. Wenn die Maus den Layer-Bereich wieder verlässt, wird die Funktion <code>Verstecken()</code> aufgerufen. Diese Funktion ändert den Clip-Bereich wieder auf den Anfangswert.</p>
+
+<p>Wichtig ist bei dieser Form, dass der JavaScript-Bereich innerhalb des Layers definiert wird. Dann brauchen Sie sich nicht um die korrekte Adressierung des Layers mit Indexnummern oder Namen zu kümmern. Sie können einfach Anweisungen wie <code>clip.bottom = [Wert]</code> (wie im Beispiel) oder Eigenschaften wie <code>top</code>, <code>left</code> oder <code>bgColor</code> notieren, um Wirkungsweise und Aussehen des Layers zu verändern. Welche Eigenschaften Sie ändern können, entnehmen Sie der Referenz zum Objekt <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../javascript/objekte/layers.htm">layers</a>.</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="datenanbindung.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="datenanbindung.htm">Datenanbindung (nur Microsoft)</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="microsoft.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="microsoft.htm">Das ältere DHTML-Modell von Microsoft</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">Dynamisches HTML</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">DHTML-Modelle</a></td>
+</tr>
+</table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

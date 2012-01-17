@@ -1,0 +1,17 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>Test</title>
+</head><body>
+<script type="text/javascript">
+var Adresse = "http://www.example.org/cgi-bin/script.pl?Text=der übergebene Text&Name=Stefan Münz";
+document.write("<b>Adresse unkodiert:<\/b> " + Adresse + "<br>");
+Adresse = encodeURI(Adresse);
+document.write("<b>Adresse kodiert:<\/b> " + Adresse + "<br>");
+Adresse = decodeURI(Adresse);
+document.write("<b>Adresse wieder dekodiert:<\/b> " + Adresse + "<br>");
+</script>
+
+<p><a href="../unabhaengig.htm#decode_uri">zur&uuml;ck</a></p>
+</body>
+</html>

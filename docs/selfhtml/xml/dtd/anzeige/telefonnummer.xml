@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE telefonnummer SYSTEM "telefonnummer.dtd">
+<telefonnummer>
+  <vorwahlnummer>069</vorwahlnummer>
+  <durchwahlnummer>974791003</durchwahlnummer>
+</telefonnummer>

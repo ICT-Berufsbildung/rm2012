@@ -1,0 +1,1292 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: JavaScript / Objektreferenz / node</title>
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<meta name="description"    content="Welche Aufgaben und Eigenschaften das node-Objekt des DOM in JavaScript hat.">
+<meta name="keywords"       content="SELFHTML, JavaScript, Objekte, node, attributes, childNodes, data, firstChild, lastChild, nextSibling, nodeName, nodeType, nodeValue, parentNode, previousSibling, appendChild, appendData, cloneNode, deleteData, getAttribute, getAttributeNode, hasChildNodes, insertBefore, insertData, removeAttribute, removeAttributeNode, replaceChild, replaceData, setAttribute, setAttributeNode">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-11-16T01:48:05+01:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/javascript/objekte/node.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="Objektreferenz" href="index.htm">
+<link rel="next" title="all" href="all.htm">
+<link rel="prev" title="HTML-Elementobjekte" href="htmlelemente.htm">
+<link rel="first" title="Hinweise zur JavaScript-Objektreferenz" href="hinweise.htm">
+<link rel="last" title="Objektunabhängige Funktionen" href="unabhaengig.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">JavaScript/DOM</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Objektreferenz</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">node</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p><img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#allgemeines">node: Allgemeines zur Verwendung</a><br>
+</p>
+
+<h3>Eigenschaften:</h3>
+
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#attributes">attributes</a> (Attribute)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#child_nodes">childNodes</a> (Kindknoten)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#data">data</a> (Zeichendaten)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#first_child">firstChild</a> (erster Kindknoten)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#last_child">lastChild</a> (letzter Kindknoten)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#next_sibling">nextSibling</a> (nächster Knoten auf derselben Ebene)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#node_name">nodeName</a> (Name des Knotens)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#node_type">nodeType</a> (Knotentyp)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#node_value">nodeValue</a> (Wert/Inhalt des Knotens)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#parent_node">parentNode</a> (Elternknoten)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#previous_sibling">previousSibling</a> (vorheriger Knoten auf derselben Ebene)<br>
+</p>
+
+<h3>Methoden:</h3>
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#append_child">appendChild()</a> (Kindknoten hinzufügen)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#append_data">appendData()</a> (Zeichendaten hinzufügen)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#clone_node">cloneNode()</a> (Knoten kopieren)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#delete_data">deleteData()</a> (Zeichendaten löschen)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#get_attribute">getAttribute()</a> (Wert eines Attributknotens ermitteln)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#get_attribute_node">getAttributeNode()</a> (Attributknoten ermitteln)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#get_elements_by_tag_name">getElementsByTagName()</a> (Zugriff auf Kindelemente über den Elementnamen)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#has_child_nodes">hasChildNodes()</a> (auf Kindknoten prüfen)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#insert_before">insertBefore()</a> (Knoten einfügen)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#insert_data">insertData()</a> (Zeichendaten einfügen)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#remove_attribute">removeAttribute()</a> (Attribut löschen)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#remove_attribute_node">removeAttributeNode()</a> (Attributknoten löschen)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#remove_child">removeChild()</a> (Knoten löschen)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#replace_child">replaceChild()</a> (Kindknoten ersetzen)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#replace_data">replaceData()</a> (Zeichendaten ersetzen)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#set_attribute">setAttribute()</a> (Wert eines Attributknotens setzen)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#set_attribute_node">setAttributeNode()</a> (Attributknoten erzeugen)<br>
+</p>
+
+</td>
+</tr><tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><a class="an" name="allgemeines">node: Allgemeines zur Verwendung</a></h2>
+
+<p>Das <code>node</code>-Objekt ist das zentrale Objekt des Document Object Models (DOM) (<i>node = Knoten</i>). Hintergrund ist das Modell, dass ein Auszeichnungssprachen-Dokument, egal ob in HTML oder einer anderen, XML-basierten Auszeichnungssprache geschrieben, aus einem Baum von Knoten besteht. Um sich mit diesem Modell näher zu beschäftigen, können Sie im XML-Kapitel dieses Dokuments den Abschnitt <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../xml/regeln/baumstruktur.htm">Baumstruktur und Knoten einer XML-Datei</a> lesen.</p>
+
+<p>Jedes Element, jedes Attribut und alle Zeichendaten stellen eigene Knoten dar. Diese Knoten bilden die Baumstruktur. Das <code>node</code>-Objekt stellt Eigenschaften und Methoden bereit, um auf die einzelnen Knoten zuzugreifen, egal, wie tief diese Knoten in der Baumstruktur liegen.</p>
+
+<p>Das <code>node</code>-Objekt stellt damit die allgemeinere und für alle XML-gerechten Sprachen gültige Variante dessen dar, was die <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="htmlelemente.htm">HTML-Elementobjekte</a> speziell für HTML darstellen. Sie können in JavaScripts, die in HTML-Dateien notiert oder eingebunden sind, sowohl mit den HTML-Elementobjekten als auch mit dem <code>node</code>-Objekt arbeiten. Manches ist über die HTML-Elementobjekte bequemer zu lösen, für andere Aufgaben eignet sich wiederum das <code>node</code>-Objekt besser. Das <code>node</code>-Objekt gilt unter Puristen allerdings als das "reinere" DOM, eben weil es nicht auf HTML beschränkt ist.</p>
+
+<p>Um auf die Eigenschaften und Methoden des <code>node</code>-Objekts zugreifen zu können, benötigen Sie einen Knoten. Um auf vorhandene Knoten im Dokument zuzugreifen, werden die Methoden des <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="document.htm">document</a>-Objekts <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="document.htm#get_element_by_id">getElementById</a>, <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="document.htm#get_elements_by_name">getElementsByName</a> und <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="document.htm#get_elements_by_tag_name">getElementsByTagName</a> verwendet. Ausgehend davon können Sie die Attributknoten, Textknoten und weitere Element-Kindknoten eines Elements ansprechen.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/node_allgemeines.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;h1 id="Ueberschrift" align="center"&gt;Knoten in der &lt;i&gt;Baumstruktur&lt;/i&gt;&lt;/h1&gt;
+&lt;script type="text/javascript"&gt;
+Elementknoten = document.getElementById("Ueberschrift");
+WertErsterKindknoten = Elementknoten.firstChild.nodeValue;
+document.write("Der Wert ihres ersten Kindknotens lautet: &lt;b&gt;" + WertErsterKindknoten + "&lt;\/b&gt;");
+&lt;/script&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Die Beispieldatei enthält eine Überschrift erster Ordnung mit Text, von dem ein Teil wiederum als kursiv ausgezeichnet ist. In dem JavaScript, das unterhalb davon notiert ist, wird zunächst mit <code>document.getElementById("Ueberschrift")</code> (ohne weitere Eigenschaft oder Methode dahinter) auf das <code>h1</code>-Element der Überschrift zugegriffen. Der Rückgabewert von <code>getElementById()</code> ist das Knotenobjekt der Überschrift. Der Rückgabewert wird im Beispiel in der Variablen <code>Elementknoten</code> gespeichert. Diese Variable speichert also einen gültigen Knoten des Dokuments, und auf die Variable sind daher die Eigenschaften und Methoden des <code>node</code>-Objekts anwendbar. Im Beispiel wird mit <code>Elementknoten.firstChild.nodeValue</code> der Wert des ersten Kindknotens der Überschrift ermittelt. Dessen Wert wird schließlich mit <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="document.htm#write">document.write()</a> ins Dokument geschrieben.</p>
+
+<p>Die Verwendung von Variablen ist nicht zwingend erforderlich. Das obige Beispiel funktioniert genauso, wenn Sie notieren:<br>
+<code>document.write("Der Wert ihres ersten Kindknotens lautet: &lt;b&gt;" + document.getElementById("Ueberschrift").firstChild.nodeValue + "&lt;\/b&gt;");</code></p>
+
+<p>Der geschriebene Wert lautet im Beispiel: <code>Knoten in der</code> ... der erste Kindknoten der Überschrift ist also ihr Zeicheninhalt. Das Wort <code>Baumstruktur</code> gehört nicht dazu, da es ja durch ein <code>i</code>-Element ausgezeichnet ist, das selbst wieder einen eigenen, weiteren Kindknoten der Überschrift darstellt.</p>
+
+<p>Die beiden Attribute, die im einleitenden Überschriften-Tag notiert sind, zählen übrigens <b>nicht</b> als Kindknoten. Das W3-Konsortium ist der Auffassung, dass Attribute hierarchisch gesehen keine "Unterobjekte" von Elementen sind, sondern "assoziierte Objekte". Um auf Attributknoten zuzugreifen, bietet das <code>node</code>-Objekt eigene Eigenschaften und Methoden an. Zum Verständnis ist es jedoch wichtig, dass die Attribute eines Elements nicht als dessen Kindknoten betrachtet werden, weshalb etwa eine Objekteigenschaft wie <code>firstChild</code> die Attribute übergeht.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/dom10.gif" width="30" height="30" alt="DOM 1.0" title="DOM 1.0"><img src="../../src/js15.gif" width="30" height="30" alt="JavaScript 1.5" title="JavaScript 1.5"><img src="../../src/netsc6.gif" width="30" height="30" alt="Netscape 6.0" title="Netscape 6.0"><img src="../../src/op7.gif" width="30" height="30" alt="Opera 7" title="Opera 7"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0"><img src="../../src/jsread.gif" width="60" height="30" alt="Lesen">&nbsp;<a class="an" name="attributes">attributes</a></h2>
+
+<p>Speichert einen Array aus verfügbaren Attributen eines Elements.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/node_attributes.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;/head&gt;&lt;body bgcolor="#FFFFCC" text="#000099"&gt;
+&lt;script type="text/javascript"&gt;
+document.write("Das body-Element hat &lt;b&gt;" +
+  document.getElementsByTagName('body')[0].attributes.length + "&lt;\/b&gt; Attribute");
+&lt;/script&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel greift mit <code>document.getElementsByTagName('body')[0]</code> auf das <code>body</code>-Element der Datei zu und ermittelt über die Array-Grundeigenschaft <code>length</code> des <code>attributes</code>-Arrays die Anzahl der Attribute, die in dem Element definiert sind. Zur Kontrolle wird das Ergebnis mit <code>document.write</code> ins Dokument geschrieben. Im Beispiel ist <code>2</code> der Wert von <code>attributes.length</code>, da im einleitenden <code>&lt;body&gt;</code>-Tag zwei Attribute notiert sind.</p>
+
+<p>Über den <code>attributes</code>-Array können Sie auch auf Attribute zugreifen. So liefert beispielsweise <code>document.getElementsByTagName('body')[0].attributes[0].nodeValue</code> den Wert <code>#FFFFCC</code> oder <code>#000099</code>, da <code>attributes[0]</code> eines der beiden Attribute bezeichnet, und <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#node_value">nodeValue</a> den zugehörigen Wert speichert.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Die Reihenfolge, in der die Attribute im <code>attributes</code>-Array gespeichert sind, ist nicht definiert. Sie können sich nicht darauf verlassen, dass <code>attributes[0]</code> tatsächlich das erste, im HTML-Code notierte, Attribut ist. Diese Notation ist nur dazu gedacht, einfache Zählschleifen zu erlauben.</p>
+
+<p>Der Internet Explorer ermittelt zwar einen Wert, jedoch nicht den richtigen. Im Beispiel wurde mit der Produktversion 5.5 statt <code>2</code> der Wert <code>94</code> ermittelt - vermutlich die Anzahl insgesamt verfügbarer Attribute für das <code>body</code>-Element, inklusive Event-Handler usw. Dies ist jedoch unbrauchbar.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/dom10.gif" width="30" height="30" alt="DOM 1.0" title="DOM 1.0"><img src="../../src/js15.gif" width="30" height="30" alt="JavaScript 1.5" title="JavaScript 1.5"><img src="../../src/netsc6.gif" width="30" height="30" alt="Netscape 6.0" title="Netscape 6.0"><img src="../../src/msie55.gif" width="30" height="30" alt="MS IE 5.5" title="MS IE 5.5"><img src="../../src/op7.gif" width="30" height="30" alt="Opera 7" title="Opera 7"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0"><img src="../../src/jsread.gif" width="60" height="30" alt="Lesen">&nbsp;<a class="an" name="child_nodes">childNodes</a></h2>
+
+<p>Speichert einen Array aus verfügbaren Kindknoten eines Knotens.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/node_child_nodes.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;p id="derText"&gt;Text mit &lt;b&gt;fettem Text&lt;/b&gt; und &lt;u&gt;unterstrichenem Text&lt;/u&gt;&lt;/p&gt;
+&lt;script type="text/javascript"&gt;
+var Anzahl = document.getElementById("derText").childNodes.length;
+var Erster = document.getElementById("derText").childNodes[0].nodeValue;
+document.write("Anzahl Kindknoten: &lt;b&gt;" + Anzahl + "&lt;\/b&gt;&lt;br&gt;");
+document.write("Wert des ersten Kindknotens: &lt;b&gt;" + Erster + "&lt;\/b&gt;&lt;br&gt;");
+&lt;/script&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel enthält einen Textabsatz mit Zeicheninhalt und weiteren Elementen zur Formatierung. Unterhalb davon ist ein JavaScript-Bereich notiert. Dort wird mit <code>document.getElementById("derText")</code> auf das <code>p</code>-Element zugegriffen. Über die  Array-Grundeigenschaft <code>length</code> des <code>childNodes</code>-Arrays wird die Anzahl der Kindelemente ermittelt, die das <code>p</code>-Element hat. Der Rückgabewert wird in der Variablen <code>Anzahl</code> gespeichert. Über <code>childNodes[0]</code> wird auf das erste Kindelement zugegriffen. Dessen Inhalt wird mit <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#node_value">nodeValue</a> ermittelt. Zur Kontrolle schreibt das Script die Ergebnisse mit <code>document.write()</code> ins Dokument.</p>
+
+<p>Die Anzahl der Kindelemente des <code>p</code>-Elements beträgt übrigens <code>4</code>:<br>
+Das erste Kindelement ist der Zeicheninhalt <code>Text mit&nbsp;</code>,<br>
+das zweite Kindelement das <code>b</code>-Element,<br>
+das dritte Kindelement der Zeicheninhalt <code>&nbsp;und&nbsp;</code>,<br>
+und das vierte Kindelement das <code>u</code>-Element.</p>
+
+<p>Wenn ein Knoten keine Kindknoten enthält, hat <code>childNodes</code> den Wert <code>null</code>.</p>
+
+<h3><a class="an" name="child_nodes_whitespace">Beachten Sie:</a></h3>
+
+<p>Gemäß dem DOM stellt bereits ein Zeilenumbruch oder ein Leerzeichen im Quelltext zwischen Elementknoten einen eigenen Text-Kindknoten dar. Auch HTML-Kommentare sind eigene Knoten. Daran halten sich alle gängigen Browser bis auf den Internet Explorer unter Windows. Dieser ignoriert solche "Leerraum"-Zeichen zwischen Elementknoten völlig, dasselbe gilt für Kommentarknoten. Sie tauchen nicht im <code>childNode</code>-Array auf. Konqueror und Safari setzen "Leerraum"-Zeichen zwar in Texktnoten um, ignorieren aber Kommentarknoten.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/node_child_nodes_nn6x.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;ul id="ersteListe"&gt;&lt;li&gt;erster Punkt&lt;/li&gt;&lt;li&gt;zweiter Punkt&lt;/li&gt;&lt;/ul&gt;
+&lt;script type="text/javascript"&gt;
+var Anzahl = document.getElementById("ersteListe").childNodes.length;
+document.write("&lt;p&gt;Erste Liste: Anzahl Kindknoten: &lt;b&gt;" + Anzahl + "&lt;\/b&gt;&lt;\/p&gt;");
+&lt;/script&gt;
+&lt;ul id="zweiteListe"&gt;
+&lt;li&gt;erster Punkt&lt;/li&gt; &lt;li&gt;zweiter Punkt&lt;/li&gt;
+&lt;/ul&gt;
+&lt;script type="text/javascript"&gt;
+var Anzahl = document.getElementById("zweiteListe").childNodes.length;
+document.write("&lt;p&gt;Zweite Liste: Anzahl Kindknoten: &lt;b&gt;" + Anzahl + "&lt;\/b&gt;&lt;\/p&gt;");
+&lt;/script&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Im Beispiel sind zwei Listen definiert. Beide unterscheiden sich nur dahingehend, dass sich zwischen den einzelnen Elementen der erste Liste keine Leerzeichen oder Zeilenumbrüche befinden. In der zweiten Liste dagegen wurden Leerzeichen und Zeilenumbrüche verwendet. Standardkonforme Browser geben für die erste Liste als Anzahl der Kindknoten 2 aus und für die zweite Liste 5. Die jeweiligen Leerzeichen und Zeilenumbrüchen werden als eigene Kindknoten betrachtet.</p>
+
+<p>Der Internet Explorer unter Windows ignoriert diese Kindknoten und erkennt erst dann einen Kindknoten mit dem Namen <code>#text</code>, wenn dieser ein entsprechendes Textzeichen oder ein erzwungenes Leerzeichen <code>&amp;nbsp;</code> enthält.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/dom10.gif" width="30" height="30" alt="DOM 1.0" title="DOM 1.0"><img src="../../src/js15.gif" width="30" height="30" alt="JavaScript 1.5" title="JavaScript 1.5"><img src="../../src/netsc6.gif" width="30" height="30" alt="Netscape 6.0" title="Netscape 6.0"><img src="../../src/msie55.gif" width="30" height="30" alt="MS IE 5.5" title="MS IE 5.5"><img src="../../src/op7.gif" width="30" height="30" alt="Opera 7" title="Opera 7"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0"><img src="../../src/jswrite.gif" width="60" height="30" alt="Lesen/Ändern">&nbsp;<a class="an" name="data">data</a></h2>
+
+<p>Speichert Zeichendaten eines Knotens, sofern es sich um einen Textknoten handelt.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/node_data.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;script type="text/javascript"&gt;
+function Ausgeben () {
+  alert(document.getElementById("Dokumentinhalt").firstChild.data);
+}
+&lt;/script&gt;
+&lt;/head&gt;&lt;body id="Dokumentinhalt" onload="Ausgeben()"&gt;
+Das ist Text, der einfach so im Dokument steht.
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel enthält zwischen <code>&lt;body&gt;</code> und <code>&lt;/body&gt;</code> nichts als reinen Text, also Zeichendaten. Nachdem das Dokument geladen ist (<code>onload</code>), wird die JavaScript-<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../sprache/funktionen.htm">Funktion</a> <code>Ausgeben()</code> aufgerufen. Diese greift mit <code>document.getElementById("Dokumentinhalt")</code> auf das <code>body</code>-Element zu. Mit <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#first_child">firstChild</a> wird auf das erste Kindelement zugegriffen, und mit <code>data</code> auf dessen Inhalt. Das erste (und einzige) Kindelement des <code>body</code>-Elements ist im Beispiel der Text. Dieser wird denn auch in dem Meldungsfenster angezeigt, das die Funktion <code>Ausgeben()</code> ausgibt.</p>
+
+<p>Wenn Sie den Wert der Eigenschaft <code>data</code> ändern, wird der Zeicheninhalt des Elements einfach durch den neuen Inhalt ersetzt. Wenn Sie im obigen Beispiel also notieren würden:<br>
+<code>document.getElementById("Dokumentinhalt").firstChild.data = "neuer Text";</code><br>
+Dann würde anschließend der bisherige Text zwischen <code>&lt;body&gt;</code> und <code>&lt;/body&gt;</code> dynamisch durch den neuen ersetzt.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/dom10.gif" width="30" height="30" alt="DOM 1.0" title="DOM 1.0"><img src="../../src/js15.gif" width="30" height="30" alt="JavaScript 1.5" title="JavaScript 1.5"><img src="../../src/netsc6.gif" width="30" height="30" alt="Netscape 6.0" title="Netscape 6.0"><img src="../../src/msie55.gif" width="30" height="30" alt="MS IE 5.5" title="MS IE 5.5"><img src="../../src/op7.gif" width="30" height="30" alt="Opera 7" title="Opera 7"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0"><img src="../../src/jsread.gif" width="60" height="30" alt="Lesen">&nbsp;<a class="an" name="first_child">firstChild</a></h2>
+
+<p>Speichert das Objekt des ersten Kindknotens eines Knotens.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/node_first_child.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;ul&gt;&lt;li&gt;erster Punkt&lt;/li&gt;&lt;li&gt;zweiter Punkt&lt;/li&gt;&lt;/ul&gt;
+&lt;script type="text/javascript"&gt;
+var ErsterPunkt = document.getElementsByTagName("ul")[0].firstChild;
+document.write(ErsterPunkt.firstChild.data);
+&lt;/script&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel enthält eine Aufzählungsliste mit zwei Listenpunkten. Unterhalb davon ist ein JavaScript-Bereich notiert. Dort wird mit <code>document.getElementsByTagName("ul")[0]</code> auf das erste <code>ul</code>-Element im Dokument zugegriffen. Mit <code>firstChild</code> wird dessen erster Kindknoten angesprochen. Im Beispiel ist dies das erste <code>li</code>-Element. In der Variablen <code>ErsterPunkt</code> ist also anschließend das Knotenobjekt des ersten <code>li</code>-Elements gespeichert, aber nicht sein Textinhalt. Dieser wird jedoch anschließend mit <code>document.write()</code> ausgegeben. Da der Textinhalt aus Sicht des <code>li</code>-Elementknotens wieder einen Unterknoten darstellt, kann mit <code>ErsterPunkt.firstChild.data</code> auf den Text des ersten Listenpunktes zugegriffen werden.</p>
+
+<p>Berücksichtigen Sie beim Nachvollziehen dieses Beispieles die <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#child_nodes_whitespace">Besonderheit</a> des Internet Explorers unter Windows im Umgang mit Kindknoten.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/dom10.gif" width="30" height="30" alt="DOM 1.0" title="DOM 1.0"><img src="../../src/js15.gif" width="30" height="30" alt="JavaScript 1.5" title="JavaScript 1.5"><img src="../../src/netsc6.gif" width="30" height="30" alt="Netscape 6.0" title="Netscape 6.0"><img src="../../src/msie55.gif" width="30" height="30" alt="MS IE 5.5" title="MS IE 5.5"><img src="../../src/op7.gif" width="30" height="30" alt="Opera 7" title="Opera 7"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0"><img src="../../src/jsread.gif" width="60" height="30" alt="Lesen">&nbsp;<a class="an" name="last_child">lastChild</a></h2>
+
+<p>Speichert das Objekt des letzten Kindknotens eines Knotens.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/node_last_child.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;ul&gt;&lt;li&gt;erster Punkt&lt;/li&gt;&lt;li&gt;zweiter Punkt&lt;/li&gt;&lt;/ul&gt;
+&lt;script type="text/javascript"&gt;
+var LetzterPunkt = document.getElementsByTagName("ul")[0].lastChild;
+document.write(LetzterPunkt.firstChild.data + " und ");
+document.write(LetzterPunkt.lastChild.data);
+&lt;/script&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel enthält eine Aufzählungsliste mit zwei Listenpunkten. Unterhalb davon ist ein JavaScript-Bereich notiert. Dort wird mit <code>document.getElementsByTagName("ul")[0]</code> auf das erste <code>ul</code>-Element im Dokument zugegriffen. Mit <code>lastChild</code> wird dessen letzter Kindknoten angesprochen. Im Beispiel ist dies das zweite und letzte <code>li</code>-Element. In der Variablen <code>LetzterPunkt</code> ist also anschließend das Knotenobjekt des zweiten <code>li</code>-Elements gespeichert, aber nicht sein Textinhalt. Dieser wird jedoch anschließend mit <code>document.write()</code> ausgegeben, und zwar gleich zweimal. Da der Textinhalt aus Sicht des <code>li</code>-Elementknotens wieder einen Unterknoten darstellt, und zwar den einzigen, kann er mit <code>LetzterPunkt.firstChild.data</code>, aber ebensogut mit <code>LetzterPunkt.lastChild.data</code> angesprochen werden.</p>
+
+<p>Berücksichtigen Sie beim Nachvollziehen dieses Beispieles die <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#child_nodes_whitespace">Besonderheit</a> des Internet Explorers unter Windows im Umgang mit Kindknoten.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/dom10.gif" width="30" height="30" alt="DOM 1.0" title="DOM 1.0"><img src="../../src/js15.gif" width="30" height="30" alt="JavaScript 1.5" title="JavaScript 1.5"><img src="../../src/netsc6.gif" width="30" height="30" alt="Netscape 6.0" title="Netscape 6.0"><img src="../../src/msie55.gif" width="30" height="30" alt="MS IE 5.5" title="MS IE 5.5"><img src="../../src/op7.gif" width="30" height="30" alt="Opera 7" title="Opera 7"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0"><img src="../../src/jsread.gif" width="60" height="30" alt="Lesen">&nbsp;<a class="an" name="next_sibling">nextSibling</a></h2>
+
+<p>Speichert aus Sicht eines Knotens den unmittelbar nächstfolgenden Knoten im Strukturbaum. Wenn kein Knoten mehr folgt, wird <code>null</code> gespeichert.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/node_next_sibling.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;ul&gt;
+&lt;li&gt;erster Punkt&lt;/li&gt;
+&lt;li&gt;zweiter Punkt&lt;/li&gt;
+&lt;/ul&gt;
+&lt;script type="text/javascript"&gt;
+document.write("Das ul-Element hat folgende Knoten unter sich:&lt;br&gt;");
+var Knoten = document.getElementsByTagName("ul")[0].firstChild;
+while (Knoten != null) {
+  document.write("Einen Knoten mit dem Namen &lt;b&gt;" + Knoten.nodeName + "&lt;\/b&gt;&lt;br&gt;");
+  Knoten = Knoten.nextSibling;
+}
+&lt;/script&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel enthält eine Aufzählungsliste mit zwei Listenpunkten. Unterhalb davon ist ein JavaScript-Bereich notiert. Dort wird mit <code>document.getElementsByTagName("ul")[0].firstChild</code> auf das erste <code>ul</code>-Element im Dokument zugegriffen. In der nachfolgenden <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../sprache/schleifen.htm#while">while-Schleife</a> wird geprüft, ob der Knoten verschieden von <code>null</code> ist, und der <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#node_name">nodeName</a> des Knotens wird ausgegeben. Anschließend ist die Variable <code>Knoten</code> mit dem nachfolgenden Knoten (<code>Knoten = Knoten.nextSibling;</code>) belegt. Wenn der Strukturbaum durchlaufen ist, ist in der Eigenschaft <code>nextSibling</code> der Wert <code>null</code> gespeichert, was zum Abbruch der Schleife führt.</p>
+
+<p>Die Eigenschaft <code>nextSibling</code> arbeitet jeweils den nächsten Knoten eines Strukturbaumes ab. Sie verfolgt jedoch nicht die Kindknoten, die in einem Knoten enthalten sein können.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/dom10.gif" width="30" height="30" alt="DOM 1.0" title="DOM 1.0"><img src="../../src/js15.gif" width="30" height="30" alt="JavaScript 1.5" title="JavaScript 1.5"><img src="../../src/netsc6.gif" width="30" height="30" alt="Netscape 6.0" title="Netscape 6.0"><img src="../../src/msie55.gif" width="30" height="30" alt="MS IE 5.5" title="MS IE 5.5"><img src="../../src/op7.gif" width="30" height="30" alt="Opera 7" title="Opera 7"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0"><img src="../../src/jsread.gif" width="60" height="30" alt="Lesen">&nbsp;<a class="an" name="node_name">nodeName</a></h2>
+
+<p>Speichert den Namen eines Knotens.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/node_node_name.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;/head&gt;&lt;body&gt;&lt;script id="dasScript" type="text/javascript"&gt;
+Knoten = document.getElementById("dasScript");
+var Knoten = document.body.firstChild;
+document.write("Dieses Script-Element hat folgende Knotennamen: &lt;b&gt;" + Knoten.nodeName + "&lt;/b&gt;")
+&lt;/script&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel enthält im sichtbaren Dokumentbereich nichts weiter als ein JavaScript, das den Knotennamen des eigenen <code>script</code>-Elements ausgibt, also <code>SCRIPT</code>. Dazu greift das Script mit <code>document.body.firstChild</code> auf das <code>script</code>-Element zu. Dessen Knoten wird in der Variablen <code>Knoten</code> gespeichert. Mit <code>Knoten.nodeName</code> wird dann der Name dieses Knotens ermittelt.</p>
+
+<p>Elementknoten und Attributknoten haben Namen, Textknoten jedoch nicht. Beim Versuch, den Namen eines Textknotens zu ermitteln, wird der Wert <code>#text</code> gespeichert.</p>
+
+<p>Berücksichtigen Sie beim Nachvollziehen dieses Beispieles die <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#child_nodes_whitespace">Besonderheit</a> des Internet Explorers unter Windows im Umgang mit Kindknoten.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/dom10.gif" width="30" height="30" alt="DOM 1.0" title="DOM 1.0"><img src="../../src/js15.gif" width="30" height="30" alt="JavaScript 1.5" title="JavaScript 1.5"><img src="../../src/netsc6.gif" width="30" height="30" alt="Netscape 6.0" title="Netscape 6.0"><img src="../../src/msie55.gif" width="30" height="30" alt="MS IE 5.5" title="MS IE 5.5"><img src="../../src/op7.gif" width="30" height="30" alt="Opera 7" title="Opera 7"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0"><img src="../../src/jsread.gif" width="60" height="30" alt="Lesen">&nbsp;<a class="an" name="node_type">nodeType</a></h2>
+
+<p>Speichert den Typ eines Knotens in Form einer Nummer. Das W3-Konsortium hat dazu folgende Zuordnungen festgelegt - einige davon sind XML-spezifisch:</p>
+
+<table class="reftable" cellpadding="2" cellspacing="0" border="1">
+
+<tr>
+<th>Nummer</th>
+<th>Knotentyp</th>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>1</code></td>
+<td class="tabxpl">Elementknoten</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>2</code></td>
+<td class="tabxpl">Attributknoten</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>3</code></td>
+<td class="tabxpl">Textknoten</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>4</code></td>
+<td class="tabxpl">Knoten für CDATA-Bereich</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>5</code></td>
+<td class="tabxpl">Knoten für Entity-Referenz</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>6</code></td>
+<td class="tabxpl">Knoten für Entity</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>7</code></td>
+<td class="tabxpl">Knoten für Verarbeitungsanweisung</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>8</code></td>
+<td class="tabxpl">Knoten für Kommentar</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>9</code></td>
+<td class="tabxpl">Dokument-Knoten</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>10</code></td>
+<td class="tabxpl">Dokumenttyp-Knoten</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>11</code></td>
+<td class="tabxpl">Dokumentfragment-Knoten</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>12</code></td>
+<td class="tabxpl">Knoten für Notation</td>
+</tr>
+</table>
+
+
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/node_node_type.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;p align="center"&gt;ein kleiner Text&lt;/p&gt;
+&lt;script type="text/javascript"&gt;
+var Element = document.getElementsByTagName("p")[0];
+var Ausrichtung = Element.getAttributeNode("align");
+alert(Ausrichtung.nodeType);
+&lt;/script&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel enthält einen Textabsatz mit einem <code>align</code>-Attribut zur Ausrichtung. Unterhalb des Textabsatzes ist ein JavaScript-Bereich notiert. Dort wird mit <code>document.getElementsByTagName("p")[0]</code> auf das <code>p</code>-Element zugegriffen. Mit <code>Element.getAttributeNode("align")</code> wird auf dessen Attributknoten zugegriffen. In der Variablen <code>Ausrichtung</code> steht anschließend das Objekt des Attributknotens. Ein Meldungsfenster gibt dann im Beispiel den Knotentyp dieses Knotens mit <code>Ausrichtung.nodeType</code> aus. Der Wert beträgt <code>2</code>, da es sich um einen Attributknoten handelt.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Der Internet Explorer 5.x interpretiert die Eigenschaft <code>nodeType</code> zwar, in Version 5.5 aber nicht das obige Beispiel. Der Grund ist, dass er die Methode <code>getAttributeNode()</code> nicht unterstützt. Im Internet Explorer 6.0 und im Internet Explorer 5.0 Macintosh Edition ist das Beispiel dagegen nachvollziehbar.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/dom10.gif" width="30" height="30" alt="DOM 1.0" title="DOM 1.0"><img src="../../src/js15.gif" width="30" height="30" alt="JavaScript 1.5" title="JavaScript 1.5"><img src="../../src/netsc6.gif" width="30" height="30" alt="Netscape 6.0" title="Netscape 6.0"><img src="../../src/msie55.gif" width="30" height="30" alt="MS IE 5.5" title="MS IE 5.5"><img src="../../src/op7.gif" width="30" height="30" alt="Opera 7" title="Opera 7"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0"><img src="../../src/jswrite.gif" width="60" height="30" alt="Lesen/Ändern">&nbsp;<a class="an" name="node_value">nodeValue</a></h2>
+
+<p>Speichert den Wert oder Inhalt eines Knotens. Bei Textknoten ist dies der Text, bei Attributknoten der zugewiesene Attributwert. Bei Elementknoten hat diese Eigenschaft den Wert <code>null</code>.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/node_node_value.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;script type="text/javascript"&gt;
+function TextAendern () {
+  document.getElementById("derText").firstChild.nodeValue = document.Formular.neuerText.value;
+}
+&lt;/script&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;p id="derText"&gt;Hier steht ein Text&lt;/p&gt;
+&lt;form name="Formular" action="" onsubmit="TextAendern(); return false">
+&lt;input type="text" size="40" name="neuerText">
+&lt;input type="submit" value=" OK ">
+&lt;/form>
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>In dem Beispiel ist ein Textabsatz notiert und unterhalb davon ein Formular mit einem Eingabefeld und einem Klick-Button. Beim Absenden des Formulars wird die <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../sprache/funktionen.htm">Funktion</a> <code>TextAendern()</code> aufgerufen, die im Dateikopf notiert ist. Diese Funktion greift mit <code>document.getElementById("derText")</code> auf das <code>p</code>-Element zu, weiterhin mit <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#first_child">firstChild</a> auf den ersten Kindknoten dieses Elements, also den Textinhalt, und weist dessen Eigenschaft <code>nodeValue</code> den Inhalt aus dem Eingabefeld des Formulars zu.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Das Beispiel zeigt, dass <code>nodeValue</code> eine ähnliche Funktionalität hat wie das die Eigenschaft <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="all.htm#inner_text">innerText</a> beim klassischen DHTML nach Microsoft-Syntax. Dennoch gibt es Unterschiede: Wenn beispielsweise notiert wäre:<br>
+<code>&lt;p&gt;Text mit &lt;b&gt;fettem Text&lt;/b&gt;&lt;/p&gt;</code><br>
+Dann würde <code>firstChild.nodeValue</code> aus Sicht des <code>p</code>-Elements nur den Wert <code>Text mit&nbsp;</code> liefern und auch nur diesen Teil ändern können, da dahinter durch das innere <code>b</code>-Element ein neuer Knoten beginnt.<br>
+Eine direkte Entsprechung zu <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="all.htm#inner_html">innerHTML</a> gibt es erst recht nicht im DOM. "Inneres HTML" muss im DOM mit Hilfe geeigneter Methoden wie <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="document.htm#create_element">document.createElement()</a>, <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="document.htm#create_attribute">document.createAttribute()</a> und <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="document.htm#create_text_node">document.createTextNode()</a> erzeugt werden.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/dom10.gif" width="30" height="30" alt="DOM 1.0" title="DOM 1.0"><img src="../../src/js15.gif" width="30" height="30" alt="JavaScript 1.5" title="JavaScript 1.5"><img src="../../src/netsc6.gif" width="30" height="30" alt="Netscape 6.0" title="Netscape 6.0"><img src="../../src/msie55.gif" width="30" height="30" alt="MS IE 5.5" title="MS IE 5.5"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0"><img src="../../src/jsread.gif" width="60" height="30" alt="Lesen">&nbsp;<a class="an" name="parent_node">parentNode</a></h2>
+
+<p>Speichert den Elternknoten eines Knotens.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/node_parent_node.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;ul&gt;
+&lt;li&gt;ein Punkt&lt;/li&gt;
+&lt;li&gt;ein zweiter&lt;/li&gt;
+&lt;/ul&gt;
+&lt;script type="text/javascript"&gt;
+alert(document.getElementsByTagName("li")[0].parentNode.parentNode.tagName);
+&lt;/script&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel enthält eine Aufzählungsliste. Unterhalb davon ist ein JavaScript-Bereich notiert. Dort wird der Name des Großelternelements des ersten <code>li</code>-Elements in einem Meldungsfenster ausgegeben. Dazu wird mit <code>document.getElementsByTagName("li")[0]</code> auf das erste <code>li</code>-Element zugegriffen. Das erste <code>parentNode</code> dahinter greift auf dessen Elternelement zu, und das zweite <code>parentNode</code> auf das Elternelement des Elternelements. Von diesem Element wird mit <code>tagName</code> der Name des Elementes ermittelt und ausgegeben. Das Attribut <code>tagName</code> kennen alle Knoten der Art <i>Element</i>.<br>
+Ausgegeben wird im Beispiel <code>BODY</code>.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/dom10.gif" width="30" height="30" alt="DOM 1.0" title="DOM 1.0"><img src="../../src/js15.gif" width="30" height="30" alt="JavaScript 1.5" title="JavaScript 1.5"><img src="../../src/netsc6.gif" width="30" height="30" alt="Netscape 6.0" title="Netscape 6.0"><img src="../../src/msie55.gif" width="30" height="30" alt="MS IE 5.5" title="MS IE 5.5"><img src="../../src/op7.gif" width="30" height="30" alt="Opera 7" title="Opera 7"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0"><img src="../../src/jsread.gif" width="60" height="30" alt="Lesen">&nbsp;<a class="an" name="previous_sibling">previousSibling</a></h2>
+
+<p>Speichert aus Sicht eines Knotens den unmittelbar vorhergehenden Knoten im Strukturbaum. Wenn kein Knoten vorausgeht, wird <code>null</code> gespeichert.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/node_previous_sibling.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;&lt;/head&gt;
+&lt;body id="Dokumentinhalt"
+onload="alert(document.getElementById('Dokumentinhalt').previousSibling.nodeName)"&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel gibt, nachdem das Dokument geladen ist (<code>onload</code>) in einem Meldungsfenster den Knotennamen des Vorgängerknotens vom <code>body</code>-Element aus. Dazu wird mit <code>document.getElementById('Dokumentinhalt')</code> auf das <code>body</code>-Element zugegriffen.<br>
+Ausgegeben wird dann <code>HEAD</code>, da das <code>head</code>-Element im Sinne des Strukturbaums das unmittelbare Vorgängerelement des <code>body</code>-Elements ist.</p>
+
+<p>Berücksichtigen Sie beim Nachvollziehen dieses Beispieles die <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#child_nodes_whitespace">Besonderheit</a> des Internet Explorers unter Windows im Umgang mit Kindknoten.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/dom10.gif" width="30" height="30" alt="DOM 1.0" title="DOM 1.0"><img src="../../src/js15.gif" width="30" height="30" alt="JavaScript 1.5" title="JavaScript 1.5"><img src="../../src/netsc6.gif" width="30" height="30" alt="Netscape 6.0" title="Netscape 6.0"><img src="../../src/msie55.gif" width="30" height="30" alt="MS IE 5.5" title="MS IE 5.5"><img src="../../src/op7.gif" width="30" height="30" alt="Opera 7" title="Opera 7"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="append_child">appendChild()</a></h2>
+
+<p>Hängt einen zuvor neu erzeugten Knoten in die bestehende Knotenstruktur ein, und zwar so, dass er als letztes Kindelement eines anzugebenden Knotens eingefügt wird.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/node_append_child.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;&lt;/head&gt;
+&lt;body&gt;
+&lt;ol id="Liste"&gt;
+&lt;li&gt;Element&lt;/li&gt;
+&lt;/ol&gt;
+&lt;script type="text/javascript"&gt;
+document.getElementById("Liste").removeChild(document.getElementById("Liste").firstChild);
+
+for (var i = 0; i &lt; 10; i++) {
+  var newLI = document.createElement("li");
+  var liNummer = i + 1;
+  var newLIText = document.createTextNode("Das ist Listeneintrag Nummer " + liNummer);
+  document.getElementById("Liste").appendChild(newLI);
+  document.getElementsByTagName("li")[i].appendChild(newLIText);
+}
+&lt;/script&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel füllt eine nummerierte Liste automatisch mit Daten. Unmittelbar nach dem Einlesen der nummerierten Liste folgt ein JavaScript-Bereich. Zuerst wird mit der Methode <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#remove_child">removeChild()</a> das vorhandene Listenelement entfernt. Anschließend ist eine <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../sprache/schleifen.htm#for">for-Schleife</a> notiert, die 10 mal durchlaufen wird. Bei jedem Schleifendurchgang wird zunächst mit <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="document.htm#create_element">document.createElement()</a> ein neues Element vom Typ <code>li</code> erzeugt. Dann wird eine Variable <code>liNummer</code> auf einen Wert gesetzt, der um 1 höher ist als der des Schleifenzählers <code>i</code>. Diese Variable wird in der nachfolgenden Anweisung benutzt, bei der mit <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="document.htm#create_text_node">document.createTextNode()</a> ein neuer Textknoten erzeugt wird. Anschließend folgen - immer noch innerhalb der <code>for</code>-Schleife - zwei <code>appendChild()</code>-Aufrufe. Die erste der Anweisungen greift mit <code>document.getElementById("Liste")</code> auf das <code>ol</code>-Element zu und führt dazu, dass diesem ein neues Kindelement am Ende hinzugefügt wird. Angehängt wird der zuvor neu erzeugte Elementknoten <code>newLI</code>, der ja ein neues <code>li</code>-Element speichert. Beim zweiten Aufruf wird der Schleifenzähler <code>i</code> benutzt, um mit <code>document.getElementsByTagName("li")[i]</code> auf das gerade neu erzeugte <code>li</code>-Element zuzugreifen. Ihm wird mit <code>appendChild()</code> der zuvor erzeugte Textknoten als Kindelement hinzugefügt. Auf diese Weise füllt sich die Liste bei jedem Schleifendurchlauf um ein neues <code>li</code>-Element mitsamt Zeicheninhalt.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/dom10.gif" width="30" height="30" alt="DOM 1.0" title="DOM 1.0"><img src="../../src/js15.gif" width="30" height="30" alt="JavaScript 1.5" title="JavaScript 1.5"><img src="../../src/netsc6.gif" width="30" height="30" alt="Netscape 6.0" title="Netscape 6.0"><img src="../../src/msie6.gif" width="30" height="30" alt="MS IE 6" title="MS IE 6"><img src="../../src/op7.gif" width="30" height="30" alt="Opera 7" title="Opera 7"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="append_data">appendData()</a></h2>
+
+<p>Fügt einem Textknoten oder dem Wert eines Attributknotens am Ende Daten hinzu, ohne die bestehenden Daten zu überschreiben.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/node_append_data.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;script type="text/javascript"&gt;
+function ergaenzen () {
+  var Rest = document.createTextNode("vollkommen!");
+  document.getElementById("Absatz").firstChild.appendData(Rest.nodeValue);
+}
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;p id="Absatz"&gt;Ich bin ja so un&lt;/p&gt;
+&lt;p&gt;&lt;a href="javascript:ergaenzen()"&gt;un - was?&lt;/a&gt;&lt;/p&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel enthält einen Absatz mit nicht ganz sinnigem Text und unterhalb davon einen Verweis. Beim Anklicken des Verweises wird die <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../sprache/funktionen.htm">Funktion</a> <code>ergaenzen()</code> aufgerufen, die im Dateikopf notiert ist. Diese Funktion erzeugt zunächst mit <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="document.htm#create_text_node">document.createTextNode()</a> einen neuen Textknoten. Anschließend greift sie mit <code>document.getElementById("Absatz").firstChild</code> auf den Knoten zu, der den Zeicheninhalt des Textabsatzes mit dem unfertigen Text darstellt, und fügt dort mit <code>appendData()</code> den Wert des neu erzeugten Textknotens (<code>Rest.nodeValue</code>) hinzu. Aus dem Text <code>ich bin ja so un</code> wird also <code>ich bin ja so unvollkommen!</code></p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Der Internet Explorer 5.x unterstützt diese Methode noch nicht. Sie können sich damit behelfen, auf den Inhalt eines Textknotens zuzugreifen und dann mit <code>nodeValue += "Text"</code> Daten hinzuzufügen. Im Internet Explorer 6.0 und im Internet Explorer 5.0 Macintosh Edition wird die Methode dagegen unterstützt.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/dom10.gif" width="30" height="30" alt="DOM 1.0" title="DOM 1.0"><img src="../../src/js15.gif" width="30" height="30" alt="JavaScript 1.5" title="JavaScript 1.5"><img src="../../src/netsc6.gif" width="30" height="30" alt="Netscape 6.0" title="Netscape 6.0"><img src="../../src/msie55.gif" width="30" height="30" alt="MS IE 5.5" title="MS IE 5.5"><img src="../../src/op7.gif" width="30" height="30" alt="Opera 7" title="Opera 7"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="clone_node">cloneNode()</a></h2>
+
+<p>Erstellt eine identische Kopie eines Knotens, je nach Wunsch mit oder ohne zugehörige Unterknotenstruktur.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/node_clone_node.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;&lt;/head&gt;
+&lt;body&gt;
+&lt;span id="Dolly"&gt;Dolly &lt;/span&gt;
+&lt;script type="text/javascript"&gt;
+Dolly2 = document.getElementById("Dolly").cloneNode(true);
+document.getElementById("Dolly").firstChild.nodeValue += Dolly2.firstChild.nodeValue;
+&lt;/script&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel enthält einen in einem <code>span</code>-Element notierten Text <code>Dolly&nbsp;</code>. Unterhalb davon ist ein JavaScript-Bereich notiert. Dort wird mit <code>document.getElementById("Dolly")</code> auf das <code>span</code>-Element zugegriffen. Dieses wird mit <code>cloneNode()</code> kopiert, und der Rückgabewert wird in der Variablen <code>Dolly2</code> gespeichert. Der Rückgabewert ist eine identische Kopie des Elementknotens des <code>span</code>-Elements. Als Parameter wird der Methode im Beispiel <code>true</code> übergeben. Das bedeutet, dass auch der Textinhalt des Elements mitkopiert wird. Um nur das Element ohne den Inhalt zu klonen, müssen Sie <code>false</code> übergeben.<br>
+Im Beispiel wird anschließend mit <code>document.getElementById("Dolly").firstChild.nodeValue</code> der Inhalt des <code>span</code>-Elements angesprochen und mittels <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../sprache/operatoren.htm#zeichenkettenverknuepfung">Zeichenkettenoperation</a> um den Wert des Kindelements des Klons erweitert, auf den mit <code>Dolly2.firstChild.nodeValue</code> zugegriffen wird. Am Ende steht also <code>Dolly Dolly&nbsp;</code> als Inhalt in dem <code>span</code>-Element.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/dom10.gif" width="30" height="30" alt="DOM 1.0" title="DOM 1.0"><img src="../../src/js15.gif" width="30" height="30" alt="JavaScript 1.5" title="JavaScript 1.5"><img src="../../src/netsc6.gif" width="30" height="30" alt="Netscape 6.0" title="Netscape 6.0"><img src="../../src/msie6.gif" width="30" height="30" alt="MS IE 6" title="MS IE 6"><img src="../../src/op7.gif" width="30" height="30" alt="Opera 7" title="Opera 7"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="delete_data">deleteData()</a></h2>
+
+<p>Löscht Daten eines Textknotens oder den Wert eines Attributknotens.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/node_delete_data.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;script type="text/javascript"&gt;
+function loeschen () {
+  var AnzahlZeichen = document.getElementsByTagName("p")[0].firstChild.nodeValue.length;
+  document.getElementsByTagName("p")[0].firstChild.deleteData(0, AnzahlZeichen);
+}
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;p&gt;Die Beredtsamkeit an sich ist die Tugend des Redens
+und die Lust des Schweigens an seinem Gegenteil.
+Die Beredtsamkeit ist also ...
+&lt;a href="javascript:loeschen()"&gt;och nee, besser nicht!&lt;/a&gt;&lt;/p&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel enthält einen Textabsatz mit Text und einem Verweis. Beim Anklicken des Verweises wird die <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../sprache/funktionen.htm">Funktion</a> <code>loeschen()</code> aufgerufen, die im Dateikopf notiert ist. Diese Funktion ermittelt zunächst durch Zugriff auf den Zeicheninhalt des Absatzes (<code>document.getElementsByTagName("p")[0].firstChild.nodeValue</code>) mit der Methode <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="string.htm">string</a>.<a href="string.htm#length">length</a> dessen Zeichenanzahl. Der Wert wird für die folgende Anweisung benötigt. Dort wird wieder mit <code>document.getElementsByTagName("p")[0].firstChild</code> auf den Zeicheninhalt des Absatzes zugegriffen. Mit <code>deleteData()</code> wird der Inhalt gelöscht.<br>
+Die Methode <code>deleteData()</code> erwartet zwei Parameter:<br>
+1. das Zeichen, ab dem gelöscht werden soll (<code>0</code> steht für "ab dem ersten Zeichen"),<br>
+2. wie viele Zeichen gelöscht werden sollen (im Beispiel wird dazu die Variable <code>AnzahlZeichen</code> übergeben, in der die zuvor ermittelte Anzahl der Zeichen im Textknoten gespeichert ist).<br>
+Der Verweis im Beispiel bleibt übrigens nach dem Löschen stehen, weil das <code>a</code>-Element des Verweises schon wieder einen neuen Kindknoten darstellt.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Der Internet Explorer 5.x unterstützt diese Methode noch nicht. Um die gesamten Zeichendaten eines Textknotens zu löschen, können Sie sich damit behelfen, auf den Knoten zuzugreifen und der Eigenschaft <code>nodeValue</code> den Wert <code>""</code> (leere Zeichenkette) zuzuweisen. Im Internet Explorer 6.0 und im Internet Explorer 5.0 Macintosh Edition wird die Methode dagegen unterstützt.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/dom10.gif" width="30" height="30" alt="DOM 1.0" title="DOM 1.0"><img src="../../src/js15.gif" width="30" height="30" alt="JavaScript 1.5" title="JavaScript 1.5"><img src="../../src/netsc6.gif" width="30" height="30" alt="Netscape 6.0" title="Netscape 6.0"><img src="../../src/msie55.gif" width="30" height="30" alt="MS IE 5.5" title="MS IE 5.5"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="get_attribute">getAttribute()</a></h2>
+
+<p>Ermittelt den Wert eines bestimmten Attributs in einem Element.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/node_get_attribute.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;script type="text/javascript"&gt;
+function Anzeigen (attr) {
+  alert(document.body.getAttribute(attr));
+}
+&lt;/script&gt;&lt;/head&gt;
+&lt;body bgcolor="#FFFFCC" text="#E00000" link="#0000E0" alink="#000080" vlink="#000000"&gt;
+&lt;a href="javascript:Anzeigen('bgcolor')"&gt;Hintergrundfarbe?&lt;/a&gt;&lt;br&gt;
+&lt;a href="javascript:Anzeigen('text')"&gt;Textfarbe?&lt;/a&gt;&lt;br&gt;
+&lt;a href="javascript:Anzeigen('link')"&gt;Linkfarbe noch nicht besuchte Seiten?&lt;/a&gt;&lt;br&gt;
+&lt;a href="javascript:Anzeigen('vlink')"&gt;Linkfarbe besuchte Seiten?&lt;/a&gt;&lt;br&gt;
+&lt;a href="javascript:Anzeigen('alink')"&gt;Linkfarbe aktivierte Links?&lt;/a&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel enthält mehrere Verweise. Alle Verweise rufen beim Anklicken die <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../sprache/funktionen.htm">Funktion</a> <code>Anzeigen()</code> auf, die im Dateikopf notiert ist. Übergeben wird der Funktion der gewünschte Attributname. Die Funktion greift mit <code>document.body</code> auf das <code>body</code>-Element zu. Mit <code>getAttribute()</code> lassen sich dann Attributwerte des einleitenden <code>&lt;body&gt;</code>-Tags ermitteln. Die Methode erwartet den Namen des gewünschten Attributs und liefert dessen Wert zurück. Im Beispiel bekommt sie jeweils den der Funktion übergebenen Parameter <code>attr</code> weitergereicht.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/dom10.gif" width="30" height="30" alt="DOM 1.0" title="DOM 1.0"><img src="../../src/js15.gif" width="30" height="30" alt="JavaScript 1.5" title="JavaScript 1.5"><img src="../../src/netsc6.gif" width="30" height="30" alt="Netscape 6.0" title="Netscape 6.0"><img src="../../src/op8.gif" width="30" height="30" alt="Opera 8" title="Opera 8"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="get_attribute_node">getAttributeNode()</a></h2>
+
+<p>"Holt" einen Attributknoten. Liefert das Knotenobjekt des gewünschten Attributs zurück.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/node_get_attribute_node.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;script type="text/javascript"&gt;
+function anpassen () {
+  var CSSKnoten = document.getElementsByTagName("h1")[0].getAttributeNode("style");
+  for (var i = 0; i &lt; document.getElementsByTagName("p").length; i++) {
+    var CSSKnotenNeu = CSSKnoten.cloneNode(true);
+    document.getElementsByTagName("p")[i].setAttributeNode(CSSKnotenNeu);
+  }
+}
+&lt;/script&gt;&lt;/head&gt;
+&lt;body&gt;
+&lt;h1 style="font-family:Tahoma; font-size:200%; color:red"&gt;Rot und Groß!&lt;/h1&gt;
+&lt;p&gt;ein Absatz&lt;/p&gt;
+&lt;p&gt;und noch einer&lt;/p&gt;
+&lt;p&gt;und einer mit einem &lt;a href="javascript:anpassen()"&gt;Link zum Anpassen&lt;/a&gt;&lt;/p&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel enthält eine Überschrift mit einem <code>style</code>-Attribut sowie drei Textabsätze. Der letzte davon enthält einen Verweis, bei dessen Anklicken die <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../sprache/funktionen.htm">Funktion</a> <code>anpassen()</code> aufgerufen wird, die im Dateikopf notiert ist. Diese Funktion holt sich mit <code>document.getElementsByTagName("h1")[0].getAttributeNode("style")</code> den das Knotenobjekt des <code>style</code>-Elements aus der Überschrift. Der Rückgabewert, also das Attributknoten-Objekt, wird in der Variablen <code>CSSKnoten</code> gespeichert. Anschließend wird in einer <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../sprache/schleifen.htm#for">for-Schleife</a> auf alle <code>p</code>-Elemente des Dokuments zugegriffen. Bei jedem Schleifendurchlauf wird mit
+<img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#clone_node">cloneNode()</a> eine Kopie des Attributknotens erzeugt und mit <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#set_attribute_node">setAttributeNode()</a> dem jeweils aktuellen <code>p</code>-Element hinzugefügt. Die <code>p</code>-Elemente "erben" auf diese Weise die CSS-Eigenschaften der Überschrift.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Die Methode <code>getAttributeNode()</code> werden Sie selten brauchen. In den meisten Fällen können Sie <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#get_attribute">getAttribute()</a> verwenden, das sich einfacher handhaben lässt und auch vom Internet Explorer besser unterstützt wird.</p>
+ 
+<p>Opera unterstützt die Methode <code>getAttributeNode()</code> bereits in Version 7. Dieser Browser hat jedoch spezielle Probleme beim Auslesen von <code>style</code>-Attributknoten. Im Beispiel enthält <code>CSSKnoten</code> zwar einen <code>style</code>-Attributknoten, dieser hat aber keinen Attributwert, sodass die Schleife leere Attribute setzt. Erst Opera 8 interpretiert das Beispiel korrekt.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/dom10.gif" width="30" height="30" alt="DOM 1.0" title="DOM 1.0"><img src="../../src/js15.gif" width="30" height="30" alt="JavaScript 1.5" title="JavaScript 1.5"><img src="../../src/netsc6.gif" width="30" height="30" alt="Netscape 6.0" title="Netscape 6.0"><img src="../../src/msie55.gif" width="30" height="30" alt="MS IE 5.5" title="MS IE 5.5"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf13.gif" width="30" height="30" alt="Safari 1.3" title="Safari 1.3">&nbsp;<a class="an" name="get_elements_by_tag_name">getElementsByTagName()</a></h2>
+
+<p>Diese Methode entspricht der <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="document.htm#get_elements_by_tag_name">gleichnamigen Methode beim document-Objekt</a>, bezieht sich jedoch nicht auf das ganze Dokument, sondern nur auf einen bestimmten Elementknoten. Sie liefert einen Array mit allen Elementknoten eines bestimmten Namens zurück, die sich innerhalb des Elements befinden. Erwartet als Parameter den Namen der gesuchten Elemente als String (z.B. <code>"h1"</code> oder <code>"a"</code>).</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/node_get_elements_by_tag_name.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;&lt;/head&gt;
+&lt;body&gt;
+&lt;h2&gt;Erster Bereich&lt;/h2&gt;
+&lt;p&gt;erster Absatz&lt;/p&gt;
+&lt;p&gt;zweiter Absatz&lt;/p&gt;
+
+&lt;div id="bereich"&gt;
+&lt;h2&gt;Zweiter Bereich&lt;/h2&gt;
+&lt;p&gt;dritter Absatz&lt;/p&gt;
+&lt;p&gt;vierter Absatz&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;h2&gt;Dritter Bereich&lt;/h2&gt;
+&lt;p&gt;erster Absatz&lt;/p&gt;
+&lt;p&gt;zweiter Absatz&lt;/p&gt;
+
+&lt;script type="text/javascript"&gt;
+var bereich = document.getElementById("bereich");
+var absaetze = bereich.getElementsByTagName("p");
+var ueberschriften = bereich.getElementsByTagName("h2");
+
+for (var i = 0; i &lt; ueberschriften.length; i++) {
+  ueberschriften[i].style.color = "blue";
+}
+
+for (i = 0; i &lt; absaetze.length; i++) {
+  absaetze[i].style.color = "red";
+}
+&lt;/script&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Im Beispiel sind verschiedene Überschriften und Absätze notiert, von denen eine Überschrift und zwei Absätze in einem <code>div</code>-Element mit der ID <code>bereich</code> liegen. Im Folgenden sollen alle Überschriften und Absätze innerhalb dieses <code>div</code>-Elements angesprochen und umformatiert werden.</p>
+
+<p>Zunächst wird über <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="document.htm#get_element_by_id">document.getElementById()</a> das <code>div</code>-Element angesprochen und der zurückgegebene Elementknoten in der Variable <code>bereich</code> gespeichert Dadurch können wir später mehrmals darauf zuzugreifen, ohne <code>getElementById()</code> mehrmals ausführen zu muss. In den nächsten beiden Zeilen wird die Methode <code>getElementsByTagName()</code> des <code>div</code>-Elementknotens aufgerufen, einmal mit <code>"p"</code> und einmal mit <code>"h2"</code>. Diese Aufrufe geben jeweils Arrays mit allen <code>p</code>- bzw. <code>h2</code>-Elementen innerhalb des <code>div</code>-Elements zurück. Diese Arrays werden der Einfachheit halber in den Variablen <code>absaetze</code> und <code>ueberschriften</code> gespeichert, da später mehrfach auf sie zugegriffen wird.</p>
+
+<p>Zuletzt werden beide Arrays mit <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../sprache/schleifen.htm#for">for-Schleifen</a> durchlaufen. Über <code>ueberschriften[i]</code> bzw. <code>absaetze[i]</code> werden die einzelnen Elementknoten im Array angesprochen. Mithilfe des <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="style.htm">style-Objekts</a> wird die <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/schrift.htm#color">Textfarbe</a> bei der Überschrift auf blau und bei den Absätzen auf rot gesetzt.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/dom10.gif" width="30" height="30" alt="DOM 1.0" title="DOM 1.0"><img src="../../src/js15.gif" width="30" height="30" alt="JavaScript 1.5" title="JavaScript 1.5"><img src="../../src/netsc6.gif" width="30" height="30" alt="Netscape 6.0" title="Netscape 6.0"><img src="../../src/msie55.gif" width="30" height="30" alt="MS IE 5.5" title="MS IE 5.5"><img src="../../src/op7.gif" width="30" height="30" alt="Opera 7" title="Opera 7"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="has_child_nodes">hasChildNodes()</a></h2>
+
+<p>Ermittelt, ob ein Knoten Kindknoten unter sich hat. Gibt den booleschen Wert <code>true</code> zurück, wenn ja, und <code>false</code>, wenn nein.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/node_has_child_nodes.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;&lt;/head&gt;
+&lt;body&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;mit Inhalt&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;mit Inhalt&lt;/p&gt;
+&lt;script type="text/javascript"&gt;
+for (var i = 0; i &lt; document.getElementsByTagName("p").length; i++)
+  if (document.getElementsByTagName("p")[i].hasChildNodes())
+    document.write((i + 1) + ". p-Element hat einen Inhalt!&lt;br&gt;");
+&lt;/script&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel enthält vier Textabsätze. Zwei davon haben einen Zeicheninhalt, zwei andere sind leer. Unterhalb der Textabsätze ist ein JavaScript notiert. Dieses greift in einer <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../sprache/schleifen.htm#for">for-Schleife</a> der Reihe nach mit <code>document.getElementsByTagName("p")</code> auf alle <code>p</code>-Elemente des Dokuments zu. Dabei wird mit <code>if(document.getElementsByTagName("p")[i].hasChildNodes())</code> abgefragt, ob das jeweils aktuell in der Schleife behandelte <code>p</code>-Element Kindknoten hat. Wenn ja, wird mit <code>document.write()</code> ins Dokument geschrieben, beim wie vielten Element ein Kindknoten gefunden wurde. Im Beispiel ist das beim zweiten und vierten Element der Fall, da diese beiden Elemente Textknoten enthalten.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/dom10.gif" width="30" height="30" alt="DOM 1.0" title="DOM 1.0"><img src="../../src/js15.gif" width="30" height="30" alt="JavaScript 1.5" title="JavaScript 1.5"><img src="../../src/netsc6.gif" width="30" height="30" alt="Netscape 6.0" title="Netscape 6.0"><img src="../../src/msie55.gif" width="30" height="30" alt="MS IE 5.5" title="MS IE 5.5"><img src="../../src/op7.gif" width="30" height="30" alt="Opera 7" title="Opera 7"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="insert_before">insertBefore()</a></h2>
+
+<p>Fügt innerhalb eines Knotens einen Kindknoten vor einem anderen Kindknoten ein.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/node_insert_before.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;&lt;/head&gt;
+&lt;body&gt;
+&lt;p id="derText"&gt;Text &lt;i id="derKursiveText"&gt;und mit kursivem Text&lt;/i&gt;&lt;/p&gt;
+&lt;script type="text/javascript"&gt;
+var neuB = document.createElement("b");
+var neuBText = document.createTextNode("mit fettem Text ");
+neuB.appendChild(neuBText);
+document.getElementById("derText").insertBefore(neuB, document.getElementById("derKursiveText"));
+&lt;/script&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel enthält einen Textabsatz mit Text und einem Kindelement <code>&lt;i&gt;...&lt;/i&gt;</code>. Unterhalb des Absatzes ist ein JavaScript-Bereich notiert. Darin wird zunächst mit <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="document.htm#create_element">document.createElement()</a> ein neues Element des Typs <code>b</code> für fetten Text erzeugt. Anschließend wird mit <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="document.htm#create_text_node">document.createTextNode()</a> ein Textknoten erzeugt, der dann mit <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#append_child">appendChild()</a> als Inhalt des neu erzeugten <code>b</code>-Elements eingefügt wird. Der ganze Komplex aus <code>b</code>-Element mit Inhalt ist dann in der Variablen <code>neuB</code> gespeichert. Mit <code>document.getElementById("derText")</code> greift das Script sodann auf das <code>p</code>-Element zu und fügt mit <code>insertBefore()</code> das neue Element vor dem anderen Kindelement ein, das die Id <code>"derKursiveText"</code> hat. Am Ende lautet der komplette Inhalt des <code>p</code>-Elements dann:<br>
+<code>Text &lt;b&gt;mit fettem Text &lt;/b&gt;&lt;i&gt;und mit kursivem Text&lt;/i&gt;</code>.<br>
+Die Methode <code>insertBefore()</code> erwartet also zwei Parameter:<br>
+1. der neu einzufügende Kindknoten,<br>
+2. ein Kindknoten, vor dem der neue Kindknoten eingefügt werden soll.</p>
+
+<p>Wenn Sie einen Knoten <em>nach</em> einem bestimmten Kindknoten einfügen wollen, können Sie dazu ebenfalls <code>insertBefore()</code> verwenden. Geben Sie dazu als zweiten Parameter den Kindknoten an, der auf den Knoten folgt, nach dem der neue Knoten eingefügt werden soll. Dieser muss keine eigene ID haben, sondern Sie können ihn über <img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben">&nbsp;<a href="#next_sibling">nextSibling</a> ausgehend vom vorigen Kindknoten ansprechen.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/node_insert_before_after.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;&lt;/head&gt;
+&lt;body&gt;
+&lt;p id="derText"&gt;Text &lt;i id="derKursiveText"&gt;mit kursivem&lt;/i&gt; Text&lt;/p&gt;
+&lt;script type="text/javascript"&gt;
+var neuB = document.createElement("b");
+var neuBText = document.createTextNode(" und fettem");
+neuB.appendChild(neuBText);
+document.getElementById("derText").insertBefore(neuB, document.getElementById("derKursiveText").nextSibling);
+&lt;/script&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel funktioniert weitestgehend wie das erste, der Text "und fettem" wird jedoch nach dem <code>i</code>-Element eingefügt, sodass das <code>p</code>-Element am Ende <code>Text &lt;i id="derKursiveText"&gt;mit kursivem&lt;/i&gt;&lt;b&gt; und fettem&lt;/b&gt; Text</code> enthält. Als zweiter Parameter für <code>insertBefore()</code> wird <code>document.getElementById("derKursiveText").nextSibling</code> übergeben. Dies ist der nächstfolgende Knoten nach dem <code>i</code>-Element, also der Textknoten mit dem Inhalt " Text". Vor diesem Knoten wird das neu erzeugte <code>b</code>-Element eingefügt. Somit wird es nach dem <code>i</code>-Element und vor dem darauffolgenden Knoten eingefügt.</p>
+
+<p>Wenn auf einen Knoten keine weiteren Kindknoten folgen, hat die Eigenschaft <code>nextSibling</code> den Wert <code>null</code>. Dies passt in diesem Fall, denn der zweite Parameter von <code>insertBefore()</code> kann auch <code>null</code> sein. In diesem Fall funktioniert <code>insertBefore()</code> genauso wie <img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben">&nbsp;<a href="#append_child">appendChild()</a>: Der neue Knoten wird nach allen anderen Kindknoten, also ans Ende der Liste der Kindknoten eingefügt.</p>
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/dom10.gif" width="30" height="30" alt="DOM 1.0" title="DOM 1.0"><img src="../../src/js15.gif" width="30" height="30" alt="JavaScript 1.5" title="JavaScript 1.5"><img src="../../src/netsc6.gif" width="30" height="30" alt="Netscape 6.0" title="Netscape 6.0"><img src="../../src/msie6.gif" width="30" height="30" alt="MS IE 6" title="MS IE 6"><img src="../../src/op7.gif" width="30" height="30" alt="Opera 7" title="Opera 7"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="insert_data">insertData()</a></h2>
+
+<p>Fügt Zeichendaten in einem Textknoten ab einer bestimmten Zeichenposition ein.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/node_insert_data.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;script type="text/javascript"&gt;
+function italiano () {
+  document.getElementsByTagName("h1")[0].firstChild.insertData(7, "duemilauno ");
+}
+&lt;/script&gt;&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;2001 =  oder zweitausendeins&lt;/h1&gt;
+&lt;a href="javascript:italiano()"&gt;sag es in italienisch!&lt;/a&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel enthält eine Überschrift erster Ordnung, in der noch irgendetwas fehlt an Text. Unterhalb davon ist ein Verweis notiert, bei dessen Anklicken die <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../sprache/funktionen.htm">Funktion</a> <code>italiano()</code> aufgerufen wird, die im Dateikopf notiert ist. Diese Funktion greift mit <code>document.getElementsByTagName("h1")[0].firstChild</code> auf den Textknoten der Überschrift zu und fügt mit <code>insertData()</code> ab dem 8. Zeichen (Zeichenposition 7, zu zählen begonnen wird bei 0) die Zeichenkette <code>duemilauno</code> ein. Der dahinterstehende Text <code>oder zweitausendeins</code> wird - wie beim Einfügemodus in der Textverarbeitung - einfach nach hinten geschoben.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Der Internet Explorer 5.x interpretiert diese Methode noch nicht. Im Internet Explorer 6.0 und im Internet Explorer 5.0 Macintosh Edition wird die Methode dagegen unterstützt.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/dom10.gif" width="30" height="30" alt="DOM 1.0" title="DOM 1.0"><img src="../../src/js15.gif" width="30" height="30" alt="JavaScript 1.5" title="JavaScript 1.5"><img src="../../src/netsc6.gif" width="30" height="30" alt="Netscape 6.0" title="Netscape 6.0"><img src="../../src/msie55.gif" width="30" height="30" alt="MS IE 5.5" title="MS IE 5.5"><img src="../../src/op72.gif" width="30" height="30" alt="Opera 7.20" title="Opera 7.20"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="remove_attribute">removeAttribute()</a></h2>
+
+<p>Löscht aus einem Element ein Attribut.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/node_remove_attribute.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;script type="text/javascript"&gt;
+function wegMitAusrichtung () {
+  document.getElementById("rechts").removeAttribute("align");
+}
+&lt;/script&gt;&lt;/head&gt;
+&lt;body&gt;
+&lt;p id="rechts" align="right"&gt;&lt;a href="javascript:wegMitAusrichtung()"&gt;Weg mit der Ausrichtung!&lt;/a&gt;&lt;/p&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel enthält einen mit <code>align="right"</code> rechtsbündig ausgerichteten Textabsatz, der einen Verweis enthält. Beim Anklicken des Verweises wird die <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../sprache/funktionen.htm">Funktion</a> <code>wegMitAusrichtung()</code> aufgerufen, die im Dateikopf notiert ist. Diese Funktion greift mit <code>document.getElementById("rechts")</code> auf das <code>p</code>-Element zu und löscht mit <code>removeAttribute("align")</code> das <code>align</code>-Attribut. Der Absatz wird dadurch dynamisch neu ausgerichtet (per Voreinstellung linksbündig).</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Der Internet Explorer 5.0 Macintosh Edition interpretiert das Beispiel nicht. Konqueror 3.1 kennt zwar die Methode <code>removeAttribute()</code>, der rechtsbündige Absatz wird aber nach Entfernen des Attributs nicht wieder linksbündig.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/dom10.gif" width="30" height="30" alt="DOM 1.0" title="DOM 1.0"><img src="../../src/js15.gif" width="30" height="30" alt="JavaScript 1.5" title="JavaScript 1.5"><img src="../../src/netsc6.gif" width="30" height="30" alt="Netscape 6.0" title="Netscape 6.0"><img src="../../src/op8.gif" width="30" height="30" alt="Opera 8" title="Opera 8"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/saf12.gif" width="30" height="30" alt="Safari 1.2" title="Safari 1.2">&nbsp;<a class="an" name="remove_attribute_node">removeAttributeNode()</a></h2>
+
+<p>Löscht aus einem Element einen Attributknoten.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/node_remove_attribute_node.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;&lt;/head&gt;
+&lt;script type="text/javascript"&gt;
+function wegMitAusrichtung () {
+  document.getElementById("rechts").removeAttributeNode(document.getElementById("rechts").getAttributeNode("align"));
+}
+&lt;/script&gt;
+&lt;body&gt;
+&lt;p id="rechts" align="right"&gt;&lt;a href="javascript:wegMitAusrichtung()"&gt;Weg mit der Ausrichtung!&lt;/a&gt;&lt;/p&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel tut das Gleiche wie das Beispiel bei der Beschreibung zu <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#remove_attribute">removeAttribute()</a>. Der Unterschied ist nur, dass <code>removeAttributeNode()</code> als Parameter das Objekt eines Attributknotens erwartet, während <code>removeAttribute()</code> als Parameter den Namen des zu entfernenden Attributs nimmt. Im Beispiel wird <code>document.getElementById("rechts").getAttributeNode("align")</code> übergeben, welches das Objekt des Attributknotens des <code>align</code>-Attributs des <code>p</code>-Elements ist.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Internet Explorer und Konqueror 3.1 interpretieren diese Methode nicht. Opera unterstützt diese Methode bereits in Version 7, hat aber offenbar Probleme, den Absatz sofort linksbündig darzustellen.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/dom10.gif" width="30" height="30" alt="DOM 1.0" title="DOM 1.0"><img src="../../src/js15.gif" width="30" height="30" alt="JavaScript 1.5" title="JavaScript 1.5"><img src="../../src/netsc6.gif" width="30" height="30" alt="Netscape 6.0" title="Netscape 6.0"><img src="../../src/msie55.gif" width="30" height="30" alt="MS IE 5.5" title="MS IE 5.5"><img src="../../src/op7.gif" width="30" height="30" alt="Opera 7" title="Opera 7"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="remove_child">removeChild()</a></h2>
+
+<p>Löscht aus einem Element einen Kindknoten.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/node_remove_child.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;script type="text/javascript"&gt;
+function wegMitEintrag () {
+  var Knoten = document.getElementsByTagName("ol")[0].firstChild;
+  verschwunden = document.getElementsByTagName("ol")[0].removeChild(Knoten);
+  alert(verschwunden.firstChild.nodeValue)
+}
+&lt;/script&gt;&lt;/head&gt;
+&lt;body&gt;
+&lt;ol start="1" type="I"&gt;&lt;li&gt;Element 1&lt;/li&gt;&lt;li&gt;Element 2&lt;/li&gt;&lt;li&gt;Element 3&lt;/li&gt;&lt;/ol&gt;
+&lt;p&gt;&lt;a href="javascript:wegMitEintrag()"&gt;Lösche das erste Element&lt;/a&gt;&lt;/p&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel enthält eine nummerierte Liste. Unterhalb davon ist ein Verweis notiert. Beim Anklicken des Verweises wird die <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../sprache/funktionen.htm">Funktion</a> <code>wegMitEintrag()</code> aufgerufen, die im Dateikopf notiert ist. In dieser Funktion wird auf den ersten Kindknoten mit <code>document.getElementsByTagName("ol")[0].firstChild</code> zugegriffen. Der Wert wird in der Variablen <code>Knoten</code> gespeichert. Mit <code>removeChild(Knoten)</code> wird der Listenpunkt gelöscht. Dabei wird der Methode als Parameter der zu löschende Knoten übergeben. Die Methode <code>removeChild()</code> gibt als Rückgabewert das gelöschte Element zurück. Dieser Wert ist im Beispiel in der globalen Variablen <code>verschwunden</code> gespeichert. Über diese Variable können Sie weiterhin auf die Eigenschaften des Knotens zugreifen. So wird im Beispiel noch einmal der Inhalt des ersten Kindknotens des gelöschten Elements ausgegeben.</p>
+
+<p>Berücksichtigen Sie beim Nachvollziehen dieses Beispieles die <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#child_nodes_whitespace">Besonderheit</a> des Internet Explorers unter Windows im Umgang mit Kindknoten.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/dom10.gif" width="30" height="30" alt="DOM 1.0" title="DOM 1.0"><img src="../../src/js15.gif" width="30" height="30" alt="JavaScript 1.5" title="JavaScript 1.5"><img src="../../src/netsc6.gif" width="30" height="30" alt="Netscape 6.0" title="Netscape 6.0"><img src="../../src/msie55.gif" width="30" height="30" alt="MS IE 5.5" title="MS IE 5.5"><img src="../../src/op7.gif" width="30" height="30" alt="Opera 7" title="Opera 7"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="replace_child">replaceChild()</a></h2>
+
+<p>Ersetzt aus Sicht eines Knotens einen seiner Kindknoten durch einen anderen.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/node_replace_child.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;script type="text/javascript"&gt;
+function andereAntwort () {
+  var Textknoten = document.createTextNode("Du darfst!");
+  document.getElementById("z2").replaceChild(Textknoten, document.getElementById("z2").firstChild);
+}
+&lt;/script&gt;&lt;/head&gt;
+&lt;body&gt;
+&lt;table border="1" bgcolor="#FFFFC0" width="30%"&gt;
+&lt;tr&gt;&lt;td id="z1"&gt;Darf ich?&lt;/td&gt;&lt;td id="z2"&gt;keine Ahnung!&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;a href="javascript:andereAntwort()"&gt;andere Antwort!&lt;/a&gt;&lt;/p&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel enthält eine Tabelle mit zwei Zellen. Unterhalb der Tabelle ist ein Verweis notiert. Beim Anklicken des Verweises wird die <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../sprache/funktionen.htm">Funktion</a> <code>andereAntwort()</code> aufgerufen, die im Dateikopf notiert ist. Diese Funktion erzeugt zunächst mit <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="document.htm#create_text_node">document.createTextNode()</a> einen neuen Textknoten für die Antwort. Die Antwort wird in Form eines Knotenobjekts benötigt, weil die Methode <code>replaceChild()</code> sowohl den neuen Knoten als auch den zu ersetzenden in Form eines Knotenobjekts erwartet. Im Beispiel wird mit <code>document.getElementById("z2")</code> auf die zweite Tabellenzelle zugegriffen, um deren Inhalt, also den Textknoten, der ihren Kindknoten darstellt, durch den neu erzeugten Textknoten zu ersetzen. Dazu wird <code>replaceChild()</code> angewendet. Als erster Parameter wird der neue Knoten übergeben, als zweiter der zu ersetzende. Der neue Knoten ist im Beispiel in der Variablen <code>Textknoten</code> gespeichert. Auf den zu ersetzenden Knoten wird mit <code>document.getElementById("z2").firstChild</code> zugegriffen.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/dom10.gif" width="30" height="30" alt="DOM 1.0" title="DOM 1.0"><img src="../../src/js15.gif" width="30" height="30" alt="JavaScript 1.5" title="JavaScript 1.5"><img src="../../src/netsc6.gif" width="30" height="30" alt="Netscape 6.0" title="Netscape 6.0"><img src="../../src/msie6.gif" width="30" height="30" alt="MS IE 6" title="MS IE 6"><img src="../../src/op7.gif" width="30" height="30" alt="Opera 7" title="Opera 7"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="replace_data">replaceData()</a></h2>
+
+<p>Ersetzt Zeichendaten im in einem Textinhalt eines Elements (Textknoten).</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/node_replace_data.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;script type="text/javascript"&gt;
+function andereAntwort () {
+  var Text = "Du darfst!";
+  var rd_Start = 0;
+  var rd_Laenge = document.getElementById("z2").firstChild.nodeValue.length;
+  document.getElementById("z2").firstChild.replaceData(rd_Start, rd_Laenge, Text);
+}
+&lt;/script&gt;&lt;/head&gt;
+&lt;body&gt;
+&lt;table border="1" bgcolor="#FFFFC0" width="30%"&gt;
+&lt;tr&gt;&lt;td id="z1"&gt;Darf ich?&lt;/td&gt;&lt;td id="z2"&gt;keine Ahnung!&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;a href="javascript:andereAntwort()"&gt;andere Antwort!&lt;/a&gt;&lt;/p&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel tut das Gleiche wie das Beispiel bei der Beschreibung zu <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#replace_child">replaceChild()</a>. Der Unterschied ist nur, dass mit <code>replaceData()</code> auf Textebene gearbeitet wird, und dass diese Methode auch gezieltes Ersetzen ab einer bestimmten Zeichenposition und für eine bestimmte Länge erlaubt. Als Parameter erwartet <code>replaceData()</code> zuerst die Startposition in der Zeichenkette, ab der ersetzt werden soll. Im Beispiel wird dazu die Variable <code>rd_Start</code> übergeben, der zuvor <code>0</code> zugewiesen wurde. Damit wird ab dem ersten Zeichen ersetzt. Als zweiter Parameter wird übergeben, wie viele Zeichen ersetzt werden sollen. Im Beispiel wird die Variable <code>rd_Laenge</code> übergeben. Dieser wurde zuvor mit <code>document.getElementById("z2").firstChild.nodeValue.length</code> die Zeichenanzahl des gesamten Textknotens der zweiten Tabellenzelle zugewiesen. Im Beispiel wird auf diese Weise der komplette Inhalt der zweiten Tabellenzelle ersetzt. Mit einer Angabe wie <code>0,1</code> würden Sie beispielsweise nur das erste Zeichen ersetzen.<br>
+Als dritten Parameter erwartet <code>replaceData()</code> eine Zeichenkette, mit der die zuvor im Textknoten markierte Zeichenkette ersetzt werden soll. Im Beispiel wird die Variable <code>Text</code> übergeben, der zuvor ein Wert zugewiesen wurde.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Der Internet Explorer 5.x interpretiert diese Methode noch nicht. Im Internet Explorer 6.0 und im Internet Explorer 5.0 Macintosh Edition wird die Methode dagegen unterstützt.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/dom10.gif" width="30" height="30" alt="DOM 1.0" title="DOM 1.0"><img src="../../src/js15.gif" width="30" height="30" alt="JavaScript 1.5" title="JavaScript 1.5"><img src="../../src/netsc6.gif" width="30" height="30" alt="Netscape 6.0" title="Netscape 6.0"><img src="../../src/msie55.gif" width="30" height="30" alt="MS IE 5.5" title="MS IE 5.5"><img src="../../src/op7.gif" width="30" height="30" alt="Opera 7" title="Opera 7"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="set_attribute">setAttribute()</a></h2>
+
+<p>Setzt in einem Element einen Attributwert neu. Ist das Attribut bereits vorhanden, wird sein alter Wert durch den neuen ersetzt. Ist es noch nicht vorhanden, wird es neu angelegt und mit dem neuen Wert belegt.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/node_set_attribute.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;script type="text/javascript"&gt;
+function setzen () {
+  document.body.setAttribute("bgColor", document.Formular.bgcolor.value);
+  document.body.setAttribute("text", document.Formular.text.value);
+}
+&lt;/script&gt;&lt;/head&gt;
+&lt;body bgcolor="#FFFFCC" text="#E00000"&gt;
+&lt;form name="Formular" action=""&gt;&lt;pre&gt;
+Hintergrundfarbe:      &lt;input type="text" name="bgcolor"&gt;
+Textfarbe:             &lt;input type="text" name="text"&gt;
+Werte:                 &lt;input type="button" value="setzen" onclick="setzen()"&gt;
+&lt;/pre&gt;&lt;/form&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel enthält ein Formular mit zwei Eingabefeldern, in denen der Anwender neue Werte für die beiden Attribute <code>bgcolor</code> und <code>text</code> des <code>body</code>-Elements eingeben kann. Beim Anklicken des Buttons unterhalb davon wird die <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../sprache/funktionen.htm">Funktion</a> <code>setzen()</code> aufgerufen, die im Dateikopf notiert ist. Diese Funktion greift mit <code>document.body</code> auf das <code>body</code>-Element zu und weist ihm mit <code>setAttribute()</code> die neuen Attribute zu. Als erster Parameter wird der Name des zu erzeugenden oder zu ersetzenden Attributs übergeben, als zweiter Parameter der gewünschte Wert. Im Beispiel wird als zweiter Parameter jeweils der Wert aus den Formulareingabefeldern übergeben.</p>
+
+<h3 class="inft">Beachten Sie:</h3>
+
+<p>Im Internet Explorer 5.0 Macintosh Edition ist das Beispiel zwar nachvollziehbar, jedoch mit sehr seltsamen Ergebnissen.</p>
+
+<p><code>setAttribute()</code> ist eine Methode des allgemeinen DOM (Kern-DOM). Wenn Sie auf Attribute von HTML-Elementen zugreifen möchten, brauchen Sie <code>setAttribute()</code> strenggenommen nicht, denn das HTML-spezifische DOM definiert alle Attribute als Eigenschaften von Elementobjekten, auf die Sie direkt zugreifen können.<br>
+Das Setzen von Attributen über <code>setAttribute()</code> ist meist unnötig umständlich. Anstatt <code>document.body.setAttribute("bgColor", document.Formular.bgcolor.value);</code> können Sie unter Verwendung des HTML-spezifischen DOM ebenso <code>document.body.bgColor = document.Formular.bgcolor.value;</code> notieren. In der Objektreferenz zu den <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="htmlelemente.htm">HTML-Elementobjekten</a> werden alle Attribute aufgelistet, die Sie auf diese Weise ansprechen können.</p>
+
+<p>Davon abgesehen hat <code>setAttribute()</code> eine noch viel größere Tücke: Im Internet Explorer hat die Methode einen Fehler. Sie müssen bei einigen Attributen eine spezielle Schreibweise des Attributnamens beachten, damit der Internet Explorer das Attribut tatsächlich setzt. Im Beispiel wurde absichtlich <code>setAttribute("<b>bgColor</b>", ...)</code> und nicht etwa <code><b>bgcolor</b></code> notiert. Denn der MSIE verlangt die Schreibweise des Attributnamens, die im HTML-spezifischen DOM für den Direktzugriff definiert wurde - diese lautet in Beispielfall <code>bgColor</code>. Es kommt also auf die korrekte Groß- und Kleinschreibung an.</p>
+
+<p>Im HTML-spezifischen DOM werden Attribute in der Regel klein geschrieben. Es gibt aber neben <code>bgColor</code> eine Reihe von weiterer Attribute, beim denen der Direktzugriff über eine besondere Schreibweise erfolgen muss. Der Unterschied ist zumeist ein Mittelinitial und der Wegfall des Bindestrichs, den einige Attribute enthalten. Es handelt sich um folgende Attribute:</p>
+
+<p><code>acceptCharset</code> (von <code>accept-charset</code>), <code>accessKey</code>, <code>aLink</code>, <code>bgColor</code>, <code>cellPadding</code>, <code>cellSpacing</code>, <code>chOff</code> (von <code>charoff</code>), <code>className</code> (von <code>class</code>), <code>codeBase</code>, <code>codeType</code>, <code>colSpan</code>, <code>dateTime</code>, <code>frameBorder</code>, <code>htmlFor</code> (von <code>for</code>), <code>httpEquiv</code> (von <code>http-equiv</code>), <code>isMap</code>, <code>longDesc</code>, <code>marginHeight</code>, <code>marginWidth</code>, <code>noHref</code>, <code>noResize</code>, <code>noWrap</code>, <code>readOnly</code>, <code>rowSpan</code>, <code>tabIndex</code>, <code>useMap</code>, <code>vAlign</code> und <code>vLink</code>.</p>
+
+<p>Wenn Sie diese Attribute mit <code>setAttribute()</code> setzen möchten, müssen Sie die angegebene Schreibweise verwenden, damit der Internet Explorer korrekt arbeitet. Allerdings akzeptieren andere Browser diese speziellen Schreibweisen nicht. Deshalb ist es einfacher, den Internet-Explorer-Fehler zu umgehen, indem Sie auf <code>setAttribute()</code> möglichst verzichten und den Direktzugriff nutzen.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/dom10.gif" width="30" height="30" alt="DOM 1.0" title="DOM 1.0"><img src="../../src/js15.gif" width="30" height="30" alt="JavaScript 1.5" title="JavaScript 1.5"><img src="../../src/netsc6.gif" width="30" height="30" alt="Netscape 6.0" title="Netscape 6.0"><img src="../../src/msie6.gif" width="30" height="30" alt="MS IE 6" title="MS IE 6"><img src="../../src/op72.gif" width="30" height="30" alt="Opera 7.20" title="Opera 7.20"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="set_attribute_node">setAttributeNode()</a></h2>
+
+<p>Fügt in ein Element einen neuen Attributknoten ein. Ist der Attributknoten bereits vorhanden, wird der alte Knoten durch den neuen ersetzt. Ist er noch nicht vorhanden, wird er neu angelegt.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/node_set_attribute_node.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;Element ohne Eigenschaften?&lt;/h1&gt;
+&lt;script type="text/javascript"&gt;
+var Ausrichtung = document.createAttribute("align");
+Ausrichtung.nodeValue = "center";
+document.getElementsByTagName("h1")[0].setAttributeNode(Ausrichtung);
+&lt;/script&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel enthält eine Überschrift erster Ordnung - ohne Attribute. Unterhalb davon ist ein JavaScript notiert. Dort wird zunächst mit <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="document.htm#create_attribute">document.createAttribute()</a> ein neuer Attriutknoten für ein Attribut namens <code>align</code> erzeugt. Der Knoten wird in der Variablen <code>Ausrichtung</code> gespeichert. Durch <code>Ausrichtung.nodeValue</code> lässt sich dem erzeugten Knoten dann ein Wert zuweisen. Mit <code>document.getElementsByTagName("h1")[0]</code> greift das Script schließlich auf das Überschriftenelement zu und weist ihm mit <code>setAttributeNode(Ausrichtung)</code> den zuvor erzeugten und in <code>Ausrichtung</code> gespeicherten Attributknoten zu.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Der Internet Explorer 5.x interpretiert diese Methode noch nicht. Im Internet Explorer 6.0 und im Internet Explorer 5.0 Macintosh Edition wird die Methode dagegen unterstützt.</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="event.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="all.htm">all</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="layers.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="htmlelemente.htm">HTML-Elementobjekte</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">JavaScript/DOM</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Objektreferenz</a></td>
+</tr>
+</table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

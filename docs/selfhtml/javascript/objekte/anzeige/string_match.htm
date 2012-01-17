@@ -1,0 +1,26 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>Test</title></head><body>
+<script type="text/javascript">
+var Aussage = "Der Mensch ist des Menschen sein Feind";
+var Ergebnis = Aussage.match(/Mensch\S{2}/);
+alert("Test 1: " + Ergebnis);
+</script>
+<script type="text/javascript">
+Aussage = "Der Mensch ist des Menschen sein Feind";
+Ergebnis = Aussage.match(/\bMensch\b|\bMenschen\b/g);
+if (Ergebnis)
+  for (var i = 0; i < Ergebnis.length; ++i)
+    alert("Test 2: Fund " + i + " - " + Ergebnis[i]);
+</script>
+<script type="text/javascript">
+Aussage = "Wir wollen weisse Waesche waschen";
+Ergebnis = Aussage.match(/w/gi);
+if (Ergebnis)
+  alert("Test 3: " + Ergebnis.length + " gefunden");
+</script>
+
+<p><a href="../string.htm#match">zur&uuml;ck</a></p>
+</body>
+</html>

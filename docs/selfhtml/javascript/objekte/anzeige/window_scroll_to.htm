@@ -1,0 +1,21 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>Test</title>
+</head><body>
+<script type="text/javascript">
+function Pos100 () {
+  window.scrollTo(100, 100);
+}
+document.write('<p style="white-space:nowrap">');
+var Zeile = 'Zeile';
+for (var i = 1; i <= 50; i++) {
+  Zeile = Zeile + " Zeile";
+  document.write("<br>Zeile " + Zeile);
+}
+document.write('<\/p><p><a href="javascript:Pos100()">Test<\/a><\/p>');
+</script>
+
+<p><a href="../window.htm#scroll_to">zur&uuml;ck</a></p>
+</body>
+</html>

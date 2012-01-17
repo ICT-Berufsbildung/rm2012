@@ -1,0 +1,23 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>Test</title>
+<script type="text/javascript">
+var Start = new Date();
+var Startzeit = Start.getTime();
+
+function Aufenthalt () {
+  var Ende = new Date();
+  var Endzeit = Ende.getTime();
+  var Aufenthalt = Math.floor((Endzeit - Startzeit) / 1000);
+  alert("Sie waren " + Aufenthalt + " Sekunden auf dieser Seite");
+}
+</script>
+</head>
+<body onunload="Aufenthalt()">
+<h1>Einen langen Aufenthalt auf dieser Seite!</h1>
+<p><a href="../../../index.htm">Und dann aber nix wie weg!</a></p>
+
+<p><a href="../eventhandler.htm#onunload">zur&uuml;ck</a></p>
+</body>
+</html>

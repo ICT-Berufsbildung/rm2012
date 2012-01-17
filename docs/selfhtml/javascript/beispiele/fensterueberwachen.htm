@@ -1,0 +1,181 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: JavaScript / Anwendungsbeispiele / Änderungen der Fenstergröße überwachen</title>
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<meta name="description"    content="Wie Sie Änderungen der Fenstergröße überwachen können.">
+<meta name="keywords"       content="SELFHTML, JavaScript, Resize, onresize, Fenstergröße">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-08-22T21:21:39+02:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/javascript/beispiele/fenstergroessenueberwachen.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="Anwendungsbeispiele" href="index.htm">
+<link rel="next" title="Allgemeines zu Dynamischem HTML" href="../../dhtml/intro.htm">
+<link rel="prev" title="Fehlerbehandlung mit dem try..catch-Statement" href="fehlerbehandlung_try_catch.htm">
+<link rel="first" title="Zwei Frames gleichzeitig ändern" href="zweiframes.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">JavaScript/DOM</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Anwendungsbeispiele</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Änderungen der Fenstergröße überwachen</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#hinweise">Hinweise zu diesen Beispielen</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#quelltext">Quelltext mit Erläuterungen</a><br>
+</p>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/fenstergroessenueberwachen.htm">Anzeigebeispiel: So sieht's aus</a></p>
+</td>
+</tr><tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><a class="an" name="hinweise">Hinweise zu diesem Beispiel</a></h2>
+
+<p>Eine Verändern der Fenstergröße durch den Anwender hat bei Netscape 4.x gelegentlich die Folge, dass dieser gesetzte Variablen, dynamische Positionierungen oder Stylesheet-Angaben "vergisst". Es ist jedoch möglich, Änderungen der Fenstergröße zu überwachen und damit gezielt auf die Änderung zu reagieren. Auch beim Internet Explorer oder bei Netscape 6 ist es gelegentlich sinnvoll, auf Änderungen reagieren zu können.</p>
+
+<p>Für die Überwachung der Fenstergröße wird der Event-Handler <code>onResize</code> verwendet. Dieser Event-Handler tritt ein, wenn der Anwender die Fenstergröße ändert. Sie können diesem Event-Handler eine Funktion zuordnen, die bei Größenänderungen ausgeführt wird.</p>
+
+<p>Beachten Sie, dass Sie mit diesem Beispiel nur den Neuaufbau der Seite erreichen. Eventuell geänderte Variablen und Werte gehen dabei verloren. In Opera bis Version 6 ist es nicht möglich, die Änderung der Fenstergröße mit dem Event-Handler <code>onResize</code> zu überwachen.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/js12.gif" width="30" height="30" alt="JavaScript 1.2" title="JavaScript 1.2"><img src="../../src/netsc4.gif" width="30" height="30" alt="Netscape 4.0" title="Netscape 4.0"><img src="../../src/msie4.gif" width="30" height="30" alt="MS IE 4.0" title="MS IE 4.0"><img src="../../src/op7.gif" width="30" height="30" alt="Opera 7" title="Opera 7"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="quelltext">Quelltext mit Erläuterungen</a></h2>
+
+<p>Im Beispiel wird die Fenstergröße auf Änderungen hin überwacht. Sobald diese geändert wird, erfolgt ein Neuaufbau der Seite und die geänderten Größen werden jeweils mit <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../objekte/document.htm#write">document.write()</a> zur Kontrolle in das Dokument geschrieben. </p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/fenstergroessenueberwachen.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;
+&lt;title&gt;Größenänderung überwachen&lt;/title&gt;
+&lt;script type="text/javascript"&gt;
+function Fensterweite () {
+  if (window.innerWidth) {
+    return window.innerWidth;
+  } else if (document.body &amp;&amp; document.body.offsetWidth) {
+    return document.body.offsetWidth;
+  } else {
+    return 0;
+  }
+}
+
+function Fensterhoehe () {
+  if (window.innerHeight) {
+    return window.innerHeight;
+  } else if (document.body &amp;&amp; document.body.offsetHeight) {
+    return document.body.offsetHeight;
+  } else {
+    return 0;
+  }
+}
+
+function neuAufbau () {
+  if (Weite != Fensterweite() || Hoehe != Fensterhoehe())
+    location.href = location.href;
+}
+
+/* Überwachung von Netscape initialisieren */
+if (!window.Weite &amp;&amp; window.innerWidth) {
+  window.onresize = neuAufbau;
+  Weite = Fensterweite();
+  Hoehe = Fensterhoehe();
+}
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;script type="text/javascript"&gt;
+/* Überwachung von Internet Explorer initialisieren */
+if (!window.Weite &amp;&amp; document.body &amp;&amp; document.body.offsetWidth) {
+  window.onresize = neuAufbau;
+  Weite = Fensterweite();
+  Hoehe = Fensterhoehe();
+}
+&lt;/script&gt;
+&lt;div id="Beispiel" style="position:absolute; top:100px; left:100px; border:solid 1px #000000;"&gt;
+Text
+&lt;/div&gt;
+&lt;script type="text/javascript"&gt;
+document.write("Weite: " + Weite + " Höhe: " + Hoehe);
+&lt;/script&gt;
+
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<h4>Die Funktionen Fensterweite() und Fensterhoehe()</h4>
+
+<p>Diese beiden Funktionen dienen dazu, die Fenstergröße zu ermitteln. Die Funktion <code>Fensterweite()</code> prüft, ob der Browser die Eigenschaft <code>window.innerWidth</code> kennt (das ist bei Netscape der Fall, nicht aber beim Internet Explorer). Ist dies der Fall, so wird der Wert der in dieser Eigenschaft gespeichert ist zurückgegeben. Kennt der Browser diese Eigenschaft nicht, so wird geprüft, ob er das Objekt <code>document.body </code> kennt und ob dieses Objekt die Eigenschaft <code>document.body.offsetWidth</code> kennt (das ist beim Internet Explorer der Fall, nicht aber bei Netscape). Tritt dieser Zustand ein, so wird der Wert der Eigenschaft <code>document.body.offsetWidth</code> zurückgegeben. Sollte der Browser auch diesen Zweig der Anweisung nicht verfolgen können, wird 0 zurückgegeben.<br>
+Die Funktion <code>Fensterhoehe()</code> arbeitet analog und verwendet die Eigenschaften <code>window.innerHeight</code> bzw. <code>document.body.offsetHeight</code>.</p>
+
+<h4>Überwachung für Netscape initialisieren</h4>
+
+<p>Beim Laden der Datei existiert die Variable <code>Weite</code> noch nicht. Da eine globale Variable immer eine Eigenschaft bzw. ein Objekt des Fensterobjektes ist, kann mit <code>window.Weite</code> geprüft werden, ob diese existiert. Netscape kennt zudem die Eigenschaft <code>window.innerWidth</code>. Deshalb arbeitet er die entsprechende Anweisung ab. Zuerst wird die Überwachung des Event-Handler <code>onresize</code> initialisiert (zum Verständnis siehe auch die allgemeine Verwendung des <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../objekte/event.htm#allgemeines">event</a>-Objekts). <code>onResize</code> wird ausgelöst, sobald sich die Fenstergröße ändert und ruft dann die Handler-Funktion <code>neuAufbau()</code> auf. Anschließend wird in der Variablen <code>Weite</code> der Rückgabewert der Funktion <code>Fensterweite()</code> und in der Variablen <code>Hoehe</code> der Rückgabewert der Funktion <code>Fensterhoehe()</code> gespeichert. Damit stehen beide Variablen für weitere Verarbeitungsaufgaben zur Verfügung.</p>
+
+<h4>Überwachung für den Internet Explorer initialisieren</h4>
+
+<p>Die Überwachung für den Internet Explorer gestaltet sich ähnlich. Im Unterschied zum Netscape Navigator benötigt er jedoch das Objekt <code>document.body</code>. Dieses Objekt steht jedoch erst nach dem Laden des Body-Tags zur Verfügung. Deshalb ist der entsprechende Script-Bereich nicht im Dateikopf, sondern <code>body</code>-Bereichs des Dokuments notiert. Auch der Netscape 6 kennt das Objekt <code>document.body</code> und dessen Eigenschaften. Er führt jedoch diesen Script-Bereich nicht aus, da dieser Browser zum Laufzeitpunkt die Variable <code>Weite</code> bereits kennt.</p>
+
+<h4>Die Handler-Funktion neuAufbau()</h4>
+
+<p>Die Funktion <code>neuAufbau()</code> wird aufgerufen, wenn der Event-Handler <code>onResize</code> aktiv wird. Sie vergleicht den Wert der Variablen <code>window.Weite</code> mit dem Rückgabewert der Funktion <code>Fensterweite()</code> und den Wert der Variable <code>window.Hoehe</code> mit dem Rückgabewert der Funktion <code>Fensterhoehe()</code>. Daran erkennt sie, ob sich die Fenstergröße verändert hat. In diesem Fall wird die Eigenschaft <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../objekte/location.htm#href">location.href</a> mit sich selbst überschrieben, was einen Neuaufbau der Seite bewirkt. Wird der Event-Handler <code>onResize</code> aufgerufen, ohne dass eine reale Veränderung der Fenstergröße stattgefunden hat - das kann gelegentlich passieren - geschieht nichts, da die Bedingung zum Neuladen nicht erfüllt ist.</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="../../dhtml/intro.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../dhtml/intro.htm">Allgemeines zu Dynamischem HTML</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="fehlerbehandlung_try_catch.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="fehlerbehandlung_try_catch.htm">Fehlerbehandlung mit dem try..catch-Statement </a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">JavaScript/DOM</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Anwendungsbeispiele</a></td>
+</tr>
+</table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

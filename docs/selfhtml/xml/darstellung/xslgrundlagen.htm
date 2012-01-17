@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title> SELFHTML: XML / Darstellung von XML-Daten / Grundlagen von XSL/XSLT</title>
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<meta name="description"    content="Was der Unterschied zwischen XSL und XSLT ist, was &quot;Transformation&quot; bedeutet, und wo XSLT-Prozessoren eingesetzt werden können.">
+<meta name="keywords"       content="SELFHTML, XML, XSL, XSLT, Transformation">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-10-31T18:31:11+01:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/xml/darstellung/xslgrundlagen.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="Darstellung von XML-Daten" href="index.htm">
+<link rel="next" title="Beispiele für XSLT" href="xsltbeispiele.htm">
+<link rel="prev" title="XML-Darstellung mit Stylesheets" href="css.htm">
+<link rel="first" title="XML-Darstellung mit Stylesheets" href="css.htm">
+<link rel="last" title="XPath-Funktionen" href="xpathfunktionen.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">XML/DTDs</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Darstellung von XML-Daten</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Grundlagen von XSL/XSLT</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#xsl_xslt">XSL und XSLT</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#transformation">Transformation mit XSLT</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#browser_server">XSLT im Browser und auf dem Server</a><br>
+</p>
+</td>
+</tr><tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><a class="an" name="xsl_xslt">XSL und XSLT</a></h2>
+
+<p>Die Sprache XSL (<i>Extensible Stylesheet Language</i>, zu deutsch: erweiterbare Formatsprache) besteht aus zwei wichtigen Komponenten:</p>
+<ol>
+<li>aus einer Komponente zur <b>Formatierung</b> von XML-Daten (oft <i>XSL-FO</i> - "XSL Formatting Objects" genannt), und</li>
+<li>aus einer Komponente zur <b>Transformation</b> von XML-Daten in andere XML-Daten.<br>
+Für die Transformations-Komponente hat sich die Abkürzung XSLT (<i>XSL Transformation</i>, zu deutsch: XSL-Umwandlungen) etabliert.</li>
+</ol>
+
+<p>Die beiden Abkürzungen XSL und XSLT sorgen erst einmal für Verwirrung, vor allem, wenn man sich die Seiten des W3-Konsortiums dazu ansieht. Dort gibt es getrennte Spezifikationen für XSL und XSLT, ergänzt um eine weitere relevante Spezifikation, nämlich die zu der Sprache <b>XPath</b>. XPath agiert innerhalb von XSLT als eine Subsprache. Warum aber kann es nicht einfach eine Formatsprache für XML-Daten geben? Der Grund ist vor allem, dass die Transformations-Komponente XSLT so mächtig ist, dass sie ein Eigenleben entwickelt hat. Lassen Sie sich dadurch nicht verwirren. In der gegenwärtigen Praxis verwenden Sie XSL vor allem in der Form, dass Sie die Transformations-Komponente XSLT verwenden.</p>
+
+<p>XSL wurde als allgemeine Stylesheet-Sprache für XML-Daten geschaffen. Die grundsätzliche Aufgabe von XSL ist also eigentlich, XML-Daten zu formatieren. Die Anforderungen an eine solche Sprache sind natürlich sehr hoch, da XML-Daten beliebiger Natur sein können. Während CSS doch sehr stark auf das Aufgabengebiet von HTML und Web-Seitendarstellung zugeschnitten ist, sind die Formatierungsmöglichkeiten von XSL tendenziell stärker an den Anforderungen von Print-Publikationen orientiert. Dazu stellt XSL ähnlich wie CSS ein großes Arsenal an Style-Eigenschaften bereit, und enthält darüber hinaus aber auch Möglichkeiten, die den logischen Ablauf der Datenpräsentation steuern, wie z.B. automatische Kapitelnummerierung oder Sortierfunktionen. XSL kann zwar noch weitgehend als Beschreibungssprache für Formate bezeichnet werden, enthält darüber hinaus aber auch Konstrukte wie bedingungsabhängige Anweisungen oder Schleifenanweisungen, die eher an Programmiersprachen erinnern.</p>
+
+<p>Mit der Transformations-Komponente XSLT verfügt XSL aber noch über eine weitere wichtige Möglichkeit: die Transformations-Komponente erlaubt nämlich unter anderem, XML-Daten in HTML zu transformieren. Und genau das ist die große Chance für XML im WWW! Denn Anbieter von Web-Projekten können ihre Daten dadurch in XML strukturell sauber speichern und trotzdem in HTML präsentieren, sodass jeder Browser die Daten anzeigen kann. Dabei sind beliebige HTML-Konstrukte erlaubt - einschließlich JavaScript und CSS. So entsteht nicht selten die Situation, dass sowohl XSLT als auch CSS zum Einsatz kommen, um aus XML-Daten ansprechende Web-Seiten zu erzeugen. Aber beide Sprachen haben in dieser Technik ihren spezifischen Ort: XSLT dient zur Generierung von HTML-Code aus den XML-Daten, und CSS ist die Formatsprache für das XSLT-generierte HTML-Konvertat.</p>
+
+<p>Aus Sicht des Web Publishings ist gegenwärtig also die Transformation von XML-Definitionen in HTML-Kodierungen die Hauptanwendung von XSL. Deshalb wird in der vorliegenden Dokumentation auch nur auf XSLT näher eingegangen. Auf eine Referenz der XSL-eigenen Formatsprache wurde dagegen vorläufig verzichtet.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="transformation">Transformation mit XSLT</a></h2>
+
+<p>Der XSLT-Teil von XSL hat die Aufgabe, Elemente einer XML-basierten Sprache in eine andere XML-gerechte Sprache zu transformieren. So können Sie also beispielsweise Elemente aus einer eigenen XML-Datei, wie <code>vorname</code> und <code>zuname</code>, in Auszeichnungs-Konstrukte einer anderen Sprache transformieren, um damit eine formatierte Ausgabe der Elemente zu erzeugen.</p>
+
+<p>Wenn Sie beispielsweise XML-Daten in HTML transformieren, dann stellen Sie eine Verbindung zwischen Elementen und Attributen Ihrer XML-Daten und bestimmten HTML-Konstrukten her. So können Sie im XSLT-Stylesheet beispielsweise angeben, dass ein Element namens <code>vorname</code> in den HTML-Code <code>&lt;td&gt;[...]&lt;/td&gt;</code> umgesetzt werden soll. Wenn Sie nun in Ihren XML-Anwendungsdaten das XSL-Stylesheet einbinden und beispielsweise <code>&lt;vorname&gt;Stefan&lt;/vorname&gt;</code> notieren, dann wird daraus beim Transformieren als Ergebnis das HTML-Konstrukt <code>&lt;td&gt;Stefan&lt;/td&gt;</code> erzeugt.</p>
+
+<p>Man spricht auch von der Transformation aus einem <b>Quellbaum</b> in einen <b>Ergebnisbaum</b>. Dahinter steht die Tatsache, dass sich alle XML-basierten Daten als <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../regeln/baumstruktur.htm">Baumstruktur</a> darstellen lassen. Das folgende Schaubild verdeutlicht, wie aus einem Quellbaum ein Ergebnisbaum wird - natürlich handelt es sich dabei nur um einen kleinen Ausschnitt:</p>
+
+<p><img src="xsltbaum.gif" width="702" height="270" alt="Quellbaum und Zielbaum"></p>
+
+<p>Die schwarzen Striche links zeigen die Zuordnung. Aus dem Quellbaum-Tag <code>&lt;kontakt&gt;</code> wird im HTML-Ergebnisbaum z.B. das Tag <code>&lt;tr&gt;</code>, wodurch eine Tabellenzeile begonnen wird. An eine solche Transformation können jedoch ganz unterschiedliche Anforderungen gestellt werden. So können Sie an den unterstrichenen Bestandteilen erkennen, dass die Transformation an diesen Stellen komplizierter ist. Wo in den XML-Daten die Adressen für Homepage und E-Mail einfach als Text gespeichert sind, soll in der HTML-Ausgabe ein anklickbarer Link daraus gemacht werden. Dazu ist es nötig, bei der Transformation anzugeben, dass etwa der Inhalt des Quellbaum-Elements <code>url</code> im HTML-Ergebnisbaum dem <code>href</code>-Attribut des <code>a</code>-Elements zugewiesen werden soll und dann nochmal als Inhalt des <code>a</code>-Elements erscheinen soll. Wie Sie an diesem Beispiel sehen, ist es oft nötig, ganz gezielt auf einzelne Bestandteile (Knoten) der XML-Daten zuzugreifen, um diese beim Erzeugen des Ergebnisbaums ebenfalls an ganz bestimmten Stellen unterzubringen. Dabei müssen Sie gewünschte Bestandteile wie "Inhalt des Elements <code>url</code> im aktuellen Datensatz" präzise adressieren (das Knoten-Set ermitteln - siehe auch <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../regeln/baumstruktur.htm#knoten_knotensets">Knoten und Knoten-Sets in der Baumstruktur</a>). Für diese Adressierung benutzt XSLT eine Syntax, die in einer eigenen Sprache definiert wird: in <b>XPath</b>. XPath beschreibt, wie man in XML-gerechten Datenstrukturen auf beliebige Strukturbestandteile zugreifen kann.</p>
+
+<p>XSL ist selbst eine XML-basierte Auszeichnungssprache und besteht aus Elementen und Attributen. Um sie zu verwenden, wird üblicherweise ihr Namensraum in eine XML-Datei importiert. Die Datei wird mit der Endung <code>.xsl</code> abgespeichert. In einer typischen XSLT-Anwendung müssen Sie neben dem XSL-Namensraum aber auch noch den Namensraum derjenigen Sprache importieren, in die transformiert werden soll. Bei Web-Anwendungen ist das meistens HTML. Eine typische XSLT-Datei besteht dann also aus XSL-eigenen Elementen und HTML-Elementen.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="browser_server">XSLT im Browser und auf dem Server</a></h2>
+
+<p>XSLT benötigt einen <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../intro.htm#parser">Parser</a>, der die Transformationsanweisungen ausführt. Denn wenn Sie in XSLT angeben, dass beispielsweise ein Element namens <code>vorname</code> in den HTML-Code <code>&lt;td&gt;[...]&lt;/td&gt;</code> umgesetzt werden soll, so notieren Sie in XSLT lediglich ein entsprechendes Element, das eine Transformationsanweisung darstellt, genauso wie Sie in einer HTML-Datei HTML-Elemente notieren. Damit mit diesen Anweisungen etwas passiert, muss ein Parser die Anweisungen als Daten-Input verarbeiten und daraus ein Ergebnis erzeugen, dass er an eine Software weitergibt, zum Beispiel an einen Browser, der die Daten anzeigen soll.</p>
+
+<p>Der XSLT-Parser ist einfach ein Software-Modul. Die Frage stellt sich jedoch, wo dieses Software-Modul am besten hingehört. Wenn die Transformation der XML-Daten in eine formatierte Ausgabe im Browser stattfinden soll, dann muss der Browser selbst über ein entsprechendes Modul verfügen. Dies ist beispielsweise beim Internet Explorer ab Version 5.0 der Fall. Ältere Browser kennen jedoch kein solches Modul, und es kommt zu gar keiner oder keiner sinnvollen Bildschirmanzeige der XML-Daten.</p>
+
+<p>Die andere und derzeit häufig eingesetzte Möglichkeit bei Web-Seiten im Internet ist daher, das Software-Modul für den XSLT-Parser in den Webserver zu integrieren. Der Vorteil dabei ist, dass die XML-Daten nach HTML transformiert werden, bevor sie überhaupt mit HTTP an den aufrufenden Browser übertragen werden. Dies hat den wunderbaren Effekt, dass die XML-Daten auf jedem noch so alten und schlichten Browser präsentiert werden können. Denn der Browser bekommt beim Anfordern der Daten überhaupt nichts von XML mit. Stattdessen bekommt er vom Server nur HTML geliefert. Für Apache, das heute im Web am weitesten verbreitetste Webserver-Produkt, gibt es ein solches XSLT-Modul mit dem Namen <b>Xalan</b> - geschrieben in Java oder in C++.</p>
+
+<p>Bei serverseitig dynamischen Web-Seiten, also etwa bei Seiten, die von einem CGI-Script erzeugt werden, haben Sie darüber hinaus natürlich auch die Möglichkeit, Ihre XML-Daten innerhalb des Scripts in HTML-Konstrukte zu transformieren. Bei einfachen XML-Anwendungen ist es kein Problem, die Übersetzungsanweisungen von XML in HTML im Script selber zu kodieren. Bei größeren XML-Anwendungen empfiehlt es sich jedoch, im Script auf Module zurückzugreifen, die auf diese Transformationsarbeit spezialisiert sind. In Perl gibt es beispielsweise die Module <b>XML::Parser</b> und <b>XML::Parser::Expat</b>, um XML-Daten direkt zu verarbeiten.</p>
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="xsltbeispiele.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="xsltbeispiele.htm">Beispiele für XSLT</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="css.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="css.htm">XML-Darstellung mit Stylesheets</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">XML/DTDs</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Darstellung von XML-Daten</a></td>
+</tr>
+</table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

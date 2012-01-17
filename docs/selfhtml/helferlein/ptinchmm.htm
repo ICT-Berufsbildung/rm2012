@@ -1,0 +1,187 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: Kleine Helferlein / Punkt/Inch/Millimeter-Umrechner</title>
+<link rel="stylesheet" type="text/css" href="../src/selfhtml.css">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-08-18T05:08:52+02:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/helferlein/ptinchmm.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<script type="text/javascript">
+function Trim (Zahl, Maxkomma) {
+  var Numzahl = eval(Zahl);
+  var Vorkomma = Math.floor(Numzahl);
+  var Nachkomma = Numzahl - Vorkomma;
+  var Potenz = Math.pow(10,Maxkomma);
+  Nachkomma = Math.round(Nachkomma * Potenz);
+  var Ergebnis = Vorkomma + (Nachkomma / Potenz);
+  return Ergebnis;
+}
+
+function SucheErsetze (Text, Suche, Ersetze) {
+  var Neutext = "";
+  var i = 0;
+  while (i < Text.length) {
+    if (Text.substring(i, i + Suche.length) == Suche) {
+      Neutext = Neutext + Ersetze;
+      i = i + Suche.length - 1;
+    } else {
+      Neutext = Neutext + Text.substring(i,i + 1);
+    }
+    i++;
+  }
+  return Neutext;
+}
+
+function Ergebnis() {
+/* 1 Zentimeter = 10 mm */
+/* 1 Didot-Punkt = 0.375 mm */
+/* 1 Pica-Punkt = 0.351 mm */
+/* 1 Inch = 25.4 mm */
+
+  var i = 0, j = 0, xmm = 0, xcm = 0, xdpt = 0, xppt = 0, xinch = 0;
+  var tmm = "", tcm = "", tdpt = "", tppt = "", tinch = "";
+  if (document.Umrechner.mm.value != "") {
+    i += 1;
+    j = 1;
+  }
+  if (document.Umrechner.cm.value != "") {
+    i += 1;
+    j = 2;
+  }
+  if (document.Umrechner.dpt.value != "") {
+    i += 1;
+    j = 3;
+  }
+  if (document.Umrechner.ppt.value != "") {
+    i += 1;
+    j = 4;
+  }
+  if (document.Umrechner.inch.value != "") {
+    i += 1;
+    j = 5;
+  }
+  if (i == 0) {
+    alert("Bitte geben Sie zuerst in einem der vier Eingabefelder einen Wert ein!");
+    return;
+  }
+  if (i > 1) {
+    alert("Bitte geben Sie nur in einem der vier Eingabefelder einen Wert ein!\n Loeschen Sie die Feldinhalte mit dem Button \"Loeschen\".");
+    return;
+  }
+  if (j == 1) {
+    tmm = SucheErsetze(document.Umrechner.mm.value, ",", ".");
+    xmm = eval(tmm);
+    xcm = xmm * (1 / 10);
+    xdpt = xmm * (1 / 0.375);
+    xppt = xmm * (1 / 0.351);
+    xinch = xmm * (1 / 25.4);
+  }
+  if (j == 2) {
+    tcm = SucheErsetze(document.Umrechner.cm.value, ",", ".");
+    xcm = eval(tcm);
+    xmm = xcm * 10;
+    xdpt = xcm * 10 * (1 / 0.375);
+    xppt = xcm * 10 * (1 / 0.351);
+    xinch = xcm * 10 * (1 / 25.4);
+  }
+  if (j == 3) {
+    tdpt = SucheErsetze(document.Umrechner.dpt.value, ",", ".");
+    xdpt = eval(tdpt);
+    xmm = xdpt * 0.375;
+    xcm = (xdpt * 0.375) / 10;
+    xppt = xmm * (1 / 0.351);
+    xinch = xmm * (1 / 25.4);
+  }
+  if (j == 4) {
+    tppt = SucheErsetze(document.Umrechner.ppt.value,",",".");
+    xppt = eval(tppt);
+    xmm = xppt * 0.351;
+    xcm = (xppt * 0.351) / 10;
+    xdpt = xmm * (1 / 0.375);
+    xinch = xmm * (1 / 25.4);
+  }
+  if (j == 5) {
+    tinch = SucheErsetze(document.Umrechner.inch.value,",",".");
+    xinch = eval(tinch);
+    xmm = xinch * 25.4;
+    xcm = xinch * 2.54;
+    xdpt = xmm * (1 / 0.375);
+    xppt = xmm * (1 / 0.351);
+  }
+  document.Umrechner.mm.value = Trim(xmm, 2);
+  document.Umrechner.cm.value = Trim(xcm, 2);
+  document.Umrechner.dpt.value = Trim(xdpt, 2);
+  document.Umrechner.ppt.value = Trim(xppt, 2);
+  document.Umrechner.inch.value = Trim(xinch, 2);
+}
+</script>
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../src/favicon.ico">
+<link rel="author" title="Impressum" href="../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../editorial/copyright.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td class="nav"><a class="an" name="top"><img src="../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../index.htm">SELFHTML</a>/<a href="../navigation/index.htm">Navigationshilfen</a> <img src="../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Kleine Helferlein</a></td>
+</tr>
+</table>
+
+<h1 class="ph1">Punkt/Inch/Millimeter-Umrechner</h1>
+
+<p>Geben Sie in einem der Felder einen Wert ein, den Sie in die anderen Maßeinheiten umgerechnet bekommen möchten. Klicken Sie dann auf "Umrechnen". In den übrigen Feldern werden anschließend die umgerechneten Werte für die anderen Maßeinheiten angezeigt.</p>
+
+<p>Wenn Felder Werte anzeigen und Sie eine neue Eingabe starten wollen, klicken Sie zuerst auf "Löschen".</p>
+
+<p>Beachten Sie, dass der Umrechner häufig nur ungefähre Werte liefert, die für die Praxis jedoch ausreichen.</p>
+
+<form name="Umrechner" action="">
+
+<table border="0" cellspacing="0" cellpadding="3" class="form">
+<tr>
+<td align="right">Millimeter:</td>
+<td><input type="text" name="mm" size="15" maxlength="15"></td>
+</tr>
+<tr>
+<td align="right">Zentimeter:</td>
+<td><input type="text" name="cm" size="15" maxlength="15"></td>
+</tr>
+<tr>
+<td align="right">Didot-Punkt:</td>
+<td><input type="text" name="dpt" size="15" maxlength="15"></td>
+</tr>
+<tr>
+<td align="right">Pica-Punkt:</td>
+<td><input type="text" name="ppt" size="15" maxlength="15"></td>
+</tr>
+<tr>
+<td align="right">Inches:</td>
+<td><input type="text" name="inch" size="15" maxlength="15"></td>
+</tr>
+<tr>
+<td colspan="2"><img src="../src/formhr.gif" width="99%" height="1" alt=""></td>
+</tr>
+<tr>
+<td><input type="button" value="Umrechnen" onclick="Ergebnis()" style="background-color:#FFEEDD; width:100px"></td>
+<td>Anklicken, um eingegebenen Wert in die anderen umzurechnen.</td>
+</tr><tr>
+<td><input type="reset" value="Löschen" style="background-color:#FFEEDD; width:100px"></td>
+<td>Anklicken, um Felder für eine neue Eingabe zu leeren.</td>
+</tr>
+</table>
+</form>
+
+</body>
+</html>

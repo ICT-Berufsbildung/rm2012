@@ -1,0 +1,5 @@
+<!ELEMENT glossar     (eintrag)*>
+<!ELEMENT eintrag     (begriff,definition)>
+<!ELEMENT begriff     (#PCDATA)>
+<!ELEMENT definition  (#PCDATA)>
+

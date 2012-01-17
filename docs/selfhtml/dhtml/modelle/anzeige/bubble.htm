@@ -1,0 +1,25 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>Test</title>
+<script language="JScript" type="text/jscript">
+function Handle_Click () {
+  document.all.Info.innerHTML = "Der Bereich, auf den Sie geklickt haben, ist mit &lt;" +
+    window.event.srcElement.tagName + "&gt; ausgezeichnet und hat die id <i>" +
+    window.event.srcElement.id + "<\/i>. Der Event wurde jedoch bis ans body-Tag durchgereicht.";
+}
+</script>
+</head>
+<body onclick="Handle_Click()">
+<div id="Inhalt">
+<p id="Text_1">Ein <i id="i_Text">Textabsatz</i>. Klicken Sie hinein</p>
+<p id="Text_2">Ein <u id="u_Text">anderer Textabsatz</u>. Klicken Sie hinein</p>
+<p id="Text_3">Noch ein <b id="b_Text">Textabsatz</b>. Klicken Sie hinein</p>
+<p id="Text_4">Ein letzter <tt id="tt_Text">Textabsatz</tt>. Klicken Sie hinein</p>
+</div>
+<p id="Info">Hier erscheinen Infos zum Klick</p>
+
+<p><a href="../microsoft.htm#event_bubbling">zur&uuml;ck</a></p>
+</body>
+</html>

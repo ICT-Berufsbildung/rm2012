@@ -1,0 +1,285 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: Perl / Perl-Sprachelemente / CGI-typische Aufgaben in Perl</title>
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<meta name="description"    content="Wie typische CGI-Aufgaben mit Perl lösbar sind.">
+<meta name="keywords"       content="SELFHTML, Perl, CGI, Counter, Form-Mailer, Gästebuch, DBI, Datenbank-Front-End">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-11-08T17:55:53+01:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/perl/sprache/cgitypisch.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="Perl-Sprachelemente" href="index.htm">
+<link rel="next" title="Funktionen für Zeichenketten" href="../funktionen/zeichenketten.htm">
+<link rel="prev" title="Objektorientiertes Programmieren" href="objekte.htm">
+<link rel="first" title="CGI-notwendige Anweisungen in Perl" href="cginotwendig.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">Perl</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Perl-Sprachelemente</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">CGI-typische Aufgaben in Perl</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#loesungen">CGI-typische Lösungen in Perl</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#counter">Counter (Zugriffszähler)</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#formmailer">Form-Mailer</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#gaestebuch">Gästebuch</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#dbfrontend">Datenbank-Front-End</a><br>
+</p>
+</td>
+</tr><tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><a class="an" name="loesungen">CGI-typische Lösungen in Perl</a></h2>
+
+<p>Perl wurde, anders als etwa <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../intro/technologien/php.htm">PHP</a> oder <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../intro/schnittstellen/andere.htm#asp">ASP</a>, nicht speziell für Web-Anwendungen konzipiert, sondern als eine offene Programmiersprache für scriptbasierte Lösungen aller Art. Es hat jedoch Eigenschaften, die es als Sprache für CGI-Scripts qualifizieren: dazu gehören die mächtigen Funktionen für Zeichenkettenverarbeitung und Datei-Handling, aber auch die vielen Unix-spezifischen Funktionen, von denen auch in Perl geschriebene CGI-Scripts, die auf typischen Web-Server-Umgebungen wie Linux und <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../servercgi/server/apache.htm">Apache</a> zum Einsatz kommen, profitieren können. Durch das Modulkonzept von Perl gibt es mittlerweile außerdem Module, die sich speziell für die Verwendung in CGI-Scripts anbieten - allen voran das <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../module/cgi.htm">CGI-Modul</a>, das bei jeder Standard-Installation von Perl zur Verfügung steht. Mit den Möglichkeiten dieses Moduls sollten Sie sich auf jeden Fall näher befassen, wenn Sie CGI-Scripts schreiben.</p>
+
+<p>Wenn Sie noch unsicher sind in Perl und sich nicht in der Lage sehen, eine CGI-Anwendung von Grund auf nach eigenen Vorstellungen zu programmieren, dann können Sie auf zahlreiche Scripts zurückgreifen, die im Web verfügbar sind. Es gibt viele Anbieter, die Freeware-Scripts oder Shareware-Scripts zur Verfügung stellen. Um ein solches Script auf Ihrem Server oder in Ihrer lokalen HTTP-Umgebung zum Laufen zu bekommen und die Anwendung so zu gestalten, dass sie Ihren Vorstellungen entspricht, müssen Sie sich allerdings mit dem Quelltext des Scripts auseinandersetzen und die angewendete Programmierlogik des fremden Script-Entwicklers nachvollziehen können. Wenn Sie Glück haben, ist das Script Ihrer Wahl sauber dokumentiert, und es ist nicht schwer, es für eigene Zwecke anzupassen. Häufig allerdings stoßen Sie in solchen Scriptarchiven auch auf völlig veraltete Angebote! Im Link-Verzeichnis des Online-Angebots von SELFHTML aktuell finden Sie eine Übersicht mit Anbietern fertiger CGI-Scripts in Perl und anderen Sprachen:</p>
+
+<p><img src="../../src/serverdok.gif" width="15" height="10" alt="Online-Seite">&nbsp;<a target="_top" href="http://aktuell.de.selfhtml.org/links/cgiperl.htm">SELFHTML-Linkverzeichnis: CGI/Perl</a></p>
+
+<p>Im folgenden werden einige typische Anwendungsgebiete von CGI-Scripts angeschnitten. Es wird beschrieben, wie der prinzipielle Programmablauf eines entsprechenden Scripts aussieht, und welche Perl-Bestandteile dazu erforderlich sind. Die Beschreibungen enthalten Verweise zu den Stellen, an denen Sie weitere Details finden.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="counter">Counter (Zugriffszähler)</a></h2>
+
+<p>Ein Counter ist entweder grafisch oder textbasiert. Bei einem grafischen Counter wird das CGI-Script aus HTML heraus mittels eines <code>&lt;img&gt;</code>-Tags aufgerufen - Beispiel (HTML):</p>
+
+<pre>
+&lt;img src="/cgi-bin/counter.pl" alt="Counter"&gt;
+</pre>
+
+<p>Bei einem textbasierten Counter geschieht der Aufruf meistens mit Hilfe von <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../servercgi/server/ssi.htm">Server Side Includes</a> - Beispiel (HTML):</p>
+
+<pre>
+&lt;!--#exec cgi="/cgi-bin/counter.pl"--&gt;
+</pre>
+
+<p>Das aufgerufene Script muss dann zuerst die Datei mit dem aktuellen Zählerstand auslesen, den Zählerstand um 1 erhöhen und den neuen Zählerstand wieder in die Datei zurückschreiben. Dafür gibt es in Perl die <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../funktionen/einausgabe.htm">Funktionen für Ein-/Ausgabe und Lesen/Schreiben von Daten</a>. Wenn es ein textbasierter Counter ist, kann das Script den Zählerstand z.B. mit einem HTTP-Header mit dem <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../diverses/mimetypen.htm">MIME-Typ</a> <code>text/html</code> ausgeben, der die Zahl an der Stelle der Server-Side-Include-Anweisung einfügt. Bei einem grafischen Counter muss das Script eine Grafik vom Typ GIF, PNG oder JPEG zurückgeben, da der Browser im <code>&lt;img&gt;</code>-Tag etwas Entsprechendes erwartet. PNG-Grafiken lassen sich dynamisch mit Perl beispielsweise mit dem <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../module/cpanmodule.htm">CPAN-Modul</a> namens <code>GD</code> erzeugen.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="formmailer">Form-Mailer</a></h2>
+
+<p>Ein Form-Mailer löst das leidige <code>mailto</code>-Problem bei HTML-Formularen. Ein solches Script kann ein beliebiges HTML-Formular verarbeiten und sendet die Daten per E-Mail an einen vorgesehenen Empfänger, in der Regel den Anbieter des Web-Projekts. In HTML wird das Form-Mail-Script einfach als <code>action</code>-Attribut im HTML-Formular angegeben - Beispiel:</p>
+
+<pre>
+&lt;form action="/cgi-bin/formmail.pl" method="post"&gt;
+</pre>
+
+<p>Das Script wird aufgerufen, wenn ein Anwender das Formular absendet. Das Script sollte die <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../module/cgi.htm#formularverarbeitung">Formularverarbeitung mit dem CGI-Modul</a> nutzen, um die übergebenen Formulardaten einzulesen. Anschließend muss es aus den Daten des Formulars eine E-Mail zusammenbauen. Dazu sind vor allem der <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="operatoren.htm#zeichenkettenverknuepfung">Operator für Zeichenkettenverknüpfung</a> und die <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../funktionen/zeichenketten.htm">Funktionen für Zeichenketten</a> von Bedeutung, ferner aber auch Wissen über den Aufbau einer E-Mail und darüber, wie eine E-Mail zu versenden ist. Die typische Anweisungsfolge dazu lautet:</p>
+
+<pre>
+my $Sendmail_Prog = "/usr/lib/sendmail";
+open(MAIL,"|$Sendmail_Prog -t") or die "Mailprogramm konnte nicht gestartet werden\n";
+print MAIL "To: $mailto\n";
+print MAIL "Subject: $subject\n\n";
+print MAIL "$mailtext\n";
+close(MAIL) or die "Fehler beim E-Mail-Versand!";
+</pre>
+
+<p>Wichtig ist bei Anwendung der <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../funktionen/einausgabe.htm#open">open</a>-Funktion, dass das Programm <code>sendmail</code>, das E-Mails versenden kann, auch tatsächlich verfügbar ist, und zwar unter dem angegebenen Pfad. Der Pfad im Beispiel und die Verfügbarkeit von <code>sendmail</code> beziehen sich auf typische Unix-Rechner. Fragen Sie Ihren Provider gegebenenfalls danach! Die E-Mail selbst wird dann, wie Sie dem Beispiel entnehmen können, mit <code>print</code>-Anweisungen in den bei <code>open</code> benannten Ein-/Ausgabekanal des <code>sendmail</code>-Programms geschrieben - im Beispiel der Kanal mit dem Namen <code>MAIL</code>. Wichtig ist, dass eine E-Mail eine erste Zeile mit <code>To:</code> beginnend und eine weitere mit <code>Subject:</code> beginnend enthält. Vor der Ausgabe des E-Mail-Textes, also der zuvor für die Ausgabe vorbereiteten Formulardaten, müssen zwei Steuerzeichen <code>\n\n</code> stehen, also eine Leerzeile. Die Art und Weise der Datenübergabe kann variieren. Schauen Sie auf jeden Fall in die Anleitungen und FAQs Ihrers Providers und ggf. in die Anleitung des E-Mail-Programms!</p>
+
+<p>Neben dem E-Mail-Versand muss das Script natürlich auch noch eine <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="cginotwendig.htm">CGI-notwendige</a> Ausgabe an den Browser senden. Bei einem Form-Mailer ist das sinnvollerweise eine Dank-Seite, die dem Anwender bestätigt, dass sein Formular verarbeitet wurde.</p>
+
+<p>Im Online-Angebot von SELFHTML aktuell finden Sie einen <img src="../../src/serverdok.gif" width="15" height="10" alt="Online-Seite">&nbsp;<a target="_top" href="http://aktuell.de.selfhtml.org/tippstricks/cgiperl/form-mail/">Artikel: Einfacher Form-Mailer</a>, der ein vollständiges Beispiel eines Form-Mailers beschreibt.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="gaestebuch">Gästebuch</a></h2>
+
+<p>Es gibt mehrere Wege, ein Gästebuch zu programmieren. Einer besteht darin, die Gästebucheinträge in eine statische HTML-Datei schreiben zu lassen, die angezeigt wird, wenn der Anwender das Gästebuch aufruft. Die Datei könnte ein Formular enthalten, in das der Anwender seinen eigenen Eintrag schreiben kann, sowie die bereits vorhandenen Einträge. Das Script, das das Gästebuch verwaltet, würde dann aufgerufen, wenn der Anwender das Formular mit einem eigenen Eintrag absendet. Dazu ist im einleitenden <code>&lt;form&gt;</code>-Tag ein entsprechender Aufruf notiert - Beispiel:</p>
+
+<pre>
+&lt;form action="/cgi-bin/guestbook.pl" method="post"&gt;
+</pre>
+
+<p>Das Script sollte die <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../module/cgi.htm#formularverarbeitung">Formularverarbeitung mit dem CGI-Modul</a> nutzen, um die übergebenen Formulardaten einzulesen. Angenommen, das Formular hat zwei Felder: eines für den Namen des Gästebuchschreibers (<code>name="Username"</code>), und eines für den Text (<code>name="Usertext"</code>). Dann wäre nach dem Einlesen mit dem CGI-Modul in Perl beispielsweise mit einem Konstrukt wie <code>$cgi-&gt;param($Username)</code> ein Zugriff auf den Inhalt des Feldes <code>Username</code> möglich.</p>
+
+<p>Weiterhin muss das Script die HTML-Datei mit den bisherigen Einträgen einlesen. Mit der <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../funktionen/einausgabe.htm#open">open</a>-Funktion beispielsweise lässt sich die Datei dann öffnen und kann danach etwa in einen <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="listen.htm">Array</a> eingelesen werden. Jedes Element des Arrays ist dann eine Zeile der HTML-Datei.</p>
+
+<p>Damit das Script sich im eingelesenen HTML-Code zurechtfindet und weiß, wo es die neuen Daten einfügen muss, sollte die Datei an der betreffenden Stelle in einer eigenen Zeile eine "geheime Marke" enthalten, was mit einem HTML-Kommentar lösbar ist - Beispiel:</p>
+
+<pre>
+&lt;!-- NEU --&gt;
+</pre>
+
+<p>Es macht aber auch Sinn, wenn die HTML-Datei vor jedem vorhandenen Eintrag in einer eigenen Zeile noch eine interne Notiz für das Script bereithält. Auch das ist mit Kommentaren möglich. Beispiel eines Eintrags in der HTML-Datei:</p>
+
+<pre>
+&lt;!-- EINTRAG [Winfried Wachtelmann] [27.07.2001]--&gt;
+&lt;table border="1"&gt;&lt;tr&gt;
+&lt;th&gt;von:&lt;/th&gt;&lt;td&gt;Winfried Wachtelmann&lt;/td&gt;
+&lt;th&gt;am:&lt;/th&gt;&lt;td&gt;27.07.2001&lt;/td&gt;
+&lt;/tr&gt;&lt;tr&gt;
+&lt;td colspan="2"&gt;Diese wunderbare Seite hat mein Leben ver&amp;auml;ndert usw.&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;
+</pre>
+
+<p>Das Script tut sich dann leichter mit eventuellem Suchen in der Datei. Um die Formulardaten, die das Script übergeben bekommen und eingelesen hat, einzufügen, muss es aus den Formulardaten erst einmal den für einen Gästebucheintrag üblichen HTML-Code zusammenbauen und die Formulardaten darin einfügen. Im Beispiel würde das Script also eine HTML-Tabelle zusammen- und in den dafür vorgesehenen Zellen die Werte aus den Formulardaten einbauen. Am sinnvollsten ist es, wenn das Script dazu einen Array deklariert und diesem für jede Zeile des HTML-Codes ein Element zuweist mit dem entsprechenden HTML-Code. Am Ende jedes Eintrags im Array sollte ein <code>\n</code> für "neue Zeile" stehen. Dazu benötigen Sie die Funktion <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../funktionen/listenhashes.htm#push">push</a> und den <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="operatoren.htm#zeichenkettenverknuepfung">Operator für Zeichenkettenverknüpfung</a> - Beispiel:</p>
+
+<pre>
+my @NeuerEintrag;
+push(@NeuerEintrag, "&lt;!-- EINTRAG [".$cgi-&gt;param($Username)."] [".$Datum."]--&gt;\n");
+push(@NeuerEintrag, "&lt;table border=\"1\"&gt;&lt;tr&gt;\n");
+push(@NeuerEintrag, "&lt;th&gt;von:&lt;/th&gt;&lt;td&gt;".$cgi-&gt;param($Username)."&lt;/td&gt;\n");
+push(@NeuerEintrag, "&lt;th&gt;am:&lt;/th&gt;&lt;td&gt;".$Datum."&lt;/td&gt;\n");
+push(@NeuerEintrag, "&lt;/tr&gt;&lt;tr&gt;\n");
+push(@NeuerEintrag, "&lt;td colspan=\"2\"&gt;".$cgi-&gt;param($Usertext)."&lt;/td&gt;\n");
+push(@NeuerEintrag, "&lt;/tr&gt;&lt;/table&gt;\n");
+</pre>
+
+<p>Das in <code>$Datum</code> gespeicherte Tagesdatum muss das Script natürlich zuvor ermitteln. Dazu gibt es die <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../funktionen/datumzeit.htm">Funktionen für Datum und Uhrzeit</a>.</p>
+
+<p>Nun muss das Script den neuen Eintrag einfach an der Stelle in der bisherigen Datei einfügen, wo mit <code>&lt;!--&nbsp;NEU&nbsp;--&gt;</code> die Marke zum Einfügen steht. Eine mögliche Variante ist es, einen neuen Array zu bauen, der aus den Zeilen der alten Datei und den Zeilen des neuen Eintrags besteht. Dazu kann das Script in einer <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="schleifen.htm#foreach">foreach-Schleife</a> den Array mit den Zeilen der eingelesenen Datei abarbeiten und mit Hilfe eines <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="regexpr.htm">regulären Ausdrucks</a> nach <code>/^&lt;!-- NEU --&gt;$/</code> suchen und an der betreffenden Stelle den Array mit dem neuen Eintrag einfügen. Der Code könnte etwa so aussehen:</p>
+
+<pre>
+my @NeueZeilen;
+my $Zeile;
+foreach $Zeile (@Zeilen) {               # @Zeilen = zuvor eingelesene Zeilen der Datei
+  if($Zeile =~ /^&lt;!-- NEU --&gt;/) {        # Aha, Eintrag hier einfügen
+    foreach(@NeuerEintrag) {             # @NeuerEintrag = zuvor zusammengebaute HTML-Zeilen
+      push(@NeueZeilen,$_);              # Zeile für Zeile hinzufügen
+    }
+    push(@NeueZeilen,"&lt;!-- NEU --&gt;\n");  # fürs nächste mal ...
+  }
+  else {                                 # jede alte Zeile, die nicht /^&lt;!-- NEU --&gt;/ enthält
+    push(@NeueZeilen,$Zeile);            # einfach in den neuen Array kopieren
+  }
+}
+</pre>
+
+<p>Der neue Array <code>@NeueZeilen</code> enthält dann also die Zeilen der neuen Fassung der Gästebuch-HTML-Datei. Dieser Array muss nun einfach noch in die gleiche Datei zurückgeschrieben werden, die zuvor eingelesen wurde. Das geht mit schreibendem Öffnen mit <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../funktionen/einausgabe.htm#open">open</a> und Beschreiben mit <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../funktionen/einausgabe.htm#print">print</a> ins Datei-Handle der geöffneten Datei.</p>
+
+<p>Am Ende darf das Script natürlich nicht vergessen, <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="cginotwendig.htm">CGI-notwendige</a> Ausgaben an den Browser zu senden. Am einfachsten ist es wohl, einfach einen HTTP-Kopf und <code>@NeueZeilen</code> auszugeben. Das sind zwei <code>print</code>-Befehle, und schon sieht der Anwender, der das Formular abgesendet hat, das Gästebuch mit seinem eigenen neuen Eintrag.</p>
+
+<p>Natürlich gibt es noch viele weitere wichtige Dinge, die das Gästebuch erledigen sollte. Beispielsweise sollten Dateien, die ein CGI-Script öffnet, grundsätzlich gegen versehentlichen Mehrfachzugriff geschützt werden - denn es könnten ja zwei Anwender gleichzeitig ein Formular mit einem neuen Eintrag absenden. Dann würden sich zwei Prozesse mit dem gleichen Script in die Quere kommen. Das so genannte File-Locking für den Zugriffsschutz geht mit der Funktion <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../funktionen/einausgabe.htm#flock">flock</a>.<br>
+Weiterhin sollte das Script reagieren, wenn die HTML-Datei mit den Gästebucheinträgen zu groß wird. In diesem Fall könnte das Script einen Teil des Arrays mit älteren Einträgen in eine zweite Datei schreiben und diese in der Datei mit den aktuellen Einträgen verlinken, d.h. also in die erste Datei einen HTML-Link auf die zweite mit einbauen.<br>
+Und dann sollte das Script auch prüfen, ob eventuell angegebene mail-Adressen gültig (valide) sind und Benutzernamen nicht aus unsinnigen Zeichenfolgen wie <kbd>@~Der Kobold~@</kbd> bestehen. Solche Aufgaben lassen sich am besten mit <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="regexpr.htm">regulären Ausdrücken</a> innerhalb <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="bedingt.htm">bedingter Anweisungen</a> lösen.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="dbfrontend">Datenbank-Front-End</a></h2>
+
+<p>Sie brauchen nicht für jede Anwendung, bei der ein Web-Seitenbesucher dynamisch Daten abfragen kann, eine Datenbank. Datenbestände von bis zu ein paar Megabyte Größe, die nicht zu intensiv genutzt werden, lassen sich durchaus auch in Textdateien (z.B. kommasepariert oder in einer <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../../xml/index.htm">XML</a>-Struktur) halten, die dann mit CGI-Scripts in Perl verwaltet werden können. Ein öffentliches "Front-End" (also eine Web-Anwendung) zum Abfragen des Datenbestandes sowie ein nur intern zugängliches Front-End zum Verwalten des Datenbestandes (auch eine Web-Anwendung, die das Hinzufügen, Ändern und Löschen von Datensätzen mittels Formular möglich macht) brauchen Sie sowieso in jedem Fall. Eine richtige Datenbank sollten Sie dann wählen, wenn der Datenbestand sehr intensiv gepflegt wird (sehr viele Änderungen im Datenbestand - ein Fall für "Table-Locking"), oder wenn die Datenstruktur sehr stark relational ist und mit vielen Lookups arbeitet, oder wenn der Datenbestand wirklich sehr groß ist und die Pi-mal-Daumen-Größe von ein paar Megabyte übersteigt. Auf dem Server muss dann natürlich eine entsprechende Datenbank-Software installiert sein - z.B. das beliebte Freeware-Produkt <b>MySQL</b>. Letzteres ist mittlerweile so dominant im Web, dass es für relationale Datenbanken bis zu mittlerer Größe praktisch konkurrenzlos ist. Fragen Sie gegebenenfalls Ihren Provider, ob Ihnen MySQL dort, wo Sie Speicherplatz im WWW gemietet haben, zur Verfügung steht, bzw. berücksichtigen Sie dies bei der Wahl des Providers, wenn Sie eine Datenbankanbindung brauchen. MySQL wird zwar vorwiegend gemeinsam mit <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../intro/technologien/php.htm">PHP</a> genutzt, aber über Perl ist es genauso möglich, Datenbank-Front-Ends zu schreiben, die mit MySQL kommunizieren können.</p>
+
+<p>Bevor Sie ein Datenbank-Front-End in Perl schreiben, müssen Sie sich zuerst intensiv mit MySQL, Datenbankschnittstellen und der Abfragesprache SQL auseinandersetzen. Dazu gibt es Dokumentationen und Bücher. Im Link-Verzeichnis des Online-Angebots von SELFHTML aktuell finden Sie entsprechende Links:</p>
+
+<p><img src="../../src/serverdok.gif" width="15" height="10" alt="Online-Seite">&nbsp;<a target="_top" href="http://aktuell.de.selfhtml.org/links/datenbank.htm">SELFHTML-Linkverzeichnis: Datenbankanbindung</a></p>
+
+<p>Dieser kurze Abschnitt hier kann nur einige allgemeine Details aus Sicht von Perl behandeln. In einem Perl-CGI-Script, das mit einer MySQL-Datenbank kommunizieren möchte, müssen zu Beginn Zeilen wie die folgenden stehen:</p>
+
+<pre>
+use CGI;
+use DBI;
+
+my $DB_NAME = "Produkte";
+my $DB_DSN = "DBI:mysql:database=$DB_NAME";
+my $DB_USER = "";
+my $DB_PASSWD = "";
+
+my $dbh = DBI-&gt;connect($DB_DSN, $DB_USER, $DB_PASSWD) or die "Fehler bei Datenbankverbindung: $!";
+</pre>
+
+<p><code>DBI</code> ist ein <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../module/cpanmodule.htm">CPAN-Modul</a>, das Sie in der Regel benötigen, um mit Perl auf Datenbanken zugreifen zu können. Es stellt eine datenbankunabhängige Schnittstelle zu verschiedenen datenbankabhängigen Treibern dar. Ihr Perl-Script kommuniziert also mit der Datenbank in der Form, dass es die Funktionen bzw. Methoden des DBI-Moduls nutzt.</p>
+
+<p>Im Beispiel-Code deklariert das Script einige Skalare, die für das Modul und die Zusammenarbeit mit der Datenbank erforderlich sind. <code>$DB_NAME</code> ist der Name der Datenbank. <code>DB_DSN</code> ist eine Information für das DBI-Modul, welcher Treiber zum Verbindungsaufbau mit der Datenbank (im Beispiel: <code>mysql</code>) benutzt und welche Datenbank geöffnet werden soll (im Beispiel die Datenbank, die in <code>$DB_NAME</code> gespeichert ist). Da der SQL-Server von MySQL, der die Datenbankzugriffe und die Ausgabe an extern aufrufende Prozesse überwacht, Daten aus Datenbanken nur gegen Anmeldung mit Benutzerkennwort und Passwort herausrückt, sind diese ebenfalls bei der Datenbankverbindung anzugeben. Im Beispiel erhalten die entsprechenden Skalare <code>$DB_USER</code> und <code>$DB_PASSWD</code> einen leeren Inhalt zugewiesen. Bei autorisierter Nutzung einer Datenbank müssen Sie dort jedoch die Kenndaten eingeben.</p>
+
+<p>Mit <code>DBI-&gt;connect(...)</code> wird die Verbindung zur Datenbank aufgebaut. Der Rückgabewert wird in einer Datenbank-Handle-Variablen gespeichert, im Beispiel <code>$dbh</code>. Über dieses Handle können Sie im weiteren Verlauf des Scripts die Funktionen bzw. Methoden des DBI-Moduls ansprechen, wie in diesem Beispiel:</p>
+
+<pre>
+my @DB_Felder = $dbh-&gt;list_fields('produktdaten');
+$dbh-&gt;disconnect;
+</pre>
+
+<p><code>list_fields</code> ermittelt die Feldnamen einer bestimmten Tabelle der Datenbank, im Beispiel die der Tabelle <code>produktdaten</code>. Mit <code>$dbh-&gt;disconnect</code> wird eine Datenbankverbindung am Ende wieder geschlossen. Die eigentliche Kommunikation mit der Datenbank erfolgt jedoch über entsprechende SQL-Befehle. Das folgende Beispiel zeigt, wie Sie in einem Perl-Script einen solchen Befehl notieren können und eine anschließende Datenbankabfrage starten:</p>
+
+<pre>
+my $SQL_Statement = "SELECT nummer, name, beschreibung FROM produktdaten ".
+                    "WHERE produktdaten.nummer &gt;= ".$cgi-&gt;param($von_Nummer).
+                    " AND produktdaten.nummer &lt;= ".$cgi-&gt;param($bis_Nummer).
+                    " ORDER BY ".$cgi-&gt;param($sortier_feld);
+
+my $Abfrage = $dbh-&gt;prepare($SQL_Statement);
+$Abfrage-&gt;execute();
+
+my @Datensatz;
+while(@Datensatz = $Abfrage-&gt;fetchrow_array()) {
+  DatensatzVerarbeiten(@Datensatz);
+}
+</pre>
+
+<p>Für die Datenbankabfrage müssen Sie einen SQL-Befehl zusammenstellen und in einem Skalar speichern. Dazu müssen Sie die Syntax von SQL kennen. Normalerweise wird es so sein, dass Ihr CGI-Script wie im Beispiel die Parameter der Abfrage aus einem HTML-Formular bezieht, das der Anwender, der das Script mit dem Absenden des Formulars aufgerufen hat, ausgefüllt hat. Dazu sollte das Script die <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../module/cgi.htm#formularverarbeitung">Formularverarbeitung mit dem CGI-Modul</a> nutzen, um die übergebenen Formulardaten einzulesen. Eine dynamische Konstruktion eines SQL-Befehls aus Formulardaten ist dann wie gezeigt mit dem <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="operatoren.htm#zeichenkettenverknuepfung">Operator für Zeichenkettenverknüpfung</a> möglich. Anschließend wird mit <code>$Abfrage = $dbh-&gt;prepare($SQL_Statement)</code> dem DBI-Modul der Abfragewunsch mitgeteilt. Und danach kann dann mit <code>$Abfrage-&gt;execute()</code> der Abfragebefehl gestartet werden. Die Datenbank gibt nun der Reihe nach alle gefundenen Datensätze zurück. Jeder Datensatz besteht aus mehreren Feldern. Jeder Datensatz wird einzeln als <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="listen.htm">Array</a> zurückgegeben. In einer <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="schleifen.htm#while">while-Schleife</a>, die so lange läuft, wie der Aufruf von <code>$Abfrage-&gt;fetchrow_array()</code> einen neuen Datensatz liefert, wird im Beispiel eine <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="subroutinen.htm">Subroutine</a> namens <code>DatensatzVerarbeiten</code> aufgerufen, die als Parameter den aktuellen Datensatz-Array übergeben bekommt. Diese Subroutine könnte beispielsweise den HTML-Code für die Ausgabe eines Datensatzes vorbereiten. Denn abschließend muss das Script natürlich <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="cginotwendig.htm">CGI-notwendige</a> Ausgaben zusammenstellen.</p>
+
+<p>Bei der Verwaltung der Datenbank über ein HTML-Formular/Perl-Script-Front-End ist der Vorgang ganz ähnlich, nur mit zusätzlichen SQL-Befehlen zum Hinzufügen oder Zurückschreiben geänderter Datensätze in die Datenbank. Wichtig ist, dass ein solches Front-End für die interne Datenbankpflege gegen öffentliche Zugriffe geschützt ist. Dies kann zweistufig geschehen: zum einen sollte ein solches Front-End-Formular nur in einem <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../servercgi/server/htaccess.htm">htaccess</a>-geschützten Verzeichnis liegen, und zum anderen sollte das Formular auch Eingabefelder für Benutzernamen und Passwort zum schreibenden Zugriff auf die Datenbank enthalten.</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="../funktionen/zeichenketten.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../funktionen/zeichenketten.htm">Funktionen für Zeichenketten</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="objekte.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="objekte.htm">Objektorientiertes Programmieren</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">Perl</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Perl-Sprachelemente</a></td>
+</tr>
+</table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

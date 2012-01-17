@@ -1,0 +1,19 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>Test</title>
+<script type="text/javascript">
+function TextAendern () {
+  document.getElementById("derText").firstChild.nodeValue = document.Formular.neuerText.value;
+}
+</script>
+</head><body>
+<p id="derText">Hier steht ein Text</p>
+<form name="Formular" action="" onsubmit="TextAendern(); return false">
+<input type="text" size="40" name="neuerText">
+<input type="submit" value=" OK ">
+</form>
+
+<p><a href="../node.htm#node_value">zur&uuml;ck</a></p>
+</body>
+</html>

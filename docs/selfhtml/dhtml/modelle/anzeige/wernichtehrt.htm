@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>Test</title>
+<script language="JScript" type="text/jscript">
+<!--
+var NormalText = "Wer HTML nicht ehrt";
+var AndererText = "ist des Dynamischen nicht wert";
+var Text = 1;
+function Wechsel () {
+  if (Text == 1) {
+    Text = 2;
+    document.all.MeinText.filters.blendTrans.Apply();
+    document.all.MeinText.innerText = AndererText;
+    document.all.MeinText.filters.blendTrans.Play();
+  } else {
+    Text = 1;
+    document.all.MeinText.filters.blendTrans.Apply();
+    document.all.MeinText.innerText = NormalText;
+    document.all.MeinText.filters.blendTrans.Play();
+  }
+}
+//-->
+</script>
+</head><body>
+<p>Klicken Sie auf den folgenden Text:</p>
+
+<div id="MeinText" style="cursor:hand; margin-bottom:100px; font-size:2.6em; color:red; width:14em; filter:blendTrans(Duration=0.5)" onclick="Wechsel()">
+Wer HTML nicht ehrt</div>
+
+<p><a href="../dynamische_filter.htm#blend_trans2">zur&uuml;ck</a></p>
+</body>
+</html>

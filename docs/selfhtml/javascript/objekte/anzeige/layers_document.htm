@@ -1,0 +1,19 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>Test</title>
+<script type="text/javascript">
+function AndererInhalt () {
+  document.MeinLayer.document.open();
+  document.MeinLayer.document.write("Jetzt ist der Verweis weg!");
+  document.MeinLayer.document.close();
+}
+</script>
+</head><body>
+<layer name="MeinLayer" bgcolor="#FFFFE0">
+<a href="javascript:AndererInhalt()">Diesen Verweis ueberschreiben</a>
+</layer>
+
+<p><a href="../layers.htm#document">zur&uuml;ck</a></p>
+</body>
+</html>

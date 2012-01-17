@@ -1,0 +1,433 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: JavaScript / Objektreferenz / Number</title>
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<meta name="description"    content="Welche Aufgaben und Eigenschaften das Number-Objekt in JavaScript hat.">
+<meta name="keywords"       content="SELFHTML, JavaScript, Objekte, Zahlen, numerische Werte, Number, MAX_VALUE, MIN_VALUE, NaN, NEGATIVE_INFINITY, POSITIVE_INFINITY, toExponential, toFixed, toPrecision">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-10-28T20:44:22+02:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/javascript/objekte/number.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="Objektreferenz" href="index.htm">
+<link rel="next" title="RegExp" href="regexp.htm">
+<link rel="prev" title="plugins" href="plugins.htm">
+<link rel="first" title="Hinweise zur JavaScript-Objektreferenz" href="hinweise.htm">
+<link rel="last" title="Objektunabhängige Funktionen" href="unabhaengig.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">JavaScript/DOM</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Objektreferenz</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Number</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p><img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#allgemeines">Allgemeines zur Verwendung</a> </p>
+
+<h3>Eigenschaften:</h3>
+
+<p><img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#max_value">MAX_VALUE</a> (größte speicherbare Zahl)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#min_value">MIN_VALUE</a> (kleinste speicherbare Zahl)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#nan">NaN</a> (keine gültige Zahl)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#negative_infinity">NEGATIVE_INFINITY</a> (Zahl zu klein)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#positive_infinity">POSITIVE_INFINITY</a> (Zahl zu groß)
+</p>
+
+<h3>Methoden:</h3>
+
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#to_exponential">toExponential()</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#to_fixed">toFixed()</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#to_precision">toPrecision()</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#to_string">toString()</a><br>
+</p>
+</td>
+</tr><tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><a class="an" name="allgemeines">Number: Allgemeines zur Verwendung</a></h2>
+
+<p>Über das Objekt <code>Number</code> haben Sie Zugriff auf Eigenschaften numerischer Werte. So können Sie ermitteln, ob ein Wert eine gültige Zahl ist, oder welches die maximale positive oder negative Zahl ist, die in einer numerischen Variablen gespeichert werden kann.</p>
+
+<p>Eigenschaften des Number-Objekts können Sie direkt ansprechen, indem Sie <code>Number</code> davor notieren.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/number_allgemeines.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;script type="text/javascript"&gt;
+var groessteZahl = Number.MAX_VALUE;
+alert(groessteZahl);
+var Monat = 13;
+if (Monat &lt; 1 || Monat &gt; 12) {
+  Monat = Number.NaN;
+  alert(Monat);
+}
+&lt;/script&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel definiert zunächst eine Variable namens <code>groessteZahl</code>. Dieser Variablen wird die Eigenschaft <code>Number.MAX_VALUE</code> zugewiesen. Anschließend steht in <code>groessteZahl</code> die größte Zahl, die JavaScript verarbeiten kann. Die Zahl wird zur Kontrolle ausgegeben. Da die Zahl viel zu groß ist, um sie direkt darzustellen, wird sie von JavaScript automatisch in Exponentialschreibweise dargestellt.</p>
+
+<p>Dann definiert das Beispiel eine Variable namens <code>Monat</code> und weist dieser Variablen den Wert <code>13</code> zu. Danach wird abgefragt, ob der Wert von <code>Monat</code>, wie es sich für Monate gehört, zwischen 1 und 12 liegt. Wenn nicht (und das ist im Beispiel ja der Fall), wird der Variablen <code>Monat</code> die Eigenschaft <code>Number.NaN</code> zugewiesen. Der Wert von <code>Monat</code> ist danach <code>NaN</code>. Das bedeutet so viel wie: auf jeden Fall keine bzw. eine ungültige Zahl. Zur Kontrolle wird der neue Wert von <code>Monat</code> ausgegeben.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/js11.gif" width="30" height="30" alt="JavaScript 1.1" title="JavaScript 1.1"><img src="../../src/netsc3.gif" width="30" height="30" alt="Netscape 3.0" title="Netscape 3.0"><img src="../../src/msie4.gif" width="30" height="30" alt="MS IE 4.0" title="MS IE 4.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0"><img src="../../src/jsread.gif" width="60" height="30" alt="Lesen">&nbsp;<a class="an" name="max_value">MAX_VALUE</a></h2>
+
+<p>Speichert die größte erlaubte Zahl.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/number_max_value.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;script type="text/javascript"&gt;
+var groessteZahl = Number.MAX_VALUE;
+alert(groessteZahl);
+&lt;/script&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel definiert eine Variable namens <code>groessteZahl</code>. Dieser Variablen wird die Eigenschaft <code>Number.MAX_VALUE</code> zugewiesen. Anschließend steht in <code>groessteZahl</code> die größte Zahl, die JavaScript verarbeiten kann. Das Ergebnis wird zur Kontrolle ausgegeben.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/js11.gif" width="30" height="30" alt="JavaScript 1.1" title="JavaScript 1.1"><img src="../../src/netsc3.gif" width="30" height="30" alt="Netscape 3.0" title="Netscape 3.0"><img src="../../src/msie4.gif" width="30" height="30" alt="MS IE 4.0" title="MS IE 4.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0"><img src="../../src/jsread.gif" width="60" height="30" alt="Lesen">&nbsp;<a class="an" name="min_value">MIN_VALUE</a></h2>
+
+<p>Speichert die kleinste (positive) erlaubte Zahl.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/number_min_value.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;script type="text/javascript"&gt;
+var kleinsteZahl = Number.MIN_VALUE;
+alert(kleinsteZahl);
+&lt;/script&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel definiert eine Variable namens <code>kleinsteZahl</code>. Dieser Variablen wird die Eigenschaft <code>Number.MIN_VALUE</code> zugewiesen. Anschließend steht in <code>kleinsteZahl</code> die "größte" positive Zahl, die JavaScript verarbeiten kann. Das Ergebnis wird zur Kontrolle ausgegeben.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/js11.gif" width="30" height="30" alt="JavaScript 1.1" title="JavaScript 1.1"><img src="../../src/netsc3.gif" width="30" height="30" alt="Netscape 3.0" title="Netscape 3.0"><img src="../../src/msie4.gif" width="30" height="30" alt="MS IE 4.0" title="MS IE 4.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0"><img src="../../src/jsread.gif" width="60" height="30" alt="Lesen">&nbsp;<a class="an" name="nan">NaN</a></h2>
+
+<p><code>NaN</code> ist ein vordefinierter Wert (<i>keine gültige Zahl</i>). Dieser Wert kann z.B. als Rückgabewert für ungültige Zahlen verwendet werden.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/number_nan.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;script type="text/javascript"&gt;
+var Zahl_1 = "3a";
+var Zahl_2 = "3";
+if (Zahl_1 != 3)
+  Zahl_1 = Number.NaN;
+if (Zahl_2 != 3)
+  Zahl_2 = Number.NaN;
+alert(Zahl_1);
+alert(Zahl_2);
+&lt;/script&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel definiert zwei Variablen <code>Zahl_1</code> und <code>Zahl_2</code>. Dabei wird <code>Zahl_1</code> mit dem Wert <code>3a</code> vorbelegt, <code>Zahl_2</code> mit dem Wert <code>3</code>. Anschließend wird für beide Variablen abgefragt, ob die Variable ungleich der Zahl 3 ist. Wenn ja, also wenn der Wert nicht 3 ist, wird der entsprechenden Variablen die Eigenschaft <code>Number.NaN</code> <i>(keine gültige Zahl)</i>zugewiesen. Abschließend werden beide Variableninhalte ausgegeben. <code>Zahl_1</code> hat nun den Wert <code>NaN</code>, weil es ungleich 3 war und deshalb die Eigenschaft <code>NaN</code> zugewiesen bekam. <code>Zahl_2</code> dagegen speichert den Wert <code>3</code>, da es als gültige Zahl 3 anerkannt wurde - obwohl sie bei der Initialisierung die 3 als Zeichenkette zugewiesen bekam: hier greift die interne automatische Typumwandlung in JavaScript.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Mit der Eigenschaft <code>Number.NaN</code> können Sie nicht die Gültigkeit einer Zahl prüfen, sondern ihr nur die Eigenschaft <i>keine gültige Zahl</i> zuweisen. Die Gültigkeit einer Zahl können Sie mit der Methode <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="unabhaengig.htm#is_nan">isNaN()</a> prüfen.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/js11.gif" width="30" height="30" alt="JavaScript 1.1" title="JavaScript 1.1"><img src="../../src/netsc3.gif" width="30" height="30" alt="Netscape 3.0" title="Netscape 3.0"><img src="../../src/msie4.gif" width="30" height="30" alt="MS IE 4.0" title="MS IE 4.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0"><img src="../../src/jsread.gif" width="60" height="30" alt="Lesen">&nbsp;<a class="an" name="negative_infinity">NEGATIVE_INFINITY</a></h2>
+
+<p>Dies ist ein vordefinierter Wert (Ausgabewert: <code>-Infinity</code>). Er gibt an, ob eine (negative) Zahl zu klein ist für JavaScript, also außerhalb des Bereichs liegt, dessen Grenze durch <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#min_value">MIN_VALUE</a> markiert ist. Der Wert kann z.B. als Rückgabewert für zu kleine Zahlen verwendet werden.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/number_negative_infinity.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;script type="text/javascript"&gt;
+var Zahl = Number.MAX_VALUE * -2;
+alert(Zahl);
+var Monat = -1;
+if (Monat &lt; 1)
+  Monat = Number.NEGATIVE_INFINITY;
+alert(Monat);
+&lt;/script&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel definiert eine Variable <code>Zahl</code> der als Wert das Produkt aus <code>Number.MAX_VALUE</code>, also der größten möglichen Zahl, und -2 zugewiesen wird. Die Multiplikation erzeugt eine negative Zahl, die kleiner ist als die kleinste erlaubte Zahl. Dadurch erhält die Variable <code>Zahl</code> den Wert <code>-Infinity</code>. Dieser bedeutet, dass der erlaubte Wertebereich unterschritten wurde. Im ersten Teil des Beispieles weißt JavaScript automatisch dem Ergebnis den Wert von <code>Number.NEGATIVE_INFINITY</code> zu. Im zweiten Teil wird eine Variable Monat deklariert. Diese erhält den ungültigen Wert -1. In der nachfolgenden Abfrage wird geprüft, ob Monat kleiner als 1 ist und ihr wird in diesem Fall die Eigenschaft <code>Number.NEGATIVE_INFINITY</code> zugewiesen.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Mit der Eigenschaft <code>Number.NEGATIVE_INFINITY</code> können Sie <b>nicht</b> prüfen, ob eine Zahl
+zu klein für JavaScript ist. Die Gültigkeit einer Zahl können Sie mit der Methode <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="unabhaengig.htm#is_finite">isFinite()</a> prüfen.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/js11.gif" width="30" height="30" alt="JavaScript 1.1" title="JavaScript 1.1"><img src="../../src/netsc3.gif" width="30" height="30" alt="Netscape 3.0" title="Netscape 3.0"><img src="../../src/msie4.gif" width="30" height="30" alt="MS IE 4.0" title="MS IE 4.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0"><img src="../../src/jsread.gif" width="60" height="30" alt="Lesen">&nbsp;<a class="an" name="positive_infinity">POSITIVE_INFINITY</a></h2>
+
+<p>Dies ist ein vordefinierter Wert (Ausgabewert: <code>Infinity</code>). Er gibt an, ob eine Zahl zu groß ist für JavaScript, also außerhalb des Bereichs liegt, dessen Grenze durch <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#max_value">MAX_VALUE</a> markiert ist. Der Wert kann z.B. als Rückgabewert für zu große Zahlen verwendet werden.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/number_positive_infinity.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;script type="text/javascript"&gt;
+Zahl = Number.MAX_VALUE * 2;
+alert(Zahl);
+var Monat = 13;
+if (Monat &gt; 12)
+  Monat = Number.POSITIVE_INFINITY;
+alert(Monat);
+&lt;/script&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel definiert eine Variable <code>Zahl</code> der als Wert das Produkt aus <code>Number.MAX_VALUE</code>, also der größten möglichen Zahl, und 2 zugewiesen wird. Die Multiplikation erzeugt eine Zahl, die größer ist als die größte erlaubte Zahl. Dadurch erhält die Variable <code>Zahl</code> den Wert <code>Infinity</code>. Dieser bedeutet, dass der erlaubte Wertebereich überschritten wurde. Im ersten Teil des Beispieles weist JavaScript dem Ergebnis den Wert von <code>Number.NEGATIVE_INFINITY</code> zu. Im zweiten Teil wird eine Variable <code>Monat</code> deklariert. Diese erhält den ungültigen Wert <code>13</code>. In der nachfolgenden Abfrage wird geprüft, ob Monat größer als 12 ist. In diesem Fall wird ihr die Eigenschaft <code>Number.POSITIVE_INFINITY</code> zugewiesen.</p>
+
+<h3 class="inf">Beachten Sie:  </h3>
+
+<p>Mit der Eigenschaft Number.POSITIVE_INFINITY können Sie <b>nicht</b> prüfen, ob eine Zahl
+zu groß für JavaScript ist.  Die Gültigkeit einer Zahl können Sie mit der Methode <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="unabhaengig.htm#is_finite">isFinite()</a> prüfen.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/js15.gif" width="30" height="30" alt="JavaScript 1.5" title="JavaScript 1.5"><img src="../../src/netsc6.gif" width="30" height="30" alt="Netscape 6.0" title="Netscape 6.0"><img src="../../src/msie55.gif" width="30" height="30" alt="MS IE 5.5" title="MS IE 5.5"><img src="../../src/op7.gif" width="30" height="30" alt="Opera 7" title="Opera 7"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/safwk.gif" width="30" height="30" alt="Safari WebKit (Entwicklerversion)" title="Safari WebKit (Entwicklerversion)">&nbsp;<a class="an" name="to_exponential">toExponential()</a></h2>
+
+<p>Erzwingt die Exponentialschreibweise einer Zahl.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/number_to_exponential.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;script type="text/javascript"&gt;
+var Wert = 13.000012345;
+document.write(Wert.toExponential());
+&lt;/script&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel definiert einen Wert und schreibt das Ergebnis der Anwendung von <code>toExponential()</code> auf diesen Wert ins Dokument. Geschrieben wird <code>1.3000012345e+1</code>.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/js15.gif" width="30" height="30" alt="JavaScript 1.5" title="JavaScript 1.5"><img src="../../src/netsc6.gif" width="30" height="30" alt="Netscape 6.0" title="Netscape 6.0"><img src="../../src/msie55.gif" width="30" height="30" alt="MS IE 5.5" title="MS IE 5.5"><img src="../../src/op7.gif" width="30" height="30" alt="Opera 7" title="Opera 7"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq33.gif" width="30" height="30" alt="Konqueror 3.3" title="Konqueror 3.3"><img src="../../src/saf13.gif" width="30" height="30" alt="Safari 1.3" title="Safari 1.3">&nbsp;<a class="an" name="to_fixed">toFixed()</a></h2>
+
+<p>Erzwingt eine bestimmte Anzahl Nachkommastellen.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/number_to_fixed.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;script type="text/javascript"&gt;
+var Wert = 7123.203848;
+document.write(Wert.toFixed(2));
+&lt;/script&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel definiert einen Wert und schreibt das Ergebnis der Anwendung von <code>toFixed(2)</code> auf diesen Wert ins Dokument. Geschrieben wird <code>7123.20</code>, weil der an die Methode im Beispiel übergebene Wert <code>2</code> so viel bedeutet wie: schneide nach 2 Nachkommastellen ab.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Diese Methode rundet automatisch kaufmännisch. Würde der Wert im Beispiel <code>7123.209848</code> lauten, dann würde <code>7123.21</code> ermittelt.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/js15.gif" width="30" height="30" alt="JavaScript 1.5" title="JavaScript 1.5"><img src="../../src/netsc6.gif" width="30" height="30" alt="Netscape 6.0" title="Netscape 6.0"><img src="../../src/msie55.gif" width="30" height="30" alt="MS IE 5.5" title="MS IE 5.5"><img src="../../src/op7.gif" width="30" height="30" alt="Opera 7" title="Opera 7"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq33.gif" width="30" height="30" alt="Konqueror 3.3" title="Konqueror 3.3"><img src="../../src/saf13.gif" width="30" height="30" alt="Safari 1.3" title="Safari 1.3">&nbsp;<a class="an" name="to_precision">toPrecision()</a></h2>
+
+<p>Erzwingt eine bestimmte Genauigkeit bei der Darstellung einer Zahl.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/number_to_precision.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;script type="text/javascript"&gt;
+Wert = 7123.209;
+document.write("precision(1) = " + Wert.toPrecision(1) + "&lt;br&gt;");
+document.write("precision(2) = " + Wert.toPrecision(2) + "&lt;br&gt;");
+document.write("precision(3) = " + Wert.toPrecision(3) + "&lt;br&gt;");
+document.write("precision(4) = " + Wert.toPrecision(4) + "&lt;br&gt;");
+document.write("precision(5) = " + Wert.toPrecision(5) + "&lt;br&gt;");
+document.write("precision(6) = " + Wert.toPrecision(6) + "&lt;br&gt;");
+document.write("precision(7) = " + Wert.toPrecision(7) + "&lt;br&gt;");
+document.write("precision(8) = " + Wert.toPrecision(8) + "&lt;br&gt;");
+&lt;/script&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel definiert einen Wert und schreibt dann mehrfach das Ergebnis der unterschiedlichen Anwendung von <code>toPrecision(x)</code> auf diesen Wert ins Dokument. Geschrieben wird:<br>
+<code>precision(1) = 7e+3<br>
+precision(2) = 7.1e+3<br>
+precision(3) = 7.12e+3<br>
+precision(4) = 7123<br>
+precision(5) = 7123.2<br>
+precision(6) = 7123.21<br>
+precision(7) = 7123.209<br>
+precision(8) = 7123.2090</code></p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/js11.gif" width="30" height="30" alt="JavaScript 1.1" title="JavaScript 1.1"><img src="../../src/netsc3.gif" width="30" height="30" alt="Netscape 3.0" title="Netscape 3.0"><img src="../../src/msie4.gif" width="30" height="30" alt="MS IE 4.0" title="MS IE 4.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq33.gif" width="30" height="30" alt="Konqueror 3.3" title="Konqueror 3.3"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="to_string">toString()</a></h2>
+
+<p>Wandelt eine Zahl in eine Zeichenkette (String) um. Diese Methode ist dann notwendig, wenn Sie Methoden des <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="string.htm">String</a>-Objekts auf eine Zahl anwenden wollen. Die Methode <code>toString()</code> besitzt einen optionalen Parameter. Der Parameter gibt die Basis des gewünschten Zahlensystems an (z.B. 10 für das Dezimalsystem, oder 16 für das Hexadezimalsystem). Der optionale Parameter kann Werte zwischen 2 und 36 annehmen. Wird kein Parameter angegeben, so wird die Zahl als Dezimalzahl behandelt.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/number_to_string.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;script type="text/javascript"&gt;
+var Dezimalzahl = 15.5;
+var Dualzahl = Dezimalzahl.toString(2);
+alert(Dualzahl);
+&lt;/script&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel definiert eine Variable namens <code>Dezimalzahl</code>. Diese Variable enthält die Dezimalzahl <code>15.5</code>. Anschließend wird der Variablen <code>Dualzahl</code> der Rückgabewert der Methode <code>toString()</code> mit dem Parameter <code>2</code> zugewiesen. In der Variablen <code>Dualzahl</code> ist jetzt die Zahl <code>15.5</code> als Dualzahl-Zeichenkette gespeichert. Im Beispiel wird im Meldungsfenster <code>1111.1</code> ausgegeben. Damit fungiert die Methode <code>toString()</code> gleichzeitig als Umrechner von Zahlen des dezimale Zahlensystem in Zahlen anderer Zahlensysteme. Mit der Methode <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="unabhaengig.htm#parse_int">parseInt()</a> können Sie umgekehrt Zeichenketten von Zahlen anderer Zahlensystem in das dezimale Zahlensystem konvertieren.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Opera kennt zwar die Methode <code>toString()</code>, ignoriert aber den Parameter für das Zahlensystem. Die Umwandlung in eine Dualzahl im Beispiel funktioniert daher nicht. Safari ignoriert bei der Umwandlung in eine Dualzahl die Nachkommastellen, es bleibt nur der Ganzzahlwert übrig.</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="regexp.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="regexp.htm">RegExp</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="plugins.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="plugins.htm">plugins</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">JavaScript/DOM</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Objektreferenz</a></td>
+</tr>
+</table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

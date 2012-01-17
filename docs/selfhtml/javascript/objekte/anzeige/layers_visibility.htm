@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>Test</title>
+<script type="text/javascript">
+function EinAus (Nummer) {
+  if (window.document.layers[Nummer].visibility == "show") {
+    window.document.layers[Nummer].visibility = "hide";
+    return;
+  }
+  if (window.document.layers[Nummer].visibility == "hide") {
+    window.document.layers[Nummer].visibility = "show";
+    return;
+  }
+}
+</script>
+</head><body>
+<layer name="GelberLayer" left="50" top="30" width="200" height="200"
+ visibility="show" bgcolor="#FFFFE0">
+<a href="javascript:EinAus(1)">anderer Layer ein/aus</a>
+</layer>
+<layer name="LilaLayer" left="250" top="30" width="200" height="200"
+ visibility="show" bgcolor="#FFE0FF">
+<a href="javascript:EinAus(0)">anderer Layer ein/aus</a>
+
+
+<p><a href="../layers.htm#visibility">zur&uuml;ck</a></p>
+</body>
+</html>

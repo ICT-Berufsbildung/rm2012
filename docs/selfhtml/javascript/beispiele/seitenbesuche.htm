@@ -1,0 +1,194 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: JavaScript / Anwendungsbeispiele / Persönliche Seitenbesuche zählen mit Cookies</title>
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<meta name="description"    content="Wie Sie mit Hilfe von JavaScript dem Anwender beim Aufruf einer Seite mitteilen können, wie oft er schon auf der Seite war. Realisiert mit Hilfe von Cookies.">
+<meta name="keywords"       content="SELFHTML, JavaScript, Zähler, Counter, Cookies, document.cookie">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-08-22T21:21:39+02:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/javascript/beispiele/seitenbesuche.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="Anwendungsbeispiele" href="index.htm">
+<link rel="next" title="Formulareingaben überprüfen" href="formulareingaben.htm">
+<link rel="prev" title="Monatskalender" href="monatskalender.htm">
+<link rel="first" title="Zwei Frames gleichzeitig ändern" href="zweiframes.htm">
+<link rel="last" title="Änderungen der Fenstergröße überwachen" href="fensterueberwachen.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">JavaScript/DOM</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Anwendungsbeispiele</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Persönliche Seitenbesuche zählen mit Cookies</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#hinweise">Hinweise zu diesem Beispiel</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#quelltext">Quelltext mit Erläuterungen</a><br>
+</p>
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/seitenbesuche.htm">Anzeigebeispiel: So sieht's aus</a></p>
+</td>
+</tr><tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><a class="an" name="hinweise">Hinweise zu diesem Beispiel</a></h2>
+
+<p>Cookies (Kekse) sind ein nicht unumstrittenes Feature, das Netscape in JavaScript eingebaut hat. Cookies erlauben einem JavaScript-Programm, Daten auf der Festplatte des Anwenders zu speichern. Dies geschieht jedoch in kontrollierter Form. Ein "Ausspionieren" der Anwenderfestplatte ist dabei ebenso wenig möglich wie das platzieren von ausführbarem Code, also etwa Viren. Denn wenn Sie in einem JavaScript einen Cookie schreiben, können Sie nicht angeben, wohin der Cookie beim Anwender gespeichert wird. Das kontrolliert der WWW-Browser des Anwenders. Außerdem können Cookies keine unkontrollierten Datenmengen auf den Anwenderrechner schreiben, sondern nur eine begrenzte Anzahl von Zeilen. Jede solcher Zeilen definiert eine Variable und weist dieser Variablen einen Wert zu. Ein Cookie lässt sich also mit einem Eintrag in einer Konfigurationsdatei vergleichen - mit dem Unterschied, dass der Cookie keine Konfigurationsdaten des Anwenderrechners ansprechen kann.</p>
+
+<p>Durch die Möglichkeit, Daten zu speichern, werden jedoch viele neue Anwendungsbereiche für JavaScript möglich. So auch das hier beschriebene Beispiel. Denn um zeitlich auseinanderliegende Seitenbesuche zu zählen, muss man die Anzahl der bisherigen Seitenbesuche irgendwo fest speichern, beim nächsten Seitenbesuch wieder auslesen, den Zähler um 1 erhöhen und den neuen Wert wieder speichern. Genau das tut das hier beschriebene Beispiel.</p>
+
+<h3 class="Inf">Beachten Sie:</h3>
+
+<p>Das Zählen von persönlichen Seitenbesuchen ist etwas anderes als das Zählen aller Seitenbesuche. Um alle Zugriffe auf eine Seite zu verwalten, muss das Programm seine Zählerstände auf dem Server-Rechner ablegen. Deshalb funktioniert ein klassischer "Counter" nur mit CGI. Das hier beschriebene Script zählt nur, wie oft ein bestimmter Anwender eine bestimmte Seite besucht.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/netsc2.gif" width="30" height="30" alt="Netscape 2.0" title="Netscape 2.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="quelltext">Quelltext mit Erläuterungen</a></h2>
+
+<p>Das Beispiel zeigt eine vollständige HTML-Datei. Der Zähler gilt für diese eine Datei.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/seitenbesuche.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Pers&amp;ouml;nliche Seitenbesuche z&amp;auml;hlen mit Cookies&lt;/title&gt;
+&lt;script type="text/javascript"&gt;
+function WertHolen () {
+  var Wert = "";
+  if (document.cookie) {
+    var Wertstart = document.cookie.indexOf("=") + 1;
+    var Wertende = document.cookie.indexOf(";");
+    if (Wertende == -1)
+      Wertende = document.cookie.length;
+    Wert = document.cookie.substring(Wertstart, Wertende);
+  }
+  return Wert;
+}
+
+function WertSetzen (Bezeichner, Wert, Verfall) {
+  var jetzt = new Date();
+  var Auszeit = new Date(jetzt.getTime() + Verfall);
+  document.cookie = Bezeichner + "=" + Wert + "; expires=" + Auszeit.toGMTString() + ";";
+}
+
+function Zaehlerstand () {
+  var Verfallszeit = 1000 * 60 * 60 * 24 * 365;
+  var Anzahl = WertHolen();
+  var Zaehler = 0;
+  if (Anzahl != "")
+    Zaehler = parseInt(Anzahl);
+  Zaehler = Zaehler + 1;
+  WertSetzen("Zaehler", Zaehler, Verfallszeit);
+  return (Zaehler);
+}
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h1&gt;Eine Seite, die etwas über Sie wei&amp;szlig;...&lt;/h1&gt;
+
+&lt;script type="text/javascript"&gt;
+var x = Zaehlerstand();
+document.write("&lt;p&gt;Dies ist Ihr &lt;b&gt;" + x + ".&lt;\/b&gt; Besuch auf dieser Seite!&lt;\/p&gt;");
+&lt;/script&gt;
+
+&lt;p&gt;Benutzen Sie doch mal die Reload-Funktion Ihres Browsers ...&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<h4>Cookie lesen und gespeicherten Wert ermitteln:</h4>
+
+<p>Die <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../sprache/funktionen.htm">Funktion</a> <code>WertHolen()</code>, die im Beispiel definiert ist, ist allgemein geschrieben. Sie können diese Funktion nutzen, um einen Cookie auszulesen. Wenn die Datei schon einmal einen Cookie geschrieben hat, wird dessen Wert ermittelt und zurückgegeben. Wenn noch kein Cookie existiert, wird eine leere Zeichenkette <code>""</code> zurückgegeben.</p>
+
+<p>Mit der Abfrage <code>if(document.cookie)</code> ermittelt die Funktion, ob bereits ein Cookie vorhanden ist. Wenn ja, wird dessen Wert ermittelt. Ein Cookie besteht normalerweise aus einem Bezeichner und einem Wert, zum Beispiel:<br>
+<code>Zaehler=4</code><br>
+Dabei ist <code>Zaehler</code> der Bezeichner und <code>4</code> der Wert, der diesem Bezeichner zugewiesen ist. Die Funktion <code>WertHolen()</code> holt sich den Wert, indem sie mit <code>indexOf()</code>-Befehlen den Anfang und das Ende des Wertes innerhalb des gespeicherten Cookies ermittelt. Diesen Wert weist sie der Variablen <code>Wert</code> zu. Die Variable <code>Wert</code> wird am Ende der Funktion zurückgegeben.</p>
+
+<h4>Cookie schreiben und Wert setzen:</h4>
+
+<p>Die Funktion <code>WertSetzen()</code>, die im Beispiel definiert ist, ist ebenfalls allgemein geschrieben. Diese Funktion erwartet drei Parameter:<br>
+<code>Bezeichner</code> ist das Element vor dem Istgleichzeichen, zum Beispiel <code>Zaehler</code>.<br>
+<code>Wert</code> ist der Wert, der dem Bezeichner zugewiesen und mit gespeichert werden soll.<br>
+<code>Verfall</code> ist eine Zahl, die als Anzahl Millisekunden interpretiert wird. Jeder Cookie, der über die aktuelle Browser-Sitzung hinaus gespeichert bleiben soll, muss eine Angabe dazu enthalten, wann der Browser den Cookie löschen soll. Das soll verhindern, das Cookies "ewig" gespeichert bleiben. Der Verfallszeitpunkt des Cookies muss in Form des GMT-Zeitformats angegeben werden. Darum brauchen Sie sich aber nicht zu kümmern, da die Funktion <code>WertSetzen()</code> dies automatisch erledigt. Die Funktion ermittelt zu diesem Zweck die aktuelle Zeit (<code>var jetzt = new Date();</code>). In der Variablen <code>Auszeit</code> errechnet sie einen zukünftigen Zeitpunkt aus dem übergebenen Parameter <code>Verfall</code> und dem ermittelten aktuellen Zeitpunkt.</p>
+
+<p>Mit der Anweisung, die mit <code>document.cookie</code> beginnt, wird der Cookie geschrieben.</p>
+
+<h4>Übergeordnete Funktion zum Verwalten des Cookies:</h4>
+
+<p>Die beiden allgemeinen Funktionen <code>WertHolen()</code> und <code>WertSetzen()</code> benötigen nun noch ein paar allgemeine Anweisungen, die den Cookie verwalten. Dies geschieht im Beispiel in der Funktion <code>Zaehlerstand()</code>. Zunächst definiert diese Funktion einen Verfallswert, der später beim Schreiben des Cookies an die Funktion <code>WertSetzen()</code> übergeben wird. Mit dem Rechenausdruck <code>1000*60*60*24*365</code> wird die Millisekundenzahl eines Jahres ermittelt. Der Cookie soll also ein Jahr lang gespeichert werden.</p>
+
+<p>Um die persönlichen Seitenbesuche des Anwenders zu verwalten, muss die Funktion <code>Zaehlerstand()</code> folgendes tun: sie muss erstens den aktuellen Zählerstand ermitteln, zweitens den Zähler um 1 erhöhen und drittens den neuen Zählerstand wieder speichern. Wenn noch kein Cookie vorhanden ist, d.h. wenn der Anwender die Seite zum ersten Mal besucht, muss der Zähler auf 1 gesetzt und gespeichert werden.</p>
+
+<p>Zuerst ruft die Funktion <code>Zaehlerstand()</code> deshalb die Funktion <code>WertHolen()</code> auf, um den aktuellen Zählerstand zu ermitteln. Der Rückgabewert von <code>WertHolen()</code> wird in der Variablen <code>Anzahl</code> gespeichert. Wenn noch kein Cookie vorhanden ist, steht in <code>Anzahl</code> anschließend eine leere Zeichenkette <code>""</code>. Ist ein Wert vorhanden, enthält <code>Anzahl</code> den Wert in Form einer Zeichenkette. Da man mit Zeichenketten nicht rechnen kann, zum Hochzählen des Zählers jedoch ein numerischer Wert benötigt wird, wird im Beispiel noch eine numerische Variable namens <code>Zaehler</code> definiert. Mit der <code>parseInt()</code>-Methode wird dieser Variablen der Wert von <code>Anzahl</code> als Zahl zugewiesen.</p>
+
+<p>Wenn ein Cookie vorhanden ist, wird der Zähler um 1 erhöht. Anschließend wird die Funktion <code>WertSetzen()</code> aufgerufen, die den Cookie speichert. Als Bezeichner wird das Wort <code>"Zaehler"</code> übergeben, als Wert der Inhalt der Variablen <code>Zaehler</code>, und als Verfallszeitpunkt der Inhalt der Variablen <code>Verfallszeit</code>.</p>
+
+<p>Wenn kein Cookie vorhanden ist, wird die Funktion Funktion <code>WertSetzen()</code> genauso aufgerufen. Vorher wird jedoch der Inhalt der Variablen <code>Zaehler</code> auf 1 gesetzt.</p>
+
+<p>Am Ende gibt die Funktion <code>Zaehlerstand()</code> mit Hilfe von <code>return()</code> zurück. Damit kann diese Funktion beispielsweise an anderer Stelle für eine Ausgabe innerhalb der Seite aufgerufen werden, so wie im Beispiel. Dort ist im <code>body</code>-Bereich ein weiterer JavaScript-Bereich notiert. Innerhalb davon wird die Funktion <code>Zaehlerstand()</code> aufgerufen, und ihr Rückgabewert, also der aktuelle Zähler, wird in der Variablen <code>x</code> gespeichert. Anschließend wird mit <code>document.write</code> HTML-Code ins Anzeigefenster des Browsers geschrieben, wobei die Variable <code>x</code> mit ausgegeben wird.</p>
+
+<h3 class="Inf">Beachten Sie:</h3>
+
+<p>Opera bis Version 6 und Safari 1.0 erlauben kein Setzen von Cookies im Protokoll <code>file://</code>.</p>
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="formulareingaben.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="formulareingaben.htm">Formulareingaben überprüfen</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="monatskalender.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="monatskalender.htm">Monatskalender</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">JavaScript/DOM</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Anwendungsbeispiele</a></td>
+</tr>
+</table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

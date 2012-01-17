@@ -1,0 +1,293 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: HTML/XHTML / Elemente zur Textstrukturierung / Allgemeine Elemente für Textbereiche</title>
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<meta name="description"    content="Welche HTML-Elemente es gibt, die selber keine oder fast keine Wirkung haben und die dazu dienen Behälter für andere Elemente zu sein und mit CSS formatiert zu werden.">
+<meta name="keywords"       content="SELFHTML, HTML, Behälter-Elemente, Container-Elemente, Inline-Elemente, Block-Elemente, Textbereiche, div, center, span">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-10-31T12:25:34+01:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/html/text/behaelter.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="Elemente zur Textstrukturierung" href="index.htm">
+<link rel="next" title="Trennlinien" href="trennlinien.htm">
+<link rel="prev" title="Physische Auszeichnungen im Text" href="physisch.htm">
+<link rel="first" title="Überschriften" href="ueberschriften.htm">
+<link rel="last" title="Ältere browser-proprietäre Elemente" href="proprietaer.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">HTML/XHTML</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Elemente zur Textstrukturierung</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Allgemeine Elemente für Textbereiche</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#block">Allgemeines Block-Element</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#block_zentriert">Älteres Block-Element für zentrierte Bereiche</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#inline">Allgemeines Inline-Element</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#formatieren">Allgemeine Elemente formatieren mit CSS</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#weitere_infos">Weitere Informationen</a><br>
+</p>
+</td>
+</tr><tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><img src="../../src/html32.gif" width="30" height="30" alt="HTML 3.2" title="HTML 3.2"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/netsc3.gif" width="30" height="30" alt="Netscape 3.0" title="Netscape 3.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="block">Allgemeines Block-Element</a></h2>
+
+<p>Sie können mehrere Elemente wie Text, Grafiken, Tabellen usw., in einen gemeinsamen Bereich einschließen. Dieses allgemeine Element bewirkt nichts weiter als dass es in einer neuen Zeile des Fließtextes beginnt. Ansonsten hat es keine Eigenschaften. Es ist dazu gedacht, um mit Hilfe von <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#formatieren">CSS formatiert</a> zu werden.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/div.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+       "http://www.w3.org/TR/html4/loose.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Allgemeines Block-Element&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div align="center"&gt;
+&lt;h1&gt;Alles zentriert&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;alles zentriert&lt;/li&gt;
+&lt;li&gt;alles?&lt;/li&gt;
+&lt;li&gt;alles!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div align="right"&gt;
+&lt;h1&gt;Alles rechts am Rand&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;alles rechts am Rand&lt;/li&gt;
+&lt;li&gt;alles?&lt;/li&gt;
+&lt;li&gt;alles!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Mit <code>&lt;div&gt;</code> leiten Sie ein allgemeines Block-Element ein, in das Sie mehrere andere Block-Elemente einschließen können (<i>div = division = Bereich</i>). Alles, was zwischen diesem Tag und dem abschließenden <code>&lt;/div&gt;</code> steht, wird als Teil des Bereichs interpretiert.</p>
+
+<p>Einen solchen Bereich und alle seine enthaltenen Elemente können Sie mit dem Attribut <code>align</code> im einleitenden <code>&lt;div&gt;</code>-Tag ausrichten. Mit <code>align="center"</code> richten Sie den Bereich mit allen seinen Elementen zentriert aus (<i>align = Ausrichtung, center = zentriert</i>), mit <code>align="right"</code> rechtsbündig (<i>right = rechts</i>). Mit <code>align="justify"</code> werden innere Elemente wie freistehender Text, Textabsätze oder Überschriften als Blocksatz ausgerichtet. Mit <code>align="left"</code> erzwingen Sie die linksbündige Ausrichtung von Elementen (Voreinstellung).</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Das <code>div</code>-Element wird weiterhin zum HTML-Standard gehören. Das Attribut <code>align</code> ist jedoch als <i>deprecated</i> eingestuft und soll künftig entfallen. Statt dessen sollten Sie mit Stylesheets arbeiten.</p>
+
+<p>Konqueror und Safari zentrieren bzw. positionieren im Beispiel zwar die Listeninhalte, nicht jedoch das davor stehende Bullet-Zeichen.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/html32.gif" width="30" height="30" alt="HTML 3.2" title="HTML 3.2"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../../src/deprecated.gif" width="30" height="30" alt="deprecated (missbilligt)" title="deprecated (missbilligt)"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/netsc3.gif" width="30" height="30" alt="Netscape 3.0" title="Netscape 3.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="block_zentriert">Älteres Block-Element für zentrierte Bereiche</a></h2>
+
+<p>Sie können mehrere Absätze, bestehend aus ganz verschiedenen Elementen wie Text, Grafiken, Tabellen usw. gemeinsam zentriert ausrichten. Dieses Element ist jedoch als <i>deprecated</i> eingestuft. Es ist mittlerweile eigentlich überflüssig und sollte nur noch in begründeten Ausnahmefällen (z.B. Abwärtskompatibilität zu Netscape 1.1) benutzt werden.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/center.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+       "http://www.w3.org/TR/html4/loose.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;&amp;Auml;lteres Block-Element f&amp;uuml;r zentrierte Bereiche&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;center&gt;
+&lt;h1&gt;Zentrierter Kunsttext&lt;/h1&gt;
+&lt;pre&gt;.:*A*:._.:*S*:._.:*C*:._.:*I*:._.:*I*:._.:*~*:._.:*A*:._.:*R*:._.:*T*:.&lt;/pre&gt;
+&lt;/center&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Mit <code>&lt;center&gt;</code> leiten Sie einen Bereich ein, in dem alles, was folgt, zentriert ausgerichtet wird (<i>center = zentriert</i>). Das können z.B. Überschriften, Text, Grafiken oder Tabellen sein. Mit dem abschließenden Tag <code>&lt;/center&gt;</code> beenden Sie die Zentrieranweisung.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Konqueror zentriert im Beispiel zwar die Überschrift, aber nicht das <code>pre</code>-Element.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/html40.gif" width="30" height="30" alt="HTML 4.0" title="HTML 4.0"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../../src/msie4.gif" width="30" height="30" alt="MS IE 4.0" title="MS IE 4.0"><img src="../../src/netsc4.gif" width="30" height="30" alt="Netscape 4.0" title="Netscape 4.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="inline">Allgemeines Inline-Element</a></h2>
+
+<p>Analog zum <code>div</code>-Element, das andere Block-Elemente enthalten kann, gibt es ein Element, das Text und andere Inline-Elemente enthalten kann, selbst aber keinerlei Eigenschaften hat und nichts bewirkt. Es ist dazu gedacht, um mit Hilfe von <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#formatieren">CSS formatiert</a> zu werden.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/span.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+       "http://www.w3.org/TR/html4/strict.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Allgemeines Inline-Element&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h1 style="font-size:500%"&gt;
+&lt;span style="color:blue"&gt;A&lt;/span&gt;
+&lt;span style="color:red"&gt;B&lt;/span&gt;
+&lt;span style="color:green"&gt;C&lt;/span&gt;
+&lt;/h1&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p><code>&lt;span&gt;</code> leitet einen allgemeinen Inline-Bereich ein. <code>&lt;/span&gt;</code> beendet diesen Bereich. Das Beispiel zeigt eine Überschrift 1. Ordnung, die selbst bereits mit CSS formatiert ist und dadurch auf 500% Schriftgröße gebracht wird. Innerhalb der Überschrift sind die drei Buchstaben ABC notiert. Jeder davon ist in ein <code>span</code>-Element eingeschlossen, und bei jedem <code>span</code>-Element wird mit Hilfe von CSS eine andere Schriftfarbe zugewiesen.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>In der "Strict"-Variante dürfen Inline-Elemente nur innerhalb von Block-Elementen notiert werden. Im obigen Beispiel ist das der Fall, da die <code>span</code>-Elemente innerhalb eines Überschriftenelements vorkommen.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/html40.gif" width="30" height="30" alt="HTML 4.0" title="HTML 4.0"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/netsc4.gif" width="30" height="30" alt="Netscape 4.0" title="Netscape 4.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="formatieren">Allgemeine Elemente formatieren mit CSS</a></h2>
+
+<p>Allgemeine Elemente für Textbereiche erwachen durch Formatierung erst zum Leben. Mit <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../../css/index.htm">Stylesheets</a> können Sie solche Elemente jedoch nach Wunsch formatieren. Bei Verwendung von Stylesheets müssen Sie zunächst wissen, wie man <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../../css/formate/index.htm">CSS-Formate definieren</a> kann. Anschließend sind Sie in der Lage, CSS-Eigenschaften anzuwenden. Maßgeblich sind im hier beschriebenen Zusammenhang z.B. folgende CSS-Eigenschaften:</p>
+
+<p>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/schrift.htm">Schriftformatierung</a><br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/ausrichtung.htm">Ausrichtung und Absatzkontrolle</a><br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/randabstand.htm">Außenrand und Abstand</a><br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/innenabstand.htm">Innenabstand</a><br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/rahmen.htm">Rahmen</a><br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/hintergrund.htm">Hintergrundfarben und -bilder</a><br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/positionierung.htm">Positionierung und Anzeige von Elementen</a>
+</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/div_span_style.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+       "http://www.w3.org/TR/html4/strict.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Allgemeine Elemente formatieren mit CSS&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div style="text-align:center; padding:20px; border:thin solid red; margin:25px"&gt;
+&lt;h1&gt;Alles zentriert&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;alles zentriert&lt;/li&gt;
+&lt;li&gt;alles?&lt;/li&gt;
+&lt;li&gt;&lt;span style="font-weight:bold; color:red"&gt;alles!&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div style="text-align:right; padding:20px; border:thin solid blue; margin:25px"&gt;
+&lt;h1&gt;Alles rechts am Rand&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;alles rechts am Rand&lt;/li&gt;
+&lt;li&gt;alles?&lt;/li&gt;
+&lt;li&gt;&lt;span style="font-weight:bold; color:blue"&gt;alles!&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel bewirkt eine ähnliche Ausgabe wie das im Abschnitt <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#block">Allgemeines Block-Element</a>, diesmal jedoch mit Stylesheets formatiert und damit auch geeignet für die HTML-Variante "Strict". Beide <code>div</code>-Bereiche erhalten einen dünnen durchgezogenen Rahmen, der erste rot, der zweite blau. Ein Innenabstand von 20 Pixeln sorgt dafür, dass der Text nicht am Rahmen klebt, und ein Außenabstand von 25 Pixeln stellt sicher, dass links, rechts über und unter den Rahmen Platz entsteht. Der letzte Listenpunkt in beiden Aufzählungslisten wird jeweils mit dem leeren Inline-Element <code>span</code> ausgezeichnet und erhält jeweils eine fette Schrift und eine Schriftfarbe zugewiesen.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="weitere_infos">Weitere Informationen</a></h2>
+
+<p>In der <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../referenz/index.htm">HTML-Referenz</a> finden Sie Angaben darüber, wo die hier beschriebenen Behälter-Elemente vorkommen dürfen, welche anderen Elemente sie enthalten dürfen, welche Attribute sie haben können und was bei den einzelnen Attributen zu beachten ist:<br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/elemente.htm#div">Element-Referenz</a> für allgemeines Block-Element (<code>&lt;div&gt;...&lt;/div&gt;</code>)<br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/attribute.htm#div">Attribut-Referenz</a> für allgemeines Block-Element (<code>&lt;div&gt;...&lt;/div&gt;</code>)<br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/elemente.htm#center">Element-Referenz</a> für allgemeines zentriertes Block-Element (<code>&lt;center&gt;...&lt;/center&gt;</code>)<br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/attribute.htm#center">Attribut-Referenz</a> für allgemeines zentriertes Block-Element (<code>&lt;center&gt;...&lt;/center&gt;</code>)<br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/elemente.htm#span">Element-Referenz</a> für allgemeines Inline-Element (<code>&lt;span&gt;...&lt;/span&gt;</code>)<br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/attribute.htm#span">Attribut-Referenz</a> für allgemeines Inline-Element (<code>&lt;span&gt;...&lt;/span&gt;</code>)</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="trennlinien.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="trennlinien.htm">Trennlinien</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="physisch.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="physisch.htm">Physische Auszeichnungen im Text</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">HTML/XHTML</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Elemente zur Textstrukturierung</a></td>
+</tr>
+</table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

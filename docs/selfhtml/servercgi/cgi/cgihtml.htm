@@ -1,0 +1,187 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: Webserver/CGI / CGI / CGI und HTML</title>
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<meta name="description"    content="Was HTML und CGI miteinander zu tun haben und wie CGI HTML ergänzt.">
+<meta name="keywords"       content="SELFHTML, CGI, HTML, CGI-Schnittstelle">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-11-10T19:31:11+01:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/servercgi/cgi/cgihtml.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="CGI" href="index.htm">
+<link rel="next" title="CGI-Scripts auf öffentlichem Webserver installieren" href="cgipublik.htm">
+<link rel="prev" title="HTTP-Status-Codes" href="../server/httpstatuscodes.htm">
+<link rel="last" title="HTML-Formulare und CGI" href="formularverarbeitung.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">Webserver/CGI</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">CGI</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">CGI und HTML</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#cgi_schnittstelle">Die CGI-Schnittstelle</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#cgi_aufrufe">CGI-Aufrufe aus HTML und HTML-Ausgabe über CGI</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#wechselwirkung_html_cgi">Beispiel für die Wechselwirkung zwischen HTML und CGI</a><br>
+</p>
+</td>
+</tr><tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><a class="an" name="cgi_schnittstelle">Die CGI-Schnittstelle</a></h2>
+
+<p>Die  <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../intro/schnittstellen/cgi.htm">CGI-Schnittstelle</a> (<i>Common Gateway Interface</i> - Allgemeine Vermittlungsrechner-Schnittstelle) bietet eine Möglichkeit, Programme oder Scripts im Web bereitzustellen, die von HTML-Dateien aus aufgerufen werden und die selbst HTML-Code erzeugen und an einen Web-Browser senden können. Traditionell ist <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../perl/index.htm">Perl</a> die Programmiersprache, die zum Erstellen von CGI-Scripts eingesetzt wird, es gibt aber auch eine ganze Reihe weiterer möglicher und effektiver Technologien.</p>
+
+<p>Wenn Sie in einer anderen Programmiersprache als Perl, z.B. in C, Pascal oder Visual Basic, bereits viel Erfahrung haben, können Sie auch diese Sprachen für CGI-Programme verwenden. Das Problem bei diesen Sprachen ist, dass der damit erstellte Code erst ausführbar ist, nachdem er für die Betriebssystemumgebung, unter der er ausführbar sein soll, compiliert und gelinkt wurde. Wenn Sie beispielsweise ein C-Programm schreiben und dieses Programm als CGI-Programm im Web auf einem Server-Rechner mit Unix-Betriebssystem zum Einsatz bringen wollen, muss das Programm unter Unix compiliert werden. Ein C-Compiler, den Sie vielleicht auf Ihrem DOS-/Windows-System haben, nutzt Ihnen da nichts.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="cgi_aufrufe">CGI-Aufrufe aus HTML und HTML-Ausgabe über CGI</a></h2>
+
+<p>HTML und CGI "kommunizieren" in beide Richtungen: es ist einerseits möglich, aus einer HTML-Datei, die gerade am Bildschirm angezeigt wird, ein CGI-Script aufzurufen; andererseits kann ein CGI-Script HTML-Code an den Web-Browser übertragen, den dieser dann am Bildschirm ausgibt.</p>
+
+<p>Ein CGI-Script kann Daten verarbeiten, die von einer HTML-Datei aus beim Aufruf übergeben wurden. Zum Beispiel kann ein CGI-Script eine Datenbank durchsuchen, wenn der Anwender einen Begriff, nach dem gesucht werden soll, in einem Formular angegeben hat. Die Ergebnisse einer Datenverarbeitung kann ein CGI-Script dem Web-Server übergeben, der sie dann in Form von HTML-Code an den aufrufenden Web-Browser zurücksendet. So kann ein Script, das eine Datenbank nach Begriffen durchsucht, zum Beispiel die Suchtreffer eines Suchvorgangs in Form einer dynamisch generierten HTML-Datei an den Web-Browser ausliefern.</p>
+
+<p>CGI-Scripts können auch Daten auf dem Server speichern und zu einem späteren Zeitpunkt auslesen. Auf diesem Prinzip basieren beispielsweise Gästebücher oder Nachrichtenforen (Bulletin-Boards). Ein Anwender kann in einer HTML-Datei in einem Formular einen Beitrag eingeben. Beim Absenden des Formulars wird ein CGI-Script aufgerufen, das den Beitrag in einer Datei speichert. Ein zweites CGI-Script oder ein anderer Aufruf desselben CGI-Scripts kann anschließend HTML-Code mit allen gespeicherten Beiträgen zurückgeben.</p>
+
+<p>Ein CGI-Script kann aus einer HTML-Datei heraus auf verschiedene Arten aufgerufen werden:</p>
+<ul>
+<li>über ein <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../../html/formulare/index.htm">Formular</a>. Dabei steht im einleitenden <code>&lt;form&gt;</code>-Tag der Aufruf des CGI-Scripts (Beispiel: <code>&lt;form action="/cgi-bin/guestbook.pl" method="get"&gt;</code>). Der Aufruf erfolgt nach dem Absenden des Formulars. Die vom Anwender eingegebenen oder ausgewählten Daten stehen dem CGI-Script zur Verarbeitung zur Verfügung. Auf diese Weise funktionieren etwa Suchdienste, Gästebücher oder elektronische Einkaufskörbe.</li>
+<li>über <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../../html/verweise/index.htm">Verweise</a>. Es genügt, als URI des Verweisziels das ausführbare CGI-Script anzugeben (Beispiel: <code>&lt;a href="/cgi-bin/statistik.pl"&gt;Tagesstatistik aufrufen&lt;/a&gt;</code>). Dies ist sinnvoll für CGI-Scripts, die keinen "Input" vom Anwender benötigen, sondern lediglich feste Datenausgaben erzeugen, zum Beispiel für ein CGI-Script, das aktuelle Zugriffsstatistiken für Web-Seiten ausgibt.</li>
+<li>über eine <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../../html/grafiken/index.htm">Grafikreferenz</a>. Auch dabei genügt es, als URI in der <code>src</code>-Angabe des <code>&lt;img&gt;</code>-Tags das ausführbare CGI-Script anzugeben (Beispiel: <code>&lt;img src="/cgi-bin/counter.pl"&gt;</code>). Dabei muss das CGI-Script allerdings eine Grafikdatei im GIF- oder JPEG-Format an den Web-Browser zurücksenden. Die meisten grafischen Zugriffszähler basieren auf diesem Prinzip.</li>
+<li>über eine <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../server/ssi.htm">Server Side Include</a> Anweisung in einer HTML-Datei, z.B. mit der Anweisung <code>&lt;!--#exec cgi="/cgi-bin/counter.pl" --&gt;</code>. Das ist sehr praktisch, um mit Hilfe eines CGI-Scripts dynamische Information in Textform in eine HTML-Datei einzubinden. Diese Form ist zum Beispiel interessant für textbasierte Zugriffszähler.</li>
+<li>über <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/kopfdaten/meta.htm#weiterleitung">automatisches Laden</a> des ausführbaren CGI-Scripts/CGI-Programms. Dazu geben Sie in dem <code>&lt;meta&gt;</code>-Tag einfach anstelle einer anderen HTML-Datei die Adresse des ausführbaren CGI-Scripts an (Beispiel: <code>&lt;meta http-equiv="refresh" content="0; URL=/cgi-bin/welcome.pl"&gt;</code>).</li>
+</ul>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="wechselwirkung_html_cgi">Beispiel für die Wechselwirkung zwischen HTML und CGI</a></h2>
+
+<p>Das folgende Beispiel erzeugt einen einfachen CGI-Vorgang, der die Wechselwirkung zwischen HTML und CGI verdeutlicht: in einer HTML-Datei kann der Anwender in einem Formular seinen Namen und einen Kommentartext eingeben. Wenn er das Formular absendet, wird ein CGI-Programm <var>comments.pl</var> aufgerufen. Dieses Script ist in Perl geschrieben. Es liest die ankommenden Formulardaten aus, splittet sie in ihre Bestandteile auf und erzeugt eine vollständige HTML-Datei, in der es die eingelesenen Daten ausgibt. Der Web-Browser zeigt diesen von <var>comments.pl</var> generierten HTML-Code am Bildschirm an. Studieren Sie das Beispiel in Ruhe und verzweifeln Sie nicht an dem Perl-Programmcode (es geht nämlich auch einfacher als in diesem Beispiel gezeigt, das Beispiel dient nur dazu, zu zeigen, wie das CGI-Script an die Formulardaten kommt)!</p>
+
+<h3 class="xmp">Beispiel: HTML-Datei mit CGI-Aufruf</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/comments.htm">Anzeigebeispiel: So sieht's aus</a> (beim Absenden des Formulars ist eine Internet-Verbindung erforderlich)</p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Kommentarseite&lt;/title&gt;
+&lt;/head&gt;
+&lt;body bgcolor="#E0E0E0"&gt;
+&lt;h1&gt;Ihr Kommentar&lt;/h1&gt;
+&lt;form action="http://de.selfhtml.org/cgi-bin/comments.pl" method="post"&gt;
+&lt;p&gt;Name:&lt;br&gt;&lt;input type="text" name="AnwenderName" size="40" maxlength="40"&gt;&lt;/p&gt;
+&lt;p&gt;Text:&lt;br&gt;&lt;textarea rows="5" cols="50" name="Kommentartext"&gt;&lt;/textarea&gt;&lt;/p&gt;
+&lt;p&gt;&lt;input type="submit" value="Absenden"&gt;&lt;/p&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xmp">Beispiel: CGI-Script <var>comments.pl</var> mit HTML-Ausgabe</h3>
+
+<pre>
+#!/usr/bin/perl -w
+
+use strict;
+use CGI::Carp qw(fatalsToBrowser);
+
+read(STDIN, my $Daten, $ENV{'CONTENT_LENGTH'});
+my @Formularfelder = split(/&amp;/, $Daten);
+my ($Feld, $Name, $Wert);
+my %Formular;
+foreach $Feld (@Formularfelder) {
+  (my $Name, my $Wert) = split(/=/, $Feld);
+  $Wert =~ tr/+/ /;
+  $Wert =~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg;
+  $Wert =~ s/&lt;/&amp;lt;/g;
+  $Wert =~ s/&gt;/&amp;gt;/g;
+  $Formular{$Name} = $Wert;
+ }
+print "Content-type: text/html\n\n";
+print '&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"&gt;', "\n";
+print "&lt;html&gt;&lt;head&gt;&lt;title&gt;CGI-Feedback&lt;/title&gt;&lt;/head&gt;\n";
+print "&lt;body&gt;&lt;h1&gt;CGI-Feedback vom Programm &lt;i&gt;comments.pl&lt;/i&gt;&lt;/h1&gt;\n";
+print "&lt;p&gt;&lt;b&gt;Name:&lt;/b&gt; $Formular{AnwenderName}&lt;/p&gt;\n";
+print "&lt;p&gt;&lt;b&gt;Kommentartext:&lt;/b&gt; $Formular{Kommentartext}&lt;/p&gt;\n";
+print "&lt;/body&gt;&lt;/html&gt;\n";
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>In der HTML-Datei wird ein Formular mit zwei Eingabefeldern definiert. Das erste Feld (<code>&lt;input size="40" maxlength="40" name="AnwenderName"&gt;</code>) ist ein einzeiliges Eingabefeld, in dem der Anwender seinen Namen eingeben soll. Das zweite Feld (<code>&lt;textarea rows="5" cols="50" name="Kommentartext"&gt;&lt;/textarea&gt;</code>) ist ein mehrzeiliger Eingabebereich, in dem der Anwender einen beliebigen Text eingeben kann. Durch Klicken auf den Absendebutton (<code>&lt;input type="submit" value="Absenden"&gt;</code>) wird das Formular abgesendet. Was mit den Formulardaten geschehen soll, ist im einleitenden Formular-Tag angegeben: mit der Angabe <code>action="/cgi-bin/comments.pl"</code> wird ein CGI-Script aufgerufen, das die abgesendeten Formulardaten verarbeiten soll. Die Daten werden dem CGI-Script mit <code>method="post"</code> übergeben. Das bedeutet, das Script bekommt die Daten von der Standardeingabe als Parameter übergeben. Das ist genau so, als ob Sie ein Programm auf Ihrem Rechner mit einem Parameter, etwa dem Namen einer zu öffnenden Datei, aufrufen.</p>
+
+<p>Mit der Anweisung <code>read(STDIN, my $Daten, $ENV{'CONTENT_LENGTH'});</code> werden im Perl-Script <var>comments.pl</var>, das im CGI-Verzeichnis liegt, die Daten der Standardeingabe  ausgelesen.<br>
+Mit der Anweisung <code>@Formularfelder = split(/&amp;/, $Daten);</code> splittet das Script die ausgelesenen Daten nach Formularfeldern getrennt in einzelne Elemente auf. Innerhalb der darauffolgenden <code>foreach</code>-Schleife bearbeitet das Script die Daten. Die ziemlich kryptisch anmutenden Befehle dienen dazu, die übergebenen Daten in lesbaren Text umzuwandeln. Denn die Daten, die das Script empfangen hat, sind nach einer bestimmten Konvention kodiert, die mit dem MIME-Typ <code>application/x-www-form-urlencoded</code> gekennzeichnet wird. In diesem Kodierungstyp werden Leerzeichen und Satz- sowie Sonderzeichen durch hexadezimale Umschreibungen dargestellt (siehe auch <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="formularverarbeitung.htm#datenstrom">Datenstrom bei Übertragung von Formulardaten</a>.</p>
+
+<p>Nach der Dekodierungsarbeit beginnt das Script mit dem Erzeugen der HTML-Datei, die es an den Web-Browser zurücksendet. Dazu dienen die <code>print</code>-Anweisungen, die eine normale HTML-Datei konstruieren. Im Beispiel gibt das Perl-Script die Inhalte der beiden Formularfelder HTML-formatiert im Browser aus.</p>
+
+<p>Aus Sicht des Anwenders verschwindet nun die HTML-Datei mit dem Eingabeformular vom Bildschirm. Stattdessen baut der Web-Browser eine neue Seite auf, die den von <code>comments.pl</code> erzeugten HTML-Code enthält.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Das obige Beispiel ist lediglich zur Veranschaulichung der Wechselbeziehung zwischen HTML und CGI gedacht. Wenn Sie sich bislang noch nie mit Perl beschäftigt haben und Ihnen das Perl-Script völlig unverständlich vorkommt, ist das ganz normal. Perl ist eine mächtige, aber ziemlich eigenwillige Programmiersprache. Es gibt auch Techniken wie das <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../perl/module/cgi.htm">CGI-Modul</a>, das die Programmierung von CGI-Scripts in Perl erleichtert.</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="cgipublik.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="cgipublik.htm">CGI-Scripts auf öffentlichem Webserver installieren</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="../server/httpstatuscodes.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../server/httpstatuscodes.htm">HTTP-Status-Codes</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">Webserver/CGI</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">CGI</a></td>
+</tr>
+</table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

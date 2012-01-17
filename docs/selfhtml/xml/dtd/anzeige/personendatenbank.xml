@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE personendatenbank SYSTEM "personendatenbank.dtd">
+<personendatenbank>
+<person name="Bruno Buddelmann">
+  <bio>
+    <augen farbe="graublau" />
+    <haar farbe="blond" bemerkung="hin und wieder getönt" />
+    <haut farbe="weiß" />
+    <gewicht kg="84" />
+    <blutgruppe typ="A" />
+  </bio>
+  <sozio>
+    <sprache lang="deutsch" kurz="de" />
+    <stand typ="ledig" />
+    <passport nr="38385409398" />
+  </sozio>
+</person>
+</personendatenbank>
+

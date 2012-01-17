@@ -1,0 +1,270 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: JavaScript / Sprachelemente / Funktionen</title>
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<meta name="description"    content="Welche Aufgabe Funktionen in JavaScript haben, wie Sie Funktionen definieren und aufrufen, und wie Sie Parameter an Funktionen übergeben.">
+<meta name="keywords"       content="SELFHTML, JavaScript, Funktionen, Parameter, return">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-09-06T11:23:05+02:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/javascript/sprache/funktionen.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="Sprachelemente" href="index.htm">
+<link rel="next" title="Steuerzeichen und besondere Notationen" href="notationen.htm">
+<link rel="prev" title="Objekte, Eigenschaften und Methoden" href="objekte.htm">
+<link rel="first" title="Allgemeine Regeln für JavaScript" href="regeln.htm">
+<link rel="last" title="Event-Handler" href="eventhandler.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">JavaScript/DOM</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Sprachelemente</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Funktionen</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#definieren">Funktion definieren</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#aufrufen">Funktion aufrufen</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#rueckgabewert">Funktion mit Rückgabewert und solche Funktion aufrufen</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#vordefinierte">Vordefinierte JavaScript-Funktionen</a><br>
+</p>
+</td>
+</tr><tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><img src="../../src/js10.gif" width="30" height="30" alt="JavaScript 1.0" title="JavaScript 1.0"><img src="../../src/netsc2.gif" width="30" height="30" alt="Netscape 2.0" title="Netscape 2.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="definieren">Funktion definieren</a></h2>
+
+<p>Mit Hilfe von Funktionen können Sie eigene, in sich abgeschlossene JavaScript-Prozeduren programmieren, die Sie dann über den Aufruf der Funktion ausführen können. Dabei können Sie bestimmen, bei welchem Ereignis (zum Beispiel, wenn der Anwender einen Button anklickt) die Funktion aufgerufen und ihr Programmcode ausgeführt wird. JavaScript-Code, der nicht innerhalb einer Funktion steht, wird beim Einlesen der Datei vom WWW-Browser sofort ausgeführt!</p>
+
+<p>Eine Funktion ist ein <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="regeln.htm#anweisungsbloecke">Anweisungsblock</a>. Sie können eigene Funktionen innerhalb eines <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../intro.htm#javascriptbereiche">JavaScript-Bereichs</a> oder in einer <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../intro.htm#javascriptdateien">separaten JavaScript-Datei</a> definieren. An erlaubten Stellen, z.B. innerhalb der einleitenden HTML-Tags <code>&lt;body...&gt;</code> und <code>&lt;a href...&gt;</code>, oder in einem Formular-Tag wie <code>&lt;input...&gt;</code>, können Sie eine solche selbst definierte Funktion dann mit Hilfe eines <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="eventhandler.htm">Event-Handlers</a> aufrufen. Oder Sie rufen eine Funktion innerhalb einer anderen Funktion auf.</p>
+
+<h3 class="xmp">Beispiel einer JavaScript-Funktion:</h3>
+
+<pre>
+function PrimzahlCheck (Zahl) {
+  if (Zahl &gt;= 2) {
+    var Grenzzahl = Zahl / 2;
+    var Check = 1;
+    for (var i = 2; i &lt;= Grenzzahl; i++)
+      if (Zahl % i == 0) {
+        alert(Zahl + " ist keine Primzahl, weil teilbar durch " + i);
+        Check = 0;
+      }
+    if (Check == 1)
+      alert(Zahl + " ist eine Primzahl!");
+  } else {
+    alert("Bitte geben Sie eine natürliche Zahl größer als 1 ein!");
+  }
+}
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Mit dem Schlüsselwort <code>function</code> leiten Sie die Definition einer Funktion ein. Dahinter folgt, durch ein Leerzeichen getrennt, ein frei wählbarer Funktionsname, im Beispiel: <code>PrimzahlCheck</code>. Vergeben Sie einen Funktionsnamen, der das, was die Funktion leistet, ungefähr beschreibt. Beachten Sie dabei die Regeln für <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="regeln.htm#namen">selbst vergebene Namen</a>.</p>
+
+<p>Unmittelbar hinter dem Funktionsnamen folgt eine öffnende Klammer. Wenn die Funktion keine Parameter erwarten soll, notieren Sie dahinter sofort wieder eine schließende Klammer. Wenn die Funktion Parameter übergeben bekommen soll, notieren Sie innerhalb der Klammer die Namen der Parameter. Die Namen der Parameter sind frei wählbar. Bei den Parameternamen gelten die gleichen Regeln wie beim Funktionsnamen. Mehrere Parameter werden durch Kommata voneinander getrennt. Im obigen Beispiel erwartet die Funktion <code>PrimzahlCheck</code> einen Parameter <code>Zahl</code>.</p>
+
+<p>Der gesamte Inhalt der Funktion wird in <b>geschweifte</b> Klammern <code>{</code> und <code>}</code> eingeschlossen. Diese Klammern dürfen niemals fehlen!</p>
+
+<p>Die Anweisungen innerhalb der Funktion können sehr unterschiedlicher Natur sein. Da können Sie z.B. <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="objekte.htm">Objekte</a> manipulieren, übergebene Parameter verarbeiten und ändern, Berechnungen anstellen usw. Sie können innerhalb von Funktionen auch andere Funktionen aufrufen. Welche Anweisungen innerhalb einer Funktion stehen, hängt davon ab, was die Funktion leisten soll. Im obigen Beispiel wird ermittelt, ob die übergebene Zahl eine Primzahl ist. Wenn es keine ist, wird für jede Zahl, durch die sie teilbar ist, eine entsprechende Meldung ausgegeben. Wenn es eine Primzahl ist, wird am Ende ausgegeben, dass es sich um eine Primzahl handelt.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/js10.gif" width="30" height="30" alt="JavaScript 1.0" title="JavaScript 1.0"><img src="../../src/netsc2.gif" width="30" height="30" alt="Netscape 2.0" title="Netscape 2.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="aufrufen">Funktion aufrufen</a></h2>
+
+<p>Sie können eine selbst definierte Funktion aufrufen, um den darin enthaltenen JavaScript-Code auszuführen.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/primzahl.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Test&lt;/title&gt;
+&lt;script type="text/javascript"&gt;
+function PrimzahlCheck (Zahl) {
+  Zahl = parseInt(Zahl, 10);
+  if (isNaN(Zahl)) {
+    alert("Sie müssen eine Zahl eingeben!");
+    return;
+  }
+  var Grenzzahl = Zahl / 2;
+  var Check = 1;
+  for (var i = 2; i &lt;= Grenzzahl; i++)
+    if (Zahl % i == 0) {
+      alert(Zahl + " ist keine Primzahl, weil teilbar durch " + i);
+      Check = 0;
+    }
+  if (Check == 1)
+    alert(Zahl + " ist eine Primzahl!");
+}
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;form name="PrimzahlFormular" action=""&gt;
+&lt;p&gt;Geben Sie eine Zahl ein. Es wird geprüft, ob es sich um eine Primzahl handelt.&lt;/p&gt;
+&lt;input type="text" name="Eingabezahl"&gt;
+&lt;input type="button" value="auf Primzahl checken"
+onclick="PrimzahlCheck(document.PrimzahlFormular.Eingabezahl.value)"&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das obige Beispiel zeigt eine komplette HTML-Datei. Darin ist ein JavaScript-Bereich definiert, in dem wiederum die Funktion <code>PrimzahlCheck()</code> definiert ist. Im Dateikörper der HTML-Datei steht ein Formular mit einem Eingabefeld und einem Button. Im Eingabefeld kann der Anwender eine Zahl eingeben. Wenn er auf den Button klickt, wird die JavaScript-Funktion aufgerufen und ermittelt, ob es sich bei der Eingabe um eine Primzahl handelt. Dazu enthält der Button den <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="eventhandler.htm">Event-Handler</a> <code>onclick</code> (<i>= beim Anklicken</i>). Dahinter wird die JavaScript-Funktion mit der eingegebenen Zahl aufgerufen.</p>
+
+<p>Die Funktion rufen Sie mit ihrem Funktionsnamen auf. Dahinter folgt die öffnende Klammer. Wenn die Funktion keine Parameter erwartet, notieren Sie hinter der öffnenden gleich eine schließende Klammer. Wenn die Funktion Parameter erwartet, müssen Sie für jeden Parameter einen erlaubten Wert übergeben. Im Beispiel erwartet die Funktion einen Parameter. Wenn Sie mehrere Parameter übergeben, trennen Sie diese durch Kommata.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/js10.gif" width="30" height="30" alt="JavaScript 1.0" title="JavaScript 1.0"><img src="../../src/netsc2.gif" width="30" height="30" alt="Netscape 2.0" title="Netscape 2.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="rueckgabewert">Funktion mit Rückgabewert und solche Funktion aufrufen</a></h2>
+
+<p>Eine Funktion kann einen ermittelten Wert an die aufrufende Instanz zurückgeben.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/bruttobetrag.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Test&lt;/title&gt;
+&lt;script type="text/javascript"&gt;
+function BruttoBetrag (Netto, Prozente) {
+  var Ergebnis = Netto * (1 + (Prozente / 100));
+  return Ergebnis;
+}
+
+function SchreibeBrutto (Betrag, Prozentsatz) {
+  var Wert = BruttoBetrag(Betrag, Prozentsatz);
+  document.BruttoForm.Ergebnisfeld.value = Wert;
+}
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;form name="BruttoForm" action=""&gt;
+&lt;pre&gt;
+Nettobetrag: &lt;input type="text" name="NettoEingabe"&gt;
+Prozentsatz: &lt;input type="text" name="ProzentEingabe"&gt;&lt;/pre&gt;
+&lt;p&gt;Kommabetrag mit Punkt eingeben!&lt;/p&gt;
+&lt;input type="button" value="Brutto ermitteln"
+onclick="SchreibeBrutto(document.BruttoForm.NettoEingabe.value,document.BruttoForm.ProzentEingabe.value)"&gt;
+&lt;pre&gt;
+Ergebnis:    &lt;input type="text" name="Ergebnisfeld"&gt;&lt;/pre&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das obige Beispiel zeigt eine HTML-Datei, in deren Dateikopf ein <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../intro.htm#javascriptbereiche">JavaScript-Bereich</a> definiert ist, in dem wiederum die zwei Funktionen <code>BruttoBetrag(...)</code> und <code>SchreibeBrutto(...)</code> definiert sind. Im Dateikörper der HTML-Datei steht ein Formular mit je einem Eingabefeld für einen Nettobetrag und einen Prozentwert. Wenn der Anwender auf den darunter definierten Button klickt, wird die Funktion <code>SchreibeBrutto(...)</code> aufgerufen. Diese wiederum ruft die Funktion <code>BruttoBetrag(...)</code> auf.</p>
+
+<p>Da die Funktion <code>BruttoBetrag(...)</code> ihr errechnetes Ergebnis an die aufrufende Instanz zurückgibt, wird in <code>SchreibeBrutto(...)</code> eine <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="variablen.htm">Variable</a> mit dem Namen <code>Wert</code> definiert, die diesen Rückgabewert speichert. Das Ergebnis, das in dieser Variablen gespeichert ist, schreibt die Funktion schließlich in ein Feld, das innerhalb des Formulars eigens für diesen Zweck eingerichtet wurde: das Eingabefeld mit dem Namen <code>Ergebnisfeld</code>.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/js10.gif" width="30" height="30" alt="JavaScript 1.0" title="JavaScript 1.0"><img src="../../src/netsc2.gif" width="30" height="30" alt="Netscape 2.0" title="Netscape 2.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="vordefinierte">Vordefinierte JavaScript-Funktionen</a></h2>
+
+<p>Es gibt ein paar Funktionen, die bereits in JavaScript integriert sind. Solche Funktionen können Sie aufrufen, ohne sie selbst zu definieren.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/rechne.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Test&lt;/title&gt;
+&lt;script type="text/javascript"&gt;
+function Rechne (Operation) {
+  var Ergebnis = eval(Operation);
+  alert("Ergebnis: " + Ergebnis);
+}
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;form name="Formular"&gt;
+&lt;p&gt;Geben Sie eine Rechenaufgabe (z.B. 8*5) ein:&lt;/p&gt;
+&lt;input type="text" name="Eingabe"&gt;
+&lt;input type="button" value="OK"
+onclick="Rechne(document.Formular.Eingabe.value)"&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das obige Beispiel zeigt eine HTML-Datei mit einem <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../intro.htm#javascriptbereiche">JavaScript-Bereich</a>, in dem wiederum eine Funktion <code>Rechne()</code> definiert ist. Innerhalb des Dateikörpers der HTML-Datei ist ein Formular mit einem Eingabefeld notiert. In dem Eingabefeld kann der Anwender eine Rechenaufgabe eingeben, z.B. <code>1 + 1</code> oder <code>(28.76 - 0.00001) * 7</code>. Beim Anklicken des Klick-Buttons wird die Funktion <code>Rechne()</code> aufgerufen. Sie erwartet als Parameter eine Rechenaufgabe. Deshalb wird ihr der Inhalt des Formulareingabefeldes beim Aufruf übergeben. Die Funktion <code>Rechne</code> bedient sich zur Berechnung des Ergebnisses der äußerst mächtigen vordefinierten Funktion <code>eval()</code> (<i>eval = evaluate = berechne</i>). Diese kann - unter anderem - Rechenoperationen als solche erkennen und ausrechnen. Das Rechenergebnis wird im Beispiel in einem Meldungsfenster ausgegeben.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Eine Übersicht aller vordefinierten JavaScript-Funktionen finden Sie im Abschnitt <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../objekte/unabhaengig.htm">Objektunabhängige Funktionen</a>.</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="notationen.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="notationen.htm">Steuerzeichen und besondere Notationen</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="objekte.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="objekte.htm">Objekte, Eigenschaften und Methoden</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">JavaScript/DOM</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Sprachelemente</a></td>
+</tr>
+</table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

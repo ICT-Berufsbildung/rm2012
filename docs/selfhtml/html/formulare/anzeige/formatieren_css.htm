@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+       "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>Formulare und Formularelemente gestalten mit CSS</title>
+<style type="text/css">
+form { background-image:url(background.gif); padding:20px; border:6px solid #ddd; }
+td, input, select, textarea { font-size:13px; font-family:Verdana,sans-serif; font-weight:bold; }
+input, select, textarea { color:#00c; }
+.Bereich, .Feld { background-color:#ffa; width:300px; border:6px solid #ddd; }
+.Auswahl { background-color:#dff; width:300px; border:6px solid #ddd; }
+.Check, .Radio { background-color:#ddff; border:1px solid #ddd; }
+.Button { background-color:#aaa; color:#fff; width:200px; border:6px solid #ddd; }
+</style>
+</head>
+<body>
+
+<h1>Das hier k&ouml;nnen Sie absenden!</h1>
+
+<p>Voraussetzung ist eine Verbindung ins Internet.
+Es werden keine Daten gespeichert, das verarbeitende
+CGI-Script gibt lediglich die eingelesenen Daten aus.</p>
+
+<form action="http://de.selfhtml.org/cgi-bin/comments.pl">
+  <table border="0" cellpadding="3" cellspacing="0">
+    <tr>
+      <td align="right">Vorname:</td>
+      <td><input name="Vorname" type="text" class="Feld" size="30" maxlength="30"></td>
+    </tr>
+    <tr>
+      <td align="right">Zuname:</td>
+      <td><input name="Zuname" type="text" class="Feld" size="30" maxlength="40"></td>
+    </tr>
+    <tr>
+      <td align="right" valign="top">Geschlecht:</td>
+      <td>
+        <input type="radio" class="Radio" name="Geschlecht" value="m"> m&auml;nnlich<br>
+        <input type="radio" class="Radio" name="Geschlecht" value="w"> weiblich
+      </td>
+    </tr>
+    <tr>
+      <td align="right" valign="top">Eigenschaften:</td>
+      <td>
+        <input type="checkbox" class="Check" name="Eigenschaft" value="Raucher"> Raucher<br>
+        <input type="checkbox" class="Check" name="Eigenschaft" value="Autofahrer"> Autofahrer<br>
+        <input type="checkbox" class="Check" name="Eigenschaft" value="HTMLFreak"> HTML-Freak
+      </td>
+    </tr>
+    <tr>
+      <td align="right" valign="top">N&auml;chste Gro&szlig;stadt:</td>
+      <td>
+      <select name="Grossstadt" class="Auswahl" size="1">
+        <option value="Hamburg">Hamburg</option>
+        <option value="Berlin">Berlin</option>
+        <option value="Frankfurt">Frankfurt</option>
+        <option value="Muenchen">M&uuml;nchen</option>
+      </select>
+      </td>
+    </tr>
+    <tr>
+      <td align="right" valign="top">Kommentar:</td>
+      <td><textarea name="Text" class="Bereich" rows="10" cols="50"></textarea></td>
+    </tr>
+    <tr>
+      <td align="right">Formular:</td>
+      <td>
+        <input type="submit" class="Button" value="Absenden">
+        <input type="reset" class="Button" value="Abbrechen">
+      </td>
+    </tr>
+  </table>
+</form>
+
+<p><a href="../formatieren.htm#css">zur&uuml;ck</a></p>
+</body>
+</html>

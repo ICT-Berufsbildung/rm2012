@@ -1,0 +1,228 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: HTML/XHTML / Formulare / Buttons zum Absenden oder Abbrechen</title>
+<meta name="description"    content="Wie Sie in HTML-Formularen Buttons zum Absenden des Formulars oder zum Zurücksetzen aller Eingaben definieren.">
+<meta name="keywords"       content="SELFHTML, HTML, XHTML, Formulare, Absenden, Abbrechen, Absendebutton, Abbrechen-Button, Submit, Reset, Submit-Button, Reset-Button, input, type">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-10-31T12:25:34+01:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/html/formulare/formularbuttons.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="Formulare" href="index.htm">
+<link rel="next" title="Formulare formatieren mit CSS" href="formatieren.htm">
+<link rel="prev" title="Klick-Buttons" href="klickbuttons.htm">
+<link rel="first" title="Formulare definieren" href="definieren.htm">
+<link rel="last" title="Formulare verarbeiten" href="verarbeiten.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">HTML/XHTML</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Formulare</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Buttons zum Absenden oder Abbrechen</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#herkoemmlich">Buttons zum Absenden oder Abbrechen definieren (herkömmlich)</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#grafische">Grafische Buttons zum Absenden definieren</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#modern">Buttons zum Absenden oder Abbrechen definieren (Bild)</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#weitere_infos">Weitere Informationen</a><br>
+</p>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><img src="../../src/html20.gif" width="30" height="30" alt="HTML 2.0" title="HTML 2.0"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../../src/msie1.gif" width="30" height="30" alt="MS IE 1.0" title="MS IE 1.0"><img src="../../src/netsc1.gif" width="30" height="30" alt="Netscape 1.0" title="Netscape 1.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="herkoemmlich">Buttons zum Absenden oder Abbrechen definieren (herkömmlich)</a></h2>
+
+<p>Zwei Standard-Buttons stellt HTML zur Verfügung, um Formulareingaben zu handhaben: einen Button zum "Absenden" und einen zum "Abbrechen". Mit dem Absendebutton kann der Anwender das ausgefüllte Formular losschicken. Mit den Formulardaten geschieht dann das, was im einleitenden <code>&lt;form&gt;</code>-Tag mit dem Attribut <code>action</code> festgelegt wurde (siehe hierzu <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="definieren.htm">Formular definieren</a>). Mit dem Abbrechen-Button kann der Anwender alle Eingaben verwerfen. Das Formular wird nicht abgeschickt, Eingaben werden gelöscht.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/input_submit_reset.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+       "http://www.w3.org/TR/html4/loose.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Buttons zum Absenden oder Abbrechen definieren (herk&ouml;mmlich)&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h1&gt;Das hier k&amp;ouml;nnen Sie absenden!&lt;/h1&gt;
+
+&lt;p&gt;Voraussetzung ist eine Verbindung ins Internet.
+Es werden keine Daten gespeichert, das verarbeitende
+CGI-Script gibt lediglich die eingelesenen Daten aus.&lt;/p&gt;
+
+&lt;form action="http://de.selfhtml.org/cgi-bin/comments.pl"&gt;
+  &lt;table border="0" cellpadding="5" cellspacing="0" bgcolor="#E0E0E0"&gt;
+    &lt;tr&gt;
+      &lt;td align="right"&gt;Vorname:&lt;/td&gt;
+      &lt;td&gt;&lt;input name="Vorname" type="text" size="30" maxlength="30"&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td align="right"&gt;Zuname:&lt;/td&gt;
+      &lt;td&gt;&lt;input name="Zuname" type="text" size="30" maxlength="40"&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td align="right" valign="top"&gt;Kommentar:&lt;/td&gt;
+      &lt;td&gt;&lt;textarea name="Text" rows="10" cols="50"&gt;&lt;/textarea&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td align="right"&gt;Formular:&lt;/td&gt;
+      &lt;td&gt;
+        &lt;input type="submit" value=" Absenden "&gt;
+        &lt;input type="reset" value=" Abbrechen"&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/form&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Mit <code>&lt;input type="submit"&gt;</code> definieren Sie einen Absendebutton (<i>input = Eingabe, submit = bestätigen</i>). Beim Anklicken dieses Buttons werden die Formulardaten abgeschickt, und es wird die Adresse aufgerufen, die im einleitenden <code>&lt;form&gt;</code>-Tag beim Attribut <code>action</code> angegeben ist. Zur unterschiedlichen weiteren Behandlung der übermittelten Daten können Sie mehrere Absendebuttons mit <code>name</code>-Attribut verwenden.<br>
+Mit <code>&lt;input type="reset"&gt;</code> definieren Sie einen Abbrechen-Button (<i>reset = zurücksetzen</i>). Eingegebene Daten werden verworfen und nicht abgeschickt.</p>
+
+<p>Mit dem Attribut <code>value</code> bestimmen Sie die Beschriftung der Buttons (<i>value = Wert</i>).</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Mit Hilfe von <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../../javascript/index.htm">JavaScript</a> können Sie die Eingaben von Anwendern vor dem Absenden des Formulars kontrollieren. Innerhalb dieser Dokumentation finden Sie ein Anwendungsbeispiel <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../javascript/beispiele/formulareingaben.htm">Formulareingaben überprüfen</a>.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/html32.gif" width="30" height="30" alt="HTML 3.2" title="HTML 3.2"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/netsc3.gif" width="30" height="30" alt="Netscape 3.0" title="Netscape 3.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="grafische">Grafische Buttons zum Absenden definieren</a></h2>
+
+<p>Sie können innerhalb von Formularen Grafiken referenzieren und diese als Absendebutton definieren. Solche grafische Buttons können Sie als Alternative zu Buttons vom Typ <code>&lt;input type="submit"&gt;</code> verwenden.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/input_image.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+       "http://www.w3.org/TR/html4/loose.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Grafische Buttons zum Absenden definieren&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h1&gt;Absenden mit Komfort!&lt;/h1&gt;
+
+&lt;p&gt;Voraussetzung ist eine Verbindung ins Internet.
+Es werden keine Daten gespeichert, das verarbeitende
+CGI-Script gibt lediglich die eingelesenen Daten aus.&lt;/p&gt;
+
+&lt;form action="http://de.selfhtml.org/cgi-bin/comments.pl"&gt;
+  &lt;table border="0" cellpadding="5" cellspacing="0" bgcolor="#E0E0E0"&gt;
+    &lt;tr&gt;
+      &lt;td align="right"&gt;Ihre E-Mail-Adresse:&lt;/td&gt;
+      &lt;td&gt;&lt;input name="Mail" type="text" size="30" maxlength="30"&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td align="right"&gt;Formular:&lt;/td&gt;
+      &lt;td&gt;&lt;input type="image" src="absende.gif" alt="Absenden"&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/form&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Mit <code>&lt;input type="image"&gt;</code> definieren Sie einen grafischen Button (<i>input = Eingabe</i>). Die gewünschte Grafikdatei bestimmen Sie mit dem Attribut <code>src</code> (<i>src = source = Quelle</i>). Weisen Sie eine geeignete Grafik vom Typ GIF, JPEG oder PNG zu. Im obigen Beispiel wird vorausgesetzt, dass sich die Grafik <code>absende.gif</code> im gleichen Verzeichnis befindet wie die HTML-Datei mit dem Formular. Für das Adressieren der Grafik gelten die Regeln zum <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../allgemein/referenzieren.htm">Referenzieren in HTML</a></p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Bei grafischen Buttons wird nicht nur der eventuell vorhandene Wert im <code>value</code> Attribut übertragen, sondern zusätzlich auch die Koordinaten des Klicks auf das Bild. Das heißt es werden zwei zusätzlich Werte abgeschickt in der Form <code>name.x</code> und <code>name.y</code> (in PHP wird daraus name_x/name_y). Der IE sendet nur die Koordinaten.</p>
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/html40.gif" width="30" height="30" alt="HTML 4.0" title="HTML 4.0"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../../src/netsc6.gif" width="30" height="30" alt="Netscape 6.0" title="Netscape 6.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="modern">Buttons zum Absenden oder Abbrechen definieren (Bild)</a></h2>
+
+<p>Dies funktioniert genauso wie das Definieren von <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="klickbuttons.htm#modern">Klick-Buttons (Bild)</a>. Dort wird erklärt, wie solche Buttons definiert werden.</p>
+
+<p>Um einen Button zum Absendebutton (Submit-Button) zu erklären, müssen Sie im einleitenden <code>&lt;button&gt;</code>-Tag <code>type="submit"</code> notieren. Um den Button zu einem Abbrechen-Button (Reset-Button) zu erklären, müssen Sie <code>type="reset"</code> notieren.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Der Internet Explorer (getestet bis Version 6.0) verhält sich bei dieser Art Button leider falsch. Er sendet die Buttonbeschriftung, nicht den Inhalt des <code>value</code>-Attributes. Existieren mehrere Absende-Buttons, werden die Beschriftungen aller Buttons gesendet, nicht nur die des geklickten. Deshalb muss man dem IE leider attestieren, dass er dieses Feature derzeit noch nicht korrekt unterstützt.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="weitere_infos">Weitere Informationen</a></h2>
+
+<p>In der <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../referenz/index.htm">HTML-Referenz</a> finden Sie Angaben darüber, wo das hier beschriebene Formularelement vorkommen darf, welche Attribute erlaubt sind und was bei den einzelnen Attributen zu beachten ist:<br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/elemente.htm#input">Element-Referenz</a> für Input-Formularelemente (<code>&lt;input&gt;</code>)<br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/attribute.htm#input">Attribut-Referenz</a> für Input-Formularelemente (<code>&lt;input&gt;</code>)</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="formatieren.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="formatieren.htm">Formulare formatieren mit CSS</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="tastatur.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="klickbuttons.htm">Klick-Buttons</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">HTML/XHTML</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Formulare</a></td>
+</tr></table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

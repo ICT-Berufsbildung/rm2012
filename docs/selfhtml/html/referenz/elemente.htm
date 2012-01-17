@@ -1,0 +1,3946 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: HTML/XHTML / Referenz /HTML-Elementreferenz</title>
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<meta name="description"    content="Welche Elemente es in HTML gibt, und wie sie ineinander verschachtelt sein dürfen.">
+<meta name="keywords"       content="SELFHTML, HTML, XHTML, Elemente, a, abbr, acronym, address, applet, area, b, base, basefont, bdo, big, blockquote, body, br, button, caption, center, cite, code, col, colgroup, dd, del, dfn, dir, div, dl, dt, em, fieldset, font, form, frame, frameset, h1, h2, h3, h4, h5, h6, head, hr, html, i, iframe, img, input, ins, isindex, kbd, label, legend, li, link, map, menu, meta, noframes, noscript, object, ol, optgroup, option, p, param, pre, q, s, samp, script, select, small, span, strike, strong, style, sub, sup, table, tbody, td, textarea, tfoot, th, thead, title, tr, tt, u, ul, var">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-10-26T20:17:51+02:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/html/referenz/elemente.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="chapter">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="HTML-Referenz" href="index.htm">
+<link rel="next" title="HTML-Attribut-Referenz" href="attribute.htm">
+<link rel="prev" title="Modularisierung von XHTML und XHTML 1.1" href="../xhtml/modularisierung.htm">
+<link rel="last" title="HTML-Varianten (Strict, Transitional, Frameset)" href="varianten.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">HTML/XHTML</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">HTML-Referenz</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">HTML-Elementreferenz</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#allgemeines">Allgemeines zur HTML-Elementreferenz</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#block_elemente">Block-Elemente</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#inline_elemente">Inline-Elemente</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#pcdata">#PCDATA</a>
+</p>
+
+<h3>Elemente</h3>
+<table cellpadding="0" cellspacing="0" border="0">
+<tr><td valign="top">
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#a">a</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#abbr">abbr</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#acronym">acronym</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#address">address</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#applet">applet</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#area">area</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#b">b</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#base">base</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#basefont">basefont</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#bdo">bdo</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#big">big</a>
+</td>
+<td valign="top">
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#blockquote">blockquote</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#body">body</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#br">br</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#button">button</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#caption">caption</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#center">center</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#cite">cite</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#code">code</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#col">col</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#colgroup">colgroup</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#dd">dd</a>
+</td>
+<td valign="top">
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#del">del</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#dfn">dfn</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#dir">dir</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#div">div</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#dl">dl</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#dt">dt</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#em">em</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#fieldset">fieldset</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#font">font</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#form">form</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#frame">frame</a>
+</td>
+<td valign="top">
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a  href="#frameset">frameset</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#h1_h6">h1-h6</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#head">head</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#hr">hr</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#html">html</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#i">i</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#iframe">iframe</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#img">img</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#input">input</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#ins">ins</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#isindex">isindex</a>
+</td>
+<td valign="top">
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#kbd">kbd</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#label">label</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#legend">legend</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#li">li</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#link">link</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#map">map</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#menu">menu</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#meta">meta</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#noframes">noframes</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#noscript">noscript</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#object">object</a>
+</td>
+<td valign="top">
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#ol">ol</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#optgroup">optgroup</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#option">option</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#p">p</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#param">param</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#pre">pre</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#q">q</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#s">s</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#samp">samp</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#script">script</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#select">select</a>
+</td>
+<td valign="top">
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#small">small</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#span">span</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#strike">strike</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#strong">strong</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#style">style</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#sub">sub</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#sup">sup</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#table">table</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#tbody">tbody</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#td">td</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#textarea">textarea</a>
+</td>
+<td valign="top">
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#tfoot">tfoot</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#th">th</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#thead">thead</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#title">title</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#tr">tr</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#tt">tt</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#u">u</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#ul">ul</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#var">var</a><br>
+</td></tr>
+</table>
+
+
+
+</td>
+</tr><tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><a class="an" name="allgemeines">Allgemeines zur HTML-Elementreferenz</a></h2>
+
+<p>Ein HTML-Element besteht meistens aus einem Anfangs- und einem End-Tag. So besteht z.B. das Element
+<a href="#body"><code>body</code></a> aus einem Anfangs-Tag <code>&lt;body&gt;</code> und einem End-Tag <code>&lt;/body&gt;</code>. Der Bereich zwischen Anfangs- und End-Tag nimmt den Inhalt des Elements auf. Er kann weitere HTML-Elemente enthalten.</p>
+
+<p>Die HTML-Elementreferenz listet für jedes HTML-Element auf, in welchen anderen HTML-Elementen es vorkommen kann, und welche anderen HTML-Elemente es enthalten kann. Bei jedem aufgeführten Element führt ein Verweis zu den jeweiligen Attributen des Elements, die in der Attribut-Referenz behandelt werden.</p>
+
+<p>In der HTML-Elementreferenz wird nur der HTML-Standard nach Version 4.01 berücksichtigt. Browser-eigene Abweichungen sowie browser-spezifische HTML-Elemente, die im Standard nicht vorkommen, sind in der Referenz nicht berücksichtigt.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="block_elemente">Block-Elemente</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Block-Elemente erzeugen einen eigenen Absatz im Textfluss. Je nach Elementtyp kann der Browser dabei automatisch einen größeren Abstand zum vorangehenden Inhalt einfügen. So erzeugen die Browser beispielsweise beim <a href="#p"><code>p</code></a>-Element einen sichtbaren Abstand, damit die Absatzschaltung vom einfachen Zeilenumbruch unterscheidbar ist. Beim <a href="#div"><code>div</code></a>-Element dagegen wird beispielsweise einfach eine neue Zeile begonnen.<br>
+Block-Elemente können in der Regel normalen Text und <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#inline_elemente">Inline-Elemente</a> enthalten. Einige Block-Elemente können auch andere Block-Elemente enthalten. Ausnahmen von der Regel werden bei den Beschreibungen zu den einzelnen Elementen behandelt.
+</td>
+</tr>
+<tr>
+<th width="160">Elemente</th>
+<td class="code">Folgende Elemente gehören zu den Block-Elementen:<br>
+<a href="#address"><code>address</code></a> |
+<a href="#blockquote"><code>blockquote</code></a> |
+<a href="#center"><code>center</code></a> |
+<a href="#del"><code>del</code></a> |
+<a href="#dir"><code>dir</code></a> |
+<a href="#div"><code>div</code></a> |
+<a href="#dl"><code>dl</code></a> |
+<a href="#fieldset"><code>fieldset</code></a> |
+<a href="#form"><code>form</code></a> |
+<a href="#h1_h6"><code>h1-6</code></a> |
+<a href="#hr"><code>hr</code></a> |
+<a href="#ins"><code>ins</code></a> |
+<a href="#isindex"><code>isindex</code></a> |
+<a href="#menu"><code>menu</code></a> |
+<a href="#noframes"><code>noframes</code></a> |
+<a href="#noscript"><code>noscript</code></a> |
+<a href="#ol"><code>ol</code></a> |
+<a href="#p"><code>p</code></a> |
+<a href="#pre"><code>pre</code></a> |
+<a href="#table"><code>table</code></a> |
+<a href="#ul"><code>ul</code></a><br>&nbsp;<br>
+(<code>center</code>, <code>dir</code>, <code>isindex</code>, <code>menu</code> und <code>noframes</code> nur bei <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#transitional">HTML Transitional</a>)
+</td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="inline_elemente">Inline-Elemente</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Inline-Elemente erzeugen <b>keinen</b> eigenen Absatz im Textfluss. Inline-Elemente sind als untergeordnete, "innere" Elemente für <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#block_elemente">Block-Elemente</a> gedacht. Sie können in den meisten Fällen normalen Text und weitere Inline-Elemente enthalten, jedoch keine Block-Elemente. Ausnahmen oder Einschränkungen werden bei den Beschreibungen zu den einzelnen Elementen behandelt.
+</td>
+</tr>
+<tr>
+<th width="160">Elemente</th>
+<td class="code">Folgende Elemente gehören zu den Inline-Elementen:<br>
+<a href="#a"><code>a</code></a> |
+<a href="#abbr"><code>abbr</code></a> |
+<a href="#acronym"><code>acronym</code></a> |
+<a href="#applet"><code>applet</code></a> |
+<a href="#b"><code>b</code></a> |
+<a href="#basefont"><code>basefont</code></a> |
+<a href="#bdo"><code>bdo</code></a> |
+<a href="#big"><code>big</code></a> |
+<a href="#br"><code>br</code></a> |
+<a href="#button"><code>button</code></a> |
+<a href="#cite"><code>cite</code></a> |
+<a href="#code"><code>code</code></a> |
+<a href="#del"><code>del</code></a> |
+<a href="#dfn"><code>dfn</code></a> |
+<a href="#em"><code>em</code></a> |
+<a href="#font"><code>font</code></a> |
+<a href="#i"><code>i</code></a> |
+<a href="#img"><code>img</code></a> |
+<a href="#ins"><code>ins</code></a> |
+<a href="#input"><code>input</code></a> |
+<a href="#iframe"><code>iframe</code></a> |
+<a href="#kbd"><code>kbd</code></a> |
+<a href="#label"><code>label</code></a> |
+<a href="#map"><code>map</code></a> |
+<a href="#object"><code>object</code></a> |
+<a href="#q"><code>q</code></a> |
+<a href="#samp"><code>samp</code></a> |
+<a href="#script"><code>script</code></a> |
+<a href="#select"><code>select</code></a> |
+<a href="#small"><code>small</code></a> |
+<a href="#span"><code>span</code></a> |
+<a href="#strong"><code>strong</code></a> |
+<a href="#sub"><code>sub</code></a> |
+<a href="#sup"><code>sup</code></a> |
+<a href="#textarea"><code>textarea</code></a> |
+<a href="#tt"><code>tt</code></a> |
+<a href="#var"><code>var</code></a><br>&nbsp;<br>
+(<code>applet</code>, <code>basefont</code>, <code>font</code>, <code>iframe</code>, <code>u</code>, <code>s</code> und <code>strike</code> nur bei <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#transitional">HTML Transitional</a>)
+</td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="pcdata">#PCDATA</a></h2>
+
+<p><code>#PCDATA</code> steht für <i>parsed character data</i>, zu deutsch: vom <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../allgemein/textauszeichnung.htm#html_parser">HTML-Parser</a> analysierte Zeichendaten. Es handelt sich in HTML normalerweise um Text, der innerhalb eines Elements, also zwischen Anfangs- und End-Tag notiert werden kann. Solcher Text kann aus Zeichen bestehen, die in der <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="zeichen.htm">Zeichenreferenz</a> genannt sind. Benannte Zeichen wie <code>&amp;uuml;</code> sind also ebenso erlaubt wie numerische Notationen von der Art <code>&amp;#x20AC;</code> oder <code>&amp;#8364;</code>. Solche Notationen werden erkannt und umgesetzt. PCDATA-Zeichendaten dürfen jedoch selbst nicht aus Tags bestehen. Ein Element, welches nur solche Zeichendaten enthalten darf, darf also keine HTML-Elemente enthalten. Dies gilt zum Beispiel für die Elemente <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#title">title</a> und <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#textarea">textarea</a>.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="a">a</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Definiert einen Anker oder einen Hyperlink - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../verweise/definieren.htm">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Strict,&nbsp;Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf innerhalb der folgenden HTML-Elemente vorkommen:<br>
+<a href="#block_elemente"><code>[Block-Elemente]</code></a> |
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a> (außer <a href="#a"><code>a</code></a> | <a href="#button"><code>button</code></a>) |
+<a href="#td"><code>td</code></a> |
+<a href="#body"><code>body</code></a><br>
+(<code>body</code> nur bei <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#transitional">HTML Transitional</a>)
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Darf <a href="#pcdata"><code>#PCDATA</code></a> und folgende andere HTML-Elemente enthalten:<br>
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a> (außer <a href="#a"><code>a</code></a>)</td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#a">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="abbr">abbr</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Markiert eine Abkürzung - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../text/logisch.htm">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Strict,&nbsp;Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf innerhalb der folgenden HTML-Elemente vorkommen:<br>
+<a href="#block_elemente"><code>[Block-Elemente]</code></a> |
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a> |
+<a href="#body"><code>body</code></a><br>
+(<code>body</code> nur bei <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#transitional">HTML Transitional</a>)
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Darf <a href="#pcdata"><code>#PCDATA</code></a> und folgende andere HTML-Elemente enthalten:<br>
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a></td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#abbr">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="acronym">acronym</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Markiert eine Abkürzung - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../text/logisch.htm">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Strict,&nbsp;Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf innerhalb der folgenden HTML-Elemente vorkommen:<br>
+<a href="#block_elemente"><code>[Block-Elemente]</code></a> |
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a> |
+<a href="#body"><code>body</code></a><br>
+(<code>body</code> nur bei <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#transitional">HTML Transitional</a>)
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Darf <a href="#pcdata"><code>#PCDATA</code></a> und folgende andere HTML-Elemente enthalten:<br>
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a></td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#acronym">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="address">address</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Markiert eine Adresse - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../text/zitate_adressen.htm#adressen">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Strict,&nbsp;Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf innerhalb der folgenden HTML-Elemente vorkommen:<br>
+<a href="#applet"><code>applet</code></a> |
+<a href="#blockquote"><code>blockquote</code></a> |
+<a href="#body"><code>body</code></a> |
+<a href="#button"><code>button</code></a> |
+<a href="#center"><code>center</code></a> |
+<a href="#dd"><code>dd</code></a> |
+<a href="#del"><code>del</code></a> |
+<a href="#div"><code>div</code></a> |
+<a href="#fieldset"><code>fieldset</code></a> |
+<a href="#form"><code>form</code></a> |
+<a href="#iframe"><code>iframe</code></a> |
+<a href="#ins"><code>ins</code></a> |
+<a href="#li"><code>li</code></a> |
+<a href="#map"><code>map</code></a> |
+<a href="#noframes"><code>noframes</code></a> |
+<a href="#noscript"><code>noscript</code></a> |
+<a href="#object"><code>object</code></a> |
+<a href="#td"><code>td</code></a> |
+<a href="#th"><code>th</code></a>
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Darf <a href="#pcdata"><code>#PCDATA</code></a> und folgende andere HTML-Elemente enthalten:<br>
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a> |
+<a href="#p"><code>p</code></a><br>
+(<code>p</code> nur bei <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#transitional">HTML Transitional</a>)
+</td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#address">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="applet">applet</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Fügt ein Java-Applet ein - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../multimedia/java_applets.htm">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf innerhalb der folgenden HTML-Elemente vorkommen:<br>
+<a href="#block_elemente"><code>[Block-Elemente]</code></a> (außer <a href="#pre"><code>pre</code></a>) |
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a> |
+<a href="#body"><code>body</code></a><br>
+(<code>body</code> nur bei <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#transitional">HTML Transitional</a>)
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Darf folgende anderen HTML-Elemente enthalten:<br>
+<a href="#block_elemente"><code>[Block-Elemente]</code></a> |
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a> |
+<a href="#param"><code>param</code></a></td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#applet">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="area">area</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Definiert einen Ausschnitt für eine verweis-sensitive Grafik - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../grafiken/verweis_sensitive.htm#definieren">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Strict,&nbsp;Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf nur innerhalb des folgenden HTML-Elements vorkommen:<br>
+<a href="#map"><code>map</code></a>
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Leeres Element (Standalone-Tag), darf keinen Inhalt haben</td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#area">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="b">b</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Markiert fett gedruckten Text - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../text/physisch.htm">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Strict,&nbsp;Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf innerhalb der folgenden HTML-Elemente vorkommen:<br>
+<a href="#block_elemente"><code>[Block-Elemente]</code></a> |
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a> |
+<a href="#body"><code>body</code></a><br>
+(<code>body</code> nur bei <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#transitional">HTML Transitional</a>)
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Darf <a href="#pcdata"><code>#PCDATA</code></a> und folgende andere HTML-Elemente enthalten:<br>
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a></td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#b">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="base">base</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Definiert dokumentweit gültige Angaben für Zielfenster und Basis-URIs von Verweisen - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../kopfdaten/basis.htm">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Strict,&nbsp;Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf nur innerhalb des folgenden HTML-Elements vorkommen:<br>
+<a href="#head"><code>head</code></a>
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Leeres Element (Standalone-Tag), darf keinen Inhalt haben</td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#base">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="basefont">basefont</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Bestimmt Basis-Schriftmerkmale für nachfolgenden Text - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../text/schrift.htm#art_groesse_farbe">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf innerhalb der folgenden HTML-Elemente vorkommen:<br>
+<a href="#block_elemente"><code>[Block-Elemente]</code></a> (außer <a href="#pre"><code>pre</code></a>) |
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a> |
+<a href="#body"><code>body</code></a><br>
+(<code>body</code> nur bei <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#transitional">HTML Transitional</a>)
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Leeres Element (Standalone-Tag), darf keinen Inhalt haben</td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#basefont">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="bdo">bdo</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Markiert eine Änderung der Textrichtung bei Sprachen mit anderer Schreibrichtung - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../text/logisch.htm#textrichtung">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Strict,&nbsp;Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf innerhalb der folgenden HTML-Elemente vorkommen:<br>
+<a href="#block_elemente"><code>[Block-Elemente]</code></a> |
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a> |
+<a href="#body"><code>body</code></a><br>
+(<code>body</code> nur bei <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#transitional">HTML Transitional</a>)
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Darf <a href="#pcdata"><code>#PCDATA</code></a> und folgende andere HTML-Elemente enthalten:<br>
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a></td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#bdo">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="big">big</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Markiert Text, der größer dargestellt werden soll als normal - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../text/physisch.htm">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Strict,&nbsp;Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf innerhalb der folgenden HTML-Elemente vorkommen:<br>
+<a href="#block_elemente"><code>[Block-Elemente]</code></a> (außer <a href="#pre"><code>pre</code></a>) |
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a> |
+<a href="#body"><code>body</code></a><br>
+(<code>body</code> nur bei <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#transitional">HTML Transitional</a>)
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Darf <a href="#pcdata"><code>#PCDATA</code></a> und folgende andere HTML-Elemente enthalten:<br>
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a></td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#big">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="blockquote">blockquote</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Markiert ein Zitat - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../text/zitate_adressen.htm#zitate">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Strict,&nbsp;Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf innerhalb der folgenden HTML-Elemente vorkommen:<br>
+<a href="#applet"><code>applet</code></a> |
+<a href="#blockquote"><code>blockquote</code></a> |
+<a href="#body"><code>body</code></a> |
+<a href="#button"><code>button</code></a> |
+<a href="#center"><code>center</code></a> |
+<a href="#dd"><code>dd</code></a> |
+<a href="#del"><code>del</code></a> |
+<a href="#div"><code>div</code></a> |
+<a href="#fieldset"><code>fieldset</code></a> |
+<a href="#form"><code>form</code></a> |
+<a href="#iframe"><code>iframe</code></a> |
+<a href="#ins"><code>ins</code></a> |
+<a href="#li"><code>li</code></a> |
+<a href="#map"><code>map</code></a> |
+<a href="#noframes"><code>noframes</code></a> |
+<a href="#noscript"><code>noscript</code></a> |
+<a href="#object"><code>object</code></a> |
+<a href="#td"><code>td</code></a> |
+<a href="#th"><code>th</code></a>
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Darf enthalten:<br>
+1. nach <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#strict">HTML Strict</a>:<br>
+<a href="#block_elemente"><code>[Block-Elemente]</code></a> | <a href="#script"><code>script</code></a><br>
+2. nach <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#transitional">HTML Transitional</a>:<br>
+<a href="#pcdata"><code>#PCDATA</code></a> und <a href="#block_elemente"><code>[Block-Elemente]</code></a> |
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a></td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#blockquote">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="body">body</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Markiert den Dokumentkörper und damit den Bereich der darzustellenden Daten - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../allgemein/grundgeruest.htm">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Strict,&nbsp;Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf innerhalb der folgenden HTML-Elemente vorkommen:<br>
+<a href="#html"><code>html</code></a> |
+<a href="#noframes"><code>noframes</code></a><br>
+(<code>noframes</code> nur bei <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#frameset">HTML Frameset</a>)
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Darf enthalten:<br>
+1. nach <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#strict">HTML Strict</a>:<br>
+<a href="#block_elemente"><code>[Block-Elemente]</code></a> | <a href="#script"><code>script</code></a><br>
+2. nach <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#transitional">HTML Transitional</a>:<br>
+<a href="#pcdata"><code>#PCDATA</code></a> und <a href="#block_elemente"><code>[Block-Elemente]</code></a> |
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a></td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#body">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="br">br</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Erzeugt einen Zeilenumbruch - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../text/zeilenumbruch.htm">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Strict,&nbsp;Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf innerhalb der folgenden HTML-Elemente vorkommen:<br>
+<a href="#block_elemente"><code>[Block-Elemente]</code></a> |
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a> |
+<a href="#body"><code>body</code></a><br>
+(<code>body</code> nur bei <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#transitional">HTML Transitional</a>)
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Leeres Element (Standalone-Tag), darf keinen Inhalt haben</td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#br">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="button">button</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Erzeugt einen Klick-Button - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../formulare/klickbuttons.htm#modern">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Strict,&nbsp;Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf innerhalb der folgenden HTML-Elemente vorkommen:<br>
+<a href="#block_elemente"><code>[Block-Elemente]</code></a> |
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a> (außer <a href="#button"><code>button</code></a>)
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">
+Darf <a href="#pcdata"><code>#PCDATA</code></a> und folgende andere HTML-Elemente enthalten:<br>
+<a href="#abbr"><code>abbr</code></a> |
+<a href="#acronym"><code>acronym</code></a> |
+<a href="#address"><code>address</code></a> |
+<a href="#applet"><code>applet</code></a> |
+<a href="#b"><code>b</code></a> |
+<a href="#basefont"><code>basefont</code></a> |
+<a href="#bdo"><code>bdo</code></a> |
+<a href="#big"><code>big</code></a> |
+<a href="#blockquote"><code>blockquote</code></a> |
+<a href="#br"><code>br</code></a> |
+<a href="#center"><code>center</code></a> |
+<a href="#cite"><code>cite</code></a> |
+<a href="#code"><code>code</code></a> |
+<a href="#dfn"><code>dfn</code></a> |
+<a href="#dl"><code>dl</code></a> |
+<a href="#dir"><code>dir</code></a> |
+<a href="#div"><code>div</code></a> |
+<a href="#em"><code>em</code></a> |
+<a href="#font"><code>font</code></a> |
+<a href="#h1_h6"><code>h1-6</code></a> |
+<a href="#hr"><code>hr</code></a> |
+<a href="#i"><code>i</code></a> |
+<a href="#img"><code>img</code></a> |
+<a href="#kbd"><code>kbd</code></a> |
+<a href="#map"><code>map</code></a> |
+<a href="#menu"><code>menu</code></a> |
+<a href="#noframes"><code>noframes</code></a> |
+<a href="#noscript"><code>noscript</code></a> |
+<a href="#object"><code>object</code></a> |
+<a href="#ol"><code>ol</code></a> |
+<a href="#p"><code>p</code></a> |
+<a href="#pre"><code>pre</code></a> |
+<a href="#q"><code>q</code></a> |
+<a href="#samp"><code>samp</code></a> |
+<a href="#script"><code>script</code></a> |
+<a href="#small"><code>small</code></a> |
+<a href="#span"><code>span</code></a> |
+<a href="#strong"><code>strong</code></a> |
+<a href="#sub"><code>sub</code></a> |
+<a href="#sup"><code>sup</code></a> |
+<a href="#table"><code>table</code></a> |
+<a href="#tt"><code>tt</code></a> |
+<a href="#ul"><code>ul</code></a> |
+<a href="#var"><code>var</code></a>
+</td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#button">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="caption">caption</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Setzt eine Tabellenüberschrift/Tabellenunterschrift - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../tabellen/umgebung.htm#beschriftung">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Strict,&nbsp;Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf nur innerhalb des folgenden HTML-Elements vorkommen:<br>
+<a href="#table"><code>table</code></a>
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Darf <a href="#pcdata"><code>#PCDATA</code></a> und folgende andere HTML-Elemente enthalten:<br>
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a></td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#caption">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="center">center</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Markiert einen Bereich, der zentriert dargestellt wird - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../text/bereiche.htm#block_zentriert">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf innerhalb der folgenden HTML-Elemente vorkommen:<br>
+<a href="#applet"><code>applet</code></a> |
+<a href="#blockquote"><code>blockquote</code></a> |
+<a href="#body"><code>body</code></a> |
+<a href="#button"><code>button</code></a> |
+<a href="#center"><code>center</code></a> |
+<a href="#dd"><code>dd</code></a> |
+<a href="#del"><code>del</code></a> |
+<a href="#div"><code>div</code></a> |
+<a href="#fieldset"><code>fieldset</code></a> |
+<a href="#form"><code>form</code></a> |
+<a href="#iframe"><code>iframe</code></a> |
+<a href="#ins"><code>ins</code></a> |
+<a href="#li"><code>li</code></a> |
+<a href="#map"><code>map</code></a> |
+<a href="#noframes"><code>noframes</code></a> |
+<a href="#noscript"><code>noscript</code></a> |
+<a href="#object"><code>object</code></a> |
+<a href="#td"><code>td</code></a> |
+<a href="#th"><code>th</code></a>
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Darf <a href="#pcdata"><code>#PCDATA</code></a> und folgende andere HTML-Elemente enthalten:<br>
+<a href="#block_elemente"><code>[Block-Elemente]</code></a> |
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a>
+</td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#center">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="cite">cite</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Markiert ein Zitat - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../text/logisch.htm">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Strict,&nbsp;Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf innerhalb der folgenden HTML-Elemente vorkommen:<br>
+<a href="#block_elemente"><code>[Block-Elemente]</code></a> |
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a> |
+<a href="#body"><code>body</code></a><br>
+(<code>body</code> nur bei <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#transitional">HTML Transitional</a>)
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Darf <a href="#pcdata"><code>#PCDATA</code></a> und folgende andere HTML-Elemente enthalten:<br>
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a></td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#cite">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="code">code</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Markiert Text als Quelltext einer Computersprache - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../text/logisch.htm">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Strict,&nbsp;Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf innerhalb der folgenden HTML-Elemente vorkommen:<br>
+<a href="#block_elemente"><code>[Block-Elemente]</code></a> |
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a> |
+<a href="#body"><code>body</code></a><br>
+(<code>body</code> nur bei <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#transitional">HTML Transitional</a>)
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Darf <a href="#pcdata"><code>#PCDATA</code></a> und folgende andere HTML-Elemente enthalten:<br>
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a></td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#code">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="col">col</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Definiert Daten für eine Tabellenspalte - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../tabellen/aufbau.htm#vordefinieren">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Strict,&nbsp;Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf innerhalb der folgenden HTML-Elemente vorkommen:<br>
+<a href="#colgroup"><code>colgroup</code></a> |
+<a href="#table"><code>table</code></a>
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Leeres Element (Standalone-Tag), darf keinen Inhalt haben</td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#col">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="colgroup">colgroup</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Definiert eine Gruppe von Tabellenspalten - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../tabellen/aufbau.htm#vordefinieren">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Strict,&nbsp;Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf nur innerhalb des folgenden HTML-Elements vorkommen:<br>
+<a href="#table"><code>table</code></a>
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Darf nur folgendes andere HTML-Element (einfach oder mehrfach) enthalten:<br>
+<a href="#col"><code>col</code></a></td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#colgroup">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="dd">dd</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Markiert in einer Definitionsliste eine Definition zu einem Term - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../text/listen.htm#definition">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Strict,&nbsp;Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf nur innerhalb des folgenden HTML-Elements vorkommen:<br>
+<a href="#dl"><code>dl</code></a>
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Darf <a href="#pcdata"><code>#PCDATA</code></a> und folgende andere HTML-Elemente enthalten:<br>
+<a href="#block_elemente"><code>[Block-Elemente]</code></a> |
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a>
+</td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#dd">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="del">del</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Markiert Text als gelöscht im Sinne von Änderungsmarkierung - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../text/logisch.htm#aenderungsmarkierung">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Strict,&nbsp;Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf innerhalb der folgenden HTML-Elemente vorkommen:<br>
+<a href="#block_elemente"><code>[Block-Elemente]</code></a> |
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a> |
+<a href="#body"><code>body</code></a>
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Darf <a href="#pcdata"><code>#PCDATA</code></a> und folgende andere HTML-Elemente enthalten:<br>
+<a href="#block_elemente"><code>[Block-Elemente]</code></a> bei Verwendung als Block-Element |
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a>
+</td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#del">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="dfn">dfn</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Markiert eine Definition - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../text/logisch.htm">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Strict,&nbsp;Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf innerhalb der folgenden HTML-Elemente vorkommen:<br>
+<a href="#block_elemente"><code>[Block-Elemente]</code></a> |
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a> |
+<a href="#body"><code>body</code></a><br>
+(<code>body</code> nur bei <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#transitional">HTML Transitional</a>)
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Darf <a href="#pcdata"><code>#PCDATA</code></a> und folgende andere HTML-Elemente enthalten:<br>
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a></td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#dfn">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="dir">dir</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Markiert eine Verzeichnisliste - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../text/listen.htm#verzeichnis_menue">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf innerhalb der folgenden HTML-Elemente vorkommen:<br>
+<a href="#applet"><code>applet</code></a> |
+<a href="#blockquote"><code>blockquote</code></a> |
+<a href="#body"><code>body</code></a> |
+<a href="#button"><code>button</code></a> |
+<a href="#center"><code>center</code></a> |
+<a href="#dd"><code>dd</code></a> |
+<a href="#del"><code>del</code></a> |
+<a href="#div"><code>div</code></a> |
+<a href="#fieldset"><code>fieldset</code></a> |
+<a href="#form"><code>form</code></a> |
+<a href="#iframe"><code>iframe</code></a> |
+<a href="#ins"><code>ins</code></a> |
+<a href="#li"><code>li</code></a> |
+<a href="#map"><code>map</code></a> |
+<a href="#noframes"><code>noframes</code></a> |
+<a href="#noscript"><code>noscript</code></a> |
+<a href="#object"><code>object</code></a> |
+<a href="#td"><code>td</code></a> |
+<a href="#th"><code>th</code></a>
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Muss folgendes andere HTML-Element enthalten (ein- oder mehrmal):<br>
+<a href="#li"><code>li</code></a><br>
+(Hinweis: <code>li</code> darf in diesem Zusammenhang keine Block-Elemente enthalten)
+</td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#dir">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="div">div</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Markiert einen allgemeinen Bereich - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../text/bereiche.htm#block">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf innerhalb der folgenden HTML-Elemente vorkommen:<br>
+<a href="#applet"><code>applet</code></a> |
+<a href="#blockquote"><code>blockquote</code></a> |
+<a href="#body"><code>body</code></a> |
+<a href="#button"><code>button</code></a> |
+<a href="#center"><code>center</code></a> |
+<a href="#dd"><code>dd</code></a> |
+<a href="#del"><code>del</code></a> |
+<a href="#div"><code>div</code></a> |
+<a href="#fieldset"><code>fieldset</code></a> |
+<a href="#form"><code>form</code></a> |
+<a href="#iframe"><code>iframe</code></a> |
+<a href="#ins"><code>ins</code></a> |
+<a href="#li"><code>li</code></a> |
+<a href="#map"><code>map</code></a> |
+<a href="#noframes"><code>noframes</code></a> |
+<a href="#noscript"><code>noscript</code></a> |
+<a href="#object"><code>object</code></a> |
+<a href="#td"><code>td</code></a> |
+<a href="#th"><code>th</code></a>
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Darf <a href="#pcdata"><code>#PCDATA</code></a> und folgende andere HTML-Elemente enthalten:<br>
+<a href="#block_elemente"><code>[Block-Elemente]</code></a> |
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a>
+</td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#div">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="dl">dl</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Markiert eine Definitionsliste - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../text/listen.htm#definition">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Strict,&nbsp;Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf innerhalb der folgenden HTML-Elemente vorkommen:<br>
+<a href="#applet"><code>applet</code></a> |
+<a href="#blockquote"><code>blockquote</code></a> |
+<a href="#body"><code>body</code></a> |
+<a href="#button"><code>button</code></a> |
+<a href="#center"><code>center</code></a> |
+<a href="#dd"><code>dd</code></a> |
+<a href="#del"><code>del</code></a> |
+<a href="#div"><code>div</code></a> |
+<a href="#fieldset"><code>fieldset</code></a> |
+<a href="#form"><code>form</code></a> |
+<a href="#iframe"><code>iframe</code></a> |
+<a href="#ins"><code>ins</code></a> |
+<a href="#li"><code>li</code></a> |
+<a href="#map"><code>map</code></a> |
+<a href="#noframes"><code>noframes</code></a> |
+<a href="#noscript"><code>noscript</code></a> |
+<a href="#object"><code>object</code></a> |
+<a href="#td"><code>td</code></a> |
+<a href="#th"><code>th</code></a>
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Darf folgende anderen HTML-Elemente enthalten:<br>
+<a href="#dd"><code>dd</code></a> |
+<a href="#dt"><code>dt</code></a>
+</td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#dl">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="dt">dt</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Markiert in einer Definitionsliste einen zu definierenden Term - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../text/listen.htm#definition">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Strict,&nbsp;Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf nur innerhalb des folgenden HTML-Elements vorkommen:<br>
+<a href="#dl"><code>dl</code></a>
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Darf <a href="#pcdata"><code>#PCDATA</code></a> und folgende andere HTML-Elemente enthalten:<br>
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a>
+</td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#dt">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="em">em</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Markiert Text als emphatisch - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../text/logisch.htm">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Strict,&nbsp;Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf innerhalb der folgenden HTML-Elemente vorkommen:<br>
+<a href="#block_elemente"><code>[Block-Elemente]</code></a> |
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a> |
+<a href="#body"><code>body</code></a><br>
+(<code>body</code> nur bei <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#transitional">HTML Transitional</a>)
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Darf <a href="#pcdata"><code>#PCDATA</code></a> und folgende andere HTML-Elemente enthalten:<br>
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a></td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#em">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="fieldset">fieldset</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Markiert eine Gruppe von Formularelementen - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../formulare/strukturieren.htm#gruppieren">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Strict,&nbsp;Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf innerhalb der folgenden HTML-Elemente vorkommen:<br>
+<a href="#applet"><code>applet</code></a> |
+<a href="#blockquote"><code>blockquote</code></a> |
+<a href="#body"><code>body</code></a> |
+<a href="#button"><code>button</code></a> |
+<a href="#center"><code>center</code></a> |
+<a href="#dd"><code>dd</code></a> |
+<a href="#del"><code>del</code></a> |
+<a href="#div"><code>div</code></a> |
+<a href="#fieldset"><code>fieldset</code></a> |
+<a href="#form"><code>form</code></a> |
+<a href="#iframe"><code>iframe</code></a> |
+<a href="#ins"><code>ins</code></a> |
+<a href="#li"><code>li</code></a> |
+<a href="#map"><code>map</code></a> |
+<a href="#noframes"><code>noframes</code></a> |
+<a href="#noscript"><code>noscript</code></a> |
+<a href="#object"><code>object</code></a> |
+<a href="#td"><code>td</code></a> |
+<a href="#th"><code>th</code></a><br>
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Darf neben <a href="#pcdata"><code>#PCDATA</code></a> folgende HTML-Elemente enthalten:<br>
+<a href="#legend"><code>legend</code></a>, gefolgt von:
+<a href="#block_elemente"><code>[Block-Elemente]</code></a> |
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a>
+</td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#fieldset">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="font">font</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Markiert Text mit Schriftgröße, Schriftfarbe und Schriftart - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../text/schrift.htm#art_groesse_farbe">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf innerhalb der folgenden HTML-Elemente vorkommen:<br>
+<a href="#block_elemente"><code>[Block-Elemente]</code></a> (außer <a href="#pre"><code>pre</code></a>) |
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a> |
+<a href="#body"><code>body</code></a><br>
+(<code>body</code> nur bei <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#transitional">HTML Transitional</a>)
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Darf <a href="#pcdata"><code>#PCDATA</code></a> und folgende andere HTML-Elemente enthalten:<br>
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a></td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#font">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="form">form</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Definiert ein Formular - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../formulare/definieren.htm">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Strict,&nbsp;Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf innerhalb der folgenden HTML-Elemente vorkommen:<br>
+<a href="#applet"><code>applet</code></a> |
+<a href="#blockquote"><code>blockquote</code></a> |
+<a href="#body"><code>body</code></a> |
+<a href="#button"><code>button</code></a> |
+<a href="#center"><code>center</code></a> |
+<a href="#dd"><code>dd</code></a> |
+<a href="#del"><code>del</code></a> |
+<a href="#div"><code>div</code></a> |
+<a href="#fieldset"><code>fieldset</code></a> |
+<a href="#iframe"><code>iframe</code></a> |
+<a href="#ins"><code>ins</code></a> |
+<a href="#li"><code>li</code></a> |
+<a href="#map"><code>map</code></a> |
+<a href="#noframes"><code>noframes</code></a> |
+<a href="#noscript"><code>noscript</code></a> |
+<a href="#object"><code>object</code></a> |
+<a href="#td"><code>td</code></a> |
+<a href="#th"><code>th</code></a><br>
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">
+1. nach <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#strict">HTML Strict</a>:<br>
+<a href="#block_elemente"><code>[Block-Elemente]</code></a> (außer <a href="#form"><code>form</code></a>) | <a href="#script"><code>script</code></a><br>
+2. nach <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#transitional">HTML Transitional</a>:<br>
+<a href="#block_elemente"><code>[Block-Elemente]</code></a> (außer <a href="#form"><code>form</code></a>) |
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a>
+</td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#form">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="frame">frame</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Definiert ein Frame-Fenster - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../frames/definieren.htm#frames">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in der Variante <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf nur innerhalb des folgenden HTML-Elements vorkommen:<br>
+<a href="#frameset"><code>frameset</code></a>
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Leeres Element (Standalone-Tag), darf keinen Inhalt haben</td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#frame">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="frameset">frameset</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Definiert ein Frameset - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../frames/definieren.htm#framesets">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in der Variante <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf innerhalb des folgenden HTML-Elements vorkommen:<br>
+<a href="#html"><code>html</code></a>
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Darf folgende HTML-Elemente enthalten:<br>
+<a href="#frame"><code>frame</code></a> |
+<a href="#frameset"><code>frameset</code></a> |
+<a href="#noframes"><code>noframes</code></a>
+</td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#frameset">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="h1_h6">h1-h6</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Markiert eine Überschrift 1. bis 6. Ordnung - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../text/ueberschriften.htm">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Strict,&nbsp;Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf innerhalb der folgenden HTML-Elemente vorkommen:<br>
+<a href="#applet"><code>applet</code></a> |
+<a href="#blockquote"><code>blockquote</code></a> |
+<a href="#body"><code>body</code></a> |
+<a href="#button"><code>button</code></a> |
+<a href="#center"><code>center</code></a> |
+<a href="#dd"><code>dd</code></a> |
+<a href="#del"><code>del</code></a> |
+<a href="#div"><code>div</code></a> |
+<a href="#fieldset"><code>fieldset</code></a> |
+<a href="#form"><code>form</code></a> |
+<a href="#iframe"><code>iframe</code></a> |
+<a href="#ins"><code>ins</code></a> |
+<a href="#li"><code>li</code></a> |
+<a href="#map"><code>map</code></a> |
+<a href="#noframes"><code>noframes</code></a> |
+<a href="#noscript"><code>noscript</code></a> |
+<a href="#object"><code>object</code></a> |
+<a href="#td"><code>td</code></a> |
+<a href="#th"><code>th</code></a>
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Darf <a href="#pcdata"><code>#PCDATA</code></a> und folgende andere HTML-Elemente enthalten:<br>
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a>
+</td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#h1_h6">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="head">head</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Markiert den Kopfbereich einer HTML-Datei - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../allgemein/grundgeruest.htm">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Strict,&nbsp;Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf innerhalb des folgenden HTML-Elements vorkommen:<br>
+<a href="#html"><code>html</code></a>
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">muss folgendes HTML-Element enthalten:
+<a href="#title"><code>title</code></a><br>
+Kann darüber hinaus folgende HTML-Elemente enthalten:<br>
+<a href="#base"><code>base</code></a> |
+<a href="#isindex"><code>isindex</code></a> |
+<a href="#link"><code>link</code></a> |
+<a href="#meta"><code>meta</code></a> |
+<a href="#object"><code>object</code></a> |
+<a href="#script"><code>script</code></a> |
+<a href="#style"><code>style</code></a><br>
+(<code>isindex</code> nur bei <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#transitional">HTML Transitional</a>)
+</td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#head">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="hr">hr</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Erzeugt eine horizontale Trennlinie - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../text/trennlinien.htm">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Strict,&nbsp;Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf innerhalb der folgenden HTML-Elemente vorkommen:<br>
+<a href="#applet"><code>applet</code></a> |
+<a href="#blockquote"><code>blockquote</code></a> |
+<a href="#body"><code>body</code></a> |
+<a href="#button"><code>button</code></a> |
+<a href="#center"><code>center</code></a> |
+<a href="#dd"><code>dd</code></a> |
+<a href="#del"><code>del</code></a> |
+<a href="#div"><code>div</code></a> |
+<a href="#fieldset"><code>fieldset</code></a> |
+<a href="#form"><code>form</code></a> |
+<a href="#iframe"><code>iframe</code></a> |
+<a href="#ins"><code>ins</code></a> |
+<a href="#li"><code>li</code></a> |
+<a href="#map"><code>map</code></a> |
+<a href="#noframes"><code>noframes</code></a> |
+<a href="#noscript"><code>noscript</code></a> |
+<a href="#object"><code>object</code></a> |
+<a href="#td"><code>td</code></a> |
+<a href="#th"><code>th</code></a>
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Leeres Element (Standalone-Tag), darf keinen Inhalt haben</td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#hr">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="html">html</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Wurzelelement einer HTML-Datei - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../allgemein/grundgeruest.htm">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Strict,&nbsp;Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Hat keine möglichen Elternelemente</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">
+1. nach <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#strict">HTML Strict</a> und <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#transitional">HTML Transitional</a> folgende HTML-Elemente:<br>
+<a href="#head"><code>head</code></a>, gefolgt von <a href="#body"><code>body</code></a><br>
+2. nach <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#frameset">HTML Frameset</a> folgende HTML-Elemente:<br>
+<a href="#head"><code>head</code></a>, gefolgt von <a href="#frameset"><code>frameset</code></a><br>
+</td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#html">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="i">i</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Markiert kursiv gedruckten Text - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../text/physisch.htm">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Strict,&nbsp;Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf innerhalb der folgenden HTML-Elemente vorkommen:<br>
+<a href="#block_elemente"><code>[Block-Elemente]</code></a> |
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a> |
+<a href="#body"><code>body</code></a><br>
+(<code>body</code> nur bei <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#transitional">HTML Transitional</a>)
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Darf <a href="#pcdata"><code>#PCDATA</code></a> und folgende andere HTML-Elemente enthalten:<br>
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a></td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#i">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="iframe">iframe</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Definiert ein eingebettetes Fenster - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../frames/eingebettete.htm">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf innerhalb der folgenden HTML-Elemente vorkommen:<br>
+<a href="#block_elemente"><code>[Block-Elemente]</code></a> |
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a> (außer <a href="#button"><code>button</code></a>) |
+<a href="#body"><code>body</code></a><br>
+(<code>body</code> nur bei <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#transitional">HTML Transitional</a>)
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Darf <a href="#pcdata"><code>#PCDATA</code></a> und folgende andere HTML-Elemente enthalten:<br>
+<a href="#block_elemente"><code>[Block-Elemente]</code></a> |
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a>
+</td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#iframe">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="img">img</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Referenziert eine Grafik - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../grafiken/einbinden.htm">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Strict,&nbsp;Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf innerhalb der folgenden HTML-Elemente vorkommen:<br>
+<a href="#block_elemente"><code>[Block-Elemente]</code></a> (außer <a href="#pre"><code>pre</code></a>) |
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a> |
+<a href="#body"><code>body</code></a><br>
+(<code>body</code> nur bei <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#transitional">HTML Transitional</a>)
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Leeres Element (Standalone-Tag), darf keinen Inhalt haben
+</td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#img">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="input">input</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Erzeugt ein Formularelement, Typ wird durch Attribut bestimmt - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../formulare/eingabe.htm">Beschreibung (Eingabefelder)</a>, <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../formulare/auswahl.htm#radiobuttons">Beschreibung (Radio-Buttons)</a>, <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../formulare/auswahl.htm#checkboxen">Beschreibung (Checkboxen)</a>, <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../formulare/klickbuttons.htm#herkoemmlich">Beschreibung (Klick-Buttons)</a>, <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../formulare/datei_upload.htm">Beschreibung (Datei-Upload-Felder)</a>, <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../formulare/versteckte.htm">Beschreibung (versteckte Elemente)</a>, <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../formulare/formularbuttons.htm#herkoemmlich">Beschreibung (Submit-/Resetbuttons)</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Strict,&nbsp;Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf innerhalb der folgenden HTML-Elemente vorkommen:<br>
+<a href="#block_elemente"><code>[Block-Elemente]</code></a> |
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a>  (außer <a href="#button"><code>button</code></a>) |
+<a href="#body"><code>body</code></a><br>
+(<code>body</code> nur bei <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#transitional">HTML Transitional</a>)
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Leeres Element (Standalone-Tag), darf keinen Inhalt haben
+</td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#input">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="ins">ins</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Markiert Text als eingefügt im Sinne von Änderungsmarkierung - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../text/logisch.htm#aenderungsmarkierung">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Strict,&nbsp;Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf innerhalb der folgenden HTML-Elemente vorkommen:<br>
+<a href="#block_elemente"><code>[Block-Elemente]</code></a> |
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a> |
+<a href="#body"><code>body</code></a>
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Darf <a href="#pcdata"><code>#PCDATA</code></a> und folgende andere HTML-Elemente enthalten:<br>
+<a href="#block_elemente"><code>[Block-Elemente]</code></a> bei Verwendung als Block-Element |
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a>
+</td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#ins">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="isindex">isindex</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Erzeugt ein einzeiliges Eingabefeld - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../kopfdaten/durchsuchbarkeit.htm">Beschreibung</a></td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf innerhalb der folgenden HTML-Elemente vorkommen:<br>
+<a href="#applet"><code>applet</code></a> |
+<a href="#blockquote"><code>blockquote</code></a> |
+<a href="#body"><code>body</code></a> |
+<a href="#center"><code>center</code></a> |
+<a href="#dd"><code>dd</code></a> |
+<a href="#del"><code>del</code></a> |
+<a href="#div"><code>div</code></a> |
+<a href="#fieldset"><code>fieldset</code></a> |
+<a href="#form"><code>form</code></a> |
+<a href="#head"><code>head</code></a> |
+<a href="#iframe"><code>iframe</code></a> |
+<a href="#ins"><code>ins</code></a> |
+<a href="#li"><code>li</code></a> |
+<a href="#map"><code>map</code></a> |
+<a href="#noframes"><code>noframes</code></a> |
+<a href="#noscript"><code>noscript</code></a> |
+<a href="#object"><code>object</code></a> |
+<a href="#td"><code>td</code></a> |
+<a href="#th"><code>th</code></a>
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Leeres Element (Standalone-Tag), darf keinen Inhalt haben
+</td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#isindex">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="kbd">kbd</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Markiert Text als Tastatureingabe - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../text/logisch.htm">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Strict,&nbsp;Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf innerhalb der folgenden HTML-Elemente vorkommen:<br>
+<a href="#block_elemente"><code>[Block-Elemente]</code></a> |
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a> |
+<a href="#body"><code>body</code></a><br>
+(<code>body</code> nur bei <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#transitional">HTML Transitional</a>)
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Darf <a href="#pcdata"><code>#PCDATA</code></a> und folgende andere HTML-Elemente enthalten:<br>
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a></td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#kbd">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="label">label</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Ordnet Text einem bestimmten Formularfeld zu - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../formulare/strukturieren.htm#label">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Strict,&nbsp;Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf innerhalb der folgenden HTML-Elemente vorkommen:<br>
+<a href="#block_elemente"><code>[Block-Elemente]</code></a> |
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a> (außer <a href="#button"><code>button</code></a>) |
+<a href="#body"><code>body</code></a><br>
+(<code>body</code> nur bei <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#transitional">HTML Transitional</a>)
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Darf <a href="#pcdata"><code>#PCDATA</code></a> und folgende andere HTML-Elemente enthalten:<br>
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a> (außer <a href="#label"><code>label</code></a>)
+</td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#label">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="legend">legend</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Definiert eine Überschrift für eine Gruppe von Formularelementen - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../formulare/strukturieren.htm#gruppieren">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Strict,&nbsp;Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf nur innerhalb der folgenden HTML-Elements vorkommen:<br>
+<a href="#fieldset"><code>fieldset</code></a>
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Darf <a href="#pcdata"><code>#PCDATA</code></a> und folgende andere HTML-Elemente enthalten:<br>
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a>
+</td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#legend">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="li">li</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Markiert einen Listeneintrag - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../text/listen.htm">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Strict,&nbsp;Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf innerhalb der folgenden HTML-Elemente vorkommen:<br>
+<a href="#dir"><code>dir</code></a> |
+<a href="#menu"><code>menu</code></a> |
+<a href="#ol"><code>ol</code></a> |
+<a href="#ul"><code>ul</code></a>
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Darf <a href="#pcdata"><code>#PCDATA</code></a> und folgende andere HTML-Elemente enthalten:<br>
+1. bei <code>dir</code> und <code>menu</code>:<br>
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a><br>
+2. bei <code>ol</code> und <code>ul</code>:<br>
+<a href="#block_elemente"><code>[Block-Elemente]</code></a> |
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a>
+</td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#li">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="link">link</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Definiert logische Beziehungen zu anderen Dateien - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../kopfdaten/beziehungen.htm">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Strict,&nbsp;Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf nur innerhalb des folgenden HTML-Elements vorkommen:<br>
+<a href="#head"><code>head</code></a>
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Leeres Element (Standalone-Tag), darf keinen Inhalt haben</td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#link">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="map">map</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Markiert einen Definitionsbereich für verweis-sensitive Grafiken - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../grafiken/verweis_sensitive.htm#definieren">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Strict,&nbsp;Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf innerhalb der folgenden HTML-Elemente vorkommen:<br>
+<a href="#block_elemente"><code>[Block-Elemente]</code></a> |
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a>
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Muss eines der folgenden anderen HTML-Elemente enthalten:<br>
+<a href="#block_elemente"><code>[Block-Elemente]</code></a> |
+<a href="#area"><code>area</code></a>
+</td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#map">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="menu">menu</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Markiert eine Menüliste - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../text/listen.htm#verzeichnis_menue">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf innerhalb der folgenden HTML-Elemente vorkommen:<br>
+<a href="#applet"><code>applet</code></a> |
+<a href="#blockquote"><code>blockquote</code></a> |
+<a href="#body"><code>body</code></a> |
+<a href="#button"><code>button</code></a> |
+<a href="#center"><code>center</code></a> |
+<a href="#dd"><code>dd</code></a> |
+<a href="#del"><code>del</code></a> |
+<a href="#div"><code>div</code></a> |
+<a href="#fieldset"><code>fieldset</code></a> |
+<a href="#form"><code>form</code></a> |
+<a href="#iframe"><code>iframe</code></a> |
+<a href="#ins"><code>ins</code></a> |
+<a href="#li"><code>li</code></a> |
+<a href="#map"><code>map</code></a> |
+<a href="#noframes"><code>noframes</code></a> |
+<a href="#noscript"><code>noscript</code></a> |
+<a href="#object"><code>object</code></a> |
+<a href="#td"><code>td</code></a> |
+<a href="#th"><code>th</code></a>
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Muss folgendes andere HTML-Element enthalten (ein- oder mehrmal):<br>
+<a href="#li"><code>li</code></a><br>
+(Hinweis: <code>li</code> darf in diesem Zusammenhang keine Block-Elemente enthalten)
+</td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#menu">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="meta">meta</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Definiert Meta-Daten wie Kurzbeschreibung und Stichwörter für eine Datei - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../kopfdaten/meta.htm">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Strict,&nbsp;Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf nur innerhalb des folgenden HTML-Elements vorkommen:<br>
+<a href="#head"><code>head</code></a>
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Leeres Element (Standalone-Tag), darf keinen Inhalt haben</td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#meta">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="noframes">noframes</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Markiert einen Bereich für den Fall, dass keine Frames angezeigt werden können - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../frames/definieren.htm#noframes">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf innerhalb der folgenden HTML-Elemente vorkommen:<br>
+<a href="#applet"><code>applet</code></a> |
+<a href="#blockquote"><code>blockquote</code></a> |
+<a href="#body"><code>body</code></a> |
+<a href="#button"><code>button</code></a> |
+<a href="#center"><code>center</code></a> |
+<a href="#dd"><code>dd</code></a> |
+<a href="#del"><code>del</code></a> |
+<a href="#div"><code>div</code></a> |
+<a href="#fieldset"><code>fieldset</code></a> |
+<a href="#form"><code>form</code></a> |
+<a href="#frameset"><code>frameset</code></a> |
+<a href="#iframe"><code>iframe</code></a> |
+<a href="#ins"><code>ins</code></a> |
+<a href="#li"><code>li</code></a> |
+<a href="#map"><code>map</code></a> |
+<a href="#noscript"><code>noscript</code></a> |
+<a href="#object"><code>object</code></a> |
+<a href="#td"><code>td</code></a> |
+<a href="#th"><code>th</code></a>
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Darf <a href="#pcdata"><code>#PCDATA</code></a> und folgende andere HTML-Elemente enthalten:<br>
+1. nach <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#frameset">HTML Frameset</a>:<br>
+<a href="#body"><code>body</code></a><br>
+2. nach <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#transitional">HTML Transitional</a>:<br>
+<a href="#block_elemente"><code>[Block-Elemente]</code></a> |
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a>
+</td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#noframes">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="noscript">noscript</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Markiert einen Bereich für den Fall, dass ein Script nicht ausgeführt werden kann - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../transit/scripts.htm#noscript">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Strict,&nbsp;Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf innerhalb der folgenden HTML-Elemente vorkommen:<br>
+<a href="#applet"><code>applet</code></a> |
+<a href="#blockquote"><code>blockquote</code></a> |
+<a href="#body"><code>body</code></a> |
+<a href="#button"><code>button</code></a> |
+<a href="#center"><code>center</code></a> |
+<a href="#dd"><code>dd</code></a> |
+<a href="#del"><code>del</code></a> |
+<a href="#div"><code>div</code></a> |
+<a href="#fieldset"><code>fieldset</code></a> |
+<a href="#form"><code>form</code></a> |
+<a href="#iframe"><code>iframe</code></a> |
+<a href="#ins"><code>ins</code></a> |
+<a href="#li"><code>li</code></a> |
+<a href="#map"><code>map</code></a> |
+<a href="#noframes"><code>noframes</code></a> |
+<a href="#noscript"><code>noscript</code></a> |
+<a href="#object"><code>object</code></a> |
+<a href="#td"><code>td</code></a> |
+<a href="#th"><code>th</code></a>
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Darf enthalten:<br>
+1. nach <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#strict">HTML Strict</a>:<br>
+<a href="#block_elemente"><code>[Block-Elemente]</code></a><br>
+2. nach <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#transitional">HTML Transitional</a>:<br>
+<a href="#pcdata"><code>#PCDATA</code></a> und <a href="#block_elemente"><code>[Block-Elemente]</code></a> |
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a>
+</td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#noscript">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="object">object</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Definiert ein Multimediaobjekt - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../multimedia/objekte.htm">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Strict,&nbsp;Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf innerhalb der folgenden HTML-Elemente vorkommen:<br>
+<a href="#block_elemente"><code>[Block-Elemente]</code></a> (außer <a href="#pre"><code>pre</code></a>) |
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a> |
+<a href="#head"><code>head</code></a>
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Darf <a href="#pcdata"><code>#PCDATA</code></a> und folgende andere HTML-Elemente enthalten:<br>
+<a href="#block_elemente"><code>[Block-Elemente]</code></a> |
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a> |
+<a href="#param"><code>param</code></a>
+</td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#object">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="ol">ol</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Markiert eine nummerierte Liste - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../text/listen.htm#nummeriert">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Strict,&nbsp;Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf innerhalb der folgenden HTML-Elemente vorkommen:<br>
+<a href="#applet"><code>applet</code></a> |
+<a href="#blockquote"><code>blockquote</code></a> |
+<a href="#body"><code>body</code></a> |
+<a href="#button"><code>button</code></a> |
+<a href="#center"><code>center</code></a> |
+<a href="#dd"><code>dd</code></a> |
+<a href="#del"><code>del</code></a> |
+<a href="#div"><code>div</code></a> |
+<a href="#fieldset"><code>fieldset</code></a> |
+<a href="#form"><code>form</code></a> |
+<a href="#iframe"><code>iframe</code></a> |
+<a href="#ins"><code>ins</code></a> |
+<a href="#li"><code>li</code></a> |
+<a href="#map"><code>map</code></a> |
+<a href="#noframes"><code>noframes</code></a> |
+<a href="#noscript"><code>noscript</code></a> |
+<a href="#object"><code>object</code></a> |
+<a href="#td"><code>td</code></a> |
+<a href="#th"><code>th</code></a>
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Darf folgendes andere HTML-Element enthalten (ein- oder mehrmal):<br>
+<a href="#li"><code>li</code></a>
+</td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#ol">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="optgroup">optgroup</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Markiert eine Gruppe von Einträgen in einer Menüstruktur - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../formulare/auswahl.htm#menuestruktur">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Strict,&nbsp;Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf nur innerhalb des folgenden HTML-Elements vorkommen:<br>
+<a href="#select"><code>select</code></a>
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Darf folgendes andere HTML-Element enthalten (ein- oder mehrmal):<br>
+<a href="#option"><code>option</code></a>
+</td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#optgroup">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="option">option</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Markiert einen Eintrag in einer Auswahlliste - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../formulare/auswahl.htm#listen">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Strict,&nbsp;Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf innerhalb der folgenden HTML-Elemente vorkommen:<br>
+<a href="#select"><code>select</code></a> |
+<a href="#optgroup"><code>optgroup</code></a>
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Darf nichts als <a href="#pcdata"><code>#PCDATA</code></a> enthalten.
+</td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#option">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="p">p</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Markiert einen Textabsatz - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../text/absaetze.htm">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Strict,&nbsp;Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf innerhalb der folgenden HTML-Elemente vorkommen:<br>
+<a href="#address"><code>address</code></a> |
+<a href="#applet"><code>applet</code></a> |
+<a href="#blockquote"><code>blockquote</code></a> |
+<a href="#body"><code>body</code></a> |
+<a href="#button"><code>button</code></a> |
+<a href="#center"><code>center</code></a> |
+<a href="#dd"><code>dd</code></a> |
+<a href="#del"><code>del</code></a> |
+<a href="#div"><code>div</code></a> |
+<a href="#fieldset"><code>fieldset</code></a> |
+<a href="#form"><code>form</code></a> |
+<a href="#iframe"><code>iframe</code></a> |
+<a href="#ins"><code>ins</code></a> |
+<a href="#li"><code>li</code></a> |
+<a href="#map"><code>map</code></a> |
+<a href="#noframes"><code>noframes</code></a> |
+<a href="#noscript"><code>noscript</code></a> |
+<a href="#object"><code>object</code></a> |
+<a href="#td"><code>td</code></a> |
+<a href="#th"><code>th</code></a>
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Darf <a href="#pcdata"><code>#PCDATA</code></a> und folgende andere HTML-Elemente enthalten:<br>
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a>
+</td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#p">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="param">param</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Definiert Parameter eines Multimediaobjekts oder Java-Applets - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../multimedia/objekte.htm#java_applets">Beschreibung (Objekte)</a>, <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../multimedia/java_applets.htm">Beschreibung (Java-Applets)</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Strict,&nbsp;Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf innerhalb der folgenden HTML-Elemente vorkommen:<br>
+<a href="#applet"><code>applet</code></a> |
+<a href="#object"><code>object</code></a>
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Leeres Element (Standalone-Tag), darf keinen Inhalt haben</td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#param">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="pre">pre</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Formatiert einen Bereich wie im Editor eingegeben (präformatierter Text) - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../text/praeformatiert.htm">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Strict,&nbsp;Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf innerhalb der folgenden HTML-Elemente vorkommen:<br>
+<a href="#applet"><code>applet</code></a> |
+<a href="#blockquote"><code>blockquote</code></a> |
+<a href="#body"><code>body</code></a> |
+<a href="#button"><code>button</code></a> |
+<a href="#center"><code>center</code></a> |
+<a href="#dd"><code>dd</code></a> |
+<a href="#del"><code>del</code></a> |
+<a href="#div"><code>div</code></a> |
+<a href="#fieldset"><code>fieldset</code></a> |
+<a href="#form"><code>form</code></a> |
+<a href="#iframe"><code>iframe</code></a> |
+<a href="#ins"><code>ins</code></a> |
+<a href="#li"><code>li</code></a> |
+<a href="#map"><code>map</code></a> |
+<a href="#noframes"><code>noframes</code></a> |
+<a href="#noscript"><code>noscript</code></a> |
+<a href="#object"><code>object</code></a> |
+<a href="#td"><code>td</code></a> |
+<a href="#th"><code>th</code></a>
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Darf <a href="#pcdata"><code>#PCDATA</code></a> und folgende andere HTML-Elemente enthalten:<br>
+<a href="#a"><code>a</code></a> |
+<a href="#abbr"><code>abbr</code></a> |
+<a href="#acronym"><code>acronym</code></a> |
+<a href="#applet"><code>applet</code></a> |
+<a href="#b"><code>b</code></a> |
+<a href="#bdo"><code>bdo</code></a> |
+<a href="#br"><code>br</code></a> |
+<a href="#button"><code>button</code></a> |
+<a href="#cite"><code>cite</code></a> |
+<a href="#code"><code>code</code></a> |
+<a href="#dfn"><code>dfn</code></a> |
+<a href="#em"><code>em</code></a> |
+<a href="#i"><code>i</code></a> |
+<a href="#input"><code>input</code></a> |
+<a href="#iframe"><code>iframe</code></a> |
+<a href="#kbd"><code>kbd</code></a> |
+<a href="#label"><code>label</code></a> |
+<a href="#map"><code>map</code></a> |
+<a href="#q"><code>q</code></a> |
+<a href="#samp"><code>samp</code></a> |
+<a href="#script"><code>script</code></a> |
+<a href="#select"><code>select</code></a> |
+<a href="#span"><code>span</code></a> |
+<a href="#strong"><code>strong</code></a> |
+<a href="#textarea"><code>textarea</code></a> |
+<a href="#tt"><code>tt</code></a> |
+<a href="#var"><code>var</code></a>
+</td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#pre">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="q">q</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Markiert ein Zitat - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../text/logisch.htm">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Strict,&nbsp;Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf innerhalb der folgenden HTML-Elemente vorkommen:<br>
+<a href="#block_elemente"><code>[Block-Elemente]</code></a> |
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a> |
+<a href="#body"><code>body</code></a><br>
+(<code>body</code> nur bei <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#transitional">HTML Transitional</a>)
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Darf <a href="#pcdata"><code>#PCDATA</code></a> und folgende andere HTML-Elemente enthalten:<br>
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a></td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#q">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="s">s</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Markiert Text als durchgestrichen - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../text/physisch.htm">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf innerhalb der folgenden HTML-Elemente vorkommen:<br>
+<a href="#block_elemente"><code>[Block-Elemente]</code></a> |
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a> |
+<a href="#body"><code>body</code></a><br>
+(<code>body</code> nur bei <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#transitional">HTML Transitional</a>)
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Darf <a href="#pcdata"><code>#PCDATA</code></a> und folgende andere HTML-Elemente enthalten:<br>
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a></td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#s">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="samp">samp</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Markiert Text als Beispiel - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../text/logisch.htm">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Strict,&nbsp;Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf innerhalb der folgenden HTML-Elemente vorkommen:<br>
+<a href="#block_elemente"><code>[Block-Elemente]</code></a> |
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a> |
+<a href="#body"><code>body</code></a><br>
+(<code>body</code> nur bei <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#transitional">HTML Transitional</a>)
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Darf <a href="#pcdata"><code>#PCDATA</code></a> und folgende andere HTML-Elemente enthalten:<br>
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a></td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#samp">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="script">script</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Definiert einen Bereich für Scripts (z.B. JavaScript) - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../transit/scripts.htm#definieren">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Strict,&nbsp;Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf innerhalb der folgenden HTML-Elemente vorkommen:<br>
+<a href="#block_elemente"><code>[Block-Elemente]</code></a> |
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a> |
+<a href="#head"><code>head</code></a> |
+<a href="#body"><code>body</code></a>
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Darf nichts als <a href="#pcdata"><code>#PCDATA</code></a> enthalten, die als Script-Code zu interpretieren sind
+</td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#script">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="select">select</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Definiert eine Auswahlliste - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../formulare/auswahl.htm#listen">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Strict,&nbsp;Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf innerhalb der folgenden HTML-Elemente vorkommen:<br>
+<a href="#block_elemente"><code>[Block-Elemente]</code></a> |
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a> (außer <a href="#button"><code>button</code></a>) |
+<a href="#body"><code>body</code></a><br>
+(<code>body</code> nur bei <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#transitional">HTML Transitional</a>)
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Darf <a href="#pcdata"><code>#PCDATA</code></a> und folgende andere HTML-Elemente enthalten:<br>
+<a href="#optgroup"><code>optgroup</code></a> |
+<a href="#option"><code>option</code></a>
+</td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#select">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="small">small</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Markiert Text, der kleiner dargestellt wird als normal - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../text/physisch.htm">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Strict,&nbsp;Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf innerhalb der folgenden HTML-Elemente vorkommen:<br>
+<a href="#block_elemente"><code>[Block-Elemente]</code></a> (außer <a href="#pre"><code>pre</code></a>) |
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a> |
+<a href="#body"><code>body</code></a><br>
+(<code>body</code> nur bei <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#transitional">HTML Transitional</a>)
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Darf <a href="#pcdata"><code>#PCDATA</code></a> und folgende andere HTML-Elemente enthalten:<br>
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a></td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#small">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="span">span</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Markiert einen inline-Bereich zur Formatierung, z.B. mit CSS - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../text/bereiche.htm#inline">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Strict,&nbsp;Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf innerhalb der folgenden HTML-Elemente vorkommen:<br>
+<a href="#block_elemente"><code>[Block-Elemente]</code></a> |
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a> |
+<a href="#body"><code>body</code></a><br>
+(<code>body</code> nur bei <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#transitional">HTML Transitional</a>)
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Darf <a href="#pcdata"><code>#PCDATA</code></a> und folgende andere HTML-Elemente enthalten:<br>
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a></td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#span">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="strike">strike</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Markiert einen Text als durchgestrichen - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../text/physisch.htm">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf innerhalb der folgenden HTML-Elemente vorkommen:<br>
+<a href="#block_elemente"><code>[Block-Elemente]</code></a> |
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a> |
+<a href="#body"><code>body</code></a><br>
+(<code>body</code> nur bei <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#transitional">HTML Transitional</a>)
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Darf <a href="#pcdata"><code>#PCDATA</code></a> und folgende andere HTML-Elemente enthalten:<br>
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a></td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#strike">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="strong">strong</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Markiert einen Text als betont - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../text/logisch.htm">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Strict,&nbsp;Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf innerhalb der folgenden HTML-Elemente vorkommen:<br>
+<a href="#block_elemente"><code>[Block-Elemente]</code></a> |
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a> |
+<a href="#body"><code>body</code></a><br>
+(<code>body</code> nur bei <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#transitional">HTML Transitional</a>)
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Darf <a href="#pcdata"><code>#PCDATA</code></a> und folgende andere HTML-Elemente enthalten:<br>
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a></td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#strong">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="style">style</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Markiert einen Bereich für Stylesheet-Definitionen, z.B. in CSS - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../transit/stylesheets.htm">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Strict,&nbsp;Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf nur innerhalb des folgenden HTML-Elements vorkommen:<br>
+<a href="#head"><code>head</code></a>
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Darf nichts als <a href="#pcdata"><code>#PCDATA</code></a> enthalten, die als Style-Definitionen interpretiert werden
+</td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#style">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="sub">sub</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Markiert einen Text als tiefgestellt - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../text/physisch.htm">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Strict,&nbsp;Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf innerhalb der folgenden HTML-Elemente vorkommen:<br>
+<a href="#block_elemente"><code>[Block-Elemente]</code></a> (außer <a href="#pre"><code>pre</code></a>) |
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a> |
+<a href="#body"><code>body</code></a><br>
+(<code>body</code> nur bei <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#transitional">HTML Transitional</a>)
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Darf <a href="#pcdata"><code>#PCDATA</code></a> und folgende andere HTML-Elemente enthalten:<br>
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a></td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#sub">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="sup">sup</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Markiert einen Text als hochgestellt - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../text/physisch.htm">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Strict,&nbsp;Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf innerhalb der folgenden HTML-Elemente vorkommen:<br>
+<a href="#block_elemente"><code>[Block-Elemente]</code></a> (außer <a href="#pre"><code>pre</code></a>) |
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a> |
+<a href="#body"><code>body</code></a><br>
+(<code>body</code> nur bei <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#transitional">HTML Transitional</a>)
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Darf <a href="#pcdata"><code>#PCDATA</code></a> und folgende andere HTML-Elemente enthalten:<br>
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a></td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#sup">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="table">table</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Erzeugt eine Tabelle - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../tabellen/aufbau.htm#definieren">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Strict,&nbsp;Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf innerhalb der folgenden HTML-Elemente vorkommen:<br>
+<a href="#applet"><code>applet</code></a> |
+<a href="#blockquote"><code>blockquote</code></a> |
+<a href="#body"><code>body</code></a> |
+<a href="#button"><code>button</code></a> |
+<a href="#center"><code>center</code></a> |
+<a href="#dd"><code>dd</code></a> |
+<a href="#del"><code>del</code></a> |
+<a href="#div"><code>div</code></a> |
+<a href="#fieldset"><code>fieldset</code></a> |
+<a href="#form"><code>form</code></a> |
+<a href="#iframe"><code>iframe</code></a> |
+<a href="#ins"><code>ins</code></a> |
+<a href="#li"><code>li</code></a> |
+<a href="#map"><code>map</code></a> |
+<a href="#noframes"><code>noframes</code></a> |
+<a href="#noscript"><code>noscript</code></a> |
+<a href="#object"><code>object</code></a> |
+<a href="#td"><code>td</code></a> |
+<a href="#th"><code>th</code></a>
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Darf folgende anderen HTML-Elemente (in dieser Reihenfolge) enthalten:<br>
+<a href="#caption"><code>caption</code></a> (optional),
+<a href="#col"><code>col</code></a> oder <a href="#colgroup"><code>colgroup</code></a> (optional),
+<a href="#thead"><code>thead</code></a> (optional),
+<a href="#tfoot"><code>tfoot</code></a> (optional),
+<a href="#tbody"><code>tbody</code></a> (ein oder mehrere - wenn nur einmal benötigt, darf <code>tbody</code> auch entfallen, weshalb die herkömmliche Konstruktion, wonach <code>table</code> direkt aus <a href="#tr"><code>tr</code></a>-Elementen besteht, ebenfalls zulässig ist)
+</td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#table">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="tbody">tbody</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Bestimmt in einer Tabelle den Tabellenkörper - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../tabellen/aufbau.htm#kopf_koerper_fuss">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Strict,&nbsp;Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf nur innerhalb des folgenden HTML-Elements vorkommen:<br>
+<a href="#table"><code>table</code></a>
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Darf nur folgendes andere HTML-Element (einfach oder mehrfach) enthalten:<br>
+<a href="#tr"><code>tr</code></a></td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#tbody">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="td">td</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Markiert eine Tabellenzelle - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../tabellen/aufbau.htm#definieren">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Strict,&nbsp;Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf nur innerhalb des folgenden HTML-Elements vorkommen:<br>
+<a href="#tr"><code>tr</code></a>
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Darf folgende andere HTML-Elemente enthalten:<br>
+<a href="#block_elemente"><code>[Block-Elemente]</code></a> |
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a>
+</td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#td">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="textarea">textarea</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Definiert ein mehrzeiliges Eingabefeld - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../formulare/eingabe.htm#bereiche">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Strict,&nbsp;Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf innerhalb der folgenden HTML-Elemente vorkommen:<br>
+<a href="#block_elemente"><code>[Block-Elemente]</code></a> |
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a> (außer <a href="#button"><code>button</code></a>) |
+<a href="#body"><code>body</code></a><br>
+(<code>body</code> nur bei <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#transitional">HTML Transitional</a>)
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Darf nichts als <a href="#pcdata"><code>#PCDATA</code></a> enthalten</td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#textarea">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="tfoot">tfoot</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Bestimmt in einer Tabelle den Tabellenfuß - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../tabellen/aufbau.htm#kopf_koerper_fuss">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Strict,&nbsp;Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf nur innerhalb des folgenden HTML-Elements vorkommen:<br>
+<a href="#table"><code>table</code></a>
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Darf nur folgendes andere HTML-Element (einfach oder mehrfach) enthalten:<br>
+<a href="#tr"><code>tr</code></a></td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#tfoot">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="th">th</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Markiert eine Tabellenkopfzelle - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../tabellen/aufbau.htm#definieren">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Strict,&nbsp;Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf nur innerhalb des folgenden HTML-Elements vorkommen:<br>
+<a href="#tr"><code>tr</code></a>
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Darf folgende andere HTML-Elemente enthalten:<br>
+<a href="#block_elemente"><code>[Block-Elemente]</code></a> |
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a>
+</td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#th">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="thead">thead</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Bestimmt in einer Tabelle den Tabellenkopf - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../tabellen/aufbau.htm#kopf_koerper_fuss">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Strict,&nbsp;Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf nur innerhalb des folgenden HTML-Elements vorkommen:<br>
+<a href="#table"><code>table</code></a>
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Darf nur folgendes andere HTML-Element (einfach oder mehrfach) enthalten:<br>
+<a href="#tr"><code>tr</code></a></td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#thead">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="title">title</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Definiert den Titel einer HTML-Datei - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../kopfdaten/titel.htm">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Strict,&nbsp;Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf nur innerhalb des folgenden HTML-Elements vorkommen:<br>
+<a href="#head"><code>head</code></a>
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Darf nichts als <a href="#pcdata"><code>#PCDATA</code></a> enthalten.
+</td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#title">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="tr">tr</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Definiert eine Tabellenzeile - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../tabellen/aufbau.htm#definieren">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Strict,&nbsp;Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf innerhalb der folgenden HTML-Elemente vorkommen:<br>
+<a href="#table"><code>table</code></a> |
+<a href="#tbody"><code>tbody</code></a> |
+<a href="#tfoot"><code>tfoot</code></a> |
+<a href="#thead"><code>thead</code></a>
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Darf folgende anderen HTML-Elemente enthalten:<br>
+<a href="#td"><code>td</code></a> |
+<a href="#th"><code>th</code></a>
+</td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#tr">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="tt">tt</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Markiert einen Text, der im Schreibmaschinenstil dargestellt wird - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../text/physisch.htm">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Strict,&nbsp;Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf innerhalb der folgenden HTML-Elemente vorkommen:<br>
+<a href="#block_elemente"><code>[Block-Elemente]</code></a> |
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a> |
+<a href="#body"><code>body</code></a><br>
+(<code>body</code> nur bei <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#transitional">HTML Transitional</a>)
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Darf <a href="#pcdata"><code>#PCDATA</code></a> und folgende andere HTML-Elemente enthalten:<br>
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a></td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#tt">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="u">u</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Markiert einen Text als unterstrichen - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../text/physisch.htm">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf innerhalb der folgenden HTML-Elemente vorkommen:<br>
+<a href="#block_elemente"><code>[Block-Elemente]</code></a> |
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a> |
+<a href="#body"><code>body</code></a><br>
+(<code>body</code> nur bei <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#transitional">HTML Transitional</a>)
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Darf <a href="#pcdata"><code>#PCDATA</code></a> und folgende andere HTML-Elemente enthalten:<br>
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a></td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#u">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="ul">ul</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Markiert eine Aufzählungsliste - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../text/listen.htm#aufzaehlung">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Strict,&nbsp;Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf innerhalb der folgenden HTML-Elemente vorkommen:<br>
+<a href="#applet"><code>applet</code></a> |
+<a href="#blockquote"><code>blockquote</code></a> |
+<a href="#body"><code>body</code></a> |
+<a href="#button"><code>button</code></a> |
+<a href="#center"><code>center</code></a> |
+<a href="#dd"><code>dd</code></a> |
+<a href="#del"><code>del</code></a> |
+<a href="#div"><code>div</code></a> |
+<a href="#fieldset"><code>fieldset</code></a> |
+<a href="#form"><code>form</code></a> |
+<a href="#iframe"><code>iframe</code></a> |
+<a href="#ins"><code>ins</code></a> |
+<a href="#li"><code>li</code></a> |
+<a href="#map"><code>map</code></a> |
+<a href="#noframes"><code>noframes</code></a> |
+<a href="#noscript"><code>noscript</code></a> |
+<a href="#object"><code>object</code></a> |
+<a href="#td"><code>td</code></a> |
+<a href="#th"><code>th</code></a>
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Darf folgendes andere HTML-Element enthalten (ein- oder mehrmal):<br>
+<a href="#li"><code>li</code></a>
+</td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#ul">Attribute</a></td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="var">var</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th width="160">Bedeutung</th>
+<td class="tabxpl">Markiert einen Text als Variable - siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../text/logisch.htm">Beschreibung</a>.</td>
+</tr>
+<tr>
+<th width="160">HTML-Varianten</th>
+<td class="tabxpl">Erlaubt in den Varianten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#typen">Strict,&nbsp;Transitional,&nbsp;Frameset</a></td>
+</tr>
+<tr>
+<th width="160">Elternelemente</th>
+<td class="code">Darf innerhalb der folgenden HTML-Elemente vorkommen:<br>
+<a href="#block_elemente"><code>[Block-Elemente]</code></a> |
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a> |
+<a href="#body"><code>body</code></a><br>
+(<code>body</code> nur bei <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="varianten.htm#transitional">HTML Transitional</a>)
+</td>
+</tr>
+<tr>
+<th width="160">Kindelemente</th>
+<td class="code">Darf <a href="#pcdata"><code>#PCDATA</code></a> und folgende andere HTML-Elemente enthalten:<br>
+<a href="#inline_elemente"><code>[Inline-Elemente]</code></a></td>
+</tr>
+<tr>
+<th width="160">Attribute</th>
+<td valign="top">siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm#var">Attribute</a></td>
+</tr>
+</table>
+<br>&nbsp;
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="attribute.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm">HTML-Attribut-Referenz</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="../xhtml/modularisierung.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../xhtml/modularisierung.htm">Modularisierung von XHTML und XHTML 1.1</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">HTML/XHTML</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">HTML-Referenz</a></td>
+</tr>
+</table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

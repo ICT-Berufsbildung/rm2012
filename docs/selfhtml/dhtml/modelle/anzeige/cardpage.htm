@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>Test</title>
+<style type="text/css">
+layer.Text { padding:5px; font-size:12px; font-family:Arial,Helvetica,Sans-Serif; }
+layer.Kopf { font-size:12px; font-family:Arial,Helvetica,Sans-Serif; font-weight:bold; text-align:right; }
+a:link, a:visited, a:active { color:white; }
+a.normal:link { color:#AA5522; text-decoration:underline; }
+a.normal:visited { color:#772200; text-decoration:underline; }
+a.normal:active { color:#000000; text-decoration:underline; }
+</style>
+<script type="text/javascript">
+var aktiv = "Home";
+function Hervorheben (neu_aktiv) {
+  document.layers["Feedback"].zIndex = 1;
+  document.layers["Support"].zIndex = 2;
+  document.layers["Produkte"].zIndex = 3;
+  document.layers["Home"].zIndex = 4;
+  document.layers[aktiv].bgColor = "#CCCCCC";
+  document.layers[aktiv].layers[0].bgColor = "#666666";
+  document.layers[aktiv].layers[1].visibility = "hide";
+  document.layers[neu_aktiv].zIndex = 5;
+  document.layers[neu_aktiv].bgColor = "#FFCCFF";
+  document.layers[neu_aktiv].layers[0].bgColor = "#000000";
+  document.layers[neu_aktiv].layers[1].visibility = "show";
+  aktiv = neu_aktiv;
+}
+</script>
+</head><body>
+<layer id="Feedback" top="130" left="10" width="360" height="230" bgcolor="#CCCCCC">
+  <layer class="Kopf" width="360" height="25" bgcolor="#666666">
+  <a href="javascript:Hervorheben('Feedback')">Feedback</a>
+  </layer>
+  <layer class="Text" top="25" visibility="hide">
+  Hier Ihr Feedback:
+  <form action="" name="Formular"><textarea rows="5" cols="25">Bla Bla</textarea></form>
+  </layer>
+</layer>
+<layer id="Support" top="155" left="70" width="360" height="230" bgcolor="#CCCCCC">
+  <layer class="Kopf" width="360" height="25" bgcolor="#666666">
+  <a href="javascript:Hervorheben('Support')">Support</a>
+  </layer>
+  <layer class="Text" top="25" visibility="hide">
+  Unser Support ist wirklich Bla Bla
+  </layer>
+</layer>
+<layer id="Produkte" top="180" left="130" width="360" height="230" bgcolor="#CCCCCC">
+  <layer class="Kopf" width="360" height="25" bgcolor="#666666">
+  <a href="javascript:Hervorheben('Produkte')">Produkte</a>
+  </layer>
+  <layer class="Text" top="25" visibility="hide">
+  Unsere Produkte sind ja so wahnsinnig Bla Bla
+  </layer>
+</layer>
+<layer id="Home" top="205" left="190" width="360" height="230" bgcolor="#FFCCFF">
+  <layer class="Kopf" width="360" height="25" bgcolor="#000000">
+  <a href="javascript:Hervorheben('Home')">HOME</a>
+  </layer>
+  <layer class="Text" top="25" visibility="show">
+  Unser Home ist unser Bla Bla
+  </layer>
+</layer>
+
+<p><a style="color:#A52" href="../netscape.htm#ueberlappen">zur&uuml;ck</a></p>
+</body>
+</html>

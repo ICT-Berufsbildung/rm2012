@@ -1,0 +1,22 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>Test</title>
+</head><body>
+<div id="MeinText" style="width:14em; height:150px; font-size:2em; filter:revealTrans(Duration=1,Transition=7)">
+Wer HTML nicht ehrt
+</div>
+<script language="JScript" type="text/jscript">
+<!--
+window.setTimeout("Wechsel()", 2500);
+function Wechsel () {
+  document.all.MeinText.filters.revealTrans.Apply();
+  document.all.MeinText.innerText = "ist des Dynamischen nicht wert";
+  document.all.MeinText.filters.revealTrans.Play();
+}
+//-->
+</script>
+
+<p><a href="../dynamische_filter.htm#reveal_trans2">zur&uuml;ck</a></p>
+</body>
+</html>

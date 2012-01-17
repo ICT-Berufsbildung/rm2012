@@ -1,0 +1,401 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: Perl / Perl-Sprachelemente / Objektorientiertes Programmieren</title>
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<meta name="description"    content="Was objektorientierte Programmierung auszeichnet, und wie sie in Perl funktioniert.">
+<meta name="keywords"       content="SELFHTML, Perl, OOP, objektorientierte Programmierung, Objekte, Klassen, Instanzen, Eigenschaften, Methoden, Objekteigenschaften, Objektdaten, Konstruktorfunktion, Destruktorfunktion">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-11-09T00:29:27+01:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/perl/sprache/objekte.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="Perl-Sprachelemente" href="index.htm">
+<link rel="next" title="CGI-typische Aufgaben in Perl" href="cgitypisch.htm">
+<link rel="prev" title="Tokens" href="tokens.htm">
+<link rel="first" title="CGI-notwendige Anweisungen in Perl" href="cginotwendig.htm">
+<link rel="last" title="CGI-typische Aufgaben in Perl" href="cgitypisch.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">Perl</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Perl-Sprachelemente</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Objektorientiertes Programmieren</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#oop">Objektorientierte Programmierung (OOP)</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#oop_perl">Objektorientierte Programmierung in Perl</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#htmlprint_beispiel">Einfaches Beispiel: das HTMLprint-Objekt</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#vcard_beispiel">Beispiel mit Objektdaten: das VCard-Objekt</a><br>
+</p>
+</td>
+</tr><tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><a class="an" name="oop">Objektorientierte Programmierung (OOP)</a></h2>
+
+<p>Vor allem bei größeren Programmiervorhaben ist es wichtig, nicht einfach draufloszuprogrammieren, sondern sich vorher darüber Gedanken zu machen, was die Anwendung können, in welcher Form sie Daten speichern soll, welche Benutzerschnittstellen erforderlich sind usw. In dieser Phase ist es gar nicht wichtig und eher hinderlich, dauernd irgendwelche Quellcode-Fetzen im Kopf zu haben. Besser ist es, vom natürlichen Denken ausgehend die Anwendung zu modellieren.</p>
+
+<p>Das natürliche Denken des modernen Menschen ist aber nicht so "prozedural" ausgerichtet wie die klassische Programmierung. Es vollzieht sich nicht in Sprungadressen und Kontrollstrukturen, sondern wird an größere eigenständige Einheiten (Menschen, Maschinen usw.), die in der Lage sind, Informationen und Fähigkeiten beizusteuern, miteinander zu kommunizieren und dadurch etwas Neues zu schaffen, gebunden.</p>
+
+<p>Auch ein CGI-basiertes Gästebuch lässt sich so denken. Da gibt es beispielsweise einen Formular-Manager, der sich um die Auswertung ausgefüllter HTML-Formulare kümmert, einen Daten-Manager, dessen Aufgabe das zuverlässige und einheitliche Speichern und Einlesen von Daten ist, und einen Konfigurations-Manager, der entscheidet, welche Möglichkeiten des Gästebuchs im konkreten Fall genutzt werden und in welcher Form. Dabei muss der Konfigurations-Manager beispielsweise den Daten-Manager um das Einlesen bestimmter Konfigurationsdaten bitten. Selber darf er das nicht, das ist nun mal Aufgabe des Daten-Managers. Genausowenig darf der Daten-Manager sich einfach die HTML-Formulare holen, die vom Anwender abgesendet wurden. Dafür ist der Formular-Manager zuständig, der dann vielleicht wieder beim Konfigurations-Manager nachfragen muss, wie die Daten weiterzugeben sind, und der Antwort entsprechend die Daten an den Daten-Manager zum Abspeichern weitergibt.</p>
+
+<p>Solche teamfähigen Einheiten werden in der objektorientierten Programmierung als Objekte bezeichnet. Ein Objekt hat Eigenschaften und kann etwas tun. Einige der Eigenschaften und Fähigkeiten stammen von anderen Objekten, die das Objekt selbst eingebunden und damit geerbt hat, und andere wiederum sind ganz eigene und besondere Eigenschaften und Fähigkeiten dieses Objekts.</p>
+
+<p>Diese Dokumentation ist allerdings nicht der Rahmen, um die Theorie der objektorientierten Programmierung auszubreiten. Ein paar wichtige Begriffe sollten Sie trotzdem kennen:</p>
+
+<p><strong>Klasse:</strong><br>
+Eine Klasse ist die Summe der programmierten Fähigkeiten eines Objekts. Alles, woraus ein Objekt besteht und was es kann, muss irgendwo programmiert sein. Eine Klasse ist aber "abstrakt" programmiert, sie führt noch keinen konkreten Code aus. So wie man, wenn man an "Handy" denkt, einen bestimmten Begriff von so einem Gerät hat, ist ein konkretes Objekt in der objektorientierten Programmierung nur von seiner Klasse ableitbar. Ein konkretes Objekt hat die Eigenschaften und Fähigkeiten seiner Klasse, so wie man von einem Handy, den man in der Hand hat, sagt, dass es ein Handy ist, weil er die Eigenschaften und Funktionen eines Handys hat, also dem Begriff des Handys entspricht. In einer objektorientierten Anwendung können Sie sagen: für die Aufgabe, die ich lösen möchte, brauche ich erst mal eine bestimmte Klasse, so wie man sagen könnte: für diese Aufgabe brauche ich einen Handy.</p>
+
+<p><strong>Instanz:</strong><br>
+Eine Instanz ist ein konkretes Objekt einer bestimmten Klasse. Mit dem Begriff vom Handy allein können Sie noch keine Aufgaben lösen. Sie brauchen ein ganz reales Handy dazu. Genauso brauchen Sie eine ganz reale Instanz einer Klasse, um eine Aufgabe innerhalb Ihrer Anwendung objektorientiert anzupacken. Ihr konkretes Objekt erhält einen individuellen Namen, unter dem Sie es ansprechen können.</p>
+
+<p><strong>Eigenschaften und Methoden:</strong><br>
+Von einer Objektinstanz können Sie nicht mehr verlangen als das, wozu das Objekt aufgrund seiner Klasse in der Lage ist. Das, wozu ein Objekt in der Lage ist, ist dadurch festgelegt, was in seiner Klasse programmiert ist. Eigenschaften (auch Attribute genannt) sind Variablen, die Ihnen zur Verfügung stehen, wenn Sie eine Instanz eines Objekts erzeugt haben. Methoden sind Funktionen, die Ihnen eine Objektinstanz zur Verfügung stellt. Eine Instanz der Klasse "Formular-Manager" könnte beispielsweise als Eigenschaft eine Datenstruktur anbieten, in der sie eingelesene Formulardaten bequem zur Verfügung stellt. Als Methoden könnte diese Instanz zum Beispiel Filterfunktionen enthalten, um etwa nur die Daten aus versteckten Formularfeldern anzubieten. In Ihrer Anwendung können Sie dann Eigenschaften und Methoden verwenden, indem Sie auf deren Namen innerhalb einer konkreten Instanz "zeigen". Das ist so, als ob Sie an dem Laptop, den Sie vor sich haben, die Funktion "suche den nächsten ausreichend starken WLAN-Hotspot" anstoßen (eine Methode) und bei gefundenem Hotspot am Display dessen Standort ablesen können (eine Eigenschaft).</p>
+
+<p><strong>Konstruktor- und Destruktor-Funktion:</strong><br>
+Eine Konstruktorfunktion übernimmt die Handlung, eine Instanz eines Objektes zu erzeugen. Sie macht gewissermaßen aus dem Begriff von einem Handy ein reales Handy. Nun sind Sie damit unterwegs, und irgendwann brauchen Sie das Handy nicht mehr. Dann ist es nur unnötiges Gepäck. Deshalb können Sie es dann abschalten. Zumindest im Computer ist das sinnvoll, denn dadurch werden wieder Speicher-Ressourcen frei. Zum Abschalten (Zerstören) von Objektinstanzen gibt es daher eine Destruktor-Funktion.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="oop_perl">Objektorientierte Programmierung in Perl</a></h2>
+
+<p>Der Perl-Interpreter unterstützt objektorientiertes Programmieren seit der Version 5.0. Um eine Klasse zu programmieren, also das, wovon sich eine Objektinstanz ableiten lässt, brauchen Sie in Perl ein eigenes <strong>Package</strong>, also einen eigenen Namensraum. <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="subroutinen.htm">Subroutinen</a>, die innerhalb des Packages notiert sind, sind die Methoden von Objekten dieser Klasse. Auch Objekteigenschaften können Sie innerhalb solcher Methoden auf bestimmte Weise definieren. Packages lassen sich zwar auch innerhalb eines Perl-Scripts definieren (siehe Beispiel zur Perl-Funktion <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../funktionen/module.htm#package">package</a>), aber im Normalfall ist ein Package eine separate Perl-Datei, die keine andere Aufgabe hat als die, in Perl-Scripts "eingebunden" zu werden. Kurzum: ein Package ist in Perl meist ein <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../module/index.htm">Modul</a> mit der entsprechenden Dateiendung <code>.pm</code>. Von daher haben in Perl modul-orientiertes Programmieren und objektorientiertes Programmieren viel miteinander zu tun.</p>
+
+<p>Ein Package ist allerdings noch nicht automatisch eine Klasse für Objekte. Packages sind lediglich Namensräume und damit das "Klima, in dem Objektklassen gedeihen können". Damit Perl eine Klasse für Objekte als solche erkennt, muss sie als solche definiert und erstellt werden.</p>
+
+<p>Ebenso ist es mit den Objektinstanzen. Zunächst müssen Sie Perl mitteilen, dass Sie eine Instanz eines Objekts erzeugen möchten. Ist das gelungen, können Sie anschließend Eigenschaften und Methoden dieses Objekts über eine bestimmte Syntax ansprechen.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Perl bietet auch weitere Features der objektorientierten Programmierung an, etwa Vererbung und Methodenbindung an Variablen. In diesem einführenden Abschnitt werden solche weiteren Features jedoch nicht behandelt.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="htmlprint_beispiel">Einfaches Beispiel: das HTMLprint-Objekt</a></h2>
+
+<p>In diesem Beispiel wird gezeigt, wie Sie ein Modul als Objektklasse erstellen, in einem Perl-Script eine Instanz dieses Objekts erzeugen und mit Methoden des Objekts arbeiten. Das Beispiel realisiert ein einfaches Objekt für HTML-Ausgaben.</p>
+
+<h3 class="xmp">Beispiel der Moduldatei <var>HTMLprint.pm</var>:</h3>
+<pre>
+package HTMLprint;
+
+sub new {
+ my $Objekt = shift;
+ my $Referenz = {};
+ bless($Referenz,$Objekt);
+ return($Referenz);
+}
+
+sub Anfang {
+  my $Objekt = shift;
+  my $Titel = shift;
+  print "Content-type: text/html\n\n";
+  print '&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"&gt;', "\n";
+  print "&lt;html&gt;&lt;head&gt;&lt;title&gt;$Titel&lt;/title&gt;&lt;/head&gt;&lt;body&gt;\n";
+}
+
+sub Titel {
+  my $Objekt = shift;
+  my $Ausgabetext = shift;
+  print "&lt;h1&gt;$Ausgabetext&lt;/h1&gt;\n";
+}
+
+sub Text {
+  my $Objekt = shift;
+  my $Ausgabetext = shift;
+  print "&lt;p&gt;$Ausgabetext&lt;/p&gt;\n";
+}
+
+sub Ende {
+  my $Objekt = shift;
+  print "&lt;/body&gt;&lt;/html&gt;\n";
+}
+
+1;
+</pre>
+
+<h3 class="xmp"><a class="an" name="beispiel">Beispiel eines vollständigen CGI-Scripts in Perl:</a></h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="http://de.selfhtml.org/cgi-bin/812/objekte.pl">Anzeigebeispiel: So sieht's aus</a> (Zum Aufruf des Scripts ist eine Internet-Verbindung erforderlich)</p>
+
+<pre>
+#!/usr/bin/perl -w
+
+use strict;
+use CGI::Carp qw(fatalsToBrowser);
+use HTMLprint;
+
+my $html = HTMLprint -&gt; new();
+$html-&gt;Anfang("Ganz elegantes Perl");
+$html-&gt;Titel("Ganz elegantes Perl");
+$html-&gt;Text("Popeliges HTML, aber sehr modern programmiert!");
+$html-&gt;Ende();
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Die Moduldatei beginnt einfach mit einer <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../funktionen/module.htm#package">package</a>-Anweisung, die den Namen des Moduls nennt. Der Name sollte identisch mit dem Vornamen der Moduldatei sein. Wenn die Moduldatei also wie im Beispiel <var>HTMLprint.pm</var> heißt, sollte die Anweisung <code>package&nbsp;HTMLprint;</code> lauten.</p>
+
+<p>Die Moduldatei im Beispiel enthält insgesamt fünf Subroutinen. Die erste davon ist die Konstruktorfunktion. Sie erhält üblicherweise den Namen <code>new</code>, könnte aber theoretisch auch einen anderen Namen erhalten. Wie eine Konstruktorfunktion aufgebaut ist, kann von Fall zu Fall variieren. In jedem Fall muss die Konstruktorfunktion jedoch einen Aufruf der Funktion <code>bless</code> enthalten. Diese bindet eine Referenz (einen Zeiger) an eine Klasse, sodass anschließend über diese Referenz auf das Objekt zugegriffen werden kann. Die im obigen Beispiel gezeigte Konstruktorfunktion leistet zwar schon ein wenig mehr als für das Beispiel benötigt wird, doch sie eignet sich in dieser Form einfach gut als Standard-Konstruktorfunktion, bei der man wenig falsch machen kann.</p>
+
+<p>Mit <code>my $Objekt = shift;</code> wird einfach der erste Parameter eingelesen, den die Konstruktorfunktion <code>new</code> übergeben bekommt. Sie bekommt nämlich, wenn sie aufgerufen wird, automatisch als ersten Parameter den Klassennamen übergeben, im Beispiel also den Namen <code>HTMLprint</code>. Das ist im Beispiel der Wert, der anschließend in <code>$Objekt</code> steht.<br>
+Mit <code>my $Referenz = {};</code> wird eine <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="referenzen.htm">Referenz</a>, also ein Zeiger deklariert. Dieser Zeiger wird benötigt, damit die Funktion <code>bless</code> korrekt bedient werden und den Zeiger an das Objekt binden kann. Nun ist die Frage, wie aus der skalaren Variable <code>$Referenz</code> eine Referenz werden soll. Sie muss sich ja auf irgendetwas beziehen, worauf sie zeigt. Ideal ist für diesen Zweck die Zuweisung <code>{}</code>. Dies ist einfach eine Referenz auf einen leeren unbenannten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="hashes.htm">Hash</a>. Ideal ist das deshalb, weil dieser Hash auch für die Definition von Objektdaten geeignet ist - was allerdings in diesem ersten einfachen Beispiel noch nicht geschieht. So bleibt es bei dem leeren Hash, und <code>$Referenz</code> ist ein Zeiger.<br>
+Mit <code>bless($Referenz,$Objekt);</code> wird die nötige Verbindung zwischen Referenz und Objekt hergestellt. Anschließend wird <code>$Referenz</code> zurückgegeben.</p>
+
+<p>Die vier übrigen Subroutinen in der Moduldatei <var>HTMLprint.pm</var> sind sich alle recht ähnlich. Sie erzeugen mit Hilfe von <code>print</code>-Anweisungen HTML-Code. Die Subroutine <code>Anfang</code> schreibt zudem zunächst den nötigen HTTP-Header für HTML-Ausgaben.</p>
+
+<p>Für alle Subroutinen, die als Methoden eines Objekts fungieren, gilt: sie bekommen automatisch mindestens einen Parameter übergeben, und zwar den Zeiger auf das Objekt, der in der Konstruktor-Funktion erzeugt und an das Objekt gebunden wurde. Die Subroutinen im Beispiel benötigen diesen Zeiger nicht. Aber <code>Anfang</code>, <code>Titel</code> und <code>Text</code> erwarten noch einen zweiten ganz gewöhnlichen Parameter, nämlich den Inhalt, den sie in HTML ausgeben sollen. Nun könnten sich die Routinen den Inhalt dieses zweiten Parameters auch direkt mit <code>$_[1]</code> holen. Aber die Notation mit dem Aufruf der <code>shift</code>-Funktion hat den Vorteil, dass die Parameterliste dabei sauber abgearbeitet und der Reihe nach gelöscht wird. Mit dem jeweils zweiten Aufruf von <code>shift</code> kommen die drei erwähnten Subroutinen also an den zweiten Parameter.</p>
+
+<p>Wichtig zu erwähnen ist noch, dass <var>pm</var>-Moduldateien am Ende stets eine einsame Anweisung <code>1;</code> (oder etwas ähnliches) enthalten müssen. Das bedeutet, die Moduldatei gibt einen wahren Wert zurück. Andernfalls würde der Perl-Interpreter einen Fehler melden.</p>
+
+<p>Das eigentliche Perl-Script ist im Beispiel recht einfach. Mit der Funktion <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../funktionen/module.htm#use">use</a> und der Anweisung <code>use&nbsp;HTMLprint;</code> bindet es die Moduldatei <var>HTMLprint.pm</var> ein. In dieser Form eingebunden, muss sich die <var>HTMLprint.pm</var> entweder im gleichen Verzeichnis befinden wie das Script, oder in einem der zentralen Verzeichnisse, in denen Perl nach Modulen sucht (mehr darüber im Abschnitt <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../module/intro.htm#speicherorte_inc">Speicherorte für Module und die Liste @INC</a>).</p>
+
+<p>Mit <code>my $html = HTMLprint -> new();</code> wird die Konstruktorfunktion der Moduldatei aufgerufen. Dies ist die entscheidende Anweisung, mit der eine neue Istanz des HTMLprint-Objekts erzeugt wird! Die Anweisung besteht darin, dass ein Skalar, der im Beispiel den Namen <code>$html</code> erhält, deklariert und mit einem Wert initialisiert wird. Der zugewiesene Wert besteht darin, dass der Name der gewünschten Objektklasse, also <code>HTMLprint</code>, mit Hilfe des Zeigeoperators <code>-&gt;</code> auf die Konstruktorfunktion <code>new</code> zeigt. Da die Konstruktorfunktion eine Referenz zurückgibt, die durch den <code>bless</code>-Aufruf an das Objekt gebunden ist, wird <code>$html</code> automatisch zu einer Referenz, also zu einem Zeiger auf die neu erzeugte Objektinstanz. Über <code>$html</code> und den Zeigeoperator <code>-&gt;</code> kann das Script fortan auf die Subroutinen des eingebundenen Moduls zugreifen. Im Objektzusammenhang spricht man allerdings nicht mehr von Subroutinen, sondern von Methoden.<br>
+Mit einer Anweisung wie <code>$html-&gt;Anfang("Ganz elegantes Perl");</code> greift das Script also auf eine Methode des <code>HTMLprint</code>-Objekts zu, und zwar auf die Objektinstanz, die an den Zeiger <code>$html</code> gebunden ist.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="vcard_beispiel">Beispiel mit Objektdaten: das VCard-Objekt</a></h2>
+
+<p>Das folgende Beispiel zeigt, wie sich Daten mit Objekten verwalten lassen. Es handelt sich dabei um Adressdaten im international standardisierten <img src="../../src/de.gif" width="16" height="10" alt="deutschsprachige Seite">&nbsp;<a target="_top" href="http://de.wikipedia.org/wiki/VCard">VCard-Format</a> (typische Dateiendung: *.vcf), wie es vom <img src="../../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.imc.org/">Internet Mail Consortium (IMC)</a> entwickelt und in der <img src="../../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://tools.ietf.org/html/rfc2426">RFC 2426</a> beschrieben wird. In der Moduldatei <var>VCard.pm</var> wird die VCard-Klasse mit den Objektdaten und Methoden definiert. Im Hauptscript werden dann zwei Objektinstanzen dieser Klasse angelegt, und die Methoden des Objekts werden ausprobiert.</p>
+
+<h3 class="xmp">Beispiel der Moduldatei <var>VCard.pm</var>:</h3>
+<pre>
+package VCard;
+
+$Objekte = 0;
+
+sub new {
+ my $Objekt = shift;
+ my $Version = shift;
+ my $Referenz = {};
+ bless($Referenz,$Objekt);
+ $Objekte += 1;
+ $Referenz-&gt;VCinit($Version);
+ return($Referenz);
+}
+
+sub VCinit {
+  my $Objekt = shift;
+  my $Version = shift;
+  $Objekt-&gt;{BEGIN} = "VCARD";
+  $Objekt-&gt;{VERSION} = $Version;
+  $Objekt-&gt;{END} = "VCARD";
+}
+
+sub VCset {
+  my $Objekt = shift;
+  my $Schluessel = shift;
+  my $Wert = shift;
+  $Objekt-&gt;{$Schluessel} = $Wert;
+}
+
+sub VCget {
+  my $Objekt = shift;
+  my $Schluessel = shift;
+  return($Objekt-&gt;{$Schluessel});
+}
+
+sub VCsave {
+  my $Objekt = shift;
+  my $Datei = shift;
+  open(DATEI, "&gt;$Datei") or return(-1);
+  print DATEI "BEGIN:VCARD\nVERSION:$Objekt-&gt;{VERSION}\n";
+  while ((my $Schluessel, my $Wert) = each %{ $Objekt } ) {
+    next if ($Schluessel eq 'BEGIN' or $Schluessel eq 'VERSION' or $Schluessel eq 'END');
+    $Schluessel =~ s/_/\;/g;
+    print DATEI "$Schluessel:$Wert\n";
+  }
+  print DATEI "END:VCARD\n";
+  close(DATEI);
+  return($Datei);
+}
+
+sub VCopen {
+  my $Objekt = shift;
+  my $Datei = shift;
+  $Objekt-&gt;VCreset();
+  open(DATEI, "&lt;$Datei") or return;
+  my @Zeilen = &lt;DATEI&gt;;
+  close(DATEI);
+  foreach (@Zeilen) {
+   (my $Schluessel, my $Wert) = split(/:/);
+    $Schluessel =~ s/\;/_/g;
+    $Objekt-&gt;{$Schluessel} = $Wert;
+  }
+  return( %{ $Objekt } );
+}
+
+sub VCreset {
+  my $Objekt = shift;
+  %{ $Objekt } = ();
+}
+
+1;
+</pre>
+
+<h3 class="xmp">Beispiel eines vollständigen CGI-Scripts in Perl:</h3>
+
+<pre>
+#!/usr/bin/perl -w
+
+use strict;
+use CGI::Carp qw(fatalsToBrowser);
+use VCard;
+
+print "Content-type: text/html\n\n";
+print '&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"&gt;', "\n";
+print "&lt;html&gt;&lt;head&gt;&lt;title&gt;Testausgabe&lt;/title&gt;&lt;/head&gt;&lt;body&gt;\n";
+print "&lt;h1&gt;Tests mit dem VCard-Objekt&lt;/h1&gt;\n";
+
+my $Thilo = VCard-&gt;new("3.0");
+my $Ina = VCard-&gt;new("3.0");
+
+print "&lt;p&gt;&lt;b&gt;Wert der im Modul erzeugte Objekteigenschaft BEGIN:&lt;/b&gt; $Ina-&gt;{BEGIN}&lt;br&gt;\n";
+my $Sicherung = $Ina-&gt;{BEGIN};
+$Ina-&gt;{BEGIN} = "fangen wir an";
+print "&lt;b&gt;BEGIN nach der Wert&amp;auml;nderung:&lt;/b&gt; $Ina-&gt;{BEGIN}&lt;br&gt;\n";
+$Ina-&gt;{BEGIN} = $Sicherung;
+print "Da dies aber Unsinn ist, wurde der Wert wieder auf '$Ina-&gt;{BEGIN}' gesetzt.&lt;/p&gt;\n";
+
+$Thilo-&gt;VCset("FN","Thilo Teufel");
+$Thilo-&gt;VCset("TEL_CELL_VOICE","(0170) 398373740");
+$Ina-&gt;VCset("FN","Ina Bikina");
+$Ina-&gt;VCset("EMAIL_PREF_INTERNET","bikina\@example.org");
+
+print "&lt;p&gt;&lt;b&gt;Name:&lt;/b&gt; ",$Thilo-&gt;VCget('FN'),"&lt;br&gt;\n";
+print "&lt;b&gt;Handy:&lt;/b&gt; ",$Thilo-&gt;VCget('TEL_CELL_VOICE'),"&lt;/p&gt;\n";
+print "&lt;p&gt;&lt;b&gt;Name:&lt;/b&gt; ",$Ina-&gt;VCget('FN'),"&lt;br&gt;\n";
+print "&lt;b&gt;Handy:&lt;/b&gt; ",$Ina-&gt;VCget('EMAIL_PREF_INTERNET'),"&lt;/p&gt;\n";
+print "&lt;p&gt;&lt;b&gt;Anzahl angelegter Objekte:&lt;/b&gt; $VCard::Objekte &lt;/p&gt;\n";
+
+
+if(my $Datei = $Thilo-&gt;VCsave("/daten/vcard/teufel.vcf")) {
+ print "&lt;p&gt;VCard von Thilo Teufel in &lt;tt&gt;$Datei&lt;/tt&gt; gespeichert!&lt;br&gt;"
+}
+else {
+ print "VCard von Thilo Teufel konnte nicht gespeichert werden!";
+}
+$Thilo-&gt;VCreset();
+print "&lt;p&gt;&lt;b&gt;Name von Thilo nach Objekt-Reset:&lt;/b&gt; ",$Thilo-&gt;VCget('FN'),"&lt;br&gt;\n";
+print "&lt;b&gt;Handy von Thilo nach Objekt-Reset:&lt;/b&gt; ",$Thilo-&gt;VCget('TEL_CELL_VOICE'),"&lt;/p&gt;\n";
+
+if($Thilo-&gt;VCopen("/daten/vcard/teufel.vcf")) {
+ print "VCard von Thilo Teufel wieder ge&amp;ouml;ffnet!&lt;br&gt;";
+ print "&lt;p&gt;&lt;b&gt;Name von Thilo nach Datei&amp;ouml;ffnen:&lt;/b&gt; ",$Thilo-&gt;VCget('FN'),"&lt;br&gt;\n";
+ print "&lt;b&gt;Handy von Thilo nach Datei&amp;ouml;ffnen:&lt;/b&gt; ",$Thilo-&gt;VCget('TEL_CELL_VOICE'),"&lt;/p&gt;\n";
+}
+else {
+ print "VCard von Thilo Teufel konnte nicht ge&amp;ouml;ffnet werden!";
+}
+
+print "&lt;/body&gt;&lt;/html&gt;\n";
+</pre>
+
+<h3 class="xmp">Beispiel der erzeugten Datei <var>teufel.vcf</var>:</h3>
+<pre>
+BEGIN:VCARD
+VERSION:3.0
+TEL;CELL;VOICE:(0170) 398373740
+FN:Thilo Teufel
+END:VCARD
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Im Prinzip funktioniert dieses Beispiel genauso wie das Beispiel mit dem <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#htmlprint_beispiel">HTMLprint-Objekt</a> - deshalb interessieren an dieser Stelle nur diejenigen Dinge, die anders sind als im ersten Beispiel.</p>
+
+<p>Objektdaten (oder die Eigenschaften eines Objekts) sind Variablen. Es genügt jedoch nicht, solche Variablen einfach irgendwo in der Moduldatei zu deklarieren. Eine Variable wie der Skalar <code>$Objekte</code>, der im Beispiel zu Beginn der Moduldatei <var>VCard.pm</var> deklariert wird und als Zähler für Objektinstanzen dient, gehört <strong>nicht</strong> zu den Objektdaten! Solche Variablen sind so genannte Klassenvariablen, da sie nur einmal für die gesamte Klasse und für jede Objektinstanz zur Verfügung stehen. Da das Modul genau einmal im Hauptscript eingebunden wird, stehen diese Variablen auch nur in einer einzigen Ausführung zur Verfügung. Das Hauptscript kann mit der Syntax <code>$VCard::Objekte</code> sehr wohl auf den Wert des Skalars <code>$Objekte</code> zugreifen. Aber trotzdem gehört diese Variable nicht zum Objekt. Objektdaten sind vielmehr solche, die bei jeder neuen Instanz eines Objekts immer wieder neu zur Verfügung stehen.</p>
+
+<p>Die einfachste Lösung für Objektdaten ist ein <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="hashes.htm">Hash</a>. In der Konstruktorfunktion <code>new</code> wird ein solcher Hash definiert - mit der Anweisung <code>my&nbsp;$Referenz&nbsp;=&nbsp;{};</code>. Viel zu sehen ist dabei nicht von einem Hash. Doch die leeren geschweiften Klammern symbolisieren einen leeren so genannten anonymen Hash. Dieser Hash ist damit eine Art leerer Behälter, der später Objektdaten aufnehmen kann. Der Grund dafür, dass man in der Regel einen Hash für Objektdaten wählt, ist der, dass ein Hash eine dynamische Anzahl von Daten speichern kann. Ein solcher Hash erlaubt es, Objektdaten sowohl im Modul selbst vorzudefinieren, wie auch Objektdaten im Hauptscript zu definieren (im obigen Beispiel passiert beides). Ein Array könnte das zwar theoretisch auch, aber dann wäre im Hauptscript die Suche nach einem gewünschten Objektdatum schwieriger. Hashes erleichtern den Direktzugriff auf Daten durch die benannten Schlüssel. Durch die Zuweisung des anonymen Hashes an einen Skalar - im Beispiel an <code>$Referenz</code> - wird dieser Skalar eine <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="referenzen.htm">Referenz</a>, also ein Zeiger auf den anonymen Hash. Über diesen Zeiger ist der Zugriff auf den anonymen Hash möglich.</p>
+
+<p>Objektdaten werden erzeugt, indem der zunächst anonyme Hash der Konstruktorfunktion mit Daten angefüllt wird. Im Beispiel geschieht das erstmals in der Subroutine bzw. Methode <code>VCinit</code>. Diese Methode wird bereits in der Konstruktorfunktion <code>new</code> aufgerufen, nämlich mit <code>$Referenz->VCinit($Version);</code>. Da <code>$Referenz</code> innerhalb der Konstruktorfunktion der Objektzeiger ist, können Sie dort über das Schema <code>$Referenz->Methode()</code> andere Subroutinen aufrufen, die dadurch an das Objekt gebunden werden. Durch diese Form des Aufrufs bekommen die Subroutinen auch stets automatisch als ersten Parameter einen Zeiger auf das Objekt übergeben, mit dem sie dann arbeiten können. So auch die Methode <code>VCinit</code> im Beispiel. Über den Objektzeiger, den sie sich mit <code>my $Objekt = shift;</code> aus der übergebenen Parameterliste holt, kann sie auf das Objekt und damit auch auf den anonymen Hash zugreifen.</p>
+
+<p>Mit einer Anweisung wie <code>$Objekt-&gt;{BEGIN} = "VCARD";</code> wird eine vorgegebene Objekteigenschaft erzeugt. <code>$Objekt-&gt;{BEGIN}</code> zeigt auf den anonymen Hash und sagt so viel wie: "hiermit erhält der anonyme Hash einen Schlüssel mit Namen <code>BEGIN</code>". Außerdem wird diesem Schlüssel bereits ein Wert zugewiesen, nämlich <code>VCARD</code>. Auf die gleiche Weise werden in <code>VCinit</code> insgesamt drei Objekteigenschaften erzeugt. Die beiden anderen heißen <code>VERSION</code> und <code>END</code>. Der Grund für diese Namen ist im Beispiel, dass diejenigen Namen von Eigenschaften als Schlüsselnamen verwendet werden, die eine Datei vom Typ <var>.vcf</var> enthalten können. Wie so eine Datei aussieht, sehen Sie in der dargestellten vom Beispiel erzeugten Datei <var>teufel.vcf</var>. Alle Zeilen einer VCard-Datei bestehen aus einer Eigenschaft und ihrem Wert, getrennt durch einen Doppelpunkt. Drei Zeilen sollten in jeder vcf-Datei vorkommen: <code>BEGIN:VCARD</code>, <code>VERSION:[Versionsangabe]</code> und <code>END:VCARD</code>. Für diese drei Standardzeilen werden im Beispiel die drei gleichnamigen Objekteigenschaften erzeugt.</p>
+
+<p>Weitere Objekteigenschaften werden im Beispiel im Hauptscript erzeugt. Zunächst muss dazu wieder eine Instanz der VCard-Klasse erzeugt werden. Im Beispiel werden zwei Instanzen erzeugt:<br>
+<code>my $Thilo = VCard-&gt;new("3.0");<br>
+my $Ina = VCard-&gt;new("3.0");</code><br>
+Beim Aufruf der Konstruktorfunktion wird die Versionsnummer für das gewünschte VCard-Format übergeben. Derzeit ist da die Version 3.0 zu notieren.</p>
+
+<p>Nachdem die beiden Objektinstanzen angelegt sind, ist der Zugriff auf sämtliche Objektdaten möglich. Im Hauptscript wird dies zunächst mit dem Objekt für Ina demonstriert. Über den Objektzeiger <code>$Ina</code> ist es möglich, mit <code>$Ina-&gt;{BEGIN}</code> auf den Wert der Objekteigenschaft <code>BEGIN</code> zuzugreifen. Das Script zeigt auch, wie sich der Wert einer solchen vorgegebenen Objekteigenschaft ändern lässt. Das Konstrukt <code>$Ina-&gt;{BEGIN}</code> kann wie ein ganz normaler Skalar behandelt werden.<br>
+Da bei der objektorientierten Programmierung das Objekt eine abstrakte Einheit ist, dessen Interna Sie als Benutzer des Objekts eigentlich nichts angehen, sollten Sie darauf verzichten, direkt auf Objekteigenschaften zuzugreifen. Erstens ist nämlich nicht gesagt, dass bei einem (beliebigen) Objekt die Daten überhaupt in einem Hash gehalten werden, und zweitens kann sich die interne Datenhaltung über die verschiedenen Versionen des Moduls hinweg ändern.</p>
+
+<p>Das Hauptscript erzeugt aber auch noch weitere neue Objekteigenschaften und versorgt diese mit Werten. Denn eine VCard-Datei soll ja diverse Adressdaten enthalten. Dies ist im Beispiel durch Aufruf der Methode <code>VCset</code> möglich, die in der Moduldatei definiert ist. Mit einer Anweisung wie:<br>
+<code>$Thilo-&gt;VCset("FN","Thilo Teufel");</code><br>
+wird für das Objekt von Thilo eine neue Objekteigenschaft namens <code>FN</code> angelegt, die den Wert <code>Thilo Teufel</code> zugewiesen bekommt. Im Beispiel sehen Sie, dass sowohl das Objekt von Thilo als auch das Objekt von Ina die Objekteigenschaft <code>FN</code> erhalten, jeweils mit eigenen Werten. Daran ist sehr schön erkennbar, dass es sich tatsächlich um verschiedene Instanzen des Objekts <code>VCard</code> handelt, wobei jede Instanz ihre eigene Datenwelt hat, ohne dass es Kollisionen mit anderen gleichzeitig existierenden Objektinstanzen gibt.</p>
+
+<p>Während der Aufruf der Methode <code>VCset</code> so weit gut nachvollziehbar ist, ist das, was in der Moduldatei innerhalb dieser Methode geschieht, nicht so leicht zu verstehen. Auch <code>VCset</code> bekommt - wie alle Methoden - als ersten Parameter automatisch den Objektzeiger übergeben. <code>VCset</code> tut nun nichts anderes, als mit <code>$Objekt-&gt;{$Schluessel}&nbsp;=&nbsp;$Wert</code> dem anonymen Hash des Objekts einen Schlüsselnamen und einen zugehörigen Wert hinzuzufügen. Beides, also den Schlüsselnamen und den Wert, erwartet die Methode als Parameter - daher auch die voranstehenden Anweisungen wie <code>$Schluessel&nbsp;=&nbsp;shift;</code>. Die Aufrufe dieser Methode im Hauptscript übergeben ja auch die geforderten beiden Parameter.</p>
+
+<p>Die übrigen Methoden der Moduldatei sind ganz ähnlich aufgebaut. Sie übernehmen verschiedene Aufgaben, was man mit VCard-Daten so alles anstellen kann:<br>
+<code>VCget</code> liefert zu einem Schlüssel den zugehörigen Wert. Gut für Abfragen. Genaugenommen ist eine Abfrage im Hauptscript wie <code>$Thilo-&gt;VCget('FN')</code> das gleiche, als ob dort stehen würde <code>$Thilo-&gt;{FN}</code>. Entscheidungen, ob man solche Methoden braucht, gehören einfach zum Design eines Objekts. Um die Programmpflege zu erleichtern, sollten Sie jedoch immer Methoden dafür bereitstellen.<br>
+<code>VCsave</code> speichert die Daten eines Objekts in eine vcf-Datei nach dem VCF-Standard. Im Script wird diese Funktion einmal aufgerufen und schreibt dabei die Datei <var>teufel.vcf</var>, deren Inhalt ja dargestellt ist.<br>
+<code>VCopen</code> liest eine beliebige VCF-Datei und speichert deren Inhalt im zugeordneten Objekt. Diese Methode können Sie also etwa verwenden, wenn Sie existierende VCF-Dateien haben, z.B. durch Export aus den Adressdaten eines VCard-fähigen E-Mail-Programms.
+<code>VCreset</code> löscht alle Daten eines Objekts. Es stellt also den Ursprungszustand des anonymen Hashes wieder her. Benötigt wird diese Methode innerhalb der Moduldatei von <code>VCopen</code>. Aber Sie können diese Methode natürlich auch aus dem Hauptscript aufrufen, um eine Objektinstanz wieder in ihren jungfräulichen Zustand zu versetzen. Im Hauptscript des obigen Beispiels wird dies am Objekt von Thilo demonstriert.</p>
+
+<p>Wenn Sie das VCard-Objekts des Beispiels in der Praxis einsetzen wollen, müssen Sie die VCard-Eigenschaftsnamen kennen. Diese sind beim Internet Mail Consortium dokumentiert. Wichtig ist, dass Sie ein Semikolon immer durch Unterstrich ersetzen. So wird eine VCard-Eigenschaft wie <code>TEL;CELL;VOICE</code> bei einem Methodenaufruf wie <var>VCset</var> als <code>TEL_CELL_VOICE</code> notiert. Einige der möglichen VCard-Eigenschaften enthalten auch noch andere Zeichen wie <code>=</code> und <code>-</code>. Um diese korrekt zu verarbeiten, müssen Sie die Methoden <code>VCopen</code> und <code>VCsave</code> des Objekts vermutlich noch erweitern, worauf im Beispiel der Einfachheit halber verzichtet wurde.</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="cgitypisch.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="cgitypisch.htm">CGI-typische Aufgaben in Perl</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="tokens.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="tokens.htm">Tokens</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">Perl</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Perl-Sprachelemente</a></td>
+</tr>
+</table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

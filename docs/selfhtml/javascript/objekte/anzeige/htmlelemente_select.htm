@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>Test</title>
+<script type="text/javascript">
+var Wert = 1;
+function hinzu () {
+  var Auswahlliste = document.getElementsByName("Auswahl")[0];
+  var Eintrag = document.createElement("option");
+  Eintrag.text = document.getElementsByName("Eingabe")[0].value;
+  Eintrag.value = Wert;
+  var FolgendeOption = null;
+  if (document.all)
+    FolgendeOption = Auswahlliste.length;
+  Auswahlliste.add(Eintrag, FolgendeOption);
+  Wert += 1;
+}
+</script>
+</head><body>
+<form action="" name="Formular">
+<select name="Auswahl" size="10">
+<option value="0">Liste</option>
+</select><br>
+Eintrag: <input type="text" name="Eingabe" size="30">
+<input type="button" value="hinzuf&uuml;gen" onclick="hinzu()">
+</form>
+
+<p><a href="../htmlelemente.htm#select">zur&uuml;ck</a></p>
+</body>
+</html>

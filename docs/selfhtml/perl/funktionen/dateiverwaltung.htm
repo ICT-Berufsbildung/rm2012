@@ -1,0 +1,1153 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: Perl / Funktionsreferenz / Funktionen für Datei- und Verzeichnis-Management</title>
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<meta name="description"    content="Welche Funktionen es in Perl gibt, um Eigenschaften von Dateien und Verzeichnissen zu ermitteln und das Dateisystem zu verwalten.">
+<meta name="keywords"       content="SELFHTML, Perl, Funktionen, Perl-Funktionen, Dateien, Verzeichnisse, Dateisystem, Dateiverwaltung, Dateitestoperatoren, chdir, chmod, chown, chroot, glob, link, lstat, mkdir, readlink, rename, rmdir, stat, symlink, umask, unlink, utime">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-11-06T15:17:41+01:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/perl/funktionen/dateiverwaltung.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="Perl-Funktionen" href="index.htm">
+<link rel="next" title="Funktionen für Betriebssystemaufrufe" href="systemaufrufe.htm">
+<link rel="prev" title="Funktionen für Ein-/Ausgabe und Lesen/Schreiben von Daten" href="einausgabe.htm">
+<link rel="first" title="Funktionen für Zeichenketten" href="zeichenketten.htm">
+<link rel="last" title="Funktionen für Module und Packages" href="module.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">Perl</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Perl-Funktionen</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Funktionen für Datei- und Verzeichnis-Management</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#allgemeines">Allgemeines zu diesen Funktionen</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#dateitest">-[x]</a>  - Dateitestoperatoren für Dateien/Verzeichnisse<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#chdir">chdir</a> - Verzeichnis wechseln<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#chmod">chmod</a> - Datei-/Verzeichnisrechte ändern<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#chown">chown</a> - Besitzer und Besitzergruppe von Dateien ändern<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#chroot">chroot</a> - Wurzelverzeichnis für Pfadnamen ändern<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#glob">glob</a> - Dateien mit Wildcards auswählen<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#link">link</a> - neue Datei als Link auf vorhandene erzeugen<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#lstat">lstat</a> - Eigenschaften einer Link-Datei<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#mkdir">mkdir</a> - Verzeichnis erstellen<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#readlink">readlink</a> - Wert einer Link-Datei auslesen<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#rename">rename</a> - Datei/Verzeichnis umbenennen<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#rmdir">rmdir</a> - Verzeichnis löschen<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#stat">stat</a> - Eigenschaften einer Datei ermitteln<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#symlink">symlink</a> - neue Datei als symbolischen Link auf vorhandene erzeugen<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#umask">umask</a> - Umask des laufenden Prozesses ändern<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#unlink">unlink</a> - Dateien löschen<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#utime">utime</a> - Zeitstempel von Dateien/Verzeichnissen ändern<br>
+</p>
+</td>
+</tr><tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><a class="an" name="allgemeines">Allgemeines zu diesen Funktionen</a></h2>
+
+<p>Perl kommt, wie bereits mehrfach betont wurde, aus der Unix-Welt. Daher sind die Funktionen rund um Datei- und Verzeichnismanagement auch an den typischen Möglichkeiten von Unix orientiert. Einige dieser Funktionen sind nur anwendbar, wenn Ihr Perl-Script auf einem Unix-System ausgeführt wird. Funktionen zur Dateiverwaltung, die auch auf anderen Betriebssystemen ausführbar sind, können als "plattformunabhängig" bezeichnet werden, auch wenn das nicht absolut korrekt ist. Bei den hier aufgeführten Beschreibungen zu den einzelnen Funktionen zum Datei- und Verzeichnismanagement wird darauf hingewiesen, wenn es Beschränkungen auf bestimmte Betriebssystemtypen gibt.</p>
+
+<p>Weitere Funktionen zur Dateiverwaltung, etwa zum Kopieren und Verschieben von Dateien, gibt es ebenfalls, doch gehören sie nicht zum Kernel von Perl. Solche Funktionen sind über das <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../module/standardmodule.htm">Standardmodul</a> <code>File</code> erreichbar.</p>
+
+<h3 class="xpl"><a name="pfadnamen">Pfadnamen und Verzeichnisse:</a></h3>
+
+<p>Die hier beschriebenen Funktionen erwarten als Parameter Pfadangaben. Als Trennzeichen zwischen Verzeichnisnamen bei Pfadangaben benutzen Sie aus Portabilitätsgründen am besten grundsätzlich den einfachen Schrägstrich, auch bei Perl-Scripts, die unter Windows laufen sollen. Perl unter Windows setzt dies intern in die Microsoft-eigenen Backslashes um.<br>Beispiele:</p>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<th>Syntaxbeispiel</th>
+<th>Bedeutung</th>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>".."</code></td>
+<td class="tabxpl">relative Angabe, ein Verzeichnis höher</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>"../../bin"</code></td>
+<td class="tabxpl">relative Angabe, zwei Verzeichnisse höher und von dort aus gerechnet Unterverzeichnis "bin"</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>"images"</code></td>
+<td class="tabxpl">relative Angabe, Unterverzeichnis "images" im aktuellen Verzeichnis</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>"/"</code></td>
+<td class="tabxpl">absolute Angabe, Wurzelverzeichnis</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>"/usr/bin/perl"</code></td>
+<td class="tabxpl">absolute Angabe ab Wurzelverzeichnis</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>"c:/windows/system"</code></td>
+<td class="tabxpl">absolute Angabe mit Laufwerksangabe - Windows-typisch</td>
+</tr>
+</table>
+
+<p>Relative Pfadangaben sollten Sie nur verwenden, wenn das aktuelle Arbeitsverzeichnis bekannt ist.<br>
+Um das aktuelle Arbeitsverzeichnis in Perl zu ermitteln, können Sie notieren:</p>
+
+<pre>
+use Cwd;
+my $Arbeitsverzeichnis = cwd;
+</pre>
+
+<p>In dem Skalar <code>$Arbeitsverzeichnis</code> steht dann anschließend der vollständige Pfad zum aktuellen Arbeitsverzeichnis. Benutzt wird dazu das <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../module/standardmodule.htm">Standardmodul</a> <code>cwd</code>.</p>
+
+<h3 class="xpl"><a name="rechteangaben">Rechteangaben für Dateien und Verzeichnisse</a></h3>
+
+<p>Viele der hier beschriebenen Funktionen erwarten als Parameter eine Rechteangabe.</p>
+
+<p>Bei Unix-Systemen haben alle Einträge eines Dateisystems Rechte. Jede Datei, jedes Verzeichnis gehört einem Benutzer, und jeder Benutzer gehört zu einer Benutzergruppe. Der so genannte Superuser, also der Benutzer mit der so genannten root-Kennung, kann Benutzer und Benutzergruppen einrichten und manipulieren sowie Logindaten für die einzelnen Benutzer des Systems vergeben.</p>
+
+<p>Ein Benutzer, der sich an einem Unix-System einloggt, erhält vom Betriebssystem eine individuelle Benutzerkennung, die User-ID (UID). Ebenso erhält jede Benutzergruppe eine Gruppen-ID (GID). Beide IDs sind Nummern. In einigen der hier beschriebenen Funktionen spielen diese IDs eine Rolle. Solche Funktionen sind dann in der Regel nur anwendbar, wenn das Perl-Script in einer Unix-Umgebung laufen soll.</p>
+
+<p>Das System weiß stets, welcher eingeloggte Benutzer eine Datei oder ein Verzeichnis erzeugt. Die Datei bzw. das Verzeichnis gehört dann diesem Benutzer und seiner primären Benutzergruppe. Grundsätzlich werden auf Unix-Systemen für jede Datei und jedes Verzeichnis die Zugriffsrechte für den besitzenden Benutzer, seine primäre Benutzergruppe und für Fremdbenutzer ("Rest der Welt") festgelegt. Dabei wird zwischen Leserecht, Schreibrecht und Ausführungsrecht unterschieden. Jedes dieser drei Rechte (Lesen, Schreiben, Ausführen) kann für jede der drei Benutzertypen (Besitzer, zugehörige Gruppe und Rest der Welt) auf "ja" oder "nein" gesetzt werden. Die Darstellung dieser Rechte erfolgt üblicherweise in zwei Arten: entweder als eine Zeichenkette von 3 mal 3, also 9 Zeichen, oder als Oktalzahl mit 3 Ziffern.</p>
+
+<p><strong>Darstellung als Zeichenkette (Beispiele):</strong></p>
+
+<pre>
+rwxrwxrwx
+rw-r--r--
+rwx------
+</pre>
+
+<p>Der Buchstabe <code>r</code> steht für Lesen (<i>read</i>), <code>w</code> für Schreiben (<i>write</i>), und <code>x</code> für Ausführen (<i>execute</i>). Ist ein solcher Buchstabe gesetzt, so ist damit das entsprechende Recht vergeben. Ist das entsprechende Recht nicht gesetzt, wird stattdessen ein Bindestrich <code>-</code> notiert. Die ersten drei der neun Zeichen bedeuten die Lese-, Schreib- und Ausführungsrechte des besitzenden Benutzers der Datei, die zweiten drei Zeichen die Lese-, Schreib- und Ausführungsrechte seiner Gruppe, und die dritten drei Zeichen die Lese-, Schreib- und Ausführungsrechte für den "Rest der Welt".
+Der Wert <code>rwxrwxrwx</code> bedeutet also: alle drei Benutzertypen (besitzender Benutzer, zugehörige Gruppe und Rest der Welt) haben an der Datei alle drei Rechte.<br>
+Der Wert <code>rw-r--r--</code> bedeutet: der besitzende Benutzer hat die Rechte "Lesen" und "Schreiben", aber nicht "Ausführen", seine Gruppe und der Rest der Welt haben nur das Recht "Lesen", aber nicht die Rechte "Schreiben" und "Ausführen".<br>
+Der Wert <code>rwx------</code> bedeutet: der besitzende Benutzer hat alle Rechte, seine Gruppe und der Rest der Welt haben überhaupt keine Rechte.</p>
+
+<p><strong>Darstellung als Oktalzahl (gleiche Beispiele wie zuvor):</strong></p>
+
+<pre>
+0777
+0644
+0700
+</pre>
+
+<p>Bei dieser Darstellung, die von den meisten der hier beschriebenen Funktionen gefordert wird, wird eine Zahl mit einer führenden 0 notiert, was Perl die Zahl als Oktalzahl interpretieren lässt. Die Zahl selber besteht aus den 3 nachfolgenden Ziffern. Bei Oktalzahlen sind nur Ziffern zwischen 0 und 7 erlaubt. Die erste Ziffer steht für die Rechte des besitzenden Benutzers, die zweite Ziffer für die seiner Benutzergruppe, und die dritte für die vom "Rest der Welt". Die Ziffern haben folgende Bedeutung für die Rechtezuweisung:</p>
+<ul><li>1 für Ausführen (--x)</li>
+<li>2 für Schreiben (-w-)</li>
+<li>3 für Schreiben und Ausführen (-wx)</li>
+<li>4 für Lesen (r--)</li>
+<li>5 für Lesen und Ausführen (r-x)</li>
+<li>6 für Lesen und Schreiben (rw-)</li>
+<li>7 für Lesen, Schreiben und Ausführen (rwx)</li>
+<li>sowie 0 für nichts (---)</li>
+</ul>
+
+<p>Der Wert <code>0777</code> bedeutet also: alle drei Benutzertypen (besitzender Benutzer, zugehörige Gruppe und Rest der Welt) haben an der Datei alle drei Rechte.<br>
+Der Wert <code>0644</code> bedeutet also: der besitzende Benutzer hat die Rechte "Lesen" und "Schreiben", seine Gruppe und der Rest der Welt haben nur das Recht "Lesen".<br>
+Der Wert <code>0700</code> bedeutet also: der besitzende Benutzer hat alle Rechte, seine Gruppe und der Rest der Welt haben überhaupt keine Rechte.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Als Hilfe für Dateirechte können Sie auch den <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../helferlein/chmod.htm">Unix-Dateirechte-Setzer (chmod)</a> benutzen.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="dateitest">-[x] - Dateitestoperatoren für Dateien/Verzeichnisse</a></h2>
+
+<p>Die einfachste und schnellste Methode, gezielt auf bestimmte Eigenschaften einer Datei oder eines Verzeichnisses zuzugreifen, ist diejenige, die Perl mit den Dateitestoperatoren zur Verfügung stellt. Einige der Dateitestoperatoren geben eine Zahl zurück, beispielsweise die Größe einer Datei in Bytes, andere nur, ob eine Aussage zutrifft oder nicht. Eine Übersicht der Dateitestoperatoren finden Sie in der <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#TabelleDateitestoperatoren">
+Tabelle der Dateitestoperatoren</a>.</p>
+
+<h3 class="xmp">Beispiel 1 eines vollständigen CGI-Scripts in Perl:</h3>
+<pre>
+#!/usr/bin/perl -w
+
+use strict;
+use CGI::Carp qw(fatalsToBrowser);
+
+my $Textdatei = "/usr/bin/myprog/readme.txt";
+my $UnbekannteDatei = "/usr/bin/myprog/doit";
+my $Perl-Datei = "/usr/webcgi-local/betrag.pl";
+my $Log-Datei = "/usr/web/logs/heute.log";
+
+print "Content-type: text/html\n\n";
+print '&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"&gt;', "\n";
+print "&lt;html&gt;&lt;body&gt;\n";
+print "Die Textdatei hat eine Größe von ",-s $Textdatei," Bytes&lt;br&gt;\n";
+printf "Die Textdatei wurde vor %.3f Tagen zuletzt bearbeitet&lt;br&gt;\n",-M $Textdatei;
+print "Die unbekannte Datei ist ",-d $UnbekannteDatei ? "ein Verzeichnis&lt;br&gt;\n" : "kein Verzeichnis&lt;br&gt;\n";
+print "Die Perl-Datei ",-e $Perl-Datei ? "existiert&lt;br&gt;\n" : "existiert nicht&lt;br&gt;\n";
+print "Es hat Zugriffe gegeben" if not -z $Log-Datei;
+print "&lt;/body&gt;&lt;/html&gt;\n";
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Alle Dateitestoperatoren zum Abfragen von Eigenschaften bestehen aus einem Minuszeichen, gefolgt von einem Buchstaben ohne Leerzeichen dazwischen. Dahinter folgt, durch ein Leerzeichen getrennt, die Angabe der gewünschten Datei, wenn erforderlich mit vollständigem <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#pfadnamen">Pfadnamen</a>.</p>
+
+<p>Im obigen Beispiel 1 werden drei Skalare definiert, die Dateinamen mit Pfadangaben speichern. Anschließend wird HTML-Code ausgegeben. Dabei werden verschiedene Aussagen über Eigenschaften der drei Dateien getroffen.<br>
+Die erste <code>print</code>-Anweisung enthält als Parameter einen Dateitestoperator (siehe dazu auch die Syntax von <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="einausgabe.htm#print">print</a>). In der Anweisung wird durch Anwendung von <code>-s $Textdatei</code> die Größe der Datei ermittelt und an der entsprechenden Stelle ausgegeben.<br>
+Im zweiten Befehl, einem Aufruf von <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="einausgabe.htm#printf">printf</a>, wird mit <code>-M $Textdatei</code> ermittelt, seit wie viel Tagen die Datei nicht mehr geändert wurde. Auch dieser Wert wird ausgegeben. Da <code>-M</code> eine Gleitkommazahl zurückgibt, wird die Ausgabe mit Hilfe der <code>printf</code>-Funktion auf drei Nachkommastellen gekürzt.<br>
+In den nachfolgenden beiden <code>print</code>-Befehlen sehen Sie eine typische Konstruktion, wie Dateitestoperatoren, die nur "wahr" oder "falsch" zurückgeben, angewendet werden. Zum Einsatz kommt in beiden Fällen eine <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../sprache/bedingt.htm#entweder_oder">einfache Entweder-Oder-Abfrage</a>. Im ersten Fall wird mit dem Dateitestoperator <code>-d</code> abgefragt, ob die unbekannte Datei ohne Endung ein Verzeichnis ist oder eine normale Datei. Im zweiten Fall wird mit <code>-e</code> abgefragt, ob die Perl-Datei existiert oder nicht.<br>
+Das letzte Beispiel zeigt, wie ein Dateitestoperator in eine <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../sprache/bedingt.htm#nachgestellte">nachgestellte bedingte Anweisung</a> eingebaut wird - ebenfalls eine typische Konstruktion. Das Beispiel ermittelt mit Hilfe des Dateitestoperators <code>-z</code>, ob die Datei leer ist oder nicht. Wenn sie nicht leer ist, wird eine Meldung ausgegeben, dass es Zugriffe gegeben hat.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Dateitestoperatoren können auch vergebene Datei-Handles anstelle von direkten Dateiangaben verarbeiten. Wenn Sie beispielsweise mit <code>open(FILE,"&lt;datei.htm")</code> eine Datei zum Lesen öffnen, können Sie mit <code>-s FILE</code> die Größe der Datei ermitteln.</p>
+
+<h3 class="xpl"><a name="TabelleDateitestoperatoren">Tabelle der Dateitestoperatoren:</a></h3>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<th>Syntax</th>
+<th>Bemerkung</th>
+<th>Bedeutung</th>
+<th>Beispiel</th>
+<th>Erläuterung</th>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>-A</code></td>
+<td class="tabxpl">&nbsp;</td>
+<td class="tabxpl">ermittelt, wie lange seit Programmstart auf eine Datei zugegriffen wurde. Rückgabewert ist die Zeit in Tagen als Gleitpunktzahl.</td>
+<td class="code" nowrap="nowrap"><code>printf("%.3f Tage<br>&nbsp;&nbsp;Zugriffszeit",-A $Datei);</code></td>
+<td class="tabxpl">Für die vom Script verarbeitete Datei <code>$Datei</code> wird ausgegeben, wie lange darauf zugegriffen wurde.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>-B</code></td>
+<td class="tabxpl">&nbsp;</td>
+<td class="tabxpl">ermittelt, ob es sich um eine Binärdatei handelt.</td>
+<td class="code" nowrap="nowrap"><code>binmode(FILE) if -B FILE;</code></td>
+<td class="tabxpl">Wenn die Datei des File-Handles FILE eine Binärdatei ist, wird <code>binmode</code> aufgerufen.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>-b</code></td>
+<td class="tabxpl">Unix-<br>spezifisch</td>
+<td class="tabxpl">ermittelt, ob eine Gerätedatei blockorientiert ist.</td>
+<td class="code" nowrap="nowrap"><code>exit(-1) unless -b "/cdrom";</code></td>
+<td class="tabxpl">Wenn "/cdrom" kein blockorientiertes Gerät ist, wird das Script beendet.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>-C</code></td>
+<td class="tabxpl">&nbsp;</td>
+<td class="tabxpl">ermittelt die Inode-Veränderungszeit einer Datei seit Programmstart.<br>Rückgabewert ist die Zeit in Tagen als Gleitpunktzahl.</td>
+<td class="code" nowrap="nowrap"><code>if(-C $Datei > 10) {<br>&nbsp;&nbsp;print "Warnung!"; }</code></td>
+<td class="tabxpl">Wenn die Inode-Zeit der Datei <code>$Datei</code> größer als 10 Tage ist, wird "Warnung!" ausgegeben.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>-c</code></td>
+<td class="tabxpl">Unix-<br>spezifisch</td>
+<td class="tabxpl">ermittelt, ob eine Gerätedatei zeichenorientiert ist.</td>
+<td class="code" nowrap="nowrap"><code>exit(-1) if -c "/cdrom";</code></td>
+<td class="tabxpl">Wenn "/cdrom" zeichenorientiert ist, wird das Script beendet.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>-d</code></td>
+<td class="tabxpl">&nbsp;</td>
+<td class="tabxpl">ermittelt, ob es sich um ein Verzeichnis handelt.</td>
+<td class="code" nowrap="nowrap"><code>chdir("texte") if -d "texte";</code></td>
+<td class="tabxpl">Wenn "texte" ein Verzeichnis ist, wird in das Verzeichnis gewechselt.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>-e</code></td>
+<td class="tabxpl">&nbsp;</td>
+<td class="tabxpl">ermittelt, ob ein Verzeichniseintrag existiert.</td>
+<td class="code" nowrap="nowrap"><code>print "text.txt existiert!"<br>&nbsp;&nbsp;if -e "text.txt";</code></td>
+<td class="tabxpl">Wenn die Datei "text.txt" existiert, wird dies ausgegeben.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>-f</code></td>
+<td class="tabxpl">&nbsp;</td>
+<td class="tabxpl">ermittelt, ob es sich um eine normale Datei (keine Gerätedatei, kein Verzeichnis usw.) handelt.</td>
+<td class="code" nowrap="nowrap"><code>Verarbeiten() if -f "text.txt";</code></td>
+<td class="tabxpl">Wenn die Datei "text.txt" eine normale Datei ist, wird eine Subroutine aufgerufen.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>-g</code></td>
+<td class="tabxpl">Unix-<br>spezifisch</td>
+<td class="tabxpl">ermittelt, ob bei einer Datei das <i>setgid</i>-Bit (set-group-ID-Bit) gesetzt ist.<br></td>
+<td class="code" nowrap="nowrap"><code>chmod 02771, "daten"<br>
+&nbsp;&nbsp;unless -g "daten";</code></td>
+<td class="tabxpl">Wenn das Verzeichnis "daten" kein <i>setgid</i>-Bit besitzt, werden die entsprechenden Rechte gesetzt.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>-k</code></td>
+<td class="tabxpl">Unix-<br>spezifisch</td>
+<td class="tabxpl">ermittelt, ob bei einer Datei das <i>Sticky</i>-Bit gesetzt ist (Bit z.B. für die Anweisung, Code eines Programms nach dessen Ausführung im Speicher zu behalten, weil es voraussichtlich öfter ausgeführt wird).</td>
+<td class="code" nowrap="nowrap"><code>print "test.pl ist sticky"<br>&nbsp;&nbsp;if -k "test.pl";</code></td>
+<td class="tabxpl">Wenn die Datei "text.pl" das <i>Sticky</i>-Bit gesetzt hat, wird dies ausgegeben.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>-l</code></td>
+<td class="tabxpl">Unix-<br>spezifisch</td>
+<td class="tabxpl">ermittelt, ob es sich um einen symbolischen Link handelt.</td>
+<td class="code" nowrap="nowrap"><code>print readlink("text.txt")<br>&nbsp;&nbsp;if -l "text.txt";</code></td>
+<td class="tabxpl">Wenn die Datei "text.txt" ein symbolischer Link ist, wird dessen Wert ausgegeben.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>-M</code></td>
+<td class="tabxpl">&nbsp;</td>
+<td class="tabxpl">ermittelt, wie lange eine Datei seit Programmstart nicht geändert wurde. Rückgabewert ist die Zeit in Tagen als Gleitpunktzahl.</td>
+<td class="code" nowrap="nowrap"><code>printf("seit %.3f Tagen<br>&nbsp;&nbsp;nicht modifiziert",<br>&nbsp;&nbsp;-M $Datei);</code></td>
+<td class="tabxpl">Für die Datei <code>$Datei</code> wird ausgegeben, wie lange sie nicht mehr verändert wurde.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>-o</code>/<code>-O</code></td>
+<td class="tabxpl">Unix-<br>spezifisch</td>
+<td class="tabxpl">ermittelt, ob die Datei der <i>effektiven UID</i> (<code>-o</code>) bzw. der <i>realen UID</i> (<code>-O</code>) gehört.<br></td>
+<td class="code" nowrap="nowrap"><code>Verarbeiten()<br>&nbsp;&nbsp;if -o "text.txt";</code></td>
+<td class="tabxpl">Wenn die Datei "text.txt" der effektiven UID gehört, wird eine Subroutine aufgerufen.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>-r</code>/<code>-R</code></td>
+<td class="tabxpl">Unix-<br>spezifisch</td>
+<td class="tabxpl">ermittelt, ob die <i>effektive UID/GID</i> (<code>-r</code>) bzw. die <i>reale UID/GID</i> (<code>-R</code>) Leserecht für die Datei besitzt.</td>
+<td class="code" nowrap="nowrap"><code>open(FILE,"&lt;text.txt")<br>&nbsp;&nbsp;if -r "text.txt";</code></td>
+<td class="tabxpl">Wenn die effektive UID/GID Leserecht auf die Datei "text.txt" hat, wird sie zum Lesen geöffnet.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>-p</code></td>
+<td class="tabxpl">Unix-<br>spezifisch</td>
+<td class="tabxpl">ermittelt, ob es sich um eine <i>named pipe</i> (FIFO) handelt.</td>
+<td class="code" nowrap="nowrap"><code>print "pipe" if -p "myprog";</code></td>
+<td class="tabxpl">Wenn die Datei "myprog" eine named pipe ist, wird dies ausgegeben.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>-S</code></td>
+<td class="tabxpl">Unix-<br>spezifisch</td>
+<td class="tabxpl">ermittelt, ob die Datei eine <i>Socket</i>-Datei ist (wird von Client-Server-Prozessen, die auf einem Rechner laufen, als Schnittstelle benutzt).</td>
+<td class="code" nowrap="nowrap"><code>next if -S $_;</code></td>
+<td class="tabxpl">Wenn die aktuelle Datei innerhalb einer angenommenen Schleife zur Überprüfung von allen Verzeichniseinträgen ein Socket ist, startet der nächste Schleifendurchgang.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>-s</code></td>
+<td class="tabxpl">&nbsp;</td>
+<td class="tabxpl">ermittelt die Dateigröße in Bytes.</td>
+<td class="code" nowrap="nowrap"><code>print -s $DirEintrag<br>&nbsp;&nbsp;if not -d $DirEintrag;</code></td>
+<td class="tabxpl">Wenn der Verzeichniseintrag <code>$DirEintrag</code> kein Verzeichnis ist, wird die Dateigröße ausgegeben.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>-T</code></td>
+<td class="tabxpl">&nbsp;</td>
+<td class="tabxpl">ermittelt, ob es sich um eine Textdatei handelt.</td>
+<td class="code" nowrap="nowrap"><code>Verarbeiten() if -T "text.txt";</code></td>
+<td class="tabxpl">Wenn die Datei "text.txt" eine Textdatei ist, wird eine Subroutine aufgerufen.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>-t</code></td>
+<td class="tabxpl">Unix-<br>spezifisch</td>
+<td class="tabxpl">ermittelt, ob der Verzeichniseintrag ein <i>tty</i>, d.h. ein angeschlossenes Gerät (Terminal) ist (unter Unix werden Peripheriegeräte als Dateien behandelt).</td>
+<td class="code" nowrap="nowrap"><code>print "STDIN ist tty"<br>&nbsp;&nbsp;if -t "STDIN";</code></td>
+<td class="tabxpl">Wenn der Standardeingabekanal tty ist, wird dies ausgegeben.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>-u</code></td>
+<td class="tabxpl">Unix-<br>spezifisch</td>
+<td class="tabxpl">ermittelt, ob bei einer Datei das <i>setuid</i>-Bit (Set-User-ID-Bit) gesetzt ist.</td>
+<td class="code" nowrap="nowrap"><code>die "kein uid-Bit"<br>&nbsp;&nbsp;if not -u "text.pl";</code></td>
+<td class="tabxpl">Wenn bei der Datei "text.pl" kein <i>setuid</i>-Bit gesetzt ist, wird das Script mit einer Fehlermeldung beendet.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>-w</code>/<code>-W</code></td>
+<td class="tabxpl">Unix-<br>spezifisch</td>
+<td class="tabxpl">ermittelt, ob die <i>effektive UID/GID</i> (<code>-w</code>) bzw. die <i>reale UID/GID</i> (<code>-W</code>) Schreibrecht für die Datei besitzt.<br></td>
+<td class="code" nowrap="nowrap"><code>open(FILE,"&gt;text.txt")<br>&nbsp;&nbsp;if -W "text.txt";</code></td>
+<td class="tabxpl">Wenn die reale UID/GID für die Datei "text.txt" Schreibrechte besitzt, wird sie zum Schreiben geöffnet.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>-x</code>/<code>-X</code></td>
+<td class="tabxpl">Unix-<br>spezifisch</td>
+<td class="tabxpl">ermittelt, ob die <i>effektive UID/GID</i> (<code>-x</code>) bzw. die <i>reale UID/GID</i> (<code>-X</code>) Ausführrecht für die Datei besitzt.</td>
+<td class="code" nowrap="nowrap"><code>system("myprog")<br>&nbsp;&nbsp;if -x "myprog";</code></td>
+<td class="tabxpl">Wenn die effektive UID/GID für die Datei "myprog" Rechte zum Ausführen der Datei besitzt, wird sie über einen <code>system</code>-Aufruf ausgeführt.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>-z</code></td>
+<td class="tabxpl">&nbsp;</td>
+<td class="tabxpl">ermittelt, ob eine Datei leer ist, also 0 Bytes hat.</td>
+<td class="code" nowrap="nowrap"><code>open(FILE,"&lt;text.txt")<br>&nbsp;&nbsp;if not -z "text.txt"</code></td>
+<td class="tabxpl">Wenn die Datei "text.txt" nicht leer ist, wird sie zum Lesen geöffnet.</td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="chdir">chdir - Verzeichnis wechseln</a></h2>
+
+<p>Macht ein Verzeichnis zum aktuellen Arbeitsverzeichnis. So ist es möglich, nach dem Wechseln in ein Verzeichnis dort abgelegte Dateien zu öffnen, ohne sich um Pfadnamen kümmern zu müssen.</p>
+
+<p>Erwartet als Parameter:<br>
+<strong>1.</strong> den <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#pfadnamen">Pfadnamen</a> des Verzeichnisses, zu dem gewechselt werden soll. Es kann sich um eine relative oder eine absolute Pfadangabe handeln.<br>
+Es ist auch möglich, keinen Parameter zu übergeben. In diesem Fall wechselt die Funktion in das Verzeichnis, das in der Umgebungsvariablen <var>HOME</var> gespeichert ist.</p>
+
+<h3 class="xmp">Beispiel eines vollständigen CGI-Scripts in Perl:</h3>
+<pre>
+#!/usr/bin/perl -w
+
+use strict;
+use CGI::Carp qw(fatalsToBrowser);
+
+chdir("/usr/txt/rfc");
+open(DATEI,"&lt;rfc1867.txt");
+my @Zeilen = &lt;DATEI&gt;;
+close(DATEI);
+
+print "Content-type: text/html\n\n";
+print '&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"&gt;', "\n";
+print "&lt;html&gt;&lt;head&gt;&lt;title&gt;Test-Ausgabe&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;pre&gt;\n";
+print "@Zeilen";
+print "&lt;/pre&gt;&lt;/body&gt;&lt;/html&gt;\n";
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispielscript wechselt mit <code>chdir</code> in das Verzeichnis <code>/usr/local/txt/rfc</code>, also in ein bestimmtes Unterverzeichnis ab Wurzelverzeichnis gerechnet. Dort wird dann eine Datei geöffnet, eingelesen und wieder geschlossen (Erläuterungen zu diesen Befehlen siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="einausgabe.htm#open">open</a>). Anschließend wird HTML-Code erzeugt. Dabei werden die Zeilen der eingelesenen Datei ausgegeben.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="chmod">chmod - Datei-/Verzeichnisrechte ändern</a></h2>
+
+<p>Setzt die Rechte zum Lesen, Schreiben und Ausführen einer oder mehrerer Dateien für Benutzer, Benutzergruppe und Rest der Welt (Unix-spezifisch).</p>
+
+<p>Erwartet als Parameter:<br>
+<strong>1.</strong> eine <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#rechteangaben">Rechteangabe</a>. Der Wert muss numerisch oktal übergeben werden, nicht als Zeichenkette!<br>
+<strong>2.</strong> bis <strong>n.</strong> eine oder mehrere Dateien/Verzeichnisse, für die diese Rechte gesetzt werden sollen, wenn nötig mit <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#pfadnamen">Pfadnamen</a>.</p>
+
+<p>Gibt die Anzahl der vorgenommenen Änderungen zurück.</p>
+
+<h3 class="xmp">Beispiel eines vollständigen CGI-Scripts in Perl:</h3>
+<pre>
+#!/usr/bin/perl -w
+
+use strict;
+use CGI::Carp qw(fatalsToBrowser);
+
+my $Verzeichnis = "/usr/web/docs/cgi-bin";
+chdir($Verzeichnis);
+
+print "Content-type: text/html\n\n";
+print '&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"&gt;', "\n";
+print "&lt;html&gt;&lt;head&gt;&lt;title&gt;Test-Ausgabe&lt;/title&gt;&lt;/head&gt;&lt;body&gt;\n";
+
+my @Dateien = glob("*.pl");
+my $Datei;
+foreach $Datei (@Dateien) {
+  chmod(0755,$Datei);
+  print "$Datei auf 0755 gesetzt&lt;br&gt;\n";
+}
+print "&lt;/body&gt;&lt;/html&gt;\n";
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel setzt alle Perl-Dateien eines CGI-Verzeichnisses auf die Rechte <code>0755</code> - auf vielen Servern eine sinnvolle Einstellung für CGI-Scripts. Zu diesem Zweck werden alle Dateien des Verzeichnisses <code>$Verzeichnis</code> (dem CGI-Verzeichnis) mit <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#glob">glob</a> ausgewählt. Die Liste <code>@Dateien</code>, in der die ausgewählten Dateien anschließend stehen, wird daraufhin in einer <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../sprache/schleifen.htm#foreach">foreach-Schleife</a> abgearbeitet. Mit <code>chmod(0755,$Datei)</code> wird die jeweils aktuelle Perl-Datei mit den gewünschten Rechten versehen. Zur Kontrolle gibt das Beispielscript aus, welche Dateien geändert wurden.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="chown">chown - Besitzer und Besitzergruppe von Dateien ändern</a></h2>
+
+<p>Jede Datei unter Unix hat einen Eigentümer, der durch zwei Zahlen identifiziert wird: die persönliche User-ID (UID) und die zugehörige Gruppen-ID (GID). Die Funktion ändert Besitzer und Besitzergruppe von einer oder mehreren Dateien. Auf den meisten Unix-Systemen ist dazu eine Root-Kennung erforderlich.</p>
+
+<p>Erwartet als Parameter:<br>
+<strong>1.</strong> die <strong>numerische</strong> UID (User-ID des Besitzers),<br>
+<strong>2.</strong> die <strong>numerische</strong> GID (Gruppen-ID der Besitzergruppe),<br>
+<strong>3.</strong> bis <strong>n.</strong> eine oder mehrere Dateien, für die die angegebenen UID und GID gelten sollen, wenn nötig mit <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#pfadnamen">Pfadnamen</a>.</p>
+
+<p>Gibt die Anzahl der vorgenommenen Änderungen zurück.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<pre>
+#!/usr/bin/perl -w
+
+use strict;
+
+chdir("/usr/data/web/htdocs");
+opendir(DIR, "/usr/data/web/htdocs") || die "$!\n";
+my @Eintraege = readdir(DIR);
+closedir(DIR);
+foreach (@Eintraege) {
+ chown(1034, 518, $_) if -f $_;
+}
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel ändert für alle regulären Dateien des angenommenen Verzeichnisses <code>/usr/data/web/htdocs</code> die Besitzerschaft auf den Benutzer mit der User-ID 1034 und der Gruppen-ID 518.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="chroot">chroot - Wurzelverzeichnis für Pfadnamen ändern</a></h2>
+
+<p>Bestimmt ein neues Verzeichnis als "virtuelles" Wurzelverzeichnis. Absolute Pfadangaben, die mit <code>/</code> beginnen, beziehen sich anschließend darauf. Auf den meisten Unix-Systemen ist zum Anwenden dieser Funktion eine Root-Kennung erforderlich.</p>
+
+<p>Erwartet als Parameter:<br>
+<strong>1.</strong> den <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#pfadnamen">Pfadnamen</a> des Verzeichnisses, das zum Wurzelverzeichnis werden soll. Es kann sich um eine relative oder eine absolute Pfadangabe handeln.<br>
+Es ist auch möglich, keinen Parameter zu übergeben. In diesem Fall wird der Inhalt der <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../sprache/vordefiniert.htm">vordefinierten Variablen</a> <code>$_</code> als Pfadnamen des gewünschten Verzeichnisses interpretiert.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+<pre>
+#!/usr/bin/perl -w
+
+use strict;
+
+chroot("/usr/local/web/domains/eidideldum");
+chdir("/");
+opendir(DIR, ".");
+my @Eintraege = readdir(DIR);
+closedir(DIR);
+
+foreach(@Eintraege) {
+  print "$_\n";
+}
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel setzt den Pfad <code>/usr/local/web/domains/eidideldum</code> als neues Wurzelverzeichnis. Anschließend wechselt das Script mit <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#chdir">chdir</a> in das neue Wurzelverzeichnis <code>("/")</code>. Zur Kontrolle liest das Script das aktuelle Verzeichnis <code>(".")</code> ein und listet die eingelesenen Verzeichniseinträge anschließend auf (Erläuterungen zu diesen Befehlen siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="einausgabe.htm#opendir">opendir</a>).</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="glob">glob - Dateien mit Wildcards auswählen</a></h2>
+
+<p>Wählt aus einem Verzeichnis alle Dateien aus, die einem bestimmten Dateinamenmuster entsprechen. Das ist wesentlich einfacher als das Operieren mit den Funktionen <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="einausgabe.htm#opendir">opendir</a>, <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="einausgabe.htm#readdir">readdir</a> und <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="einausgabe.htm#closedir">closedir</a>. Der Nachteil von <code>glob</code> ist allerdings, dass diese Funktion eine Unix-Shell startet, um an ihr Ergebnis zu kommen. Die Funktion ist daher nur auf Unix-Systemen verfügbar, und ausführbar ist sie auch nur, wenn das Script ausreichende Rechte zum Starten der Shell besitzt. Es gibt jedoch bei den <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../module/standardmodule.htm#dateiverwaltung">Standardmodulen für Dateiverwaltung</a> ein Modul, das den <code>glob</code>-Algorithmus komplett in Perl ausführt.</p>
+
+<p>Erwartet als Parameter:<br>
+<strong>1.</strong> Das Dateinamenmuster, wenn nötig mit <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#pfadnamen">Pfadangabe</a>.</p>
+
+<h3 class="xmp">Beispiel eines vollständigen CGI-Scripts in Perl:</h3>
+<pre>
+#!/usr/bin/perl -w
+
+use strict;
+use CGI::Carp qw(fatalsToBrowser);
+
+my @HTML_Dateien = glob("/usr/web/docroot/*.htm");
+
+print "Content-type: text/html\n\n";
+print '&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"&gt;', "\n";
+print "&lt;html&gt;&lt;head&gt;&lt;title&gt;Test-Ausgabe&lt;/title&gt;&lt;/head&gt;&lt;body&gt;\n";
+foreach (@HTML_Dateien) {
+  print "$_&lt;br&gt;\n";
+}
+print "&lt;/body&gt;&lt;/html&gt;\n";
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispielscript wählt im Verzeichnis <code>/usr/web/docroot</code> alle Dateien aus, die auf <code>htm</code> enden. Zur Kontrolle gibt das Script HTML-Code mit allen eingelesenen Dateien aus.</p>
+
+<p>Die folgende Tabelle enthält Beispiele für Dateimuster:</p>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<th>Dateimuster</th>
+<th>Bedeutung</th>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>*</code></td>
+<td class="tabxpl">wählt alle Dateien und Verzeichnisse aus, auch solche, die keine Endung haben. </td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>*.*</code></td>
+<td class="tabxpl">wählt alle Dateien und Verzeichnisse aus, die aus Namen und Endung bestehen.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>*.gif</code></td>
+<td class="tabxpl">wählt alle GIF-Dateien aus</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>index.*</code></td>
+<td class="tabxpl">wählt alle Dateien aus, die <code>index</code> als Namen haben, unabhängig von der Endung.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>???.*</code></td>
+<td class="tabxpl">wählt alle Dateien aus, deren Name aus drei Zeichen besteht, unabhängig von der Endung.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>????.txt</code></td>
+<td class="tabxpl">wählt alle TXT-Dateien aus, deren Name aus vier Zeichen besteht.</td>
+</tr>
+</table>
+&nbsp;
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="link">link - neue Datei als Link auf vorhandene erzeugen</a></h2>
+
+<p>Die link-Funktion, die dem Unix-Befehl <code>ln</code> entspricht, legt aus Sicht des Benutzers eine Kopie einer Datei an. Es handelt sich jedoch intern nach wie vor nur um eine einzige Datei, die lediglich nunmehr unter zwei verschiedenen Namen (und gegebenenfalls an zwei Stellen im Verzeichnisbaum) zu finden ist. Wird die Datei an einer dieser Stellen, an denen sie repräsentiert wird, geändert, gilt die Änderung auch für die anderen Stellen, an denen die Datei repräsentiert wird. Wird eine der Dateien gelöscht (z.B. mit <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#unlink">unlink</a>), so bleiben andere Repräsentationen der Datei davon unberührt. Erst wenn die letzte Repräsentation der Datei gelöscht ist, ist die Datei endgültig gelöscht.</p>
+
+<p>Erwartet als Parameter:<br>
+<strong>1.</strong> die bereits existierende Datei, von der eine neue Repräsentation erzeugt werden soll, wenn nötig mit <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#pfadnamen">Pfadangabe</a>,<br>
+<strong>2.</strong> die neu zu erzeugende Repräsentation der Datei, wenn nötig mit Pfadangabe.</p>
+
+<p>Gibt <code>1</code> zurück, wenn die Operation erfolgreich war, und <code>0</code>, wenn sie nicht erfolgreich war (z.B. weil im Zielverzeichnis kein Schreibrecht besteht).</p>
+
+<h3 class="xmp">Beispiel eines vollständigen CGI-Scripts in Perl:</h3>
+<pre>
+#!/usr/bin/perl -w
+
+use strict;
+use CGI::Carp qw(fatalsToBrowser);
+
+my $Erfolg = link("single.txt","../double.txt");
+
+print "Content-type: text/html\n\n";
+print '&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"&gt;', "\n";
+print "&lt;html&gt;&lt;head&gt;&lt;title&gt;Test-Ausgabe&lt;/title&gt;&lt;/head&gt;&lt;body&gt;\n";
+$Erfolg ? print "Erfolg" : print "kein Erfolg";
+print "&lt;/body&gt;&lt;/html&gt;\n";
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel wendet die Funktion <code>link</code> an, um von der Datei <code>single.txt</code> im aktuellen Verzeichnis eine neue Repräsentation zu erzeugen, die im Verzeichnis oberhalb (<code>../</code>) unter dem Namen <code>double.txt</code> erscheint. Der Rückgabewert wird in dem Skalar <code>$Erfolg</code> gespeichert. Zur Kontrolle erzeugt das Beispiel HTML-Code und gibt dabei mit Hilfe einer <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../sprache/bedingt.htm#entweder_oder">einfachen Entweder-Oder-Abfrage</a> den Erfolgsstatus der Operation an.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="lstat">lstat - Eigenschaften einer Link-Datei</a></h2>
+
+<p>Diese Funktion leistet das gleiche wie die Funktion <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#stat">stat</a>. Nähere Beschreibung und Beispiel siehe dort.</p>
+
+<p>Im Unterschied zu <code>stat</code> ermittelt <code>lstat</code> nicht die Eigenschaften einer Datei, sondern die einer Dateiverknüpfung, eines so genannten symbolischen Links. Wenn es sich nicht um eine Repräsentation einer Datei handelt (also wenn die Datei nur einmal im Verzeichnisbaum erscheint), wird beim Aufruf von <code>lstat</code> intern automatisch ein normaler Aufruf von <code>stat</code> gestartet. <code>lstat</code> erfasst also im Gegensatz zu <code>stat</code> auch Dateirepräsentationen und wird deshalb in der Praxis eher eingesetzt als <code>stat</code>.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="mkdir">mkdir - Verzeichnis erstellen</a></h2>
+
+<p>Legt ein neues Verzeichnis an und ermöglicht es, für das neue Verzeichnis die Rechte für Lesen, Schreiben und Ausführen zu vergeben (nur bei Unix-Systemen wirksam).</p>
+
+<p>Erwartet als Parameter:<br>
+<strong>1.</strong> den Namen des neuen Verzeichnisses, wenn nötig <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#pfadnamen">Pfadnamen</a>.<br>
+<strong>2.</strong> eine <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#rechteangaben">Rechteangabe</a>. Der Wert muss numerisch oktal übergeben werden, nicht als Zeichenkette! Zum Ermitteln der gewünschten Oktalzahl können Sie den <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../helferlein/chmod.htm">Unix-Dateirechte-Setzer</a> bei den kleinen Helferlein verwenden.<br>
+Auf Systemen, die keine Unix-Rechteverwaltung kennen, also z.B. unter Windows, ist der zweite Parameter bedeutungslos.</p>
+
+<p>Gibt <code>1</code> bzw. <code>TRUE</code> zurück, wenn die Operation erfolgreich war, und <code>0</code> bzw. <code>FALSE</code>, wenn das Anlegen des Verzeichnisses nicht möglich war (z.B. weil in dem Verzeichnis, in dem das Unterverzeichnis angelegt werden sollte, kein Schreibrecht besteht). Der genaue Fehlertext kann in diesem Fall über die <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../sprache/vordefiniert.htm">vordefinierte Variable</a> <code>$!</code> ermittelt werden.</p>
+
+<h3 class="xmp">Beispiel eines vollständigen CGI-Scripts in Perl:</h3>
+<pre>
+#!/usr/bin/perl -w
+
+use strict;
+use CGI::Carp qw(fatalsToBrowser);
+
+my @Verzeichnisbaum = (
+"texte",
+"texte/briefe",
+"texte/rechnungen",
+"texte/rechnungen/alt",
+"texte/rechnungen/neu",
+"grafiken",
+"grafiken/fotos",
+"grafiken/fotos/fremde",
+"grafiken/cliparts",
+);
+
+print "Content-type: text/html\n\n";
+print '&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"&gt;', "\n";
+print "&lt;html&gt;&lt;head&gt;&lt;title&gt;Test-Ausgabe&lt;/title&gt;&lt;/head&gt;&lt;body&gt;\n";
+chdir("/temp");
+foreach(@Verzeichnisbaum) {
+  mkdir($_,0777);
+  print "Unterverzeichnis &lt;strong&gt;$_&lt;/strong&gt; angelegt&lt;br&gt;\n";
+}
+print "&lt;/body&gt;&lt;/html&gt;\n";
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel definiert eine Liste namens <code>@Verzeichnisbaum</code>. Darin werden Einträge gespeichert, die eine anzulegende Unterverzeichnisstruktur darstellen. Weiter unten im Beispielscript wird diese Liste in einer <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../sprache/schleifen.htm#foreach">foreach-Schleife</a> abgearbeitet. Dabei wird jedes einzelne der Verzeichnisse mit <code>mkdir</code> angelegt. Das jeweils aktuelle Verzeichnis der Liste steht innerhalb der Schleife in <code>$_</code>. Als zweiter Parameter wird die Oktalzahl <code>0777</code> übergeben. Damit erhalten alle Benutzer der Verzeichnisse alle Rechte. Das Beispielscript erzeugt HTML-Code und gibt für jedes angelegte Verzeichnis einen entsprechenden Satz aus.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="readlink">readlink - Wert einer Link-Datei auslesen</a></h2>
+
+<p>Liest den Wert einer symbolischen Link-Datei aus. Das sind Link-Dateien, die z.B. mit Hilfe von <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#symlink">symlink</a> erzeugt wurden.</p>
+
+<p>Erwartet als Parameter:<br>
+<strong>1.</strong> den Namen der symbolischen Link-Datei, wenn nötig mit <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#pfadnamen">Pfadnamen</a>.<br>
+Es ist auch möglich, keinen Parameter zu übergeben. In diesem Fall wird der Inhalt der <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../sprache/vordefiniert.htm">vordefinierten Variablen</a> <code>$_</code> verwendet.</p>
+
+<p>Gibt den vollständigen Pfad der Datei aus, auf die sich die Link-Datei bezieht. Im Fehlerfall gibt die Funktion <code>undef</code> zurück und schreibt den Fehlertext in die vordefinierte Variable <code>$!</code>. Auf Betriebssystemen, die keine symbolischen Links kennen, also z.B. unter Windows, produziert der Aufruf dieser Funktion einen schweren Fehler.</p>
+
+<h3 class="xmp">Beispiel eines vollständigen CGI-Scripts in Perl:</h3>
+<pre>
+#!/usr/bin/perl
+
+use strict;
+use CGI::Carp qw(fatalsToBrowser);
+
+chdir("/tmp");
+symlink("/usr/local/webdocs/index.htm","webindex.sym");
+my $Inhalt = readlink("webindex.sym");
+
+print "Content-type: text/html\n\n";
+print '&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"&gt;', "\n";
+print "&lt;html&gt;&lt;head&gt;&lt;title&gt;Test-Ausgabe&lt;/title&gt;&lt;/head&gt;&lt;body&gt;\n";
+print "Inhalt der symbolischen Datei: $Inhalt\n";
+print "&lt;/body&gt;&lt;/html&gt;\n";
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispielscript wechselt zunächst mit <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#chdir">chdir</a> ins Verzeichnis <code>/tmp</code>. Dort legt es mit <code>symlink</code> eine symbolische Link-Datei namens <code>webindex.sym</code> an, die ein symbolischer Link zu der Datei <code>/usr/local/webdocs/index.htm</code> ist. Mit <code>readlink</code> wird anschließend der Wert ausgelesen, der der symbolischen Datei zugeordnet ist. Zur Kontrolle erzeugt das Beispielscript HTML-Code. Dabei wird der <code>webindex.sym</code> zugeordnete Pfadnamen zur verlinkten Datei ausgegeben.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="rename">rename - Datei/Verzeichnis umbenennen</a></h2>
+
+<p>Erwartet als Parameter:<br>
+<strong>1.</strong> den Namen der umzubenennenden Datei oder des umzubenennenden Verzeichnisses, wenn nötig mit <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#pfadnamen">Pfadnamen</a>.<br>
+<strong>2.</strong> den neuen Namen der Datei oder des Verzeichnisses, wenn nötig mit neuem Pfadnamen.<br>
+Wenn der erste Parameter eine Datei ist und der zweite Parameter der Name eines anderen Verzeichnisses, wird die Datei in das andere Verzeichnis verschoben. Es ist jedoch mit dieser Funktion nicht möglich, als ersten und zweiten Parameter zwei unterschiedliche Verzeichnisse anzugeben, um das erste Verzeichnis in das zweite zu verschieben.<br>
+Es ist außerdem nicht möglich, Dateien auf eine andere Partition zu verschieben. Abhilfe schafft hierbei die Funktion <code>move</code> aus dem <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../module/standardmodule.htm">Standardmodul</a> <code>File::Copy</code>.</p>
+
+<p>Gibt <code>true</code> zurück, wenn die Operation erfolgreich war, ansonsten <code>false</code>.</p>
+
+<h3 class="xmp">Beispiel eines vollständigen CGI-Scripts in Perl:</h3>
+<pre>
+#!/usr/bin/perl -w
+
+use strict;
+use CGI::Carp qw(fatalsToBrowser);
+
+chdir("/htmldocs");
+opendir(DIR,".");
+my @Eintraege = readdir(DIR);
+closedir(DIR);
+
+print "Content-type: text/html\n\n";
+print '&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"&gt;', "\n";
+print "&lt;html&gt;&lt;head&gt;&lt;title&gt;Test-Ausgabe&lt;/title&gt;&lt;/head&gt;&lt;body&gt;\n";
+my $Eintrag;
+my $Name;
+my $NeuerEintrag;
+foreach $Eintrag (@Eintraege) {
+ if($Eintrag =~ /(.+)\.htm/) {
+   $Name = $1;
+   $NeuerEintrag = $Name.".html";
+   rename($Eintrag,$NeuerEintrag);
+   print "$Eintrag in $NeuerEintrag umbenannt&lt;br&gt;\n";
+ }
+}
+print "&lt;/body&gt;&lt;/html&gt;\n";
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel bewirkt, dass alle Dateien eines Verzeichnisses, die auf die Endung <code>.htm</code> enden, in gleichnamige Dateien mit der Endung <code>.html</code> umbenannt werden.<br>
+Das Script wechselt zunächst mit <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#chdir">chdir</a> in das Verzeichnis <code>/htmldocs</code>. Anschließend liest es dieses aktuelle Verzeichnis (<code>"."</code>) in die Liste <code>@Eintraege</code> ein (Erläuterungen zu diesen Befehlen siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="einausgabe.htm#opendir">opendir</a>). Das Beispielscript erstellt HTML-Code. Dabei werden die Einträge des eingelesenen Verzeichnisses in einer <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../sprache/schleifen.htm#foreach">foreach-Schleife</a> abgearbeitet. Bei jedem Eintrag wird geprüft, ob es sich um eine Datei mit der Endung <code>.htm</code> handelt. Wenn ja, wird der "Vorname" der Datei in <code>$Name</code> gespeichert und ein neuer Dateiname aus dem Wert von <code>$Name</code> und der Endung <code>.html</code> definiert. Anschließend wird die Funktion <code>rename</code> aufgerufen. Dabei wird der bisherige Eintrag, also eine Datei <code>.htm</code>, in den neuen Eintrag, also eine Datei mit gleichem Vornamen, nur mit der Endung <code>.html</code>, umbenannt. Zur Kontrolle listet das Script alle Umbenennungen auf.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="rmdir">rmdir - Verzeichnis löschen</a></h2>
+
+<p>Erwartet als Parameter:<br>
+<strong>1.</strong> den Namen des zu löschenden Verzeichnisses, wenn nötig den <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#pfadnamen">Pfadnamen</a>.<br>
+Das Verzeichnis muss leer sein, andernfalls kann es mit dieser Funktion nicht gelöscht werden. Nicht leere Verzeichnisse lassen sich mit der Funktion <code>rmtree</code> aus dem <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../module/standardmodule.htm">Standardmodul</a> <code>File::Path</code> löschen.</p>
+
+<p>Gibt <code>1</code> zurück, wenn das Verzeichnis gelöscht wurde. Falls ein Fehler aufgetreten ist, wird <code>0</code> zurückgegeben, und in der <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../sprache/vordefiniert.htm">vordefinierten Variablen</a> <code>$!</code> steht die Fehlermeldung.</p>
+
+<h3 class="xmp">Beispiel eines vollständigen CGI-Scripts in Perl:</h3>
+<pre>
+#!/usr/bin/perl -w
+
+use strict;
+use CGI::Carp qw(fatalsToBrowser);
+
+my $Verzeichnis = $ENV{'QUERY_STRING'};
+my $Ergebnis = rmdir($Verzeichnis);
+
+print "Content-type: text/html\n\n";
+print '&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"&gt;', "\n";
+print "&lt;html&gt;&lt;head&gt;&lt;title&gt;Test-Ausgabe&lt;/title&gt;&lt;/head&gt;&lt;body&gt;\n";
+if($Ergebnis == 1) {
+  print "$Verzeichnis gel&amp;ouml;scht!";
+}
+else {
+ print "$!";
+}
+print "&lt;/body&gt;&lt;/html&gt;\n";
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Script erwartet einen Übergabeparameter, der beim Aufruf über einen URI hinter einem Fragezeichen notiert wird. Der Übergabeparameter besteht in der Pfadangabe des zu löschenden Verzeichnisses. Beispiel:<br>
+<code>/mydocs/texte/schrott</code>.<br>
+Das Script versucht, das übergebene Verzeichnis zu löschen. Der Rückgabewert des Versuchs wird in dem Skalar <code>$Ergebnis</code> gespeichert.<br>
+Anschließend erzeugt das Script HTML-Code. Dabei wird ausgegeben, ob das übergebene Verzeichnis erfolgreich gelöscht wurde oder nicht. Wenn nicht, wird die erzeugte Fehlermeldung ausgegeben.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="stat">stat - Eigenschaften einer Datei ermitteln</a></h2>
+
+<p>Ermittelt diverse Eigenschaften einer Datei auf einmal in Listenform. Die meisten dieser Eigenschaften sind Unix-spezifisch. Einige Eigenschaften lassen sich zwar auch auf anderen Plattformen abfragen, doch dazu ist es eigentlich einfacher, die <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#dateitest">Dateitestoperatoren für Dateien/Verzeichnisse</a> zu verwenden. Die Funktion <code>stat</code> lässt sich im Gegensatz zu <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#lstat">lstat</a> nicht auf Dateirepräsentanzen (symbolische links), sondern nur auf "Originale" von Dateien anwenden.</p>
+
+<p>Erwartet als Parameter:<br>
+<strong>1.</strong> den Namen der gewünschten Datei, wenn nötig mit <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#pfadnamen">Pfadnamen</a>. Alternativ kann auch der Name eines Datei-Handles übergeben werden.</p>
+
+<p>Gibt eine Liste mit mehreren Elementen zurück. Jedes Element enthält eine bestimmte ermittelte Datei-Eigenschaft.</p>
+
+<h3 class="xmp">Beispiel eines vollständigen CGI-Scripts in Perl:</h3>
+<pre>
+#!/usr/bin/perl -w
+
+use strict;
+use CGI::Carp qw(fatalsToBrowser);
+
+my $Datei = "/usr/webperldoc/index.html";
+my @Info = stat($Datei);
+
+print "Content-type: text/html\n\n";
+print '&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"&gt;', "\n";
+print "&lt;html&gt;&lt;head&gt;&lt;title&gt;Test-Ausgabe&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;pre&gt;\n";
+print "&lt;strong&gt;Datei:&lt;/strong&gt;                      $Datei\n";
+print "&lt;strong&gt;Geraetenummer:&lt;/strong&gt;              $Info[0]\n";
+print "&lt;strong&gt;Inode-Nummer:&lt;/strong&gt;               $Info[1]\n";
+printf "&lt;strong&gt;Zugriffsrechte:&lt;/strong&gt;             %o\n", $Info[2];
+print "&lt;strong&gt;Anzahl Links auf Datei:&lt;/strong&gt;     $Info[3]\n";
+print "&lt;strong&gt;User-ID des Besitzers:&lt;/strong&gt;      $Info[4]\n";
+print "&lt;strong&gt;Gruppen-ID des Besitzers:&lt;/strong&gt;   $Info[5]\n";
+print "&lt;strong&gt;Raw-Geraetenummer:&lt;/strong&gt;          $Info[6]\n";
+print "&lt;strong&gt;Dateigroesse:&lt;/strong&gt;               $Info[7]\n";
+print "&lt;strong&gt;Letzte Zugriffszeit:&lt;/strong&gt;        $Info[8]\n";
+print "&lt;strong&gt;Letzte Aenderungsszeit:&lt;/strong&gt;     $Info[9]\n";
+print "&lt;strong&gt;Inode-Aenderungsszeit:&lt;/strong&gt;      $Info[10]\n";
+print "&lt;strong&gt;Ideale Blockgroesse:&lt;/strong&gt;        $Info[11]\n";
+print "&lt;strong&gt;Anzahl belegter Blocks:&lt;/strong&gt;     $Info[12]\n";
+print "&lt;/pre&gt;&lt;/body&gt;&lt;/html&gt;\n";
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel ermittelt für eine bestimmte Datei (/usr/data/artikel.zip) mit <code>stat</code> die verfügbaren Datei-Eigenschaften. Der Rückgabewert der Funktion wird in einer Liste <code>@Info</code> gespeichert. Das Beispiel erzeugt HTML-Code und listet darin alle 13 Einzeleigenschaften, abrufbar über <code>$Info[0]</code> bis <code>$Info[12]</code>, auf. Die folgende Tabelle enthält nähere Informationen über die einzelnen Eigenschaften.</p>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<th>Indexnr.:</th>
+<th>Erläuterung:</th>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>[0]</code></td>
+<td class="tabxpl"><strong>Gerätenummer:</strong> die systemweit eindeutige Gerätenummer des Dateisystems, auf dem sich die Datei befindet.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>[1]</code></td>
+<td class="tabxpl"><strong>Inode-Nummer:</strong> Die dateisystemweit eindeutige Nummer der Datei innerhalb des Dateisystems mit der Gerätenummer aus [0].</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>[2]</code></td>
+<td class="tabxpl"><strong>Dateityp/Zugriffsrechte:</strong> Der zurückgegebene Wert muss als Oktalzahl interpretiert werden (daher im obigen Beispiel auch die Ausgabe mit <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="einausgabe.htm#printf">printf</a> als Oktalzahl). Die oktale Bewertung der Zahl zeigt zwar eine einzige Zahl, die jedoch aus zwei Teilen besteht. Die letzten drei Ziffern bedeuten die <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#rechteangaben">Rechteangaben</a> zur Datei, und die Ziffern davor bedeuten den Dateityp. Die entsprechenden Nummern werden auf Unix-Systemen in der Datei <code>sys/stat.h</code> definiert.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>[3]</code></td>
+<td class="tabxpl"><strong>Anzahl Links auf Datei:</strong> Anzahl physikalisch existierender Repräsentationen der Datei, also mindestens 1. Bei gesetzten Links, wie es in Perl z.B. mit der Funktion <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#link">link</a> möglich ist, erhöht sich die Anzahl.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>[4]</code></td>
+<td class="tabxpl"><strong>User-ID des Besitzers:</strong> Die Nummer des Datei-Eigentümers.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>[5]</code></td>
+<td class="tabxpl"><strong>Gruppen-ID des Besitzers:</strong> Die Nummer der Gruppe, zu der der Datei-Eigentümer gehört.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>[6]</code></td>
+<td class="tabxpl"><strong>Raw-Gerätenummer:</strong> Nur bei Gerätedateien interessant.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>[7]</code></td>
+<td class="tabxpl"><strong>Dateigröße:</strong> Die logische Größe der Datei in Bytes.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>[8]</code></td>
+<td class="tabxpl"><strong>Letzte Zugriffszeit:</strong> Zeitstempel des letzten lesenden oder schreibenden Zugriffs auf die Datei. Die zurückgegebene Zahl bedeutet die Anzahl Sekunden seit dem 1.1.1970 bis zum Augenblick des letzten Zugriffs.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>[9]</code></td>
+<td class="tabxpl"><strong>Letzte Änderungszeit:</strong> Zeitstempel des letzten schreibenden Zugriffs auf die Datei. Die zurückgegebene Zahl bedeutet die Anzahl Sekunden seit dem 1.1.1970 bis zum Augenblick des letzten Zugriffs.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>[10]</code></td>
+<td class="tabxpl"><strong>Inode-Änderungszeit:</strong> Zeitstempel des letzten Zugriffs auf die Datei, der eine Änderung der Inode-Nummer bewirkte. Die zurückgegebene Zahl bedeutet die Anzahl Sekunden seit dem 1.1.1970 bis zum Augenblick der letzten Inode-Änderung.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>[11]</code></td>
+<td class="tabxpl"><strong>Ideale Blockgröße:</strong> Die optimale Anzahl Bytes zum blockweisen Lesen oder Schreiben der Datei - in Perl mit Funktionen wie <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="einausgabe.htm#sysread">sysread</a> oder <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="einausgabe.htm#syswrite">syswrite</a>.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>[12]</code></td>
+<td class="tabxpl"><strong>Anzahl belegter Blöcke:</strong> Die Anzahl der vom Betriebssystem benutzen Speicherblöcke, um die Datei zu speichern.</td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="symlink">symlink - neue Datei als symbolischen Link auf vorhandene erzeugen</a></h2>
+
+<p>Erzeugt einen symbolischen Link auf eine anderswo gespeicherte Datei. Der erzeugte Verzeichniseintrag erscheint jedoch im Gegensatz zu einem Eintrag, der mit <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#link">link</a> erzeugt wurde, nicht als tatsächliche Repräsentation der anderen Datei, sondern nur als Verknüpfung zu der anderen Datei (Unix-spezifisch).</p>
+
+<p>Erwartet als Parameter:<br>
+<strong>1.</strong> die existierende Datei, zu der ein symbolischer Link erzeugt werden soll, wenn nötig mit <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#pfadnamen">Pfadangabe</a>,<br>
+<strong>2.</strong> die neu zu erzeugende, symbolische Link-Datei, wenn nötig mit Pfadangabe.</p>
+
+<p>Gibt <code>1</code> zurück, wenn die Operation erfolgreich war, und <code>0</code>, wenn sie nicht erfolgreich war. Auf Betriebssystemen, die keine symbolischen Links kennen, kann diese Funktion zu einem schweren Fehler beim Ausführen des Scripts führen!</p>
+
+<h3 class="xmp">Beispiel eines vollständigen CGI-Scripts in Perl:</h3>
+<pre>
+#!/usr/bin/perl -w
+
+use strict;
+use CGI::Carp qw(fatalsToBrowser);
+
+my $symlink_exists = eval { symlink("",""); 1 };
+if($symlink_exists) {
+  symlink("/usr/local/people/stefan.htm","/usr/local/links/stefan.link");
+}
+
+print "Content-type: text/html\n\n";
+print '&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"&gt;', "\n";
+print "&lt;html&gt;&lt;head&gt;&lt;title&gt;Test-Ausgabe&lt;/title&gt;&lt;/head&gt;&lt;body&gt;\n";
+opendir(DIR, "/u/web/teamon/temp");
+my @Dateien = readdir(DIR);
+closedir(DIR);
+foreach (@Dateien) {
+  print "$_&lt;br&gt;\n";
+}
+print "&lt;/body&gt;&lt;/html&gt;\n";
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel überprüft zunächst mit Hilfe der Funktion <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="kontrolle.htm#eval">eval</a>, ob auf dem Betriebssystem, unter dem das Script ausgeführt wird, symbolische Links möglich sind. Benutzen Sie zu einer solchen Überprüfung den Befehl wie im Beispiel notiert. In dem Rückgabewert, der im Beispiel in dem Skalar <code>$symlink_exists</code> gespeichert wird, steht der Wert 1 (true), falls symbolische Links möglich sind. Mit der Konstruktion <code>if($symlink_exists)</code> ist dann die bedingte Ausführung von <code>symlink</code> möglich. Im Beispiel wird eine Link-Datei namens <code>stefan.link</code> erzeugt, die auf die Originaldatei <code>stefan.htm</code> in einem anderen Verzeichnis zeigt. Das Beispiel liest zur Kontrolle das Verzeichnis, in dem die symbolische Link-Datei erzeugt wurde, ein (Erläuterungen zu diesen Befehlen siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="einausgabe.htm#opendir">opendir</a>) und gibt entsprechenden HTML-Code aus.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="umask">umask - Umask des laufenden Prozesses ändern</a></h2>
+
+<p>Diese Funktion ist nur für Unix-Systeme relevant. Wenn unter Unix eine neue Datei geschrieben wird, werden die dabei vergebenen Zugriffsrechte durch die <strong>Umask</strong> des aktuell laufenden Prozesses (z.B. das laufende Perl-Script, das die Datei erzeugt) beeinflusst. Durch Aufruf der <strong>Funktion</strong> <code>umask</code> können Sie die Umask des laufenden Prozesses ändern und dadurch deren Wirkung auf die Zugriffsrechte neu erzeugter Dateien beeinflussen.</p>
+
+<p>Erwartet als Parameter:<br>
+<strong>1.</strong> eine Bitmaske für eine <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#rechteangaben">Rechteangabe</a>. Der Wert muss oktal übergeben werden. Jedes gesetzte Bit in der Bitmaske bewirkt, dass das entsprechende Bit in einer vom laufenden Prozess erzeugten Datei <strong>ausgeschaltet</strong> wird.</p>
+
+<p>Gibt den alten Umask-Wert zurück.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+<pre>
+#!/usr/bin/perl -w
+
+use strict;
+
+use Fcntl;
+sysopen(DATEI,"/usr/web/temp/test.txt", O_CREAT,0666);
+umask(0077);
+sysopen(DATEI2,"/usr/web/temp/test2.txt", O_CREAT,0666);
+open(LS,"ls -la /usr/web/temp |");
+print while(&lt;LS&gt;);
+close(DATEI);
+close(DATEI2);
+close(LS);
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel erzeugt mit zwei Aufrufen von <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="einausgabe.htm#sysopen">sysopen</a> zwei Dateien namens <code>test.txt</code> und <code>test2.txt</code>. Bei beiden Dateien wird als gewünschte Rechteangabe <code>0666</code> angegeben. Zwischen den beiden Aufrufen von <code>sysopen</code> steht jedoch ein Aufruf von <code>umask</code>. Der Funktion wird dabei <code>077</code> als Oktalzahl mit führender <code>0</code> übergeben. Dies bewirkt, dass bei der Datei <code>test2.txt</code> die tatsächlichen Zugriffsrechte auf <code>0600</code> gesetzt werden. Zur Kontrolle gibt das Script das Ergebnis des Unix-Kommandos <code>ls</code> für das Verzeichnis, in dem die beiden Dateien erzeugt wurden, aus.</p>
+
+<p>Die Wirkungsweise von <code>umask</code> lässt sich besser verstehen, wenn man das Bitmuster der Oktalzahl aufschlüsselt und mit der Zeichenkettenschreibweise von Zugriffsrechten vergleicht.<br>
+Das Bitmuster der Oktalzahl <code>077</code> lautet: <code>000111111</code> (eine 7 ist 111 binär!).<br>
+Die Zeichenkettenschreibweise von <code>0666</code> lautet: <code>rw-rw-rw-</code>.<br>
+Es stehen sich also 9 Bits und 9 Zeichen gegenüber. Jedes gesetzte Bit (<code>1</code>) der Oktalzahl setzt das analoge Zeichen an der gleichen Stelle auf <code>-</code>, sofern dort vorher <code>r</code>, <code>w</code> oder <code>x</code> stand.<br>
+Das Bitmuster <code>000111111</code> bewirkt also bei einem Recht <code>rw-rw-rw-</code>, dass alle hinteren 6 Zeichen auf <code>-</code> gesetzt werden, sodass <code>rw-------</code> herauskommt (was wiederum oktal <code>0600</code> entspricht).</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="unlink">unlink - Dateien löschen</a></h2>
+
+<p>Löscht eine oder mehrere Dateien gleichzeitig. Verzeichnisse können mit diesem Befehl nicht gelöscht werden, dazu steht die Funktion <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#rmdir">rmdir</a> zur Verfügung.</p>
+
+<p>Erwartet als Parameter:<br>
+<strong>1.</strong> eine Liste von Dateien, die gelöscht werden sollen.</p>
+
+<p>Gibt die Anzahl der erfolgreich gelöschten Dateien zurück.</p>
+
+<h3 class="xmp">Beispiel eines vollständigen CGI-Scripts in Perl:</h3>
+<pre>
+#!/usr/bin/perl -w
+
+use strict;
+use CGI::Carp qw(fatalsToBrowser);
+
+chdir("/tmp");
+opendir(DIR,".");
+my @Eintraege = readdir(DIR);
+closedir(DIR);
+my $Anzahl = 0;
+foreach (@Eintraege) {
+ unless( -d $_) {
+   $Anzahl+= unlink($_);
+ }
+}
+print "Content-type: text/html\n\n";
+print '&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"&gt;', "\n";
+print "&lt;html&gt;&lt;head&gt;&lt;title&gt;Test-Ausgabe&lt;/title&gt;&lt;/head&gt;&lt;body&gt;\n";
+print "$Anzahl Dateien entfernt!\n";
+print "&lt;/body&gt;&lt;/html&gt;\n";
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Mit <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#chdir">chdir</a> wechselt das Beispielscript zunächst in das Verzeichnis, in dem etwas gelöscht werden soll. Anschließend wird das Verzeichnis mit <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="einausgabe.htm#opendir">opendir</a>, <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="einausgabe.htm#readdir">readdir</a> und <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="einausgabe.htm#closedir">closedir</a> eingelesen. Die Verzeichniseinträge stehen anschließend in der Liste <code>@Eintraege</code>. In einer <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../sprache/schleifen.htm#foreach">foreach</a>-Schleife wird die Liste sodann abgearbeitet. Mit <code>unless( -d $_)</code> wird abgefragt, ob der aktuelle Eintrag kein Verzeichnis ist. Wenn das der Fall ist, wird der Eintrag, also eine Datei, mit <code>unlink</code> gelöscht. Beim erfolgreichen Löschen wird die Variable <code>$Anzahl</code> um 1 erhöht. Am Ende gibt das Script HTML-Code mit der Anzahl der gelöschten Dateien aus.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="utime">utime - Zeitstempel von Dateien/Verzeichnissen ändern</a></h2>
+
+<p>Ändert den Zeitstempel für den letzten Lesezugriff und den letzten Schreibzugriff von einer oder mehreren Dateien.</p>
+
+<p>Erwartet als Parameter:<br>
+<strong>1.</strong> Eine Zeitangabe für den letzten Lesezugriff. Es muss sich um eine Sekundenangabe seit dem 1.1.1970 handeln, so wie ihn beispielsweise die Funktion <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="datumzeit.htm#time">time</a> zurückgibt.<br>
+<strong>2.</strong> Eine Zeitangabe für den letzten Schreibzugriff. Auch dabei muss es sich um eine Sekundenangabe seit dem 1.1.1970 handeln.<br>
+<strong>3.</strong> eine Liste von Dateien, deren Zeitstempel geändert werden soll.</p>
+
+<p>Gibt die Anzahl der erfolgreich "berührten" Dateien zurück.</p>
+
+<h3 class="xmp">Beispiel eines vollständigen CGI-Scripts in Perl:</h3>
+<pre>
+#!/usr/bin/perl -w
+
+use strict;
+use CGI::Carp qw(fatalsToBrowser);
+
+my $Datei = $ENV{'QUERY_STRING'};
+my $Jetzt = time();
+utime($Jetzt,$Jetzt,$Datei);
+
+print "Content-type: text/html\n\n";
+print '&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"&gt;', "\n";
+print "&lt;html&gt;&lt;head&gt;&lt;title&gt;Test-Ausgabe&lt;/title&gt;&lt;/head&gt;&lt;body&gt;\n";
+print "Zeitstempel von $Datei wurde aktualisiert!\n";
+print "&lt;/body&gt;&lt;/html&gt;\n";
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Script aktualisiert den Zeitstempel einer Datei. Beim Aufruf erwartet es einen Übergabeparameter, der beim URI hinter einem Fragezeichen notiert wird. Der Übergabeparameter besteht in der Pfadangabe einer Datei, deren Zeitstempel aktualisiert werden soll. Beispiel:<br>
+<code>http://localhost/cgi-bin/test.pl?/mydocs/texte/wichtig.txt</code>.<br>
+Den übergebenen Parameter speichert das Script in dem Skalar <code>$Datei</code>. Um den aktuellen Zeitpunkt zu ermitteln, wird die Funktion <code>time</code> aufgerufen. Sie liefert die Anzahl der Sekunden seit dem 1.1.1970 zurück, also genau die Form, die <code>utime</code> erwartet. Der Rückgabewert wird in <code>$Jetzt</code> gespeichert. Nun kann das Script die <code>utime</code>-Funktion aufrufen und ihr die gewünschten Parameter übergeben. Wenn Sie mehr als eine Datei auf einmal verarbeiten möchten, geben Sie alle gewünschten Dateien durch Kommata getrennt an.<br>
+Anschließend erzeugt das Script HTML-Code. Dabei wird das "Berühren" der Datei bestätigt.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Nicht alle Betriebssysteme unterscheiden wie Unix zwei verschiedene Zeitstempel. Unter Windows beispielsweise gibt es keinen Zeitstempel für den letzten Lesezugriff, nur für den letzten Schreibzugriff. Übergeben Sie <code>utime</code> dennoch immer beide Parameter. Unter Windows wird dann nur der eine vorhandene Zeitstempel geändert.</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="systemaufrufe.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="systemaufrufe.htm">Funktionen für Betriebssystemaufrufe</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="einausgabe.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="einausgabe.htm">Funktionen für Ein-/Ausgabe und Lesen/Schreiben von Daten</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">Perl</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Perl-Funktionen</a></td>
+</tr>
+</table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>Test</title>
+<script type="text/javascript">
+function BildCheck () {
+  var Status = "";
+  for (i = 0; i < document.images.length; ++i) {
+    if (document.images[i].complete == true) {
+      Status = Status + "Grafik " + (i + 1) + " geladen\n";
+    } else {
+      Status = Status + "Grafik " + (i + 1) + " nicht geladen\n";
+    }
+  }
+  Status = Status + document.images.length + " Grafiken im Dokument";
+  alert(Status);
+}
+</script>
+</head><body>
+<img src="berthold.gif" alt="Berthold"><br>
+<img src="boris.gif" alt="Boris"><br>
+<img src="bernd.gif" alt="Bernd"><br>
+<a href="javascript:BildCheck()">Grafiken checken</a>
+
+<p><a href="../images.htm#complete">zur&uuml;ck</a></p>
+</body>
+</html>

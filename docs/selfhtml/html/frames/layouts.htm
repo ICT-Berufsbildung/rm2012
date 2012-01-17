@@ -1,0 +1,146 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: HTML/XHTML / Frames / Frames als Mittel für Seiten-Layouts</title>
+<meta name="description"    content="Was Sie wissen sollten, wenn Sie Frames für Ihr Web-Projekt verwenden wollen.">
+<meta name="keywords"       content="SELFHTML, HTML, XHTML, Frames, Framesets, Schaufenstereffekte">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-08-22T21:21:39+02:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/html/frames/layouts.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="Frames" href="index.htm">
+<link rel="next" title="Objekte einbinden" href="../multimedia/objekte.htm">
+<link rel="prev" title="Eingebettete Frames" href="eingebettete.htm">
+<link rel="first" title="Framesets und Frames definieren" href="definieren.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">HTML/XHTML</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Frames</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Frames als Mittel für Seiten-Layouts</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#einsatzmoeglichkeiten">Sinnvolle Einsatzmöglichkeiten für Frames</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#schaufenster">Unfaire Schaufenster-Effekte</a><br>
+</p>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><a class="an" name="einsatzmoeglichkeiten">Sinnvolle Einsatzmöglichkeiten für Frames</a></h2>
+
+<p>Frames - Informationsverteilung auf mehrere, voneinander unabhängige Fenster - sind ein faszinierendes Werkzeug, aber auch ein Werkzeug, mit dem man viel verkehrt machen kann. Generell gilt: jeder Einsatz von Frames muss gerechtfertigt sein. Das bedeutet: die Verwendung der Frame-Technik muss dem Anwender als sinnvoll und vorteilhaft erscheinen. Wer Frames aus purem Selbstzweck einsetzt, muss damit rechnen, als technikverliebter HTML-Novize statt als souveräner Web-Designer betrachtet zu werden.</p>
+
+<p>Der Grund dafür ist, dass Frames nicht wegzudiskutierende Nachteile haben:</p>
+<ul>
+<li><b>Probleme bei nicht Frame-fähigen Web-Browsern:</b><br>
+Frames werden nicht von allen Web-Browsern angezeigt. Da die gesamte Struktur eines auf Frames basierenden Projekts von der Struktur herkömmlicher Projekte entscheidend abweicht, kann ein Anbieter von Frames solchen Anwendern, die keine Frames anzeigen können, entweder gar keine Alternative anbieten, oder eine "zweigleisige" Alternative, die sehr aufwendig zu realisieren und zu pflegen ist.</li>
+<li><b>Frames und Bildschirmauflösung</b><br>
+Bei kleineren Bildschirmen, z.B. bei Notebooks oder Handheld-Computern, sind mehr als zwei Frame-Fenster bereits eine Zumutung fürs Auge und die Übersicht.</li>
+<li><b>Ladezeiten</b><br>
+Frames verlangen mehr HTTP-Kommunikation zwischen Browser und Server, da insgesamt mehr Dateien geladen werden müssen. Andererseits werden Ladezeiten verkürzt, da das Menü und andere fixe Elemente nicht auf jeder Seite neu geladen werden müssen. </li>
+<li><b>Problematisches Direktansteuern von untergeordneten Seiten</b><br>
+Es ist zwar theoretisch möglich, aber meistens nicht im Sinne des Anbieters, wenn andere Anwender ein Lesezeichen oder einen Verweis auf eine HTML-Datei setzen, die Teil eines Framesets ist. Das ist in vielen Fällen ärgerlich. So wird beispielsweise anderen Informationsanbietern die Möglichkeit genommen, in einem bestimmten Informationszusammenhang auf eine bestimmte Seite in einem fremden Projekt zu verweisen.</li>
+</ul>
+
+<p>In folgenden Fällen ist der Einsatz von Frames für den Anwender am ehesten nachvollziehbar:</p>
+<ul>
+<li><b>zum schnellen Wechseln zwischen Informationseinheiten</b><br>
+In diesem Fall enthält ein Frame-Fenster ein umfangreiches Verzeichnis mit anklickbaren Verweisen auf einzelne Informationsseiten, die in einem anderen, festen Frame-Fenster angezeigt werden. Das "Inhaltsverzeichnis" bleibt also jederzeit eingeblendet, und der Anwender kann zu jedem Zeitpunkt einen neuen Verweis daraus auswählen. Das erspart dem Anwender den wiederholten Rücksprung von den einzelnen Informationsseiten auf das übergeordnete Verzeichnis.<br>
+<i>Beispiel:</i> ein Anbieter von Ferienappartements kann alle zur Verfügung stehenden Objekte in einem Verweis-Verzeichnis auflisten und das jeweils ausgewählte Objekt in einem festen anderen Frame-Fenster anzeigen.</li>
+<li><b>zum ständigen Einblenden projektglobaler Steuerverweise</b><br>
+Bei umfangreichen Projekten, in denen dem Anwender das Gefühl des "lost in hyperspace" droht, ist es sinnvoll, in einem separaten Frame-Fenster immer gültige Steuerverweise anzubieten, z.B. zur Homepage, zur nächsthöheren logischen Ebene, zum Stichwortverzeichnis oder zur Suchdatenbank. Bei kleinen Projekten, die nur aus einer Handvoll Seiten bestehen, wirkt diese Technik dagegen übertrieben und vermittelt dem Anwender eine falsche Vorstellung von der Größe des Projekts. Wenn der Anwender in einem solchen Fall nach wenigen Mausklicks feststellt, dass er bereits alles gesehen hat, wird er um so enttäuschter sein.<br>
+<i>Beispiel:</i> Eine Zeitung, die im Web ein großes Archiv mit älteren Artikeln anbietet, könnte mit Hilfe der Frame-Technik ständige Verweise zu einem thematisch sortierten Zugangsverzeichnis, zu einem Stichwortverzeichnis und einer Volltext-Suchdatenbank für die einzelnen Artikel anbieten.</li>
+<li><b>zum gleichzeitigen Anzeigen von zu vergleichenden Informationen</b><br>
+Hypertext bedeutet nicht nur, dem Anwender per Mausklick weitere Informationen zur Verfügung zu stellen, sondern auch, dem Anwender die Möglichkeit zu bieten, sich selbst Informationen so zusammenzustellen, dass er sie optimal miteinander vergleichen und daraus Schlüsse oder Entscheidungen ableiten kann. Zu diesem Zweck eignet sich die Frame-Technik hervorragend, da sie es erlaubt, verschiedene, getrennt voneinander gespeicherte Informationen auf Anwenderwunsch gleichzeitig anzuzeigen.<br>
+<i>Beispiel:</i> Eine Verbraucherberatung könnte in einem viergeteilten Frameset in zwei Frames zwei gleichartig aufgebaute Verweis-Verzeichnisse zu Produkttests anbieten. Im dritten Frame-Fenster wird der Produkttest angezeigt, den der Anwender im ersten Frame-Fenster mit Verweisen auswählt; im vierten Frame-Fenster kann der Anwender einen Produkttest anzeigen, den er im zweiten Frame-Fenster mit Verweisen auswählt. Auf diese Weise kann der Anwender beliebige getestete Produkte direkt miteinander vergleichen. Voraussetzung hierzu ist natürlich, dass alle Produkttests einen einheitlichen Aufbau und ein einheitliches Bewertungsschema haben, um direkte Vergleiche zu erlauben.</li>
+<li><b>bei besonders kunstvoller Seitengestaltung</b><br>
+In diesem Fall muss der Anwender auf den ersten Blick erkennen können, dass die Frame-Technik eine bestimmte künstlerische Aussage unterstützen soll.</li>
+</ul>
+
+<p>Bei Verwendung von Frames besteht auch noch eher als bei "einfachen" Seiten die Gefahr eines gestalterischen Overkills. Achten Sie bei Frames unbedingt darauf, dass die Farben der Inhalte in den verschiedenen Frame-Fenstern insgesamt miteinander harmonieren. Das Gleiche gilt auch für andere optische Eigenschaften wie Schriftarten, Schriftgrößen usw. Ein Navigationsfenster muss nicht krampfhaft "anders" aussehen als ein inhaltstragendes Fenster, damit auch ja jeder Besucher sieht, dass es sich um Frames handelt. Kontraste zwischen Frame-Fenstern dürfen nicht die Regeln einer homogenen Gesamtgestaltung verletzen.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="schaufenster">Unfaire Schaufenster-Effekte</a></h2>
+
+<p>Mit Hilfe von Frames ist es auch möglich, fremde Web-Seiten innerhalb eines Frame-Fensters im eigenen Web-Projekt darzustellen. Dies ist jedoch sehr problematisch und in den meisten Fällen unfair. Denn auf diese Weise verkommen fremde Web-Seiten zu "Schaufenstern" innerhalb des eigenen Web-Projekts. Das ist eine unfeine Geste gegenüber den Fremdanbietern, weil es das eigene Web-Projekt in den Augen des Anwenders als "Mega-Projekt" erscheinen lässt. Es ist auch juristisch bedenklich, da Sie sich leicht eine Klage wegen Urheberrechtsverletzung einhandeln können, wenn Sie Fremdinhalte "vereinnahmen".</p>
+
+<p>Ferner kann es auch passieren, dass in einem Frame-Fenster eine Fremdanbieter-Seite angezeigt wird, die ihrerseits Frames einsetzt. So kommt es zu einem ärgerlichen "Fraktal-Effekt" von Frame-Fenstern auf dem Bildschirm des Anwenders.</p>
+
+<p>Wenn Sie innerhalb eines Frame-Projekts auf fremde Seiten verweisen, sollten Sie eine der folgenden Möglichkeiten wählen:</p>
+
+<ul>
+<li><b>Ursprünglichen Fensterzustand wiederherstellen</b><br>
+Setzen Sie den Verweis so, dass der Anwender Ihr definiertes Frameset verlässt und wieder den Fensterzustand erhält, den er vor Aufruf Ihres Projekts hatte. Dies erreichen Sie durch Verweise von der Art<br>
+<code>&lt;a href="http://..." target="_parent"&gt;Verweistext&lt;/a&gt;</code></li>
+<li><b>Seite in neuem Fenster öffnen</b><br>
+Setzen Sie den Verweis so, dass die Seite in einem neuen Browser-Fenster geöffnet wird. Hierbei handelt es sich um eine sehr weit verbreitete Methode, die allerdings in Zeiten des sogenannten "Tabbed-Browsing" als überholt zu beurteilen ist. Der Quelltext für solche Verweise kann so aussehen:<br>
+<code>&lt;a href="http://..." target="_blank"&gt;Verweistext&lt;/a&gt;</code></li>
+<li><b>Doppelverweis anbieten</b><br>
+Dadurch überlassen Sie dem Anwender die Entscheidung, wie er die fremde Seite angezeigt bekommen will. Notieren Sie zwei Verweise direkt unter- oder nebeneinander, die das gleiche Ziel haben, etwa in der Weise<br>
+<code>&lt;a href="http://..." target="RechtsUnten"&gt;Fremde Seite im Frame rechts unten anzeigen&lt;/a&gt;&lt;br&gt;</code><br>
+<code>&lt;a href="http://..." target="_parent"&gt;Fremde Seite voll anzeigen&lt;/a&gt;</code></li>
+<li><b>Anwender auf Möglichkeit zum Verändern der Frames hinweisen</b><br>
+Wenn Sie keine der beiden anderen Möglichkeiten anbieten wollen, sollten Sie wenigstens das Verändern der Frame-Fenstergrößen durch den Anwender erlauben und den Anwender auf diese Möglichkeit explizit hinweisen. Um das Verändern der Frame-Fenster durch den Anwender zu erlauben, verzichten Sie einfach auf das Attribut <code>"noresize"</code> im <code>&lt;frame&gt;</code>-Tag.</li>
+</ul>
+
+<p>Mit Hilfe von JavaScript ist es möglich, die <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../javascript/beispiele/seitenanzeige.htm">Seitenanzeige in Frames zu verhindern</a>.</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="../multimedia/objekte.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../multimedia/objekte.htm">Objekte einbinden</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="eingebettete.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="eingebettete.htm">Eingebettete Frames</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">HTML/XHTML</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Frames</a></td>
+</tr></table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

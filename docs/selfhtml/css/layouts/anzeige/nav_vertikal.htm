@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+       "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>Navigationsleiste mit &Uuml;berschriften</title>
+<style type="text/css">
+  body {
+    font: normal 100.01% Helvetica, Arial, sans-serif;
+    color: black; background-color: #ffffe0;
+  }
+
+  ul#Navigation {
+    width: 10em;
+    margin: 0; padding: 0.2em 0.8em 0.8em;
+    border: 1px solid black;
+    background-color: silver;
+  }
+  * html ul#Navigation {  /* Korrekturen fuer IE 5.x */
+    width: 11.6em;
+    w\idth: 10em;
+    padding-left: 0;
+    padd\ing-left: 0.8em;
+  }
+  ul#Navigation li {
+    list-style: none;
+    margin: 0.4em; padding: 0;
+  }
+
+  ul#Navigation a, ul#Navigation span, ul#Navigation h2 {
+    display:block;
+    padding: 0.2em;
+    text-decoration: none; font-weight: bold;
+    border: 1px solid black;
+    border-left-color: white; border-top-color: white;
+    color: maroon; background-color: #ccc;
+  }
+  * html ul#Navigation a, * html ul#Navigation span, * html ul#Navigation h2 {
+    width: 100%;    /* Breitenangabe fuer IE 5.x */
+    w\idth: 8.8em;  /* Breitenangabe fuer IE 6 */
+  }
+  ul#Navigation a:hover, ul#Navigation span {
+    border-color: white;
+    border-left-color: black; border-top-color: black;
+    color: white; background-color: gray;
+  }
+  ul#Navigation h2 {
+    font-size: 1em;
+    margin: 1.1em 0 0;
+    border-color: gray;
+    color: black; background-color: #eee;
+  }
+
+</style>
+</head>
+<body>
+<h1 id="Beispiel">Navigationsleiste mit &Uuml;berschriften</h1>
+
+  <ul id="Navigation">
+    <li><h2>Rubrik 1</h2></li>
+    <li><a href="#Beispiel">Seite 1</a></li>
+    <li><a href="#Beispiel">Seite 2</a></li>
+    <li><a href="#Beispiel">Seite 3</a></li>
+
+    <li><h2>Rubrik 2</h2></li>
+    <li><span>aktuelle Seite</span></li>
+    <li><a href="#Beispiel">Seite 5</a></li>
+    <li><a href="#Beispiel">Seite 6</a></li>
+
+    <li><h2>Rubrik 3</h2></li>
+    <li><a href="#Beispiel">Seite 7</a></li>
+    <li><a href="#Beispiel">Seite 8</a></li>
+    <li><a href="#Beispiel">Seite 9</a></li>
+  </ul>
+
+<p><a style="color:black" href="../navigationsleisten.htm#vertikal">zur&uuml;ck</a></p>
+</body>
+</html>

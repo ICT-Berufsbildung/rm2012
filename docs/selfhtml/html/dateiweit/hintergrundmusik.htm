@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: HTML/XHTML / Dateiweite Einstellungen / Hintergrundmusik</title>
+<meta name="description"    content="Wie Sie Hintergrundmusik in eine HTML-Datei einbinden können.">
+<meta name="keywords"       content="SELFHTML, HTML, XHTML, Musik, Hintergrundmusik, body, embed, bgsound">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-10-31T12:25:34+01:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/html/dateiweit/hintergrundmusik.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="Dateiweite Einstellungen" href="index.htm">
+<link rel="next" title="Überschriften" href="../text/ueberschriften.htm">
+<link rel="prev" title="Seitenränder" href="seitenraender.htm">
+<link rel="first" title="Farben für Hintergrund, Text und Verweise" href="farben.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">HTML/XHTML</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Dateiweite Einstellungen</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Hintergrundmusik</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#einbinden">Hintergrundmusik einbinden</a><br>
+</p>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><img src="../../src/msie2.gif" width="30" height="30" alt="MS IE 2.0" title="MS IE 2.0"><img src="../../src/netsc3.gif" width="30" height="30" alt="Netscape 3.0" title="Netscape 3.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="einbinden">Hintergrundmusik einbinden</a></h2>
+
+<p>Sie können bestimmen, dass beim Aufruf einer HTML-Datei eine Hintergrundmusik ertönt. Dazu gibt es zwei Lösungen. Beide der im folgenden beschriebenen Lösungen - die eine für Microsofts Internet Explorer, die andere für Netscape - sind proprietär. Beide Lösungen gehören <strong>nicht</strong> zum HTML-Standard.</p>
+
+<p>Ferner sollten Sie sich beim Wunsch, Hintergrundmusik einzubinden, darüber im Klaren sein, dass die Mehrzahl der Anwender im Web genervt ist von dem Gedudel und sehr schnell wieder von solchen Seiten verschwindet.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/bgsound.htm">Anzeigebeispiel: So hört sich's an</a></p>
+
+<pre>
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Hintergrundmusik&lt;/title&gt;
+&lt;!-- Microsoft: --&gt;
+&lt;bgsound src="background.mid" loop="infinite"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;!-- Netscape: --&gt;
+&lt;embed src="background.mid" autostart="true" loop="true" hidden="true" height="0" width="0"&gt;
+&lt;h1&gt;Inhalt der Seite&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Mit <code>&lt;bgsound ...&gt;</code> definieren Sie im Kopf einer HTML-Datei eine Hintergrundmusik nach Microsoft-Syntax für die Anzeige der Datei (<i>bgsound = background sound = Hintergrundmusik</i>). Mit <code>&lt;embed ...&gt;</code> erreichen Sie das Gleiche für Netscape (<i>embed = einbetten</i>). Im Attribut <code>src</code> folgt in beiden Fällen die Angabe der gewünschten Musikdatei (<i>src = source = Quelle</i>). Es sollte sich möglichst um Dateien der Typen MID, AU oder WAV handeln. Um eine sichtbare Anzeige des Abspiel-Players zu unterdrücken, sind bei der Netscape-Syntax die Angaben <code>hidden="true" height="0" width="0"</code> erforderlich (<i>width = Breite, height = Höhe, hidden = versteckt</i>). Auch den automatischen Start des Abspielvorgangs müssen Sie in der Netscape-Syntax explizit angeben - durch <code>autostart="true"</code>. Schließlich können Sie noch bestimmen, ob die Musikdatei nur einmal, mehrmals oder endlos oft (bis zum Aufrufen einer anderen HTML-Datei) abgespielt wird. Nach der Microsoft-Syntax können Sie mit <code>loop="infinite"</code> eine Endloswiederholung erzwingen. Wenn Sie die Wiederholungszahl begrenzen wollen, geben Sie anstelle von <code>infinite</code> einfach die gewünschte Anzahl der Wiederholungen an. Bei der Netscape-Syntax haben Sie nur die Wahl zwischen Endloswiederholung und keiner Wiederholung. Um eine Endloswiederholung zu erzwingen, notieren Sie die Angabe <code>loop="true"</code>. Ansonsten lassen Sie die Angabe einfach weg.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Im obigen Beispiel wird vorausgesetzt, dass sich die Musikdatei im gleichen Verzeichnis befindet wie die HTML-Datei. Wenn die Datei in einem anderen Verzeichnis steht, müssen Sie den relativen oder absoluten Pfadnamen angeben. Das funktioniert genau so wie beim <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../grafiken/einbinden.htm">Einbinden von Grafiken</a>.</p>
+
+<p>Die Ausgabe einer Hintergrundmusik setzt beim Anwender natürlich entsprechende Hardware (Soundkarte, Lautsprecher) voraus. Ferner muss der Web-Browser die Möglichkeit haben, die Ausgabe der Musikdatei zu steuern.</p>
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="../text/ueberschriften.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">
+<a href="../text/ueberschriften.htm">Überschriften</a> </td>
+</tr>
+<tr>
+<td class="doc"><a href="seitenraender.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="seitenraender.htm">Seitenränder</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">HTML/XHTML</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Dateiweite Einstellungen</a></td>
+</tr></table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

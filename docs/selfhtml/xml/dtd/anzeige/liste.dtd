@@ -1,0 +1,6 @@
+<!ELEMENT liste (eintrag)*>
+<!ELEMENT eintrag (#PCDATA)>
+<!ATTLIST eintrag
+   name              ID                  #REQUIRED
+   elterneintrag     IDREF               #IMPLIED
+>

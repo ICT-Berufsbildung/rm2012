@@ -1,0 +1,148 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: Webserver/CGI / Webserver / Webserver lokal auf einem PC einrichten</title>
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<meta name="description"    content="Wie Sie auf einem PC eine HTTP-Server-Umgebung einrichten, um CGI-Scripts in Ruhe und offline auszutesten.">
+<meta name="keywords"       content="SELFHTML, CGI, Webserver, Webserver, Webserver, HTTP, personal server">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-08-22T21:21:39+02:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/servercgi/server/allgemein.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="Webserver" href="index.htm">
+<link rel="next" title="Der Apache HTTP-Webserver" href="apache.htm">
+<link rel="prev" title="Rechtliche Aspekte von Web-Projekten" href="../../projekt/recht.htm">
+<link rel="last" title="HTTP-Status-Codes" href="httpstatuscodes.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">Webserver/CGI</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Webserver</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Webserver lokal auf einem PC einrichten</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#eigener_webserver">Der eigene Webserver</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#produkte">Geeignete Produkte</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#grundeinstellungen">Grundeinstellungen für den lokalen Betrieb</a><br>
+</p>
+</td>
+</tr><tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><a class="an" name="eigener_webserver">Der eigene Webserver</a></h2>
+
+<p>Viele PC-Anwender mit Internet-Zugang verbinden mit dem Begriff "Webserver" eine Art Großrechner, auf dem die Daten liegen, die im Internet zu sehen sind. Eigentlich ist ein Webserver jedoch eine gar nicht besonders große Software, die im Prinzip auf jedem Rechner laufen kann, also nicht nur auf Server-Rechnern im Internet, sondern auch auf jedem PC. Es ist nicht einmal eine Internet-Verbindung erforderlich, um einen Webserver zu betreiben. Es müssen lediglich TCP/IP-Sockets unterstützt werden (unter Windows zum Beispiel ist die Datei <var>winsock.dll</var> dafür zuständig). Wenn Ihr Betriebssystem also TCP/IP-Sockets unterstützt, sind bereits alle Voraussetzungen erfüllt, um einen Webserver offline und ohne Verbindungskosten zu betreiben. Browser und Webserver laufen dann auf demselben Rechner, können aber so miteinander kommunizieren, wie es bei Online-Verbindungen ins Internet üblich ist.</p>
+
+<p>Einen eigenen Webserver sollten Sie sich im hier behandelten Zusammenhang installieren, um lokal auf Ihrem PC eine CGI-Schnittstelle zu haben. Denn CGI funktioniert nur, wenn ein Webserver vorhanden ist. Vieles, was im WWW mit CGI möglich ist, können Sie dann auch lokal auf Ihrem PC realisieren. So können Sie eigene CGI-Scripts während der Erstellungsphase in Ruhe und ohne Online-Kosten austesten. Sie können dann genauso arbeiten, wie Sie es von HTML-Dateien oder JavaScripts her gewohnt sind. Außerdem bekommen Sie eher ein Gefühl für die Zusammenarbeit von Browser und Webserver.</p>
+
+<p>Auch wenn Sie selber Provider sind, eine Standverbindung ins Internet haben und einen öffentlichen Webserver betreiben, ist es sinnvoll, auf einem separaten Arbeitsrechner einen lokalen Webserver einzurichten. So belasten Sie den öffentlichen Rechner nicht, während Sie CGI-Scripts erstellen und austesten.</p>
+
+<p>Ein lokal installierter Webserver beeinträchtigt Ihren vorhandenen Internet-Zugang nicht. Er benutzt lediglich das TCP/IP-Protokoll Ihres Rechners (z.B. die <var>winsock.dll</var>). Einstellungen, die für Ihre Online-Verbindung ins Internet wichtig sind, interessieren den Webserver nicht und können unverändert bleiben.</p>
+
+<p>Ein installierter Webserver ist bei bestehender Internet-Verbindung über das Web erreichbar, sofern Sie den PC nicht in einem geschützten lokalen Netz betreiben oder mit zusätzlicher Schutz-Software (Firewall-Software) ausgestattet haben. Denn bei jeder Verbindung ins Internet sind Sie mit einer eindeutigen IP-Adresse angemeldet. Entweder haben Sie von Ihrem Provider eine feste IP-Adresse erhalten, oder die IP-Adresse wird bei der Einwahl ins Internet dynamisch vom Einwahl-Server vergeben. Unter Windows (Windows 9x) können Sie bei bestehender Internet-Verbindung im Windows-Verzeichnis das Programm <var>winipcfg.exe</var> aufrufen, um die eigene IP-Adresse zu sehen, ab Windows 2000 nutzen Sie dazu die <var>cmd.exe</var> (Eingabeaufforderung), und geben dort <var>ipconfig</var> ein, um sich die Windows-IP-Konfiguration anzeigen zu lassen. Angenommen, Sie sind mit der IP-Adresse <var>145.233.101.211</var> angemeldet, dann ist Ihr lokales Web bei laufendem Webserver über das Internet unter der Adresse <var>http://145.233.101.211/</var> erreichbar. Diese Adresse muss ein fremder Benutzer natürlich erst mal kennen. Aber wenn er sie kennt oder herausfindet, kann er auf Ihrem PC in dem Verzeichnisbereich, der durch den Webserver festgelegt ist, "surfen". Das kann Vor- und Nachteile haben. Einerseits können Sie auf diese Weise anderen Personen Ihre Web-Seiten zeigen, ohne diese auf einen öffentlichen Rechner hochladen zu müssen. Andererseits könnte ein ungebetener Besucher versuchen, auf Ihrem PC herumzuspionieren.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="produkte">Geeignete Produkte</a></h2>
+
+<p>Erfreulicherweise gibt es im Internet verschiedene Webserver zum Downloaden, die Freeware oder Shareware sind, d.h. diese Produkte kosten nichts oder erfordern erst nach einer kostenlosen Testphase eine geringe Registriergebühr. Zum lokalen Einsatz sind solche Produkte völlig ausreichend. Der im Internet am meisten verbreitete Webserver <img src="../../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://httpd.apache.org/">Apache</a> ist auch für typische PC-Betriebssysteme wie Windows verfügbar. Angesichts der Tatsache, dass dieses Produkt längst auf der Mehrzahl der Server im Internet seinen Dienst tut, ist er wohl das empfehlenswerteste Produkt.</p>
+
+<p>Im Link-Verzeichnis des Online-Angebots von SELFHTML aktuell finden Sie eine Produktübersicht mit Links zu den Anbietern:</p>
+
+<p><img src="../../src/serverdok.gif" width="15" height="10" alt="Online-Seite">&nbsp;<a target="_top" href="http://aktuell.de.selfhtml.org/links/server-software.htm">SELFHTML-Linkverzeichnis: Server-Software</a></p>
+
+<p>Auf den Anbieterseiten können Sie die Produkte in der Regel downloaden.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="grundeinstellungen">Grundeinstellungen für den lokalen Betrieb</a></h2>
+
+<p>Ein Webserver ist kein Programm mit "Arbeitsoberfläche". Durch den Aufruf der ausführbaren Programmdatei starten Sie einfach den Server-Betrieb. Ihr Browser ist dann in der Lage, mit diesem Server auf Ihrem Rechner zu kommunizieren, genau so, wie der Browser mit jedem öffentlichen Webserver kommunizieren kann. Bevor das richtig funktioniert, müssen Sie den Webserver jedoch einrichten, d.h. wichtige Grundeinstellungen vornehmen.</p>
+
+<p>Einige Webserver können Sie nach dem Starten dialoggesteuert einrichten (z.B. OmniHTTPd für Windows oder Quid Pro Quo für Macintosh), bei anderen Produkten richten Sie den Webserver vor dem ersten Starten durch Editieren von Konfigurationsdateien ein (beim Apache ist dies z.B. die Datei <var>httpd.conf</var> im Programmunterverzeichnis <var>conf</var>). Einige Produkte laufen unter Windows in einem DOS-Fenster (z.B. Apache), können auf moderneren Systemumgebungen aber auch als Hintergrunddienste eingerichtet werden. Suchen Sie im Zweifelsfall nach der Installation des Webservers in dessen Programmverzeichnis nach Hilfedateien. Dort sollte dokumentiert sein, wie Sie Ihren Webserver einrichten können. Alle Einstellungen bleiben auf jeden Fall gespeichert. Wenn Ihr Webserver also erst einmal funktioniert, brauchen Sie ihn nur noch durch Starten und Beenden der Programmdatei ein- und auszuschalten. Das können Sie in der Regel auch mit Hilfe einiger bei der Installation erzeugter Einträge im Startmenü erreichen.</p>
+
+<p>Folgende wichtige Daten müssen Sie nach Wunsch bzw. korrekt einstellen:</p>
+
+<ul>
+<li><strong>IP-Adresse und Hostnamen des Servers</strong><br>
+Für den lokalen Betrieb müssen Sie hier normalerweise die reservierte IP-Adresse <kbd>127.0.0.1</kbd> oder den reservierten Hostnamen <kbd>localhost</kbd> eintragen. Wenn die Angaben nicht funktionieren, versuchen Sie, in den Hilfedateien Informationen zu finden, oder setzen Sie sich mit dem Produktanbieter des Webservers über dessen Homepage (nach E-Mail-Adresse suchen!) in Verbindung. Wenn die Angaben funktionieren, können Sie im Browser nach Einschalten des Webservers lokal gespeicherte HTML-Dateien über die Internet-Adressen <var>http://127.0.0.1/</var> oder <var>http://localhost/</var> aufrufen.</li>
+<li><strong>Port des Servers</strong><br>
+Dabei ist normalerweise <kbd>80</kbd> einzutragen. Ports sind Nummern für TCP/IP-Dienste auf dem betreffenden Rechner. Für häufig genutzte Dienste  sind so genannte <i>Well Known Ports</i> festgelegt. Das heißt, diese Portnummern werden von Clients wie Browsern oder FTP-Programmen standardmäßig verwendet, sofern nicht explizit anders angegeben. Für den Dienst FTP sind beispielsweise 20 und 21 die üblichen Portnummern, für den HTTP-Dienst ist es 80. Lesen Sie jedoch sicherheitshalber in der Dokumentation des Webservers nach, welche Nummer Sie hier eintragen sollten.</li>
+<li><strong>HTTP-Wurzelverzeichnis für HTML-Dateien</strong> (<i>document root</i>)<br>
+Dabei geben Sie entsprechend der Syntax Ihres Betriebssystems den Pfadnamen an, unterhalb dessen sich Ihre lokalen HTML-Dateien befinden. Wenn Sie Windows benutzen, könnten Sie hier z.B. <kbd>c:\www\daten</kbd> eingeben - je nachdem, wohin Sie Ihre lokale HTML-Einstiegsdatei abgelegt haben. Wenn Sie in diesem Verzeichnis beispielsweise eine Datei <var>myhome.htm</var> haben, können Sie diese Datei bei eingeschaltetem Webserver mit Ihrem Browser via HTTP-Protokoll über <var>http://127.0.0.1/myhome.htm</var> bzw. <var>http://localhost/myhome.htm</var> aufrufen.</li>
+<li><strong>Default-HTML-Dateiname für Verzeichnisse</strong><br>
+Die häufigsten Namen dafür sind <kbd>index.html</kbd> oder <kbd>index.htm</kbd>. Wenn es eine HTML-Datei mit dem entsprechenden Namen in einem Verzeichnis gibt, genügt als URI beispielsweise <var>http://127.0.0.1/verzeichnis/</var>, wobei dann automatisch <var>http://127.0.0.1/verzeichnis/index.html</var> aufgerufen wird.</li>
+<li><strong>Physisches und virtuelles Verzeichnis für CGI-Scripts</strong><br>
+Als physisches Verzeichnis geben Sie entsprechend der Syntax Ihres Betriebssystems den Pfadnamen des Verzeichnisses an, in dem Sie ausführbare CGI-Scripts ablegen wollen. Der übliche Verzeichnisname dafür ist <var>cgi-bin</var>. Wenn Sie beispielsweise Windows benutzen, könnten Sie hier z.B. <kbd>c:\www\cgi-bin</kbd> eingeben - je nachdem, wohin Sie die CGI-Scripts ablegen wollen. Das betreffende Verzeichnis müssen Sie erstellen. Außerdem müssen Sie bei den meisten Webservern ein virtuelles CGI-Verzeichnis angeben. Tragen Sie dabei am besten <kbd>/cgi-bin</kbd> ein. Wenn Sie dann beispielsweise ein Perl-Script namens <var>guestbook.pl</var> im Verzeichnis <var>c:\www\cgi-bin</var> ablegen, können Sie es mit <var>http://127.0.0.1/cgi-bin/guestbook.pl</var> bzw. <var>http://localhost/cgi-bin/guestbook.pl</var> ausführen.</li>
+<li><strong>Perl-Interpreter und andere Interpreter</strong><br>
+Um Perl-Scripts als CGI-Scripts ausführen zu können, müssen Sie den vollständigen Pfadnamen der ausführbaren Perl-Interpreter-Datei angeben. Unter Windows müssen Sie beispielsweise <kbd>c:\programme\perl\bin\perl.exe</kbd> eingeben, je nachdem, wo sich die ausführbare Programmdatei befindet. Dazu müssen Sie <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../perl/intro.htm">Perl bzw. den Perl-Interpreter installieren</a>.</li>
+<li><strong>Log-Dateien</strong><br>
+Die meisten Webserver führen "Logbücher" über alle HTTP-Zugriffe auf Dateien oder CGI-Programme. Das sind die standardisierten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../projekt/kontrollieren.htm#logdateien">Log-Dateien</a>. Es gibt zwei wichtige Log-Dateien: eine für die Protokollierung der Zugriffe (<var>access.log</var>) und eine für Fehlerprotokollierung (<var>error.log</var>). Tragen Sie am besten diese typischen Namen ein, falls Ihr Webserver keine Standard-Festlegungen dafür aufweist. Diese Dateien können Sie übrigens jederzeit mit einem Dateibetrachter oder Texteditor einsehen, sie zeigen Ihnen wichtige Informationen, wenn es Probleme während des laufenden Serverbetriebs geben sollte.</li>
+<li><strong>Timeouts</strong><br>
+Es gibt zeitliche Grenzwerte dafür, wie lange der Browser auf eine Antwort vom Server warten soll, und wie lange der Server versuchen soll, Daten an den Browser zu schicken. Die Angaben erfolgen in der Regel in Form von Sekunden. Tragen Sie z.B. für Senden und Empfangen <kbd>60</kbd> (= eine Minute) ein.</li>
+<li><strong>MIME-Typen</strong><br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../diverses/mimetypen.htm">MIME-Typen</a> legen in diesem Zusammenhang die Dateiformate fest, die der Webserver kennt und bereit ist, an den aufrufenden Browser zu übertragen. Andere Dateitypen als die hier angegebenen sendet der Server nicht mit dem korrekten MIME-Typ, bzw. mit dem eingestellten Standard-MIME-Typ (<code>text/plain</code> beispielsweise). Normalerweise sind bereits alle wichtigen Dateitypen vorkonfiguriert. Um einen bestimmten Dateityp (z.B. Excel-Dateien) hinzuzufügen, müssen Sie einen MIME-Typ-Namen (z.B <kbd>application/ms-excel</kbd>) und eine typische Dateinamenendung (z.B. <kbd>.xls</kbd>) angeben. Dann ist der Server bereit, auch solche Dateien mit dem richtigen MIME-Typ an den Browser zu übertragen. Der Browser muss natürlich wissen, was er mit dem betreffenden Dateityp tun soll (siehe hierzu den Abschnitt <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/verweise/dateitypen.htm#beliebig">Verweise auf beliebige Dateien im Internet</a>.</li>
+</ul>
+
+<p>Es gibt weitere Einstellmöglichkeiten. Wenn Sie die oben genannten Einstellungen korrekt vorgenommen haben, sollte Ihr Webserver für den lokalen Betrieb jedoch betriebsbereit sein.</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="apache.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="apache.htm">Der Apache HTTP-Webserver</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="../../projekt/recht.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../projekt/recht.htm">Rechtliche Aspekte von Web-Projekten</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">Webserver/CGI</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Webserver</a></td>
+</tr>
+</table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

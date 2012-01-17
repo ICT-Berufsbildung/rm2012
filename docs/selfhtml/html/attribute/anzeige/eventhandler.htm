@@ -1,0 +1,27 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+       "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>Event-Handler notieren</title>
+<script type="text/javascript">
+function Ergebnis () {
+  document.Formular.Eingabe.value = eval(document.Formular.Eingabe.value);
+}
+</script>
+</head>
+<body>
+
+<form name="Formular" action="">
+  <p>Geben Sie eine Rechenoperation mit Grundrechenarten ein und klicken Sie dann
+  auf den Button neben dem Eingabefeld:</p>
+
+  <p>
+    <input type="text" name="Eingabe" size="30">
+    <input type="button" value=" = " onclick="Ergebnis()">
+  </p>
+</form>
+
+<p><a href="../eventhandler.htm#notieren">zur&uuml;ck</a></p>
+</body>
+</html>

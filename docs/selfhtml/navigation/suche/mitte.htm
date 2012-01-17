@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: Navigationshilfen / SELFHTML-Suche</title>
+<style type="text/css">
+body { margin:5px 0 0 5px; padding:0; color:#000000; background-color:#EEEEEE; }
+td { text-align:justify; font-size:13px; font-family:Arial,sans-serif;}
+a:link { color:#AA5522; text-decoration:underline; font-weight:bold; }
+a:visited { color:#772200; text-decoration:underline; font-weight:bold; }
+a:active { color:#000000; text-decoration:none; }
+fieldset { padding:0; }
+</style>
+<script type="text/javascript">
+i = new Array();
+function Suche_beenden () {
+  if ((parent.frames[2].location + "").indexOf("mitte.htm") > -1 ||
+      (parent.frames[2].location + "").indexOf("ergebnis.htm") > -1 ||
+      (parent.frames[2].location + "").indexOf("einstellungen.html") > -1) {
+    top.location.href = "../../index.htm";
+  } else {
+    top.location.href = parent.frames[2].location;
+  }
+}
+</script>
+<script type="text/javascript" src="index2/i.js"></script>
+<script type="text/javascript" src="kombi-suche.js"></script>
+</head>
+<body onload="document.Suchfeld.Suchenach.focus(); AutomatischeSuche()">
+<table border="0" align="right">
+<tr>
+<td class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm" target="_top">SELFHTML</a> / <a href="../../navigation/index.htm" target="_top" class="navh">Navigationshilfen</a></td>
+</tr>
+</table>
+
+<form onsubmit="return Eingabe()" action="javascript:return Eingabe()" name="Suchfeld">
+&nbsp;<input accesskey="u" type="text" name="Suchenach" size="30" style="width:200px" width="200" ondrop="this.value = ''">
+<span id="Einblenden_ausblenden"><input name="Absendeknopf" type="button" onclick="Pruefe()" value="Suchen"></span>
+<br>
+<table border="0" cellpadding="0" cellspacing="4">
+<tr><td><fieldset>
+<input type="radio" name="UNDODER" checked="checked" value="Und"><span onclick="uo(true)">Und</span>
+<input type="radio" name="UNDODER" value="Oder"><span onclick="uo(false)">Oder</span>&nbsp;
+</fieldset>
+</td><td><fieldset>
+<input type="radio" name="EXAKT" value="Ja"><span onclick="ex(true)">ganzes Wort</span>
+<input type="radio" name="EXAKT" checked="checked" value="Nein"><span title="&raquo;Wortanfang&laquo; bedeutet, dass Wörter gefunden werden sollen, die mit dem oder den angegebenen Suchausdrücken beginnen." onclick="ex(false)">Wortanfang</span>&nbsp;
+</fieldset>
+</td><td>&nbsp;&nbsp;
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="einstellungen.html" target="Anzeige">Einstellungen</a>&nbsp;&nbsp;<a href="javascript:Suche_beenden()">Suchleiste&nbsp;schließen</a>
+</td></tr></table>
+
+</form>
+
+</body>
+</html>

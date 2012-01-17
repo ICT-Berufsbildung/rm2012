@@ -1,0 +1,414 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: Perl / Perl-Sprachelemente / Referenzen bzw. Zeiger (Variablen)</title>
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<meta name="description"    content="Was Referenzen bzw. Zeiger in Perl sind, wie sie deklariert werden und wie sie sich verwenden lassen.">
+<meta name="keywords"       content="SELFHTML, Perl, Referenzen, Zeiger">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-11-09T00:29:27+01:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/perl/sprache/referenzen.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="Perl-Sprachelemente" href="index.htm">
+<link rel="next" title="Vordefinierte Variablen in Perl" href="vordefiniert.htm">
+<link rel="prev" title="Hashes (Variablen)" href="hashes.htm">
+<link rel="first" title="CGI-notwendige Anweisungen in Perl" href="cginotwendig.htm">
+<link rel="last" title="CGI-typische Aufgaben in Perl" href="cgitypisch.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">Perl</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Perl-Sprachelemente</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Referenzen bzw. Zeiger (Variablen)</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#allgemeines">Allgemeines zu Referenzen in Perl</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#auf_skalare">Referenzen auf Skalare</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#auf_arrays">Referenzen auf Arrays</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#auf_hashes">Referenzen auf Hashes</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#auf_subroutinen">Referenzen auf Subroutinen</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#auf_dateihandles">Referenzen auf Dateihandles</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#auf_referenzen">Referenzen auf Referenzen</a><br>
+</p>
+</td>
+</tr><tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><a class="an" name="allgemeines">Allgemeines zu Referenzen in Perl</a></h2>
+
+<p>Wenn Sie sich in der Sprache C auskennen, wissen Sie, was Zeiger sind, und wie effizient das Programmieren dadurch werden kann. Referenzen sind Zeiger auf andere Inhalte, z.B. auf zuvor definierte Variablen (egal ob <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="skalare.htm">Skalare</a>, <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="listen.htm">Listen</a> oder <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="hashes.htm">Hashes</a>). Über Referenzen können Sie den Inhalt eines Skalars, einer Liste oder eines Hashs genauso ansprechen wie über den Originalnamen. Ferner können Sie Referenzen auf <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="subroutinen.htm">Subroutinen</a> setzen. Referenzen sind Skalare, die aber keine "Nutzwerte" speichern, sondern lediglich Arbeitsspeicheradressen von anderen Variablen oder von Subroutinen.</p>
+
+<p>Für Anfänger ist erst einmal nicht so recht ersichtlich, wozu solche Referenzen oder Zeiger gut sein sollen. Denn die Vorteile der Referenzen liegen zum einen auf einem Gebiet, mit dem Perl einen ansonsten verschont - nämlich der effizienten Arbeitsspeicherverwaltung. Es kostet einfach weniger Arbeitsspeicher und weniger Rechenlast, einer Funktion nicht eine Zeichenkette mit vielen tausend Zeichen zu übergeben, sondern nur eine Referenz auf diese Zeichenkette. Zum anderen sind Referenzen sinnvoll, wenn es darum geht, komplexe Datenstrukturen aufzubauen.</p>
+
+<p>Referenzen werden vor allem auch in der <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="objekte.htm">objektorientierten Programmierung</a> eingesetzt, die mit Perl seit der Version 5 des Perl-Interpreters ebenfalls möglich ist. So erfolgt der Zugriff auf Methoden (Funktionen, Subroutinen) und Eigenschaften (Variablen) eines Objekts über Referenzen. Auch viele moderne Module benutzen diese Technik, und solche Module zu verwenden bedeutet, mit Referenzen zu arbeiten. Deshalb lohnt es auf jeden Fall, sich mit Referenzen zu beschäftigen.</p>
+
+<p>Referenzen in Perl arbeiten anders als etwa im klassischen C. Die berüchtigten "hängenden Zeiger", also Referenzen, die länger leben als das, was mit ihnen referenziert wird, und die in C zu unkontrollierten Programmzuständen führen können, gibt es in Perl nicht. Dort wird der Wert, auf den die Referenz zeigt, solange im Speicher gehalten, wie die letzte Referenz darauf lebt.<br>
+Unter anderem aus diesem Grund ist eine Zeigerarithmetik (also das Rechnen mit Zeigern), wie sie oftmals in C praktiziert wird, in Perl nicht möglich.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="auf_skalare">Referenzen auf Skalare</a></h2>
+
+<p>Sie können einen Zeiger auf einen <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="skalare.htm">Skalar</a> erzeugen und über diesen Zeiger auf den Skalar und seinen gespeicherten Wert zugreifen.</p>
+
+<h3 class="xmp"><a class="an" name="beispiel1">Beispiel eines vollständigen CGI-Scripts:</a></h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="http://de.selfhtml.org/cgi-bin/812/referenzen1.pl">Anzeigebeispiel: So sieht's aus</a> (Zum Aufruf des Scripts ist eine Internet-Verbindung erforderlich)</p>
+
+<pre>
+#!/usr/bin/perl -w
+
+use strict;
+use CGI::Carp qw(fatalsToBrowser);
+
+my $Satz = "HTML - How To Make Love";
+my $Satzzeiger = \$Satz;
+
+print "Content-type: text/html\n\n";
+print '&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"&gt;', "\n";
+print "&lt;html&gt;&lt;head&gt;&lt;title&gt;Testausgabe&lt;/title&gt;\n";
+print "&lt;/head&gt;&lt;body&gt;\n";
+
+print "Variablentyp und Speicheradresse von \$Satz: $Satzzeiger&lt;br&gt;\n";
+print "Inhalt von \$Satz: ${$Satzzeiger}\n";
+
+print "&lt;/body&gt;&lt;/html&gt;\n";
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel definiert zunächst einen gewöhnlichen Skalar namens <code>$Satz</code> und initialisiert ihn mit einem Wert. Anschließend wird eine Referenz auf diesen Skalar deklariert. Die Referenz erhält im Beispiel den Namen <code>$Satzzeiger</code>. Es handelt sich dabei von der Syntax her also offensichtlich um einen Skalar. Was diesen Skalar zu einer Referenz macht, ist der Wert, der ihm bei der Initialisierung zugewiesen wird. Der zugewiesene Wert  <code>\$Satz</code> signalisiert Perl durch den anfänglichen Backslash, dass in <code>$Satzzeiger</code> die Referenz auf <code>$Satz</code> gespeichert werden soll. Würde der Backslash fehlen, dann würde <code>$Satzzeiger</code> einfach nur eine Kopie des Wertes von <code>$Satz</code> zugewiesen.</p>
+
+<p>Das Beispiel erzeugt HTML-Code. Dabei gibt es zwei Informationen aus: einmal den Inhalt von <code>$Satzzeiger</code> (damit man sieht, was in so einer Referenz gespeichert ist - der ausgegebene Wert enthält so etwas wie <code>SCALAR(0xb67d20)</code>), und einmal den Inhalt von <code>$Satz</code>, jedoch nicht über <code>$Satz</code> selber, sondern mit Hilfe der Referenz <code>$Satzzeiger</code>. Der angegebene Beispiel-Code enthält außerdem eine andere kleine Gemeinheit, die zu Verwirrung führen kann: an der Stelle, wo <code>\$Satz</code> innerhalb der <code>print</code>-Anweisung vorkommt, hat der Backslash eine andere Bedeutung als zuvor beim Initialisieren der Referenz! An dieser Stelle dient der Backslash zum <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="zeichenketten.htm#maskierung">Maskieren</a> des Zeichens <code>$</code>. Durch die Maskierung wird erreicht, dass an der Stelle die Zeichenkette <code>$Satz</code> ausgegeben wird und nicht etwa der in <code>$Satz</code> gespeicherte Wert.</p>
+
+<p>Um mit einer Referenz auf den in diesem Skalar gespeicherten Wert zugreifen zu können, müssen Sie die Syntax benutzen wie im Beispiel mit <code>${$Satzzeiger}</code> gezeigt. Die Referenz, in diesem Fall <code>$Satzzeiger</code>, wird dabei in geschweiften Klammern und mit einem zusätzlich vorangestellten Dollarzeichen notiert. <code>${$Satzzeiger}</code> liefert im Beispiel also <code>HTML - How To Make Love</code>.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Die Syntax zur Dereferenzierung mit der geschweiften Klammer ist die Variante, die immer funktioniert. Perl bietet Ihnen auch hier die Möglichkeit, die Notation abzukürzen. Statt <code>${$Satzzeiger}</code> können Sie auch <code>$$Satzzeiger</code> notieren, wenn es im Kontext eindeutig ist.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="auf_arrays">Referenzen auf Arrays</a></h2>
+
+<p>Sie können einen Zeiger auf einen <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="listen.htm">Array</a> erzeugen und über diesen Zeiger auf den Array und alle seine Elemente zugreifen.</p>
+
+<h3 class="xmp"><a class="an" name="beispiel2">Beispiel eines vollständigen CGI-Scripts:</a></h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="http://de.selfhtml.org/cgi-bin/812/referenzen2.pl">Anzeigebeispiel: So sieht's aus</a> (Zum Aufruf des Scripts ist eine Internet-Verbindung erforderlich)</p>
+
+<pre>
+#!/usr/bin/perl -w
+
+use strict;
+use CGI::Carp qw(fatalsToBrowser);
+
+my @Saetze = ( "HTML - How To Make Love. ",
+               "XHTML - Extended How To Make Love. ",
+               "XML - Extended Making Love." );
+my $Saetzezeiger = \@Saetze;
+
+print "Content-type: text/html\n\n";
+print '&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"&gt;', "\n";
+print "&lt;html&gt;&lt;head&gt;&lt;title&gt;Testausgabe&lt;/title&gt;\n";
+print "&lt;/head&gt;&lt;body&gt;\n";
+
+print "Variablentyp und Speicheradresse von \@Saetze: $Saetzezeiger&lt;br&gt;\n";
+print "Inhalt von \@Saetze: @{$Saetzezeiger} &lt;br&gt;\n";
+print "Inhalt von \$Saetze[2]: $Saetzezeiger-&gt;[2] &lt;br&gt;\n";
+
+print "&lt;/body&gt;&lt;/html&gt;\n";
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Im Beispiel wird zunächst ein Array namens <code>@Saetze</code> deklariert und mit Anfangswerten initialisiert. Anschließend wird eine Referenz auf diesen Array mit Namen <code>$Saetzezeiger</code> deklariert. Die Referenz selber ist ein Skalar, sichtbar an dem vorangestellten Dollarzeichen. Eine Referenz auf den Array wird dieser Skalar durch den zugewiesenen Wert <code>\@Saetze</code>. Der Backslash vor dem Klammeraffen signalisiert Perl, dass es eine Referenz ist. Würde der Backslash an dieser Stelle fehlen, dann würde in <code>$Saetzezeiger</code> übrigens die Anzahl der Array-Elemente von <code>@Saetze</code> gespeichert!</p>
+
+<p>Das Beispiel erzeugt HTML-Code und gibt dabei verschiedene Daten aus. In der ersten <code>print</code>-Anweisung wird zum besseren Verständnis der gespeicherte Wert der Referenz <code>$Saetzezeiger</code> ausgegeben - das ist so etwas wie <code>ARRAY(0xb65b28)</code>.<br>
+Die zweite <code>print</code>-Anweisung gibt den kompletten Inhalt des Arrays aus. Auf den Array als Ganzes wird dabei über die Referenz mit der Syntax <code>@{$Saetzezeiger}</code> zugegriffen. Die Referenz steht also in geschweiften Klammern, und unmittelbar davor ist ein Klammeraffe notiert, der auf die Liste hinweist.<br>
+In der dritten <code>print</code>-Anweisung wird ein bestimmtes Element von <code>@Saetze</code> ausgegeben, nämlich das dritte Listenelement. Direkt notiert wäre dieses Element mit <code>$Saetze[2]</code> ansprechbar. Im Beispiel wird es jedoch über die Referenz angesprochen, und dabei lautet die Syntax <code>$Saetzezeiger-&gt;[2]</code>. Notiert wird also die Referenz, gefolgt von dem Pfeiloperator <code>-&gt;</code> und dem gewünschten Listenelement in eckigen Klammern. Wichtig ist dabei, dass innerhalb der Zeichenkette <code>$Saetzezeiger-&gt;[2]</code> keine Leerzeichen vorkommen.</p>
+
+<p>Die Backslashes vor <code>\@Saetze</code> und <code>\$Saetze[2]</code> innerhalb der <code>print</code>-Anweisungen haben wie schon im Beispiel zu Skalaren nichts mit Referenzen zu tun, sondern dienen der <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="zeichenketten.htm#maskierung">Maskierung</a>.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Wie auch bei Skalarreferenzen bietet Perl Ihnen unterschiedliche Notationsmöglichkeiten. So können Sie statt <code>@{$Saetzezeiger}</code> auch <code>@$Saetzezeiger</code> notieren und statt <code>$Saetzezeiger-&gt;[2]</code> können Sie auch die "Urvariante" <code>${$Saetzezeiger}[2]</code> oder die Variante <code>$$Saetzezeiger[2]</code> verwenden.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="auf_hashes">Referenzen auf Hashes</a></h2>
+
+<p>Sie können eine Referenz auf einen <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="hashes.htm">Hash</a> erzeugen und über diese Referenz auf den Hash als Ganzes sowie auf dessen einzelne Schlüssel und Werte zugreifen.</p>
+
+<h3 class="xmp"><a class="an" name="beispiel3">Beispiel eines vollständigen CGI-Scripts:</a></h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="http://de.selfhtml.org/cgi-bin/812/referenzen3.pl">Anzeigebeispiel: So sieht's aus</a> (Zum Aufruf des Scripts ist eine Internet-Verbindung erforderlich)</p>
+
+<pre>
+#!/usr/bin/perl -w
+
+use strict;
+use CGI::Carp qw(fatalsToBrowser);
+
+my %Sprachen = ( HTML =&gt; "How To Make Love. ",
+                 XHTML =&gt; "Extended How To Make Love. ",
+                 XML =&gt; "Extended Making Love. " );
+my $Sprachenzeiger = \%Sprachen;
+
+print "Content-type: text/html\n\n";
+print '&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"&gt;', "\n";
+print "&lt;html&gt;&lt;head&gt;&lt;title&gt;Testausgabe&lt;/title&gt;\n";
+print "&lt;/head&gt;&lt;body&gt;\n";
+
+print "Variablentyp und Speicheradresse von %Sprachen: $Sprachenzeiger&lt;br&gt;\n";
+print "Inhalt von \%Sprachen: ", %{$Sprachenzeiger}," &lt;br&gt;\n";
+print "Bedeutung von XML: $Sprachenzeiger-&gt;{XML} &lt;br&gt;\n";
+
+print "&lt;/body&gt;&lt;/html&gt;\n";
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Im Beispiel wird zunächst ein Hash namens <code>%Sprachen</code> deklariert und mit Anfangswerten initialisiert. Anschließend wird eine Referenz auf diesen Hash mit Namen <code>$Sprachenzeiger</code> deklariert. Die Referenz selber ist ein Skalar, der durch den zugewiesenen Wert <code>\%Sprachen</code> zur Referenz wird. Der Backslash vor dem Prozentzeichen signalisiert die Referenz auf den Hash.</p>
+
+<p>Das Beispiel erzeugt HTML-Code und gibt dabei verschiedene Daten aus. In der ersten <code>print</code>-Anweisung wird zum besseren Verständnis der gespeicherte Wert der Referenz <code>$Sprachenzeiger</code> ausgegeben - das ist so etwas wie <code>HASH(0xb65b28)</code>.<br>
+Die zweite <code>print</code>-Anweisung gibt den kompletten Inhalt des Hashes aus. Auf den Hash als Ganzes wird über die Referenz mit der Syntax <code>%{$Sprachenzeiger}</code> zugegriffen. Die Referenz steht also in geschweiften Klammern, und unmittelbar davor ist ein Prozentzeichen notiert, das auf den Hash hinweist.<br>
+In der dritten <code>print</code>-Anweisung wird direkt das Hash-Element mit dem Schlüssel <code>XML</code> angesprochen. Direkt notiert wäre dieses Element mit <code>$Sprachen{XML}</code> ansprechbar. Im Beispiel wird es jedoch über die Referenz angesprochen, und dabei lautet die Syntax <code>$Sprachenzeiger-&gt;{XML}</code>. Notiert wird also die Referenz, gefolgt von dem Pfeiloperator <code>-&gt;</code> und dem gewünschten Hash-Schlüssel in geschweiften Klammern. Innerhalb von <code>$Sprachenzeiger-&gt;{XML}</code> dürfen in diesem Kontext (also innerhalb von Zeichenketten) keine Leerzeichen vorkommen.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Wie bei Array-Referenzen bietet Perl Ihnen auch hier unterschiedliche Notationsmöglichkeiten. So können Sie wieder statt <code>%{$Sprachenzeiger}</code> auch <code>%$Sprachenzeiger</code> notieren, und statt <code>$Sprachenzeiger->{XML}</code> können Sie auch die Varianten <code>${$Sprachenzeiger}{XML}</code> oder <code>$$Sprachenzeiger{XML}</code> verwenden.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="auf_subroutinen">Referenzen auf Subroutinen</a></h2>
+
+<p>Sie können eine Referenz auf eine <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="subroutinen.htm">Subroutine</a> setzen und über diese Referenz die Subroutine aufrufen.</p>
+
+<h3 class="xmp"><a class="an" name="beispiel4">Beispiel eines vollständigen CGI-Scripts:</a></h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="http://de.selfhtml.org/cgi-bin/812/referenzen4.pl">Anzeigebeispiel: So sieht's aus</a> (Zum Aufruf des Scripts ist eine Internet-Verbindung erforderlich)</p>
+
+<pre>
+#!/usr/bin/perl -w
+
+use strict;
+use CGI::Carp qw(fatalsToBrowser);
+
+sub Zufallswert {
+ return int(rand(1000) + 1);
+}
+
+my $Ergebnis = Zufallswert();
+my $Subroutinenzeiger = \&amp;Zufallswert;
+my $Referenzergebnis = &amp;{$Subroutinenzeiger}();
+
+print "Content-type: text/html\n\n";
+print '&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"&gt;', "\n";
+print "&lt;html&gt;&lt;head&gt;&lt;title&gt;Testausgabe&lt;/title&gt;\n";
+print "&lt;/head&gt;&lt;body&gt;\n";
+
+print "Ergebnis: $Ergebnis&lt;br&gt;\n";
+print "Subroutinenzeiger: $Subroutinenzeiger&lt;br&gt;\n";
+print "Referenzergebnis: $Referenzergebnis&lt;br&gt;\n";
+
+print "&lt;/body&gt;&lt;/html&gt;\n";
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Im Beispiel wird eine Subroutine namens <code>Zufallswert</code> notiert. Diese Subroutine ermittelt mit Hilfe der Perl-Funktionen <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../funktionen/berechnungen.htm#rand">rand</a> und <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../funktionen/berechnungen.htm#int">int</a> eine zufällige Ganzzahl zwischen 1 und 1000 und gibt die ermittelte Zahl mit <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../funktionen/kontrolle.htm#return">return</a> zurück.</p>
+
+<p>Mit der Anweisung <code>my $Ergebnis = &amp;Zufallswert();</code> wird die Subroutine aufgerufen. Der Rückgabewert, also eine ermittelte Zufallszahl, wird im Skalar <code>Ergebnis</code> gespeichert.<br>
+Mit der Anweisung <code>my $Subroutinenzeiger = \&amp;Zufallswert;</code> wird dagegen nur ein Zeiger auf die Subroutine <code>Zufallswert</code> deklariert. Die Funktion wird dabei <strong>nicht</strong> aufgerufen! Dass es sich um eine Referenz handelt, bewirkt die Syntax <code>\&amp;Zufallswert</code> beim zugewiesenen Wert. Der Backslash am Anfang signalisiert die Referenz und das Ampersand-Zeichen <code>&amp;</code> eine Subroutine. Dahinter folgt der Name der Subroutine.<br>
+Mit der Anweisung <code>my $Referenzergebnis = &amp;{$Subroutinenzeiger}();</code> wird die Subroutine <code>Zufallswert</code> wieder aufgerufen. Diesmal aber nicht wie in der ersten Anweisung direkt, sondern über die zuvor definierte Referenz. Die Syntax ist dabei so, dass die Referenz in geschweiften Klammern steht und ein Ampersand-Zeichen <code>&amp;</code> vorangestellt bekommt.<br>
+Die leeren runden Klammern hinter dem Namen der Subroutine sind übrigens nicht zwingend nötig. Der Rückgabewert des zweiten Aufrufs von <code>Zufallswert</code> wird in dem Skalar <code>$Referenzergebnis</code> gespeichert.</p>
+
+<p>Das Beispiel sendet HTML-Code an den Browser und gibt dabei die drei Werte von <code>$Ergebnis</code>, <code>$Subroutinenzeiger</code> und <code>$Referenzergebnis</code> aus. Während die beiden Skalare <code>$Ergebnis</code> und <code>$Referenzergebnis</code> eine Zufallszahl zwischen 1 und 1000 enthalten, ist der Inhalt von <code>$Subroutinenzeiger</code> nur der Zeigertyp und die Arbeitsspeicheradresse, z.B. so etwas wie <code>CODE(0xb65b28)</code>.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+<p>
+Perl bietet Ihnen auch bei der Dereferenzierung von Code-Referenzen unterschiedliche Notationsmöglichkeiten. So können Sie analog zu Skalar- und Array-Referenzen statt <code>&amp;{$Subroutinenzeiger}()</code> auch <code>&amp;$Subroutinenzeiger()</code> oder <code>$Subroutinenzeiger->()</code> notieren.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="auf_dateihandles">Referenzen auf Dateihandles</a></h2>
+
+<p>Bei <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../funktionen/einausgabe.htm">Funktionen für Ein-/Ausgabe und Lesen/Schreiben von Daten</a> haben Sie viel mit Dateihandles zu tun. Dateihandles verhalten sich anders als gewöhnliche Variablen. So können Sie ihnen keine direkten Werte zuweisen, sondern nur die Werte nutzen, die dem Dateihandle bei Bedarf vom Perl-Interpreter selbst zugewiesen werden. Die Werte beinhalten perl-interne Informationen über den <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../funktionen/einausgabe.htm#allgemeines">Ein-/Ausgabekanal</a>, auf den Sie mittels des Dateihandles zugreifen. Für Sie als Benutzer ist allerdings nur der Name des Handles interessant, um den Rest kümmert sich der Perl-Interpreter selbst.<br>
+Auf ein solches Dateihandle können Sie ebenfalls eine Referenz setzen. Hier liegt eine weitere Besonderheit gegenüber gewöhnlichen Variablen in Perl: Sie müssen diese Referenz zur Benutzung des Dateihandles nicht explizit dereferenzieren. Das erledigt der Perl-Interpreter automatisch, wenn es notwendig ist.</p>
+
+<h3 class="xmp"><a class="an" name="beispiel5">Beispiel eines vollständigen CGI-Scripts:</a></h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="http://de.selfhtml.org/cgi-bin/812/referenzen5.pl">Anzeigebeispiel: So sieht's aus</a> (Zum Aufruf des Scripts ist eine Internet-Verbindung erforderlich)</p>
+
+<pre>
+#!/usr/bin/perl -w
+
+use strict;
+use CGI::Carp qw(fatalsToBrowser);
+
+open(DATEI, "&lt;/tmp/server.cfg") || die "nicht gefunden";
+my $HandleReferenz = \*DATEI;
+my @Zeilen = &lt;$HandleReferenz&gt;;
+my $Zeilenzahl = @Zeilen;
+my $HandleName = *{$HandleReferenz};
+close($HandleReferenz);
+
+print "Content-type: text/html\n\n";
+print '&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"&gt;', "\n";
+print "&lt;html&gt;&lt;head&gt;&lt;title&gt;Testausgabe&lt;/title&gt;\n";
+print "&lt;/head&gt;&lt;body&gt;\n";
+
+print "eingelesene Zeilen: $Zeilenzahl&lt;br&gt;\n";
+print "$HandleReferenz&lt;br&gt;\n";
+print "$HandleName&lt;br&gt;\n";
+
+print "&lt;/body&gt;&lt;/html&gt;\n";
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel öffnet mit der <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../funktionen/einausgabe.htm#open">open</a>-Funktion von Perl eine Datei. Dabei ist <code>DATEI</code> der Name für das Dateihandle, über das auf die Datei zugegriffen wird. Dieser Name ist im Rahmen der <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../intro.htm#namensvergabe">Regeln zur Namensvergabe</a> frei wählbar, jedoch sollten Sie per Konvention <strong>keine</strong> Kleinbuchstaben verwenden. Wenn Sie die <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../intro.htm#aufruf">w-Option</a> des Perl-Interpreters verwenden, erhalten Sie bei unpassend gewählten Namen eine Warnung. Normalerweise könnte anschließend mit einer Anweisung wie <code>my&nbsp;@Zeilen&nbsp;=&nbsp;&lt;DATEI&gt;;</code> der Inhalt der Datei eingelesen werden. Im obigen Beispiel geschieht das Einlesen jedoch indirekt über eine Referenz.<br>
+Mit der Anweisung <code>my $HandleReferenz = \*DATEI;</code> wird ein Zeiger auf den Namen (bzw. den Eintrag in der perl-internen Symboltabelle) <code>DATEI</code> deklariert. Der Backslash am Anfang der Zuweisung signalisiert die Referenz und das Sternzeichen <code>*</code> einen Symboltabelleneintrag (einen so genannten Typeglob). Dahinter folgt der Name des Dateihandles.<br>
+Mit <code>my @Zeilen = &lt;$HandleReferenz&gt;;</code> kann der Inhalt der Datei nun über die Referenz auf das Dateihandle eingelesen werden. Statt <code>&lt;DATEI&gt;</code> wird also einfach <code>&lt;$HandleReferenz&gt;</code> notiert. Die Referenz dazu wird vom Perl-Interpreter selbst aufgelöst.<br>
+Die Anweisung <code>my $Zeilenzahl = @Zeilen;</code> ermittelt die Anzahl der eingelesenen Zeilen zur späteren Kontrollausgabe.<br>
+In der Anweisung <code>my $HandleName = *{$HandleReferenz};</code> wird die Referenz auf das Dateihandle nochmals explizit dereferenziert. In dieser Notation, also in geschweiften Klammern und mit voranstehendem Sternzeichen, wird der in <code>$HandleReferenz</code> gespeicherte <strong>Name</strong> des Handles ermittelt, im Beispiel also <code>DATEI</code>. Dabei wird allerdings auch der aktuelle Namensraum (package) mit ermittelt (siehe dazu auch die Perl-Funktion <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../funktionen/module.htm#package">package</a>). Der tatsächlich ermittelte Wert im obigen Beispiel ist <code>*main::DATEI</code>. Dabei ist <code>main</code> einfach der voreingestellte Namensraum von Perl, wenn - wie hier im Beispiel auch - kein anderer Namensraum angegeben wurde. <code>main::DATEI</code> wird als <strong>voll qualifizierter Name</strong> bezeichnet, da er genau aussagt, in welchem Namensraum <code>DATEI</code> zu finden ist.</p>
+
+<p>Das Beispiel erzeugt HTML-Code und gibt dabei die ermittelten Werte aus. Der Wert von <code>$HandleReferenz</code> ist so etwas wie <code>GLOB(0xb67968)</code>. Dabei steht <code>GLOB</code> für den Referenztyp "Typeglob".</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="auf_referenzen">Referenzen auf Referenzen</a></h2>
+
+<p>Es mag sich zunächst nach einer theoretischen Spielerei anhören, mit Referenzen auf Referenzen zu arbeiten. Bei komplexen Datenstrukturen kann es jedoch durchaus sinnvoll sein, solche Referenzen einzusetzen. Gerade beim Zugriff auf Einzelwerte aus einer solchen komplexen Datenstruktur erreicht Perl eine geradezu klassische Schönheit in der Notation.</p>
+
+<h3 class="xmp"><a class="an" name="beispiel6">Beispiel eines vollständigen CGI-Scripts:</a></h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="http://de.selfhtml.org/cgi-bin/812/referenzen6.pl">Anzeigebeispiel: So sieht's aus</a> (Zum Aufruf des Scripts ist eine Internet-Verbindung erforderlich)</p>
+
+<pre>
+#!/usr/bin/perl -w
+
+use strict;
+use CGI::Carp qw(fatalsToBrowser);
+
+my $Haus = "Einfamilienhaus in Fertigbauweise";
+my @Autos = ("VW","Opel","Audi","Porsche");
+my %Familie = (Frau =&gt; "Eva", Tochter =&gt; "Anja", Sohn =&gt; "Florian");
+my %Zeigerhash = (Hauszeiger =&gt; \$Haus, Autozeiger =&gt; \@Autos, Familienzeiger =&gt; \%Familie);
+my $Zeiger = \%Zeigerhash;
+
+print "Content-type: text/html\n\n";
+print '&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"&gt;', "\n";
+print "&lt;html&gt;&lt;head&gt;&lt;title&gt;Testausgabe&lt;/title&gt;\n";
+print "&lt;/head&gt;&lt;body&gt;\n";
+
+print "(1.) $Zeiger-&gt;{Hauszeiger}&lt;br&gt;\n";
+print "(2.) ${$Zeiger-&gt;{Hauszeiger}}&lt;br&gt;\n";
+print "(3.) $Zeiger-&gt;{Autozeiger}&lt;br&gt;\n";
+print "(4.) @{$Zeiger-&gt;{Autozeiger}}&lt;br&gt;\n";
+print "(5.) $Zeiger-&gt;{Autozeiger}-&gt;[2]&lt;br&gt;\n";
+print "(6.) $Zeiger-&gt;{Autozeiger}[3]&lt;br&gt;\n";
+print "(7.) $Zeiger-&gt;{Familienzeiger}&lt;br&gt;\n";
+print "(8.)", %{$Zeiger-&gt;{Familienzeiger}},"&lt;br&gt;\n";
+print "(9.) $Zeiger-&gt;{Familienzeiger}-&gt;{Frau}&lt;br&gt;\n";
+print "(10.) $Zeiger-&gt;{Familienzeiger}{Sohn}&lt;br&gt;\n";
+
+print "&lt;/body&gt;&lt;/html&gt;\n";
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel deklariert zunächst einen Skalar <code>$Haus</code>, einen Array <code>@Autos</code> und einen Hash <code>%Familie</code>. Daraufhin werden Zeiger bzw. Referenzen auf diese Variablen definiert. Da es sich jedoch um eine Serie von Zeigern handelt, werden sie nicht einzeln als Skalare deklariert, sondern in einem Hash namens <code>%Zeigerhash</code>. Jedes Element eines Hashs oder einer Liste kann ja einen Skalar speichern, und da Referenzen Skalare sind, ist es also kein Problem, Hashes oder Listen von Referenzen zu erzeugen. Der Hash im Beispiel erhält als Zuweisung beispielsweise einen Schlüssel namens <code>Hauszeiger</code>, mit dem eine Referenz auf den Skalar <code>Haus</code> verknüpft ist, sichtbar am beginnenden Backslash <code>\$Haus</code>. Ebenso wird es mit den anderen Referenzen innerhalb des Hashes gemacht.</p>
+
+<p>Nun könnte man ja über die Hashvariable <code>%Zeigerhash</code> auf die Referenzen und ihre Werte zugreifen. Im Beispiel wird jedoch noch ein Skalar namens <code>$Zeiger</code> deklariert, der eine Referenz auf den Hash <code>%Zeigerhash</code> ist, sichtbar an der Notation <code>\%Zeigerhash</code> bei der Zuweisung. <code>$Zeiger</code> ist damit also eine Referenz auf einen Hash aus Referenzen.</p>
+
+<p>Das Beispiel-Script hat damit allerlei Daten beisammen und kann bei der Zusammenstellung von HTML-Code die verschiedensten Werte ausgeben. Der Einfachheit halber erscheinen die Ausgaben nummeriert:</p>
+
+<p>(1.) gibt so etwas aus wie: <code>SCALAR(0xb65b7c)</code>, denn <code>$Zeiger-&gt;{Hauszeiger}</code> bedeutet den Wert des Hash-Elements mit dem Schlüssel <code>Hauszeiger</code>, und das ist die Referenz <code>\$Haus</code>.<br>
+(2.) gibt aus: <code>Einfamilienhaus in Fertigbauweise</code>, denn <code>${$Zeiger-&gt;{Hauszeiger}}</code> bedeutet den Wert des Wertes vom Hash-Element mit dem Schlüssel <code>Hauszeiger</code>, also letztlich den Wert der Referenz <code>\$Haus</code>. Um den Wert des Wertes zu ermitteln, wird um den Ausdruck aus (1.) einfach noch einmal eine geschweifte Klammer gesetzt und ein <strong>Dollarzeichen</strong> vorangestellt.<br>
+(3.) gibt so etwas aus wie: <code>ARRAY(0xb65b4c)</code>, denn <code>$Zeiger-&gt;{Autozeiger}</code> bedeutet den Wert des Hash-Elements mit dem Schlüssel <code>Autozeiger</code>, und das ist die Referenz <code>\@Auto</code>.<br>
+(4.) gibt aus: <code>VW Opel Audi Porsche</code>, denn <code>@{$Zeiger-&gt;{Autozeiger}}</code> bedeutet den Wert des Wertes vom Hash-Element mit dem Schlüssel <code>Autozeiger</code>, also letztlich den Wert der Referenz <code>\@Autos</code>, und das ist die gesamte Liste <code>@Autos</code>. Um den Wert des Wertes zu ermitteln, wird um den Ausdruck aus (3.) einfach noch einmal eine geschweifte Klammer gesetzt und ein <strong>Klammeraffe</strong> vorangestellt.<br>
+(5.) gibt aus: <code>Audi</code>, denn <code>$Zeiger-&gt;{Autozeiger}-&gt;[2]</code> bedeutet den Wert des dritten Elements des Wertes vom Hash-Element mit dem Schlüssel <code>Autozeiger</code>, also letztlich den dritten Wert der Referenz <code>\@Autos</code>, und das ist das dritte Element von <code>@Autos</code>.<br>
+(6.) gibt aus: <code>Porsche</code>. Dies ist eine verkürzte Schreibweise für das gleiche, was bei (5.) passiert. Es genügt, den ersten Pfeiloperator <code>-&gt;</code> zu notieren.<br>
+(7.) gibt so etwas aus wie: <code>HASH(0xb65b58)</code>, denn <code>$Zeiger-&gt;{Familienzeiger}</code> bedeutet den Wert des Hash-Elements mit dem Schlüssel <code>Familienzeiger</code>, und das ist die Referenz <code>\%Familie</code>.<br>
+(8.) gibt aus: <code>SohnFlorianTochterAnjaFrauEva</code>, denn <code>%{$Zeiger-&gt;{Familienzeiger}}</code> bedeutet den Wert des Wertes vom Hash-Element mit dem Schlüssel <code>Familienzeiger</code>, also letztlich den Wert der Referenz <code>\%Familie</code>, und das ist der gesamte Hash <code>%Familie</code>. Um den Wert des Wertes zu ermitteln, wird um den Ausdruck aus (7.) einfach noch einmal eine geschweifte Klammer gesetzt und ein <strong>Prozentzeichen</strong> vorangestellt.<br>
+(9.) gibt aus: <code>Eva</code>, denn <code>$Zeiger-&gt;{Familienzeiger}-&gt;{Frau}</code> bedeutet den Wert des Hash-Elements mit dem Schlüsselnamen <code>Frau</code> des Wertes vom Hash-Element mit dem Schlüssel <code>Familienzeiger</code>.<br>
+(10.) gibt aus: <code>Florian</code>. Dies ist eine verkürzte Schreibweise für das gleiche, was bei (9.) passiert und hat den gleichen Grund wie bei (6.).</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="vordefiniert.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="vordefiniert.htm">Vordefinierte Variablen in Perl</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="hashes.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="hashes.htm">Hashes (Variablen)</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">Perl</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Perl-Sprachelemente</a></td>
+</tr>
+</table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

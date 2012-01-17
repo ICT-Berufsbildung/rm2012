@@ -1,0 +1,318 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: Perl / Funktionsreferenz / Funktionen für Module und Packages</title>
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<meta name="description"    content="Welche Funktionen es in Perl gibt, um Module einzubinden.">
+<meta name="keywords"       content="SELFHTML, Perl, Funktionen, Perl-Funktionen, Module, Packages, package, require, use, @INC, %INC">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-11-09T00:29:27+01:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/perl/funktionen/module.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="Perl-Funktionen" href="index.htm">
+<link rel="next" title="Einführung in das Arbeiten mit Modulen" href="../module/intro.htm">
+<link rel="prev" title="Funktionen für Informationen aus Konfigurationsdateien" href="konfiguration.htm">
+<link rel="first" title="Funktionen für Zeichenketten" href="zeichenketten.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">Perl</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Perl-Funktionen</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Funktionen für Module und Packages</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#allgemeines">Allgemeines zu diesen Funktionen</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#package">package</a> - Namensraum eines Packages aktivieren<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#require">require</a> - andere Perl-Datei ausführen<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#use">use</a> - Modul einbinden<br>
+</p>
+</td>
+</tr><tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><a class="an" name="allgemeines">Allgemeines zu diesen Funktionen</a></h2>
+
+<p>Um die hier beschriebenen Funktionen besser zu verstehen, sollten Sie das Kapitel über <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../module/index.htm">Perl-Module</a> lesen.</p>
+
+<h3><a class="an" name="inc"><code>@INC</code> - die Liste der Pfadnamen für Module</a></h3>
+
+<p>Wenn Sie mit <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#require">require</a> oder <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#use">use</a> eine Moduldatei (Dateien  <code>*.pm</code>) einbinden, sucht Perl die entsprechende Datei entweder im aktuellen Verzeichnis, oder in einem Verzeichnis, das in der Liste für Modulpfadnamen gespeichert ist. Dazu dient die <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../sprache/vordefiniert.htm">vordefinierte Variable</a> <code>@INC</code>. Im Abschnitt <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../module/intro.htm#speicherorte_inc">Speicherorte für Module und die Liste @INC</a> finden Sie ein Beispielscript, mit dessen Hilfe Sie sich den Inhalt von <code>@INC</code> ausgeben lassen können, um die bei Ihnen gültigen Pfade herauszufinden.</p>
+
+<p>Neben der Liste <code>@INC</code> gibt es übrigens auch einen Hash namens <code>%INC</code>. In diesem Hash werden alle bereits geladenen Module gespeichert. Perl verhindert auf diese Weise, dass Module mehrfach geladen werden und dadurch zu unerwünschtem Verhalten im Programmablauf führen. Über derartige Probleme, die in C durch Präprozessoranweisungen wie <code>#ifndef</code> und <code>#define</code> gelöst werden müssen, brauchen Sie sich in Perl also keine Gedanken machen.</p>
+
+<h3><a class="an" name="Namensraum">Namensräume</a></h3>
+
+<p>Ein Namensraum heißt in Perl <b>Package</b>. Wenn Sie nichts anderes angeben, befindet sich jede Perl-Datei im package mit dem Namen <code>main</code>. Variablen, die innerhalb einer Perl-Datei ohne weitere Einschränkungen wie <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="kontrolle.htm#local">local</a> oder <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="kontrolle.htm#my">my</a> definiert werden, Namen von Subroutinen usw. gelten global in dieser einen Datei. Mit Hilfe der Funktion <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#package">package</a> können Sie eine Perl-Datei in mehrere Packages unterteilen.</p>
+
+<h3>Was ist besser - <code>require</code> oder <code>use</code>?</h3>
+
+<p>Die beiden Funktionen <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#require">require</a> und <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#use">use</a> haben ähnliche Aufgaben, unterscheiden sich jedoch in ihrer Wirkungsweise. <code>require</code> wird zur Laufzeit eines Scripts geladen (und zwar an der Stelle, wo die <code>require</code>-Anweisung steht), während <code>use</code> bereits vorher, zur Kompilierzeit des Scripts, mit eingebunden wird. Bei <code>require</code> wechseln Sie also einfach während der Scriptausführung in ein anderes Script, lassen dieses kompilieren und ausführen, und kehren dann zurück. Bei <code>use</code> dagegen haben Sie nach dem Kompilieren, das Perl vor jedem Ausführen des Scripts durchführt, praktisch ein großes Script, dessen Code sich aus den Sourcen mehrerer Moduldateien zusammensetzt. Das hat Folgen. So werden Syntaxfehler, die in einem mit <code>use</code> eingebundenen Modul enthalten sind, bereits im Vorfeld erkannt, und das Script wird gar nicht erst ausgeführt. Bei <code>require</code> hingegen kann es passieren, dass das Hauptscript fehlerfrei ist, das eingebundene Script jedoch Syntaxfehler enthält. Diese werden jedoch erst erkannt, wenn das Hauptscript bereits läuft. Dadurch können undefinierte Zustände entstehen. Aus heutiger Sicht ist die Verwendung von <code>use</code> in den meisten Fällen vorzuziehen. Allerdings gibt es auch Ausnahmen.</p>
+
+<p>Letztlich ist die Tatsache, dass es heute beide Funktionen gibt, historisch bedingt. <code>require</code> ist älter (wurde schon von Perl 4 interpretiert), während <code>use</code> seit Version 5 zur Verfügung steht. In der 5er-Version wurde das Modulkonzept von Perl stark erweitert und hat erst dort die heute verbreitete Form angenommen.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="package">package - Namensraum eines Packages aktivieren</a></h2>
+
+<p>Mit dieser Funktion bestimmen Sie einen <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#Namensraum">Namensraum</a> als den aktiv gültigen. Der Namensraum bleibt solange aktiv, bis mit einem neuen Aufruf von <code>package</code> ein anderer Namensraum aktiv wird, oder bis die natürliche Grenze eines Namensraums, also der aktuelle Block (etwa eine Subroutine) oder das Dateiende erreicht ist. Auf diese Weise können Sie innerhalb einer Scriptdatei modular arbeiten.</p>
+
+<p>Erwartet als Parameter:<br>
+<b>1.</b> den Namen des Namensraums, oder eine Zahl, die als Versionsnummer interpretiert wird.</p>
+
+<h3 class="xmp"><a class="an" name="beispiel1">Beispiel eines vollständigen CGI-Scripts in Perl:</a></h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="http://de.selfhtml.org/cgi-bin/812/module1.pl">Anzeigebeispiel: So sieht's aus</a> (Zum Aufruf des Scripts ist eine Internet-Verbindung erforderlich)</p>
+
+<pre>
+#!/usr/bin/perl -w
+
+use strict;
+use CGI::Carp qw(fatalsToBrowser);
+
+print "Content-type: text/html\n\n";
+print '&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"&gt;', "\n";
+print "&lt;html&gt;&lt;head&gt;&lt;title&gt;Testausgabe&lt;/title&gt;\n";
+print "&lt;/head&gt;&lt;body&gt;\n";
+
+package deutsch;
+use vars qw($Hauptstadt $Flaeche);
+$Hauptstadt = "Berlin";
+$Flaeche = "356.910 qm";
+
+package franzoesisch;
+use vars qw($Hauptstadt $Flaeche);
+$Hauptstadt = "Paris";
+$Flaeche = "551.500 qm";
+
+package deutsch;
+print "&lt;p&gt;Die Hauptstadt ist $Hauptstadt und das Land ist $Flaeche gross&lt;/p&gt;";
+
+package franzoesisch;
+print "&lt;p&gt;Die Hauptstadt ist $Hauptstadt und das Land ist $Flaeche gross&lt;/p&gt;";
+
+print "&lt;/body&gt;&lt;/html&gt;\n";
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel ruft insgesamt vier mal <code>package</code> auf. Beim ersten mal wird dabei ein neuer Namensraum namens <code>deutsch</code> geschaffen, beim zweiten mal ein neuer Namensraum namens <code>franzoesisch</code>. Beim dritten mal wird der Namensraum <code>deutsch</code> erneut aufgerufen, und ab diesem Befehl kennt das Script nur diejenigen Variablen, Subroutinen usw., die innerhalb des gleichen Namensraums definiert wurden. Ebenso ist es beim vierten mal, wo der Namensraum <code>franzoesisch</code> wieder aufgerufen wird.</p>
+
+<p>Bei Verwendung von <code>use strict</code> wie im Beispiel müssen die Variablen, die in den beiden ersten Package-Blöcken deklariert werden, allerdings explizit global deklariert werden, um bei späteren Aufrufen des Packages zur Verfügung zu stehen. Um die Deklaration globaler Variablen zu ermöglichen, steht das <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../module/standardmodule.htm">Standardmodul</a> <code>vars</code> zur Verfügung. Im Beispiel sehen Sie, wie dieses Modul eingesetzt wird. Innerhalb eines Packages mit <code>use</code> eingebunden, stehen in der Klammer hinter <code>qw</code> alle Variablennamen des aktuellen Packages, die global, also ohne <code>my</code> davor deklariert werden sollen. Perl meckert dann trotz <code>use strict</code> nicht an den Deklarationen.</p>
+
+<h3 class="inf">Beachten Sie</h3>
+
+<p>Solange nicht mit <code>package</code> ein spezieller Namensraum aktiviert wird, gilt der <b>Default-Namensraum</b> von Perl, der den Namen <code>main</code> hat.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="require">require - andere Perl-Datei ausführen</a></h2>
+
+<p>Mit dieser Funktion führen Sie eine beliebige andere Perl-Datei aus. Das andere Script wird an der Stelle, an der der <code>require</code>-Aufruf steht, ausgeführt.</p>
+
+<p>Erwartet als Parameter:<br>
+<b>1.</b> den Namen der einzubindenden Datei, gegebenenfalls mit Pfadnamen (Normalfall), oder eine Zahl, die als Versionsnummer interpretiert wird.</p>
+
+<h3 class="xmp"><a class="an" name="beispiel2">Beispiel - Teil 1 (vollständiges CGI-Script in Perl):</a></h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="http://de.selfhtml.org/cgi-bin/812/module2.pl">Anzeigebeispiel: So sieht's aus</a> (Zum Aufruf des Scripts ist eine Internet-Verbindung erforderlich)</p>
+
+<pre>
+#!/usr/bin/perl -w
+
+use strict;
+use CGI::Carp qw(fatalsToBrowser);
+
+print "Content-type: text/html\n\n";
+print '&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"&gt;', "\n";
+print "&lt;html&gt;&lt;head&gt;&lt;title&gt;Testausgabe&lt;/title&gt;\n";
+print "&lt;/head&gt;&lt;body&gt;\n";
+
+require "hallo_welt.pl";
+
+print "&lt;/body&gt;&lt;/html&gt;\n";
+</pre>
+
+<h3 class="xmp">Beispiel - Teil 2 (Moduldatei <var>hallo_welt.pl</var>):</h3>
+<pre>
+print "Hallo Welt!";
+1;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel zeigt, wie Sie ein "herkömmliches" Perl-Script, das seinen Output auf die Standardausgabe schreibt, in ein CGI-Script einbetten können, sodass der Output an den aufrufenden Browser gesendet werden kann. Im GGI-Script wird mit <code>require "hallo_welt.pl"</code> eine andere Perl-Datei eingebunden. Diese Datei schreibt einfach ein <code>Hallo Welt</code> auf die Standardausgabe. Da es jedoch in ein Script eingebunden ist, das zuvor den üblichen HTTP-Header sendet, gelangt der Output als HTML-Inhalt zum Browser.</p>
+
+<h3 class="inf">Beachten Sie</h3>
+
+<p>Sie können mit <code>require</code> ebenso wie mit <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#use">use</a> eine Moduldatei mit der Endung <code>.pm</code> einbinden. In diesem Fall müssen Sie <code>require&nbsp;Modulname</code> angeben. Perl sucht dann nach einer Datei namens <code>Modulname.pm</code>. Auch die Syntax mit <code>::</code> ist genauso möglich wie bei <code>use</code> (vergleiche dazu den Abschnitt <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../module/intro.htm#adressierungssyntax">Adressierungs-Syntax beim Einbinden von Modulen</a>).</p>
+
+<p>Eingebundene Perl-Dateien müssen am Ende so etwas wie <code>1;</code> enthalten. Dadurch wird sichergestellt, dass das Modul oder die Modul-Funktion korrekt ausgeführt wird.</p>
+
+<p>Wenn eine eingebundene Datei Subroutinen enthält, können Sie diese so aufrufen, als wären sie im aktuellen Perl-Script notiert.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="use">use - Modul einbinden</a></h2>
+
+<p>Mit dieser Funktion laden Sie ein Perl-Modul oder bestimmte Funktionen aus einem solchen Modul in ihr Script und können den entsprechenden Perl-Code in Ihrem Script benutzen.</p>
+
+<p>Erwartet als Parameter:<br>
+<b>1.</b> den Namen des Moduls (Normalfall), oder eine Zahl, die als Versionsnummer interpretiert wird.<br>
+<b>2.</b> bis <b>n.</b> (optional) weitere, einschränkende Angaben (siehe weiter unten).</p>
+
+<h3 class="xmp"><a class="an" name="beispiel3">Beispiel - Teil 1 (vollständiges CGI-Script in Perl):</a></h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="http://de.selfhtml.org/cgi-bin/812/module3.pl">Anzeigebeispiel: So sieht's aus</a> (Zum Aufruf des Scripts ist eine Internet-Verbindung erforderlich)</p>
+
+<pre>
+#!/usr/bin/perl -w
+
+use strict;
+use CGI::Carp qw(fatalsToBrowser);
+
+print "Content-type: text/html\n\n";
+print '&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"&gt;', "\n";
+print "&lt;html&gt;&lt;head&gt;&lt;title&gt;Testausgabe&lt;/title&gt;\n";
+print "&lt;/head&gt;&lt;body&gt;\n";
+
+use Syntax;
+my $Output = html_syntax("&lt;h1&gt;So sieht es aus&lt;/h1&gt;","red");
+print "&lt;h1&gt;So sieht es aus&lt;/h1&gt;\n";
+print "$Output\n";
+
+print "&lt;/body&gt;&lt;/html&gt;\n";
+</pre>
+
+<h3 class="xmp">Beispiel - Teil 2 (Moduldatei <var>Syntax.pm</var>):</h3>
+<pre>
+package Syntax;
+use strict;
+use vars qw($VERSION @ISA @EXPORT);
+require Exporter;
+@ISA = qw(Exporter);
+@EXPORT = qw(html_syntax);
+$VERSION = 1.0;
+
+sub html_syntax {
+  my $htmlstr = shift;
+  my $color = shift;
+  $htmlstr =~ s/\&amp;/&amp;amp;/g;
+  $htmlstr =~ s/\"/&amp;quot;/g;
+  $htmlstr =~ s/\&lt;/&amp;lt;/g;
+  $htmlstr =~ s/\&gt;/&amp;gt;/g;
+  $htmlstr =~ s/(&amp;lt;)/&lt;span style=\"color:$color\"&gt;$1/g;
+  $htmlstr =~ s/(&amp;gt;)/$1&lt;\/span&gt;/g;
+  return($htmlstr);
+}
+1;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Komplettbeispiel zeigt ein CGI-Script, in dem ein selbst definiertes Modul verwendet wird, sowie den Code der entsprechenden Moduldatei. Im CGI-Script wird die Moduldatei, die im Beispiel <code>Syntax.pm</code> heißt und im gleichen Verzeichnis wie das CGI-Script oder im Hauptverzeichnis von <code>@INC</code> abgelegt wird, mit <code>use Syntax;</code> eingebunden (vergleichen Sie dazu den Abschnitt <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../module/intro.htm#adressierungssyntax">Adressierungs-Syntax beim Einbinden von Modulen</a>).</p>
+
+<p>Das Hauptprogramm ruft dann eine Subroutine namens <code>html_syntax()</code> auf und übergibt ihr zwei Parameter, nämlich eine Zeichenkette mit HTML-Code und den Namen einer Farbe (<code>red</code>). Die Subroutine <code>html_syntax()</code> hat die Aufgabe, den übergebenen HTML-Code HTML-gerecht zu maskieren und die HTML-Tags in der angegebenen Farbe auszuzeichnen (also praktisch aus dem übergebenen HTML-Code den Code mit HTML-Syntax-Highlighting darstellbar zu machen). Die Subroutine erzeugt dabei neuen HTML-Code und gibt diesen am Ende zurück. Im Hauptprogramm wird der zurückgegebene Code in der Variablen <code>$Output</code> aufgefangen. Deren Inhalt kann schließlich an den Webserver zur Weitergabe an einen aufrufenden Browser ausgeliefert werden.</p>
+
+<p>Die Subroutine <code>html_syntax()</code> ist im Modul <code>Syntax</code> mit <code>sub&nbsp;html_syntax</code> definiert. Die Moduldatei enthält zu Beginn noch einige weitere Anweisungen, auf die an dieser Stelle nicht näher eingegangen wird. Lesen Sie dazu den Abschnitt <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../module/intro.htm#use_erweitert">Erweiterte Verwendung von use (@EXPORT, @EXPORT_OK und qw)</a>.</p>
+
+<p><a name="use_Parameter">Die folgende Tabelle zeigt, welche Varianten es gibt, um mit <code>use</code> ein Modul oder bestimmte Teile davon einzubinden:</a></p>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<th>Beispiel:</th>
+<th>Erläuterung:</th>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>use Beispiel;</code></td>
+<td class="tabxpl">Bindet ein Modul namens <code>Beispiel.pm</code> ein, wobei diese Datei entweder im aktuellen Arbeitsverzeichnis oder in einem der Verzeichnisse abgelegt werden muss, die in <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#inc">@INC</a> gespeichert sind. Geben Sie also den Dateinamen ohne die Endung an. Die Endung der Moduldatei muss <code>.pm</code> lauten.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>use Beispiel::Spezial;</code></td>
+<td class="tabxpl">Bindet ein Modul namens <code>Spezial.pm</code> ein. Dabei löst Perl die <code>::</code>-Syntax als Pfadnamen auf - d.h. es wird eine Datei mit dem Pfadnamen <code>Beispiel/Spezial.pm</code> erwartet. Dies ist ein relativer Pfadname, ausgehend von einem der Verzeichnispfade, die in <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#inc">@INC</a> gespeichert sind.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>use CGI::Carp qw(fatalsToBrowser);</code></td>
+<td class="tabxpl">Bindet aus dem Verzeichnis <code>CGI</code> das Modul <code>Carp.pm</code> ein. Das Symbol <code>fatalsToBrowser</code> wird der Importliste übergeben. Normalerweise wird es dann in den aktuellen Namensraum importiert, was allerdings - typisch für Perl - gerade bei diesem populären Beispiel nicht der Fall ist. Die Übergabe von <code>fatalsToBrowser</code> löst hier eine Sonderbehandlung aus.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>use 5.003;</code></td>
+<td class="tabxpl">Script läuft nur weiter, wenn ein Perl-Interpreter installiert ist, der eine Versionsnummer gleich oder höher als 5.003 hat.</td>
+</tr>
+</table>
+
+<h3 class="inf">Beachten Sie</h3>
+
+<p>Die Anweisung:<br>
+<code>use Modulname;</code><br>
+ist gleichbedeutend mit:<br>
+<code>BEGIN { require Modulname; import Modulname [Importliste]; }</code><br>
+Die Funktion <code>use</code> leistet also die Summe aus dem, was die Funktion <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#require">require</a> in Verbindung mit der Methode <code>import</code> leistet.</p>
+
+<p>Wenn Sie <code>use</code> genau ein Argument übergeben und dieses Argument eine Zahl ist, also z.B. <code>5</code> oder <code>5.003</code>, dann prüft Perl diese Angabe gegen die Versionsnummer des Perl-Interpreters. Ist die Versionsnummer des Perl-Interpreters niedriger als die angegebene Zahl, wird das laufende Script sofort mit einer Fehlermeldung beendet. Dies kann sinnvoll sein, um zu verhindern, dass ein Script weiterläuft, das Code enthält, der höhere Perl-Versionen erfordert.</p>
+
+<p>Module müssen am Ende so etwas wie <code>1;</code> enthalten. Dadurch wird sichergestellt, dass das Modul korrekt eingebunden wird.</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="../module/intro.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../module/intro.htm">Einführung in das Arbeiten mit Modulen</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="konfiguration.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="konfiguration.htm">Funktionen für Informationen aus Konfigurationsdateien</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">Perl</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Perl-Funktionen</a></td>
+</tr>
+</table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

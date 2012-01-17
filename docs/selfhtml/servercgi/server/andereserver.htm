@@ -1,0 +1,177 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: Webserver/CGI / Webserver / Andere Server</title>
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<meta name="description"    content="Informationen zu anderen Webservern.">
+<meta name="keywords"       content="SELFHTML, CGI, Web-Server, Webserver, HTTP, IIS, Internet Information Services, OmniHTTPd, Jana-Server, Jana, Tomcat">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-11-08T02:55:54+01:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/servercgi/server/andereserver.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="Webserver" href="index.htm">
+<link rel="next" title="HTTP-Status-Codes" href="httpstatuscodes.htm">
+<link rel="prev" title="Umleitungen mit mod_rewrite" href="rewrite.htm">
+<link rel="first" title="Webserver lokal auf einem PC einrichten" href="allgemein.htm">
+<link rel="last" title="HTTP-Status-Codes" href="httpstatuscodes.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">Webserver/CGI</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Webserver</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Andere Webserver</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#iis">IIS - Internet Information Services</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#omni">OmniHTTPd/OmniSecure</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#jana">Jana-Server</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#tomcat">Tomcat</a><br>
+</p>
+</td>
+</tr><tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><a class="an" name="iis">IIS - Internet Information Services</a></h2>
+
+<p>IIS bezeichnet eine Gruppe verschiedener Programme, die auf einem Windows-Rechner (Windows 2000 oder jünger) eingesetzt werden können. Bei einigen Systemen (z.B. Windows 2003 Server) gehört diese Gruppe von Programmen gemeinsam mit dem so genannten Active Directory unmittelbar zum Betriebssystem, bei anderen (Windows 2000, Windows XP, Windows Vista) kann das Programmpaket über die Software-Auswahl in der Systemsteuerung nachinstalliert bzw. aktiviert werden. Es gehört in Windows 2000 und Windows XP zum Lieferumfang, aber nicht unmittelbar zum System, so dass Sie es über die Softwareauswahl in der Systemsteuerung erst auswählen müssen:</p>
+
+<p><img src="iis01.png" width="500" height="344" alt="Installation IIS 5"></p>
+
+<p>In Windows Vista sind IIS bereits vorinstalliert, müssen aber bei Bedarf "eingeschaltet" werden:</p>
+
+<p><img src="iis01vista.png" alt="Aktivierung IIS 7"></p>
+
+<p>Nach einer Installation kann bei älteren Versionen über die Computerverwaltung ein "Snap-In", das einer grafisch aufbereiteten Befehlszeile entspricht, aufgerufen werden, um die eventuell erforderlichen Konfigurationsschritte vorzunehmen. IIS 7 bietet einen "Manager" an:</p>
+
+<p><img src="iis02.png" alt="IIS-Manager"></p>
+
+<p>In diese Dienste kann bei Bedarf ein Mail-Server wie z.B. <img src="../../src/de.gif" width="16" height="10" alt="deutschsprachige Seite">&nbsp;<a target="_top" href="http://www.microsoft.com/germany/exchange/">Microsoft Exchange Server</a> und/oder ein FTP-Server integriert werden, sodass der mögliche Funktionsumfang weit über das hinausreicht, was ein "Webserver" an Aufgaben zu bewältigen hat.</p>
+
+<p>Als Voreinstellung erwarten IIS eine <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../intro/schnittstellen/andere.htm#asp">ASP-Umgebung</a>, bzw. in jüngeren Versionen (IIS6 und höher) eine ASP.NET-Umgebung. Wer CGI- und/oder PHP-Scripts einsetzen oder testen möchte, muss einige etwas umständliche Konfigurationsschritte in Kauf nehmen, es ist jedoch ohne weiteres möglich. Die Unterstützung für einige (nicht alle) <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="ssi.htm">SSI-Anweisungen</a> ist von Anfang an vorhanden. Ähnlich wie der <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="apache.htm">Apache</a> sind auch IIS in der Lage, mehrere unterschiedliche Webangebote für unterschiedliche Benutzer zu verwalten, und auch "virtuelle Domains" lassen sich analog zu den virtuellen Hosts des Apache einrichten. Eine sehr umfangreiche, wenn auch stellenweise nicht besonders tiefgründige Dokumentation kann bei Bedarf mitinstalliert werden.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Im Internet werden IIS kaum eingesetzt. Für den "Hausgebrauch" oder in einem kleinen Netzwerk können diese Dienste allerdings genauso sinnvoll oder nützlich sein wie andere Server-Software. Ein Problem kann dadurch entstehen, dass es zwingend erforderlich ist, die Sicherheitseinstellungen des Server-Rechners so stringent wie möglich zu handhaben und die jeweils aktuellen, von Microsoft zur Verfügung gestellten Updates einzuspielen. Dazu kommt, dass es nach wie vor sehr häufig Viren bzw. Würmer im Internet gibt, die sich auf bestimmte "Schwachstellen" der IIS spezialisiert haben. Ein seit langem bekanntes Beispiel dafür ist der Wurm "Nimda", der speziell die IIS sucht und infizieren kann.</p>
+
+<p>Weiterführende Informationen finden Sie bei <img src="../../src/de.gif" width="16" height="10" alt="deutschsprachige Seite">&nbsp;<a target="_top" href="http://www.microsoft.com/germany/technet/datenbank/articles/600394.mspx">Microsoft TechNet</a> sowie auf einer eigens eingerichteten <img src="../../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.iis.net/Default.aspx?tabid=7">IIS-Website</a>.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="omni">OmniHTTPd/OmniSecure</a></h2>
+
+<p>OmniHTTPd ist eine speziell für Windows-Systeme entwickelte Serversoftware, die sich aus nur sehr wenigen Programm- und Bibliotheksdateien zusammensetzt. Damit stellt er für den Einsatz als lokales Prüfinstrument für Scripts eine empfehlenswerte Alternative zum Apache-Webserver dar: er ist sehr schnell und sehr klein. Der Server kann von <img src="../../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.omnicron.ca/httpd/download.html">Omnicron</a> bezogen werden. Sobald er installiert und gestartet ist, erscheint ein kleines Icon in der Taskbar (hier in Windows Vista, hervorgehoben):</p>
+
+<p><img src="omni01.png" alt="OmniHTTPd-Icon"></p>
+
+<p>OmniHTTPd bietet alle wesentlichen Funktionen an, die man auf dem eigenen Rechner benötigt, um Scripts (PHP und CGI) vor dem Einsatz auf einem öffentlichen Server zu testen. Eingerichtet und gewartet wird er über kleine grafische "Assistenten":</p>
+
+<p><img src="omni02.png" width="381" height="374" alt="Konfiguration von OmniHTTPd"></p>
+
+<p>Neben dem Testen von Scripts und SSI erlaubt OmniHTTPd/OmniSecure auch das Anlegen virtueller Hosts, sodass unterschiedliche Webangebote verwaltet und dargestellt werden können. Er ist ein sehr schneller Dienst, der sich für die wichtigsten Tests, die Sie zuhause eventuell vornehmen möchten, hervorragend eignet. Allerdings erreicht OmniHTTPd/OmniSecure bei weitem nicht den Funktionsumfang, den der Apache aufweist.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Der Name "OmniHTTPd" ist in jüngeren Versionen nicht mehr gebräuchlich. Der Dienst heißt jetzt "OmniSecure". Abhängig davon, welche Windows-Version Sie benutzen, kann es jedoch sein, dass lediglich eine der älteren Versionen mit dem älteren Namen lauffähig ist. Die von älteren Versionen bekannte Einschränkung, daß OmniHTTPd nur ein Jahr lang lauffähig ist und dann durch ein Update ersetzt werden sollte, gilt heute weitgehend nicht mehr. OmniHTTPd ist nicht auf Serversystemen wie Windows 2003 Server einsetzbar, kann aber auf Windows 98, Windows 2000, Windows XP und Windows Vista problemlos zum Einsatz kommen.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="jana">Jana-Server</a></h2>
+
+<p>Jana-Server ist eine komplexe, dabei aber immer noch schmale Software, die weit mehr als nur einen Webserver enthält. Der Jana-Server wird besonders von Benutzern geschätzt, die im Umgang mit der englischen Sprache wenig geübt sind - er kann komplett deutschsprachig installiert werden. Die Software wird für den privaten Gebrauch kostenfrei angeboten und kann über <img src="../../src/de.gif" width="16" height="10" alt="deutschsprachige Seite">&nbsp;<a target="_top" href="http://www.janaserver.de/start.php">http://www.janaserver.de/start.php</a> bezogen werden. Anders als der Apache ist Jana-Server keine OpenSource-Software, der Quellcode steht also nicht zur Verfügung. Er kann auch kommerziell eingesetzt werden.</p>
+
+<p>Jana-Server kann mit folgenden Funktionen eingesetzt werden:</p>
+
+<ul>
+<li>Proxy-Server</li>
+<li>HTTP-Server</li>
+<li>FTP-Server</li>
+<li>News-Server</li>
+<li>Mail-Server</li>
+</ul>
+
+<p>Bei dieser Funktionsvielfalt ist es selbstverständlich, dass Jana-Server den Anforderungen, die gewöhnlich an einen lokalen Server gestellt werden, genügen kann. Er ist jedoch, ähnlich wie OmniHTTPd, ausdrücklich für den Einsatz auf Windows-Systemen geschrieben, steht also auf anderen Plattformen nicht zur Verfügung. Die Programmverzeichnisse sind ähnlich den Programmverzeichnissen des Apache (unter Windows) aufgebaut und tragen ähnlich lautende Namen. Eine HTML-basierte Dokumentation gehört zum Installationsumfang dazu.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="tomcat">Tomcat</a></h2>
+
+<p>Tomcat ist ein speziell für den Einsatz von <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../intro/schnittstellen/andere.htm#jsp">JSP</a> konzipierter Server. Er wird von einer Projektgruppe der Apache Software Foundation betreut. Informationen und Download-Verweise finden sich auf der Tomcat-Seite der Apache Software Foundation unter <img src="../../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://jakarta.apache.org/tomcat/">http://jakarta.apache.org/tomcat/</a>. Eine kurze Zusammenstellung von FAQ kann unter <img src="../../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://java.sun.com/products/jsp/tomcat/faq.html">http://java.sun.com/products/jsp/tomcat/faq.html</a> nachgelesen werden.</p>
+
+<p>Für den Einsatz von Tomcat ist es zwingend erforderlich, dass auf dem Server-Rechner ein JRE von <img src="../../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://java.sun.com/">Sun</a> installiert ist.</p>
+
+<p>Tomcat wird mit Hilfe mehrerer XML-Dateien konfiguriert, deren Syntax auf den ersten Blick etwas verwirrend erscheinen mag. Die Konfiguration lässt sich aber auch mit Hilfe eines zusätzlichen "admin"-Pakets, das eine webbasierte Administration zur Verfügung stellt, durchführen:</p>
+
+<p><img src="tomcat.png" width="576" height="414" alt="Administrationsoberfläche des Tomcat"></p>
+
+<p>Standardmäßig wird bei der Installation vorgeschlagen, dass Tomcat den Port 8080 nutzen soll. Sie können diese Einstellung jedoch beliebig ändern. Einige Beispiele für kleine Servlets gehören zum Lieferumfang und können mitinstalliert werden. Sie stellen eine gute Hilfe dar, um sich erst einmal in die Technik der <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../intro/schnittstellen/andere.htm#jsp">JSP</a> einzuarbeiten.</p>
+
+<p>Obwohl Tomcat ein eigenständiger Server ist, wird oftmals gewünscht, dass er mit einem anderen Webserver gemeinsam zum Einsatz kommt. PHP-Scripts kann Tomcat nicht ausführen lassen, Unterstützung für CGI und SSI lässt sich allerdings aktivieren. Natürlich bietet sich eine Zusammenarbeit mit dem Apache an. Realisiert werden kann eine solche Zusammenarbeit der beiden Server mit so genannten <img src="../../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://jakarta.apache.org/tomcat/faq/connectors.html">Connectors</a>. Für das Zusammenspiel von Apache und Tomcat gibt es ein eigenständiges kleines <img src="../../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://johnturner.com/howto/apache-tomcat-howto.html">HOWTO</a>. Prinzipiell kann Tomcat aber auch gemeinsam mit anderen Webservern zum Einsatz kommen.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Ähnlich wie der Apache ist auch Tomcat sehr vielfältig konfigurierbar. Zahlreiche zusätzliche Softwarepakete können heruntergeladen und eingebunden werden.</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="httpstatuscodes.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="httpstatuscodes.htm">HTTP-Status-Codes</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="rewrite.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="rewrite.htm">Umleitungen mit mod_rewrite</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">Webserver/CGI</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Webserver</a></td>
+</tr>
+</table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

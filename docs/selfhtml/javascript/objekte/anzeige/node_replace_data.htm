@@ -1,0 +1,21 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>Test</title>
+<script type="text/javascript">
+function andereAntwort () {
+  var Text = "Du darfst!";
+  var rd_Start = 0;
+  var rd_Laenge = document.getElementById("z2").firstChild.nodeValue.length;
+  document.getElementById("z2").firstChild.replaceData(rd_Start, rd_Laenge, Text);
+}
+</script></head>
+<body>
+<table border="1" bgcolor="#FFFFC0" width="30%">
+<tr><td id="z1">Darf ich?</td><td id="z2">keine Ahnung!</td></tr>
+</table>
+<p><a href="javascript:andereAntwort()">andere Antwort!</a></p>
+
+<p><a href="../node.htm#replace_data">zur&uuml;ck</a></p>
+</body>
+</html>

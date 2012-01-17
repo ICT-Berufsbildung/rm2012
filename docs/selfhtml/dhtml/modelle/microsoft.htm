@@ -1,0 +1,440 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: Dynamisches HTML / DHTML-Modelle / Das ältere DHTML-Modell von Microsoft</title>
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<meta name="description"    content="Wie Dynamisches HTML nach dem älteren (1997) Ansatz von Microsoft funktioniert, und welche Bedeutung es heute hat.">
+<meta name="keywords"       content="SELFHTML, Dynamisches HTML, Dynamic HTML, DHTML, Microsoft, Internet Explorer, all-Objekt, Script-Sprachen">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-11-13T19:14:10+01:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/dhtml/modelle/microsoft.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="DHTML-Modelle" href="index.htm">
+<link rel="next" title="Das ältere DHTML-Modell von Netscape" href="netscape.htm">
+<link rel="prev" title="Das Document Object Model (DOM)" href="dom.htm">
+<link rel="first" title="Das Document Object Model (DOM)" href="dom.htm">
+<link rel="last" title="Dynamische Filter (nur Microsoft)" href="dynamische_filter.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">Dynamisches HTML</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">DHTML-Modelle</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Das ältere DHTML-Modell von Microsoft</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#allgemeines">Allgemeines zum Microsoft-Modell</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#scriptsprachen">Script-Sprachen: JavaScript, JScript und VBScript</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#all_objekt">Das all-Objekt</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#css">Stylesheets und Scripts</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#css_schreibweise">Schreibweise von CSS-Eigenschaften in JavaScript/JScript</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#event_handler">Event-Handler und das Event-Objekt</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#event_bubbling">Vererbung bei Events (Event-Bubbling)</a>
+</p>
+</td>
+</tr><tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><a class="an" name="allgemeines">Allgemeines zum Microsoft-Modell</a></h2>
+
+<p>Als der Internet Explorer 4.0 im Jahr 1997 ein völlig neues Konzept mit ganz neuen Möglichkeiten des dynamischen Zugriffs auf eine Web-Seite einführte, waren die meisten Web-Entwickler noch gänzlich in dem klassischen JavaScript-Ansatz von Netscape befangen und begriffen gar nicht so recht die Tragweite des neuen Modells. Das Modell erlaubte nichts Geringeres, als beliebige HTML-Elemente inklusive deren CSS-Eigenschaften zu ändern, auszutauschen, neu zu erzeugen, zu löschen usw. Der Browser reagierte dabei wie eine Textverarbeitungs-Software während der Bearbeitung. Wenn Inhalte dynamisch eingefügt wurden, wurde alles, was dahinter stand, automatisch neu positioniert. Obwohl diese Fähigkeit - eben im Hinblick auf moderne Textverarbeitungs-Software - im Grunde genommen von einer professionellen Software zu erwarten ist, war dem zu jener Zeit nicht so. Der 1997 noch dominante Netscape-Browser war genau dazu nicht in der Lage: eine Seite aufgrund dynamischer Änderungen wirklich neu aufzubauen. Auch die Web-Entwickler begriffen lange Zeit nicht, dass es doch viel einfacher und konsequenter ist, beliebige HTML-Elemente, deren Eigenschaften und Inhalte dynamisch zu ändern, anstatt mit der umständlichen Layer-Technik von Netscape zu hantieren.</p>
+
+<p>Das Microsoft-Modell war also richtungsweisend. Aber es war proprietär, ein firmeneigener Vorstoß in neue Welten ohne Absprache mit einem unabhängigen Normierungs-Gremium. Microsoft benahm sich in jener Zeit in der Tat unglaublich aggressiv und versuchte, die verpennte Zeit der Jahre davor aufzuholen. Immerhin hatte Bill Gates noch ganze zwei Jahre zuvor das Internet als unwichtig und für Microsoft bedeutungslos erklärt. Der Versuch, die "Sahnetorte Internet" mit aggressiver Marketing-Politik alleine aufzufressen, gelang jedoch glücklicherweise nur zum Teil. Zwar eroberte der Internet Explorer Monat um Monat mehr Anteile am Browser-Markt und ist mittlerweile längst der am weitesten verbreitete Browser. Doch Microsofts Versuch, eigene Sprachen, Formate und Programmiertechniken zu etablieren, ist fehlgeschlagen. In diesem Punkt reagierte die Web-Gemeinde empfindlich. Man hatte erkannt, dass Software vor allem dann von sich abhängig macht, wenn sie Dateiformate diktiert.</p>
+
+<p>Das DHTML-Modell von Microsoft war also ein wichtiger Meilenstein auf dem Weg zum heute zu empfehlenden <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="dom.htm">DOM</a>. Das DOM weicht aber insofern von dem Microsoft-Ansatz ab, als es nicht auf HTML fixiert ist, sondern gleich alle XML-kompatiblen Tag-Sprachen abdeckt. Der Microsoft-Ansatz ist aus heutiger Sicht nur noch insofern von Bedeutung, wenn Sie dynamische Web-Seiten erstellen wollen, die auch mit dem Internet Explorer 4.x darstellbar sein sollen. Zwar verschwindet dessen Anteil am Browser-Markt immer weiter gegenüber den neueren Versionen, die seit der 5er-Version DOM-fähig sind, doch Web-Design sollte wann immer es möglich ist auch auf ältere Browser-Versionen Rücksicht nehmen.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/msjs.gif" width="30" height="30" alt="MS JScript" title="MS JScript"><img src="../../src/msie4.gif" width="30" height="30" alt="MS IE 4.0" title="MS IE 4.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf2.gif" width="30" height="30" alt="Safari 2.0" title="Safari 2.0">&nbsp;<a class="an" name="scriptsprachen">Script-Sprachen: JavaScript, JScript und VBScript</a></h2>
+
+<p>Es gibt letztlich keine Vorschriften dafür, welche Script-Sprache für Dynamisches HTML verwendet werden soll. Deshalb herrscht hierbei noch etwas Verwirrung.</p>
+
+<p><img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../../javascript/index.htm">JavaScript</a> ist jedoch eindeutig die meist verwendete und bekannteste Script-Sprache. Sie wurde durch Netscape eingeführt. Der Internet Explorer interpretiert JavaScript ebenfalls. Dabei hinkt er Netscape jedoch immer etwas hinterher, da Netscape die Lizenzen für JavaScript besitzt und es Microsoft nicht erlaubt ist, den Sprachumfang von JavaScript selbstständig zu erweitern. Mit einem kleinen Kniff hat sich Microsoft aus dieser misslichen Lage befreit: Die Sprache wurde einfach in JScript umbenannt. JScript ist JavaScript plus MS-eigene Spracherweiterungen. JScript enthält etliche Objekte, Methoden und Eigenschaften, die in JavaScript nicht vorkommen. Die meisten dieser Befehle sind für die lokalen Betriebssystemerweiterungen gedacht, die der Internet Explorer 4.x unter MS Windows benötigt. Aber auch das <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#all_objekt">all-Objekt</a>, das in Netscapes JavaScript nicht vorkommt, gehört dazu. Und dieses Objekt ist ganz entscheidend für Dynamisches HTML im Internet Explorer.</p>
+
+<p>Neben JavaScript und JScript beherrscht der Internet Explorer auch noch VBScript. Diese Sprache ist von Visual Basic (VB) abgeleitet. Sie konnte sich bislang jedoch nicht durchsetzen im WWW. VBScript hat eine andere Syntax als JavaScript und JScript. Die Objekte, Eigenschaften und Methoden sind jedoch im wesentlichen die gleichen. Mit VBScript können Sie also ebenfalls Dynamisches HTML schreiben.</p>
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/scriptsprachen.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;p&gt;Ihr WWW-Browser beherrscht folgende Script-Sprachen:&lt;br&gt;
+&lt;script language="JavaScript" type="text/javascript"&gt;
+document.write("&lt;br&gt;JavaScript");
+&lt;/script&gt;
+&lt;script language="JScript" type="text/jscript"&gt;
+document.write("&lt;br&gt;JScript");
+&lt;/script&gt;
+&lt;script language="VBScript" type="text/vbscript"&gt;
+document.write "&lt;br&gt;VBScript"
+&lt;/script&gt;
+&lt;/p&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das obige Beispiel ist kein Dynamisches HTML im engeren Sinn. Es soll lediglich demonstrieren, wie Sie unterschiedliche Script-Sprachen einsetzen können, und welche Wirkung dies auf WWW-Browser hat. In dem Beispiel werden drei Script-Bereiche definiert: einer mit JavaScript (<code>&lt;script language="JavaScript" type="text/javascript"&gt;</code>), einer mit JScript (<code>&lt;script language="JScript" type="text/jscript"&gt;</code>) und einer mit VBScript <code>&lt;script language="VBScript" type="text/vbscript"&gt;</code>. Jeder der drei Bereiche schreibt mit Hilfe eines <code>document.write</code>-Befehls (dieser Befehl ist in allen drei Sprachen gleich) eine Zeile in das Dokument. Da ein WWW-Browser nur diejenigen Script-Bereiche ausführt, deren Sprachen er kennt, stehen am Ende genau diejenigen Script-Sprachen auf der Seite, die der benutzte WWW-Browser kennt.</p>
+
+<p>Sie sollten einen Script-Bereich einfach dann mit "JScript" auszeichnen, wenn Sie verhindern wollen, dass Netscape den Bereich interpretiert. Der Internet Explorer 4.x selbst nimmt es andererseits nicht übel, wenn Sie einen Script-Bereich mit "JavaScript" auszeichnen und darin Objekte, Methoden und Eigenschaften verwenden, die eigentlich nur in JScript vorkommen. Wenn Sie einen Script-Bereich mit "JavaScript" auszeichnen und darin microsoft-spezifische JScript-Erweiterungen wie das all-Objekt verwenden, sollten Sie die Ausführung entsprechender Anweisungen von einer Abfrage abhängig machen. Lesen Sie dazu das Thema <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../javascript/sprache/objekte.htm#existenzabfrage">Abfragen ob ein Objekt existiert</a> in JavaScript.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>In modernen Browsern ist es normalerweise ausreichend, das <code>type</code>-Attribut anzugeben. Ältere Browser und Opera 5.12 benötigen jedoch zwingend das Attribut <code>language</code>, um den Script-Bereich von der Bearbeitung auszuschließen.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/msjs.gif" width="30" height="30" alt="MS JScript" title="MS JScript"><img src="../../src/msie4.gif" width="30" height="30" alt="MS IE 4.0" title="MS IE 4.0"><img src="../../src/op7.gif" width="30" height="30" alt="Opera 7" title="Opera 7"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/safwk.gif" width="30" height="30" alt="Safari WebKit (Entwicklerversion)" title="Safari WebKit (Entwicklerversion)">&nbsp;<a class="an" name="all_objekt">Das all-Objekt</a></h2>
+
+<p>Das <code>all</code>-Objekt ist beim DHTML-Ansatz von Microsoft der entscheidende Schlüssel. Wie der Name schon verspricht, ist über dieses Objekt jedes einzelne HTML-Element einer HTML-Datei ansprechbar. Das <code>all</code>-Objekt hat etliche Eigenschaften und Methoden, die das dynamische Verändern eines HTML-Elements erlauben. Alle Methoden und Eigenschaften können an dieser Stelle nicht behandelt werden. Rufen Sie dazu die <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../../javascript/objekte/index.htm">JavaScript-Objektreferenz</a> auf und verschaffen Sie sich einen Überblick über die Eigenschaften und Methoden des Objekts <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../javascript/objekte/all.htm">all</a>. Hier soll lediglich ein weiteres Beispiel die Wirkungsweise dieses Objekts verdeutlichen.</p>
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/uhr.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;
+&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;script language="JScript" type="text/jscript"&gt;
+var Wochentagname = new Array("Sonntag", "Montag", "Dienstag", "Mittwoch",
+  "Donnerstag", "Freitag", "Samstag");
+function ZeitAnzeigen () {
+  var Jetzt = new Date();
+  var Tag = Jetzt.getDate();
+  var Monat = Jetzt.getMonth() + 1;
+  var Jahr = Jetzt.getYear();
+  var Stunden = Jetzt.getHours();
+  var Minuten = Jetzt.getMinutes();
+  var Sekunden = Jetzt.getSeconds();
+  var WoTag = Jetzt.getDay();
+  var Vortag = ((Tag &lt; 10) ? "0" : "");
+  var Vormon = ((Monat &lt; 10) ? ".0" : ".");
+  var Vorstd = ((Stunden &lt; 10) ? "0" : "");
+  var Vormin = ((Minuten &lt; 10) ? ":0" : ":");
+  var Vorsek = ((Sekunden &lt; 10) ? ":0" : ":");
+  var Datum = Vortag + Tag + Vormon + Monat + "." + Jahr;
+  var Uhrzeit = Vorstd + Stunden + Vormin + Minuten + Vorsek + Sekunden;
+  document.all.Uhr.innerHTML = Datum + " (" + Wochentagname[WoTag] + ")&lt;br&gt;" + Uhrzeit;
+  window.setTimeout("ZeitAnzeigen()", 1000);
+}
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;p id="Uhr" style="font-family:Verdana; font-size:200%;
+font-weight:bold; color:#CC00CC"&gt;&lt;/p&gt;
+&lt;script language="JScript" type="text/jscript"&gt;
+window.setTimeout("ZeitAnzeigen()", 1000);
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel stellt eine vollständige, laufende Uhr mit Datum dar. Dazu wird ein leerer Textabsatz mit <code>&lt;p&gt;</code>...<code>&lt;/p&gt;</code> definiert. Stylesheet-Angaben dienen dazu, den Textabsatz nach Wunsch zu formatieren. Obwohl der Absatz zunächst keinen Text enthält, dient er im Verlauf des Scripts als Container (Behälter) für den angezeigten Text mit Datum und Uhrzeit.</p>
+
+<p>Das obere Script ermittelt Datum und Uhrzeit und formatiert es für eine ordentliche, hierzulande übliche Schreibweise. Die Zeichenkette, die ausgegeben werden soll, wird schließlich der Objekteigenschaft <code>document.all.Uhr.innerHTML</code> zugewiesen. <code>Uhr</code> ist dabei der Bezug auf den Namen, der bei der Definition des Textabsatzes mit <code>id</code> definiert wird. Mit der Objekteigenschaft <code>innerHTML</code> können Sie den gesamten Inhalt eines Elements, hier den des benannten <code>&lt;p&gt;</code>...<code>&lt;/p&gt;</code>-Elements, dynamisch ersetzen. Da sich die Funktion zur Ausgabe der Zeit jede Sekunde selbst von neuem aufruft, wird jede Sekunde ein neuer Inhalt in das <code>&lt;p&gt;</code>-Tag mit der <code>id="Uhr"</code> geschrieben. Auf diese Weise entsteht der Effekt einer laufenden Uhr.</p>
+
+<p>Es gibt weitere, mächtige Möglichkeiten des all-Objekts. Diese werden in der JavaScript-Objektreferenz beim Objekt <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../javascript/objekte/all.htm">all</a> beschrieben. Hier nur noch einige typische Befehlsfolgen:</p>
+
+<p>Angenommen, Sie haben folgendes HTML-Element, ein gewöhnlicher Textabsatz:<br>
+<code>&lt;p id="derText"&gt;Das ist Text in einem Textabsatz&lt;/p&gt;</code><br>
+Dann können Sie beispielsweise folgende Dynamische Veränderungen bewirken:<br>
+Mit <code>document.all.derText.innerHTML = "&lt;b&gt;neuer Text&lt;\/b&gt; im gleichen Textabsatz";</code> ändern Sie den Inhalt des Textabsatzes und können dabei auch HTML-Tags zur Formatierung benutzen.<br>
+Mit <code>document.all.derText.outerHTML = "&lt;h1&gt;" + document.all.derText.innerHTML + "&lt;\/h1&gt;";</code> verwandeln Sie den Textabsatz in eine Überschrift 1. Ordnung.<br>
+Mit <code>document.all.derText.className = "Wichtig";</code> weisen Sie dem Absatz eine Stylesheet-Klasse namens <code>Wichtig</code> zu. Wenn Sie eine solche Klasse definiert haben, übernimmt der Absatz alle in der Klasse definierten Stylesheet-Angaben (lesen Sie dazu auch den Abschnitt <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/formate/zentrale.htm#klassen">Formate für Klassen definieren</a>).</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Mozilla Firefox unterstützt zwar <code>document.all</code> in der Art, wie sie im Beispiel verwendet wird. Allerdings führt er das Script im Beispiel nicht aus, da es mit <code>&lt;script language="JScript" type="text/jscript"&gt;</code> eingebunden ist. Eingebettet in einen gewöhnlichen JavaScript-Bereich funktioniert das Beispiel auch im Firefox.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/msjs.gif" width="30" height="30" alt="MS JScript" title="MS JScript"><img src="../../src/msie4.gif" width="30" height="30" alt="MS IE 4.0" title="MS IE 4.0"><img src="../../src/op7.gif" width="30" height="30" alt="Opera 7" title="Opera 7"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf13.gif" width="30" height="30" alt="Safari 1.3" title="Safari 1.3">&nbsp;<a class="an" name="css">Stylesheets und Scripts</a></h2>
+
+<p>Sie können mit Dynamischem HTML nach Microsoft-Syntax dynamisch auf alle CSS-Eigenschaften einzelner HTML-Elemente zugreifen. Dadurch können Sie angezeigte Elemente optisch stark verändern. Wenn etwa eine Überschrift 2. Ordnung anfangs eine Schriftgröße von 18 Pixel hat, können Sie diese dynamisch auf 64 Pixel ändern. "Dynamisch" bedeutet dabei: bei einem Anwenderereignis wie einem Mausklick auf die Überschrift oder automatisch zeitgesteuert, etwa nach drei Sekunden.</p>
+
+<p>Neben der Schriftgröße können Sie auch dynamisch eine Hintergrundfarbe unterlegen, Rahmen um ein Element ziehen, das Element über den Bildschirm wandern lassen und vieles mehr. Die Voraussetzung für diese Effekte sind <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../../css/index.htm">Stylesheets</a>. Die Syntax von CSS und die Möglichkeiten der Stylesheet-Angaben sollten Sie kennen.</p>
+
+<p>Die Style-Definitionen eines HTML-Elements ändern Sie dynamisch, indem Sie mit Hilfe einer Script-Sprache auf das Element zugreifen und mit neuen Stylesheet-Angaben das Aussehen des Elements ändern.</p>
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/wichtigtuer.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;&lt;/head&gt;&lt;body&gt;
+&lt;h1 id="Wechseltext" style="font-size:100%"&gt;Wichtigtuer&lt;/h1&gt;
+&lt;script language="JScript" type="text/jscript"&gt;
+function MachKlein () {
+  document.all.Wechseltext.style.fontSize = "100%";
+  window.setTimeout("MachGross()", 1000);
+}
+
+function MachGross () {
+  document.all.Wechseltext.style.fontSize = "350%";
+  window.setTimeout("MachKlein()", 1000);
+}
+
+MachKlein();
+&lt;/script&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel zeigt zunächst eine Überschrift 1. Ordnung (<code>&lt;h1&gt;</code>...<code>&lt;/h1&gt;</code>). Mit Hilfe des Attributs <code>style</code> bekommt die Überschrift <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../../css/eigenschaften/index.htm">CSS-Eigenschaften</a> zugewiesen. Im Beispiel wird die Schriftgröße auf 100 Prozent gesetzt (<code>font-size:100%</code>).</p>
+
+<p>Das gesamte Beispiel bewirkt, dass die Größe der Überschrift einmal pro Sekunde von 100 auf 350 Prozent wechselt und wieder umgekehrt. Für dieses dynamische Verändern ist ein Script erforderlich. Im obigen Beispiel wird deshalb ein Script-Bereich mit <code>&lt;script language="JScript" type="text/jscript"&gt;</code>...<code>&lt;/script&gt;</code> definiert. Innerhalb des Script-Bereichs werden zwei <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../javascript/sprache/funktionen.htm">Funktionen</a> definiert. Die eine Funktion - <code>MachKlein()</code> - ändert die Schriftgröße der Überschrift auf 100 Prozent, die andere Funktion  - <code>MachGross()</code> - auf 350 Prozent. Nach jeweils einer Sekunde (1000 Millisekunden) ruft jede der beiden Funktionen die jeweils andere wieder auf. Dadurch entsteht der Wechseleffekt.</p>
+
+<p>Um das dynamische Verändern der Schriftgröße zu verstehen, müssen Sie folgende Zusammenhänge beachten: im Überschriften-Tag <code>&lt;h1&gt;</code> wird mit dem Attribut <code>id</code> ein Name, nämlich <code>Wechseltext</code>, zugewiesen. Diesen Namen können Sie frei vergeben. Er darf nur aus Buchstaben, Ziffern und Unterstrichen "_" bestehen und darf keine Leerzeichen oder deutschen Umlaute enthalten. Das Script im Beispiel greift mit den Anweisungen, in denen  <code>document.all.Wechseltext</code> vorkommt, auf genau dieses Element zu. Mit dem <code>all</code>-Objekt (<code>document.all</code>) werden alle Elemente einer HTML-Datei angesprochen. Durch den Namen dahinter wird genau das Element angesprochen, das diesen Namen hat - im Beispiel <code>Wechseltext</code>. Dahinter folgt das Style-Objekt (<code>style</code>), das dem all-Objekt untergeordnet ist (Einzelheiten zu diesem Objekt erfahren Sie in der JavaScript-Objektreferenz bei <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../javascript/objekte/style.htm">style</a>). Über das Style-Objekt können Sie als Eigenschaft eine erlaubte Stylesheet-Angabe notieren. Dabei gelten besondere Schreibweisen in JavaScript/JScript, die im folgenden behandelt werden.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Mozilla Firefox unterstützt zwar <code>document.all</code> in der Art, wie sie im Beispiel verwendet wird. Allerdings führt er das Script im Beispiel nicht aus, da es mit <code>&lt;script language="JScript" type="text/jscript"&gt;</code> eingebunden ist. Eingebettet in einen gewöhnlichen JavaScript-Bereich funktioniert das Beispiel auch im Firefox.</p>
+
+<p>Safari unterstützt nicht den hier dargestellten Zugriff auf Elemente über <code>document.all</code>, hat aber keinerlei Probleme mit der Verwendung des <code>style</code>-Objekts im Beispiel. Denn die Microsoft-Methode zum Zugriff auf CSS-Eigenschaften wurde später vom W3C in den DOM-Style-Standard aufgenommen, den Safari unterstützt..</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/msjs.gif" width="30" height="30" alt="MS JScript" title="MS JScript"><img src="../../src/msie4.gif" width="30" height="30" alt="MS IE 4.0" title="MS IE 4.0"><img src="../../src/op7.gif" width="30" height="30" alt="Opera 7" title="Opera 7"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf13.gif" width="30" height="30" alt="Safari 1.3" title="Safari 1.3">&nbsp;<a class="an" name="css_schreibweise">Schreibweise von CSS-Eigenschaften in JavaScript/JScript</a></h2>
+
+<p>Wenn Sie Stylesheet-Angaben innerhalb von Script-Sprachen verwenden, müssen Sie die Syntax der Script-Sprache berücksichtigen.</p>
+
+<p>Ein Problem beim Mischen von Stylesheets und JavaScript oder JScript ist es, dass viele Stylesheet-Angaben Bindestriche im Namen haben, wie etwa <code>font-size</code>, <code>margin-top</code> oder <code>background-color</code>. Wenn Sie aus solche Namen in JavaScript oder JScript einen Befehl wie:<br>
+<code>document.all.MeinText.style.font-size = "200%";</code><br>
+erzeugen, erhalten Sie eine Fehlermeldung. Der Grund ist, dass Bindestriche keine zulässigen Zeichen in Namen sind (der Bindestrich ist in diesen Sprachen ja der Operator für Subtraktionen).</p>
+
+<p>Um dieses Problem zu umgehen, hat Microsoft eine einfache Regel aufgestellt. Wenn in einem Script eine Stylesheet-Angabe ausgelesen oder verändert werden soll, entfällt der Bindestrich, und der erste Buchstabe des Wortes hinter dem Bindestrich wird großgeschrieben.</p>
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/textspiel.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;script language="JScript" type="text/jscript"&gt;
+var modus = 1;
+function Textspiel () {
+  if (modus == 1) {
+    document.all.MeinText.style.fontSize = "200%";
+    modus = 2;
+    return;
+  }
+  if (modus == 2) {
+    document.all.MeinText.style.padding = "0.6em";
+    document.all.MeinText.style.backgroundColor = "#FFFF00";
+    modus = 3;
+    return;
+  }
+  if (modus == 3) {
+    document.all.MeinText.style.border = "10px groove #FFCC33";
+    document.all.MeinText.style.backgroundImage = "url(back.gif)";
+    modus = 0;
+    return;
+  }
+  if (modus == 0) {
+    document.all.MeinText.style.fontSize = "100%";
+    document.all.MeinText.style.padding = "0";
+    document.all.MeinText.style.backgroundColor = "#FFFFFF";
+    document.all.MeinText.style.border = "none";
+    document.all.MeinText.style.backgroundImage = "none";
+    modus = 1;
+    return;
+  }
+}
+&lt;/script&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;p id="MeinText" style=" background-color:#FFFFFF; padding:0; border:none;
+ background-image:none; cursor:hand" onclick="Textspiel()"&gt;Klicken Sie auf diesen Text&lt;/p&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>In dem Beispiel wird am Ende ein Textabsatz mit diversen Stylesheet-Angaben definiert. Einige dieser Stylesheet-Angaben enthalten Bindestriche, nämlich <code>font-size</code>, <code>background-color</code> und <code>background-image</code>. Innerhalb des Scripts, das über dem Textabsatz notiert ist, werden diese und andere Stylesheet-Angaben dynamisch verändert. Sie können erkennen, dass <code>font-size</code> zu <code>fontSize</code> wird, <code>background-color</code> zu <code>backgroundColor</code> und <code>background-image</code> zu <code>backgroundImage</code> - getreu der Regel.</p>
+
+<p>Wenn Sie innerhalb eines Scripts einer Stylesheet-Eigenschaft einen neuen Wert zuweisen wollen, müssen Sie zuerst das gewünschte HTML-Objekt mit der style-Eigenschaft notieren, im obigen Beispiel etwa <code>document.all.MeinText.style.fontSize</code>. Dahinter folgt ein Istgleichzeichen für die Zuweisung, und dahinter der Wert, den Sie zuweisen wollen, also etwa <code>"200%"</code>. Dieser Wert muss bei JavaScript und JScript immer in Anführungszeichen stehen.</p>
+
+<p>Diese Art der Wertzuweisung an eine Stylesheet-Angabe unterscheidet sich von der Art, wie Werte zu Stylesheet-Angaben bei normalen Stylesheet-Definitionen zugewiesen werden. Dort notieren Sie anstelle eines Istgleichzeichens einen Doppelpunkt, so wie in den Stylesheet-Definitionen im Textabsatz des obigen Beispiels. Anführungszeichen sind dabei nicht nötig.</p>
+
+<p>Das Script im Beispiel verändert die Formatierung des Textes innerhalb des Textabsatzes, wenn der Anwender mit der Maus auf den Text klickt. Immer, wenn dieses Ereignis eintritt, wird mit Hilfe des <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../javascript/sprache/eventhandler.htm">Event-Handlers</a> <code>onclick</code> die Funktion <code>Textspiel()</code> innerhalb des Scripts aufgerufen. Das Script
+verwaltet eine global definierte Variable namens <code>modus</code>. Abhängig davon, welchen Wert diese Variable hat, werden dem Text diverse neue Stylesheet-Angaben zugewiesen. Das dynamische Verändern des Textabsatzes im Script wird durch die Angabe <code>id="MeinText"</code> im Textabsatz und Befehlen des Typs <code>document.all.MeinText.style</code> bewerkstelligt.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Mozilla Firefox unterstützt zwar <code>document.all</code> in der Art, wie sie im Beispiel verwendet wird. Allerdings führt er das Script im Beispiel nicht aus, da es mit <code>&lt;script language="JScript" type="text/jscript"&gt;</code> eingebunden ist. Eingebettet in einen gewöhnlichen JavaScript-Bereich funktioniert das Beispiel auch im Firefox.</p>
+
+<p>Safari unterstützt nicht den hier dargestellten Zugriff auf Elemente über <code>document.all</code>, hat aber keinerlei Probleme mit der Verwendung des <code>style</code>-Objekts im Beispiel. Denn die Microsoft-Methode zum Zugriff auf CSS-Eigenschaften wurde später vom W3C in den DOM-Style-Standard aufgenommen, den Safari unterstützt.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/msjs.gif" width="30" height="30" alt="MS JScript" title="MS JScript"><img src="../../src/msie4.gif" width="30" height="30" alt="MS IE 4.0" title="MS IE 4.0"><img src="../../src/op7.gif" width="30" height="30" alt="Opera 7" title="Opera 7"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf13.gif" width="30" height="30" alt="Safari 1.3" title="Safari 1.3">&nbsp;<a class="an" name="event_handler">Event-Handler und das Event-Objekt</a></h2>
+
+<p>Eine wichtige Voraussetzung für Dynamisches HTML ist in vielen Fällen die Interaktion zwischen Anwender und angezeigter HTML-Datei. Die angezeigte Datei kann auf Anwenderereignisse wie Mausklicks oder gedrückte Tasten an der Tastatur reagieren und Elemente daraufhin dynamisch verändern. Dazu gibt es Event-Handler und auch ein Event-Objekt. Alle Methoden und Eigenschaften des Event-Objekts und alle einzelnen Event-Handler können an dieser Stelle nicht behandelt werden. Rufen Sie dazu in der JavaScript-Dokumentation die <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../javascript/sprache/eventhandler.htm">Event-Handler</a> sowie die Referenz des Objekts <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../javascript/objekte/event.htm">event</a> auf und verschaffen Sie sich einen Überblick über die Möglichkeiten. Hier soll lediglich ein Beispiel die Wirkungsweise verdeutlichen.</p>
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/springer.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;script language="JScript" type="text/jscript"&gt;
+function SetPos () {
+  document.all.Springer.style.left = window.event.x;
+  document.all.Springer.style.top = window.event.y;
+}
+&lt;/script&gt;
+&lt;/head&gt;&lt;body onclick="SetPos()"&gt;
+&lt;div id="Springer" style="position:absolute; top:100px; left:100px; width:200px;
+    height:100px; font-size:18px; background-color:#000066; color:#FFFF00; padding:38px;"&gt;
+Klicken Sie mit der Maus irgendwohin!
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das obige Beispiel definiert einen Bereich mit <code>&lt;div&gt;</code>...<code>&lt;/div&gt;</code>. Verschiedene Stylesheet-Angaben im einleitenden <code>&lt;div&gt;</code>-Tag sorgen dafür, dass der Bereich gut sichtbar ist und absolut am Bildschirm positioniert wird. Wenn der Anwender während der Anzeige irgendwo im Anzeigefenster des Browsers mit der Maus hinklickt, wird der definierte <code>&lt;div&gt;</code>-Bereich neu positioniert, und zwar so, dass die linke obere Ecke genau an der Stelle beginnt, wo der Anwender hingeklickt hat.</p>
+
+<p>Damit dies möglich ist, muss das gesamte Dokument sofort reagieren, wenn der Anwender mit der Maus irgendwohin klickt. Zu diesem Zweck wird im einleitenden <code>&lt;body&gt;</code>-Tag der Event-Handler <code>onclick</code> notiert. Beim jedem Mausklick im Anzeigefenster wird dann die <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../javascript/sprache/funktionen.htm">Funktion</a> <code>SetPos()</code> aufgerufen, die innerhalb des Script-Bereichs definiert ist. Diese Funktion setzt die Werte für die linke obere Ecke des <code>&lt;div&gt;</code>-Bereichs neu. Bezug ist dabei der Name ("<code>Springer</code>"), der im <code>&lt;div&gt;</code>-Tag mit dem <code>id</code>-Attribut vergeben wurde. Mit dem Befehl <code>document.all.Springer.style.left</code> wird die neue Anfangsposition links gesetzt, mit <code>document.all.Springer.style.top</code> die neue Anfangsposition oben. Den neuen Wert für links liefert die Eigenschaft <code>x</code> des <code>window.event</code>-Objekts, den Wert für oben die Eigenschaft <code>y</code> dieses Objekts. Der <code>&lt;div&gt;</code>-Bereich wird dadurch neu positioniert.</p>
+
+<p>Das Event-Objekt hält ständig alle relevanten Anwendertätigkeiten wie Mausposition, Tastaturereignisse, Mausklicks, gedrückte Maustasten usw. in seinen Objekteigenschaften fest. Durch einfaches Abrufen der Eigenschaften vom Typ <code>window.event.[Eigenschaft]</code> können Sie jederzeit aktuelle Ereignisse abfangen. Das Abfangen geschieht durch Notieren von Event-Handlern. Wichtig ist dabei auch, an welcher Stelle Sie ein Ereignis abfangen, also wo Sie den Event-Handler notieren. So könnten Sie im obigen Beispiel den Event-Handler <code>onclick</code> auch im einleitenden <code>&lt;div&gt;</code>-Tag notieren. Dann würden Script-Befehle nur dann ausgeführt, wenn der Mausklick innerhalb dieses <code>&lt;div&gt;</code>-Bereichs vorkommt.</p>
+
+<p>Ein wichtiges Unterobjekt des Event-Objekts ist das Objekt für das angeklickte Element (<code>srcElement</code>). So können Sie etwa mit <code>window.event.srcElement.tagName</code> ermitteln, welches HTML-Tag von einem aktuellen Anwenderereignis betroffen ist. In Ihren Scripts können Sie dann entsprechend reagieren.</p>
+
+<p>Es gibt nicht nur den Event-Handler <code>onclick</code>, sondern viele weitere. Wenn Sie beispielsweise im einleitenden <code>&lt;body&gt;</code>-Tag die Anweisung <code>onkeydown="alert(window.event.keyCode)"</code> notieren, wird bei jedem Drücken einer Taste deren Zeichenwert in dezimaler Form ausgegeben. Denn in der Eigenschaft <code>keyCode</code> des Event-Objekts wird der Tastaturwert festgehalten, sobald der Anwender eine Taste drückt.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Microsoft stellt zum event-abhängigen Ausführen von Scripts noch eine spezielle Syntax bereit, die Sie ebenfalls verwenden können:</p>
+
+<pre>&lt;script for="document" event="onkeydown()" language="JScript" type="text/jscript"&gt;
+if (event.keyCode == 32)
+  window.location.href = "datei2.htm";
+&lt;/script&gt;</pre>
+
+<p>Mit einer solchen Anweisung im einleitenden Script-Tag wird das Script nur dann ausgeführt, wenn das angegebene Ereignis (Event) eintritt. In dem Beispiel wird bewirkt, dass der Browser beim Drücken der Leertaste (sie hat den Tastaturcode 32) zu einer anderen Datei springt.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Safari unterstützt zwar den Zugriff auf das Event-Objekt über <code>window.event</code> und kennt auch dessen Eigenschaften <code>srcElement</code> sowie <code>x</code> und <code>y</code>, unterstützt aber nicht den hier dargestellten Zugriff auf Elemente über <code>document.all</code>.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/msjs.gif" width="30" height="30" alt="MS JScript" title="MS JScript"><img src="../../src/msie4.gif" width="30" height="30" alt="MS IE 4.0" title="MS IE 4.0"><img src="../../src/op7.gif" width="30" height="30" alt="Opera 7" title="Opera 7"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf2.gif" width="30" height="30" alt="Safari 2.0" title="Safari 2.0">&nbsp;<a class="an" name="event_bubbling">Vererbung bei Events (Event-Bubbling)</a></h2>
+
+<p>Anwenderereignisse (Events) während der Anzeige einer WWW-Seite werden im Internet Explorer von "innen nach außen vererbt". Wenn der Anwender beispielsweise auf einen mit <code>&lt;b&gt;</code>...<code>&lt;/b&gt;</code> als fett ausgezeichneten Text innerhalb eines mit <code>&lt;p&gt;</code>...<code>&lt;/p&gt;</code> definierten Textabsatzes klickt, betrifft der Mausklick zunächst nur den fetten Text. Angenommen, der Textabsatz enthält im einleitenden <code>&lt;p&gt;</code>-Tag einen Event-Handler <code>onclick</code>, so würde dieser nicht aktiv, da der Mausklick ja nur den als fett markierten Text innerhalb des Absatzes betrifft. Da das <code>b</code>-Element keinen Event-Handler besitzt, würde der Mausklick unbemerkt bleiben, obwohl er innerhalb des Textabsatzes stattfand, der für den Fall eines Mausklicks einen Event-Handler enthält. Der Bubble-Effekt (wörtlich: <i>Blaseneffekt</i>) bewirkt, dass das Ereignis (der Mausklick) zum jeweils nächsthöheren Element im Elementenbaum der HTML-Datei weitergegeben wird. Auf diese Weise gelangt das Ereignis zu dem <code>p</code>-Element, das den Event verarbeitet. Würde das <code>p</code>-Element auch keinen Event-Handler <code>onclick</code> besitzen, so würde der Bubble-Effekt das Ereignis an das nächsthöhere Element weitergeben, also z.B. an ein <code>div</code>-Element, innerhalb dessen sich der Textabsatz befindet, oder an das <code>body</code>-Element. Wenn nirgendwo ein Event-Handler notiert ist, der auf den Mausklick reagiert, passiert einfach nichts.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/bubble.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;
+&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;script language="JScript" type="text/jscript"&gt;
+function Handle_Click () {
+  document.all.Info.innerHTML = "Der Bereich, auf den Sie geklickt haben, ist mit &amp;lt;" +
+    window.event.srcElement.tagName + "&amp;gt; ausgezeichnet und hat die id &lt;i&gt;" +
+    window.event.srcElement.id + "&lt;\/i&gt;. Der Event wurde jedoch bis ans body-Tag durchgereicht.";
+}
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body onclick="Handle_Click()"&gt;
+&lt;div id="Inhalt"&gt;
+&lt;p id="Text_1"&gt;Ein &lt;i id="i_Text"&gt;Textabsatz&lt;/i&gt;. Klicken Sie hinein&lt;/p&gt;
+&lt;p id="Text_2"&gt;Ein &lt;u id="u_Text"&gt;anderer Textabsatz&lt;/u&gt;. Klicken Sie hinein&lt;/p&gt;
+&lt;p id="Text_3"&gt;Noch ein &lt;b id="b_Text"&gt;Textabsatz&lt;/b&gt;. Klicken Sie hinein&lt;/p&gt;
+&lt;p id="Text_4"&gt;Ein letzter &lt;tt id="tt_Text"&gt;Textabsatz&lt;/tt&gt;. Klicken Sie hinein&lt;/p&gt;
+&lt;/div&gt;
+&lt;p id="Info"&gt;Hier erscheinen Infos zum Klick&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Im Beispiel werden diverse Texte in verschiedenen HTML-Auszeichnungen definiert. Jedes HTML-Element erhält dabei auch einen Namen (<code>id</code>-Attribut). Der unterste Textabsatz mit <code>id="Info"</code> dient dazu, dynamisch Informationen darüber auszugeben, welches Element der Anwender angeklickt hat. Jedesmal, wenn der Anwender ein Element anklickt, wird die <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../javascript/sprache/funktionen.htm">Funktion</a> <code>Handle_Click()</code> aufgerufen, die in einem JavaScript-Bereich im Dateikopf definiert ist. Jedesmal wird in dem Textabsatz "Info" ausgegeben, welches HTML-Tag angeklickt wurde, und welche id es hat. Eigentlich betrifft der Mausklick dabei ja nur das jeweilige Element. Keines dieser Elemente hat jedoch einen Event-Handler <code>onclick</code>, der einen Mausklick abfängt und Script-Code ausführt. Dass der Script-Code trotzdem bei jedem Mausklick ausgeführt wird, liegt am Event-Bubbling. Der Mausklick-Event wird immer weiter "nach außen" gegeben und landet schließlich beim <code>&lt;body&gt;</code>-Tag, das einen Event-Handler <code>onclick</code> enthält.</p>
+
+<p>Der Bubble-Effekt lässt sich auch ausschalten, falls er nicht erwünscht ist. Dazu müssen Sie in einem JScript/JavaScript-Bereich die Anweisung notieren:<br>
+<code>window.event.cancelBubble = true;</code></p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Safari unterstützt zwar den Zugriff auf das Event-Objekt über <code>window.event</code> und kennt auch dessen Eigenschaft <code>srcElement</code>, unterstützt aber nicht den hier dargestellten Zugriff auf Elemente über <code>document.all</code>.</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="netscape.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="netscape.htm">Das ältere DHTML-Modell von Netscape</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="dom.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="dom.htm">Das Document Object Model (DOM)</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">Dynamisches HTML</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">DHTML-Modelle</a></td>
+</tr>
+</table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

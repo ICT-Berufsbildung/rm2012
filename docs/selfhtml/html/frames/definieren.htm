@@ -1,0 +1,503 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: HTML/XHTML / Frames / Framesets und Frames definieren</title>
+<meta name="description"    content="Wie Sie in HTML Frames, also unterteilte Fenster definieren.">
+<meta name="keywords"       content="SELFHTML, HTML, XHTML, Frames, Framesets, Bildschirmfenster, frameset, frame, noframes, cols, rows">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-10-31T14:21:30+01:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/html/frames/definieren.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="Frames" href="index.htm">
+<link rel="next" title="Eigenschaften von Frames" href="eigenschaften.htm">
+<link rel="prev" title="Formulare verarbeiten" href="../formulare/verarbeiten.htm">
+<link rel="last" title="Frames als Mittel für Seiten-Layouts" href="layouts.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">HTML/XHTML</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Frames</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Framesets und Frames definieren</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#allgemeines">Allgemeines zu Frames</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#grundgeruest">Grundgerüst einer HTML-Datei mit Framesets</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#framesets">Framesets definieren</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#frames">Frames zu einem Frameset definieren</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#noframes">Noframes-Bereich definieren</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#langbeschreibung">Langbeschreibung für Frame-Fenster</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#weitere_infos">Weitere Informationen</a><br>
+</p>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><a class="an" name="allgemeines">Allgemeines zu Frames</a></h2>
+
+<p>Mit Hilfe von Frames können Sie den Anzeigebereich des Browsers in verschiedene, frei definierbare Segmente aufteilen. Jedes Segment kann eigene Inhalte enthalten. Die einzelnen Anzeigesegmente (also die Frames) können wahlweise einen statischen Inhalt (= "non scrolling regions") oder einen wechselnden Inhalt haben. Verweise in einem Frame können Dateien aufrufen, die dann in einem anderen Frame angezeigt werden.</p>
+
+<p>Frames sind kein weiteres Element, um typische Aufgaben der Textverarbeitung zu bewältigen, sondern ein Element, das die spezifischen Eigenschaften der Bildschirmanzeige konsequent nutzt. Frames eröffnen völlig neue Möglichkeiten, um Information hypertextuell (d.h. nichtlinear) aufzubereiten.</p>
+
+<p>Frames werden ab Netscape 2.0 und ab Internet Explorer 3.0 unterstützt. Seit HTML 4.0 gehören die Frames auch zum HTML-Standard. Dort allerdings nicht zur HTML-Variante Strict, sondern stattdessen mit einer eigenen Variante Frameset ausgestattet. Die nebenstehende Abbildung zeigt, wie Frames im Anzeigefenster des Browsers wirken:</p>
+
+<p><img src="frames.gif" width="300" height="200" alt="Frames"></p>
+
+<p>Das Bild stellt den Inhalt des gesamten Anzeigefensters des Browsers schematisch dar. Das Anzeigefenster ist in drei unabhängige Bereiche aufgeteilt. Die Verweise links und unten können beispielsweise immer eingeblendet bleiben, während sich der Inhalt des Hauptfensters je nach ausgewähltem Verweis ändern kann. Dabei werden im Beispiel der Abbildung immer drei verschiedene HTML-Dateien gleichzeitig angezeigt: links und unten immer die gleiche Datei, im Hauptfenster jeweils eine wechselnde Datei, je nach ausgewähltem Verweis.</p>
+
+<p>In jedem Frame stehen alle Anzeige-Features zur Verfügung - so ist es z.B. denkbar, in einem Frame Textinformation anzuzeigen, während in einem anderen Frame gleichzeitig ein passendes Video abläuft.</p>
+
+<p>Durch den Einsatz von Frames wachsen die Gestaltungsmöglichkeiten außerordentlich. Frames stellen an das Design von HTML-Seiten aber auch besonders hohe Ansprüche und haben einige nicht zu bestreitende Nachteile. Einige Tips, die Sie beachten sollten, finden Sie im Abschnitt <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="layouts.htm">Frames als Mittel für Seiten-Layouts</a>.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/html40.gif" width="30" height="30" alt="HTML 4.0" title="HTML 4.0"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/netsc2.gif" width="30" height="30" alt="Netscape 2.0" title="Netscape 2.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="grundgeruest">Grundgerüst einer HTML-Datei mit Framesets</a></h2>
+
+<p>Um Frames zu definieren, brauchen Sie eine spezielle HTML-Datei, in der ein Frameset definiert wird. Das Frameset bestimmt die Fensteraufteilung. Für eine solche Datei ist ein anderes Grundgerüst erforderlich als das sonst übliche Grundgerüst von HTML-Dateien.</p>
+
+<h3 class="xmp">Schema:</h3>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN"
+   "http://www.w3.org/TR/html4/frameset.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Beschreibung des Frameset-Inhalts&lt;/title&gt;
+&lt;/head&gt;
+&lt;frameset ...&gt;  &lt;!-- Frameset-Definition --&gt;
+  &lt;frame ...&gt;   &lt;!-- Frame-Fenster-Definition --&gt;
+  &lt;noframes&gt;
+    &lt;body&gt;
+      &lt;h1&gt;Alternativ-Inhalt&lt;/h1&gt;
+      &lt;p&gt;Wird angezeigt, wenn der Browser keine Frames darstellen kann.&lt;/p&gt;
+      &lt;p&gt;Mindest-Inhalt sollten eine Kurzbeschreibung und eine Sitemap sein.&lt;/p&gt;
+    &lt;/body&gt;
+  &lt;/noframes&gt;
+&lt;/frameset&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Die Unterschiede zu anderen HTML-Dateien beginnen bei der <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../allgemein/grundgeruest.htm#dokumenttyp">Dokumenttyp-Deklaration</a>. Bei Dateien, in denen Sie Framesets und Frames definieren, müssen Sie die oben gezeigte Dokumenttyp-Deklaration zur HTML-Variante Frameset notieren.</p>
+
+<p>Ein weiterer wichtiger Unterschied zu anderen HTML-Dateien ist, dass Dateien mit Frameset-Definitionen kein <code>body</code>-Element besitzen. Anstelle des <code>body</code>-Elements, also nach dem abschließenden <code>&lt;/head&gt;</code>-Tag für den Dateikopf, werden die Frames definiert. Dabei können Sie:<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#framesets">Framesets definieren</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#frames">Frames zu einem Frameset definieren</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#noframes">Noframes-Bereich definieren</a></p>
+
+<p>Mit Framesets bestimmen Sie die Aufteilung der Frame-Fenster, mit Frames die Datenquellen der einzelnen Frame-Fenster, und der Noframes-Bereich ist für Browser gedacht, die keine Frames anzeigen können, oder bei denen die Anzeige von Frames deaktivierbar ist und vom Anwender deaktiviert wurde.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Der Titel (<code>&lt;title&gt;</code>...<code>&lt;/title&gt;</code>), den Sie in der Datei mit der Frameset-Definition angeben, wird während der gesamten Dauer des Frame-Sets angezeigt, auch wenn andere Dateien innerhalb des Frame-Sets aufgerufen werden. Leider gibt es bislang keine Möglichkeit, den Titel zu aktualisieren. Wählen Sie in der Datei mit der Frame-Set-Definition, deshalb einen allgemeinen, aussagekräftigen Titel, der für das gesamte Projekt Gültigkeit hat.</p>
+
+<p>Der URI der Datei mit der Frameset-Definition, also beispielsweise <var>http://www.example.org/</var>, bleibt in der gleichen Form in der Adresszeile des Browsers stehen, auch wenn der Anwender durch Navigieren innerhalb des Framesets andere Seiten des Projekts in eines der Frame-Fenster lädt.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/html40.gif" width="30" height="30" alt="HTML 4.0" title="HTML 4.0"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/netsc2.gif" width="30" height="30" alt="Netscape 2.0" title="Netscape 2.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="framesets">Framesets definieren</a></h2>
+
+<p>Beim Definieren von Framesets bestimmen Sie, wie das Anzeigefenster
+des Browsers in verschiedene Frame-Fenster aufgeteilt werden soll. Dabei müssen Sie sich das Anzeigefenster wie den leeren Rahmen einer Tabelle vorstellen. Damit die Tabelle Gestalt annimmt, definieren Sie Reihen und Spalten für die Frame-Fenster. Ebenso, wie es möglich ist, Tabellen in HTML zu verschachteln, ist das auch bei Framesets möglich. Anstelle eines Frames können Sie auch ein untergeordnetes Frameset notieren. Auf diese Weise können Sie beliebige Fensteraufteilungen erreichen.</p>
+
+<h3 class="xmp">Detailbeispiel 1:</h3>
+
+<pre>
+&lt;frameset rows="20%,80%"&gt;
+  &lt;!-- Dadurch ergeben sich zwei Frame-Fenster, deren Inhalt hier bestimmt wird --&gt;
+&lt;/frameset&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Die Frameset-Definition im Detailbeispiel 1 ergibt folgende Frame-Fenster-Konstellation:</p>
+
+<p><img src="frameset1.gif" width="160" height="120" alt="Frameset mit Reihen zu 20% und 80%"></p>
+
+<p>Im einleitenden Tag <code>&lt;frameset...&gt;</code> bestimmen Sie die Aufteilung. Mit dem Attribut <code>rows</code> teilen Sie das Anzeigefenster in Reihen auf (<i>rows = Reihen</i>). Dahinter bestimmen Sie, wie die Aufteilung genau aussehen soll. Im Beispiel wird mit Hilfe von <code>rows="20%,80%"</code> eine Aufteilung in zwei Reihen erzwungen, wobei die obere Reihe 20% des Anzeigefensters in Anspruch nimmt, die untere 80%.</p>
+
+<p>Trennen Sie die Angaben zur Aufteilung durch Kommata!</p>
+
+<h3 class="xmp">Detailbeispiel 2:</h3>
+
+<pre>
+&lt;frameset rows="100,*,60"&gt;
+  &lt;!-- Dadurch ergeben sich drei Frame-Fenster, deren Inhalt hier bestimmt wird --&gt;
+&lt;/frameset&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Die Frameset-Definition im Detailbeispiel 2 ergibt folgende Frame-Fenster-Konstellation:</p>
+
+<p><img src="frameset2.gif" width="160" height="120" alt="Frameset mit Reihen zu 100 Pixeln, automatisch und 60 Pixeln"></p>
+
+<p>Mit der Angabe <code>rows="100,*,60"</code> werden drei untereinanderliegende Reihen für Frame-Fenster erzeugt. Die obere Reihe wird genau 100 Pixel hoch, die untere Reihe genau 60 Pixel hoch, und die mittlere Reihe erhält den Rest des Anzeigefensters, abhängig von der Größe des Anzeigefensters beim Anwender.<br>
+Mit Zahlenangaben, die ein Prozentzeichen enthalten, wird die Aufteilung also prozentual (relativ zur Größe des Anzeigefensters) interpretiert. Bei Zahlenangaben ohne Prozentzeichen wird die Angabe als absoluter Pixelwert interpretiert. Mit dem Sternzeichen <code>*</code> definieren Sie Bereiche von relativer Größe, abhängig von den übrigen Angaben.<br>
+Sie können auch vier oder mehrere Reihen definieren. So definieren Sie beispielsweise mit <code>rows="10%,25%,30%,25%,10%"</code> fünf Reihen.</p>
+
+<h3 class="xmp">Detailbeispiel 3:</h3>
+
+<pre>
+&lt;frameset cols="200,*"&gt;
+  &lt;!-- Dadurch ergeben sich zwei Frame-Fenster, deren Inhalt hier bestimmt wird --&gt;
+&lt;/frameset&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Die Frameset-Definition im Detailbeispiel 3 ergibt folgende Frame-Fenster-Konstellation:</p>
+
+<p><img src="frameset3.gif" width="160" height="120" alt="Frameset mit Spalten 200 Pixeln und automatisch"></p>
+
+<p>Mit dem Attribut <code>cols</code> teilen Sie das Anzeigefenster in Spalten auf (<code>cols = columns = Spalten</code>). Dahinter bestimmen Sie, wie die Aufteilung genau aussehen soll. Im Beispiel wird mit Hilfe von <code>cols="200,*"</code> eine Aufteilung in zwei Spalten erzwungen, wobei die linke Spalte 200 Pixel des Anzeigefensters in Anspruch nimmt, die rechte den Rest. Bei <code>cols</code> sind die gleichen Angaben möglich wie bei <code>rows</code>.</p>
+
+<h3 class="xmp">Detailbeispiel 4:</h3>
+
+<pre>
+&lt;frameset cols="40%,60%"&gt;
+  &lt;!-- Dadurch ergeben sich zwei Frame-Fenster, deren Inhalt hier bestimmt wird.
+       Das erste Frame-Fenster wird normal definiert, anstelle des zweiten
+       folgt jedoch das folgende untergeordnete Frameset: --&gt;
+  &lt;frameset rows="20%,80%"&gt;
+    &lt;!-- Noch mal zwei Frame-Fenster, deren Inhalt hier bestimmt wird. --&gt;
+  &lt;/frameset&gt;
+&lt;/frameset&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Die Frameset-Definition im Detailbeispiel 4 ergibt folgende Frame-Fenster-Konstellation:</p>
+
+<p><img src="frameset4.gif" width="160" height="120" alt="Frameset mit Spalten zu 40% und 60%, wobei die zweite Spalte aufgeteilt wird in ein Frameset zu 20% und 80%"></p>
+
+<p>In diesem Beispiel werden Reihen und Spalten für eine komplexere Aufteilung von Frame-Fenstern definiert. Bei solchen Aufteilungen müssen Sie zunächst das gesamte Fenster im Auge behalten. Dieses Fenster wird im Beispiel zunächst mit <code>cols="40%,60%"</code> in zwei Spalten aufgeteilt. Das erste Frame-Fenster für die linke Spalte (im obigen Beispiel nicht explizit definiert, dort steht nur der längere Kommentar) wird ein ganz normales Frame-Fenster mit Inhalt. Anstelle des zweiten Frame-Fensters für die rechte Spalte wird jedoch ein neues, untergeordnetes Frameset definiert. Mit der Angabe <code>rows="20%,80%"</code> erhält es eine Aufteilung in zwei Reihen, also für zwei untereinanderliegende Frame-Fenster, wobei das obere 20% der zur Verfügung stehenden Fläche einnimmt, und das untere 80%.</p>
+
+<h3 class="xmp">Detailbeispiel 5:</h3>
+
+<pre>
+&lt;frameset rows="50%,50%"&gt;
+  &lt;frameset cols="50%,50%"&gt;
+    &lt;!-- Zwei Frames, deren Inhalt hier bestimmt wird. --&gt;
+  &lt;/frameset&gt;
+  &lt;frameset cols="50%,50%"&gt;
+    &lt;!-- Noch mal zwei Frames, deren Inhalt hier bestimmt wird. --&gt;
+  &lt;/frameset&gt;
+&lt;/frameset&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Die Frameset-Definition im Detailbeispiel 5 ergibt folgende Frame-Fenster-Konstellation:</p>
+
+<p><img src="frameset5.gif" width="160" height="120" alt="Frameset mit zwei Reihen zu je 50%, wobei beide Reihen aufgeteilt werden in zwei Spalten zu je 50%"></p>
+
+<p>Das Beispiel zeigt eine komplexere Aufteilung in vier Bereiche. Da in einem solchen Fall alle Bereiche gleich groß sind, ist es egal, ob Sie mit der Definition der Spalten oder Reihen beginnen. Wichtig ist die durchgängige Logik. Wenn Sie - wie im Beispiel - mit der Definition der Reihen beginnen, müssen Sie anstelle von Frames untergeordnete Frame-Sets definieren, in denen Sie jede der beiden Reihen in zwei Spalten aufteilen. Erst innerhalb dieser untergeordneten Frame-Sets werden dann die eigentlichen Frames definiert.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Frame-Sets sollten immer so definiert sein, dass das gesamte Anzeigefenster abgedeckt wird. Verwenden Sie dazu Prozentangaben, die in der Summe 100 ergeben, oder das Sternzeichen <code>*</code>.</p>
+
+<p>Neben der prozentualen Aufteilung ist noch eine weitere relative Angabe zur Frame-Fenster-Aufteilung erlaubt. Sie können das relative Verhältnis bei <code>rows</code> oder <code>cols</code> auch durch Zahlen, gefolgt von einem Sternzeichen, bestimmen.<br>
+Mit einer Aufteilung wie <code>rows="1*,5*,3*"</code> definieren Sie drei Reihen, also Platz für drei untereinanderliegende Frame-Fenster, wobei das oberste Frame-Fenster ein Neuntel einnimmt, das zweite fünf Neuntel und das dritte drei Neuntel (also ein Drittel). Die "9" ergibt sich durch Zusammenzählen von 1, 3 und 5, wodurch das relative Verhältnis ermittelt wird.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/html40.gif" width="30" height="30" alt="HTML 4.0" title="HTML 4.0"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/netsc2.gif" width="30" height="30" alt="Netscape 2.0" title="Netscape 2.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="frames">Frames zu einem Frameset definieren</a></h2>
+
+<p>Nachdem Sie durch die Definition von Framesets die gewünschte Aufteilung des
+Anzeigefensters bestimmt haben, geben Sie mit der Definition der Frames an,
+welche Inhalte in den einzelnen Frame-Fenstern zunächst angezeigt werden sollen.</p>
+
+<h3 class="xmp">Beispiel Teil 1 - Datei mit Frameset:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/frames.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN"
+   "http://www.w3.org/TR/html4/frameset.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Frameset mit Sitemap&lt;/title&gt;
+&lt;/head&gt;
+&lt;frameset cols="250,*"&gt;
+  &lt;frame src="verweise.htm" name="Navigation"&gt;
+  &lt;frame src="startseite.htm" name="Daten"&gt;
+  &lt;noframes&gt;
+    &lt;body&gt;
+      &lt;p&gt;&lt;a href="verweise.htm">Navigation&lt;/a&gt; &lt;a href="startseite.htm">Daten&lt;/a&gt;&lt;/p&gt;
+    &lt;/body&gt;
+  &lt;/noframes&gt;
+&lt;/frameset&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xmp">Beispiel Teil 2 - Datei <var>verweise.htm</var> für linkes Frame-Fenster:</h3>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+       "http://www.w3.org/TR/html4/loose.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Navigation&lt;/title&gt;
+&lt;/head&gt;
+&lt;body bgcolor="#E0C0FF" text="#000000" link="#804080" vlink="#603060" alink="#804080"&gt;
+
+&lt;h1&gt;Navigation&lt;/h1&gt;
+&lt;p&gt;
+  &lt;a href="../index.htm" target="Daten"&gt;&lt;b&gt;&amp;Uuml;ber Frames&lt;/b&gt;&lt;/a&gt;&lt;br&gt;
+  &lt;a href="../../index.htm" target="Daten"&gt;&lt;b&gt;&amp;Uuml;ber HTML&lt;/b&gt;&lt;/a&gt;&lt;br&gt;
+  &lt;a href="../../../index.htm" target="Daten"&gt;&lt;b&gt;Noch viel mehr&lt;/b&gt;&lt;/a&gt;
+&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xmp">Beispiel Teil 3 - Datei <var>startseite.htm</var> für rechtes Frame-Fenster:</h3>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+       "http://www.w3.org/TR/html4/loose.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Startseite&lt;/title&gt;
+&lt;/head&gt;
+&lt;body bgcolor="#FFF0C0" text="#000000" link="#A00000" vlink="#600000" alink="#A00000"&gt;
+
+&lt;h1&gt;Willkommen&lt;/h1&gt;
+
+&lt;p&gt;W&amp;auml;hlen Sie links einen Verweis aus!&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Mit je einem <code>&lt;frame&gt;</code>-Tag definieren Sie innerhalb eines Framesets die zugehörigen Frames (<i>frame = Rahmen</i>).
+Theoretisch können Sie das <code>frame</code>-Element ohne weitere Attribute notieren. In diesem Fall zeigt der Browser in dem entsprechenden Frame-Fenster eine leere Fläche an. Normalerweise werden Sie jedoch die Frame-Fenster mit Inhalt füllen wollen. Dazu dient das Attribut <code>src</code> (<i>src = source = Quelle</i>). Bei der Wertzuweisung an dieses Attribut können Sie die Datei oder Datenquelle angeben, die im entsprechenden Frame-Fenster zunächst angezeigt werden soll. Dabei gelten die Regeln zum <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../allgemein/referenzieren.htm">Referenzieren in HTML</a> - mit einer Ausnahme: Sie dürfen keine Anker innerhalb der Datei mit Framesets adressieren. Eine Wertzuweisung wie <code>src="#weiter_unten"</code> ist also nicht erlaubt - widerspricht allerdings auch sowieso aller Logik.<br>
+Sie können also andere HTML-Dateien des eigenen Projekts in das Frame-Fenster laden, aber auch andere Dateitypen wie z.B. Grafiken. Auch Dateien oder Datenquellen von entfernten Servern können Sie - mit absoluter <code>http://</code>-Adressierung beispielsweise - in ein Frame-Fenster laden. Doch dabei ist höchste Vorsicht geboten: damit machen Sie sich fremde Inhalte zueigen und können sich schnell juristischen Ärger einhandeln.</p>
+
+<p>Ferner sollten Sie gleich für jedes definierte Frame-Fenster mit <code>name</code> einen Namen vergeben. Diese Namen brauchen Sie, um Verweise zu definieren, die in diesem Frame-Fenster angezeigt werden sollen. Ferner sind die Namen wichtig, wenn Sie zusätzlich <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../../javascript/index.htm">JavaScript</a> einsetzen und damit auf einzelne Frame-Fenster zugreifen wollen.</p>
+
+<p>Definieren Sie für jede "Zelle" Ihrer durch das Frameset definierten "Tabelle" ein Frame-Fenster. Im obigen Beispiel wird ein Frameset für zwei Frame-Fenster definiert, mit der Aufteilung, die durch die Angabe <code>cols="250,*"&gt;</code> bestimmt wird. Ins linke Frame-Fenster, also dem mit 250 Pixeln Breite, soll im Beispiel eine Datei namens <code>verweise.htm</code> geladen werden, und ins rechte Frame-Fenster eine Datei namens <code>startseite.htm</code>. So wie im Beispiel bei <code>src</code> notiert, müssen sich beide Dateien im gleichen Verzeichnis befinden.</p>
+
+<p>Die beiden HTML-Dateien selbst sind gewöhnliche HTML-Dateien. An der Datei <code>verweise.htm</code> können Sie bei den darin notierten Verweisen sehen, wozu die Namen der Frame-Fenster gut sind: mit <code>target="Daten"</code> wird dort bei den Verweisen bestimmt, dass das Verweisziel in dem Frame-Fenster angezeigt wird, das bei der Frame-Fenster-Definition mit <code>name="Daten"</code> den entsprechenden Namen erhalten hat. Weitere Einzelheiten zu diesem Thema finden Sie im Abschnitt <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="verweise.htm">Verweise bei Frames</a>.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Das <code>frame</code>-Element besteht nur aus dem Standalone-Tag <code>&lt;frame&gt;</code>. Wenn Sie <b>XHTML-Standard-konform</b> arbeiten, müssen Sie das <code>frame</code>-Element als inhaltsleer kennzeichnen. Dazu notieren Sie das alleinstehende Tag in der Form <code>&lt;frame&nbsp;/&gt;</code>. Weitere Informationen finden Sie im Kapitel <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../xhtml/index.htm">XHTML und HTML</a>.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/html40.gif" width="30" height="30" alt="HTML 4.0" title="HTML 4.0"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/netsc2.gif" width="30" height="30" alt="Netscape 2.0" title="Netscape 2.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="noframes">Noframes-Bereich definieren</a></h2>
+
+<p>Für Anwender, deren Browser keine Frames unterstützen, können Sie Ihr Projekt so gestalten, dass solche Anwender dennoch Daten aufrufen können. Noframes-Bereiche haben dabei zwei Aufgaben: zum einen können sie in der Datei stehen, in der das Frameset definiert ist. Dort können Sie für Browser, die keine Frames anzeigen können, oder bei denen der Anwender die Anzeige von Frames abgeschaltet hat, einen alternativen Inhalt anbieten. Es kann sich um beliebige, mit HTML strukturierte Inhalte handeln.</p>
+
+<p>Darüber hinaus können Sie Noframes-Bereiche aber auch in HTML-Dateien verwenden, die innerhalb des Framesets als Inhalte in Frame-Fenstern angezeigt werden sollen. Browser, bei denen die Frames angezeigt werden, sollten den Inhalt solcher Noframes-Bereiche unterdrücken. Browser, bei denen die Frames nicht angezeigt werden können oder keine Frames angezeigt werden, zeigen den Inhalt an. Auf diese Weise können Sie z.B. eine einfache Alternativ-Navigation für nicht-frame-fähige Browser anbieten. Das folgende Beispiel zeigt die Verwendungsweisen für Noframes-Bereiche.</p>
+
+<h3 class="xmp">Beispiel Teil 1 - Datei mit Frameset:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/frames2.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN"
+   "http://www.w3.org/TR/html4/frameset.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Der universelle Titel&lt;/title&gt;
+&lt;/head&gt;
+&lt;frameset cols="250,*"&gt;
+  &lt;frame src="verweise2.htm" name="Navigation"&gt;
+  &lt;frame src="startseite2.htm" name="Daten"&gt;
+  &lt;noframes&gt;
+    &lt;body&gt;
+      &lt;h1&gt;Willkommen!&lt;/h1&gt;
+      &lt;p&gt;Dieses Projekt verwendet Frames.&lt;/p&gt;
+      &lt;p&gt;W&amp;auml;hlen Sie einen der Verweise aus:&lt;br&gt;
+      &lt;a href="verweise2.htm"&gt;Navigation&lt;/a&gt;&lt;br&gt;
+      &lt;a href="startseite2.htm"&gt;&lt;b&gt;Startseite&lt;/b&gt;&lt;/a&gt;&lt;br&gt;
+      &lt;!-- weitere Verweise usw. --&gt;&lt;/p&gt;
+    &lt;/body&gt;
+  &lt;/noframes&gt;
+&lt;/frameset&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xmp"><a class="an" name="rechts">Beispiel Teil 2 - Datei <var>startseite2.htm</var> für rechtes Frame-Fenster:</a></h3>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+       "http://www.w3.org/TR/html4/loose.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Startseite&lt;/title&gt;
+&lt;/head&gt;
+&lt;body bgcolor="#FFF0C0" text="#000000" link="#A00000" vlink="#600000" alink="#A00000"&gt;
+
+&lt;h1&gt;Willkommen&lt;/h1&gt;
+&lt;p&gt;W&amp;auml;hlen Sie links einen Verweis aus!&lt;/p&gt;
+
+&lt;noframes&gt;
+  &lt;p&gt;Dieses Projekt verwendet Frames.&lt;/p&gt;
+  &lt;p&gt;
+    &lt;a href="frames2.htm"&gt;zur&amp;uuml;ck zur Startseite&lt;/a&gt;
+    &lt;!-- weitere Verweise --&gt;
+  &lt;/p&gt;
+&lt;/noframes&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel zeigt die Datei mit der Frameset-Definition und die Datei, die im rechten Frame-Fenster angezeigt wird. Die Datei <code>verweise.htm</code>, die ins linke Frame-Fenster geladen wird, ist in diesem Zusammenhang hier unerheblich und ist deshalb nicht nochmal dargestellt.</p>
+
+<p>Innerhalb von Dateien, die Framesets definieren, sollte ein Noframes-Bereich, markiert durch <code>&lt;noframes&gt;</code> und <code>&lt;/noframes&gt;</code>, am Ende des äußersten Framesets vor dem letzten abschließenden <code>&lt;/frameset&gt;</code>-Tag notiert werden. Im obigen Beispiel wird nur ein einfaches Frameset definiert, das aus zwei Frame-Fenstern besteht. In diesem Fall werden also die beiden Frame-Fenster notiert und unterhalb davon, vor dem abschließenden <code>&lt;/frameset&gt;</code>, der Noframes-Bereich.</p>
+
+<p>Innerhalb des Noframes-Bereichs können Sie alles notieren, was Sie sonst auch zwischen <code>&lt;body&gt;</code> und <code>&lt;/body&gt;</code> notieren können, also z.B. Überschriften, Textabsätze, Tabellen, Grafikreferenzen usw. Da es sich bei Browsern, die keine Frames anzeigen können, in der Regel um sehr einfach gestrickte Browser handelt, oder um solche, die unter nicht-grafischen Oberflächen laufen (ausgenommen Opera, in dem sich Frames deaktivieren lassen), brauchen Sie keinen übermäßigen Aufwand für die Optik des Inhalts im Noframes-Bereich zu betreiben. Eine saubere Strukturierung genügt.</p>
+
+<p>Im obigen Beispiel ist innerhalb des Noframes-Bereichs der Datei mit der Frameset-Definition eine Willkommens-Überschrift notiert, ein Hinweis, dass es sich um ein Projekt mit Frames handelt, und es werden Verweise angeboten. Beispielsweise der Verweis auf die Seite <code>startseite2.htm</code>, die bei Anzeige von Frames im rechten Frame-Fenster erscheint. Ferner könnten Sie an dieser Stelle all jene Verweise anbieten, die bei Anzeige von Frames in der links angezeigten Datei <code>verweise2.htm</code> stehen. Solch eine Verweissammlung wird auch <em>Sitemap</em> genannt. Auf diese Weise können Anwender ohne frame-fähigen Browser dennoch alle Verweise ausführen, die sonst im Frameset angeboten werden. Ein Hinweis, dass die Seite Frames verwendet und diese im Browser nicht funktionieren ist nicht ausreichend und kann die Benutzbarkeit erheblich einschränken.</p>
+
+<p>In der Datei <code>startseite2.htm</code> taucht im obigen Beispiel jedoch auch ein Noframes-Bereich auf. Für Browser, die keine Frames anzeigen können, können Sie in solchen Bereichen Inhalte anbieten, die sonst über das Frameset erledigt werden - beispielsweise einen Rückverweis auf die Startseite. Diese Möglichkeit wird auch im Beispiel benutzt: durch den Rückverweis auf die Datei mit den Frameset-Definitionen, die ja auch einen Noframes-Bereich enthält und dort Verweise auf die übrigen Projektseiten anbietet, können Sie eine vollständige, wenn auch etwas simple Alternativ-Navigation für Anwender ohne frame-fähigen Browser realisieren.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Noframes-Bereiche in Projektdateien außerhalb der Datei mit Frameset-Definitionen sind allerdings mit Vorsicht zu genießen: denn leider werden sie nicht nur von nicht-frame-fähigen Browsern angezeigt, sondern auch von älteren frame-fähigen. So zeigt beispielsweise Netscape 4.x den Verweis im Noframes-Bereich in der Datei <code>startseite2.htm</code> des obigen Beispiels gnadenlos an und verwirrt damit Anwender, bei denen das Frameset angezeigt wird. Internet Explorer 5.x und Netscape 6 unterdrücken dagegen Noframes-Bereiche in solchen Projektdateien.</p>
+
+<p>Wenn Sie in Projektdateien, die in einem Frame-Fenster angezeigt werden, Noframes-Bereiche notieren, müssen Sie für solche Projektdateien die HTML-Variante Transitional wählen, denn in der Strict-Variante gibt es keine Frames und auch keine Noframes-Bereiche.</p>
+
+<p>Wenn Sie <b>XHTML-Standard-konform</b> arbeiten, muss das <code>noframes</code>-Element innerhalb einer Frameset-Definition zwingend ein <code>body</code>-Element enthalten:</p>
+
+<pre>
+&lt;noframes&gt;
+  &lt;body&gt;
+    &lt;p&gt;Alternativ-Inhalt&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/noframes&gt;
+</pre>
+
+<p>Da dies in HTML <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../xhtml/unterschiede.htm#grundgeruest">optional</a> und somit erlaubt ist, empfiehlt es sich, das <code>body</code>-Element immer zu notieren. Davon ausgenommen sind allerdings Noframes-Bereiche außerhalb von <code>frameset</code>-Elementen wie in oben angeführtem <img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben">&nbsp;<a href="#rechts">Beispiel</a>. Diese dürfen kein <code>body</code>-Element enthalten.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/html40.gif" width="30" height="30" alt="HTML 4.0" title="HTML 4.0"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0">&nbsp;<a class="an" name="langbeschreibung">Langbeschreibung für Frame-Fenster</a></h2>
+
+<p>Sie können bei der Definition von Frames angeben, wo eine ausführliche Beschreibung  des Inhalts des betreffenden Frame-Fensters zu finden ist. Browser, die zwar Frames erkennen, aber bei denen die Anzeige von Frames nicht möglich ist, z.B. akustische Ausgabesysteme, können z.B. das bei der Langbeschreibung angegebene Ziel ausgeben.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN"
+   "http://www.w3.org/TR/html4/frameset.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Langbeschreibung f&uuml;r Frame-Fenster&lt;/title&gt;
+&lt;/head&gt;
+&lt;frameset cols="250,*"&gt;
+  &lt;frame src="verweise.htm" name="Navigation"&gt;
+  &lt;frame src="startseite.htm" name="Daten" longdesc="startseite_extra.htm"&gt;
+  &lt;noframes&gt;
+    &lt;body&gt;
+      &lt;p&gt;Alternativ-Inhalt (Zusammenfassung, Sitemap ...)&lt;/p&gt;
+    &lt;/body&gt;
+  &lt;/noframes&gt;
+&lt;/frameset&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Mit dem Attribut <code>longdesc</code> in einem <code>&lt;frame&gt;</code>-Tag können Sie auf eine Stelle verweisen, wo der Inhalt dieses Frame-Fensters in einer längeren Beschreibung zusammengefasst wird. Erlaubt ist ein URI, d.h. bei der Angabe gelten die Regeln zum <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../allgemein/referenzieren.htm">Referenzieren in HTML</a>.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="weitere_infos">Weitere Informationen</a></h2>
+
+<p>In der <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../referenz/index.htm">HTML-Referenz</a> finden Sie Angaben darüber, wo die hier beschriebenen Elemente vorkommen dürfen, welche Attribute erlaubt sind und was bei den einzelnen Attributen zu beachten ist:<br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/elemente.htm#frameset">Element-Referenz</a> für Framesets (<code>&lt;frameset&gt;...&lt;/frameset&gt;</code>)<br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/attribute.htm#frameset">Attribut-Referenz</a> für Framesets (<code>&lt;frameset&gt;...&lt;/frameset&gt;</code>)<br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/elemente.htm#frame">Element-Referenz</a> für Frames (<code>&lt;frame&gt;...&lt;/frame&gt;</code>)<br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/attribute.htm#frame">Attribut-Referenz</a> für Frames (<code>&lt;frame&gt;...&lt;/frame&gt;</code>)<br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/elemente.htm#noframes">Element-Referenz</a> für Noframes-Bereiche (<code>&lt;noframes&gt;...&lt;/noframes&gt;</code>)<br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/attribute.htm#noframes">Attribut-Referenz</a> für Noframes-Bereiche (<code>&lt;noframes&gt;...&lt;/noframes&gt;</code>)</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="eigenschaften.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="eigenschaften.htm">Eigenschaften von Frames</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="../formulare/verarbeiten.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../formulare/verarbeiten.htm">Formulare verarbeiten</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">HTML/XHTML</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Frames</a></td>
+</tr></table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

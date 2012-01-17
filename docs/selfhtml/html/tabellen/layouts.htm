@@ -1,0 +1,199 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: HTML/XHTML / Tabellen / Tabellen als Mittel für Web-Seiten-Layouts</title>
+<meta name="description"    content="Wie Sie HTML-Tabellen einsetzen können, sodass typische Web-Seiten-Layouts daraus entstehen.">
+<meta name="keywords"       content="SELFHTML, HTML, XHTML, Tabellen, Layout, Seiten-Layout, Tabellenlayouts, Design, Web-Design, verschachtelte Tabellen">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-10-31T12:25:34+01:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/html/tabellen/layouts.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="Tabellen" href="index.htm">
+<link rel="next" title="Tabellen und nicht-visuelle Medien" href="nicht_visuell.htm">
+<link rel="prev" title="Tabellenbeschriftung und Tabellenausrichtung" href="umgebung.htm">
+<link rel="first" title="Aufbau einer Tabelle" href="aufbau.htm">
+<link rel="last" title="Tabellen und nicht-visuelle Medien" href="nicht_visuell.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">HTML/XHTML</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Tabellen</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Tabellen als Mittel für Web-Seiten-Layouts</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#allgemeines">Allgemeines zu Tabellen für Web-Seiten-Layouts</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#beispiel">Beispiel eines typischen Tabellen-Layouts</a><br>
+</p>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><a class="an" name="allgemeines">Allgemeines zu Tabellen für Web-Seiten-Layouts</a></h2>
+
+<p>Wenn Sie bei Web-Seiten auf sauber ausgerichtete, aber relativ frei verteilte Elemente mit meist farbigen Flächen stoßen, wurde in vielen Fällen mit der Technik der "blinden Tabellen" gearbeitet. Blinde Tabellen haben keine sichtbaren Gitternetzlinien. Dadurch merkt der Betrachter gar nicht, dass es sich in Wirklichkeit um eine Tabelle handelt.</p>
+
+<p>Einen Nachteil sollten Sie jedoch beachten, wenn Sie beabsichtigen, den gesamten anzuzeigenden Inhalt einer Web-Seite mit Hilfe einer blinden Tabelle anzuordnen: Tabellen werden vom Web-Browser erst angezeigt, nachdem ihr kompletter Inhalt eingelesen wurde bzw. erst in dem Augenblick, wo der Web-Browser genau weiß, wie groß und wie breit die Tabelle angezeigt werden muss. Das bedeutet bei der Datenübertragung aus dem Web, dass ein Anwender am Bildschirm länger wartet, bis überhaupt etwas angezeigt wird. Es sei denn, Sie benutzen die Möglichkeit, um <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="aufbau.htm#vordefinieren">Spalten vorzudefinieren</a>.</p>
+
+<p>Ein weiteres Problem besteht darin, dass Browser mit gewünschten Breiten- und Höhenangaben nicht unbedingt so umgehen, wie Sie es wünschen. Inhalte werden dann plötzlich gestaucht, auseinandergezogen usw. Dies hat zur Erfindung des so genannten "blinden Pixels" geführt, einer kleinen GIF-Grafik, die nur aus einer einfarbigen Fläche besteht, deren Farbe wiederum als transparent definiert ist. Zusammen mit der Möglichkeit, <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../grafiken/einbinden.htm#breite_hoehe">Breite und Höhe einer Grafik</a> in HTML unabhängig von der tatsächlichen Größe der Grafik anzugeben, lässt sich eine solche Grafik scheinbar unsichtbar und unauffällig einbauen. So lassen sich vor allem feste Mindestbreiten für einzelne Spalten einer Tabelle erzwingen, und der Browser kann die Inhalte darin nicht mehr stauchen. Diese Technik gilt einerseits als unsaubere Trickserei, ist aber andererseits Ausdruck für fehlende Formatiermöglichkeiten. Mittlerweile stellen <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../../css/index.htm">Stylesheets</a> solche Möglichkeiten zwar bereit (vgl. die CSS-Eigenschaft <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/positionierung.htm#min_width">min-width</a>), doch das nutzt nicht viel, solange die weit verbreiteten Browser noch keine Unterstützung dafür anbieten.</p>
+
+<p>In diesem Abschnitt wird anhand eines Beispiels gezeigt, wie Seiten-Layouts mit blinden Tabellen im Prinzip funktionieren. Auf die Technik des blinden Pixels wird hier verzichtet. Doch eine andere, typische Technik kommt zum Einsatz: das Verschachteln von Tabellen. Denn meistens lassen sich saubere Tabellenlayouts nur erreichen, wenn man mit Tabellen innerhalb von Tabellen arbeitet.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/html20.gif" width="30" height="30" alt="HTML 2.0" title="HTML 2.0"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../../src/deprecated.gif" width="30" height="30" alt="deprecated (missbilligt)" title="deprecated (missbilligt)"><img src="../../src/msie2.gif" width="30" height="30" alt="MS IE 2.0" title="MS IE 2.0"><img src="../../src/netsc11.gif" width="30" height="30" alt="Netscape 1.1" title="Netscape 1.1"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="beispiel">Beispiel eines typischen Tabellen-Layouts</a></h2>
+
+<p>Das folgende Beispiel zeigt ein Layout, wie man es auf vielen Web-Seiten findet: oben eine farbige Fläche, wo die Seitenüberschrift steht und andere Elemente wie Grafiken für Logos, Banner oder dergleichen Platz haben, unterhalb davon links eine gleichfarbige, direkt angeschlossene, schmale Fläche für Navigationsverweise innerhalb des Web-Projekts, und rechts davon eine breite Fläche für den eigentlichen Inhalt der Seite.</p>
+
+<p>Das Beispiel ist gültiges HTML 4.0, benutzt aber diverse Attribute, die als <i>deprecated</i> gekennzeichnet sind, weshalb als HTML-Variante Transitional gewählt werden muss.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/layout.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+       "http://www.w3.org/TR/html4/loose.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Beispiel eines typischen Tabellen-Layouts&lt;/title&gt;
+&lt;/head&gt;
+&lt;body bgcolor="#FFFFFF" link="#FFFF00" vlink="#FFCC00" alink="#FFFFFF" text="#000000"&gt;
+
+&lt;table border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#A050A0"&gt;
+  &lt;colgroup&gt;
+    &lt;col width="200"&gt;
+    &lt;col&gt;
+  &lt;/colgroup&gt;
+  &lt;tr&gt;
+    &lt;td colspan="2"&gt;
+      &lt;table border="0" cellpadding="10" cellspacing="0"&gt;
+        &lt;tr&gt;
+          &lt;td&gt;&lt;h1 style="color:#FFFFFF"&gt;Willkommen&lt;/h1&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/table&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td valign="top" width="200"&gt;
+      &lt;table border="0" cellpadding="10" cellspacing="0"&gt;
+        &lt;tr&gt;
+          &lt;td&gt;
+            &lt;h3 style="color:#FFFFFF"&gt;Navigation&lt;/h3&gt;
+            &lt;p&gt;&lt;a href="table_tr_th_td.htm"&gt;Tabelle&lt;/a&gt;&lt;br&gt;
+            &lt;a href="bgcolor.htm"&gt;Hintergrund&lt;/a&gt;&lt;br&gt;
+            &lt;a href="colspan.htm"&gt;Zellen verbinden&lt;/a&gt;&lt;br&gt;
+            &lt;a href="width_height.htm"&gt;Breite und H&ouml;he&lt;/a&gt;&lt;/p&gt;
+            &lt;h3 style="color:#FFFFFF"&gt;News&lt;/h3&gt;
+            &lt;p style="color:#FFFFFF"&gt;Die Neuigkeiten stehen stets an dieser Stelle.
+            Viel Neues gibt es nicht. Nur so viel: diese Seite ist neu.&lt;/p&gt;
+          &lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/table&gt;
+    &lt;/td&gt;
+    &lt;td valign="top" bgcolor="#FFFFFF"&gt;
+      &lt;table border="0" cellpadding="10" cellspacing="0"&gt;
+        &lt;tr&gt;
+          &lt;td&gt;
+            &lt;h2&gt;Worum geht es hier eigentlich?&lt;/h2&gt;
+            &lt;p&gt;Ach, um Web-Design, halt das &Uuml;bliche.&lt;/p&gt;
+            &lt;p&gt;viel Inhalt&lt;/p&gt;&lt;p&gt;viel Inhalt&lt;/p&gt;&lt;p&gt;viel Inhalt&lt;/p&gt;&lt;p&gt;viel Inhalt&lt;/p&gt;&lt;p&gt;viel Inhalt&lt;/p&gt;
+            &lt;p&gt;viel Inhalt&lt;/p&gt;&lt;p&gt;viel Inhalt&lt;/p&gt;&lt;p&gt;viel Inhalt&lt;/p&gt;&lt;p&gt;viel Inhalt&lt;/p&gt;&lt;p&gt;viel Inhalt&lt;/p&gt;
+          &lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/table&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel bestimmt im einleitenden <code>&lt;body&gt;</code>-Tag zunächst dateiweite <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../dateiweit/farben.htm">Farben für Hintergrund, Text und Verweise</a>.</p>
+
+<p>Innerhalb des Dateikörpers wird die übergeordnete Tabelle definiert. Sie erhält die Attribute <code>border="0"</code>, damit kein Rahmen und keine Gitternetzlinien angezeigt werden, sowie <code>cellpadding="0"</code> und <code>cellspacing="0"</code>, damit sich die einzelnen Zellen der Tabelle nahtlos aneinanderfügen. Das ist wichtig, damit zwischen den Farbflächen keine sichtbaren Lücken entstehen.</p>
+
+<p>Weil es sich um eine die ganze Seite überspannende Tabelle handelt, werden für Browser, die das verstehen, die gewünschten Spalten mit <code>&lt;col&gt;</code>-Tags vordefiniert. Die Tabelle soll zwei Spalten haben, wobei die erste eine Breite von 200 Pixeln haben soll. Das soll die Spalte für Navigationsverweise werden. Die zweite Spalte soll den Rest des verfügbaren Platzes in Anspruch nehmen. Die gesamte Tabelle soll sich über die volle verfügbare Breite erstrecken - angegeben durch <code>width="100%"</code> im einleitenden <code>&lt;table&gt;</code>-Tag der übergeordneten Tabelle.</p>
+
+<p>Die gesamte übergeordnete Tabelle bekommt ferner mit Hilfe von <code>bgcolor="#A050A0"</code> einen matt-violetten Hintergrund zugewiesen. Damit erhalten erst mal alle ihre Inhalte diese Hintergrundfarbe. Um andersfarbige Flächen innerhalb der Tabelle zu erzeugen, sind bei den einzelnen Zellen weitere Angaben zur Hintergrundfarbe erforderlich, die dann diese globale Hintergrundfarbe überschreiben.</p>
+
+<p>Die erste Zelle der ersten Zeile der übergeordneten Tabelle ist zugleich die einzige Zelle in dieser Zeile, da durch das Attribut <code>colspan="2"</code> erreicht wird, dass sich die Zelle über zwei Spalten erstreckt. Der Inhalt dieser Zelle steht nun für den Überschriftenteil zur Verfügung. Da mit <code>cellpadding="0"</code> und <code>cellspacing="0"</code> gearbeitet wird, würde der Inhalt allerdings ganz am Außenrand der Tabelle kleben, was unsauber aussieht. Deshalb kommt bereits bei der Überschrift zum ersten Mal die Technik der Tabelle in der Tabelle zum Einsatz:<br>
+<code>&lt;table border="0" cellpadding="10" cellspacing="0"&gt;</code> definiert innerhalb der über zwei Spalten gestreckten Tabellenzelle eine weitere Tabelle. Auch diese ist wiederum rahmenlos (<code>border="0"</code>). Durch <code>cellpadding="10"</code> wird jedoch ein Innenabstand von 10 Pixeln zum Zellenrand erzwungen. Diese Angabe ist der eigentliche Grund, warum die innere Tabelle definiert wird. Denn die innere Tabelle hat nur eine einzige Zeile mit einer einzigen Spalte, also nur eine Zelle, und darin ist die <code>h1</code>-Überschrift für die Seite notiert (<code>Willkommen</code>). Die Überschrift erhält mit Hilfe der CSS-Eigenschaft <code>color:</code> eine weiße Farbe, um sich ordentlich von dem violetten Hintergrund der Tabelle abzuheben.</p>
+
+<p>In der zweiten Zeile der übergeordneten Tabelle werden für beide definierten Spalten je eine Zelle definiert. Die erste (linke) Zelle ist dann der Behälter für die gesamte linke Spalte - also für die Spalte, in der die Navigationsverweise stehen. Die zweite (rechte) Zelle ist der Behälter für den gesamten Inhalt des Hauptbereichs, also des Bereichs für den eigentlichen Seiteninhalt. Die zweite Zelle, also die für den Hauptbereich, erhält mit <code>bgcolor="#FFFFFF"</code> als Hintergrundfarbe weiß zugewiesen. So entsteht letztlich der optische Eindruck, als ob die Seite nur oben und links einen farbigen Balken enthalten würde, während der gesamte Rest der Seite einen weißen Hintergrund hat.</p>
+
+<p>In beiden Zellen der zweiten Zeile der übergeordneten Tabelle wird auch wieder je eine innere Tabelle definiert, die mit den gleichen Attributen wie im Fall der Überschrift für saubere Abstände zum Rand sorgt. So werden auch alle Inhalte ordentlich auf einer Höhe ausgerichtet. Mit <code>valign="top"</code> wird in beiden Zellen dafür gesorgt, dass die Inhalte, die ja unterschiedlich groß sein können, auf jeden Fall obenbündig ausgerichtet werden.</p>
+
+<p>Die Verweise in der linken Spalte heben sich durch ihre dateiweit definierten Farben gut von dem violetten Hintergrund ab. Normaler Text, der in der linken Spalte steht, also Überschriften, Textabsätze usw., erhalten im Beispiel wieder mit Hilfe von CSS eine weiße Textfarbe, um sich vom Hintergrund abzuheben.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Sie können Stylesheets noch wesentlich konsequenter einsetzen, als es im obigen Beispiel der Fall ist. Bei Verwendung von Stylesheets müssen Sie zunächst wissen, wie man <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../../css/formate/index.htm">CSS-Formate definieren</a> kann. Anschließend sind Sie in der Lage, CSS-Eigenschaften anzuwenden. Maßgeblich sind im hier beschriebenen Zusammenhang z.B. folgende CSS-Eigenschaften:<br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/schrift.htm">Schriftformatierung</a><br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/ausrichtung.htm">Ausrichtung und Absatzkontrolle</a><br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/randabstand.htm">Außenrand und Abstand</a><br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/innenabstand.htm">Innenabstand</a><br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/rahmen.htm">Rahmen</a><br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/hintergrund.htm">Hintergrundfarben und -bilder</a><br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/positionierung.htm">Positionierung und Anzeige von Elementen</a>
+</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="nicht_visuell.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="nicht_visuell.htm">Tabellen und nicht-visuelle Medien</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="umgebung.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="umgebung.htm">Tabellenbeschriftung und Tabellenausrichtung</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">HTML/XHTML</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Tabellen</a></td>
+</tr></table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

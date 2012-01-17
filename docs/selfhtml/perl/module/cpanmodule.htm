@@ -1,0 +1,455 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: Perl / Perl-Module / CPAN-Module</title>
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<meta name="description"    content="Wie Sie Perl-Module im CPAN-Verzeichnis finden, und was dabei zu beachten ist.">
+<meta name="keywords"       content="SELFHTML, Perl, Module, Perlmodule, CPAN">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-11-06T18:50:00+01:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/perl/module/cpanmodule.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="Perl-Module" href="index.htm">
+<link rel="next" title="Modul CGI: Funktionen für die CGI-Programmierung" href="cgi.htm">
+<link rel="prev" title="Standardmodule von Perl" href="standardmodule.htm">
+<link rel="first" title="Einführung in das Arbeiten mit Modulen" href="intro.htm">
+<link rel="last" title="Modul CGI: Funktionen für die CGI-Programmierung" href="cgi.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">Perl</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Perl-Module</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">CPAN-Module</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#allgemeines">Allgemeines zu den Modulen im CPAN-Verzeichnis</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#adressen">Adressen des CPAN-Verzeichnisses</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#kategorien">Kategorien für Module im CPAN-Verzeichnis</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#downloaden_installieren">Module aus dem CPAN-Verzeichnis downloaden und installieren</a><br>
+</p>
+</td>
+</tr><tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><a class="an" name="allgemeines">Allgemeines zu den Modulen im CPAN-Verzeichnis</a></h2>
+
+<p>CPAN steht für <i>Comprehensive Perl Archive Network</i> (zu deutsch in etwa zu übersetzen mit <i>Umfassendes Perl-Archiv Netzwerk</i>). Es ist eine Art offizielle Sammelstelle für Perl-Module. Das CPAN-Verzeichnis enthält tausende von Modulen für alle nur denkbaren Aufgaben, egal ob für Kalenderprogrammierung, mathematische Berechnungen, Textverarbeitung, Datenverschlüsselung oder Internetzugriffe. Das Stöbern im CPAN-Verzeichnis und Besorgen eines geeigneten Moduls kann also viele Stunden und Tage Programmierarbeit sparen. Dazu kommt, dass ein bewährtes Modul meistens schon von Bugs (Fehlern) im Code weitgehend befreit ist und eine Laufstabilität hat, die selbstgeschriebener Code oft erst nach längerer Zeit erreicht.</p>
+
+<p>Module aus dem CPAN-Verzeichnis müssen allerdings - im Gegensatz zu den <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="standardmodule.htm">Standardmodulen</a> - erst installiert werden, bevor ein Script sie verwenden kann. Wenn ein Script auf einem anderen Rechner laufen soll, müssen CPAN-Module, die in dem Script verwendet werden, auch dort zuerst installiert werden. Dazu müssen Sie die gewünschten Module zunächst downloaden.</p>
+
+<p>Die Module aus dem CPAN-Verzeichnis verfügen in der Regel genau wie die Standardmodule über eine integrierte Dokumentation, die mit <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="intro.htm#perldoc">perldoc</a> lesbar ist.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="adressen">Adressen des CPAN-Verzeichnisses</a></h2>
+
+<p>Das CPAN-Verzeichnis ist wegen der hohen Belastung durch die zahlreichen Perl-Programmierer auf vielen Servern weltweit gespiegelt. Es ist daher ratsam, sich erst einmal über die verfügbaren Server zu informieren. Die offizielle Liste der CPAN-Server finden Sie unter folgender Adresse:</p>
+
+<p><img src="../../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a href="http://www.perl.com/CPAN/SITES" target="_top">http://www.perl.com/CPAN/SITES</a></p>
+
+<p>Die Server, die dort aufgelistet werden, sind überwiegend öffentliche FTP-Server. Die meisten Browser sind in der Lage, die Inhalte von FTP-Sites anzuzeigen. Ansonsten können Sie auch mit Hilfe eines FTP-Programms auf einen solchen Server zugreifen. Im Link-Verzeichnis des Online-Angebots von SELFHTML aktuell finden Sie eine Produktübersicht mit Links zu Anbietern von solchen Programmen:</p>
+
+<p><img src="../../src/serverdok.gif" width="15" height="10" alt="Online-Seite">&nbsp;<a href="http://aktuell.de.selfhtml.org/links/ftp-programme.htm" target="_top">SELFHTML-Linkverzeichnis: FTP-Programme</a></p>
+
+<p>Bei den Spiegelungen des CPAN-Verzeichnisses handelt es sich um öffentliche FTP-Sites. Das bedeutet, dass Sie für die FTP-Verbindung zu dem Server einfach die Serveradresse (Name oder IP-Adresse), als Benutzernamen <i>Anonymous</i> und als Passwort Ihre E-Mail-Adresse angeben.<br>
+Einige der aufgelisteten Server sind jedoch auch HTTP-Server, die für Browser ohne eingebaute FTP-Funktion geeignet sind.</p>
+
+<p>Sie können das CPAN-Verzeichnis aber auch in Form normaler Web-Seiten durchstöbern. Rufen Sie dazu die folgende Adresse auf:</p>
+
+<p><img src="../../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a href="http://www.perl.com/CPAN/" target="_top">http://www.perl.com/CPAN/</a></p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="kategorien">Kategorien für Module im CPAN-Verzeichnis</a></h2>
+
+<p>Einen guten inhaltlichen Überblick über die verfügbaren Module erhalten Sie, wenn Sie mit einem FTP-Programm im CPAN-Verzeichnis ins Unterverzeichnis <i>modules</i> und dann weiter ins Unterverzeichnis <i>by-category</i> wechseln. Jede Kategorie wird durch ein Unterverzeichnis repräsentiert. Die folgende Tabelle listet die Namen der zum Zeitpunkt der Redaktion dieses Textes verfügbaren Unterverzeichnisse auf und gibt zu jedem Unterverzeichnis einen kurzen Überblick über dessen Inhalt. Dieser Überblick ist allerdings nur ein grober Anhaltspunkt, was in dem jeweiligen Unterverzeichnis zu finden ist. Wenn Sie auf der Suche nach einem Modul für eine bestimmte Aufgabe sind, sollten Sie beim Besuch des CPAN-Verzeichnisses etwas Zeit zum Stöbern und Lesen mitbringen.</p>
+
+<p>Beachten Sie, dass das CPAN-Verzeichnis physikalisch nach Autoren geordnet ist. Die Sortierung nach Kategorien enthält daher nur symbolische Links auf Verzeichnisse und Dateien in anderen Verzeichnissen unterhalb des Verzeichnisses <i>authors</i>. Wenn Sie also ein Verzeichnis oder eine Datei auswählen, wechseln Sie automatisch in ein entfernteres Verzeichnis oder erhalten eine Datei aus einem entfernteren Verzeichnis.</p>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<th nowrap="nowrap">Unterverzeichnis</th>
+<th>Inhalt</th>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>02_Perl_Core_Modules</code></td>
+<td class="tabxpl"><p>Enthält Module, die zum Kern von Perl gezählt werden. Viele dieser Module gehören mittlerweile auch zu den <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="standardmodule.htm">Standardmodulen</a> von Perl. Das Verzeichnis enthält aber noch mehr als die Standardmodule. Bei den weiteren Modulen handelt es sich um Anwärter für Standardmodule.</p>
+<p>Einige interessante Module/Modulgruppen dieses Unterverzeichnisses sind:<br>
+<code>Filter</code> filtert den Quellcode eines Perl-Scripts nach verschiedenen Kriterien, bevor er ausgeführt wird.<br>
+<code>enum</code> erlaubt das Definieren symbolischer Konstanten und damit ein Arbeiten wie mit dem aus C bekannten Datentyp.</p>
+</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>03_Development_Support</code></td>
+<td class="tabxpl"><p>Enthält Module, die das Entwickeln von Perl-Scripts und von Modulen unterstützen.</p>
+<p>Einige interessante Module/Modulgruppen dieses Unterverzeichnisses sind:<br>
+<code>Devel::</code> stellt diverse Tools zur Verfügung, mit deren Hilfe Profiling, Debugging und Laufzeitkontrolle von Perl-Scripts oder Modulen kontrolliert werden können.<br>
+<code>ExtUtils::</code> enthält neben den zu den Standardmodulen gehörenden Modulen noch weitere Module, z.B. einen Perl-Präprozessor.<br>
+<code>CVS::</code> ist eine Schnittstelle zum Versionenverwaltungssystem CVS (<i>concurrent versioning system</i>).</p>
+</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>04_Operating_System_Interfaces</code></td>
+<td class="tabxpl"><p>Enthält Module für systemnahe Aufrufe und betriebssystemspezifische Funktionen.</p>
+<p>Einige interessante Module/Modulgruppen dieses Unterverzeichnisses sind:<br>
+<code>Async::</code> enthält Funktionen für parallele Datenverarbeitung auf Rechnern mit "echtem Multitasking".<br>
+<code>BSD::</code> enthält Funktionen speziell für Berkeley-Unix. Entsprechende Funktionen gibt es unterhalb von <code>MSDOS::</code>, <code>Mac::</code>, , <code>OS2::</code>, <code>Solaris::</code> usw.<br>
+<code>Proc::</code> bietet Funktionen zur Kontrolle laufender Prozesse an.<br>
+<code>Quota</code> erlaubt den Zugriff auf Systemdaten wie verfügbaren Festplattenspeicher, Arbeitsspeicher usw.
+</p>
+</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>05_Networking_Devices_IPC</code></td>
+<td class="tabxpl"><p>Enthält Module für die Netzwerk-Programmierung.</p>
+<p>Einige interessante Module/Modulgruppen dieses Unterverzeichnisses sind:<br>
+<code>CORBA</code> enthält Funktionen für die Nutzung der CORBA (<i>Common Object Request Broker Architecture</i>).<br>
+<code>DCE::</code> enthält Module für Sicherheitsfunktionen nach DCE (<i>Distributet Computing Environment</i>).<br>
+<code>IPC::</code> enthält Module, die über die IPC-Standardmodule hinausgehen und Funktionen zur Kommunikation zwischen Prozessen enthalten.<br>
+<code>Net::</code> enthält Module, die über die Net-Standardmodule hinausgehen und Funktionen zur Kommunikation zwischen Prozessen auf verschiedenen Rechnern erlauben, unter anderem für DNS (<i>Domain Name Service</i>) oder Protokolle wie IRC (<i>Internet Relay Chat</i>) oder LDAP.
+</p>
+</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>06_Data_Type_Utilities</code></td>
+<td class="tabxpl"><p>Enthält Module für Datentypen, Datenstrukturen und wichtige Algorithmen.</p>
+<p>Einige interessante Module/Modulgruppen dieses Unterverzeichnisses sind:<br>
+<code>Algorithms::</code> enthält Module, die mit Hilfe anerkannter Algorithmen arbeiten und Aufgaben realisieren wie das zufällige Auswählen von Daten oder das Berechnen von gerichteten Graphen.<br>
+<code>Array::</code> enthält Module zur Manipulation von Listen.<br>
+<code>Bit::</code> enthält Module zur Manipulation von Bitzeichenketten und für Bit-Operationen.<br>
+<code>Class::</code> enthält Module, die bei der objektorientierten Programmierung unterstützen.<br>
+<code>Data::</code> enthält Module zur Darstellung und Formatierung von Daten.<br>
+<code>Date::</code> enthält Module für Datum- und Zeitrechnung nach verschiedenen Kalendern.<br>
+<code>Graph::</code> enthält Module für Graphenberechnung.<br>
+<code>Math::</code> enthält Module, die über die Math-Standardmodule hinausgehen und mathematische Funktionen bereitstellen, etwa für Fraktalberechnung, Approximationsberechnung, Integralrechnung, Matritzenrechnung und Zufallszahlengenerierung.<br>
+<code>Set::</code> enthält Module zur Implementierung logischer Mengen.<br>
+<code>Statistics::</code> enthält Module für verschiedene Arten statistischer Berechnungen, z.B. für Berechnung von Mittelwerten, Standardabweichung, maximaler Entropie und linearer Progression.<br>
+<code>Tie::</code> enthält Module für verschiedene Bindungen von Variablen an Objekte, z.B. zum Realisieren eines Timers (zeitliche Intervallabfrage), Cache-Verwaltung, Datenbankzugriffe, oder Umleitung des Standardkanals STDERR an ein Programm, z.B. ein E-Mail-Programm.<br>
+<code>Time::</code> enthält Module zur Berechnung von Zeitangaben, z.B. für mikrosekundengenaue Angaben, julianisches Datum und Zeitzonen.<br>
+<code>Tree::</code> enthält Module für baumartige Datenstrukturen, z.B. für B-Bäume oder AVL-Bäume.
+</p>
+</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>07_Database_Interfaces</code></td>
+<td class="tabxpl"><p>Enthält Module für die Kommunikation mit bekannten Datenbanksystemen.</p>
+<p>Einige interessante Module/Modulgruppen dieses Unterverzeichnisses sind:<br>
+<code>DBD::</code> enthält Module, die als Treiber für die datenunabhängige Schnittstelle DBI fungieren. Über DBI ist z.B. der Zugriff auf Datenbanksysteme wie Adabas, DB2, Informix, Oracle, Ingres, MySQL, QBase oder Sybase möglich. Auch ODBC-Treiber sind enthalten.<br>
+<code>Metadata::</code> enthält Module, die bekannte Metadatenformate für Suchsysteme unterstützen.
+</p>
+</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>08_User_Interfaces</code></td>
+<td class="tabxpl"><p>Enthält Module zum Programmieren von Benutzeroberflächen mit Perl.</p>
+<p>Einige interessante Module/Modulgruppen dieses Unterverzeichnisses sind:<br>
+<code>Cdk</code> und <code>Curses</code>: enthalten Funktionen für die bekannte, textmodus-orientierte Benutzeroberfläche <i>Curses</i>.<br>
+<code>Emacs::Lisp</code> bietet eine Schnittstelle zum programmierbaren Texteditor <i>Emacs</i> an.<br>
+<code>Term::</code> enthält Module zur Ansteuerung von textmodus-orientierten Terminals an. Enthalten sind Funktionen für Farbdarstellung, Tastaturkürzel und erweiterte Editierfunktionen.<br>
+<code>Tk::</code> enthält Module, um graphische Oberflächen wie X11 (Unix) oder auch MS Windows zu bedienen.
+</p>
+</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>09_Language_Interfaces</code></td>
+<td class="tabxpl"><p>Enthält Module für die Integration anderer Programmiersprachen in Perl.</p>
+<p>Einige interessante Module/Modulgruppen dieses Unterverzeichnisses sind:<br>
+<code>C::</code> enthält Module zur Anbindung von C-Programmen und C-Bibliotheken.<br>
+<code>Java</code> realisiert eine Java-Laufzeitumgebung für Perl.<br>
+<code>Python</code> erlaubt das Einbetten von Perl-Code in Python-Programme.
+</p>
+</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>10_File_Names_Systems_Locking</code></td>
+<td class="tabxpl"><p>Enthält Module für die Verwaltung von Dateisystemen, Dateinamen und Sperren benutzter Dateien.</p>
+<p>Einige interessante Module/Modulgruppen dieses Unterverzeichnisses sind:<br>
+<code>File::</code> enthält Module, die über die File-Standardmodule hinausgehen und Funktionen für Backups, Dateibeschreibungen, Dateizugriffszähler oder beschleunigtes Laden von Dateien in den Arbeitsspeicher anbieten.<br>
+<code>FileSys::</code> enthält Module, die Systeminformationen wie z.B. freien Speicherplatz abfragen.
+</p>
+</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>11_String_Lang_Text_Proc</code></td>
+<td class="tabxpl"><p>Enthält Module für die Zeichenkettenverarbeitung und für Textverarbeitung.</p>
+<p>Einige interessante Module/Modulgruppen dieses Unterverzeichnisses sind:<br>
+<code>Font::</code> enthält Module, die sich mit Schriftartenmetrik und Schriftartformaten wie TrueType und Adobe Fonts befassen.<br>
+<code>Lingua::</code> enthält Module, die sich mit der Semantik und Grammatik natürlicher Sprachen befassen, z.B. Konvertierung von Zahlen in Zahlenwörter, Konjugation von Verben, Pluralbildung von Substantiven usw.<br>
+<code>Parser::</code> enthält Module, die bekannte künstliche Sprachen interpretieren.<br>
+<code>RTF::</code> enthält Module, die das RTF-Format (<i>Rich Text Format</i>) interpretieren und z.B. in Text oder HTML konvertieren.<br>
+<code>SGML::</code> enthält Module zum Parsen von SGML-Dateien.<br>
+<code>String::</code> enthält Module für erweiterte Zeichenkettenverarbeitung, z.B. approximative Suche, Bitzahlermittlung, CRC (<i>Cycling Redundancy Checks</i>) usw.<br>
+<code>Text::</code> enthält Module für zeilenübergreifende Texte und Textformate, z.B. zum Formatieren von Text, zum Parsen von CSV-Dateien (<i>Comma Separated Values</i>) usw.<br>
+<code>XML::</code> enthält Module zum Parsen von XML-Dateien.
+</p>
+</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>12_Opt_Arg_Param_Proc</code></td>
+<td class="tabxpl"><p>Enthält Module zum Auslesen von Konfigurationsdateien.</p>
+<p>Einige interessante Module/Modulgruppen dieses Unterverzeichnisses sind:<br>
+<code>ConfigReader</code> liest verschiedene Konfigurationsdateien aus.<br>
+<code>Getopt::</code> enthält Module, die über die Getopt-Standardmodule hinausgehen und Kommandozeilenoptionen beim Aufruf des Perl-Interpreters analysieren.<br>
+<code>IniConf</code> liest Konfigurationsdateien im Windows-typischen ini-Format.
+</p>
+</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>13_Internationalization_Locale</code></td>
+<td class="tabxpl"><p>Enthält Module für das Arbeiten mit internationalen Kodierungen.</p>
+<p>Einige interessante Module/Modulgruppen dieses Unterverzeichnisses sind:<br>
+<code>Cz::</code> enthält Module zum Verarbeiten tschechischer Texte.<br>
+<code>I18N::</code> enthält Module zum Ordnen von Kodierungsnamen nach IANA-Standard und für Länderkürzel nach RFC 1766.<br>
+<code>Locale::</code> enthält Module zur Behandlung sprachlich lokaler Besonderheiten, z.B. Länderidentifikation nach den Länderkürzeln von RFC 1766 und für Unicode-Kodierung von Texten.
+</p>
+</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>14_Security_and_Encryption</code></td>
+<td class="tabxpl"><p>Enthält Module für die Verschlüsselung von Daten und für Authentifikation. <strong>Achtung:</strong> Beachten Sie vor dem Download solcher Module eventuell bestehende kryptografische Einschränkungen in Ihrem Land! Der Erwerb von Quellcode mit unerlaubten Verschlüsselungsverfahren kann strafbar sein - leider.</p>
+<p>Einige interessante Module/Modulgruppen dieses Unterverzeichnisses sind:<br>
+<code>Authen::</code> enthält Module für Authentifikation, z.B. für SecureID/ACE-Karten, MD5-basiertes Challenge-Response-Protokoll oder die SAMBA-Authentifikation an Windows-NT-Servern.<br>
+<code>Crypt::</code> enthält Module für die Datenverschlüsselung, z.B. nach dem Verschlüsselungsstandard DES (<i>Data Encryption Standard</i>), nach MD5-Standard usw.<br>
+<code>PGP::</code> enthält Module zum Ansprechen des PGP-Programms (<i>Pretty Good Privacy</i>).
+</p>
+</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>15_World_Wide_Web_HTML_HTTP_CGI</code></td>
+<td class="tabxpl"><p>Enthält Module für CGI-Scripts, HTTP-Verbindungen und HTML-Erzeugung.</p>
+<p>Einige interessante Module/Modulgruppen dieses Unterverzeichnisses sind:<br>
+<code>Apache::</code> enthält Module, die zumeist Erweiterungen für das <i>mod_perl</i>-Modul des Apache-Webservers bereitstellen. <i>mod_perl</i> ist ein Perl-Interpreter, der innerhalb eines Apache-Prozesses läuft und das Ausführen von Perl-Scripts im Zusammenhang mit CGI stark beschleunigen kann. Voraussetzung für die Module ist eine Apache-Installation mit <i>mod_perl</i>-Modul. Die Module bieten Funktionen für Authentifikation, Zugang zu den Logging-Funktionen von Apache, Redirects, Server Side Includes, Informationen zum Status einer Verbindung zwischen Server und Browser, Zugriff auf die von Apache ermittelte Anzahl übertragener Bytes und Dateizugriffe usw.<br>
+<code>CGI::</code> enthält Module speziell für CGI-Scripts, die über den Umfang des CGI-Standardmoduls hinausgehen, z.B. Module für das Zwischenspeichern von CGI-Anforderungen in einem Cache, für die Erzeugung von HTML-Code für den Browser, zur Verwaltung serverseitiger verweis-sensitiver Grafiken usw.<br>
+<code>LWP::</code> enthält Module zur Kommunikation mit anderen Webservern, z.B. zum Einlesen von HTML-Dateien, die auf fremden Servern liegen.<br>
+<code>MIME::</code> enthält Module für MIME-Typen. Enthalten sind z.B. Module zum Umwandeln von 8-Bit-Text 7-Bit-Text nach Base64-Standard und zum Parsen von MIME-Angaben.<br>
+<code>Netscape::</code> enthält Netscape-spezifische Module, z.B. zum Analysieren des Cache-Speichers oder der gespeicherten History des Netscape-Browsers.<br>
+<code>URI</code> zerlegt einen URI in seine Einzelzeile.<br>
+<code>WWW::</code> enthält Module für einen einfachen Such-Robot und zur Interaktion zwischen Perl-Script und bekannten Suchmaschinen im Web.
+</p>
+</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>16_Server_and_Daemon_Utilities</code></td>
+<td class="tabxpl"><p>Enthält Module zum Programmieren eigener Server.</p>
+<p>Einige interessante Module/Modulgruppen dieses Unterverzeichnisses sind:<br>
+<code>Event::</code> enthält Module für Server, die auf Ereignisse reagieren.<br>
+<code>Netserver::</code> enthält Module für verschiedene Server, z.B. für HTTP und SMTP.
+</p>
+</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>17_Archiving_and_Compression</code></td>
+<td class="tabxpl"><p>Enthält Module für die Archivierung und Komprimierung/Dekomprimierung von Dateien in und aus bekannten Packformaten.</p>
+<p>Einige interessante Module/Modulgruppen dieses Unterverzeichnisses sind:<br>
+<code>Archive::Tar</code> kann tar-Archive, wie sie unter Unix üblich sind, lesen und schreiben.<br>
+<code>Compress::</code> enthält Module für verschiedene Kompressions-Algorithmen für bzip, LZO und Zlib.<br>
+<code>Convert::</code> enthält Konvertierungsmodule, z.B. für Konvertierungen zwischen ASCII- und EBCDIC-Kodierung, zur Konvertierung von Zahlen in bestimmte technische Schreibweisen, zum Dekodieren von UU-kodierten Daten usw.</p>
+</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>18_Images_Pixmaps_Bitmaps</code></td>
+<td class="tabxpl"><p>Enthält Module für Bild- und Videoformate.</p>
+<p>Einige interessante Module/Modulgruppen dieses Unterverzeichnisses sind:<br>
+<code>Chart::</code> enthält Module zum Erzeugen von Linien, Balken und kompletten Darstellungs-Charts und deren Export in eine GIF-Datei.<br>
+<code>Image::</code> enthält Module zum automatischen Download von Grafiken aus dem Netz, zum Auslesen wichtiger Kopfdaten aus Grafikformaten wie GIF, JPEG, PNG, TIFF, XPM, XBM, PGM und PBM, sowie zum Anwenden von Filtern auf Pixelgrafiken, z.B. zum automatischen Drehen einer Grafik oder zum Vergrößern/Verkleinern.<br>
+<code>OpenGL</code> erlaubt den Zugriff auf die OpenGL-Bibliothek, die Funktionen für dreidimensionale Texturen, Projektionen usw. bereitstellt.<br>
+<code>VRML::</code> enthält Module für VRML-Code.
+</p>
+</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>19_Mail_and_Usenet_News</code></td>
+<td class="tabxpl"><p>Enthält Module für E-Mails und den Zugriff auf News-Server.</p>
+<p>Einige interessante Module/Modulgruppen dieses Unterverzeichnisses sind:<br>
+<code>Mail::</code> enthält Module zum Realisieren eines E-Mail-Clients mit Perl, zum Filtern von E-Mails, und zum Versenden von E-Mails über SMTP (sendmail-Funktion).<br>
+<code>News::</code> enthält Module zum Weiterleiten von E-Mails an eine Newsgroup oder zum Weiterleiten von News an eine E-Mail-Adresse, zum Realisieren eines News-Clients mit Perl, und zum Erzeugen von News-Artikeln.
+</p>
+</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>20_Control_Flow_Utilities</code></td>
+<td class="tabxpl"><p>Enthält Module zur Kontrolle des laufenden Perl-Scripts.</p>
+<p>Einige interessante Module/Modulgruppen dieses Unterverzeichnisses sind:<br>
+<code>AtExit</code> stellt eine Funktion bereit, die automatisch beim Beenden eines Scripts aufgerufen wird.<br>
+<code>Memoize</code> beschleunigt das Ausführen von Funktionen und kann Parameter und Rückgabewerte einer Funktion in einer Datei speichern.
+</p>
+</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>21_File_Handle_Input_Output</code></td>
+<td class="tabxpl"><p>Enthält Module für Ein-/Ausgabefunktionen mit Handles.</p>
+<p>Einige interessante Module/Modulgruppen dieses Unterverzeichnisses sind:<br>
+<code>Expect</code> stellt Funktionen zum Steuern dialogorientierter Programme bei.<br>
+<code>FileHandle::Multi</code> kann in mehrere Ausgabekanäle bzw. Dateien gleichzeitig schreiben.<br>
+<code>IO::</code> enthält neben den IO-Standardmodulen zusätzliche Module, z.B. um Zeichenketten mit Handles zu verknüpfen, oder zum Setzen von stty-Terminalparametern.<br>
+<code>Log::</code> enthält Module zum Lesen und Schreiben von Log-Dateien. So lassen sich z.B. Einträge in die Logfiles des Webservers oder in selbst definierte Logfiles schreiben.
+</p>
+</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>22_Microsoft_Windows_Modules</code></td>
+<td class="tabxpl"><p>Enthält Module für MS-Windows-Systeme ab Windows 95.</p>
+<p>Einige interessante Module/Modulgruppen dieses Unterverzeichnisses sind:<br>
+<code>Win32::</code> enthält Module für Windows-spezifische Netzwerkfunktionen, für RAS-Server, OLE-Verknüpfungen usw.<br>
+<code>Win32API::</code> enthält Module für den Registry-Zugriff, den Zugriff auf serielle Schnittstellen unter Windows, und für die Laufwerks- und Dateiverwaltung unter Windows.
+</p>
+</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>23_Miscellaneous_Modules</code></td>
+<td class="tabxpl"><p>Enthält Module für verschiedene Aufgaben, die anderweitig nicht einzuordnen sind. Eine Fundgrube also!</p>
+<p>Einige interessante Module/Modulgruppen dieses Unterverzeichnisses sind:<br>
+<code>Agent::</code> enthält Module, mit deren Hilfe sich mit Perl ein intelligenter Software-Assistent realisieren lässt, der bestimmte Aktionen selbständig durchführt, Daten filtert usw.<br>
+<code>Archie::</code> enthält Module zum Abfragen eines Archie-Servers.<br>
+<code>Audio::</code> enthält Module zum Bearbeiten von Audio-Dateien, z.B. WAV-Dateien.<br>
+<code>Business::</code> enthält Module für den Geschäftsverkehr, z.B. für Kreditkartenwesen.<br>
+<code>Games::</code> enthält Module für Spiele, z.B. für Schach.<br>
+<code>MIDI::</code> enthält Module zum Erzeugen und Bearbeiten von MIDI-Dateien mit Hilfe von Perl.<br>
+<code>Watchdog:</code> enthält Module zum Überprüfen, ob Webserver oder MySQL-Datenbankserver noch laufen.</p>
+</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>24_Commercial_Software_Interfaces</code></td>
+<td class="tabxpl"><p>Enthält Module für die Kommunikation zwischen Perl-Programmen und kommerziellen Software-Produkten.</p>
+<p>Einige interessante Module/Modulgruppen dieses Unterverzeichnisses sind:<br>
+<code>AltaVista::</code> enthält Module für den Zugriff auf die Suchmaschine von AltaVista.<br>
+<code>R3::</code> enthält Module für den Zugriff auf Funktionen des RFCSDK (Software Development Kit des R3-Pakets von SAP).<br>
+<code>Real::</code> enthält ein Modul zum Zugriff auf RealMedia-Datenströme (RealAudio, RealVideo).
+</p>
+</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>99_Not_In_Modulelist</code></td>
+<td class="tabxpl"><p>Enthält Module, die nicht in der offiziellen Modul-Liste des CPAN-Verzeichnisses enthalten sind.</p>
+</td>
+</tr>
+</table>
+<br>&nbsp;
+
+
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="downloaden_installieren">Module aus dem CPAN-Verzeichnis downloaden und installieren</a></h2>
+
+<p>Die Verzeichnisse mit Modulen enthalten jeweils zu jedem Modul eine Datei mit der Endung <var>.readme</var> und eine Datei mit der Endung <var>.tar.gz</var>. Die readme-Datei ist eine Textdatei, der Sie vorab Details zum jeweiligen Modul entnehmen können. Die <var>tar.gz</var>-Datei ist eine nach dem GNU-Zip-Verfahren komprimierte tar-Datei, also eine Archivdatei. <var>GZip</var> und <var>tar</var> sind typische Werkzeuge aus der Unix-Welt. Um die Dateien unter anderen Betriebssystemen, etwa unter Windows zu entpacken, benötigen Sie ein Entpack-Programm für <var>gzip</var>-Dateien. Im Link-Verzeichnis des Online-Angebots von SELFHTML aktuell finden Sie eine Produktübersicht mit Links zu Anbietern von solchen Programmen:</p>
+
+<p><img src="../../src/serverdok.gif" width="15" height="10" alt="Online-Seite">&nbsp;<a target="_top" href="http://aktuell.de.selfhtml.org/links/pack-programme.htm">SELFHTML-Linkverzeichnis: Pack- und Entpack-Programme</a></p>
+
+<p>Auf Unix-Systemen können Sie eine gezippte Archivdatei (im folgenden am Beispiel der Datei <var>Algorithm-SISort-0.10.tar.gz</var>) mit folgendem Befehl entpacken:</p>
+
+<p><kbd>tar -zxf Algorithm-SISort-0.10.tar.gz</kbd></p>
+
+<p>Falls dies nicht funktioniert, sollte der folgende zusammengesetzte Befehl funktionieren:</p>
+
+<p><kbd>gzip -cd Algorithm-SISort-0.10.tar.gz | tar -xf -</kbd></p>
+
+<p>Anschließend befinden sich die entpackten Dateien in einem Unterverzeichnis mit dem gleichen Namen wie das Modul, im Beispiel also etwa einem Verzeichnis namens <var>Algorithm-SISort-0.10</var>.</p>
+
+<p>Wenn Sie das Modul nicht auf dem eigenen Rechner installieren wollen, sondern auf einem Rechner im Internet, wo Sie Web-Speicherplatz gemietet haben, benötigen Sie einen Telnet- oder SSH-Zugang zu dem Rechner, um das Modul dort installieren zu können. Ferner benötigen Sie die Rechte, um in die Modulverzeichnisse von Perl Dateien kopieren zu können. Fragen Sie dazu gegebenenfalls Ihren Provider! Wenn es sich bei dem Server-Rechner um einen Rechner mit einem Unix-Betriebssystem handelt, können Sie die <var>tar.gz</var>-Datei des Moduls zunächst auf Ihren Rechner downloaden, dann auf Ihren Server-Rechner uploaden und die Datei dort am Shell-Prompt, den Sie bei Zugang über Telnet oder SSH erhalten, mit den oben genannten Befehlen entpacken.</p>
+
+<p>Nach dem Entpacken der <var>tar.gz</var>-Datei des Moduls muss das Modul installiert werden. Wechseln Sie dazu in das Verzeichnis der entpackten Dateien. Meistens finden Sie dort eine Datei namens <var>README</var> oder <var>INSTALL</var>, in der unter anderem Informationen zum Installieren des Moduls stehen.</p>
+
+<p>Unter <strong>Unix</strong> müssen Sie nun am Shell-Prompt folgende Befehle eingeben:</p>
+
+<p><kbd>perl Makefile.PL</kbd></p>
+
+<p>Mit diesem Befehl wird eine Datei mit Installationsinformationen erzeugt. Gegebenenfalls müssen Sie beim Aufruf von <kbd>perl</kbd> den Pfad zur ausführbaren Datei des Perl-Interpreters angeben.</p>
+
+<p><kbd>make</kbd></p>
+
+<p>Mit diesem Befehl wird die Installation vorbereitet - die Dateien werden für Ihr System kompiliert.</p>
+
+<p><kbd>make test</kbd></p>
+
+<p>Mit diesem Befehl wird die Installationsvorbereitung getestet. Wenn Sie sicher sind, dass Sie alles richtig konfiguriert haben, können Sie diesen Schritt auch weglassen.</p>
+
+<p><kbd>make install</kbd></p>
+
+<p>Mit diesem Befehl wird die Installation durchgeführt.</p>
+
+<p>Führen Sie diese Befehle unbedingt in der angegebenen Reihenfolge aus, wenn Sie ein Perl-Modul installieren! Das Modul ist dann in einem Modulverzeichnis installiert. Weitere Informationen, wie Sie das Modul benutzen, finden Sie in der hoffentlich vorhandenen Datei <var>README</var> oder <var>INSTALL</var>.</p>
+
+<p>Unter anderen Systemen wie <strong>Windows</strong>, wo Sie normalerweise Zugang zu allen Verzeichnissen auf dem Rechner haben, kopieren Sie einfach den Inhalt des Unterverzeichnisses <var>lib</var>, das nach dem Entpacken existieren sollte, in das Verzeichnis <var>lib</var> unterhalb des Installationsverzeichnisses von Perl, sofern es sich um ein reines Perl-Modul handelt. Wenn das Modul mit C-Erweiterungen arbeitet, benötigen Sie einen C-Compiler, oder Sie benutzen das in der ActivePerl-Distribution mitgelieferte Tool <var>ppm</var>, um eine bereits kompilierte Version des Moduls zu installieren.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Falls Sie aufgrund fehlender Rechte auf einem Server-Rechner nicht die Möglichkeit haben, Module aus dem CPAN-Verzeichnis in die Modulverzeichnisse von Perl zu installieren, können Sie es auch in ein Verzeichnis Ihrer Wahl installieren. Also in ein Verzeichnis, auf das Sie selber Zugriff haben. Ohne einen Shell-Prompt, wie er bei Telnet oder SSH zur Verfügung steht, kommen Sie jedoch nicht aus.</p>
+
+<p>Legen Sie dazu zunächst das Verzeichnis mit dem gewünschten Namen an der gewünschten Stelle in Ihrem Verzeichnisbaum an. Stellen Sie danach sicher, dass Sie sich im Verzeichnis des entpackten Perl-Moduls befinden. Geben Sie dann der Reihe nach folgende Befehle ein:</p>
+
+<p>
+<kbd>
+perl Makefile.PL LIB=[Pfad zum Verzeichnis]<br>
+make<br>
+make test<br>
+make install</kbd>
+</p>
+
+<p>Bei <code>[Pfad zum Verzeichnis]</code> müssen Sie das zuvor angelegte Verzeichnis korrekt adressieren. Angenommen, Sie haben die Moduldateien aus Sicht Ihres Homepage-Startverzeichnisses in <var>tmp/Algorithm-SISort-0.10</var> entpackt, und das Modul soll in <var>cgi-bin/perlmodule/Algorithm-SISort-0.10</var> installiert werden. Dann müssen Sie, wenn Sie sich im Verzeichnis <var>tmp/Algorithm-SISort-0.10</var> befinden, eingeben:<br>
+<code>perl Makefile.PL LIB=../../cgi-bin/perlmodule/Algorithm-SISort-0.10</code></p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="cgi.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="cgi.htm">Modul CGI: Funktionen für die CGI-Programmierung</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="standardmodule.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="standardmodule.htm">Standardmodule von Perl</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">Perl</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Perl-Module</a></td>
+</tr>
+</table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

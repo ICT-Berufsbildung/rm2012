@@ -1,0 +1,10 @@
+<!ELEMENT autos (auto)*>
+<!ELEMENT auto EMPTY>
+<!ATTLIST auto
+   typ CDATA #REQUIRED
+   bj  CDATA #REQUIRED
+   km  CDATA #REQUIRED
+   ps  CDATA #REQUIRED
+   vb  CDATA #REQUIRED
+>
+

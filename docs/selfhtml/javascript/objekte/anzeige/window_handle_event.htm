@@ -1,0 +1,18 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>Test</title>
+<script type="text/javascript">
+function clickHandler (Ereignis) {
+  window.document.links[0].handleEvent(Ereignis);
+}
+
+window.captureEvents(Event.CLICK);
+window.onclick = clickHandler;
+</script>
+</head><body>
+<a href="datei.htm" onclick="location.href = 'datei.htm'">Verweis</a>
+
+<p><a href="../window.htm#handle_event">zur&uuml;ck</a></p>
+</body>
+</html>

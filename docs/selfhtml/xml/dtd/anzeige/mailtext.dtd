@@ -1,0 +1,5 @@
+<!ENTITY f "Hatzelbutz und Partner GmbH" >
+<!ENTITY m "info@hatzelbutz.de" >
+<!ENTITY fm "&f;, &m;" >
+<!ELEMENT mailtext (#PCDATA)>
+

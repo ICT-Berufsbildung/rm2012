@@ -1,0 +1,261 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: Navigationshilfen / Quickbar</title>
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-10-28T21:26:03+02:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/navigation/quickbar/liste_css.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<script type="text/javascript">
+function Go(x) {
+  if (x == "nothing") {
+    document.forms[0].reset();
+    parent.frames[2].focus();
+  } else {
+    parent.frames[2].location.href = "../../css/" + x;
+  }
+}
+</script>
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../stichwort.htm">
+<link rel="search" title="Suche" href="../suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+</head>
+<body class="doc">
+
+<form action="">
+<select size="1" onkeyup="Go(this.options[this.options.selectedIndex].value)"
+onchange="Go(this.options[this.options.selectedIndex].value)" class="qbar" style="width:350px;">
+
+<option value="nothing">[ CSS-Syntaxverzeichnis ]</option>
+<option value="formate/zentrale.htm#individualformate">#</option>
+<option value="formate/wertzuweisung.htm#farben">#RRGGBB</option>
+<option value="formate/wertzuweisung.htm#farben">#RGB</option>
+<option value="formate/wertzuweisung.htm#numerische">% (Maß)</option>
+<option value="formate/zentrale.htm#verschachtelte_elemente">&gt;</option>
+<option value="formate/zentrale.htm#verschachtelte_elemente">*</option>
+<option value="formate/zentrale.htm#verschachtelte_elemente">+</option>
+<option value="formate/zentrale.htm#klassen">.</option>
+<option value="formate/einbinden.htm#link_media">/* */</option>
+<option value="formate/zentrale.htm#pseudoformate">:</option>
+<option value="eigenschaften/pseudoformate.htm#link_visited_focus_hover_active">:active</option>
+<option value="eigenschaften/pseudoformate.htm#before_after">:after</option>
+<option value="eigenschaften/pseudoformate.htm#before_after">:before</option>
+<option value="eigenschaften/pseudoformate.htm#first_line_letter_child">:first-child</option>
+<option value="eigenschaften/pseudoformate.htm#first_line_letter_child">:first-letter</option>
+<option value="eigenschaften/pseudoformate.htm#first_line_letter_child">:first-line</option>
+<option value="eigenschaften/pseudoformate.htm#link_visited_focus_hover_active">:focus</option>
+<option value="eigenschaften/printlayouts.htm#kopf_fuss">:footer</option>
+<option value="eigenschaften/printlayouts.htm#kopf_fuss">:header</option>
+<option value="eigenschaften/pseudoformate.htm#link_visited_focus_hover_active">:hover</option>
+<option value="eigenschaften/pseudoformate.htm#lang">:lang()</option>
+<option value="eigenschaften/printlayouts.htm#rechts_links">:left</option>
+<option value="eigenschaften/pseudoformate.htm#link_visited_focus_hover_active">:link</option>
+<option value="eigenschaften/printlayouts.htm#rechts_links">:right</option>
+<option value="eigenschaften/pseudoformate.htm#link_visited_focus_hover_active">:visited</option>
+<option value="formate/einbinden.htm#kodierung">@charset</option>
+<option value="eigenschaften/schrift_datei.htm#font_face">@font-face</option>
+<option value="formate/einbinden.htm#at_import">@import</option>
+<option value="formate/einbinden.htm#media">@media</option>
+<option value="eigenschaften/printlayouts.htm#page">@page</option>
+<option value="formate/zentrale.htm#attributbedingte">[ ]</option>
+<option value="eigenschaften/schrift_datei.htm#zusatzangaben">ascent (@font)</option>
+<option value="formate/einbinden.htm#link_media">aural (@media)</option>
+<option value="eigenschaften/sprachausgabe.htm#azimuth">azimuth</option>
+<option value="eigenschaften/hintergrund.htm#background">background</option>
+<option value="eigenschaften/hintergrund.htm#background_attachment">background-attachment</option>
+<option value="eigenschaften/hintergrund.htm#background_color">background-color</option>
+<option value="eigenschaften/hintergrund.htm#background_image">background-image</option>
+<option value="eigenschaften/hintergrund.htm#background_position">background-position</option>
+<option value="eigenschaften/hintergrund.htm#background_repeat">background-repeat</option>
+<option value="eigenschaften/schrift_datei.htm#zusatzangaben">baseline (@font)</option>
+<option value="eigenschaften/rahmen.htm#border">border</option>
+<option value="eigenschaften/rahmen.htm#border">border-bottom</option>
+<option value="eigenschaften/rahmen.htm#border_color">border-bottom-color</option>
+<option value="eigenschaften/rahmen.htm#border_style">border-bottom-style</option>
+<option value="eigenschaften/rahmen.htm#border_width">border-bottom-width</option>
+<option value="eigenschaften/tabellen.htm#border_collapse">border-collapse</option>
+<option value="eigenschaften/rahmen.htm#border_color">border-color</option>
+<option value="eigenschaften/rahmen.htm#border">border-left</option>
+<option value="eigenschaften/rahmen.htm#border_color">border-left-color</option>
+<option value="eigenschaften/rahmen.htm#border_style">border-left-style</option>
+<option value="eigenschaften/rahmen.htm#border_width">border-left-width</option>
+<option value="eigenschaften/rahmen.htm#border">border-right</option>
+<option value="eigenschaften/rahmen.htm#border_color">border-right-color</option>
+<option value="eigenschaften/rahmen.htm#border_style">border-right-style</option>
+<option value="eigenschaften/rahmen.htm#border_width">border-right-width</option>
+<option value="eigenschaften/tabellen.htm#border_spacing">border-spacing</option>
+<option value="eigenschaften/rahmen.htm#border_style">border-style</option>
+<option value="eigenschaften/rahmen.htm#border">border-top</option>
+<option value="eigenschaften/rahmen.htm#border_color">border-top-color</option>
+<option value="eigenschaften/rahmen.htm#border_style">border-top-style</option>
+<option value="eigenschaften/rahmen.htm#border_width">border-top-width</option>
+<option value="eigenschaften/rahmen.htm#border_width">border-width</option>
+<option value="eigenschaften/positionierung.htm#bottom">bottom</option>
+<option value="formate/einbinden.htm#link_media">braille (@media)</option>
+<option value="eigenschaften/schrift_datei.htm#zusatzangaben">cap-height (@font)</option>
+<option value="eigenschaften/tabellen.htm#caption_side">caption-side</option>
+<option value="eigenschaften/schrift_datei.htm#zusatzangaben">centerline</option>
+<option value="eigenschaften/positionierung.htm#clear">clear</option>
+<option value="eigenschaften/positionierung.htm#clip">clip</option>
+<option value="eigenschaften/pseudoformate.htm#anfuehrungszeichen">close-quote</option>
+<option value="formate/wertzuweisung.htm#numerische">cm (Maß)</option>
+<option value="eigenschaften/schrift.htm#color">color</option>
+<option value="eigenschaften/pseudoformate.htm#nummerierung">content</option>
+<option value="eigenschaften/pseudoformate.htm#nummerierung">conter-increment</option>
+<option value="eigenschaften/pseudoformate.htm#nummerierung">conter-reset</option>
+<option value="eigenschaften/pseudoformate.htm#nummerierung">counter</option>
+<option value="eigenschaften/sprachausgabe.htm#cue">cue</option>
+<option value="eigenschaften/sprachausgabe.htm#cue_after">cue-after</option>
+<option value="eigenschaften/sprachausgabe.htm#cue_before">cue-before</option>
+<option value="eigenschaften/anzeigefenster.htm#cursor">cursor</option>
+<option value="eigenschaften/schrift_datei.htm#zusatzangaben">definition-src:url()</option>
+<option value="formate/wertzuweisung.htm#sprachausgabe">deg (Maß)</option>
+<option value="eigenschaften/schrift_datei.htm#zusatzangaben">descent (@font)</option>
+<option value="eigenschaften/positionierung.htm#direction">direction</option>
+<option value="eigenschaften/positionierung.htm#display">display</option>
+<option value="formate/wertzuweisung.htm#numerische">em (Maß)</option>
+<option value="formate/einbinden.htm#link_media">embossed (@media)</option>
+<option value="eigenschaften/tabellen.htm#empty_cells">empty-cells</option>
+<option value="eigenschaften/sprachausgabe.htm#evelation">evelation</option>
+<option value="formate/wertzuweisung.htm#numerische">ex (Maß)</option>
+<option value="eigenschaften/filter.htm#alpha">filter:Alpha()</option>
+<option value="eigenschaften/filter.htm#blur">filter:Blur()</option>
+<option value="eigenschaften/filter.htm#chroma">filter:Chroma()</option>
+<option value="eigenschaften/filter.htm#drop_shadow">filter:DropShadow()</option>
+<option value="eigenschaften/filter.htm#flip_h">filter:FlipH()</option>
+<option value="eigenschaften/filter.htm#flip_v">filter:FlipV()</option>
+<option value="eigenschaften/filter.htm#glow">filter:Glow()</option>
+<option value="eigenschaften/filter.htm#gray">filter:Gray()</option>
+<option value="eigenschaften/filter.htm#invert">filter:Invert()</option>
+<option value="eigenschaften/filter.htm#mask">filter:Mask()</option>
+<option value="eigenschaften/filter.htm#shadow">filter:Shadow()</option>
+<option value="eigenschaften/filter.htm#wave">filter:Wave()</option>
+<option value="eigenschaften/filter.htm#x_ray">filter:XRay()</option>
+<option value="eigenschaften/positionierung.htm#float">float</option>
+<option value="eigenschaften/schrift.htm#font">font</option>
+<option value="eigenschaften/schrift.htm#font_family">font-family</option>
+<option value="eigenschaften/schrift.htm#font_size">font-size</option>
+<option value="eigenschaften/schrift.htm#font_stretch">font-stretch</option>
+<option value="eigenschaften/schrift.htm#font_style">font-style</option>
+<option value="eigenschaften/schrift.htm#font_variant">font-variant</option>
+<option value="eigenschaften/schrift.htm#font_weight">font-weight</option>
+<option value="eigenschaften/schrift_datei.htm#zusatzangaben">format()  (@font)</option>
+<option value="formate/wertzuweisung.htm#sprachausgabe">grad (Maß)</option>
+<option value="formate/einbinden.htm#link_media">handheld (@media)</option>
+<option value="eigenschaften/positionierung.htm#height">height</option>
+<option value="formate/wertzuweisung.htm#sprachausgabe">Hz (Maß)</option>
+<option value="formate/wertzuweisung.htm#numerische">in (Maß)</option>
+<option value="formate/wertzuweisung.htm#sprachausgabe">kHz (Maß)</option>
+<option value="eigenschaften/positionierung.htm#left">left</option>
+<option value="eigenschaften/schrift.htm#letter_spacing">letter-spacing</option>
+<option value="eigenschaften/ausrichtung.htm#line_height">line-height</option>
+<option value="eigenschaften/listen.htm#list_style">list-style</option>
+<option value="eigenschaften/listen.htm#list_style_image">list-style-image</option>
+<option value="eigenschaften/listen.htm#list_style_position">list-style-position</option>
+<option value="eigenschaften/listen.htm#list_style_type">list-style-type</option>
+<option value="eigenschaften/printlayouts.htm#margin">margin (@page)</option>
+<option value="eigenschaften/randabstand.htm#margin">margin</option>
+<option value="eigenschaften/randabstand.htm#margin_bottom">margin-bottom</option>
+<option value="eigenschaften/randabstand.htm#margin_left">margin-left</option>
+<option value="eigenschaften/randabstand.htm#margin_right">margin-right</option>
+<option value="eigenschaften/randabstand.htm#margin_top">margin-top</option>
+<option value="eigenschaften/printlayouts.htm#clip">marks (@page)</option>
+<option value="eigenschaften/schrift_datei.htm#zusatzangaben">mathline (@font)</option>
+<option value="eigenschaften/positionierung.htm#max_height">max-height</option>
+<option value="eigenschaften/positionierung.htm#max_width">max-width</option>
+<option value="eigenschaften/positionierung.htm#min_height">min-height</option>
+<option value="eigenschaften/positionierung.htm#min_width">min-width</option>
+<option value="formate/wertzuweisung.htm#numerische">mm (Maß)</option>
+<option value="formate/wertzuweisung.htm#sprachausgabe">ms (Maß)</option>
+<option value="eigenschaften/pseudoformate.htm#anfuehrungszeichen">open-quote</option>
+<option value="eigenschaften/printlayouts.htm#orphans">orphans</option>
+<option value="eigenschaften/positionierung.htm#overflow">overflow</option>
+<option value="eigenschaften/innenabstand.htm#padding">padding</option>
+<option value="eigenschaften/innenabstand.htm#padding_bottom">padding-bottom</option>
+<option value="eigenschaften/innenabstand.htm#padding_left">padding-left</option>
+<option value="eigenschaften/innenabstand.htm#padding_right">padding-right</option>
+<option value="eigenschaften/innenabstand.htm#padding_top">padding-top</option>
+<option value="eigenschaften/printlayouts.htm#page_break_after">page-break-after</option>
+<option value="eigenschaften/printlayouts.htm#page_break_before">page-break-before</option>
+<option value="eigenschaften/printlayouts.htm#page_break_inside">page-break-inside</option>
+<option value="eigenschaften/schrift_datei.htm#zusatzangaben">panose-1 (@font)</option>
+<option value="eigenschaften/sprachausgabe.htm#pause">pause</option>
+<option value="eigenschaften/sprachausgabe.htm#pause_after">pause-after</option>
+<option value="eigenschaften/sprachausgabe.htm#pause_before">pause-before</option>
+<option value="formate/wertzuweisung.htm#numerische">pc (Maß)</option>
+<option value="eigenschaften/sprachausgabe.htm#pitch">pitch</option>
+<option value="eigenschaften/sprachausgabe.htm#pitch_range">pitch-range</option>
+<option value="eigenschaften/sprachausgabe.htm#play_during">play-during</option>
+<option value="eigenschaften/positionierung.htm#position">position</option>
+<option value="formate/einbinden.htm#link_media">print (@media)</option>
+<option value="formate/einbinden.htm#link_media">projection (@media)</option>
+<option value="formate/wertzuweisung.htm#numerische">pt (Maß)</option>
+<option value="formate/wertzuweisung.htm#numerische">px (Maß)</option>
+<option value="eigenschaften/pseudoformate.htm#anfuehrungszeichen">quotes</option>
+<option value="formate/wertzuweisung.htm#sprachausgabe">rad (Maß)</option>
+<option value="formate/wertzuweisung.htm#farben">rgb( )</option>
+<option value="eigenschaften/sprachausgabe.htm#richness">richness</option>
+<option value="eigenschaften/positionierung.htm#right">right</option>
+<option value="eigenschaften/printlayouts.htm#running_head">running-head</option>
+<option value="formate/wertzuweisung.htm#sprachausgabe">s (Maß)</option>
+<option value="formate/einbinden.htm#link_media">screen (@media)</option>
+<option value="eigenschaften/anzeigefenster.htm#scrollbar">scrollbar-3dlight-color</option>
+<option value="eigenschaften/anzeigefenster.htm#scrollbar">scrollbar-arrow-color</option>
+<option value="eigenschaften/anzeigefenster.htm#scrollbar">scrollbar-base-color</option>
+<option value="eigenschaften/anzeigefenster.htm#scrollbar">scrollbar-darkshadow-color</option>
+<option value="eigenschaften/anzeigefenster.htm#scrollbar">scrollbar-face-color</option>
+<option value="eigenschaften/anzeigefenster.htm#scrollbar">scrollbar-highlight-color</option>
+<option value="eigenschaften/anzeigefenster.htm#scrollbar">scrollbar-shadow-color</option>
+<option value="eigenschaften/anzeigefenster.htm#scrollbar">scrollbar-track-color</option>
+<option value="eigenschaften/printlayouts.htm#size">size (@page)</option>
+<option value="eigenschaften/schrift_datei.htm#zusatzangaben">slope (@font)</option>
+<option value="eigenschaften/sprachausgabe.htm#speak">speak</option>
+<option value="eigenschaften/sprachausgabe.htm#speak_date">speak-date</option>
+<option value="eigenschaften/tabellen.htm#speak_header">speak-header</option>
+<option value="eigenschaften/sprachausgabe.htm#speak_numeral">speak-numeral</option>
+<option value="eigenschaften/sprachausgabe.htm#speak_punctuation">speak-punctuation</option>
+<option value="eigenschaften/sprachausgabe.htm#speak_time">speak-time</option>
+<option value="eigenschaften/sprachausgabe.htm#speech_rate">speech-rate</option>
+<option value="eigenschaften/schrift_datei.htm#font_face">src:url() (@font)</option>
+<option value="eigenschaften/schrift_datei.htm#zusatzangaben">stemh (@font)</option>
+<option value="eigenschaften/schrift_datei.htm#zusatzangaben">stemv (@font)</option>
+<option value="eigenschaften/sprachausgabe.htm#stress">stress</option>
+<option value="eigenschaften/tabellen.htm#table_layout">table-layout</option>
+<option value="eigenschaften/ausrichtung.htm#text_align">text-align</option>
+<option value="eigenschaften/schrift.htm#text_decoration">text-decoration</option>
+<option value="eigenschaften/ausrichtung.htm#text_indent">text-indent</option>
+<option value="eigenschaften/schrift.htm#text_shadow">text-shadow</option>
+<option value="eigenschaften/schrift.htm#text_transform">text-transform</option>
+<option value="eigenschaften/positionierung.htm#top">top</option>
+<option value="eigenschaften/schrift_datei.htm#zusatzangaben">topline (@font)</option>
+<option value="formate/einbinden.htm#link_media">tty (@media)</option>
+<option value="formate/einbinden.htm#link_media">tv (@media)</option>
+<option value="eigenschaften/schrift_datei.htm#unicode_range">unicode-range  (@font)</option>
+<option value="eigenschaften/schrift_datei.htm#zusatzangaben">units-per-em (@font)</option>
+<option value="eigenschaften/ausrichtung.htm#vertical_align">vertical-align</option>
+<option value="eigenschaften/positionierung.htm#visibility">visibility</option>
+<option value="eigenschaften/sprachausgabe.htm#voice_family">voice-family</option>
+<option value="eigenschaften/sprachausgabe.htm#volume">volume</option>
+<option value="eigenschaften/ausrichtung.htm#white_space">white-space</option>
+<option value="eigenschaften/printlayouts.htm#widows">widows</option>
+<option value="eigenschaften/positionierung.htm#width">width</option>
+<option value="eigenschaften/schrift.htm#word_spacing">word-spacing</option>
+<option value="eigenschaften/schrift_datei.htm#zusatzangaben">x-height (@font)</option>
+<option value="eigenschaften/positionierung.htm#z_index">z-index</option>
+</select>
+</form>
+
+</body>
+</html>

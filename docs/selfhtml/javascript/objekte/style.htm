@@ -1,0 +1,746 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: JavaScript / Objektreferenz / style</title>
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<meta name="description"    content="Welche Aufgaben und Methoden das style-Objekt in JavaScript hat.">
+<meta name="keywords"       content="SELFHTML, JavaScript, Objekte, Stylesheets, CSS, style, getAttribute, removeAttribute, setAttribute">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-11-08T02:11:45+01:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/javascript/objekte/style.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="Objektreferenz" href="index.htm">
+<link rel="next" title="anchors" href="anchors.htm">
+<link rel="prev" title="all" href="all.htm">
+<link rel="first" title="Hinweise zur JavaScript-Objektreferenz" href="hinweise.htm">
+<link rel="last" title="Objektunabhängige Funktionen" href="unabhaengig.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">JavaScript/DOM</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Objektreferenz</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">style</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p><img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#allgemeines">style: Allgemeines zur Verwendung</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#style_eigenschaften">Style-Eigenschaften</a></p>
+
+<h3>Methoden:</h3>
+
+<p><img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#get_attribute">getAttribute()</a> (Stylesheet-Angabe ermitteln)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#remove_attribute">removeAttribute()</a> (Stylesheet-Angabe entfernen)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#set_attribute">setAttribute()</a> (Stylesheet-Angabe einfügen)</p>
+
+</td>
+</tr><tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><a class="an" name="allgemeines">style: Allgemeines zur Verwendung</a></h2>
+
+<p>Das Objekt <code>style</code> liegt in der JavaScript-Objekthierarchie nach dem Objektmodell des Internet Explorers ab Version 4.0 unterhalb des <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="all.htm">all</a>-Objekts und regelt den Zugriff auf <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../../css/eigenschaften/index.htm">Stylesheet-Angaben</a>, die für ein HTML-Element definiert sind. Sie können alle Sheet-Angaben auslesen und dynamisch ändern. So können Sie HTML-Elemente mit Hilfe von Scripts nach Belieben umformatieren.</p>
+
+<p>Der Zugriff auf HTML-Elemente erfolgt dabei genau so wie beim <code>all</code>-Objekt (lesen Sie dazu beim <code>all</code>-Objekt vor allem die Passagen <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="all.htm#ansprechen">HTML-Elemente ansprechen</a> und <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="all.htm#mit_namen_ansprechen">HTML-Elemente mit Namen ansprechen</a>). Beim style-Objekt wird lediglich zusätzlich <code>style</code> notiert und dahinter die gewünschte Stylesheet-Angabe.</p>
+
+<p>Auch im Document Object Model (DOM) der Version 2.0 gibt es das <code>style</code>-Objekt. Um auf die Eigenschaften und Methoden des <code>style</code>-Objekts nach DOM-Syntax zugreifen zu können, benötigen Sie einen Elementknoten. Um auf vorhandene Elementknoten im Dokument zuzugreifen, werden die Methoden des <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="document.htm">document</a>-Objekts <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="document.htm#get_element_by_id">getElementById</a>, <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="document.htm#get_elements_by_name">getElementsByName</a> und <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="document.htm#get_elements_by_tag_name">getElementsByTagName</a> verwendet. Ausgehend davon können Sie angesprochene Element mit Hilfe von Scripts umformatieren.</p>
+
+<h3 class="xmp"><img src="../../src/msjs.gif" width="30" height="30" alt="MS JScript" title="MS JScript"><img src="../../src/msie4.gif" width="30" height="30" alt="MS IE 4.0" title="MS IE 4.0"><img src="../../src/op7.gif" width="30" height="30" alt="Opera 7" title="Opera 7"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"> Beispiel für ältere Microsoft-Syntax (all):</h3>
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/style_allgemeines_all.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;script type="text/javascript"&gt;
+function MachGelb () {
+  document.all.DynText.style.backgroundColor = "yellow";
+  document.all.DynText.style.fontSize = "200%";
+  document.all.DynText.style.padding = "15px";
+}
+&lt;/script&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;p id="DynText"&gt;Das ist der Text&lt;/p&gt;
+&lt;a href="javascript:MachGelb()"&gt;gelb&lt;/a&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+<p>Das Beispiel enthält einen Textabsatz mit dem id-Namen <code>DynText</code>. Beim Anklicken des Verweises unterhalb wird die Funktion <code>MachGelb()</code> aufgerufen. Diese Funktion weist dem Textabsatz verschiedene Stylesheet-Angaben zu, zum Beispiel die Angabe für die Hintergrundfarbe (<code>backgroundColor</code>) und dabei den Wert für gelb (<code>yellow</code>). Der Textabsatz erhält dadurch beim Anklicken des Verweises dynamisch eine gelbe Hintergrundfarbe und die übrigen Attribute.</p>
+
+<p>Es ist egal, ob das betroffene HTML-Element vorher bereits Stylesheet-Angaben enthält oder nicht. Im Beispiel enthält es keine.</p>
+
+<p>Nach dem gleichen Schema können Sie alle CSS Stylesheet-Angaben behandeln, die der Internet Explorer kennt. Die Tabelle <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#style_eigenschaften">Style-Eigenschaften</a> listet Stylesheet-Angaben auf. Beachten Sie dabei die Hinweise zur besonderen Schreibweise der Stylesheet-Angaben in JavaScript.</p>
+
+
+
+<h3 class="xmp"><img src="../../src/dom20.gif" width="30" height="30" alt="DOM 2.0" title="DOM 2.0"><img src="../../src/js15.gif" width="30" height="30" alt="JavaScript 1.5" title="JavaScript 1.5"><img src="../../src/netsc6.gif" width="30" height="30" alt="Netscape 6.0" title="Netscape 6.0"><img src="../../src/msie55.gif" width="30" height="30" alt="MS IE 5.5" title="MS IE 5.5"><img src="../../src/op6.gif" width="30" height="30" alt="Opera 6" title="Opera 6"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;Beispiel für DOM-Syntax:</h3>
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/style_allgemeines_dom.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;script type="text/javascript"&gt;
+function setCSS () {
+  for (var i = 0; i &lt; document.getElementsByTagName("p").length; i++) {
+    document.getElementsByTagName("p")[i].style.border = "solid red 10px";
+    document.getElementsByTagName("p")[i].style.backgroundColor = "#FF9933";
+    document.getElementsByTagName("p")[i].style.color = "#FFFFFF";
+    document.getElementsByTagName("p")[i].style.fontSize = "250%";
+  }
+}
+&lt;/script&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;p&gt;Absatz&lt;/p&gt;
+&lt;p&gt;zweiter Absatz&lt;/p&gt;
+&lt;p&gt;dritter Absatz&lt;/p&gt;
+&lt;p&gt;&lt;a href="javascript:setCSS()"&gt;Stylesheet-Power!&lt;/a&gt;&lt;/p&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+<p>Das Beispiel enthält vier Textabsätze. Im letzten davon ist ein Verweis notiert, bei dessen Anklicken die <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../sprache/funktionen.htm">Funktion</a> <code>setCSS()</code> aufgerufen wird, die im Dateikopf notiert ist. Diese Funktion greift in einer <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../sprache/schleifen.htm#for">for-Schleife</a> der Reihe nach mit <code>document.getElementsByTagName("p")[i]</code> auf alle <code>p</code>-Elemente im Dokument zu. Mit <code>style</code> dahinter wird auf die CSS-Eigenschaften des Elements zugegriffen. Dahinter folgt die gewünschte CSS-Eigenschaft. Dieser wird jeweils ein gültiger Wert zugewiesen.</p>
+
+<p>Es ist egal, ob das betroffene HTML-Element vorher bereits Stylesheet-Angaben enthält oder nicht. Im Beispiel enthält es keine.</p>
+
+<p>Nach dem gleichen Schema können Sie alle CSS Stylesheet-Angaben behandeln, die CSS2 kennt. Die Tabelle <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#style_eigenschaften">Style-Eigenschaften</a> listet Stylesheet-Angaben auf. Beachten Sie dabei die Hinweise zur besonderen Schreibweise der Stylesheet-Angaben in JavaScript.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="style_eigenschaften">Style-Eigenschaften</a></h2>
+
+<p>Eine wichtige Regel müssen Sie kennen: Wenn in einem Script eine CSS-Angabe ausgelesen oder verändert werden soll, entfällt der Bindestrich, und der erste Buchstabe des Wortes hinter dem Bindestrich wird großgeschrieben. Die CSS-Eigenschaft <code>background-color</code> wird innerhalb eines JavaScripts also zu <code>backgroundColor</code>.</p>
+
+<p>Die folgende Tabelle listet Style-Eigenschaften auf. Die Tabelle enthält links die Stylesheet-Angabe, wie Sie sie in JavaScript im Zusammenhang mit dem Style-Objekt notieren müssen. In der mittleren Spalte steht eine Kurzbeschreibung, was die Angabe bewirkt. Rechts steht jeweils ein Verweis "CSS-Beschreibung". Diese Verweise führen zu der Beschreibung der jeweiligen Stylesheet-Angabe im Kapitel über <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../../css/index.htm">Stylesheets</a>. Diesen Verweisen sollten Sie folgen, wenn Sie wissen möchten, welche Werte die entsprechende Stylesheet-Angabe haben kann.</p>
+
+
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<th nowrap="nowrap">JavaScript-Angabe</th>
+<th nowrap="nowrap">Kurzbeschreibung</th>
+<th nowrap="nowrap">siehe auch</th>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>background</code></td>
+<td class="tabxpl">Hintergrundbild</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/hintergrund.htm#background">CSS-Beschreibung</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>backgroundAttachment</code></td>
+<td class="tabxpl">Wasserzeichen-Effekt</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/hintergrund.htm#background_attachment">CSS-Beschreibung</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>backgroundColor</code></td>
+<td class="tabxpl">Hintergrundfarbe</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/hintergrund.htm#background_color">CSS-Beschreibung</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>backgroundImage</code></td>
+<td class="tabxpl">Hintergrundbild</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/hintergrund.htm#background_image">CSS-Beschreibung</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>backgroundPosition</code></td>
+<td class="tabxpl">Position des Hintergrundbilds</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/hintergrund.htm#background_position">CSS-Beschreibung</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>backgroundRepeat</code></td>
+<td class="tabxpl">Wallpaper-Effekt</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/hintergrund.htm#background_repeat">CSS-Beschreibung</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>border</code></td>
+<td class="tabxpl">Rahmen</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/rahmen.htm#border">CSS-Beschreibung</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>borderBottom</code></td>
+<td class="tabxpl">Rahmen unten</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/rahmen.htm#border">CSS-Beschreibung (border)</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>borderBottomColor</code></td>
+<td class="tabxpl">Rahmenfarbe unten</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/rahmen.htm#border_color">CSS-Beschreibung (border-color)</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>borderBottomStyle</code></td>
+<td class="tabxpl">Rahmenart unten</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/rahmen.htm#border_style">CSS-Beschreibung (border-style)</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>borderBottomWidth</code></td>
+<td class="tabxpl">Rahmendicke unten</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/rahmen.htm#border_width">CSS-Beschreibung</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>borderColor</code></td>
+<td class="tabxpl">Rahmenfarbe</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/rahmen.htm#border_color">CSS-Beschreibung</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>borderLeft</code></td>
+<td class="tabxpl">Rahmen links</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/rahmen.htm#border">CSS-Beschreibung (border)</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>borderLeftColor</code></td>
+<td class="tabxpl">Rahmenfarbe links</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/rahmen.htm#border_color">CSS-Beschreibung (border-color)</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>borderLeftStyle</code></td>
+<td class="tabxpl">Rahmenart links</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/rahmen.htm#border_style">CSS-Beschreibung (border-style)</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>borderLeftWidth</code></td>
+<td class="tabxpl">Rahmendicke links</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/rahmen.htm#border_width">CSS-Beschreibung</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>borderRight</code></td>
+<td class="tabxpl">Rahmen rechts</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/rahmen.htm#border">CSS-Beschreibung (border)</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>borderRightColor</code></td>
+<td class="tabxpl">Rahmenfarbe rechts</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/rahmen.htm#border_color">CSS-Beschreibung (border-color)</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>borderRightStyle</code></td>
+<td class="tabxpl">Rahmenart rechts</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/rahmen.htm#border_style">CSS-Beschreibung (border-style)</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>borderRightWidth</code></td>
+<td class="tabxpl">Rahmendicke rechts</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/rahmen.htm#border_width">CSS-Beschreibung (border-width)</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>borderStyle</code></td>
+<td class="tabxpl">Rahmenart</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/rahmen.htm#border_style">CSS-Beschreibung</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>borderTop</code></td>
+<td class="tabxpl">Rahmen oben</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/rahmen.htm#border">CSS-Beschreibung (border)</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>borderTopColor</code></td>
+<td class="tabxpl">Rahmenfarbe oben</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/rahmen.htm#border_color">CSS-Beschreibung (border-color)</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>borderTopStyle</code></td>
+<td class="tabxpl">Rahmenart oben</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/rahmen.htm#border_style">CSS-Beschreibung (border-style)</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>borderTopWidth</code></td>
+<td class="tabxpl">Rahmendicke oben</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/rahmen.htm#border_width">CSS-Beschreibung (border-width)</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>borderWidth</code></td>
+<td class="tabxpl">Rahmendicke</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/rahmen.htm#border_width">CSS-Beschreibung</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>bottom</code></td>
+<td class="tabxpl">Position von unten</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/positionierung.htm#bottom">CSS-Beschreibung</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>captionSide</code></td>
+<td class="tabxpl">Tabellenbeschriftung</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/tabellen.htm#caption_side">CSS-Beschreibung</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>clear</code></td>
+<td class="tabxpl">Fortsetzung bei Textumfluss</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/positionierung.htm#clear">CSS-Beschreibung</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>clip</code></td>
+<td class="tabxpl">Anzeigebereich eingrenzen</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/positionierung.htm#clip">CSS-Beschreibung</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>color</code></td>
+<td class="tabxpl">Textfarbe</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/schrift.htm#color">CSS-Beschreibung</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>cursor</code></td>
+<td class="tabxpl">Mauszeiger</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/anzeigefenster.htm#cursor">CSS-Beschreibung</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>direction</code></td>
+<td class="tabxpl">Schreibrichtung</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/positionierung.htm#direction">CSS-Beschreibung</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>display</code></td>
+<td class="tabxpl">Sichtbarkeit (ohne Platzhalter)</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/positionierung.htm#display">CSS-Beschreibung</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>emptyCells</code></td>
+<td class="tabxpl">Darstellung leerer Tabellenzellen</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/tabellen.htm#empty_cells">CSS-Beschreibung</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>cssFloat</code></td>
+<td class="tabxpl">Textumfluss</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/positionierung.htm#float">CSS-Beschreibung</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>font</code></td>
+<td class="tabxpl">Schrift</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/schrift.htm#font">CSS-Beschreibung</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>fontFamily</code></td>
+<td class="tabxpl">Schriftart</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/schrift.htm#font_family">CSS-Beschreibung</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>fontSize</code></td>
+<td class="tabxpl">Schriftgröße</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/schrift.htm#font_size">CSS-Beschreibung</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>fontStretch</code></td>
+<td class="tabxpl">Schriftlaufweite</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/schrift.htm#font_stretch">CSS-Beschreibung</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>fontStyle</code></td>
+<td class="tabxpl">Schriftstil</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/schrift.htm#font_style">CSS-Beschreibung</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>fontVariant</code></td>
+<td class="tabxpl">Schriftvariante</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/schrift.htm#font_variant">CSS-Beschreibung</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>fontWeight</code></td>
+<td class="tabxpl">Schriftgewicht</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/schrift.htm#font_weight">CSS-Beschreibung</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>height</code></td>
+<td class="tabxpl">Höhe eines Elements</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/positionierung.htm#height">CSS-Beschreibung</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>left</code></td>
+<td class="tabxpl">Position von links</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/positionierung.htm#left">CSS-Beschreibung</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>letterSpacing</code></td>
+<td class="tabxpl">Zeichenabstand</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/schrift.htm#letter_spacing">CSS-Beschreibung</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>lineHeight</code></td>
+<td class="tabxpl">Zeilenhöhe</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/ausrichtung.htm#line_height">CSS-Beschreibung</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>listStyle</code></td>
+<td class="tabxpl">Listendarstellung</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/listen.htm#list_style">CSS-Beschreibung</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>listStyleImage</code></td>
+<td class="tabxpl">Grafik für Aufzählungslisten</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/listen.htm#list_style_image">CSS-Beschreibung</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>listStylePosition</code></td>
+<td class="tabxpl">Listeneinrückung</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/listen.htm#list_style_position">CSS-Beschreibung</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>listStyleType</code></td>
+<td class="tabxpl">Darstellungstyp der Liste</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/listen.htm#list_style_type">CSS-Beschreibung</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>margin</code></td>
+<td class="tabxpl">Abstand/Rand</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/randabstand.htm#margin">CSS-Beschreibung</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>marginBottom</code></td>
+<td class="tabxpl">Abstand/Rand unten</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/randabstand.htm#margin_bottom">CSS-Beschreibung</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>marginLeft</code></td>
+<td class="tabxpl">Abstand/Rand links</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/randabstand.htm#margin_left">CSS-Beschreibung</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>marginRight</code></td>
+<td class="tabxpl">Abstand/Rand rechts</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/randabstand.htm#margin_right">CSS-Beschreibung</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>marginTop</code></td>
+<td class="tabxpl">Abstand/Rand oben</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/randabstand.htm#margin_top">CSS-Beschreibung</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>maxHeight</code></td>
+<td class="tabxpl">Maximalhöhe</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/positionierung.htm#max_height">CSS-Beschreibung</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>maxWidth</code></td>
+<td class="tabxpl">Maximalbreite</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/positionierung.htm#max_width">CSS-Beschreibung</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>minHeight</code></td>
+<td class="tabxpl">Mindesthöhe</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/positionierung.htm#min_height">CSS-Beschreibung</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>minWidth</code></td>
+<td class="tabxpl">Mindestbreite</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/positionierung.htm#min_width">CSS-Beschreibung</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>overflow</code></td>
+<td class="tabxpl">übergroßer Inhalt</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/positionierung.htm#overflow">CSS-Beschreibung</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>padding</code></td>
+<td class="tabxpl">Innenabstand</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/innenabstand.htm#padding">CSS-Beschreibung</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>paddingBottom</code></td>
+<td class="tabxpl">Innenabstand unten</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/innenabstand.htm#padding_bottom">CSS-Beschreibung</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>paddingLeft</code></td>
+<td class="tabxpl">Innenabstand links</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/innenabstand.htm#padding_left">CSS-Beschreibung</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>paddingRight</code></td>
+<td class="tabxpl">Innenabstand rechts</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/innenabstand.htm#padding_right">CSS-Beschreibung</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>paddingTop</code></td>
+<td class="tabxpl">Innenabstand oben</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/innenabstand.htm#padding_top">CSS-Beschreibung</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>pageBreakAfter</code></td>
+<td class="tabxpl">Seitenumbruch danach</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/printlayouts.htm#page_break_after">CSS-Beschreibung</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>pageBreakBefore</code></td>
+<td class="tabxpl">Seitenumbruch davor</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/printlayouts.htm#page_break_before">CSS-Beschreibung</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>position</code></td>
+<td class="tabxpl">Positionsart</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/positionierung.htm#position">CSS-Beschreibung</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>right</code></td>
+<td class="tabxpl">Position von rechts</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/positionierung.htm#right">CSS-Beschreibung</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>scrollbar3dLightColor</code></td>
+<td class="tabxpl">Farbe für 3D-Effekte (Scrollbars)</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/anzeigefenster.htm#scrollbar">CSS-Beschreibung</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>scrollbarArrowColor</code></td>
+<td class="tabxpl">Farbe für Verschiebepfeile (Scrollbars)</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/anzeigefenster.htm#scrollbar">CSS-Beschreibung</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>scrollbarBaseColor</code></td>
+<td class="tabxpl">Basisfarbe der Scroll-Leiste (Scrollbars)</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/anzeigefenster.htm#scrollbar">CSS-Beschreibung</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>scrollbarDarkshadowColor</code></td>
+<td class="tabxpl">Farbe für Schatten (Scrollbars)</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/anzeigefenster.htm#scrollbar">CSS-Beschreibung</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>scrollbarFaceColor</code></td>
+<td class="tabxpl">Farbe für Oberfläche (Scrollbars)</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/anzeigefenster.htm#scrollbar">CSS-Beschreibung</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>scrollbarHighlightColor</code></td>
+<td class="tabxpl">Farbe für oberen und linken Rand (Scrollbars)</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/anzeigefenster.htm#scrollbar">CSS-Beschreibung</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>scrollbarShadowColor</code></td>
+<td class="tabxpl">Farbe für unteren und rechten Rand (Scrollbars)</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/anzeigefenster.htm#scrollbar">CSS-Beschreibung</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>scrollbarTrackColor</code></td>
+<td class="tabxpl">Farbe für freibleibenden Verschiebeweg (Scrollbars)</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/anzeigefenster.htm#scrollbar">CSS-Beschreibung</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>tableLayout</code></td>
+<td class="tabxpl">Tabellentyp</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/tabellen.htm#table_layout">CSS-Beschreibung</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>textAlign</code></td>
+<td class="tabxpl">Ausrichtung</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/ausrichtung.htm#text_align">CSS-Beschreibung</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>textDecoration</code></td>
+<td class="tabxpl">Textdekoration</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/schrift.htm#text_decoration">CSS-Beschreibung</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>textIndent</code></td>
+<td class="tabxpl">Texteinrückung</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/ausrichtung.htm#text_indent">CSS-Beschreibung</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>textTransform</code></td>
+<td class="tabxpl">Text-Transformation</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/schrift.htm#text_transform">CSS-Beschreibung</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>top</code></td>
+<td class="tabxpl">Position von oben</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/positionierung.htm#top">CSS-Beschreibung</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>verticalAlign</code></td>
+<td class="tabxpl">vertikale Ausrichtung</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/ausrichtung.htm#vertical_align">CSS-Beschreibung</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>visibility</code></td>
+<td class="tabxpl">Sichtbarkeit (mit Platzhalter)</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/positionierung.htm#visibility">CSS-Beschreibung</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>width</code></td>
+<td class="tabxpl">Breite eines Elements</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/positionierung.htm#width">CSS-Beschreibung</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>wordSpacing</code></td>
+<td class="tabxpl">Wortabstand</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/schrift.htm#word_spacing">CSS-Beschreibung</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>zIndex</code></td>
+<td class="tabxpl">Schichtposition bei Überlappung</td>
+<td class="tabxpl"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/positionierung.htm#z_index">CSS-Beschreibung</a></td>
+</tr>
+</table>
+<br>&nbsp;
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/msjs.gif" width="30" height="30" alt="MS JScript" title="MS JScript"><img src="../../src/msie4.gif" width="30" height="30" alt="MS IE 4.0" title="MS IE 4.0">&nbsp;<a class="an" name="get_attribute">getAttribute()</a></h2>
+
+<p>Ermittelt, ob ein HTML-Element eine bestimmte Stylesheet-Angabe enthält bzw. welchen Wert. Gibt den Wert zurück, den die Stylesheet-Angabe hat, falls sie gefunden wird, ansonsten die leere Zeichenkette <code>""</code>. Erwartet folgende Parameter:<br>
+<b>1.</b> <i>Style-Angabe</i> = die gesuchte Stylesheet-Angabe.<br>
+<b>2.</b> <i>Groß/Kleinschreibung</i> = <code>true</code> übergeben, wenn bei der Style-Angabe Groß/Kleinschreibung unterschieden werden soll, oder <code>false</code>, wenn es egal ist, wie die Style-Angabe geschrieben ist.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/style_get_attribute.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;script type="text/javascript"&gt;
+function Test () {
+  var fontsize = document.all.Absatz.style.getAttribute("fontSize", false);
+  alert(fontsize);
+}
+&lt;/script&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;p id="Absatz" style="font-size:1.5em"&gt;Ein Text&lt;/p&gt;
+&lt;a href="javascript:Test()"&gt;Test&lt;/a&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+<p>Das Beispiel enthält einen Absatz mit dem id-Namen <code>Absatz</code> und einen Verweis. Beim Anklicken des Verweises wird die Funktion <code>Test()</code> aufgerufen. Diese Funktion ermittelt mit <code>getAttribute()</code>, ob das Element mit dem Namen <code>Absatz</code> eine Stylesheet-Angabe <code>font-size</code> (CSS-Syntax) bzw. <code>fontSize</code> (JavaScript-Syntax) enthält. Da dies der Fall ist, wird der zugewiesene Wert (<code>1.5em</code>) ermittelt. Dieser Wert wird in einem Meldungsfenster ausgegeben.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Wenn Sie nach DOM-Syntax programmieren, können Sie die CSS-Eigenschaft des obigen Absatzes mit folgender Anweisung abfragen:<br>
+<code>var fontsize = document.getElementById("Absatz").style.fontSize;</code></p>
+
+<p>Selbst wenn Sie den Internet Explorer 4 berücksichtigen müssen, ist <code>getAttribute()</code> meistens unnötig. Anstelle des Methoden-Aufrufs im Beispiel können Sie auch einfach direkt <code>var fontsize = document.all.Absatz.style.fontSize;</code> notieren. <code>getAttribute()</code> wird erst dann gebraucht, wenn der CSS-Eigenschaftsnamen (im Beispiel <code>fontSize</code>) nicht fest kodiert ist, sondern in einer String-Variablen vorliegt. In diesem diesen Fall können Sie folgende browserübergreifende Schreibweise verwenden: <code>var wert = document.getElementById("Absatz").style[eigenschaft];</code>, wobei <code>eigenschaft</code> eine String-Variable z.B. mit dem Inhalt <code>"fontSize"</code> ist.</p>
+
+<p>Konqueror kennt die <code>getAttribute()</code>-Methode zwar, liefert den korrekten Wert im Beispiel allerdings nur zurück, wenn die Eigenschaft in der CSS-Syntax <code>"font-size"</code> statt <code>"fontSize"</code> notiert ist. Der Internet Explorer 5.0 Macintosh Edition interpretiert dieses Beispiel nicht.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/msjs.gif" width="30" height="30" alt="MS JScript" title="MS JScript"><img src="../../src/msie4.gif" width="30" height="30" alt="MS IE 4.0" title="MS IE 4.0"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1">&nbsp;<a class="an" name="remove_attribute">removeAttribute()</a></h2>
+
+<p>Entfernt ein bestimmtes Attribut aus Stylesheet-Angaben. Erwartet folgende Parameter:<br>
+<b>1.</b> <i>Attribut</i> = die gewünschte Stylesheet-Angabe im HTML-Tag.<br>
+<b>2.</b> <i>Groß/Kleinschreibung</i> = <code>true</code> übergeben, wenn bei der Stylesheet-Angabe Groß/Kleinschreibung unterschieden werden soll, oder <code>false</code>, wenn es egal ist, wie die Stylesheet-Angabe geschrieben ist.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/style_remove_attribute.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;script type="text/javascript"&gt;
+function Test () {
+  document.all.Absatz.style.removeAttribute("color", false);
+}
+&lt;/script&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;p id="Absatz" style="color:red"&gt;Ein Text&lt;/p&gt;
+&lt;a href="javascript:Test()"&gt;Test&lt;/a&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+<p>Das Beispiel enthält einen Absatz mit dem id-Namen <code>Absatz</code> und einen Verweis. Beim Anklicken des Verweises wird die Funktion <code>Test()</code> aufgerufen. Diese Funktion entfernt aus dem Absatz die Stylesheet-Angabe <code>color</code>, sodass der Absatz hinterher die rote Farbe verliert und die Standardfarbe für Text erhält.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Wenn Sie nach DOM-Syntax programmieren, können Sie die CSS-Eigenschaft des obigen Absatzes mit folgender Anweisung entfernen:<br>
+<code>document.getElementById("Absatz").style.color = "";</code><br>
+Durch Zuweisung einer leeren Zeichenkette wird die Style-Eigenschaft dynamisch entfernt.</p>
+
+<p>Der Internet Explorer 5.0 Macintosh Edition interpretiert dieses Beispiel nicht.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/msjs.gif" width="30" height="30" alt="MS JScript" title="MS JScript"><img src="../../src/msie4.gif" width="30" height="30" alt="MS IE 4.0" title="MS IE 4.0"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1">&nbsp;<a class="an" name="set_attribute">setAttribute()</a></h2>
+
+<p>Fügt in einem bestimmten HTML-Tag eine bestimmte Stylesheet-Angabe hinzu. Erwartet folgende Parameter:<br>
+<b>1.</b> <i>Style-Angabe</i> = die gewünschte Stylesheet-Angabe.<br>
+<b>2.</b> <i>Wert</i> = die gewünschte Wertzuweisung für die Stylesheet-Angabe.<br>
+<b>3.</b> <i>Groß/Kleinschreibung</i> = <code>true</code> übergeben, wenn bei der Stylesheet-Angabe Groß/Kleinschreibung unterschieden werden soll, oder <code>false</code>, wenn es egal ist, wie die Stylesheet-Angabe geschrieben wird.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/style_set_attribute.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;script type="text/javascript"&gt;
+function Test () {
+  document.all.Absatz.style.setAttribute("border", "thin solid red", false);
+}
+&lt;/script&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;p id="Absatz"&gt;Ein Text&lt;/p&gt;
+&lt;a href="javascript:Test()"&gt;Test&lt;/a&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel enthält einen Absatz mit dem id-Namen <code>Absatz</code> und einen Verweis. Beim Anklicken des Verweises wird die Funktion <code>Test()</code> aufgerufen. Diese Funktion fügt in dem Absatz die Stylesheet-Angabe <code>border</code> hinzu, und zwar mit der Wertzuweisung <code>thin&nbsp;solid&nbsp;red</code>. Dadurch erhält der Absatz einen dünnen roten Rahmen.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Wenn Sie nach DOM-Syntax programmieren, können Sie folgende gleichwertige Zuweisung verwenden:<br>
+<code>document.getElementById("Absatz").style.border = "thin solid red";</code></p>
+
+<p>Selbst wenn Sie den Internet Explorer 4 berücksichtigen müssen, kann <code>setAttribute()</code> in den meisten Fällen vermieden werden. Anstelle des Methoden-Aufrufs im Beispiel können Sie auch einfach direkt <code>document.all.Absatz.style.border = "thin solid red";</code> notieren. <code>setAttribute()</code> ist vor allem dann sinnvoll, wenn der CSS-Eigenschaftsnamen (im Beispiel <code>border</code>) nicht fest kodiert ist, sondern in einer String-Variablen vorliegt. Auch für diesen Fall gibt es eine browserübergreifende Schreibweise: <code>document.getElementById("Absatz").style[eigenschaft] = "wert";</code>, wobei <code>eigenschaft</code> eine String-Variable z.B. mit dem Inhalt <code>"border"</code> ist.</p>
+
+<p>Der Internet Explorer 5.0 Macintosh Edition interpretiert dieses Beispiel nicht.</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="anchors.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="anchors.htm">anchors</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="all.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="all.htm">all</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">JavaScript/DOM</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Objektreferenz</a></td>
+</tr>
+</table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

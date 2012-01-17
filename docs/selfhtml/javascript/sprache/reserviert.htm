@@ -1,0 +1,316 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: JavaScript / Sprachelemente / Reservierte Wörter</title>
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<meta name="description"    content="Welche reservierten Wörter es in JavaScript gibt und welche Bedeutung sie haben.">
+<meta name="keywords"       content="SELFHTML, JavaScript, reservierte Wörter">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-11-05T00:07:52+01:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/javascript/sprache/reserviert.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="Sprachelemente" href="index.htm">
+<link rel="next" title="Event-Handler" href="eventhandler.htm">
+<link rel="prev" title="Schleifen (while/for/do-while)" href="schleifen.htm">
+<link rel="first" title="Allgemeine Regeln für JavaScript" href="regeln.htm">
+<link rel="last" title="Event-Handler" href="eventhandler.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">JavaScript/DOM</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Sprachelemente</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Reservierte Wörter</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#uebersicht">Übersicht reservierter Wörter</a><br>
+</p>
+</td>
+</tr><tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><img src="../../src/js10.gif" width="30" height="30" alt="JavaScript 1.0" title="JavaScript 1.0"><img src="../../src/netsc2.gif" width="30" height="30" alt="Netscape 2.0" title="Netscape 2.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="uebersicht">Übersicht reservierter Wörter</a></h2>
+
+<p>JavaScript enthält eine Reihe von Schlüsselwörtern mit bestimmter Bedeutung. Diese "reservierten Wörter" sollten Sie kennen, um nicht versehentlich gleichnamige <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="variablen.htm">Variablen</a> oder <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="funktionen.htm">Funktionen</a> zu definieren. Denn dies ist nicht erlaubt. Einige der reservierten Wörter der folgenden Liste sind bereits in Gebrauch, andere sind für den zukünftigen Sprachausbau von JavaScript geplant. Auch noch nicht benutzte reservierte Wörter dürfen Sie nicht als Variablen- oder Funktionsnamen verwenden.</p>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<th nowrap="nowrap">Reserviertes Wort</th>
+<th nowrap="nowrap">Erläuterung</th>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>abstract</code></td>
+<td class="tabxpl">Noch nicht verwendet</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>boolean</code></td>
+<td class="tabxpl">Noch nicht verwendet</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>break</code></td>
+<td class="tabxpl">Als Anweisung: Abbruch in <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="schleifen.htm">Schleifen</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>byte</code></td>
+<td class="tabxpl">Noch nicht verwendet</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>case</code></td>
+<td class="tabxpl">Für <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="bedingt.htm#switch">Fallunterscheidungen</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>catch</code></td>
+<td class="tabxpl">Für <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../beispiele/fehlerbehandlung_try_catch.htm">Fehlerbehandlung mit try..catch</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>char</code></td>
+<td class="tabxpl">Noch nicht verwendet</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>class</code></td>
+<td class="tabxpl">Noch nicht verwendet</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>const</code></td>
+<td class="tabxpl">
+Dient zur Deklaration von Konstanten (ab JavaScript-Version 1.5)</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>continue</code></td>
+<td class="tabxpl">Als Anweisung: Fortsetzung in <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="schleifen.htm">Schleifen</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>default</code></td>
+<td class="tabxpl">Für <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="bedingt.htm#switch">Fallunterscheidungen</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>delete</code></td>
+<td class="tabxpl">Operator: <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="operatoren.htm#delete">Objekte und Objekteigenschaften löschen</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>do</code></td>
+<td class="tabxpl">Für <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="schleifen.htm#dowhile">Schleifen mit "do-while"</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>double</code></td>
+<td class="tabxpl">Noch nicht verwendet</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>else</code></td>
+<td class="tabxpl">Sonst-Fall in <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="bedingt.htm#if_else">bedingten Anweisungen mit "if"</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>export</code></td>
+<td class="tabxpl">Als Anweisung: Objekte oder Funktionen für fremde Scripts ausführbar machen</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>extends</code></td>
+<td class="tabxpl">Noch nicht verwendet</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>false</code></td>
+<td class="tabxpl">Boolescher Wert: <b>falsch</b></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>final</code></td>
+<td class="tabxpl">Noch nicht verwendet</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>finally</code></td>
+<td class="tabxpl">Für <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../beispiele/fehlerbehandlung_try_catch.htm">Fehlerbehandlung mit try..catch</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>float</code></td>
+<td class="tabxpl">Noch nicht verwendet</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>for</code></td>
+<td class="tabxpl">Für <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="schleifen.htm#for">Schleifen mit "for"</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>function</code></td>
+<td class="tabxpl">Für <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="funktionen.htm">Funktionen</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>goto</code></td>
+<td class="tabxpl">Noch nicht verwendet</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>if</code></td>
+<td class="tabxpl">Für <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="bedingt.htm#if_else">bedingte Anweisungen mit "if"</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>implements</code></td>
+<td class="tabxpl">Noch nicht verwendet</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>in</code></td>
+<td class="tabxpl">Für <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="schleifen.htm#for">spezielle Schleifen mit "for"</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>instanceof</code></td>
+<td class="tabxpl">
+Prüft, ob ein Objekt eine Instanz eines Prototyp-Objektes ist (ab JavaScript-Version 1.4)</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>int</code></td>
+<td class="tabxpl">Noch nicht verwendet</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>long</code></td>
+<td class="tabxpl">Noch nicht verwendet</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>native</code></td>
+<td class="tabxpl">Noch nicht verwendet</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>new</code></td>
+<td class="tabxpl">Dient zum <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="objekte.htm#eigene">Definieren von Objekten</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>null</code></td>
+<td class="tabxpl">Spezieller Null-Wert z.B. für Eigenschaften, die keinen Wert haben, oder als Rückgabewert einer Funktion</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>package</code></td>
+<td class="tabxpl">Noch nicht verwendet</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>private</code></td>
+<td class="tabxpl">Noch nicht verwendet</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>protected</code></td>
+<td class="tabxpl">Noch nicht verwendet</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>public</code></td>
+<td class="tabxpl">Noch nicht verwendet</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>return</code></td>
+<td class="tabxpl">Für <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="funktionen.htm#rueckgabewert">Rückgabewerte in Funktionen</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>short</code></td>
+<td class="tabxpl">Noch nicht verwendet</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>static</code></td>
+<td class="tabxpl">Noch nicht verwendet</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>super</code></td>
+<td class="tabxpl">Noch nicht verwendet</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>switch</code></td>
+<td class="tabxpl">Für <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="bedingt.htm#switch">Fallunterscheidungen</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>synchronized</code></td>
+<td class="tabxpl">Noch nicht verwendet</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>this</code></td>
+<td class="tabxpl">Für Bezug auf das <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="objekte.htm#this">aktuelle Objekt</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>throw</code></td>
+<td class="tabxpl">Als Anweisung: Nutzerdefinierte Ausnahme (ab JavaScript-Version 1.4)</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>throws</code></td>
+<td class="tabxpl">Noch nicht verwendet</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>transient</code></td>
+<td class="tabxpl">Noch nicht verwendet</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>true</code></td>
+<td class="tabxpl">Boolescher Wert: <b>wahr</b></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>try</code></td>
+<td class="tabxpl">Für <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../beispiele/fehlerbehandlung_try_catch.htm">Fehlerbehandlung mit try..catch</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>typeof</code></td>
+<td class="tabxpl">Operator: liefert den <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="operatoren.htm#typeof">Typ eines Elementes</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>undefined</code></td>
+<td class="tabxpl">Der Wert undefiniert. Eine Variable, die ohne eine Zuweisung deklariert wird (<code>var variable;</code>), erhält diesen Wert (ab JavaScript-Version 1.3)</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>var</code></td>
+<td class="tabxpl">Für <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="variablen.htm#definieren">Variablendefinitionen</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>void</code></td>
+<td class="tabxpl">Operator: <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="operatoren.htm#void">unterdrückt Rückgabewerte</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>while</code></td>
+<td class="tabxpl">Für <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="schleifen.htm#while">Schleifen mit "while"</a></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>with</code></td>
+<td class="tabxpl">Um <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="objekte.htm#with">mehrere Anweisungen mit einem Objekt</a> durchzuführen</td>
+</tr>
+</table>
+<br>&nbsp;
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="eventhandler.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="eventhandler.htm">Event-Handler</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="schleifen.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="schleifen.htm">Schleifen (while/for/do-while)</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">JavaScript/DOM</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Sprachelemente</a></td>
+</tr>
+</table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

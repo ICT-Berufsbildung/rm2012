@@ -1,0 +1,230 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: Perl / Perl-Sprachelemente / Zahlen</title>
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<meta name="description"    content="Welche Besonderheiten es bei Zeichenketten in Perl zu beachten gibt.">
+<meta name="keywords"       content="SELFHTML, Perl, Zahlen, hexadezimale Notation, oklate Notation, große Zahlen, Math-Modul">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-11-09T00:29:27+01:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/perl/sprache/zahlen.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="Perl-Sprachelemente" href="index.htm">
+<link rel="next" title="Bedingte Anweisungen" href="bedingt.htm">
+<link rel="prev" title="Zeichenketten (Strings)" href="zeichenketten.htm">
+<link rel="first" title="CGI-notwendige Anweisungen in Perl" href="cginotwendig.htm">
+<link rel="last" title="CGI-typische Aufgaben in Perl" href="cgitypisch.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">Perl</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Perl-Sprachelemente</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Zahlen</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#eigenschaften">Eigenschaften von Zahlen in Perl</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#schreibweisen">Schreibweisen von Zahlen</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#operationen_funktionen">Operationen und Funktionen für Zahlen</a><br>
+</p>
+</td>
+</tr><tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><a class="an" name="eigenschaften">Eigenschaften von Zahlen in Perl</a></h2>
+
+<p>Perl operiert bei Einsatz von 32-Bit-Prozessoren, wie sie heute bei den meisten Computern (noch) üblich sind, intern mit 32 Bit breiten Gleitpunktzahlen nach dem Standard IEEE754. Das bedeutet für die Praxis, dass Perl bei sehr großen Zahlen und sehr kleinen Zahlen tendenziell immer "undeutlicher" wird in der Darstellung. Bei solchen Zahlen wendet Perl zur Darstellung die Exponentialschreibweise an. Je größer bzw. kleiner die Zahlen jedoch werden, desto ungenauer ist die Darstellung. Das folgende Beispiel zeigt dies:</p>
+
+<h3 class="xmp"><a class="an" name="beispiel1">Beispiel eines vollständigen CGI-Scripts in Perl:</a></h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="http://de.selfhtml.org/cgi-bin/812/zahlen1.pl">Anzeigebeispiel: So sieht's aus</a> (Zum Aufruf des Scripts ist eine Internet-Verbindung erforderlich)</p>
+
+<pre>
+#!/usr/bin/perl -w
+
+use strict;
+use CGI::Carp qw(fatalsToBrowser);
+
+print "Content-type: text/plain\n\n";
+
+my $x = 12345678901234567890;
+my $y = 0.000000000000000001;
+
+print "x = $x\n";
+print "y = $y\n";
+
+$x = $x + 1;
+$y = $y - 0.123456789123456789;
+
+print "x = $x\n";
+print "y = $y\n";
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel zwingt zwei Skalaren <code>$x</code> und <code>$y</code> jeweils eine ziemlich große und eine ziemlich kleine Zahl auf. Anschließend werden die Zahlen als reiner Text ausgegeben. Dann werden die beiden Skalare noch weiter traktiert. <code>$x</code> soll nur eine einzige Zahl dazuzählen, und bei <code>$y</code> soll eine ziemlich vielstellige Gleitpunktzahl subtrahiert werden. Nach diesen Operationen werden beide Skalare nochmals ausgegeben. Perl erzeugt folgende Ausgabe:<br>
+<code>x = 1.23456789012346e+019<br>
+y = 1e-018<br>
+x = 1.23456789012346e+019<br>
+y = -0.123456789123457</code></p>
+
+<p>Die große Zahl von <code>$x</code> hat sich bei der zweiten Ausgabe gegenüber der ersten Ausgabe also trotz der Addition von 1 nicht verändert, und bei dem Wert von <code>$y</code> ist offensichtlich, dass bei der zweiten Ausgabe ein paar Stellen hinter dem Komma dran glauben mussten.</p>
+
+<p>Es gibt jedoch das <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../module/standardmodule.htm">Standardmodul</a> <code>Math</code>, das Perl befähigt, potentiell beliebig große und kleine Zahlen darzustellen und damit zu rechnen.</p>
+
+<h3 class="xmp"><a class="an" name="beispiel2">Beispiel eines vollständigen CGI-Scripts in Perl:</a></h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="http://de.selfhtml.org/cgi-bin/812/zahlen2.pl">Anzeigebeispiel: So sieht's aus</a> (Zum Aufruf des Scripts ist eine Internet-Verbindung erforderlich)</p>
+
+<pre>
+#!/usr/bin/perl -w
+
+use strict;
+use CGI::Carp qw(fatalsToBrowser);
+use Math::BigInt;
+use Math::BigFloat;
+
+my $x = Math::BigInt->new('12345678901234567890');
+my $y = Math::BigFloat->new('0.000000000000000001');
+
+print "Content-type: text/plain\n\n";
+
+print "x = $x\n";
+print "y = $y\n";
+
+$x = $x + 1;
+$y = $y - '0.123456789123456789';
+
+print "x = $x\n";
+print "y = $y\n";
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel-Script führt die gleichen Zahlen und Operationen ein wie zuvor, aber diesmal bindet es zwei Untermodule von <code>Math</code> ein:<br>
+Mit <code>use Math::BigInt;</code> wird ein Modul zum Darstellen von und Rechnen mit großen Ganzzahlen eingebunden.<br>
+Mit <code>use Math::BigFloat;</code> wird ein Modul zum Darstellen von und zum Rechnen mit großen Gleitpunktzahlen eingebunden.<br>
+Um eine Zahl mit diesen Modulen zu erzeugen, gehen Sie vor wie gezeigt: bei Ganzzahlen notieren Sie <code>Math::BigInt-&gt;new('[Zahl]')</code>, und bei Gleitpunktzahlen <code>Math::BigFloat-&gt;new('[Zahl]')</code>.
+Zur besseren Übersicht dürfen Sie in die Zahl auch Leerzeichen einfügen, wie im ersten der obigen Beispiele gezeigt. Anschließend können Sie mit den Skalaren, denen Sie solche Zahlen zugewiesen haben, ganz normal arbeiten. Sie können die Werte ausgeben und verändern, so wie im Beispiel. Das Beispiel erzeugt nun folgende Ausgabe:<br>
+<code>x = +12345678901234567890<br>
+y = .000000000000000001<br>
+x = +12345678901234567891<br>
+y = -.123456789123456999</code></p>
+
+<p>Benutzen Sie diese Module jedoch nur bei solchen großen Zahlen, denn bei komplexeren Rechenoperationen beanspruchen die so erzeugten Zahlen deutlich mehr Rechenleistung.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="schreibweisen">Schreibweisen von Zahlen</a></h2>
+
+<p>Gewöhnliche Zahlen können Sie in Perl auch wie gewohnt notieren. Zu beachten ist nur, dass das Dezimalzeichen bei "Kommazahlen" der Punkt ist. Negative Zahlen können Sie notieren, indem Sie ein Minuszeichen voranstellen. Bei positiven Zahlen können Sie auch ein explizites Pluszeichen voranstellen. Neben der gewöhnlichen Notation im Dezimalformat können Sie Zahlen aber auch in Exponentialschreibweise, oktal oder hexadezimal notieren. Die folgende Tabelle bietet eine Übersicht der Notationsmöglichkeiten.</p>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<th nowrap="nowrap">Notationsbeispiel</th>
+<th nowrap="nowrap">Erläuterung</th>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>243</code></td>
+<td class="tabxpl">Normale Notation einer Ganzzahl im Dezimalformat.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>-243</code></td>
+<td class="tabxpl">Notation einer negativen Ganzzahl im Dezimalformat.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>+243</code></td>
+<td class="tabxpl">Notation einer explizit positiven Ganzzahl im Dezimalformat.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>53.78</code></td>
+<td class="tabxpl">Notation einer "Kommazahl". Dezimalzeichen ist der Punkt. Minus- und Pluszeichen sind genauso möglich wie bei Ganzzahlen.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>1.0e+4</code></td>
+<td class="tabxpl">Notation einer großen Zahl in Exponentialschreibweise. Die Zahl im Beispiel bedeutet so viel wie <code>10000</code>. Die <code>4</code> am Ende gibt also die Anzahl der Zehnerpotenzen an.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>1.0e-4</code></td>
+<td class="tabxpl">Notation einer kleinen Zahl in Exponentialschreibweise. Die Zahl bedeutet so viel wie <code>0.0001</code>.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>0700</code></td>
+<td class="tabxpl">Notation einer Ganzzahl in Oktalschreibweise. Dabei wird einfach eine <code>0</code> vorangestellt. Die Zahl bedeutet dezimal so viel wie <code>448</code>.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>0xF6</code></td>
+<td class="tabxpl">Notation einer Ganzzahl in Hexadezimalschreibweise. Dabei wird einfach die Zeichenfolge <code>0x</code> vorangestellt. Die Zahl bedeutet dezimal so viel wie <code>246</code>.</td>
+</tr>
+</table>
+<br>&nbsp;
+
+
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="operationen_funktionen">Operationen und Funktionen für Zahlen</a></h2>
+
+<p>Zahlen sind hauptsächlich zum Rechnen da. Perl unterstützt die Grundrechenarten. Zuständig dafür sind die <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="operatoren.htm#berechnung">Berechnungsoperatoren</a>. Mit ihrer Hilfe und beliebiger Klammerung lassen sich z.B. Ausdrücke wie <code>(5*(6+8.00003))-7</code> ohne weiteren Umweg berechnen.</p>
+
+<p>Daneben bietet Perl auch eine Reihe mathematischer Funktionen an. Darunter befinden sich allgemeine Funktionen wie <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../funktionen/berechnungen.htm#sqrt">sqrt</a> (Quadratwurzel errechnen), aber auch trigonometrische Funktionen wie <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../funktionen/berechnungen.htm#sin">sin</a> (Sinus), <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../funktionen/berechnungen.htm#sqrt">cos</a> (Cosinus) und <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../funktionen/berechnungen.htm#atan2">atan2</a> (Arcus Tangens y/x), sowie Umrechnungsfunktionen wie <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../funktionen/berechnungen.htm#hex">hex</a> (Hexadezimalzahlen in Dezimalzahlen umrechnen) oder <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../funktionen/berechnungen.htm#oct">oct</a> (Oktalzahlen in Dezimalzahlen umrechnen).</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="bedingt.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="bedingt.htm">Bedingte Anweisungen</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="zeichenketten.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="zeichenketten.htm">Zeichenketten (Strings)</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">Perl</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Perl-Sprachelemente</a></td>
+</tr>
+</table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

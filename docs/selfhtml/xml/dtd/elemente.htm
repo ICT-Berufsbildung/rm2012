@@ -1,0 +1,640 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: XML / Dokumenttyp-Definitionen (DTDs) / Elemente und Verschachtelungsregeln</title>
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<meta name="description"    content="Wie in einer XML-DTD Elemente deklariert und die Verschachtelungsregeln von Elementen festgelegt werden.">
+<meta name="keywords"       content="SELFHTML, XML, DTD, DTDs, Document Type Definition, Dokumenttyp-Definitionen, Elementtypen, Elemente, XML-Elemente, Element-Deklaration">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-11-08T02:11:45+01:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/xml/dtds/elemente.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="Dokumenttyp-Definitionen (DTDs)" href="index.htm">
+<link rel="next" title="Attribute und Wertzuweisungen" href="attribute.htm">
+<link rel="prev" title="Bearbeitungsregeln für DTDs" href="bearbeitungsregeln.htm">
+<link rel="first" title="Allgemeines zu DTDs" href="allgemeines.htm">
+<link rel="last" title="Notationen für referenzierte Daten" href="notations.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">XML/DTDs</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Dokumenttyp-Definitionen (DTDs)</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Elemente und Verschachtelungsregeln</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#allgemeines">Allgemeines zu Elementen, Elementtypen und Tags</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#schema">Schema zur Definition von Elementtypen</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#mit_zeicheninhalt">Elementtypen mit Zeicheninhalt definieren</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#mit_elementinhalt">Elementtypen mit Elementinhalt definieren</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#viele_elemente">Beliebig viele Wiederholungen eines Elementtyps definieren</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#alternative_optionale">Alternative und optionale Elementtypen für Elementinhalt definieren</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#gemischter_inhalt">Elemente mit gemischtem Inhalt definieren</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#beliebiger_inhalt">Elemente mit beliebigem Inhalt definieren</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#ohne_inhalt">Leere Elemente ohne Inhalt definieren</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#elementgruppen">Elementgruppen zusammenfassen</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#buchbeispiel">Zusammenhängendes Beispiel: ein Buch</a><br>
+</p>
+</td>
+</tr><tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><a class="an" name="allgemeines">Allgemeines zu Elementen, Elementtypen und Tags</a></h2>
+
+<p>Ein <b>Element</b> ist das, was in einer XML-basierten Auszeichnungssprache durch eine Notation wie z.B. <code>&lt;geburtsdatum&gt;...&lt;/geburtsdatum&gt;</code> dargestellt wird. In einer DTD können Sie den zugehörigen <b>Elementtyp</b> definieren, also etwa den Elementtyp <code>geburtsdatum</code>. Dabei bestimmen Sie den Namen des Elements und geben an, welchen Inhalt das Element haben kann.</p>
+
+<p>Elemente können auch verschachtelt sein, und es sind Regeln möglich, wie oft und an welchen Stellen ein Element vorkommen kann. So kann in HTML etwa das Element <code>&lt;tr&gt;...&lt;/tr&gt;</code> nur innerhalb von <code>&lt;table&gt;...&lt;/table&gt;</code> vorkommen. Zwischen <code>&lt;table&gt;</code> und <code>&lt;/table&gt;</code> dürfen Sie darüber hinaus auch keinen Text notieren, sondern müssen die Tabellenstruktur beachten, die innere Elemente wie <code>&lt;tr&gt;...&lt;/tr&gt;</code> fordert. Solche Regeln bestimmen Sie beim Definieren der Elementtypen Ihrer DTD.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="schema">Schema zur Definition von Elementtypen</a></h2>
+
+<p>Elementtypen werden innerhalb einer DTD nach folgendem Schema notiert:</p>
+
+<h3 class="xmp">Schema:</h3>
+
+<pre>
+&lt;!ELEMENT Name (Inhalt)&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Die Definition eines Elements beginnt mit einer öffnenden spitzen Klammer <code>&lt;</code>. Dahinter folgt unmittelbar anschließend ein Ausrufezeichen <code>!</code> und dahinter, in Großbuchstaben, das Schlüsselwort <code>ELEMENT</code>. Anschließend folgt ein Name für das Element. Den Namen können Sie frei wählen. Er muss jedoch den <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="bearbeitungsregeln.htm#namen">Regeln für Namen</a> in XML genügen. Hinter dem Namen notieren Sie Angaben zum Inhalt des Elementtyps. Diese Angaben können recht komplex sein und regeln, woraus ein Element bestehen kann. Abgeschlossen wird die Elementtyp-Definition mit einer schließenden spitzen Klammer <code>&gt;</code>. Die einzelnen Teile der Elementtyp-Definition werden durch ein oder mehrere Leerzeichen voneinander getrennt.</p>
+
+<p>Eine solche Elementtyp-Definition können Sie an irgendeiner Stelle innerhalb der DTD definieren - vor oder nach anderen Definitionen wie <code>&lt;!ATTLIST...&gt;</code> (<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm">Attribute</a>), <code>&lt;!ENTITY...&gt;</code> (<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="entities.htm">Entities</a>) oder <code>&lt;!NOTATION...&gt;</code> (<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="notations.htm">Notationen</a>).</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/xml10.gif" width="30" height="30" alt="XML 1.0" title="XML 1.0"><img src="../../src/msie5.gif" width="30" height="30" alt="MS IE 5.0" title="MS IE 5.0">&nbsp;<a class="an" name="mit_zeicheninhalt">Elementtypen mit Zeicheninhalt definieren</a></h2>
+
+<p>Zeicheninhalt bedeutet, dass ein Element als Inhalt beliebigen und beliebig viel Text enthalten kann, aber keine weiteren Elemente. Zeicheninhalt ist eine beliebige und beliebig lange Zeichenfolge, also Text, Zahlen, und Sonderzeichen.</p>
+
+<h3 class="xmp">Beispiel-DTD <var>durchwahlnummer.dtd</var>:</h3>
+
+<pre>
+&lt;!ELEMENT durchwahlnummer (#PCDATA)&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Im Beispiel wird ein Elementtyp definiert, der in der Anwendung als Element <code>&lt;durchwahlnummer&gt;...&lt;/durchwahlnummer&gt;</code> notiert werden kann. Es gilt das <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#schema">Schema zur Definition von Elementtypen</a>. Den Zeicheninhalt kennzeichnen Sie durch den Schlüsselbezeichner <code>#PCDATA</code> (Abkürzung für <i>parsed character data</i>, zu deutsch <i>analysierte Zeichendaten</i>). Das Gatterzeichen ist erforderlich, PCDATA muss groß geschrieben sein, und das Ganze muss in runde Klammern eingeschlossen sein.</p>
+
+<h3 class="xmp">Beispiel einer gültigen Anwendung:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/durchwahlnummer.xml">Anzeigebeispiel: So sieht's aus</a> (XML-fähiger Browser zeigt z.B. die Datenstruktur an)</p>
+
+<pre>
+&lt;?xml version="1.0" encoding="ISO-8859-1" ?&gt;
+&lt;!DOCTYPE durchwahlnummer SYSTEM "durchwahlnummer.dtd"&gt;
+&lt;durchwahlnummer&gt;123456&lt;/durchwahlnummer&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Der Elementtyp <code>durchwahlnummer</code> erlaubt Zeichendaten, eine Zeichenfolge wie <code>123456</code> ist also ein korrekter Inhalt.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Das Element <code>durchwahlnummer</code> ist in diesem extrem einfachen Beispiel zugleich das Dokument-Element.</p>
+
+<p><code>#PCDATA</code> bedeutet zwar so viel wie "beliebig viel Text", aber es bedeutet auch so viel wie "keine anderen, inneren Elemente". Eine Anwendung wie <code>&lt;durchwahlnummer&gt;&lt;fett&gt;123456&lt;/fett&gt;&lt;/durchwahlnummer&gt;</code> ist nach der Definition des Elements <code>durchwahlnummer</code> also unzulässig. Für solche Fälle müssen Sie <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#mit_elementinhalt">Elementtypen mit Elementinhalt</a> oder <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#gemischter_inhalt">Elementtypen mit gemischtem Inhalt</a> definieren.</p>
+
+<p>Das <code>P</code> in <code>PCDATA</code> bedeutet, dass der Inhalt vom XML-Parser durchaus analysiert wird. Für die Praxis bedeutet dies, dass im Inhalt eines so definierten Elements die Regeln für <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../regeln/zeichen.htm">Zeichen und Zeichenkodierungen</a> zu beachten sind.</p>
+
+<p>In der Version 1.0 unterscheidet XML nicht zwischen verschiedenen Datentypen etwa für numerische oder alphanumerische Daten. Der Datentyp PCDATA entspricht dem Datentyp für alphanumerische Zeichenketten (Strings) in Programmiersprachen - Datentypen für Zahlen, Datumsformate oder dergleichen gibt es nicht. Dies wird von Entwicklern bereits als großer Nachteil empfunden, und künftige Versionen von XML werden vermutlich neben PCDATA mehrere Datentypen anbieten.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/xml10.gif" width="30" height="30" alt="XML 1.0" title="XML 1.0"><img src="../../src/msie5.gif" width="30" height="30" alt="MS IE 5.0" title="MS IE 5.0">&nbsp;<a class="an" name="mit_elementinhalt">Elementtypen mit Elementinhalt definieren</a></h2>
+
+<p>Im Gegensatz zu einem <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#mit_zeicheninhalt">Elementtyp mit Zeicheninhalt</a> ist ein Elementtyp mit <b>Elementinhalt</b> ein solcher, der andere, innere Elementtypen enthält. Er darf jedoch selber keine Zeichendaten enthalten, sondern nur aus anderen Elementen bestehen.</p>
+
+<h3 class="xmp">Beispiel-DTD <var>telefonnummer.dtd</var>:</h3>
+
+<pre>
+&lt;!ELEMENT telefonnummer (vorwahlnummer, durchwahlnummer)&gt;
+&lt;!ELEMENT vorwahlnummer (#PCDATA)&gt;
+&lt;!ELEMENT durchwahlnummer (#PCDATA)&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Im Beispiel werden drei Elementtypen definiert. Die erste der drei Definitionen ist dabei ein Elementtyp mit Elementinhalt. Eine solche Definition hat den gleichen Aufbau wie die Definition eines Elementtyps mit Zeicheninhalt. Es gilt das <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#schema">Schema zur Definition von Elementtypen</a>. Der Unterschied besteht darin, dass in den runden Klammern, in denen der Inhalt des Elementtyps definiert wird, die Namen anderer Elementtypen notiert werden, und zwar durch Kommata getrennt.</p>
+
+<p>Im obigen ersten Beispiel wird für den Elementtyp <code>telefonnummer</code> eine <b>feste Elementfolge</b> definiert, bestehend aus den Elementtypen <code>vorwahlnummer</code> und <code>durchwahlnummer</code>. Der Elementtyp <code>telefonnummer</code> darf also nach obiger Definition genau einmal die Elemente <code>vorwahlnummer</code> und <code>durchwahlnummer</code> enthalten, und zwar in dieser Reihenfolge.</p>
+
+<p>Zugleich ist das Element <code>telefonnummer</code> im Beispiel das Dokument-Element, also das äußerste Element der Daten.</p>
+
+<h3 class="xmp">Beispiel einer gültigen Anwendung:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/telefonnummer.xml">Anzeigebeispiel: So sieht's aus</a> (XML-fähiger Browser zeigt z.B. die Datenstruktur an)</p>
+
+<pre>
+&lt;?xml version="1.0" encoding="ISO-8859-1" ?&gt;
+&lt;!DOCTYPE telefonnummer SYSTEM "telefonnummer.dtd"&gt;
+&lt;telefonnummer&gt;
+  &lt;vorwahlnummer&gt;069&lt;/vorwahlnummer&gt;
+  &lt;durchwahlnummer&gt;974791003&lt;/durchwahlnummer&gt;
+&lt;/telefonnummer&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Die Elementtypen <code>telefonnummer</code>, <code>vorwahlnummer</code> und <code>durchwahlnummer</code> sind so verschachtelt, wie es in der DTD definiert wurde. Die Elementtypen <code>vorwahlnummer</code> und <code>durchwahlnummern</code> enthalten nichts anderes als Zeichendaten und damit einen korrekten Inhalt.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/xml10.gif" width="30" height="30" alt="XML 1.0" title="XML 1.0"><img src="../../src/msie5.gif" width="30" height="30" alt="MS IE 5.0" title="MS IE 5.0">&nbsp;<a class="an" name="viele_elemente">Beliebig viele Wiederholungen eines Elementtyps definieren</a></h2>
+
+<p>Wenn Sie nichts anderes angeben, darf ein Elementtyp nur einmal vorkommen. Damit das Element eines Elementtyps mehrfach notiert werden kann, müssen Sie dies in der DTD kenntlich machen.</p>
+
+<h3 class="xmp">Beispiel-DTD <var>kochrezept.dtd</var>:</h3>
+
+<pre>
+&lt;!ELEMENT kochrezept (zutatenliste, anweisungsfolge)&gt;
+
+&lt;!ELEMENT zutatenliste (zutat)+&gt;
+&lt;!ELEMENT zutat (#PCDATA)&gt;
+
+&lt;!ELEMENT anweisungsfolge (anweisung)*&gt;
+&lt;!ELEMENT anweisung (#PCDATA)&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel einer einfachen DTD für ein Kochrezept. Für alle Definitionen im Beispiel gilt das <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#schema">Schema zur Definition von Elementtypen</a>. Definiert wird zunächst der Elementtyp <code>kochrezept</code> für das Dokument-Element. Dieser Elementtyp hat <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#mit_elementinhalt">Elementinhalt</a>. Der Inhalt besteht aus den beiden Elementtypen <code>zutatenliste</code> und <code>anweisungsfolge</code>. Diese beiden Elementtypen werden definiert. Beide bestehen wiederum aus Elementinhalt.</p>
+
+<p>Dabei kann <code>zutatenliste</code> einen oder mehrere Elementtypen <code>zutat</code> enthalten. Der Grund ist das <b>Pluszeichen</b> <code>+</code> in der Definition hinter der Angabe zum Inhalt. Durch das Pluszeichen geben Sie an, dass der Inhalt, im Beispiel der Elementtyp <code>zutat</code>, innerhalb von <code>zutatenliste</code> mindestens einmal vorkommen muss, ansonsten aber beliebig oft vorkommen kann. Für das Kochrezeptebeispiel ist ein solches Konstrukt durchaus sinnvoll, denn ein Rezept sollte wenigstens aus einer Zutat bestehen.</p>
+
+<p>Der Elementtyp <code>anweisungsfolge</code> kann ebenfalls mehrere Elementtypen <code>anweisung</code> enthalten, kann jedoch auch leer bleiben. Der Grund ist in diesem Fall das <b>Sternzeichen</b> <code>*</code>  in der Definition hinter der Angabe zum Inhalt. Durch das Sternzeichen geben Sie an, dass der Inhalt, im Beispiel der Elementtyp <code>anweisung</code>, innerhalb von <code>anweisungsfolge</code> kein mal, einmal oder beliebig viele male vorkommen kann. Für das Kochrezeptebeispiel bedeutet dies, dass es auch Kochrezepte mit Zutaten, aber ohne Anweisungen geben kann.</p>
+
+<h3 class="xmp">Beispiel einer gültigen Anwendung:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/kochrezept.xml">Anzeigebeispiel: So sieht's aus</a> (XML-fähiger Browser zeigt z.B. die Datenstruktur an)</p>
+
+<pre>
+&lt;?xml version="1.0" encoding="ISO-8859-1" ?&gt;
+&lt;!DOCTYPE kochrezept SYSTEM "kochrezept.dtd"&gt;
+&lt;kochrezept&gt;
+  &lt;zutatenliste&gt;
+     &lt;zutat&gt;300 g  Kartoffeln geschält&lt;/zutat&gt;
+     &lt;zutat&gt;2 lg Lauchstangen&lt;/zutat&gt;
+     &lt;zutat&gt;1 Zwiebel&lt;/zutat&gt;
+     &lt;zutat&gt;1 tb Butter&lt;/zutat&gt;
+     &lt;zutat&gt;600 ml Wasser&lt;/zutat&gt;
+  &lt;/zutatenliste&gt;
+  &lt;anweisungsfolge&gt;
+     &lt;anweisung&gt;Kartoffeln in kleine Würfel schneiden.&lt;/anweisung&gt;
+     &lt;anweisung&gt;Lauch putzen und in dünne Ringe schneiden.&lt;/anweisung&gt;
+     &lt;anweisung&gt;Zwiebel schälen, fein würfeln und in der Butter glasig dünsten.&lt;/anweisung&gt;
+     &lt;anweisung&gt;Kartoffeln, Lauch und Wasser hinzufügen und 18 bis 20 Minuten garen.&lt;/anweisung&gt;
+  &lt;/anweisungsfolge&gt;
+&lt;/kochrezept&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Die Elementtypen sind so verschachtelt, wie es in der DTD definiert wurde. Die Elementtypen <code>zutat</code> und <code>anweisung</code> kommen innerhalb von <code>zutatenliste</code> bzw. <code>anweisungsfolge</code> mehrfach vor, was nach der Definition erlaubt ist. Innerhalb von <code>zutat</code> und <code>anweisung</code> kommt in allen Fällen nur <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#mit_zeicheninhalt">Zeicheninhalt</a> vor, so wie es für diese Elementtypen mit dem Schlüsselbezeichner <code>#PCDATA</code> definiert wurde.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Wenn das Beispiel keine Elemente vom Typ <code>anweisung</code> enthalten würde, was ja nach der Definition mit dem Sternzeichen durchaus erlaubt wäre, so müssten Sie in einer gültigen Anwendung trotzdem notieren:<br>
+<code>&lt;anweisungsfolge&gt;&lt;/anweisungsfolge&gt;</code><br>
+Der Grund ist, dass bei der Definition des Elementtyps <code>kochrezept</code> im obigen Beispiel festgelegt wurde, dass dieses Element aus den beiden Elementtypen <code>zutatenliste</code> und <code>anweisungsfolge</code> bestehen muss, und dass diese beiden Elementtypen vorkommen müssen, nämlich genau einmal.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/xml10.gif" width="30" height="30" alt="XML 1.0" title="XML 1.0"><img src="../../src/msie5.gif" width="30" height="30" alt="MS IE 5.0" title="MS IE 5.0">&nbsp;<a class="an" name="alternative_optionale">Alternative und optionale Elementtypen für Elementinhalt definieren</a></h2>
+
+<p>Wenn Sie <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#mit_elementinhalt">Elementtypen mit Elementinhalt</a> definieren, kann es vorkommen, dass die starre Folge von Elementen, die Sie für den Elementtyp vorsehen, in der Praxis nicht immer sinnvoll ist. Bei einer Postadresse etwa könnte man alternativ zwischen der Angabe einer Straßen-/Hausnummernangabe und einer Postfachangabe unterscheiden, und bei der Angabe zur Anredeform einer Person ist ein typisches Beispiel für eine optionale Angabe, also etwas, das man bei einigen Adressen mit angeben möchte, bei anderen dagegen nicht.</p>
+
+<h3 class="xmp">Beispiel-DTD <var>adressen.dtd</var>:</h3>
+
+<pre>
+&lt;!ELEMENT adressen (adresse)*&gt;
+
+&lt;!ELEMENT adresse (anrede?, name, (postfach | wohnanschrift), plzort)&gt;
+
+&lt;!ELEMENT anrede (#PCDATA)&gt;
+&lt;!ELEMENT name (#PCDATA)&gt;
+&lt;!ELEMENT postfach (#PCDATA)&gt;
+&lt;!ELEMENT wohnanschrift (#PCDATA)&gt;
+&lt;!ELEMENT plzort (#PCDATA)&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel zeigt eine einfache DTD zu einer Adressverwaltung. Für alle Definitionen im Beispiel gilt das <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#schema">Schema zur Definition von Elementtypen</a>. Definiert wird ein Elementtyp namens <code>adressen</code> für das Dokument-Element. Dieser kann <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#viele_elemente">beliebig viele Wiederholungen</a> des Elements <code>adresse</code> enthalten. Der Elementtyp <code>adresse</code> definiert ein Element mit <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#mit_elementinhalt">Elementinhalt</a>. Der Inhalt besteht aus verschiedenen Elementtypen für die einzelnen Daten einer Adresse. Diese Elementtypen werden als einfache <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#mit_zeicheninhalt">Elementtypen mit Zeicheninhalt</a> definiert.</p>
+
+<p>Die Anrede wird im Beispiel als optional definiert. Verantwortlich dafür ist das <b>Fragezeichen</b> <code>?</code> in der Definition hinter der Angabe zum Inhalt beim Namen des Elementtyps. Die einfache Notation von <code>anrede</code> würde die Verwendung des Elementtyps als zwingend erforderlich definieren, während die Notation von <code>anrede?</code> die Verwendung als optional kennzeichnet.</p>
+
+<p>Ferner wird im Beispiel definiert, dass als Anschrift entweder eine Angabe zum Postfach oder zur Wohnanschrift gemacht werden kann. Dazu werden die alternativen Elementtypen nochmals geklammert. Innerhalb der Klammer werden die alternativen Elementtypen notiert, und zwar getrennt durch <b>Senkrechtstriche</b> <code>|</code>.</p>
+
+<h3 class="xmp">Beispiel einer gültigen Anwendung:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/adressen.xml">Anzeigebeispiel: So sieht's aus</a> (XML-fähiger Browser zeigt z.B. die Datenstruktur an)</p>
+
+<pre>
+&lt;?xml version="1.0" encoding="ISO-8859-1" ?&gt;
+&lt;!DOCTYPE adressen SYSTEM "adressen.dtd"&gt;
+&lt;adressen&gt;
+&lt;adresse&gt;
+  &lt;name&gt;Wurmstädter Anlagenbank&lt;/name&gt;
+  &lt;postfach&gt;7001&lt;/postfach&gt;
+  &lt;plzort&gt;00234 Wurmstadt&lt;/plzort&gt;
+&lt;/adresse&gt;
+&lt;adresse&gt;
+  &lt;anrede&gt;Herr&lt;/anrede&gt;
+  &lt;name&gt;Willi Wacholder&lt;/name&gt;
+  &lt;wohnanschrift&gt;Holzwurmstr. 30&lt;/wohnanschrift&gt;
+  &lt;plzort&gt;00234 Wurmstadt&lt;/plzort&gt;
+&lt;/adresse&gt;
+&lt;/adressen&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Im Beispiel werden zwei Adressen notiert. Die erste Adresse ist die einer Bank, daher entfällt bei dieser Adresse die Anrede, die nur für Personen benötigt wird. Da der Elementtyp <code>anrede?</code> als optional definiert wurde, ist das Weglassen erlaubt. Im Beispiel der Bank ist die Anschrift ein Postfach. Da an dieser Stelle laut Definition entweder der Elementtyp <code>postfach</code> oder der Elementtyp <code>wohnanschrift</code> vorkommen kann, ist die Anwendung korrekt. Bei der zweiten Adresse handelt es sich um die einer Person. In diesem Fall ist die Anrede notiert, und anstelle eines Postfachs eine Straßen-/Hausnummernangabe im Alternativ-Element <code>wohnanschrift</code>.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Bei alternativen Elementtypen können Sie selbstverständlich auch mehr als zwei Elementtypen angeben.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/xml10.gif" width="30" height="30" alt="XML 1.0" title="XML 1.0"><img src="../../src/msie5.gif" width="30" height="30" alt="MS IE 5.0" title="MS IE 5.0">&nbsp;<a class="an" name="gemischter_inhalt">Elemente mit gemischtem Inhalt definieren</a></h2>
+
+<p>Wenn Sie XML-Anwendungen definieren möchten, in denen Elemente nicht so starr gruppiert sein müssen, sondern in relativ freier Folge notiert werden können - so wie beispielsweise in HTML - dann müssen Sie Elemente mit gemischtem Inhalt definieren. In HTML ist <code>&lt;body&gt;...&lt;/body&gt;</code> so ein typisches Element. Innerhalb dieses Elements können Sie die meisten anderen HTML-Elemente in relativ freier Folge und unter Berücksichtigung einiger weniger Verschachtelungsregeln notieren. Für Anwendungen, die generell weniger in Richtung Datenbank und stattdessen mehr in Richtung Freitext gehen, benötigen Sie solche gemischten Inhalte.</p>
+
+<h3 class="xmp">Beispiel-DTD <var>text.dtd</var>:</h3>
+
+<pre>
+&lt;!ELEMENT text (#PCDATA | drohend | lachend | fragend | zynisch)*&gt;
+&lt;!ELEMENT drohend (#PCDATA)&gt;
+&lt;!ELEMENT lachend (#PCDATA | augenzwinkernd)*&gt;
+&lt;!ELEMENT fragend (#PCDATA)&gt;
+&lt;!ELEMENT augenzwinkernd (#PCDATA)&gt;
+&lt;!ELEMENT zynisch (#PCDATA)&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel stellt eine DTD für Text dar, in dem Emotionen als solche kenntlich gemacht werden. Für alle Definitionen im Beispiel gilt das <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#schema">Schema zur Definition von Elementtypen</a>. Definiert wird ein Elementtyp namens <code>text</code> für das Dokument-Element mit gemischtem Inhalt. Gemischten Inhalt bestimmen Sie, indem Sie zum Inhalt des Elements, also innerhalb der Klammern, den Schlüsselbezeichner <code>#PCDATA</code> für <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#mit_zeicheninhalt">Zeicheninhalt</a> und außerdem eine Reihe erlaubter Elementtypen für weiteren <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#mit_elementinhalt">Elementinhalt</a> notieren. Die Einträge müssen mit dem Senkrechtstrich <code>|</code> für <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#alternative_optionale">alternativ notierte Elementtypen</a> getrennt werden. Außerdem muss der gesamte Inhalt am Ende wie im Beispiel das Sternzeichen <code>*</code> für <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#viele_elemente">beliebig viele Elemente</a> erhalten. Dadurch darf jedes dieser Elemente beliebig oft in dem Bereich notiert werden kann, in dem es erlaubt ist. Gemischter Inhalt ist also eine Kombination aller hier zuvor behandelten Definitionsmöglichkeiten.</p>
+
+<p>Im Beispiel werden die weiteren, bei <code>text</code> notierten Elementtypen ebenfalls definiert. Mit Ausnahme des Elementtyps <code>lachend</code> wird für alle Elementtypen nichts weiter als reiner Zeicheninhalt (<code>#PCDATA</code>) erlaubt. Der Elementtyp <code>lachend</code> entspricht dagegen wieder dem Muster für gemischten Inhalt. Neben reinem Zeicheninhalt wird in diesem Elementtyp noch der weitere Elementtyp <code>augenzwinkernd</code> zugelassen.</p>
+
+<h3 class="xmp">Beispiel einer gültigen Anwendung:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/text.xml">Anzeigebeispiel: So sieht's aus</a> (XML-fähiger Browser zeigt z.B. die Datenstruktur an)</p>
+
+<pre>
+&lt;?xml version="1.0" encoding="ISO-8859-1" ?&gt;
+&lt;!DOCTYPE text SYSTEM "text.dtd"&gt;
+&lt;text&gt;
+Manchmal sagt einem das Gewissen: &lt;drohend&gt;du musst mehr über Frauen und
+Männer nachdenken.&lt;/drohend&gt;
+Dann fragt man sich zwar manchmal, &lt;fragend&gt;warum es darüber wohl
+so viel nachzudenken gibt,&lt;/fragend&gt;
+aber manchmal folgt man auch brav und denkt nach.
+Sagt die Frau zum Mann: &lt;lachend&gt;Mann o Mann, &lt;augenzwinkernd&gt;du bist
+dein Geld wert!&lt;/augenzwinkernd&gt;&lt;/lachend&gt;
+Antwortet der Mann: &lt;zynisch&gt;Ja, weil ich den Einkaufswagen schiebe
+und sich eine Mark darin befindet!&lt;/zynisch&gt;
+Daraufhin die Frau: &lt;lachend&gt;Du hast es erfasst!&lt;/lachend&gt;
+&lt;/text&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Anwendungsbeispiel enthält das Dokument-Element <code>&lt;text&gt;..&lt;/text&gt;</code> und innerhalb davon typischen gemischten Inhalt. Es kommt normaler Text vor (Zeichendaten), aber auch weitere Elemente. Das <code>lachend</code>-Element kommt insgesamt zweimal vor. Genausogut könnte auch z.B. das <code>drohend</code>-Element zwei- oder mehrfach innerhalb eines <code>text</code>-Elements vorkommen. Dies ist aufgrund der Verwendung des Sternzeichens <code>*</code> bei der Definition aller inneren Elementtypen erlaubt. Das Element <code>augenzwinkernd</code> kommt wie laut DTD erlaubt innerhalb von <code>lachend</code> vor - außerhalb davon dürfte es jedoch nicht vorkommen.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/xml10.gif" width="30" height="30" alt="XML 1.0" title="XML 1.0"><img src="../../src/msie5.gif" width="30" height="30" alt="MS IE 5.0" title="MS IE 5.0">&nbsp;<a class="an" name="beliebiger_inhalt">Elemente mit beliebigem Inhalt definieren</a></h2>
+
+<p>Elemente mit beliebigem Inhalt sind eine Steigerungsform von Elementen mit gemischtem Inhalt. Es handelt sich dabei gewissermaßen um Joker- oder Wildcard-Elemente, deren Inhalt in keiner Weise festgelegt ist. Alle übrigen in der DTD definierten Elementtypen können in einem Element mit beliebigem Inhalt vorkommen.</p>
+
+<h3 class="xmp">Beispiel-DTD <var>anytext.dtd</var>:</h3>
+
+<pre>
+&lt;!ELEMENT anytext ANY&gt;
+&lt;!ELEMENT english (#PCDATA)&gt;
+&lt;!ELEMENT italiano (#PCDATA)&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Für alle Definitionen im Beispiel gilt das <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#schema">Schema zur Definition von Elementtypen</a>. Durch das Schlüsselwort <code>ANY</code> (großgeschrieben) anstelle der konkreten Definition eines Elementinhalts geben Sie an, dass dieses Element (im Beispiel das Dokument-Element) beliebigen <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#mit_zeicheninhalt">Zeicheninhalt</a> und <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#mit_elementinhalt">Elementinhalt</a> enthalten kann. Im Beispiel sind zwei andere Elementtypen definiert, die ebenfalls vorkommen dürfen.</p>
+
+<h3 class="xmp">Beispiel einer gültigen Anwendung:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/anytext.xml">Anzeigebeispiel: So sieht's aus</a> (XML-fähiger Browser zeigt z.B. die Datenstruktur an)</p>
+
+<pre>
+&lt;?xml version="1.0" encoding="ISO-8859-1" ?&gt;
+&lt;!DOCTYPE anytext SYSTEM "anytext.dtd"&gt;
+&lt;anytext&gt;
+Das ist etwas Text, der in Englisch lautet:
+&lt;english&gt;this is some text&lt;/english&gt; und in italienisch:
+&lt;italiano&gt;ciò è un certo testo&lt;/italiano&gt;
+&lt;/anytext&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Im Beispiel wird das Dokument-Element <code>&lt;anytext&gt;...&lt;/anytext&gt;</code> definiert. Darin können Zeichendaten und beliebige andere Elemente vorkommen, zu denen es in der DTD einen Elementtyp gibt. Das Beispiel zeigt eine einfache Mischung.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/xml10.gif" width="30" height="30" alt="XML 1.0" title="XML 1.0"><img src="../../src/msie5.gif" width="30" height="30" alt="MS IE 5.0" title="MS IE 5.0">&nbsp;<a class="an" name="ohne_inhalt">Leere Elemente ohne Inhalt definieren</a></h2>
+
+<p>Leere Elemente sind solche ohne Inhalt. Im klassischen HTML sind etwa <code>&lt;br&gt;</code> oder <code>&lt;img&gt;</code> solche Elemente. Dort redet man auch von Standalone-Elementen. In der Philosophie von XML ist eigentlich für jedes Element ein Inhalt vorgesehen. Wenn Sie Elementtypen definieren wollen, die keinen Inhalt haben, müssen Sie dies gesondert angeben. Auch die Notation der Elemente in der Anwendung weist darauf hin, dass es sich um einen Sonderfall handelt.</p>
+
+<h3 class="xmp">Beispiel-DTD <var>textzeilen.dtd</var>:</h3>
+
+<pre>
+&lt;!ELEMENT textzeilen (#PCDATA | neuezeile)*&gt;
+&lt;!ELEMENT neuezeile EMPTY&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Im Beispiel werden zwei Elementtypen definiert: ein Elementtyp <code>textzeilen</code> für das Dokument-Element mit <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#gemischter_inhalt">gemischtem Inhalt</a>, und ein Elementtyp <code>neuezeile</code>, der innerhalb des Elementtyps <code>textzeilen</code> beliebig vorkommen darf. Für beide Definitionen gilt das <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#schema">Schema zur Definition von Elementtypen</a>.</p>
+
+<p>Der Elementtyp <code>neuezeile</code> ist dabei ein leerer Elementtyp. Kenntlich gemacht wird dies durch das Schlüsselwort <code>EMPTY</code> (zu deutsch: <i>leer</i>) an der Stelle, wo der Inhalt des Elementtyps definiert wird.</p>
+
+<h3 class="xmp">Beispiel einer gültigen Anwendung:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/textzeilen.xml">Anzeigebeispiel: So sieht's aus</a> (XML-fähiger Browser zeigt z.B. die Datenstruktur an)</p>
+
+<pre>
+&lt;?xml version="1.0" encoding="ISO-8859-1" ?&gt;
+&lt;!DOCTYPE textzeilen SYSTEM "textzeilen.dtd"&gt;
+&lt;textzeilen&gt;
+Das ist Text, aber wo beginnt die&lt;neuezeile /&gt;
+neue Zeile?
+&lt;/textzeilen&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Im Beispiel wird das Element ohne Inhalt entsprechend der Regeln für <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../regeln/tagsattrwerte.htm#leere_elemente">leere Elemente</a> notiert. Für eine Umsetzung der Bedeutung "neuezeile" kann natürlich erst eine Style-Sprache wie CSS oder XSL sorgen.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/xml10.gif" width="30" height="30" alt="XML 1.0" title="XML 1.0"><img src="../../src/msie5.gif" width="30" height="30" alt="MS IE 5.0" title="MS IE 5.0">&nbsp;<a class="an" name="elementgruppen">Elementgruppen zusammenfassen</a></h2>
+
+<p>Beim Entwurf größerer DTDs mit vielen Elementtypen werden Sie schnell feststellen, dass es viele Wiederholungen speziell bei Elementtypinhalten gibt. Viele Elementtypen bilden oft logisch gesehen eine zusammengehörige Gruppe, die geschlossen als Elementinhalt mehrerer anderer, übergeordneter Elementtypen vorkommt. Für solche Fälle bietet die DTD-Syntax die Möglichkeit an, Elementtypen zu solchen logischen Gruppen zusammenzufassen. Eine logische Gruppe von Elementtypen bezeichnet man als Parameter Entity. Der Einsatz von Parameter Entities erhöht in komplexen DTDs die Lesbarkeit und die Änderungsfreundlichkeit. Beschrieben wird diese Möglichkeit im Abschnitt <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="entities.htm#parameter_entities">Parameter Entities für DTD-Bausteine</a>.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/xml10.gif" width="30" height="30" alt="XML 1.0" title="XML 1.0"><img src="../../src/msie5.gif" width="30" height="30" alt="MS IE 5.0" title="MS IE 5.0"><img src="../../src/netsc6.gif" width="30" height="30" alt="Netscape 6.0" title="Netscape 6.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="buchbeispiel">Zusammenhängendes Beispiel: ein Buch</a></h2>
+
+<p>Um komplexe Abhängigkeiten und Regeln bei der Definition von Elementtypen abzubilden, ist es wichtig, die richtigen Überlegungen anzustellen und sich ein Modell der geplanten Elementstruktur zu machen.</p>
+
+<p>Viele Datenstrukturen weisen eine starke logische Hierarchie auf. Gut sichtbar wird das am Beispiel eines Buches. Ein Buch besteht typischerweise aus Kapiteln, Verzeichnissen und speziellen Seiten wie Impressum, Titel usw. Jedes Kapitel besteht aus einer Kapitelüberschrift und Abschnitten. Jeder Abschnitt besteht aus einer Abschnittsüberschrift und dem Abschnittsinhalt. Ein Abschnittsinhalt kann Dinge wie normale Fließtextabsätze, Aufzählungen, Grafikreferenzen usw. enthalten. Jeder Fließtextabsatz, jeder Aufzählungspunkt kann Textteile mit speziellen Formatierungen enthalten, etwa für Fettschrift, Kursivschrift usw. enthalten. Bei solchen Datenstrukturen ist es am sinnvollsten, wenn man beim Entwurf der Elementtypen und ihrer Abhängigkeiten vom Allgemeinen (das Buch) hin zum Speziellen (das fett markierte Wort in einem Absatz) denkt. XML unterstützt diese Art stark hierarchischer Datenstrukturen besonders gut, da sich ein Dokument nach der Philosophie von XML als Baumstruktur abbilden lässt. Die Umsetzung einer stark hierarchischen Elementstruktur ist denn auch in einer XML-DTD vergleichsweise einfach und gut nachvollziehbar.</p>
+
+<h3 class="xmp">Beispiel-DTD <var>buch.dtd</var>:</h3>
+
+<pre>
+&lt;!ENTITY % text "hervorgehoben | hinweisend | auffordernd | zeilenumbruch"&gt;
+
+&lt;!ELEMENT buch                   (titel,impressum,inhaltsverzeichnis,(kapitel)+,stichwortverzeichnis)&gt;
+
+&lt;!ELEMENT titel                  (haupttitel,untertitel)&gt;
+&lt;!ELEMENT haupttitel             (#PCDATA)&gt;
+&lt;!ELEMENT untertitel             (#PCDATA)&gt;
+
+&lt;!ELEMENT impressum              (cip,copyright,verlag)&gt;
+&lt;!ELEMENT cip                    (#PCDATA | %text;)*&gt;
+&lt;!ELEMENT copyright              (#PCDATA | %text;)*&gt;
+&lt;!ELEMENT verlag                 (#PCDATA | %text;)*&gt;
+
+&lt;!ELEMENT inhaltsverzeichnis     (ivz_ueberschrift,(ivz_kapiteleintrag | ivz_abschnittseintrag)*)&gt;
+&lt;!ELEMENT ivz_ueberschrift       (#PCDATA)&gt;
+&lt;!ELEMENT ivz_kapiteleintrag     (#PCDATA)&gt;
+&lt;!ELEMENT ivz_abschnittseintrag  (#PCDATA)&gt;
+
+&lt;!ELEMENT kapitel                (kap_ueberschrift,(abschnitt)+)&gt;
+&lt;!ELEMENT kap_ueberschrift       (#PCDATA)&gt;
+
+&lt;!ELEMENT abschnitt              (ab_ueberschrift,(fliesstext | aufzaehlung | grafik)+)&gt;
+&lt;!ELEMENT ab_ueberschrift        (#PCDATA)&gt;
+
+&lt;!ELEMENT fliesstext             (#PCDATA | %text;)*&gt;
+&lt;!ELEMENT aufzaehlung            (aufzaehlungspunkt)+&gt;
+&lt;!ELEMENT aufzaehlungspunkt      (#PCDATA | %text;)*&gt;
+&lt;!ELEMENT grafik                 (grafikdatei)&gt;
+&lt;!ELEMENT grafikdatei            (#PCDATA)&gt;
+
+&lt;!ELEMENT stichwortverzeichnis   (svz_ueberschrift,(svz_eintrag)*)&gt;
+&lt;!ELEMENT svz_ueberschrift       (#PCDATA)&gt;
+&lt;!ELEMENT svz_eintrag            (#PCDATA)&gt;
+
+&lt;!ELEMENT hervorgehoben          (#PCDATA)&gt;
+&lt;!ELEMENT hinweisend             (#PCDATA)&gt;
+&lt;!ELEMENT auffordernd            (#PCDATA)&gt;
+&lt;!ELEMENT zeilenumbruch          EMPTY&gt;
+</pre>
+
+<h3 class="xmp">Beispiel einer gültige Anwendung</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/buch.xml">Anzeigebeispiel: So sieht's aus</a> (XML-fähiger Browser zeigt z.B. die Datenstruktur an)</p>
+
+
+<pre>
+&lt;?xml version="1.0" encoding="ISO-8859-1" ?&gt;
+&lt;!DOCTYPE buch SYSTEM "buch.dtd"&gt;
+&lt;?xml:stylesheet type="text/css" href="buch.css" ?&gt;
+
+&lt;buch&gt;
+
+&lt;titel&gt;
+&lt;haupttitel&gt;Ich bin der Valentin&lt;/haupttitel&gt;
+&lt;untertitel&gt;Wie mein Leben wurde was es geworden ist&lt;/untertitel&gt;
+&lt;/titel&gt;
+
+&lt;impressum&gt;
+&lt;cip&gt;Deutsche Bibliothek - CIP-Einheitsaufnahme:&lt;zeilenumbruch /&gt;
+Titeldatensatz erhältlich bei der Deutschen Bibliothek&lt;/cip&gt;
+&lt;copyright&gt;&#169;2000 alle Rechte beim Verlag&lt;/copyright&gt;
+&lt;verlag&gt;Eigenverlag, Hinter den Sieben Bergen&lt;/verlag&gt;
+&lt;/impressum&gt;
+
+&lt;inhaltsverzeichnis&gt;
+&lt;ivz_ueberschrift&gt;Inhaltsverzeichnis&lt;/ivz_ueberschrift&gt;
+
+&lt;ivz_kapiteleintrag&gt;Meine frühen Jahre&lt;/ivz_kapiteleintrag&gt;
+&lt;ivz_abschnittseintrag&gt;Kindheit&lt;/ivz_abschnittseintrag&gt;
+&lt;ivz_abschnittseintrag&gt;Jugend&lt;/ivz_abschnittseintrag&gt;
+
+&lt;ivz_kapiteleintrag&gt;Wie ich zum Manne wurde&lt;/ivz_kapiteleintrag&gt;
+&lt;ivz_abschnittseintrag&gt;Die erste Liebe&lt;/ivz_abschnittseintrag&gt;
+
+&lt;/inhaltsverzeichnis&gt;
+
+&lt;kapitel&gt;
+&lt;kap_ueberschrift&gt;Meine frühen Jahre&lt;/kap_ueberschrift&gt;
+
+&lt;abschnitt&gt;
+&lt;ab_ueberschrift&gt;Kindheit&lt;/ab_ueberschrift&gt;
+
+&lt;fliesstext&gt;
+Meine Kindheit bestand aus zwei Lebensabschnitten:
+&lt;/fliesstext&gt;
+
+&lt;aufzaehlung&gt;
+&lt;aufzaehlungspunkt&gt;- dem Säuglingsalter&lt;/aufzaehlungspunkt&gt;
+&lt;aufzaehlungspunkt&gt;- dem Kindesalter&lt;/aufzaehlungspunkt&gt;
+&lt;/aufzaehlung&gt;
+
+&lt;/abschnitt&gt;
+
+&lt;abschnitt&gt;
+&lt;ab_ueberschrift&gt;Jugend&lt;/ab_ueberschrift&gt;
+
+&lt;fliesstext&gt;
+Meine Jugend bestand im wesentlichen aus Pickeln.
+&lt;/fliesstext&gt;
+
+&lt;/abschnitt&gt;
+
+&lt;/kapitel&gt;
+
+&lt;kapitel&gt;
+&lt;kap_ueberschrift&gt;Wie ich zum Manne wurde&lt;/kap_ueberschrift&gt;
+
+&lt;abschnitt&gt;
+&lt;ab_ueberschrift&gt;Die erste Liebe&lt;/ab_ueberschrift&gt;
+
+&lt;fliesstext&gt;
+Sie &lt;hervorgehoben&gt;kam&lt;/hervorgehoben&gt;, &lt;hervorgehoben&gt;geschah&lt;/hervorgehoben&gt;, und &lt;hervorgehoben&gt;verging&lt;/hervorgehoben&gt; wieder.
+&lt;/fliesstext&gt;
+
+&lt;grafik&gt;
+&lt;grafikdatei&gt;ersteliebe.tif&lt;/grafikdatei&gt;
+&lt;/grafik&gt;
+
+&lt;/abschnitt&gt;
+
+&lt;/kapitel&gt;
+
+&lt;stichwortverzeichnis&gt;
+&lt;svz_ueberschrift&gt;Stichwortverzeichnis&lt;/svz_ueberschrift&gt;
+
+&lt;svz_eintrag&gt;Jugend&lt;/svz_eintrag&gt;
+&lt;svz_eintrag&gt;Kindheit&lt;/svz_eintrag&gt;
+&lt;svz_eintrag&gt;Liebe&lt;/svz_eintrag&gt;
+&lt;svz_eintrag&gt;Pickel&lt;/svz_eintrag&gt;
+&lt;svz_eintrag&gt;Säugling&lt;/svz_eintrag&gt;
+
+&lt;/stichwortverzeichnis&gt;
+
+&lt;/buch&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel kann natürlich nur grob ein komplettes Buch beschreiben - wenn Sie tatsächlich versuchen, eine komplette Buchstruktur mit Hilfe von XML zu beschreiben, werden Sie sicher noch viel mehr Details benötigen. Das Beispiel will jedoch zeigen, wie eine solche Beschreibung im Prinzip aussehen kann.</p>
+
+<p>In dem Beispiel wird zunächst eine <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="entities.htm#parameter_entities">Parameter Entity</a> definiert. Darin werden vier Elementtypen <code>hervorgehoben</code>, <code>hinweisend</code>, <code>auffordernd</code> und <code>zeilenumbruch</code> zusammengefasst, die innerhalb von verschiedenen Textabsätzen vorkommen können.</p>
+
+<p>Der Rest der DTD besteht in der Definition der gewünschten Elementtypen. Die Reihenfolge spielt eigentlich keine Rolle, doch das Beispiel hält eine gewisse Logik ein und versucht, vom Allgemeinen hin zum Speziellen fortzuschreiten. Das Element, in dem das gesamte Buch steht, wird mit dem Namen <code>buch</code> definiert. Das Element hat <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#mit_elementinhalt">Elementinhalt</a>. Dabei können die Elementtypen <code>titel</code>, <code>impressum</code>, <code>inhaltsverzeichnis</code> und <code>stichwortverzeichnis</code> genau einmal vorkommen, und zwar in der notierten Reihenfolge. Lediglich der Elementtyp <code>kapitel</code>, in der Reihenfolge zwischen <code>inhaltsverzeichnis</code> und <code>stichwortverzeichnis</code> stehend, muss mindestens einmal und kann <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#viele_elemente">beliebig oft</a> vorkommen. Damit ist die Grundstruktur des Buches festgelegt.</p>
+
+<p>Die Bereiche <code>titel</code> und <code>impressum</code> enthalten als Elementinhalt entsprechende Elementtypen. Bei den untergeordneten Elementtypen von <code>impressum</code> wird erstmals die definierte Parameter Entity angewendet. Die entsprechenden Elementtypen <code>hervorgehoben</code>, <code>hinweisend</code>, <code>auffordernd</code> und <code>zeilenumbruch</code> können innerhalb von <code>cip</code>, <code>copyright</code> und <code>verlag</code> beliebig oft vorkommen. Die übrigen Bereiche des Buches untergliedern sich nach ähnlichem Schema in einzelne Elementtypen.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Netscape, Opera, Firefox und Safari beachten die externe DTD nicht.</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="attribute.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="attribute.htm">Attribute und Wertzuweisungen</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="bearbeitungsregeln.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="bearbeitungsregeln.htm">Bearbeitungsregeln für DTDs</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">XML/DTDs</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Dokumenttyp-Definitionen (DTDs)</a></td>
+</tr>
+</table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

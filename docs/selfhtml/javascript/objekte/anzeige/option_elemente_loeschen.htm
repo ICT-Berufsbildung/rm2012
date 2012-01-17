@@ -1,0 +1,25 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>Test</title>
+<script type="text/javascript">
+function Loeschen () {
+  document.Testform.Auswahl.options[document.Testform.Auswahl.length - 1] = null;
+}
+</script>
+</head><body>
+<form action="" name="Testform">
+<select name="Auswahl" size="8">
+<option>Auswahl 1</option>
+<option>Auswahl 2</option>
+<option>Auswahl 3</option>
+<option>Auswahl 4</option>
+<option>Auswahl 5</option>
+</select>
+<br>
+<input type="button" value="L&ouml;schen" onclick="Loeschen()">
+</form>
+
+<p><a href="../options.htm#elemente_loeschen">zur&uuml;ck</a></p>
+</body>
+</html>

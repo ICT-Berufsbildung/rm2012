@@ -1,0 +1,230 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: HTML/XHTML / Frames / Eingebettete Frames</title>
+<meta name="description"    content="Wie Sie eingebettete Frames definieren können, um innerhalb einer HTML-Datei eine andere HTML-Datei oder andere Datenquellen anzuzeigen.">
+<meta name="keywords"       content="SELFHTML, HTML, XHTML, Frames, eingebettete Frames, Inline-Frames, iframe, width, height, name, src, hspace, vspace, frameborder, align">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-10-31T12:25:34+01:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/html/frames/eingebettete.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="Frames" href="index.htm">
+<link rel="next" title="Frames als Mittel für Seiten-Layouts" href="layouts.htm">
+<link rel="prev" title="Verweise bei Frames" href="verweise.htm">
+<link rel="first" title="Framesets und Frames definieren" href="definieren.htm">
+<link rel="last" title="Frames als Mittel für Seiten-Layouts" href="layouts.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">HTML/XHTML</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Frames</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Eingebettete Frames</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#definieren">Eingebettete Frames definieren</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#eigenschaften">Eigenschaften eingebetteter Frames</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#verweise">Verweise zu eingebetteten Frames</a><br>
+</p>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><img src="../../src/html40.gif" width="30" height="30" alt="HTML 4.0" title="HTML 4.0"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/netsc6.gif" width="30" height="30" alt="Netscape 6.0" title="Netscape 6.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="definieren">Eingebettete Frames definieren</a></h2>
+
+<p>Eingebettete Frames werden vom MS Internet Explorer ab Version 3.x interpretiert, von Netscape bis einschließlich Version 4.x dagegen nicht. Seit HTML 4.0 gehören sie zum HTML-Standard. Eingebettete Frames sind ein eigenständiges Gestaltungsmittel zur Informationsaufbereitung, das anders funktioniert als "normale" Frames. Eingebettete Frames erzeugen keine Aufteilung des Bildschirms, sondern sind ähnlich wie Grafiken Bereiche innerhalb einer HTML-Datei, in denen fremde Quellen, vor allem andere HTML-Dateien angezeigt werden können.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/iframe.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+       "http://www.w3.org/TR/html4/loose.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Eingebettete Frames definieren&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h1&gt;Fenstergucker&lt;/h1&gt;
+
+&lt;p&gt;Gucken Sie mal SELFHTML im Fenster an:&lt;/p&gt;
+
+&lt;iframe src="../../../index.htm" width="90%" height="400" name="SELFHTML_in_a_box"&gt;
+  &lt;p&gt;Ihr Browser kann leider keine eingebetteten Frames anzeigen:
+  Sie k&amp;ouml;nnen die eingebettete Seite &amp;uuml;ber den folgenden Verweis
+  aufrufen: &lt;a href="../../../index.htm"&gt;SELFHTML&lt;/a&gt;&lt;/p&gt;
+&lt;/iframe&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Für HTML-Dateien mit eingebetteten Frames gilt das gewöhnliche <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../allgemein/grundgeruest.htm">Grundgerüst einer HTML-Datei</a>. Eingebettete Frames können dann im Textkörper der HTML-Datei an einer gewünschten Stelle vorkommen. Mit <code>&lt;iframe...&gt;</code> leiten Sie einen eingebetteten Frame ein (<i>iframe = inline frame = Rahmen im Textfluss</i>). Mit dem Attribut <code>src</code> bestimmen Sie, was in dem eingebetteten Frame angezeigt werden soll. Es kann sich um eine andere HTML-Datei oder eine beliebige andere lokale oder entfernte Datenquelle handeln. Bei der Wertzuweisung gelten die Regeln zum <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../allgemein/referenzieren.htm">Referenzieren in HTML</a>.<br>
+Ferner sollten Sie für den eingebetteten Frame mit <code>name</code> einen Namen vergeben. Diese Namen brauchen Sie, um <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#verweise">Verweise zu dem eingebetteten Frame</a> zu definieren.</p>
+
+<p>Dringend zu empfehlen ist das Bestimmen der gewünschten Breite und Höhe des eingebetteten Frame-Fensters. Die Breite geben Sie im einleitenden <code>&lt;iframe&gt;</code>-Tag mit dem Attribut <code>width</code> an, die Höhe mit <code>height</code>. Erlaubt sind Pixelangaben oder Prozentwerte, die sich auf die Größe des Elternelements (bei fehlender oder prozentualer Angabe unter Berücksichtigung auch dessen Elternelements) beziehen.</p>
+
+<p>Zwischen dem einleitenden <code>&lt;iframe&gt;</code> und dem erforderlichen, abschließenden <code>&lt;/iframe&gt;</code> können Sie Text und andere Elemente notieren, die von Web-Browsern angezeigt werden, die den eingebetteten Frame nicht interpretieren.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Wenn Sie das <code>iframe</code>-Element in einer HTML-Datei notieren, müssen Sie in dieser Datei die HTML-Variante Transitional wählen.</p>
+
+<p>Andere Möglichkeiten, um Inhalte aus anderen Dateien innerhalb einer HTML-Datei anzuzeigen, sind <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../multimedia/objekte.htm#datendateien">Datendateien als Objekt</a> (ebenfalls HTML-Standard), <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../layer/definieren.htm#inhalt_aus_datei">Layer mit Inhalt aus anderer Datei</a> (Netscape-spezifisch) sowie <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../servercgi/server/ssi.htm">Server Side Includes</a> (HTML-Standard-konform, jedoch nur in HTTP-Umgebung ausführbar).</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/html40.gif" width="30" height="30" alt="HTML 4.0" title="HTML 4.0"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/netsc6.gif" width="30" height="30" alt="Netscape 6.0" title="Netscape 6.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="eigenschaften">Eigenschaften eingebetteter Frames</a></h2>
+
+<p>Sie können verschiedene weitere Eigenschaften definieren, um ein eingebettetes Frame-Fenster zur Umgebung auszurichten.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/iframe_eigenschaften.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+       "http://www.w3.org/TR/html4/loose.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Eigenschaften eingebetteter Frames&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h1&gt;Bild zum Scrollen&lt;/h1&gt;
+
+&lt;iframe src="bild.jpg" name="Bildframe" width="300" height="200" align="left"
+        scrolling="yes" marginheight="0" marginwidth="0" frameborder="0"&gt;
+  &lt;p&gt;Ihr Browser kann leider keine eingebetteten Frames anzeigen:
+    &lt;img src="bild.jpg" width="464" height="580" border="0" alt="Bild"&gt;
+  &lt;/p&gt;
+&lt;/iframe&gt;
+
+&lt;p&gt;Dieses Bild wurde auf dem Karwendelstein bei Mittenwald aufgenommen,
+in ca. 2400 Meter H&amp;ouml;he. Es demonstriert, was einem in einem
+Freistaat so alles passieren kann ...&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel zeigt, wie Sie ein eingebettetes Frame-Fenster dazu verwenden können, um eine größere Grafik anzuzeigen und diese mit eigenen Scrollbars auszustatten.</p>
+
+<p>Mit <code>align="left"</code> richten Sie den eingebetteten Frame links aus. Nachfolgende Inhalte fließen dann rechts um den Frame. Mit <code>align="right"</code> richten Sie den eingebetteten Frame rechts aus und nachfolgende Inhalte fließen links um den Frame.</p>
+
+<p>Mit <code>scrolling="yes"</code> können Sie Scrollbars (Bildlaufleisten) in dem eingebetteten Frame erzwingen, mit <code>scrolling="no"</code> unterdrücken. <code>scrolling="auto"</code> können Sie ebenfalls angeben, doch dies entspricht der Voreinstellung.</p>
+
+<p>Mit <code>frameborder="0"</code> können Sie den sichtbaren Außenrahmen des eingebetteten Frames unterdrücken. <code>frameborder="1"</code> ist die Voreinstellung.</p>
+
+<p>Zwei weitere Attribute, nämlich <code>hspace</code> und <code>vspace</code>, werden vom Internet Explorer ebenfalls interpretiert, sind aber im Zusammenhang mit eingebetteten Frames nicht im HTML-Standard verzeichnet - was etwas inkonsistent ist, da das <code>align</code>-Attribut bei solchen Frame-Fenstern genauso wirkt wie etwa bei Grafiken oder Objekten. Mit <code>hspace</code> [Pixel] bestimmen Sie den Abstand zum Text neben dem eingebetteten Frame, mit <code>vspace</code> [Pixel] den Abstand zum Text über bzw. unter dem Frame (<i>hspace = horizontal space = horizontaler Abstand, vspace = vertical space = vertikaler Abstand</i>). Beide Angaben erzeugen jedoch ungültiges HTML.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Genau wie bei normalen Frames besteht auch bei eingebetteten Frames die Möglichkeit, mit dem Attribut <code>longdesc</code> eine <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="definieren.htm#langbeschreibung">Langbeschreibung</a> zu referenzieren.</p>
+
+<p>Konqueror 3.1 unterstützt die Ausrichtung (<code>align</code>) von <code>iframe</code> nicht.</p>
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/html40.gif" width="30" height="30" alt="HTML 4.0" title="HTML 4.0"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/netsc6.gif" width="30" height="30" alt="Netscape 6.0" title="Netscape 6.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="verweise">Verweise zu eingebetteten Frames</a></h2>
+
+<p>In einer HTML-Datei, in der Sie einen eingebetteten Frame definieren, können Sie mit Verweisen auch den Inhalt des eingebetteten Frames ändern.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/iframe_verweise.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+       "http://www.w3.org/TR/html4/loose.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Verweise zu eingebetteten Frames&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h1&gt;Fernsteuerung&lt;/h1&gt;
+
+&lt;iframe src="startseite.htm" name="Fensterlein" width="500" height="400"
+        marginheight="10" marginwidth="10" align="right"&gt;
+  &lt;p&gt;Ihr Browser kann leider keine eingebetteten Frames anzeigen&lt;/p&gt;
+&lt;/iframe&gt;
+
+&lt;p&gt;
+  &lt;a href="willkommen.htm" target="Fensterlein"&gt;&lt;b&gt;andere Seite&lt;/b&gt;&lt;/a&gt;&lt;br&gt;
+  &lt;a href="startseite.htm" target="Fensterlein"&gt;&lt;b&gt;erste Seite&lt;/b&gt;&lt;/a&gt;
+&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Voraussetzung für Verweise zu einem eingebetteten Frame ist, dass der eingebettete Frame mit <code>name</code> einen Namen erhalten hat. Im obigen Beispiel ist das der Name <code>Fensterlein</code>.<br>
+Für das Setzen eines Verweises zu dem eingebetteten Frame gelten die üblichen Regeln zum <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../allgemein/referenzieren.htm">Referenzieren in HTML</a>. Damit das Verweisziel in dem Frame angezeigt wird, notieren Sie im einleitenden Verweis-Tag zusätzlich die Angabe <code>target</code> (<i>target = Ziel</i>). Dahinter folgt der Name des Frame-Fensters, in dem das Verweisziel angezeigt werden soll.</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="layouts.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="layouts.htm">Frames als Mittel für Seiten-Layouts</a></td></tr>
+<tr>
+<td class="doc"><a href="verweise.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="verweise.htm">Verweise bei Frames</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">HTML/XHTML</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Frames</a></td>
+</tr></table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

@@ -1,0 +1,666 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: HTML/XHTML / Tabellen / Gestaltung einer Tabelle</title>
+<meta name="description"    content="Wie Sie eine Tabelle in HTML optisch gestalten können, z.B. mit Vorgaben für Breite und Höhe, für das Aussehen der Gitternetzlinien und für Hintergrundfarben.">
+<meta name="keywords"       content="SELFHTML, HTML, XHTML, Tabellen, Ausrichtung, Breite, Höhe, Zeilenhöhe, Spaltenbreite, Tabellenbreite, horizontale Ausrichtung, vertikale Ausrichtung, Zeilenumbruch, Hintergrundfarbe, Hintergrundbild, Wallpaper, Zellenabstand, Zelleninnenabstand, table, tr, th, td, border, cellspacing, cellpadding, frame, rules, align, valign, width, height, bgcolor, background, char, charoff, nowrap">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-10-31T12:25:34+01:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/html/tabellen/gestaltung.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="Tabellen" href="index.htm">
+<link rel="next" title="Zellen verbinden" href="zellen_verbinden.htm">
+<link rel="prev" title="Aufbau einer Tabelle" href="aufbau.htm">
+<link rel="first" title="Aufbau einer Tabelle" href="aufbau.htm">
+<link rel="last" title="Tabellen und nicht-visuelle Medien" href="nicht_visuell.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">HTML/XHTML</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Tabellen</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Gestaltung einer Tabelle</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#abstand">Zellenabstand und Zelleninnenabstand</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#regeln_rahmen">Regeln für den Außenrahmen</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#regeln_gitternetz">Regeln für Gitternetzlinien</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#breiten_hoehen">Breiten- und Höhenangaben</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#zeilenumbruch">Zeilenumbruch in Zellen verhindern</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#ausrichtung_zellen">Ausrichtung von Zellen</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#hintergrund">Hintergrundfarben und Hintergrundbilder</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#farbrahmen">Farben für Rand und Gitternetzlinien (Microsoft)</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#gestalten_css">Tabellen mit CSS gestalten</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#weitere">Weitere Informationen</a>
+</p>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><img src="../../src/html32.gif" width="30" height="30" alt="HTML 3.2" title="HTML 3.2"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../../src/msie2.gif" width="30" height="30" alt="MS IE 2.0" title="MS IE 2.0"><img src="../../src/netsc11.gif" width="30" height="30" alt="Netscape 1.1" title="Netscape 1.1"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="abstand">Zellenabstand und Zelleninnenabstand</a></h2>
+
+<p>Sie können den Abstand zwischen den Zeilen und Spalten einer Tabelle in Pixeln bestimmen. Ferner können Sie den Abstand zwischen Zellenrand und Zelleninhalt bestimmen.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/cellspacing_padding.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+       "http://www.w3.org/TR/html4/strict.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Zellenabstand und Zelleninnenabstand in Tabellen&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h1&gt;Weit auseinander&lt;/h1&gt;
+
+&lt;table border="8" cellspacing="10" cellpadding="20"&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Berlin&lt;/th&gt;
+    &lt;th&gt;Hamburg&lt;/th&gt;
+    &lt;th&gt;M&amp;uuml;nchen&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Milj&amp;ouml;h&lt;/td&gt;
+    &lt;td&gt;Kiez&lt;/td&gt;
+    &lt;td&gt;Bierdampf&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Buletten&lt;/td&gt;
+    &lt;td&gt;Frikadellen&lt;/td&gt;
+    &lt;td&gt;Fleischpflanzerl&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Die folgende Grafik zeigt die Wirkungsweise der Attribute im einleitenden <code>&lt;table&gt;</code>-Tag:</p>
+
+<p><img src="abstand.png" width="332" height="202" alt="cellspacing und cellpadding"></p>
+
+<p>Mit <code>cellpadding</code> bestimmen Sie den Innenabstand einer Zelle, also den Abstand zwischen Zellenrand und Zelleninhalt in Pixeln (<i>cellpadding = Zelleninnenabstand</i>). Mit  <code>cellspacing</code> bestimmen Sie den Abstand der Zellen untereinander in Pixeln (<i>cellspacing = Zellenabstand</i>). Wenn Sie mit <code>border</code> einen sichtbaren Rahmen und sichtbare Gitternetzlinien in der Tabelle erzeugen, ist die Wirkungsweise von <code>cellpadding</code> und <code>cellspacing</code> besser nachvollziehbar. Bei blinden Tabellen erzeugen beide Attribute optisch gesehen einfach nur "Abstand".</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/html40.gif" width="30" height="30" alt="HTML 4.0" title="HTML 4.0"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../../src/msie4.gif" width="30" height="30" alt="MS IE 4.0" title="MS IE 4.0"><img src="../../src/netsc6.gif" width="30" height="30" alt="Netscape 6.0" title="Netscape 6.0"><img src="../../src/op72.gif" width="30" height="30" alt="Opera 7.20" title="Opera 7.20"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/safwk.gif" width="30" height="30" alt="Safari WebKit (Entwicklerversion)" title="Safari WebKit (Entwicklerversion)">&nbsp;<a class="an" name="regeln_rahmen">Regeln für den Außenrahmen</a></h2>
+
+<p>Wenn Sie mit <code>border</code> einen sichtbaren Tabellenrahmen erzeugen, erhalten automatisch alle Seiten einen Rahmen. Sie können aber auch genau bestimmen, welche Seiten eines Außenrahmens angezeigt werden und welche nicht.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/table_frame.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+       "http://www.w3.org/TR/html4/strict.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Regeln f&amp;uuml;r den Au&amp;szlig;enrahmen bei Tabellen&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h1&gt;Rahmenvereinbarung&lt;/h1&gt;
+
+&lt;table border="3" frame="void"&gt;
+  &lt;tr&gt;
+    &lt;td&gt;&lt;b&gt;Assoziation 1&lt;/b&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;b&gt;Assoziation 2&lt;/b&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;b&gt;Assoziation 3&lt;/b&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Berlin&lt;/td&gt;
+    &lt;td&gt;Hamburg&lt;/td&gt;
+    &lt;td&gt;M&amp;uuml;nchen&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Milj&amp;ouml;h&lt;/td&gt;
+    &lt;td&gt;Kiez&lt;/td&gt;
+    &lt;td&gt;Bierdampf&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Buletten&lt;/td&gt;
+    &lt;td&gt;Frikadellen&lt;/td&gt;
+    &lt;td&gt;Fleischpflanzerl&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Voraussetzung für all diese Angaben ist das Attribut <code>border</code> im einleitenden <code>&lt;table&gt;</code>-Tag. Dadurch wird ein Außenrahmen angezeigt.</p>
+
+<p>Mit dem Attribut <code>frame</code> können Sie dann bestimmen, an welchen Seiten der Tabellenrahmen gezogen werden soll (<i>frame = Rahmen</i>).</p>
+
+<p>Mit <code>frame="box"</code> (<i>box = Rechteck</i>) erreichen Sie, dass der Tabellenrahmen oben, links, rechts und unten sichtbar dargestellt wird (die Angabe ist identisch mit dem, was die Angabe <code>border</code> bewirkt - auch <code>frame="border"</code> ist erlaubt und bewirkt das Gleiche).<br>
+Folgende andere Angaben sind möglich:<br>
+Mit <code>frame="void"</code> (<i>void = nichts</i>) wird überhaupt kein Tabellenrahmen angezeigt. Wenn Sie <code>border</code> angeben, werden jedoch die Gitternetzlinien der Tabelle sichtbar angezeigt. Die Tabelle sieht dann also aus wie ein an allen Seiten offenes Gitter (das obige Beispiel benutzt diese Variante).<br>
+Mit <code>frame="above"</code> (<i>above = oberhalb</i>) wird nur am oberen Rand der Tabelle eine Rahmenlinie angezeigt.<br>
+Mit <code>frame="below"</code> (<i>below = unterhalb</i>) wird nur am unteren Rand der Tabelle eine Rahmenlinie angezeigt.<br>
+Mit <code>frame="hsides"</code> (<i>hsides = horizontal sides = horizontale Seiten</i>) wird nur am oberen und am unteren Rand der Tabelle eine Rahmenlinie angezeigt.<br>
+Mit <code>frame="vsides"</code> (<i>vsides = vertical sides = vertikale Seiten</i>) wird nur am linken und am rechten Rand der Tabelle eine Rahmenlinie angezeigt.<br>
+Mit <code>frame="lhs"</code> (<i>lhs = left hand side = links</i>) wird nur am linken Rand der Tabelle eine Rahmenlinie angezeigt.<br>
+Mit <code>frame="rhs"</code> (<i>rhs = right hand side = rechts</i>) wird nur am rechten Rand der Tabelle eine Rahmenlinie angezeigt.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Netscape 4.x und Konqueror interpretieren diese Angaben noch nicht.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/html40.gif" width="30" height="30" alt="HTML 4.0" title="HTML 4.0"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../../src/msie4.gif" width="30" height="30" alt="MS IE 4.0" title="MS IE 4.0"><img src="../../src/netsc6.gif" width="30" height="30" alt="Netscape 6.0" title="Netscape 6.0"><img src="../../src/op72.gif" width="30" height="30" alt="Opera 7.20" title="Opera 7.20"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1">&nbsp;<a class="an" name="regeln_gitternetz">Regeln für Gitternetzlinien</a></h2>
+
+<p>Sie können Regeln aufstellen, welche Gitternetzlinien einer Tabelle angezeigt werden sollen und welche nicht.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/table_rules.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+       "http://www.w3.org/TR/html4/strict.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Regeln f&amp;uuml;r Gitternetzlinien bei Tabellen&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h1&gt;Gruppendynamik&lt;/h1&gt;
+
+&lt;table border="1" rules="groups"&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Assoziation 1&lt;/th&gt;
+      &lt;th&gt;Assoziation 2&lt;/th&gt;
+      &lt;th&gt;Assoziation 3&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tfoot&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;i&gt;betroffen:&lt;br&gt;4 Mio. Menschen&lt;/i&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;i&gt;betroffen:&lt;br&gt;2 Mio. Menschen&lt;/i&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;i&gt;betroffen:&lt;br&gt;1 Mio. Menschen&lt;/i&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tfoot&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Berlin&lt;/td&gt;
+      &lt;td&gt;Hamburg&lt;/td&gt;
+      &lt;td&gt;M&amp;uuml;nchen&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Milj&amp;ouml;h&lt;/td&gt;
+      &lt;td&gt;Kiez&lt;/td&gt;
+      &lt;td&gt;Bierdampf&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Buletten&lt;/td&gt;
+      &lt;td&gt;Frikadellen&lt;/td&gt;
+      &lt;td&gt;Fleischpflanzerl&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Voraussetzung für all diese Angaben ist das Attribut <code>border</code> im einleitenden <code>&lt;table&gt;</code>-Tag. Dadurch werden Gitternetzlinien angezeigt.</p>
+
+<p>Mit <code>rules</code> können Sie im einleitenden <code>&lt;table&gt;</code>-Tag  Regeln für die Gitternetzlinien bestimmen (<i>rules = Regeln</i>).</p>
+
+<p>Folgende Angaben sind dabei möglich:<br>
+Mit <code>rules="none"</code> (<i>none = keine</i>) werden überhaupt keine Linien gezogen, der Außenrahmen der Tabelle wird jedoch angezeigt.<br>
+Mit <code>rules="rows"</code> (<i>rows = Reihen</i>) werden Linien zwischen allen Tabellenzeilen gezogen, nicht jedoch zwischen den Spalten der Tabelle.<br>
+Mit <code>rules="cols"</code> (<i>cols = columns = Spalten</i>) werden Linien zwischen allen Tabellenspalten gezogen, nicht jedoch zwischen den Zeilen der Tabelle.<br>
+Mit <code>rules="groups"</code> (<i>groups = Gruppen</i>) werden Linien zwischen Kopf, Körper und Fuß einer Tabelle gezogen (siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="aufbau.htm#kopf_koerper_fuss">Kopf, Körper und Fuß einer Tabelle definieren</a> - das obige Beispiel verwendet diese Angabe).<br>
+Mit <code>rules="all"</code> (<i>all = alle</i>) werden Linien zwischen allen Tabellenzellen gezogen (Voreinstellung).</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Netscape 4.x, Konqueror und Safari interpretieren diese Angaben noch nicht.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="breiten_hoehen">Breiten- und Höhenangaben</a></h2>
+
+<p>Sie können für die gesamte Tabelle, sowie für einzelne Spalten und Zeilen geeignete Angaben zu Breite und Höhe notieren. Dadurch schaffen Sie "Raum".</p>
+
+<p>Breitenangaben werden durch das Attribut <code>width</code> notiert, Höhenangaben durch das Attribut <code>height</code> (<i>width = Breite, height = Höhe</i>). Bei allen Angaben sind absolute Zahlenangaben erlaubt, die Breite bzw. Höhe als Anzahl Pixel bestimmen, sowie prozentuale Angaben, die am Ende ein Prozentzeichen (<code>%</code>) haben.</p>
+
+<p>Die einzige von allen Angaben, die nach der HTML-Variante Strict erlaubt ist, ist die Gesamtbreite der Tabelle. Andere Angaben sind als <i>deprecated</i> gekennzeichnet und sollen künftig aus dem HTML-Standard entfallen. Solche Angaben sind auch mit Hilfe von Stylesheets möglich. Und schließlich gibt es auch noch Angaben, die zwar von einigen Browsern interpretiert werden, aber nicht mal zum HTML-Standard in der Variante Transitional gehören. Die folgende Tabelle listet auf, welche Angaben möglich sind, und welchen Status die Angabe in Bezug auf HTML-Standard und Browser-Kompatibilität hat.</p>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<th>Angabe (Notation)</th>
+<th>Status</th>
+<th>Bedeutung</th>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>&lt;table width="..."&gt;</code></td>
+<td valign="top" nowrap="nowrap"><img src="../../src/html32.gif" width="30" height="30" alt="HTML 3.2" title="HTML 3.2"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../../src/nb.gif" width="30" height="30" alt=""><img src="../../src/msie2.gif" width="30" height="30" alt="MS IE 2.0" title="MS IE 2.0"><img src="../../src/netsc11.gif" width="30" height="30" alt="Netscape 1.1" title="Netscape 1.1"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;</td>
+<td class="tabxpl">Bestimmt die Breite der gesamten Tabelle in Bezug auf den verfügbaren Raum im Elternelement. Das Elternelement kann das "Dokument" sein, also das <code>body</code>-Element, oder auch ein anderes Element, innerhalb dessen eine Tabelle vorkommen kann, z.B. ein <code>div</code>-Element oder eine Tabellenzelle einer äußeren Tabelle.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>&lt;table height="..."&gt;</code></td>
+<td valign="top" nowrap="nowrap"><img src="../../src/nb.gif" width="90" height="30" alt=""><img src="../../src/msie2.gif" width="30" height="30" alt="MS IE 2.0" title="MS IE 2.0"><img src="../../src/netsc11.gif" width="30" height="30" alt="Netscape 1.1" title="Netscape 1.1"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;</td>
+<td class="tabxpl">Bestimmt die Höhe der gesamten Tabelle in Bezug auf das Anzeigefenster. Diese Angabe wird zwar von den Browsern schon lange unterstützt und wird in der Praxis häufig benutzt, <strong>gehörte jedoch nie zum HTML-Standard</strong>.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>&lt;th width="..."&gt;</code> oder <code>&lt;td width="..."&gt;</code></td>
+<td valign="top" nowrap="nowrap"><img src="../../src/html32.gif" width="30" height="30" alt="HTML 3.2" title="HTML 3.2"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../../src/deprecated.gif" width="30" height="30" alt="deprecated (missbilligt)" title="deprecated (missbilligt)"><img src="../../src/msie2.gif" width="30" height="30" alt="MS IE 2.0" title="MS IE 2.0"><img src="../../src/netsc11.gif" width="30" height="30" alt="Netscape 1.1" title="Netscape 1.1"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;</td>
+<td class="tabxpl">Bestimmt die Breite einer Tabellenzelle und damit die Breite aller Zellen der gleichen Spalte. Als <i>deprecated</i> eingestuft. Ersetzbar durch CSS-Notationen wie <code>&lt;th style="width:100px"&gt;</code>. Solche Angaben werden allerdings nur von neueren Browsern interpretiert.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>&lt;th height=&gt;</code> oder <code>&lt;td height=&gt;</code></td>
+<td valign="top" nowrap="nowrap"><img src="../../src/html32.gif" width="30" height="30" alt="HTML 3.2" title="HTML 3.2"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../../src/deprecated.gif" width="30" height="30" alt="deprecated (missbilligt)" title="deprecated (missbilligt)"><img src="../../src/msie2.gif" width="30" height="30" alt="MS IE 2.0" title="MS IE 2.0"><img src="../../src/netsc11.gif" width="30" height="30" alt="Netscape 1.1" title="Netscape 1.1"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;</td>
+<td class="tabxpl">Bestimmt die Höhe einer Tabellenzelle und damit die Höhe aller Zellen der gleichen Tabellenzeile. Als <i>deprecated</i> eingestuft. Ersetzbar durch CSS-Notationen wie <code>&lt;td style="height:100px"&gt;</code>. Solche Angaben werden allerdings nur von neueren Browsern interpretiert.</td>
+</tr>
+</table>
+
+<p>Einige Browser interpretieren darüber hinaus weitere Angaben wie <code>&lt;tr height=&gt;</code>. Solche Angaben sind allesamt nicht HTML-Standard-konform und sollten nicht mehr verwendet werden.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/width_height.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+       "http://www.w3.org/TR/html4/loose.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Breiten- und H&amp;ouml;henangaben bei Tabellen&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h1&gt;Breit und hoch mit HTML&lt;/h1&gt;
+
+&lt;table border="1" width="60%"&gt;
+  &lt;tr&gt;
+    &lt;td width="50%" height="100"&gt;Berlin&lt;/td&gt;
+    &lt;td&gt;Hamburg&lt;/td&gt;
+    &lt;td&gt;M&amp;uuml;nchen&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Milj&amp;ouml;h&lt;/td&gt;
+    &lt;td&gt;Kiez&lt;/td&gt;
+    &lt;td&gt;Bierdampf&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Buletten&lt;/td&gt;
+    &lt;td&gt;Frikadellen&lt;/td&gt;
+    &lt;td&gt;Fleischpflanzerl&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;h1&gt;Breit und hoch mit CSS&lt;/h1&gt;
+
+&lt;table border="1" style="width:60%"&gt;
+  &lt;tr&gt;
+    &lt;td style="width:50%; height:100px"&gt;Berlin&lt;/td&gt;
+    &lt;td&gt;Hamburg&lt;/td&gt;
+    &lt;td&gt;M&amp;uuml;nchen&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Milj&amp;ouml;h&lt;/td&gt;
+    &lt;td&gt;Kiez&lt;/td&gt;
+    &lt;td&gt;Bierdampf&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Buletten&lt;/td&gt;
+    &lt;td&gt;Frikadellen&lt;/td&gt;
+    &lt;td&gt;Fleischpflanzerl&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Im Beispiel wird zweimal die gleiche Tabelle notiert - im ersten Fall kommen die HTML-Attribute <code>width</code> und <code>height</code> an erlaubten Stellen zum Einsatz - nach der HTML-Variante Transitional. Die zweite Tabelle benutzt entsprechende CSS-Eigenschaften zur Angabe von Breite und Höhe und genügt damit auch den Anforderungen an die HTML-Variante Strict. Interpretiert wird die zweite Tabelle allerdings erst vom Internet Explorer ab Version 4.x und von Netscape ab Version 6.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Die Angaben zu Breite und Höhe sind nur wirksam, wenn der Tabellen- bzw. Zelleninhalt kleiner ist, sodass leerer Raum entsteht. Wenn der Tabelleninhalt größer ist, werden die Angaben zu Breite und Höhe außer Kraft gesetzt. Die Tabelle bzw. Zelle (und mit ihr Spalte und Zeile) werden dann so dimensioniert, dass der gesamte Inhalt angezeigt wird. Einige Browser - z.B. Netscape bis einschließlich Version 4.x - setzen Angaben zu Breite und Höhe allerdings leider je nach Tabelleninhalt stärker außer Kraft als es nötig wäre.</p>
+
+<p>Da die Angabe zu <code>width</code> in einer Tabellenzelle spaltenweit gilt, brauchen Sie sie nur einmal pro Spalte zu notieren. Am sinnvollsten ist es, die Angabe in der ersten Zeile der Tabelle zu notieren. Ebenso ist es mit der Angabe zu <code>height</code> in einer Tabellenzelle. Da diese Angabe für die ganze zugehörige Tabellenzeile gilt, ist es am sinnvollsten, sie in der ersten Zelle der Zeile zu notieren. Im obigen Beispiel wird durch <code>&lt;td width="50%" height="100"&gt;</code> in der ersten Zelle also sowohl die Breite der ersten Spalte als auch die Höhe der ersten Zeile definiert.</p>
+
+<p>Verwenden Sie Pixelangaben und Prozentangaben immer so, dass keine Konflikte entstehen. Im obigen Beispiel werden etwa alle Breiten prozentual bestimmt, und nur die Höhe wird mit Pixeln festgelegt. So kann der Browser im Beispiel für die gesamte Tabelle eine Breite von 60% Prozent zum Elternelement ermitteln und für die erste Spalte wiederum 50% davon. Die Angabe von 100 Pixeln Zeilenhöhe kommt damit nicht in Konflikt.</p>
+
+<p>Eine übersichtlichere Lösung, die Breite von Tabellenspalten zu definieren, steht mit der Möglichkeit zur Verfügung, <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="aufbau.htm#vordefinieren">Spalten vorzudefinieren</a>. Die hier beschriebene Möglichkeit hat dagegen den Vorteil, auch von älteren Browsern interpretiert zu werden.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/html32.gif" width="30" height="30" alt="HTML 3.2" title="HTML 3.2"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../../src/deprecated.gif" width="30" height="30" alt="deprecated (missbilligt)" title="deprecated (missbilligt)"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/netsc11.gif" width="30" height="30" alt="Netscape 1.1" title="Netscape 1.1"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="zeilenumbruch">Zeilenumbruch in Zellen verhindern</a></h2>
+
+<p>Sie können festlegen, dass beim Inhalt einer Zelle kein automatischer Zeilenumbruch erfolgen darf. Die Spalte der Tabelle wird bei der Anzeige entsprechend breit dimensioniert. Das entsprechende Attribut ist jedoch als <i>deprecated</i> eingestuft und soll künftig aus dem HTML-Standard entfallen.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/nowrap.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+       "http://www.w3.org/TR/html4/loose.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Zeilenumbruch in Tabellenzellen verhindern&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h1&gt;Lange N&amp;auml;chte&lt;/h1&gt;
+
+&lt;table border="1"&gt;
+  &lt;tr&gt;
+    &lt;td nowrap&gt;
+    Die langen HTML-N&amp;auml;chte von Berlin sind die l&amp;auml;ngsten N&amp;auml;chte &amp;uuml;berhaupt.
+    Die langen CSS-N&amp;auml;chte von Berlin sind ebenfalls die l&amp;auml;ngsten N&amp;auml;chte und sogar
+    noch l&amp;auml;nger als die HTML-N&amp;auml;chte.
+    &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Mit dem Attribut <code>nowrap</code> (ohne weitere Wertzuweisung) in einem einleitenden <code>&lt;th&gt;</code>- oder <code>&lt;td&gt;</code>-Tag verhindern Sie, dass der Text innerhalb der Zelle automatisch umbrochen wird. Die Zelle und damit ihre gesamte zugehörige Spalte wird so breit wie erforderlich.</p>
+
+<p>Die entsprechende Eigenschaft in CSS lautet <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/ausrichtung.htm#white_space">white-space</a>. Diese wird jedoch erst ab Internet Explorer 5.5 und Netscape 6 interpretiert.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Wenn Sie <b>XHTML-Standard-konform</b> arbeiten, müssen Sie das <code>nowrap</code>-Attribut in der Form <code>nowrap="nowrap"</code> notieren.<br>
+Weitere Informationen dazu im Kapitel <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../xhtml/index.htm">XHTML und HTML</a>.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/html32.gif" width="30" height="30" alt="HTML 3.2" title="HTML 3.2"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../../src/msie2.gif" width="30" height="30" alt="MS IE 2.0" title="MS IE 2.0"><img src="../../src/netsc11.gif" width="30" height="30" alt="Netscape 1.1" title="Netscape 1.1"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="ausrichtung_zellen">Ausrichtung von Zellen</a></h2>
+
+<p>Zelleninhalte von Tabellen können aufgrund unterschiedlicher Inhalte oder durch Angaben zu Breite und Höhe mehr Raum in Anspruch nehmen, als es ihr Inhalt erfordert. Für diesen Fall können Sie Zelleninhalte sowohl horizontal (linksbündig, zentriert, rechtsbündig) als auch vertikal (obenbündig, mittig, untenbündig) am Zellenrand ausrichten. Die entsprechenden Angaben sind sowohl auf einzelne Zellen (also <code>th</code>- und <code>td</code>-Elemente) anwendbar, als auch auf Tabellenbereiche wie Tabellenzeilen (<code>tr</code>), Tabellenkopf (<code>thead</code>), Tabellenkörper (<code>tbody</code>) und Tabellenfuß (<code>tfoot</code>). In diesem Fall gelten die Angaben für alle Zellen des jeweiligen Bereichs.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/align_valign.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+       "http://www.w3.org/TR/html4/loose.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Ausrichtung von Zelleninhalten&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h1&gt;Richtungsweisend&lt;/h1&gt;
+
+&lt;table border="1"&gt;
+  &lt;tr&gt;
+    &lt;th align="left"   valign="top" width="200" height="75"&gt;links oben&lt;/th&gt;
+    &lt;th align="center" valign="top" width="200"&gt;zentriert oben&lt;/th&gt;
+    &lt;th align="right"  valign="top" width="200"&gt;rechts oben&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td align="left"   valign="middle" height="75"&gt;links mittig&lt;/td&gt;
+    &lt;td align="center" valign="middle"&gt;zentriert mittig&lt;/td&gt;
+    &lt;td align="right"  valign="middle"&gt;rechts mittig &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td align="left"   valign="bottom" height="75"&gt;links unten&lt;/td&gt;
+    &lt;td align="center" valign="bottom"&gt;zentriert unten&lt;/td&gt;
+    &lt;td align="right"  valign="bottom"&gt;rechts unten&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr align="center" valign="middle"&gt;
+    &lt;td height="75"&gt;alles ...&lt;/td&gt;
+    &lt;td&gt;... zentriert ...&lt;/td&gt;
+    &lt;td&gt;... mittig&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;h2&gt;Auch am Dezimalzeichen?&lt;/h2&gt;
+
+&lt;table border="1"&gt;
+  &lt;colgroup&gt;
+    &lt;col&gt;
+    &lt;col align="char" char=","&gt;
+  &lt;/colgroup&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Element&lt;/th&gt;
+    &lt;th&gt;Anteil in mg&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Nitrat&lt;/td&gt;
+    &lt;td&gt;0,117126&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Hydrogencarbonat&lt;/td&gt;
+    &lt;td&gt;330,0&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Mit <code>align="left"</code> können Sie eine Kopfzelle in ihrem einleitenden <code>&lt;th&gt;</code>-Tag linksbündig ausrichten, mit <code>align="right"</code> rechtsbündig. Datenzellen können Sie in ihrem einleitenden <code>&lt;td&gt;</code>-Tag mit <code>align="center"</code> zentriert ausrichten und durch <code>align="right"</code> rechtsbündig. Die Angaben <code>align="center"</code> bei Kopfzellen und <code>align="left"</code> bei Datenzellen sind natürlich auch erlaubt, bewirken aber lediglich die Voreinstellung und sind deshalb nicht nötig (<i>align = Ausrichtung, left = links, center = zentriert, right = rechts</i>). Diese Angaben können Sie auch in einleitenden <code>&lt;tr&gt;</code>-Tags, einleitenden <code>&lt;thead&gt;</code>-Tags, einleitenden <code>&lt;tbody&gt;</code>-Tags und <code>&lt;tfoot&gt;</code>-Tags notieren. Dann werden alle Zellen im entsprechenden Bereich so ausgerichtet wie angegeben. Widersprechende Angaben in einzelnen Zellen haben allerdings Vorrang vor bereichsweiten Angaben. Ab HTML 4.0 ist auch die Angabe <code>align="justify"</code> erlaubt. Dadurch erzwingen Sie einen Blocksatz innerhalb der Zelle.</p>
+
+<p>Mit <code>valign="top"</code> können Sie eine Zelle in ihrem einleitenden Tag obenbündig ausrichten, durch die Angabe <code>valign="bottom"</code> untenbündig. Auch die Angabe <code>valign="middle"</code> (<strong>nicht</strong> <code>"center"</code>!) ist möglich. Dies ist jedoch die Voreinstellung und deshalb nicht unbedingt nötig (<i>valign = vertical align = vertikale Ausrichtung, top = oben, bottom = unten, middle = mittig</i>). Auch das <code>valign</code>-Attribut können Sie in einleitenden <code>&lt;tr&gt;</code>-Tags, einleitenden <code>&lt;thead&gt;</code>-Tags, einleitenden <code>&lt;tbody&gt;</code>-Tags und <code>&lt;tfoot&gt;</code>-Tags notieren. Ab HTML 4.0 ist auch die Angabe <code>valign="baseline"</code> erlaubt. Dann werden alle Zellen innerhalb einer Zeile, die diese Angaben erhalten, an einer gemeinsamen Basislinie ausgerichtet. Und zwar so, dass die erste Textzeile aller dieser Zellen immer auf gleicher Höhe beginnt.</p>
+
+<p>Ferner ist seit HTML 4.0 die Angabe <code>align="char"</code> in Verbindung mit den  Attributen <code>char</code> und <code>charoff</code> erlaubt. Mit <code>align="char"</code> können Sie erzwingen, dass die Spalteninhalte an einem Dezimalzeichen ausgerichtet werden. Außerdem benötigen Sie noch das Attribut <code>char</code> (<i>char = character = Zeichen</i>). Diesem weisen Sie als Wert ein Zeichen zu, das Sie als Dezimalzeichen verwenden. Die Ausrichtung erfolgt dann so, dass das Dezimalzeichen immer an der gleichen Stelle steht. Neben dem Attribut <code>char</code> zur Bestimmung des Dezimalzeichens können Sie zusätzlich noch das Attribut <code>charoff</code> angeben (<i>charoff = character offset = Zeichenposition</i>). Damit können Sie angeben, an welcher Position das Zeichen frühestens vorkommen kann. Im obigen Beispiel wird ein Komma als Dezimalzeichen definiert. Die Werte der betreffenden - im Beispiel <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="aufbau.htm#vordefinieren">vordefinierten Spalten</a> - werden dann so ausgerichtet, dass das Dezimalzeichen immer an der gleichen Stelle steht. Die HTML-Spezifikation gibt jedoch an, dass die Unterstützung der Dezimalzeichenausrichtung durch Browser freiwillig ist. Und tatsächlich interpretiert auch keiner der weit verbreiteten Browser diese Angaben.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/html40.gif" width="30" height="30" alt="HTML 4.0" title="HTML 4.0"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../../src/msie2.gif" width="30" height="30" alt="MS IE 2.0" title="MS IE 2.0"><img src="../../src/netsc11.gif" width="30" height="30" alt="Netscape 1.1" title="Netscape 1.1"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="hintergrund">Hintergrundfarben und Hintergrundbilder</a></h2>
+
+<p>Sie können sowohl für eine gesamte Tabelle als auch für einzelne Zeilen oder Zellen eine Hintergrundfarbe definieren. Die verbreiteten Web-Browser unterstützen auch die Angabe von Hintergrundbildern mit Wallpaper-Effekt, doch diese Angaben gehörten nie zum HTML-Standard. Auch die Angaben zur Hintergrundfarbe sind als <i>deprecated</i> gekennzeichnet und sollen künftig aus dem HTML-Standard entfallen. Sowohl das Definieren von Hintergrundfarben als auch das von Hintergrundbildern ist mit Stylesheets möglich.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/bgcolor.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+       "http://www.w3.org/TR/html4/loose.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Hintergrundfarben und Hintergrundbilder&lt;/title&gt;
+&lt;/head&gt;
+&lt;body text="#000099"&gt;
+
+&lt;h1&gt;Gro&amp;szlig;e Worte mit HTML&lt;/h1&gt;
+
+&lt;table border="1" bgcolor="#FFFF00"&gt;
+  &lt;tr&gt;
+    &lt;td width="200" height="100"&gt;&lt;h2&gt;Traum&lt;/h2&gt;&lt;/td&gt;
+    &lt;td width="200" bgcolor="#00FFFF"&gt;&lt;h2&gt;Zeit&lt;/h2&gt;&lt;/td&gt;
+    &lt;td width="200"&gt;&lt;h2&gt;Luft&lt;/h2&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr bgcolor="#FF00FF"&gt;
+    &lt;td height="100"&gt;&lt;h2&gt;Licht&lt;/h2&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;h2&gt;Himmel&lt;/h2&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;h2&gt;Leben&lt;/h2&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;h1&gt;Gro&amp;szlig;e Worte mit CSS&lt;/h1&gt;
+
+&lt;table border="1" style="background-color:#FFFF00"&gt;
+  &lt;tr&gt;
+    &lt;td width="200" height="100"&gt;&lt;h2&gt;Traum&lt;/h2&gt;&lt;/td&gt;
+    &lt;td width="200" style="background-color:#00FFFF"&gt;&lt;h2&gt;Zeit&lt;/h2&gt;&lt;/td&gt;
+    &lt;td width="200"&gt;&lt;h2&gt;Luft&lt;/h2&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr style="background-color:#FF00FF"&gt;
+    &lt;td height="100"&gt;&lt;h2&gt;Licht&lt;/h2&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;h2&gt;Himmel&lt;/h2&gt;&lt;/td&gt;
+    &lt;td style="background-image:url(background.jpg)"&gt;&lt;h2&gt;Leben&lt;/h2&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Durch das Attribut <code>bgcolor</code> im einleitenden Tag der Tabelle können Sie eine Hintergrundfarbe für die gesamte Tabelle bestimmen (<i>bgcolor = background-color = Hintergrundfarbe</i>). Beim Angeben der Farbe gelten die Regeln
+zum <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../allgemein/farben.htm">Definieren
+von Farben in HTML</a>. Ebenso können Sie das Attribut <code>bgcolor</code>
+im einleitenden Tag einer Tabellenzeile (&lt;<code>tr</code>&gt;) notieren, um
+die Hintergrundfarbe für alle Zellen in dieser Zeile zu bestimmen. Wenn Sie
+<code>bgcolor</code> im einleitenden Tag einer Datenzelle (<code>&lt;td&gt;</code>)
+oder einer Kopfzelle (<code>&lt;th&gt;</code>) angeben, gilt die Hintergrundfarbe
+für diese eine Zelle. Im Konfliktfall hat die Farbangabe in einzelnen Zellen
+Vorrang vor der Angabe für ganze Zeilen oder Tabellen. Die Angabe für
+eine Zeile hat im Konfliktfall Vorrang vor der Angabe für die ganze Tabelle.</p>
+
+<p>Das Gleiche ist mit dem Attribut <code>background</code> möglich, um eine Hintergrundgrafik für die Tabelle oder einzelne Zellen einzubinden. Dieses Attribut ist jedoch im Zusammenhang mit Tabellen nicht HTML-Standard-konform und kommt im obigen Beispiel auch nicht vor. Die zweite im Beispiel notierte Tabelle zeigt, wie es HTML-Standard-konform gemacht wird. Dagegen spricht eigentlich nur noch die Existenz von Netscape 4.x, der keine CSS-Angaben bei Tabellen interpretiert.<br>
+Im obigen Beispiel wird angenommen, dass sich die Grafik <code>background.jpg</code> im gleichen Verzeichnis befindet. Sie können jedoch auch Grafiken aus anderen Verzeichnissen (z.B. <code>/daten/grafik/hintergrund/background.gif</code> oder <code>../gif/back.gif</code>) oder von entfernten URIs (z.B. <code>http://www.mein-anderer-server.de/grafik/back.jpg</code>) angeben.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Wenn Sie eine Hintergrundfarbe definieren oder eine Hintergrundgrafik einbinden, sollten Sie für den Text eine geeignete Kontrastfarbe definieren.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/netsc4.gif" width="30" height="30" alt="Netscape 4.0" title="Netscape 4.0"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="farbrahmen">Farben für Rand und Gitternetzlinien (Microsoft)</a></h2>
+
+<p>Sie können auch für Rahmen und Gitternetzlinien Farbangaben machen. Diese Angaben sind jedoch Microsoft-Syntax und gehören nicht zum HTML-Standard. Benutzen Sie stattdessen <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#gestalten_css">CSS zur Gestaltung</a> der Rahmen.</p>
+
+<p>Durch das Attribut <code>bordercolor</code> im einleitenden <code>&lt;table&gt;</code>-Tag der Tabelle können Sie eine einheitliche Farbe für den Tabellenrahmen und die Gitternetzlinien bestimmen (<i>bordercolor = Randfarbe</i>).</p>
+
+<p>Anstelle der einfachen Rahmenfarbe können Sie auch einen Schattier-Effekt in den Rahmen bringen, indem Sie zwei verschiedene Farben definieren - eine dunklere und eine hellere. Dazu notieren Sie im einleitenden Tag der Tabelle die beiden Attribute <code>bordercolordark</code> (<i>bordercolordark = dunkle Randfarbe</i>) und <code>bordercolorlight</code> (<i>bordercolorlight = helle Randfarbe</i>).</p>
+
+<p>Netscape, Firefox, Konqueror und Safari interpretieren nur das Attribut <code>bordercolor</code>.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/html40.gif" width="30" height="30" alt="HTML 4.0" title="HTML 4.0"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../../src/msie4.gif" width="30" height="30" alt="MS IE 4.0" title="MS IE 4.0"><img src="../../src/netsc6.gif" width="30" height="30" alt="Netscape 6.0" title="Netscape 6.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="gestalten_css">Tabellen mit CSS gestalten</a></h2>
+
+<p>Gerade bei Tabellen sind <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../../css/index.htm">Stylesheets</a> eine große Hilfe zur Gestaltung. Denn mit CSS können Sie alle Elemente einer Tabelle nach Wunsch formatieren - sei es einzeln oder gruppenweise. Dazu kommen ausgereifte CSS-Eigenschaften für Tabellenrahmen. Bei Verwendung von Stylesheets müssen Sie zunächst wissen, wie man <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../../css/formate/index.htm">CSS-Formate definieren</a> kann. Anschließend sind Sie in der Lage, CSS-Eigenschaften anzuwenden. Maßgeblich sind im hier beschriebenen Zusammenhang folgende CSS-Eigenschaften:<br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/tabellen.htm">Tabellenformatierung</a><br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/schrift.htm">Schriftformatierung</a><br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/ausrichtung.htm">Ausrichtung und Absatzkontrolle</a><br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/randabstand.htm">Außenrand und Abstand</a><br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/innenabstand.htm">Innenabstand</a><br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/rahmen.htm">Rahmen</a><br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/hintergrund.htm">Hintergrundfarben und -bilder</a><br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/positionierung.htm">Positionierung und Anzeige von Elementen</a></p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="weitere">Weitere Informationen</a></h2>
+
+<p>In der <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../referenz/index.htm">HTML-Referenz</a> finden Sie Angaben darüber, welche der hier beschriebenen Attribute wo genau vorkommen können:<br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/attribute.htm#table">Attribut-Referenz</a> für Tabellen (<code>&lt;table&gt;...&lt;/table&gt;</code>)<br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/attribute.htm#tr">Attribut-Referenz</a> für Tabellenzeilen (<code>&lt;tr&gt;...&lt;/tr&gt;</code>)<br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/attribute.htm#th">Attribut-Referenz</a> für Kopfzellen (<code>&lt;th&gt;...&lt;/th&gt;</code>)<br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/attribute.htm#td">Attribut-Referenz</a> für Datenzellen (<code>&lt;td&gt;...&lt;/td&gt;</code>)<br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/attribute.htm#thead">Attribut-Referenz</a> für Tabellenkopf (<code>&lt;thead&gt;...&lt;/thead&gt;</code>)<br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/attribute.htm#tbody">Attribut-Referenz</a> für Tabellenkörper (<code>&lt;tbody&gt;...&lt;/tbody&gt;</code>)<br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/attribute.htm#tfoot">Attribut-Referenz</a> für Tabellenfuß (<code>&lt;tfoot&gt;...&lt;/tfoot&gt;</code>)</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="zellen_verbinden.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="zellen_verbinden.htm">Zellen verbinden</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="aufbau.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="aufbau.htm">Aufbau einer Tabelle</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">HTML/XHTML</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Tabellen</a></td>
+</tr></table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

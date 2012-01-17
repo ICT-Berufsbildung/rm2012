@@ -1,0 +1,21 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>Test</title>
+<script type="text/javascript">
+function anpassen () {
+  var CSSKnoten = document.getElementsByTagName("h1")[0].getAttributeNode("style");
+  for (var i = 0; i < document.getElementsByTagName("p").length; i++) {
+    var CSSKnotenNeu = CSSKnoten.cloneNode(true);
+    document.getElementsByTagName("p")[i].setAttributeNode(CSSKnotenNeu);
+  }
+}</script></head>
+<body>
+<h1 style="font-family:Tahoma; font-size:200%; color:red" title="titel">Rot und Gro&szlig;!</h1>
+<p>ein Absatz</p>
+<p>und noch einer</p>
+<p>und einer mit einem <a href="javascript:anpassen()">Link zum Anpassen</a></p>
+
+<p><a href="../node.htm#get_attribute_node">zur&uuml;ck</a></p>
+</body>
+</html>

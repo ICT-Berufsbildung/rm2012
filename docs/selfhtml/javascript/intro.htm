@@ -1,0 +1,348 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: JavaScript / Einführung in JavaScript</title>
+<link rel="stylesheet" type="text/css" href="../src/selfhtml.css">
+<meta name="description"    content="Wie JavaScript in HTML integriert wird, und was zu JavaScript und DOM wichtig zu wissen ist.">
+<meta name="keywords"       content="SELFHTML, JavaScript, ECMAScript, JScript, HTML, DOM">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-09-12T07:11:28+02:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/javascript/intro.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../src/favicon.ico">
+<link rel="author" title="Impressum" href="../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../index.htm">
+<link rel="up" title="JavaScript/DOM" href="index.htm">
+<link rel="next" title="Allgemeine Regeln für JavaScript" href="sprache/regeln.htm">
+<link rel="prev" title="XPath-Funktionen" href="../xml/darstellung/xpathfunktionen.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../index.htm">SELFHTML</a>/<a href="../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">JavaScript/DOM</a> </td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../index.htm"><img src="../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Einführung in JavaScript und DOM</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#javascript_html">JavaScript und HTML</a><br>
+<img src="../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#standards_varianten_versionen">Standards, Sprachvarianten und Sprachversionen</a><br>
+<img src="../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#praxishinweise">Hinweise für die Praxis</a><br>
+<img src="../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#javascriptbereiche">JavaScript-Bereiche in HTML definieren</a><br>
+<img src="../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#noscriptbereiche">Bereiche definieren, die bei abgeschaltetem JavaScript angezeigt werden</a><br>
+<img src="../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#javascript_htmltags">JavaScript-Anweisungen in HTML-Tags</a><br>
+<img src="../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#javascriptdateien">JavaScript in separaten Dateien</a><br>
+</p>
+</td>
+</tr><tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><a class="an" name="javascript_html">JavaScript und HTML</a></h2>
+
+<p>JavaScript ist kein direkter Bestandteil von HTML, sondern eine eigene Programmiersprache. Diese Sprache wurde jedoch eigens zu dem Zweck geschaffen, HTML-Autoren ein Werkzeug in die Hand zu geben, mit dessen Hilfe sich Web-Seiten optimieren lassen.</p>
+
+<p>JavaScripts werden wahlweise direkt in der HTML-Datei oder in separaten Dateien notiert. Sie werden zur Laufzeit vom Web-Browser interpretiert. Dazu besitzen moderne Web-Browser entsprechende Interpreter-Software.</p>
+
+<p>Ein paar praktische Beispiele für die Anwendung von JavaScript können Sie in diesem Dokument zur Einstimmung auf JavaScript ausprobieren. So sind beispielsweise die <img src="../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../helferlein/index.htm">kleinen Helferlein</a> JavaScript-Anwendungen, ebenso die <img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../navigation/quickbar/index.htm">Quickbar</a> und die <img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../navigation/suche/index.htm">Suche</a>. Letztere ist allerdings eine ziemlich anspruchsvolle Anwendung, die schon weit über das Maß dessen hinausgeht, wofür JavaScript üblicherweise eingesetzt wird.</p>
+
+<p>In einer Programmiersprache wie JavaScript gibt es für Anfänger viele verwirrende Elemente: Sonderzeichen, Variablen, Wenn-Dann-Anweisungen, Schleifen, Funktionen, Methoden, Parameter, Objekte, Eigenschaften und anderes mehr. Um mit diesen Elementen richtig umgehen zu können, müssen Sie lernen, sich vorzustellen, was im Computer passiert, wenn der Programmcode ausgeführt wird. Das ist ein langwieriger Lernprozess, den Anfänger nur durch viel Übung bewältigen. JavaScript ist dazu allerdings hervorragend geeignet, weil es eine vergleichsweise einfache Sprache ist, bei der viele Aufgabenbereiche einer "großen" Programmiersprache fehlen, z.B. Dinge wie Arbeitsspeicherverwaltung oder Dateioperationen. Außerdem setzt JavaScript auf einer bestimmten Umgebung auf, nämlich auf einer anzuzeigenden oder angezeigten Web-Seite.</p>
+
+<p>JavaScript läuft in einer so genannten "Sandbox". Das ist eine Art Sicherheitskäfig, in dem die Programmiersprache eingesperrt ist. Sie wird dabei um typische Möglichkeiten anderer Programmiersprachen beschnitten, vor allem um die Möglichkeit, beliebig Daten aus Dateien zu lesen und in Dateien schreiben zu können. So soll verhindert werden, dass JavaScript-Programmierer auf den Rechnern von Anwendern, die eine JavaScript-unterstützte Web-Seite aufrufen, Unfug treiben können. Nach einigen Anfangsproblemen in der Vergangenheit funktioniert das mittlerweile auch ganz gut. Wer also JavaScript in seinem Browser deaktiviert aus Angst, dass seine Festplatte damit formatiert werden könnte, sollte sich am besten ganz vom Internet fernhalten, denn schon beim Abruf von E-Mails lauern Gefahren, die wesentlich größer sind als diejenigen, die von JavaScript ausgehen. Doch leider gibt es andere gute Gründe, die nicht wenige Anwender dazu veranlassen, JavaScript in ihrem Browser abzuschalten. Dazu gehören vor allem die "Nervereien" mancher Programmierhelden, die meinen, eine Web-Seite sei um so toller, je mehr sie den Anwender gängelt. Da wird dann beispielsweise mit JavaScript die Unterstützung der rechten Maustaste abgewürgt, der Anwender kann die aufgerufene Seite nicht mehr verlassen und allerlei mehr. Solche Hirngeburten kontrollgeiler Programmierer sind das eigentliche Übel und der Grund, warum JavaScript nicht bei allen Anwendern beliebt ist. Wer JavaScript einsetzt, sollte sich darüber im klaren sein und die Möglichkeiten der Sprache so einsetzen, dass der Anwender einen Mehrwert davon hat, und nicht so, dass ihm etwas genommen wird.</p>
+
+<p>Bevor Sie sich also in die Tiefen von JavaScript stürzen, sollten Sie sich bewusst gemacht haben, dass JavaScript wirklich nur als Ergänzung zu normalem HTML gedacht ist, aber nicht als dessen Ersatz. Es ist zwar durchaus möglich, Web-Seiten ausschließlich in JavaScript zu programmieren, sodass man kaum mehr davon reden kann, dass JavaScript in HTML eingebettet ist, sondern eher davon, dass der HTML-Code der Seite mit Hilfe von JavaScript dynamisch erzeugt wird. Doch solche Seiten funktionieren nur dort, wo JavaScript im Browser aktiviert ist, und wo der Browser all das versteht, was Sie programmiert haben (ansonsten endet der Versuch, die Seite anzuzeigen, sehr schnell in einer nüchternen Fehlermeldung). Für Web-Seiten, bei denen Information im Vordergrund steht, und die auch von Suchmaschinen-Robots und Benutzerrandgruppen wie Sehbehinderten erfasst werden sollen, müssen Sie darauf achten, JavaScript nur so einzusetzen, dass die Web-Seiten auch ohne eingeschaltetes JavaScript ordentlich angezeigt werden, und dass die Navigation zwischen den Seiten auch ohne JavaScript funktioniert.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="standards_varianten_versionen">Standards, Sprachvarianten und Sprachversionen</a></h2>
+
+<p><b>JavaScript</b> ist eine Sprache, die 1995 von Netscape eingeführt und lizenziert wurde. Es war also eine firmeneigene, proprietäre Angelegenheit, und Netscape diktierte, woraus das "offizielle" JavaScript bestand. Mittlerweile ist die Situation aus verschiedenen Gründen unübersichtlicher geworden - aber JavaScript gibt es nach wie vor und es erfreut sich bei Web-Seiten-Gestaltern großer Beliebtheit.</p>
+
+<p>Netscape versuchte schon frühzeitig, JavaScript nicht als willkürliche Eigenentwicklung dastehen zu lassen, sondern der Sprache den Charakter eines Standards zu verleihen. Dazu spannte man die Organisation <img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a href="http://www.ecma-international.org/" target="_top">ECMA</a> (European Computer Manufacturers Association) ein. Unter dem Namen <b>ECMAScript</b> wurden die Grundlagen von JavaScript als Industriestandard deklariert. In der Spezifikation <img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a href="http://www.ecma-international.org/publications/standards/Ecma-262.htm" target="_top">"ECMA-262"</a> wurde dieser Standard festgeschrieben.</p>
+
+<p>Microsoft konterte auf seine Weise. Der Internet Explorer interpretiert zwar JavaScript, daneben aber auch die Microsoft-eigene Sprachvariante <b>JScript</b>. Diese Sprache implementierte Microsoft nicht zuletzt, um sich aus den Lizenzvorgaben von Netscape herauszuwinden und das, was bei Netscape unter JavaScript lief, selbständig erweitern zu können. JScript umfasst die ganze Palette von JavaScript, doch daneben auch noch etliche spezielle Befehle für den Zugriff auf das Dateisystem und Betriebssystem Windows (das Ganze bezeichnet Microsoft als "Windows Scripting Host"). JScript ist insgesamt also viel mächtiger als JavaScript, doch es ist auch für andere Aufgaben gedacht. Es hat eine ganz eigene Versionenpolitik, die nichts mit der von JavaScript gemein hat. Bekannter als die JScript-Versionen sind jedoch nach wie vor die JavaScript-Versionen, und wenn Sie JavaScript verwenden, geben Sie in der Regel auch "JavaScript" als Sprache an und nicht "JScript". Der Internet Explorer kommt damit klar.</p>
+
+<p>Netscape 2.0 interpretiert den seinerzeit eingeführten JavaScript-Sprachstandard 1.0 (Ende 1995). Der Internet Explorer versteht diesen Sprachstandard weitgehend seit der Version 3.0 (1996).<br>
+Netscape interpretiert seit Version 3.0 den JavaScript-Standard 1.1 (ebenfalls 1996). Der Internet Explorer interpretiert diesen Sprachumfang von JavaScript weitgehend seit der Produktversion 4.0 (1997).<br>
+Netscape interpretiert seit Version 4.0 den JavaScript-Standard 1.2 (1997). Einige Befehle dieser Sprachversion werden auch vom Internet Explorer seit Version 4.0 interpretiert.<br>
+Die JavaScript-Version 1.3 ist in Netscape in den heute am meisten verbreiteten Netscape-Versionen 4.06 bis 4.7 implementiert (1998-2001). Der Internet Explorer versteht diese Sprachversion weitgehend seit Produktversion 5.0.<br>
+In die völlig neu programmierte Netscape-Version 6.0 wurde eine Version 1.5 von JavaScript integriert (2000-2001), die neben einigen wenigen JavaScript-eigenen Neuerungen vor allem das Document Object Model (DOM) umsetzt - mehr dazu weiter unten.<br>
+Beim Internet Explorer gibt es zum Teil nicht ganz unbeträchtliche Unterschiede, was die Editionen für die einzelnen Plattformen betrifft. So kann es durchaus sein, dass die Windows-Version eines Internet Explorers mit der Produktversion 5.5 JavaScript-Befehle versteht, die eine Macintosh-Ausgabe mit gleicher Produktversionsnummer nicht versteht. Dazu kommen andere Browser-Produkte, die ebenfalls JavaScript implementiert haben, wie beispielsweise Opera, wobei auch dort jede Produktversion wieder ein bisschen mehr JavaScript kann als die Vorgängerversion. In der Praxis ist eigentlich nicht mehr wirklich nachvollziehbar, was nun welcher Browser genau kann. Es ist deshalb ratsam, benutzte Sprachbestandteile von JavaScript-Versionen jenseits der Version 1.2 besonders sorgfältig zu testen.</p>
+
+<p>Das Gerangel zwischen Netscape und Microsoft um die bessere JavaScript-Unterstützung bewirkte auf jeden Fall eine Menge Frustration bei Web-Programmierern und Anwendern. Viele Dinge mussten und müssen immer noch ziemlich umständlich programmiert werden, weil die Fähigkeiten und Eigenheiten der verschiedenen JavaScript-Interpreter der verschiedenen Browser und Browser-Versionen lauter Wenns und Abers erfordern, was sich im Quellcode von JavaScript niederschlägt. Vor allem bei komplexeren JavaScript-Anwendungen, etwa bei <img src="../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../dhtml/index.htm">dynamischem HTML</a>, wurde das "doppelte Programmieren" zur lästigen Pflicht.</p>
+
+<p>Um diesem Missstand auf Dauer abzuhelfen, wurde das W3-Konsortium eingeschaltet, damit eine allgemeine Sprachnorm entsteht. Das W3-Konsortium erarbeitete dabei jedoch keinen konkreten JavaScript-Standard, sondern ein allgemeines Modell für Objekte eines Dokuments. Dieses Modell sollte eine Script-Sprache, die sich als Ergänzungssprache zu Auszeichnungssprachen wie HTML versteht, vollständig umsetzen. Vom W3-Konsortium erhielt das Modell die Bezeichnung <b>Document Object Model (DOM)</b>. Am 1. Oktober 1998 wurde das DOM eine offizielle W3-Empfehlung (<i>recommendation</i>) in der Version 1.0, die seit dem 29. September 2000 in einer zweiten Ausgabe vorliegt. Seit 13. November 2000 ist die Version 2.0 des DOM eine offizielle W3-Empfehlung. Das entsprechende Dokument ist jedoch aufgesplittet in mehrere Einzeldokumente. Version 3.0 ist in Arbeit.</p>
+
+<p>Der Internet Explorer 5.0 unterstützt einiges von DOM 1.0, die Version 5.5 schon mehr, ebenso wie Netscape 6. Die JavaScript-Version, die DOM erstmals umsetzt, ist die Version 1.5.</p>
+
+<p>Ein wichtiger Aspekt des DOM ist, dass es nicht nur für HTML ergänzende Script-Sprachen konzipiert ist, sondern auch für Script-Sprachen, die jegliche <img src="../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../xml/index.htm">XML</a>-gerechte Auszeichnungssprache erweitern sollen. Das DOM orientiert sich daher in seinem Kern nicht mehr an bestimmten HTML-Elementen. Stattdessen geht es in abstrakter Weise von einem "Dokument" aus (das in XHTML geschrieben sein kann, aber auch in einer anderen XML-basierten Sprache). Es definiert, wie sich auf die einzelnen Elemente dieses Dokuments zugreifen lässt und welche Manipulationsmöglichkeiten es gibt. Da man aber bei der Entwicklung des DOM auch auf die Gegebenheiten und die Verbreitung von HTML und JavaScript Rücksicht nehmen wollte, wurde dem so genannten "Kern-DOM" ein "HTML-Anwendungs-DOM" zur Seite gestellt. Letzteres versucht, Teile des "gewachsenen" JavaScript und MS-JScript zu sanktionieren und Bestandteile des "Kern-DOM" darin zu integrieren.</p>
+
+<p>DOM 1.0 grenzt jedoch noch einige wichtige Aspekte aus, wie etwa das Event-Handling (Behandlung von Anwenderereignissen wie Mausklicks, Tastatureingaben usw.) oder die Integration von Stylesheets in das, was Programmierer dynamisch verändern können. In den Versionen 2.0 und 3.0 behandelt das DOM auch diese Aspekte.</p>
+
+<p>Über die <img src="../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a href="http://www.w3.org/DOM/" target="_top">W3-Einstiegsseite zum DOM</a> können Sie die aktuelle Weiterentwicklung des Document Object Models beim W3-Konsortium verfolgen.</p>
+
+<p>Seit das DOM vorliegt, überbieten sich die Browser-Anbieter gegenseitig mit Versprechungen, die Vorgaben des DOM in JavaScript umzusetzen. Abgesehen davon, dass es noch immer Uneinheitlichkeiten bei der Umsetzung gibt, ähnlich wie in HTML und CSS, haben JavaScript-Programmierer nun ein zusätzliches Problem: Wo sie zunächst häufig eine Doppellösung für die beiden verbreitetsten Browser-Typen benötigten, müssen sie nun manchmal sogar drei Lösungen programmieren, wenn sie nämlich Rücksicht auf die 4er-Versionen von Netscape und Internet Explorer Rücksicht nehmen und gleichzeitig DOM-gerecht programmieren wollen.</p>
+
+<p>In der Praxis von JavaScript auf HTML-basierten Web-Seiten ist es jedoch so, dass meistens noch mit den herkömmlichen, von Netscape eingeführten JavaScript-Objekten gearbeitet wird. In Zukunft ist allerdings zu hoffen, dass die DOM-gerechte JavaScript-Programmierung das klassische JavaScript verdrängen wird.<br>
+Zur Kennzeichnung der Sprachversionen von JavaScript und von DOM werden in der vorliegenden Dokumentation folgende Symbole verwendet:</p>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<th>Symbol</th>
+<th>Bedeutung</th>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><img src="../src/js10.gif" width="30" height="30" alt="JavaScript 1.0" title="JavaScript 1.0"></td>
+<td class="tabxpl">Bestandteil der ersten JavaScript-Version.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><img src="../src/js11.gif" width="30" height="30" alt="JavaScript 1.1" title="JavaScript 1.1"></td>
+<td class="tabxpl">Bestandteil der JavaScript-Version 1.1.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><img src="../src/js12.gif" width="30" height="30" alt="JavaScript 1.2" title="JavaScript 1.2"></td>
+<td class="tabxpl">Bestandteil der JavaScript-Version 1.2.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><img src="../src/js13.gif" width="30" height="30" alt="JavaScript 1.3" title="JavaScript 1.3"></td>
+<td class="tabxpl">Bestandteil der JavaScript-Version 1.3.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><img src="../src/js15.gif" width="30" height="30" alt="JavaScript 1.5" title="JavaScript 1.5"></td>
+<td class="tabxpl">Bestandteil der JavaScript-Version 1.5.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><img src="../src/msjs.gif" width="30" height="30" alt="MS JScript" title="MS JScript"></td>
+<td class="tabxpl">Von Microsoft eingeführter Sprachbestandteil. Solche Bestandteile werden in der Regel nur vom Internet Explorer ab V4.x interpretiert; es wurden nur einige wichtige solcher Elemente in die <img src="../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="objekte/index.htm">Objektreferenz</a> mit aufgenommen, nämlich solche, die eine Grundlage für Dynamisches HTML nach dem Ansatz des Internet Explorers ab V4.0 darstellen.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><img src="../src/dom10.gif" width="30" height="30" alt="DOM 1.0" title="DOM 1.0"></td>
+<td class="tabxpl">Objekt, Eigenschaft oder Methode nach den Vorgaben des Document Object Models, Version 1.0. Kommt innerhalb der vorliegenden Dokumentation in der <img src="../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="objekte/index.htm">Objektreferenz</a> vor, um Objekte, Eigenschaften und Methoden auszuzeichnen.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><img src="../src/dom20.gif" width="30" height="30" alt="DOM 2.0" title="DOM 2.0"></td>
+<td class="tabxpl">Objekt, Eigenschaft oder Methode nach den Vorgaben des Document Object Models, Version 2.0. Kommt innerhalb der vorliegenden Dokumentation in der <img src="../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="objekte/index.htm">Objektreferenz</a> vor, um Objekte, Eigenschaften und Methoden auszuzeichnen.</td>
+</tr>
+</table>
+
+&nbsp;
+
+<p class="doc"><a href="#top"><img src="../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="praxishinweise">Hinweise für die Praxis</a></h2>
+
+<p>Bevor Sie daran gehen, neuen, eigenen JavaScript-Code zu programmieren, müssen Sie sich exakt darüber im klaren sein, welches Problem Sie damit lösen wollen. Dazu müssen Sie erst einmal wissen, was man mit HTML selbst alles machen kann, und wo die Grenzen von HTML liegen. Von JavaScript müssen Sie dann so viel wissen, dass Sie entscheiden können, ob das Problem mit JavaScript überhaupt lösbar ist. Mit JavaScript können Sie z.B. <b>nicht</b> die typischen Aufgaben von <img src="../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../servercgi/cgi/cgihtml.htm">CGI</a> lösen! JavaScripts werden im Browser des Anwenders ausgeführt, nicht auf dem Server, wo die Web-Seiten abgelegt sind. Das heißt, JavaScript kann vom Browser erst dann ausgeführt werden, wenn er eine Web-Seite gerade einliest oder nachdem er sie eingelesen hat - dann z.B. auch ausgelöst durch Benutzerereignisse wie Mausklicks usw.</p>
+
+<p>Aus diesem Grund können Sie mit JavaScript also keine Anwendungen wie Gästebücher oder Web-Foren programmieren. Denn solche Anwendungen müssen die Daten aller beitragenden Anwender zentral auf dem Server speichern. Wohl aber kann JavaScript unterstützend eingesetzt werden bei solchen Anwendungen. So ist es beispielsweise sinnvoll, Formulareingaben des Anwenders vor dem Absenden mit Hilfe von JavaScript zu überprüfen und Probleme dem Anwender direkt mitzuteilen. Der Server muss aber selbstverständlich alle Formulardaten selbst noch einmal prüfen - JavaScript könnte ja auch abgeschaltet sein, oder man könnte manipulierte Formulare versenden.</p>
+
+<p>Wenn Sie etwas mit JavaScript lösen möchten, lohnt es sich durchaus, sich im Web umzusehen, ob es nicht schon frei verfügbare JavaScript-Beispiele gibt, die genau Ihr Problem lösen. Denn es ist immer besser, auf Code zurückzugreifen, der sich im Einsatz bereits bewährt hat, als neuen Code zu erstellen, dessen "heimliche Tücken" einem noch nicht bekannt sind. In vielen Fällen genügt es, vorhandene JavaScripts den eigenen Erfordernissen anzupassen. Bei vorhandenen JavaScripts müssen Sie allerdings so viel von der Sprache verstehen, dass Sie genau wissen, welche Variablen oder festen Werte Sie verändern oder welche Funktion Sie ergänzen wollen.</p>
+
+<p>Im Link-Verzeichnis des Online-Angebots von SELFHTML aktuell finden Sie Links zu Anbietern frei verfügbarer JavaScripts:</p>
+
+<p><img src="../src/serverdok.gif" width="15" height="10" alt="Online-Seite">&nbsp;<a target="_top" href="http://aktuell.de.selfhtml.org/links/javascript.htm">WWW-Links: JavaScript und DOM</a></p>
+
+<p>Wenn Sie JavaScript auf eigenen Web-Seiten verwenden wollen, sollten Sie auf jeden Fall mehrere Browser zum Testen einsetzen. Denn leider sind die JavaScript-Interpreter der JavaScript-fähigen WWW-Browser wie schon erwähnt sehr unterschiedlich in ihrer Leistung.</p>
+
+<p>Stellen Sie keine Web-Seiten mit ungeprüftem JavaScript-Code öffentlich zur Verfügung. Für einen Anwender ist es sehr ärgerlich, wenn er Fehlermeldungen des JavaScript-Interpreters am Bildschirm erhält und in schlimmeren Fällen einen Programmabsturz des Web-Browsers oder gar einen Systemabsturz hat, was bei Online-Sitzungen besonders unangenehm ist. Solche Anwender besuchen Ihre Seiten mit Sicherheit so schnell nicht wieder.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../src/js10.gif" width="30" height="30" alt="JavaScript 1.0" title="JavaScript 1.0"><img src="../src/netsc2.gif" width="30" height="30" alt="Netscape 2.0" title="Netscape 2.0"><img src="../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="javascriptbereiche">JavaScript-Bereiche in HTML definieren</a></h2>
+
+<p>Für JavaScript-Programmabschnitte können Sie in HTML Bereiche definieren.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="sprache/anzeige/hallowelt.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;
+&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;script type="text/javascript"&gt;
+alert("Hallo Welt!");
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung</h3>
+
+<p>Mit <code>&lt;script type="text/javascript"&gt;</code> leiten Sie einen Bereich für JavaScript innerhalb einer HTML-Datei ein (<i>script = Quelltext, type = </i><img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../diverses/mimetypen.htm">MIME-Typ</a>). Die Angabe zum MIME-Typ ist seit HTML 4.0 Pflicht. Mit <code>type="text/javascript"</code> geben Sie den MIME-Typ für JavaScript-Dateien an. Der MIME-Typ <code>text/javascript</code> ist zwar erst seit kurzem offiziell registriert, wird aber von allen JavaScript-fähigen Browsern schon seit langer Zeit unterstützt. Der MIME-Typ <code>text/javascript</code> ist zwar mittlerweile obsolet, wird aber von allen JavaScript-fähigen Browsern schon seit langer Zeit unterstützt. In der Zukunft soll der neue MIME-Typ <code>application/javascript</code> verwendet werden. Dieser ist erst seit kurzem offiziell registriert und daher den meisten Browsern allerdings noch unbekannt.</p>
+
+<p>Zusätzlich können Sie zur Kennzeichnung der JavaScript-Sprachversion das <code>language</code>-Attribut verwenden, z.B. <code>language="JavaScript"</code> oder <code>language="JavaScript1.2"</code>. Die Versionsangabe <code>1.2</code> sollte dazu führen, dass nur diejenigen Browser den JavaScript-Bereich interpretieren, welche den Sprachstandard JavaScript 1.2 unterstützen. Dadurch lassen sich Fähigkeiten nutzen, die erst ab dieser Version zur Verfügung stehen. Jedoch gehört dieses Attribut zu den <img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../html/referenz/varianten.htm#strict_nicht_erlaubt">missbilligten Attributen</a> und wird nicht von allen Browsern korrekt interpretiert. Eine zuverlässigere Weise, um manche Browser gezielt am Ausführen eines bestimmten JavaScript-Codes zu hindern, ist die <img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="sprache/objekte.htm#existenzabfrage">Abfrage, ob ein Objekt existiert</a>.</p>
+
+<p>Im obigen Beispiel wird mit Hilfe von JavaScript ein Meldungsfenster mit dem Text "Hallo Welt!" am Bildschirm ausgegeben.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Es gibt keine festen Vorschriften dafür, an welcher Stelle einer HTML-Datei ein JavaScript-Bereich definiert werden muss. Es ist unter JavaScript-Programmierern zur Gewohnheit geworden, einen solchen Bereich im Kopf der HTML-Datei, also zwischen <code>&lt;head&gt;</code> und <code>&lt;/head&gt;</code> zu definieren. Dadurch ist am ehesten sichergestellt, dass der Code vom WWW-Browser bereits eingelesen ist und zur Verfügung steht, wenn er ausgeführt werden soll.</p>
+
+<p>JavaScript-Code kann automatisch beim Einlesen der HTML-Datei ausgeführt werden. Das ist dann der Fall, wenn JavaScript-Befehle in einem JavaScript-Bereich außerhalb jeder <img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="sprache/funktionen.htm">selbst definierten Funktion</a> stehen, so wie im obigen Beispiel. In solchen Fällen ist es manchmal auch erforderlich, den Script-Bereich innerhalb des HTML-Dateikörpers, also innerhalb von <code>&lt;body&gt;</code>...<code>&lt;/body&gt;</code>, zu notieren. Zum Beispiel, wenn Sie am Ende der Datei mit JavaScript dynamisch Datum und Uhrzeit der letzten Änderung an der Datei schreiben wollen.</p>
+
+<p>Gewisse besonders alte Browser, zum Beispiel Netscape 1 und Internet Explorer 2, wissen nichts von JavaScript und kennen daher das <code>script</code>-Element nicht. Wenn diese Browser auf einen JavaScript-Bereich treffen, stellen sie irrtümlicherweise dessen Inhalt so dar, als handelte es sich um normalen Text in der HTML-Datei. Dadurch bekommt der Anwender den Code zu Gesicht. Wenn Sie dies verhindern möchten, sollten Sie den JavaScript-Code zwischen <code>&lt;script type="text/javascript"&gt;</code> und <code>&lt;/script&gt;</code> in einen <img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../html/allgemein/kommentare.htm#nicht_angezeigt">HTML-Kommentar</a> einschließen. In der Zeile nach dem Start-Tag öffnen Sie den Kommentar mit <code>&lt;!--</code>. In der Zeile vor dem End-Tag des JavaScript-Bereich notieren Sie einen einzeiligen <img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="sprache/regeln.htm#kommentare">JavaScript-Kommentar</a> <code>//</code>, gefolgt vom schließenden HTML-Kommentar <code>--&gt;</code>.</p>
+
+<pre>
+&lt;script type="text/javascript"&gt;
+&lt;!--
+alert("Hallo Welt!");
+//--&gt;
+&lt;/script&gt;
+</pre>
+
+<p>Obwohl dieses Auskommentieren des JavaScript-Codes eine gängige Praxis ist, wird in den Codebeispielen in SELFHTML darauf verzichtet. Denn die Browser aus den Anfangstagen des Webs, die JavaScript-Bereiche nicht erkennen können, sind weitestgehend zu vernachlässigen. Beachten Sie in diesem Zusammenhang die <img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../html/xhtml/unterschiede.htm#script_style">Unterschiede zwischen XHTML und HTML</a>.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+<h2><img src="../src/html40.gif" width="30" height="30" alt="HTML 4.0" title="HTML 4.0"><img src="../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../src/netsc2.gif" width="30" height="30" alt="Netscape 2.0" title="Netscape 2.0"><img src="../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="noscriptbereiche">Bereiche definieren, die bei abgeschaltetem JavaScript angezeigt werden</a></h2>
+
+<p>Mit dem HTML-Element <code>&lt;noscript&gt;</code> können Sie Bereiche definieren, die angezeigt werden, wenn JavaScript deaktiviert ist. Die Beschreibung dazu befindet sich im HTML-Bereich: <img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../html/transit/scripts.htm#noscript">Noscript-Bereich definieren</a></p>
+
+<p class="doc"><a href="#top"><img src="../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+<h2><img src="../src/js10.gif" width="30" height="30" alt="JavaScript 1.0" title="JavaScript 1.0"><img src="../src/netsc2.gif" width="30" height="30" alt="Netscape 2.0" title="Netscape 2.0"><img src="../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="javascript_htmltags">JavaScript-Anweisungen in HTML-Tags</a></h2>
+
+<p>JavaScript kann auch innerhalb herkömmlicher HTML-Tags vorkommen. Das ist dann kein komplexer Programmcode, sondern in der Regel nur der Aufruf bestimmter Methoden, Funktionen, Objekte, Eigenschaften. Für den Aufruf gibt es so genannte <img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="sprache/eventhandler.htm">Event-Handler</a>. Das sind Attribute in HTML-Tags, über die sich JavaScripts aktivieren lassen. Für jeden der möglichen Event-Handler ist festgelegt, in welchen HTML-Tags er vorkommen darf.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="sprache/anzeige/quadrat.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Test&lt;/title&gt;
+&lt;script type="text/javascript"&gt;
+&lt;!--
+function Quadrat() {
+   var Ergebnis = document.Formular.Eingabe.value * document.Formular.Eingabe.value;
+   alert("Das Quadrat von " + document.Formular.Eingabe.value + " = " + Ergebnis);
+}
+//--&gt;
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;form name="Formular" action=""&gt;
+&lt;input type="text" name="Eingabe" size="3"&gt;
+&lt;input type="button" value="Quadrat errechnen" onclick="Quadrat()"&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung</h3>
+
+<p>Das obige Beispiel zeigt eine komplette HTML-Datei. Im Dateikopf ist ein JavaScript-Bereich definiert. Innerhalb dieses Bereichs steht eine <img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="sprache/funktionen.htm">selbst definierte Funktion</a>, die Funktion mit dem Namen <code>Quadrat()</code>. Die Funktion errechnet das Quadrat einer Zahl, die der Anwender in dem weiter unten notierten Formular im Eingabefeld mit dem Namen <code>Eingabe</code> eingibt. Der JavaScript-Code dieser Funktion wird aber nicht automatisch ausgeführt, sondern nur dann, wenn die Funktion explizit aufgerufen wird. Im obigen Beispiel erfolgt der Aufruf mit Hilfe eines <img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../html/formulare/klickbuttons.htm">Klick-Buttons</a>. Wenn der Anwender auf den Button klickt, wird das Quadrat der eingegebenen Zahl ausgegeben. Dazu ist im HTML-Tag des Klick-Buttons das Attribut <code>onclick</code> notiert - ein Event-Handler mit der Bedeutung "beim Anklicken".</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Im Abschnitt <img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="sprache/eventhandler.htm">Event-Handler</a> wird beschrieben, welche Event-Handler es außer <code>onclick</code> noch gibt, und in welchen HTML-Tags sie vorkommen dürfen.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../src/js11.gif" width="30" height="30" alt="JavaScript 1.1" title="JavaScript 1.1"><img src="../src/netsc3.gif" width="30" height="30" alt="Netscape 3.0" title="Netscape 3.0"><img src="../src/msie4.gif" width="30" height="30" alt="MS IE 4.0" title="MS IE 4.0"><img src="../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="javascriptdateien">JavaScript in separaten Dateien</a></h2>
+
+<p>Seit der Sprachversion 1.1 von JavaScript (und auch seit HTML 4.0) ist es möglich, JavaScript-Code in separaten Dateien zu notieren. Das ist sehr nützlich, wenn Sie gleiche JavaScript-Funktionen in mehreren HTML-Dateien verwenden wollen. Denn so brauchen Sie den Code nur einmal zu notieren und können ihn in mehreren HTML-Dateien referenzieren. JavaScript-Code zwischen den <code>&lt;script&gt;</code>-Tags wird in diesem Falle ignoriert.</p>
+
+<h3 class="xmp">Beispiel: JavaScript-Datei <var>quadrat.js</var></h3>
+
+<pre>
+function Quadrat() {
+   var Ergebnis = document.Formular.Eingabe.value * document.Formular.Eingabe.value;
+   alert("Das Quadrat von " + document.Formular.Eingabe.value + " = " + Ergebnis);
+   }
+</pre>
+
+<h3 class="xmp">Beispiel: HTML-Datei</h3>
+
+<p><img src="../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="sprache/anzeige/quadrat2.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;JavaScript-Test&lt;/title&gt;
+&lt;script src="quadrat.js" type="text/javascript"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;form name="Formular" action=""&gt;
+&lt;input type="text" name="Eingabe" size="3"&gt;
+&lt;input type="button" value="Quadrat errechnen" onclick="Quadrat()"&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung</h3>
+
+<p>Hier handelt es sich um das gleiche Beispiel wie im <img src="../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#javascript_htmltags">Abschnitt zuvor</a>. Der Unterschied ist lediglich, dass der JavaScript-Code in einer separaten Datei steht. Dazu notieren Sie im einleitenden <code>&lt;script&gt;</code>-Tag das Attribut <code>src</code> (<i>src = source = Quelle</i>). Als Wert weisen Sie den URI der separaten Datei mit dem Quellcode zu. Dabei gelten die Regeln zum <img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../html/allgemein/referenzieren.htm">Referenzieren in HTML</a>.</p>
+
+<p>Die Datei mit dem Quellcode muss eine reine ASCII-Datei sein und sollte die Dateinamenerweiterung <code>.js</code> erhalten. Die Datei darf nichts anderes als JavaScript-Code enthalten.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Es kann passieren, dass ein JavaScript, das in einer separaten Datei notiert ist, lokal wunderbar funktioniert, aber nach dem Hochladen der Dateien auf einen WWW-Server plötzlich nicht mehr. Bitten Sie in diesem Fall den Provider oder Webmaster des Servers, den MIME-Typ <code>text/javascript</code> für Dateien mit der Endung <code>.js</code> in die Konfiguration des Web-Servers mit aufzunehmen. Ansonsten können Sie im einleitenden <code>&lt;script&gt;</code>-Tag beim <code>type</code>-Attribut auch mal den MIME-Typ <code>application/x-javascript</code> anstelle von <code>text/javascript</code> ausprobieren. Bei einigen Servern funktioniert es dann.</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="sprache/regeln.htm"><img src="../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="sprache/regeln.htm">Allgemeine Regeln für JavaScript</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="../xml/darstellung/xpathfunktionen.htm"><img src="../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../xml/darstellung/xpathfunktionen.htm">XPath-Funktionen</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../index.htm">SELFHTML</a>/<a href="../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">JavaScript/DOM</a> </td>
+</tr>
+</table>
+
+<p>&copy; 2007 <img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

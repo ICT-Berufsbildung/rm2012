@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>Test</title>
+<script type="text/javascript">
+function Zeigen () {
+  document.BildAnzeige.visibility = "visible";
+  document.ZeigenVerweis.visibility = "hidden";
+  document.VersteckenVerweis.visibility = "visible";
+}
+
+function Verstecken () {
+  document.BildAnzeige.visibility = "hidden";
+  document.VersteckenVerweis.visibility = "hidden";
+  document.ZeigenVerweis.visibility = "visible";
+}
+</script>
+<style type="text/css">
+#ZeigenVerweis {
+position:absolute; left:100; top:140; width:400; height:30; visibility:visible; }
+#VersteckenVerweis {
+position:absolute; left:100; top:140; width:400; height:30; visibility:hidden; }
+#BildAnzeige {
+position:absolute; left:100; top:170; width:400; height:230; visibility:hidden; }
+</style>
+</head><body>
+<div id="ZeigenVerweis">
+<a href="javascript:Zeigen()">Zeig das Bild an</a>
+</div>
+<div id="VersteckenVerweis">
+<a href="javascript:Verstecken()">Versteck das Bild</a>
+</div>
+<div id="BildAnzeige">
+<img src="denker.jpg" width="91" height="177" border="0" alt="Denker">
+</div>
+
+<p><a href="../netscape.htm#simulieren">zur&uuml;ck</a></p>
+</body>
+</html>

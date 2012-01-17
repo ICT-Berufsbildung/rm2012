@@ -1,0 +1,18 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>Test</title>
+<script type="text/javascript">
+var gespeichert = "nichts gespeichert";
+if (document.cookie) {
+  gespeichert = document.cookie;
+} else {
+  document.cookie = "Zeitstempel=" + document.lastModified;
+}
+alert(document.lastModified + " - " + gespeichert);
+</script>
+</head>
+<body>
+<p><a href="../document.htm#cookie">zur&uuml;ck</a></p>
+</body>
+</html>

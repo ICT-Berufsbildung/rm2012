@@ -1,0 +1,341 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: HTML/XHTML / Multimedia / Eigenschaften von Objekten</title>
+<meta name="description"    content="Wie Sie Objekte zum umgebenden Text ausrichten können, und welche zusätzlichen Optionen es für Objekte gibt.">
+<meta name="keywords"       content="SELFHTML, HTML, XHTML, Multimedia, Java-Applets, Video, Sound, virtuelle Welten, Plugins, Flash, object, align, hspace, vspace, declare, standby">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-10-31T12:25:34+01:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/html/multimedia/objekteigenschaften.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="Multimedia" href="index.htm">
+<link rel="next" title="Java-Applets einbinden (herkömmlich)" href="java_applets.htm">
+<link rel="prev" title="Objekte einbinden" href="objekte.htm">
+<link rel="first" title="Objekte einbinden" href="objekte.htm">
+<link rel="last" title="Multimedia einbinden (Netscape herkömmlich)" href="netscape.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">HTML/XHTML</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Multimedia</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Eigenschaften von Objekten</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#ausrichten_zum_text">Objekt zum umgebenden Text ausrichten</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#textumfluss">Text um Objekt fließen lassen</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#meldungstext">Meldungstext während des Ladevorgangs anzeigen</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#nur_bei_aufruf">Instanz eines Objekts nur bei Aufruf durch Anwender anzeigen</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#css">Objekte formatieren mit Stylesheets</a></p>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><img src="../../src/html40.gif" width="30" height="30" alt="HTML 4.0" title="HTML 4.0"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../../src/msie5.gif" width="30" height="30" alt="MS IE 5.0" title="MS IE 5.0"><img src="../../src/netsc6.gif" width="30" height="30" alt="Netscape 6.0" title="Netscape 6.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="ausrichten_zum_text">Objekt zum umgebenden Text ausrichten</a></h2>
+
+<p>Da das <code>object</code>-Element ein <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/elemente.htm#inline_elemente">Inline-Element</a> ist, können Objekte mitten in einem Text platziert werden. Wenn das höher ist als die Zeilenhöhe, dann muss der Text der gleichen Zeile vertikal zum Objekt ausgerichtet werden. Wenn Sie nichts anderes angeben, wird der Text untenbündig zum Objekt ausgerichtet. Sie können jedoch mit Hilfe eines Attributs selbst bestimmen, wie der Text zum Objekt ausgerichtet werden soll. Dieses Attribut ist allerdings als <i>deprecated</i> gekennzeichnet und soll künftig aus dem HTML-Standard entfallen. Die gleiche Wirkung lässt sich nämlich auch mit <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#css">Stylesheets</a> erzielen.</p>
+
+<p>Die Angaben sind jedoch nur von Bedeutung, wenn die Anzeige mit Hilfe eines Plugins erfolgt und direkt im Anzeigefenster des WWW-Browsers möglich ist.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/object_align_zeile.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+       "http://www.w3.org/TR/html4/loose.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Objekt zum umgebenden Text ausrichten&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h1&gt;HIER SPIELT
+  &lt;object data="haste.mid" type="audio/x-midi" width="200" height="100" align="middle"&gt;
+    Ihr Browser kann das Objekt leider nicht anzeigen!
+  &lt;/object&gt;
+  DIE MUSIK
+&lt;/h1&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Mit dem Attribut <code>align</code> können Sie umgebenden Text vertikal zum Objekt ausrichten (<i>align = Ausrichtung</i>).</p>
+
+<p>Mit <code>align="top"</code> wird der Text obenbündig zum eingebundenen Objekt ausgerichtet (<i>top = oben</i>).<br>
+Mit <code>align="middle"</code> wird der Text mittig zum eingebundenen Objekt ausgerichtet (<i>middle = mittig</i>).<br>
+Mit <code>align="bottom"</code> wird der Text untenbündig zum eingebundenen Objekt ausgerichtet (<i>bottom = unten</i>).</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Um Objekte und Texte sauber zueinander auszurichten, können Sie auch mit rahmenlosen ("blinden") <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../tabellen/index.htm">Tabellen</a> arbeiten.</p>
+
+<p>Netscape interpretiert noch weitere Wertzuweisungen, die jedoch nicht zum HTML-Standard gehören und ungültiges HTML erzeugen:</p>
+
+<p>Mit <code>align="texttop"</code> richten Sie den Text obenbündig zum Objekt aus, und zwar an der Oberkante des kleinsten Textes (<i>texttop = oben am Text</i>).<br>
+Mit <code>align="absmiddle"</code> richten Sie den Text absolut mittig zum Objekt aus, auch bei unterschiedlichen Textgrößen (<i>absmiddle = absolute middle = in jedem Fall mittig</i>).<br>
+Mit <code>align="absbottom"</code> richten Sie den Text untenbündig zum Objekt aus, und zwar an der Unterkante des kleinsten Textes (<i>absbottom = absolute bottom = in jedem Fall untenbündig</i>).<br>
+Mit <code>align="baseline"</code> richten Sie den Text genauso aus wie mit der Standardangabe <code>align="bottom"</code>. Benutzen Sie deshalb besser die Standardangabe.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/html40.gif" width="30" height="30" alt="HTML 4.0" title="HTML 4.0"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../../src/msie5.gif" width="30" height="30" alt="MS IE 5.0" title="MS IE 5.0"><img src="../../src/netsc6.gif" width="30" height="30" alt="Netscape 6.0" title="Netscape 6.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="textumfluss">Text um Objekt fließen lassen</a></h2>
+
+<p>Objekte können Sie links oder rechts ausrichten. Der umgebende Text fließt dabei um das Objekt. Mit zwei weiteren Attributen können Sie Abstand zum umfließenden Text erzeugen, damit der Text nicht direkt am Objekt "klebt". Den automatischen Textumfluss können Sie auch abbrechen und die Textfortsetzung unterhalb des Objekts erzwingen. Alle dazu notwendigen Attribute sind allerdings als <i>deprecated</i> gekennzeichnet und sollen künftig aus dem HTML-Standard entfallen. Die gleiche Wirkung lässt sich nämlich auch mit <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#css">Stylesheets</a> erzielen.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/object_align_fluss.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+       "http://www.w3.org/TR/html4/loose.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Text um Objekt flie&szlig;en lassen&lt;/title&gt;
+&lt;/head&gt;
+&lt;body bgcolor="#333333" text="#FFFFFF"&gt;
+
+&lt;h1&gt;
+  &lt;object classid="CLSID:D27CDB6E-AE6D-11cf-96B8-444553540000"
+          codebase="http://active.macromedia.com/flash2/cabs/swflash.cab#version=4,0,0,0"
+          width="200" height="200" align="left" hspace="10" vspace="7"&gt;
+    &lt;param name="movie" VALUE="neucler.swf"&gt;
+  &lt;/object&gt;
+  Animation!
+&lt;/h1&gt;
+
+&lt;p&gt;Kann sch&amp;ouml;n sein, wenn sie nicht zu aufdringlich ist.
+Dies ist ein Flash-Filmchen von gerade mal einem Kilobyte Gr&amp;ouml;&amp;szlig;e.
+&lt;br clear="all"&gt;&lt;/p&gt;
+
+&lt;h2&gt;Gratulation!&lt;/h2&gt;
+
+&lt;p&gt;Der Text geht unterhalb weiter.&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Mit den Angaben <code>align="left"</code> bzw. <code>align="right"</code> veranlassen Sie den Browser, das Objekt linksbündig bzw. rechtsbündig auszurichten und den darauffolgenden Fließtext rechts bzw. links neben dem Objekt anzuzeigen und um das Objekt herumfließen zu lassen (<i>align = Ausrichtung, left = links, right = rechts</i>). Der umgebende Text kann verschiedene Elemente enthalten, zum Beispiel auch Überschriften oder Listen.</p>
+
+<p>Um Abstand zwischen Objekt und umfließendem Text zu erzeugen, stehen die Attribute <code>hspace</code> und <code>vspace</code> zur Verfügung.<br>
+Mit <code>hspace</code> [Pixel] bestimmen Sie den Abstand zwischen Objekt und anderen Elementen links bzw. rechts davon (<i>hspace = horizontal space = horizontaler Abstand</i>).<br>
+Mit <code>vspace</code> [Pixel] bestimmen Sie den Abstand zwischen Objekt und anderen Elementen darüber bzw. darunter (<i>vspace = vertical space = vertikaler Abstand</i>).<br>
+Das Attribut <code>hspace</code> betrifft immer den linken <b>und</b> den rechten Randabstand vom Objekt, <code>vspace</code> immer den oberen <b>und</b> den unteren Randabstand. Wenn Sie also beispielsweise bei einem links ausgerichteten Objekt <code>hspace</code> definieren, wird nicht nur rechts vom Objekt zum nebenstehenden Text ein Abstand erzeugt, sondern auch links zum Rand des Anzeigefensters hin. Um dies zu verhindern, können Sie exakter arbeiten, indem Sie <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#css">Stylesheets</a> verwenden.<br>
+Sie können beide Attribute notieren oder auch nur eines davon.</p>
+
+<p>Um den automatischen Textumfluss zu unterbrechen und zu erzwingen, dass alles was folgt unterhalb des Objekts angezeigt wird, können Sie einen <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../text/zeilenumbruch.htm">Zeilenumbruch</a> mit dem Attribut <code>clear</code> notieren.<br>
+Mit <code>&lt;br clear="all"&gt;</code> erreichen Sie, dass der Textfluss ab der nächsten Zeile in jedem Fall unterhalb des Objekts fortgesetzt wird.<br>
+Mit <code>&lt;br clear="left"&gt;</code> erreichen Sie, dass der Textfluss ab der nächsten Zeile unterhalb eines linksbündig ausgerichteten Objekts fortgesetzt wird.<br>
+Mit <code>&lt;br clear="right"&gt;</code> erreichen Sie, dass der Textfluss ab der nächsten Zeile unterhalb eines rechtsbündig ausgerichteten Objekts fortgesetzt wird.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/html40.gif" width="30" height="30" alt="HTML 4.0" title="HTML 4.0"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0">&nbsp;<a class="an" name="meldungstext">Meldungstext während des Ladevorgangs anzeigen</a></h2>
+
+<p>Multimediaobjekte oder ausführbare Programme wie Java-Applets können zum Teil längere Ladezeiten verursachen. Auch dann, wenn die Dateien selbst nicht größer als durchschnittliche HTML- oder Grafikdateien sind, müssen beim Anwender in der Regel Plugins oder Laufzeitinterpreter aktiviert werden. Das kostet Zeit.</p>
+
+<p>Um den Anwender nicht im Unklaren über die Wartezeit und die Ladevorgänge an seinem Rechner zu lassen, können Sie einen Meldungstext angeben, der dem Anwender bis zur fertigen Anzeige des eingebundenen Objekts angezeigt wird.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/object_standby.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+       "http://www.w3.org/TR/html4/strict.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Meldungstext w&auml;hrend des Ladevorgangs anzeigen&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h1&gt;Bauen Sie eine Br&amp;uuml;cke!&lt;/h1&gt;
+
+&lt;p&gt;
+  &lt;object classid="java:Bridges.class" codetype="application/java-vm" width="350" height="420"
+          standby="Das Spiel wird geladen. Bitte einen Moment Geduld..."&gt;
+    &lt;param name="Color" value="white"&gt;
+  &lt;/object&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Klicken Sie auf wei&amp;szlig;e Felder. Mit Rot versuchen Sie Ihre Br&amp;uuml;cke
+zwischen oberem und unterem Spielfeldrand zu bauen. Blau versucht Sie daran zu
+hindern.&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Innerhalb eines einleitenden <code>&lt;object&gt;</code>-Tags können Sie mit dem Attribut <code>standby</code> einen Meldungstext für den Ladevorgang angeben.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/html40.gif" width="30" height="30" alt="HTML 4.0" title="HTML 4.0"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0">&nbsp;<a class="an" name="nur_bei_aufruf">Instanz eines Objekts nur bei Aufruf durch Anwender anzeigen</a></h2>
+
+<p>Sie können ein Objekt definieren, das zunächst nur deklariert wird. Damit es angezeigt oder ausgeführt wird, muss es erst aktiviert werden. Das kann z.B. mit Hilfe eines Verweises auf das deklarierte Objekt geschehen, oder durch ein anderes Objekt, das die Initialisierung anstößt.<br>
+Browser, die diese Option nicht kennen (darunter auch Netscape, Internet Explorer),
+starten den Abspielvorgang sofort.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/object_declare.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+       "http://www.w3.org/TR/html4/strict.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Instanz eines Objekts nur bei Aufruf durch Anwender anzeigen&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h1&gt;Wollen Sie oder wollen Sie nicht?&lt;/h1&gt;
+
+&lt;p&gt;
+  &lt;object declare id="Marquee" classid="java:zticker.class" codetype="application/java"
+          width="600" height="60"&gt;
+    &lt;param name="msg" value="Sie wissen was Sie wollen!"&gt;
+    &lt;param name="href" value="../../../index.htm"&gt;
+    &lt;param name="speed" value="5"&gt;
+    &lt;param name="bgco" value="255,255,0"&gt;
+    &lt;param name="txtco" value="255,000,000"&gt;
+    &lt;param name="hrefco" value="255,255,255"&gt;
+  &lt;/object&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="#Marquee"&gt;Animierten Text anzeigen&lt;/a&gt;&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Innerhalb eines einleitenden <code>&lt;object&gt;</code>-Tags können Sie mit dem Standalone-Attribut <code>declare</code> ein Objekt als lediglich deklariert definieren (<i>declare = erklären, angeben</i>).</p>
+
+<p>Mit dem <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../attribute/index.htm">Universalattribut</a> <code>id</code> können Sie einen Zielanker innerhalb des Objekts definieren, im Beispiel: "Marquee" (<i>id = identifier = Bezeichner</i>). Der Name sollte nicht zu lang sein und darf keine Leerzeichen, Sonderzeichen oder deutsche Umlaute enthalten. Das erste Zeichen muss ein Buchstabe sein. Danach sind auch Ziffern erlaubt. Benutzen Sie als Sonderzeichen im Namen höchstens den Unterstrich (<code>_</code>), den Bindestrich (<code>-</code>), den Doppelpunkt (<code>:</code>) oder den Punkt (<code>.</code>). Groß- und Kleinschreibung wird unterschieden.</p>
+
+<p>Mit einem Verweis auf den Zielanker (siehe obiges Beispiel) können Sie den Anwender das Objekt aktivieren lassen. Beim <code>href</code>-Attribut notieren Sie das führende Gatterzeichen (<code>#</code>) und dahinter den id-Namen des Objekts.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/html40.gif" width="30" height="30" alt="HTML 4.0" title="HTML 4.0"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../../src/msie5.gif" width="30" height="30" alt="MS IE 5.0" title="MS IE 5.0"><img src="../../src/netsc6.gif" width="30" height="30" alt="Netscape 6.0" title="Netscape 6.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="css">Objekte formatieren mit CSS</a></h2>
+
+<p>Stylesheets bieten Eigenschaften an, mit deren Hilfe die beiden Funktionen <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#ausrichten_zum_text">Objekt zum umgebenden Text ausrichten</a> und <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#textumfluss">Text um Objekt fließen lassen</a> ebenso realisierbar sind wie mit HTML. Das "Fein-Tuning" ist mit Hilfe von CSS sogar deutlich genauer. Mit CSS müssen Sie arbeiten, wenn Sie die in diesem Abschnitt beschriebenen Effekte erzielen und dabei aber mit der HTML-Variante "Strict" arbeiten wollen.<br>
+Bei Verwendung von Stylesheets müssen Sie zunächst wissen, wie man <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../../css/formate/index.htm">CSS-Formate definieren</a> kann. Anschließend sind Sie in der Lage, CSS-Eigenschaften anzuwenden. Maßgeblich sind im hier beschriebenen Zusammenhang folgende CSS-Eigenschaften:<br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/ausrichtung.htm#vertical_align">vertical-align</a> (Vertikale Ausrichtung)<br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/positionierung.htm#float">float</a> (Textumfluss)<br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/positionierung.htm#clear">clear</a> (Fortsetzung bei Textumfluss)<br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/randabstand.htm">Außenrand und Abstand</a></p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/object_css.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+       "http://www.w3.org/TR/html4/strict.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Objekte formatieren mit CSS&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h1&gt;
+  HIER SPIELT
+  &lt;object data="breeze.mid" type="audio/x-midi" width="200" height="100"
+          style="vertical-align:middle; margin-left:30px; margin-right:30px;"&gt;
+    Ihr Browser kann das Objekt leider nicht anzeigen!
+  &lt;/object&gt;
+  DIE MUSIK
+&lt;/h1&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Mit <code>style="vertical-align:middle"</code> erreichen Sie in einem <code>&lt;object&gt;</code>-Tag das Gleiche wie mit <code>align="middle"</code>,<br>
+mit <code>style="vertical-align:text-top"</code> das Gleiche wie mit <code>align="top"</code>,<br>
+und mit <code>style="vertical-align:text-bottom"</code> das Gleiche wie mit <code>align="bottom"</code>.</p>
+
+<p>Mit den CSS-Angaben <code>margin-left:30px;</code> und <code>margin-right:30px;</code> wird im obigen Beispiel rechts und links zum Text hin ein Abstand von 30 Pixeln geschaffen. Wenn Sie Text um ein Objekt fließen lassen wollen (im obigen Beispiel nicht realisiert), können Sie mit einer Angabe wie <code>style="float:left; margin-right:20px; margin-bottom:10px"</code> erreichen, dass das Objekt links ausgerichtet wird und nachfolgender Text rechts um das Objekt fließt. Dabei wird zwischen Objekt und Text ein Abstand von 20 Pixeln gehalten (links vom Objekt wird dagegen, anders als beim HTML-Attribut <code>hspace</code>, kein Abstand von 20 Pixeln erzeugt). Nach unten hin, also zum Text unterhalb wird ein Abstand von 10 Pixeln definiert.</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="java_applets.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="java_applets.htm">Java-Applets einbinden (herkömmlich)</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="objekte.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="objekte.htm">Objekte einbinden</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">HTML/XHTML</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Multimedia</a></td>
+</tr></table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

@@ -1,0 +1,1484 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: Navigationshilfen / Kurzreferenz: CSS</title>
+<link rel="stylesheet" type="text/css" href="../src/selfhtml.css">
+<meta name="description"    content="Welche Sprachelemente zu CSS gehören - alles auf einen Blick.">
+<meta name="keywords"       content="SELFHTML, Stylesheets">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-10-06T21:02:17+02:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/navigation/css.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../src/favicon.ico">
+<link rel="author" title="Impressum" href="../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="stichwort.htm">
+<link rel="search" title="Suche" href="suche/index.htm">
+<link rel="help" title="Hilfe" href="../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../index.htm">
+<link rel="up" title="Navigationshilfen" href="index.htm">
+<link rel="next" title="Inhaltsverzeichnis" href="inhalt.htm">
+<link rel="prev" title="Kurzreferenz: HTML" href="html.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../index.htm">SELFHTML</a> <img src="../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Navigationshilfen</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../index.htm"><img src="../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Kurzreferenz: CSS</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#hinweis">Hinweis</a><br>
+<img src="../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#masseinheiten">Maßeinheiten und Farbangaben</a><br>
+<img src="../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#zentrale_formate">Zentrale Formate</a><br>
+<img src="../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#direktformatierung">Direktformatierung von Elementen</a><br>
+<img src="../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#schrift">CSS-Eigenschaften: Schriftformatierung</a><br>
+<img src="../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#ausrichtung">CSS-Eigenschaften: Ausrichtung/Absatzkontrolle</a><br>
+<img src="../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#randabstand">CSS-Eigenschaften: Außenrand/Abstand</a><br>
+<img src="../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#innenabstand">CSS-Eigenschaften: Innenabstand</a><br>
+<img src="../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#rahmen">CSS-Eigenschaften: Rahmen</a><br>
+<img src="../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#hintergrund">CSS-Eigenschaften: Hintergrundfarben und -bilder</a><br>
+<img src="../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#listen">CSS-Eigenschaften: Listenformatierung</a><br>
+<img src="../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#tabellen">CSS-Eigenschaften: Tabellenformatierung</a><br>
+<img src="../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#positionierung">CSS-Eigenschaften: Positionierung und Anzeige von Elementen</a><br>
+<img src="../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#anzeigefenster">CSS-Eigenschaften: Anzeigefenster</a><br>
+</p>
+</td>
+</tr><tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><a class="an" name="hinweis">Hinweis</a></h2>
+
+<p>Die CSS-Kurzreferenz ist <b>nicht</b> für Anfänger geeignet! Die Kurzreferenz richtet sich an Anwender, die sich mit CSS auskennen und eine allgemeine Syntax-Übersicht für wichtige und praxisrelevante Sprachbestandteile haben wollen (die Kurzreferenz erhebt keinen Anspruch auf Vollständigkeit). Die Kurzreferenz eignet sich als Navigationshilfe. Von den Kurzbeschreibungen führen Verweise vom Typ <img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a name="hier" href="#hier">Beschreibung</a> direkt zu den ausführlichen Beschreibungen innerhalb der Dokumentation.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="masseinheiten">Maßeinheiten und Farbangaben</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th rowspan="5" nowrap="nowrap">
+<p>Numerische Angaben<br>absolut</p>
+</th>
+<td class="code" nowrap="nowrap"><code>pt</code></td>
+<td class="tabxpl" width="100%">Punkt. Typografische Maßeinheit. 1 Punkt entspricht 1/72 Inches.</td>
+<td class="tabxpl" rowspan="5"><img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/formate/wertzuweisung.htm#numerische">Beschreibung</a></td>
+</tr><tr>
+<td class="code" nowrap="nowrap"><code>pc</code></td>
+<td class="tabxpl">Pica. Typografische Maßeinheit. 1 Pica entspricht 12 Punkt.</td>
+</tr><tr>
+<td class="code" nowrap="nowrap"><code>in</code></td>
+<td class="tabxpl">Inch. 1 Inch entspricht 2.54 Zentimetern. Dezimalzeichen für Nachkommazahlen ist der Punkt.</td>
+</tr><tr>
+<td class="code" nowrap="nowrap"><code>mm</code></td>
+<td class="tabxpl">Millimeter.</td>
+</tr><tr>
+<td class="code" nowrap="nowrap"><code>cm</code></td>
+<td class="tabxpl">Zentimeter. Dezimalzeichen für Nachkommazahlen ist der Punkt.</td>
+</tr>
+<tr>
+<th rowspan="4" nowrap="nowrap">
+<p>Numerische Angaben<br>relativ</p>
+</th>
+<td class="code" nowrap="nowrap"><code>em</code></td>
+<td class="tabxpl">Relativ zur Schriftgröße des Elements. Bei Anwendung auf Schriftgröße relativ zur Schriftgröße des Elternelements. Dezimalzeichen für Nachkommazahlen ist der Punkt.</td>
+<td class="tabxpl" rowspan="4"><img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/formate/wertzuweisung.htm#numerische">Beschreibung</a></td>
+</tr><tr>
+<td class="code" nowrap="nowrap"><code>ex</code></td>
+<td class="tabxpl">Relativ zur Höhe des Buchstabens <code>x</code>. Bei Anwendung auf Schriftgröße relativ zur Höhe des Buchstabens <code>x</code> im Elternelement. Dezimalzeichen für Nachkommazahlen ist der Punkt.</td>
+</tr><tr>
+<td class="code" nowrap="nowrap"><code>px</code></td>
+<td class="tabxpl">Pixel. Relativ von Ausgabegerät zu Ausgabegerät, absolut an ein und demselben Ausgabegerät.</td>
+</tr><tr>
+<td class="code" nowrap="nowrap"><code>%</code></td>
+<td class="tabxpl">Prozent. Je nach CSS-Eigenschaft relativ zur elementeigenen Größe, oder zu der des Elternelements, oder zu einem allgemeineren Kontext.</td>
+</tr>
+<tr>
+<th rowspan="5" nowrap="nowrap">
+<p>Farbangaben</p>
+</th>
+<td class="code" nowrap="nowrap"><code>#rrggbb</code></td>
+<td class="tabxpl">Hexadezimale RGB-Angabe wie bei HTML.</td>
+<td class="tabxpl" rowspan="5" width="100%"><img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/formate/wertzuweisung.htm#farben">Beschreibung</a></td>
+</tr><tr>
+<td class="code" nowrap="nowrap"><code>#rgb</code></td>
+<td class="tabxpl">Hexadezimale RGB-Angabe - Kurzschreibweise</td>
+</tr><tr>
+<td class="code" nowrap="nowrap"><code>Farbnamen</code></td>
+<td class="tabxpl">wie bei HTML</td>
+</tr><tr>
+<td class="code" nowrap="nowrap"><code>rgb(R,G,B)</code></td>
+<td class="tabxpl">RGB-Werte dezimal (0-255,0-255,0-255)</td>
+</tr><tr>
+<td class="code" nowrap="nowrap"><code>rgb(%,%,%)</code></td>
+<td class="tabxpl">RGB-Anteile prozentual (0-100%,0-100%,0-100%)</td>
+</tr>
+</table><br>&nbsp;
+
+
+
+<p class="doc"><a href="#top"><img src="../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="zentrale_formate">Zentrale Formate</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th rowspan="2" nowrap="nowrap">
+<p>Formate für Elemente</p>
+</th>
+<td class="code"  width="100%" nowrap="nowrap">
+<code>Element { CSS-Eigenschaft:Wert; ...}</code>
+</td>
+</tr><tr>
+<td class="tabxpl">Für <code>Element</code> den Namen eines HTML-Elements wie <code>h1</code> oder <code>td</code> oder <code>*</code> ("alle Elemente") notieren.<br>
+Für <code>CSS-Eigenschaft</code> eine Eigenschaft wie <code>font-size</code> oder <code>background-color</code> notieren.<br>
+Für <code>Wert</code> einen jeweils erlaubten Wert notieren.<br>
+Beliebig viele Notierungen von <code>CSS-Eigenschaft:Wert;</code> innerhalb der geschweiften Klammern möglich.<br>
+<img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/formate/zentrale.htm#elemente">Beschreibung</a><br>&nbsp;
+</td>
+</tr>
+<tr>
+<th rowspan="2" nowrap="nowrap">
+<p>Formate für<br>verschachtelte Elemente</p>
+</th>
+<td class="code"  width="100%" nowrap="nowrap">
+<code>Element1 Element2 { CSS-Eigenschaft:Wert; ...}<br>
+Element1 &gt; Element2 { CSS-Eigenschaft:Wert; ...}<br>
+Element1 * Element2 { CSS-Eigenschaft:Wert; ...}<br>
+Element1 + Element2 { CSS-Eigenschaft:Wert; ...}</code>
+</td>
+</tr><tr>
+<td class="tabxpl">Für <code>Element1</code> und <code>Element2</code> so etwas notieren wie <code>h3</code> und <code>var</code>.<br>
+Formatdefinitionen gelten dann für <code>var</code>-Elemente innerhalb von <code>h3</code>-Elementen.<br>
+Oder für <code>Element1</code> oder <code>Element2</code> Platzhalter <code>*</code> ("alle Elemente") notieren.<br>
+Leerzeichen zwischen <code>Element1</code> und <code>Element2</code> bedeutet: egal wie viele Ebenen <code>Element2</code> unterhalb von <code>Element1</code> in der Elementstruktur liegt.<br>
+<code>&gt;</code> bedeutet: nur wenn <code>Element2</code> eine Ebene unterhalb von <code>Element1</code> in der Elementstruktur liegt.<br>
+<code>*</code> bedeutet: wenn <code>Element2</code> mindestens zwei Ebenen unterhalb von <code>Element1</code> in der Elementstruktur liegt.<br>
+<code>+</code> bedeutet: wenn <code>Element2</code> auf gleicher Ebene liegt wie <code>Element1</code> und in der Elementstruktur unmittelbar nach <code>Element1</code> folgt.<br>
+<img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/formate/zentrale.htm#verschachtelte_elemente">Beschreibung</a><br>&nbsp;
+</td>
+</tr>
+<tr>
+<th rowspan="2" nowrap="nowrap">
+<p>Attributbedingte<br>Formate</p>
+</th>
+<td class="code"  width="100%" nowrap="nowrap">
+<code>Element[Attributname] { CSS-Eigenschaft:Wert; ...}<br>
+Element[Attributname=Attributwert] { CSS-Eigenschaft:Wert; ...}<br>
+Element[Attributname~=Attributwert] { CSS-Eigenschaft:Wert; ...}<br>
+Element[Attributname|=Attributwert] { CSS-Eigenschaft:Wert; ...}
+</code>
+</td>
+</tr><tr>
+<td class="tabxpl">Für <code>Element</code> ein HTML-Element wie z.B. <code>a</code> oder <code>td</code> oder <code>*</code> ("alle Elemente") notieren.<br>
+Für <code>Attributname</code> so etwas wie <code>href</code> oder <code>align</code> notieren.<br>
+<code>a[href=index.htm]</code> trifft z.B. auf Elemente mit <code>&lt;a href="index.htm"&gt;   &lt;/a&gt;</code> zu.<br>
+<code>img[alt~=Hamburg]</code> trifft z.B. auf Elemente mit <code>&lt;img src="bild.jpg" alt="Blick vom Michel auf Hamburg"&gt;</code> zu.<br>
+<code>p[lang|=en]</code> trifft z.B. auch auf Elemente mit <code>&lt;p lang="en-US"&gt;...&lt;/p&gt;</code> zu.<br>
+<img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/formate/zentrale.htm#attributbedingte">Beschreibung</a><br>&nbsp;
+</td>
+</tr>
+<tr>
+<th rowspan="2" nowrap="nowrap">
+<p>Formate für<br>Klassen</p>
+</th>
+<td class="code"  width="100%" nowrap="nowrap">
+<code>Element.Klassenname { CSS-Eigenschaft:Wert; ...}<br>
+*.Klassenname { CSS-Eigenschaft:Wert; ...}<br>
+.Klassenname { CSS-Eigenschaft:Wert; ...}<br>
+.KlassennameA.KlassennameB { CSS-Eigenschaft:Wert; ...}</code>
+</td>
+</tr><tr>
+<td class="tabxpl">Für <code>Element</code> ein HTML-Element wie z.B. <code>strong</code> oder <code>table</code> oder <code>*</code> ("alle Elemente") notieren. Der Stern kann auch entfallen.<br>
+Für <code>Klassenname</code> einen Namen notieren.<br>
+Trifft auf HTML-Elemente mit <code>&lt;Element class="Klassenname"&gt;...&lt;/Element&gt;</code> zu.<br>
+<code>.gross</code> trifft z.B. auf <code>&lt;p class="gross"&gt;...&lt;/p&gt;</code> zu.<br>
+<code>.KlassennameA.KlassennameB</code> trifft z.B. auf <code>&lt;p class="KlassennameA KlassennameB"&gt;...&lt;/p&gt;</code> zu.<br>
+<img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/formate/zentrale.htm#klassen">Beschreibung</a><br>&nbsp;
+</td>
+</tr>
+<tr>
+<th rowspan="2" nowrap="nowrap">
+<p>Individualformate</p>
+</th>
+<td class="code"  width="100%" nowrap="nowrap">
+<code>#Name { CSS-Eigenschaft:Wert; ...}<br>
+Element#Name { CSS-Eigenschaft:Wert; ...}</code>
+</td>
+</tr><tr>
+<td class="tabxpl">Für <code>Name</code> einen Namen notieren.<br>
+Trifft auf HTML-Elemente mit <code>&lt;Element id="Name"&gt;...&lt;/Element&gt;</code> zu.<br>
+<code>#Kopf</code> trifft z.B. auf <code>&lt;div id="Kopf"&gt;...&lt;/div&gt;</code> zu.<br>
+Für <code>Element</code> ein HTML-Element wie z.B. <code>h2</code> oder <code>pre</code> notieren.<br>
+<code>p#Kopf</code> trifft z.B. auf <code>&lt;p id="Kopf"&gt;...&lt;/p&gt;</code> zu, nicht aber auf <code>&lt;div id="Kopf"&gt;...&lt;/div&gt;</code>.<br>
+<img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/formate/zentrale.htm#individualformate">Beschreibung</a><br>&nbsp;
+</td>
+</tr>
+<tr>
+<th rowspan="2" nowrap="nowrap">
+<p>Pseudoelemente<br>Pseudoklassen</p>
+</th>
+<td class="code"  width="100%" nowrap="nowrap">
+<code>
+a:link { CSS-Eigenschaft:Wert; ... }&nbsp;&nbsp;&nbsp;&nbsp;/* noch nicht besuchte Ziele */<br>
+a:visited { CSS-Eigenschaft:Wert; ... }&nbsp;/* besuchte Ziele */<br>
+a:hover { CSS-Eigenschaft:Wert; ... }&nbsp;&nbsp;&nbsp;/* Verweise bei "MouseOver" */<br>
+a:active { CSS-Eigenschaft:Wert; ... }&nbsp;&nbsp;/* Angeklickte Verweise */<br>
+a:focus { CSS-Eigenschaft:Wert; ... }&nbsp;&nbsp;&nbsp;/* Verweise, die Fokus erhalten */<br>
+&nbsp;<br>
+Element:hover { CSS-Eigenschaft:Wert; ... }&nbsp;&nbsp;&nbsp;/* Element bei "MouseOver" */<br>
+Element:active { CSS-Eigenschaft:Wert; ... }&nbsp;&nbsp;/* Angeklickte Elemente */<br>
+Element:focus { CSS-Eigenschaft:Wert; ... }&nbsp;&nbsp;&nbsp;/* Elemente, die Fokus erhalten */<br>
+&nbsp;<br>
+#Name:hover { CSS-Eigenschaft:Wert; ... }&nbsp;&nbsp;&nbsp;/* Individualformate bei "MouseOver" */<br>
+#Name:active { CSS-Eigenschaft:Wert; ... }&nbsp;&nbsp;/* Angeklickte Individualformate */<br>
+#Name:focus { CSS-Eigenschaft:Wert; ... }&nbsp;&nbsp;&nbsp;/* Individualformate, die Fokus erhalten */<br>
+&nbsp;<br>
+Element:first-line { CSS-Eigenschaft:Wert; ... }&nbsp;&nbsp;&nbsp;/* erste Zeile */<br>
+Element:first-letter { CSS-Eigenschaft:Wert; ... }&nbsp;/* erster Buchstabe */<br>
+&nbsp;<br>
+Element:lang(xy) { CSS-Eigenschaft:Wert; ... }&nbsp;/* Elemente mit Sprachauszeichnung */<br>
+&nbsp;<br>
+Element:before { content:Wert; }&nbsp;/* Vor dem Element einfügen */<br>
+Element:after { content:Wert; }&nbsp;&nbsp;/* nach dem Element einfügen */<br>
+</code>
+</td>
+</tr><tr>
+<td class="tabxpl">
+<code>:link</code> und <code>:visited</code> sind nur bei <code>a</code>-Elementen (Verweisen) möglich, <code>:hover</code>, <code>:active</code> und <code>:focus</code> auch bei anderen Elementen und Individualformaten.<br>
+<img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/eigenschaften/pseudoformate.htm#link_visited_focus_hover_active">Beschreibung</a><br>
+<br>
+Bei <code>content:Wert</code> für <code>Wert</code> in Anführungszeichen einen statischen Text notieren, oder <code>url(URI)</code>, wobei <code>URI</code> eine Grafik referenzieren kann, oder <code>open-quote</code> und <code>close-quote</code> für Anführungszeigen, oder eine automatische Nummerierung wie folgt:<br>
+<code>content:counter(Name); counter-increment(Name);</code><br>
+Dabei für <code>Name</code> einen Namen für den Zähler notieren.<br>
+<img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/eigenschaften/pseudoformate.htm#before_after">Beschreibung</a><br>&nbsp;
+</td>
+</tr>
+</table><br>&nbsp;
+
+
+
+<p class="doc"><a href="#top"><img src="../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="direktformatierung">Direktformatierung von Elementen</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th rowspan="2" nowrap="nowrap">
+<p>CSS in HTML-Elementen</p>
+</th>
+<td class="code"  width="100%" nowrap="nowrap">
+<code>&lt;Element style="CSS-Eigenschaft:Wert; ..."&gt;...&lt;/Element&gt;</code>
+</td>
+</tr><tr>
+<td class="tabxpl">Für <code>Element</code> den Namen eines HTML-Elements wie <code>p</code> oder <code>table</code> oder <code>blockquote</code> notieren.<br>
+Für <code>CSS-Eigenschaft</code> eine Eigenschaft wie <code>font-size</code> oder <code>background-color</code> notieren.<br>
+Für <code>Wert</code> einen jeweils erlaubten Wert notieren.<br>
+Beliebig viele Notierungen von <code>CSS-Eigenschaft:Wert;</code> innerhalb des <code>style</code>-Attributs möglich.<br>
+<img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/formate/direkt.htm#style">Beschreibung</a><br>&nbsp;
+</td>
+</tr>
+</table><br>&nbsp;
+
+
+
+<p class="doc"><a href="#top"><img src="../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="schrift">CSS-Eigenschaften: Schriftformatierung</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th rowspan="2" nowrap="nowrap">
+<p>Schriftart</p>
+</th>
+<td class="code" width="100%" nowrap="nowrap">
+<code>font-family:Schriftart1,Schriftart2,...;</code>
+</td>
+</tr><tr>
+<td class="tabxpl">Für <code>Schriftart1</code> den Namen gewünschten Schriftart notieren.<br>
+Für <code>Schriftart2</code> und weitere die Namen von Alternativschriftarten notieren.<br>
+<img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/eigenschaften/schrift.htm#font_family">Beschreibung</a><br>&nbsp;
+</td>
+</tr>
+<tr>
+<th rowspan="2" nowrap="nowrap">
+<p>Schriftstil</p>
+</th>
+<td class="code" width="100%" nowrap="nowrap">
+<code>font-style:Wert;</code>
+</td>
+</tr><tr>
+<td class="tabxpl">Für <code>Wert</code> einen der folgenden Werte notieren:<br>
+<code>italic</code> = Schriftstil kursiv.<br>
+<code>oblique</code> = Schriftstil kursiv.<br>
+<code>normal</code> = normaler Schriftstil.<br>
+<img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/eigenschaften/schrift.htm#font_style">Beschreibung</a><br>&nbsp;
+</td>
+</tr>
+<tr>
+<th rowspan="2" nowrap="nowrap">
+<p>Schriftvariante</p>
+</th>
+<td class="code" width="100%" nowrap="nowrap">
+<code>font-variant:Wert;</code>
+</td>
+</tr><tr>
+<td class="tabxpl">Für <code>Wert</code> einen der folgenden Werte notieren:<br>
+<code>small-caps</code> = Kapitälchen.<br>
+<code>normal</code> = normale Schriftvariante.<br>
+<img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/eigenschaften/schrift.htm#font_variant">Beschreibung</a><br>&nbsp;
+</td>
+</tr>
+<tr>
+<th rowspan="2" nowrap="nowrap">
+<p>Schriftgröße</p>
+</th>
+<td class="code" width="100%" nowrap="nowrap">
+<code>font-size:Wert;</code>
+</td>
+</tr><tr>
+<td class="tabxpl">Für <code>Wert</code> eine numerische Angabe wie <code>1.2em</code>, <code>14px</code> oder <code>12pt</code> notieren oder eine der folgenden Werte:<br>
+<code>xx-small</code> = winzig.<br>
+<code>x-small</code> = sehr klein.<br>
+<code>small</code> = klein.<br>
+<code>medium</code> = mittel.<br>
+<code>large</code> = groß.<br>
+<code>x-large</code> = sehr groß.<br>
+<code>xx-large</code> = riesig.<br>
+<code>smaller</code> = sichtbar kleiner als normal.<br>
+<code>larger</code> = sichtbar größer als normal.<br>
+<img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/eigenschaften/schrift.htm#font_size">Beschreibung</a><br>&nbsp;
+</td>
+</tr>
+<tr>
+<th rowspan="2" nowrap="nowrap">
+<p>Schriftgewicht</p>
+</th>
+<td class="code" width="100%" nowrap="nowrap">
+<code>font-weight:Wert;</code>
+</td>
+</tr><tr>
+<td class="tabxpl">Für <code>Wert</code> einen der folgenden Werte notieren:<br>
+<code>bold</code> = fett.<br>
+<code>bolder</code> = extrafett.<br>
+<code>lighter</code> = dünner.<br>
+<code>100,200,300,400,500,600,700,800,900</code> = extra-dünn (<code>100</code>) bis extrafett (<code>900</code>).<br>
+<code>normal</code> = normales Schriftgewicht.<br>
+<img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/eigenschaften/schrift.htm#font_weight">Beschreibung</a><br>&nbsp;
+</td>
+</tr>
+<tr>
+<th rowspan="2" nowrap="nowrap">
+<p>Schriftlaufweite</p>
+</th>
+<td class="code" width="100%" nowrap="nowrap">
+<code>font-stretch:Wert;</code>
+</td>
+</tr><tr>
+<td class="tabxpl">Für <code>Wert</code> einen der folgenden Werte notieren:<br>
+<code>wider</code> = weiter als normal.<br>
+<code>narrower</code> = enger als normal.<br>
+<code>condensed</code> = gedrängt.<br>
+<code>semi-condensed</code> = halb gedrängt.<br>
+<code>extra-condensed</code> = stark gedrängt.<br>
+<code>ultra-condensed</code> = extrastark gedrängt.<br>
+<code>expanded</code> = geweitet.<br>
+<code>semi-expanded</code> = halb geweitet.<br>
+<code>extra-expanded</code> = stark geweitet.<br>
+<code>ultra-expanded</code> = extrastark geweitet.<br>
+<code>normal</code> = normale Laufweite.<br>
+<img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/eigenschaften/schrift.htm#font_stretch">Beschreibung</a><br>&nbsp;
+</td>
+</tr>
+<tr>
+<th rowspan="2" nowrap="nowrap">
+<p>Schrift (allgemein)</p>
+</th>
+<td class="code" width="100%" nowrap="nowrap">
+<code>font:Wert;</code>
+</td>
+</tr><tr>
+<td class="tabxpl">Für <code>Wert</code> eine Mischung aus erlaubten Werten für <code>font-style</code>, <code>font-variant</code>, <code>font-weight</code>, <code>font-size</code>, <code>line-height</code> und <code>font-family</code> notieren. Einzelwerte durch Leerzeichen trennen, die Reihenfolge ist einzuhalten.<br>
+z.B. <code>font:italic bold 13px Times;</code><br>
+<img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/eigenschaften/schrift.htm#font">Beschreibung</a><br>&nbsp;
+</td>
+</tr>
+<tr>
+<th rowspan="2" nowrap="nowrap">
+<p>Wortabstand</p>
+</th>
+<td class="code" width="100%" nowrap="nowrap">
+<code>word-spacing:Wert;</code>
+</td>
+</tr><tr>
+<td class="tabxpl">Für <code>Wert</code> eine numerische Angabe wie <code>0.2em</code> oder <code>4px</code> notieren, jedoch keine Prozentwerte.<br>
+<img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/eigenschaften/schrift.htm#word_spacing">Beschreibung</a><br>&nbsp;
+</td>
+</tr>
+<tr>
+<th rowspan="2" nowrap="nowrap">
+<p>Zeichenabstand</p>
+</th>
+<td class="code" width="100%" nowrap="nowrap">
+<code>letter-spacing:Wert;</code>
+</td>
+</tr><tr>
+<td class="tabxpl">Für <code>Wert</code> eine numerische Angabe wie <code>0.1em</code> oder <code>2px</code> notieren, jedoch keine Prozentwerte.<br>
+<img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/eigenschaften/schrift.htm#letter_spacing">Beschreibung</a><br>&nbsp;
+</td>
+</tr>
+<tr>
+<th rowspan="2" nowrap="nowrap">
+<p>Textdekoration</p>
+</th>
+<td class="code" width="100%" nowrap="nowrap">
+<code>text-decoration:Wert;</code>
+</td>
+</tr><tr>
+<td class="tabxpl">Für <code>Wert</code> einen der folgenden Werte notieren:<br>
+<code>underline</code> = unterstrichen.<br>
+<code>overline</code> = überstrichen.<br>
+<code>line-through</code> = durchgestrichen.<br>
+<code>blink</code> = blinkend.<br>
+<code>none</code> = normal (keine Text-Dekoration).<br>
+<img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/eigenschaften/schrift.htm#text_decoration">Beschreibung</a><br>&nbsp;
+</td>
+</tr>
+<tr>
+<th rowspan="2" nowrap="nowrap">
+<p>Text-Transformation</p>
+</th>
+<td class="code" width="100%" nowrap="nowrap">
+<code>text-transform:Wert;</code>
+</td>
+</tr><tr>
+<td class="tabxpl">Für <code>Wert</code> einen der folgenden Werte notieren:<br>
+<code>capitalize</code> = Wortanfänge als Großbuchstaben.<br>
+<code>uppercase</code> = Nur Großbuchstaben.<br>
+<code>lowercase</code> = Nur Kleinbuchstaben.<br>
+<code>none</code> = normal (keine Text-Transformation).<br>
+<img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/eigenschaften/schrift.htm#text_transform">Beschreibung</a><br>&nbsp;
+</td>
+</tr>
+<tr>
+<th rowspan="2" nowrap="nowrap">
+<p>Textfarbe</p>
+</th>
+<td class="code" width="100%" nowrap="nowrap">
+<code>color:Wert;</code>
+</td>
+</tr><tr>
+<td class="tabxpl">Für <code>Wert</code> eine Farbangabe wie <code>#FFCC99</code>, <code>red</code> oder <code>rgb(96,255,0)</code> notieren.<br>
+<img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/eigenschaften/schrift.htm#color">Beschreibung</a><br>&nbsp;
+</td>
+</tr>
+</table><br>&nbsp;
+
+
+
+<p class="doc"><a href="#top"><img src="../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="ausrichtung">CSS-Eigenschaften: Ausrichtung/Absatzkontrolle</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th rowspan="2" nowrap="nowrap">
+<p>Texteinrückung</p>
+</th>
+<td class="code" width="100%" nowrap="nowrap">
+<code>text-indent:Wert;</code>
+</td>
+</tr><tr>
+<td class="tabxpl">Für <code>Wert</code> eine numerische Angabe wie z.B. <code>20px</code> oder <code>2.5cm</code> notieren.<br>
+<img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/eigenschaften/ausrichtung.htm#text_indent">Beschreibung</a><br>&nbsp;
+</td>
+</tr>
+<tr>
+<th rowspan="2" nowrap="nowrap">
+<p>Zeilenhöhe</p>
+</th>
+<td class="code" width="100%" nowrap="nowrap">
+<code>line-height:Wert;</code>
+</td>
+</tr><tr>
+<td class="tabxpl">Für <code>Wert</code> eine numerische Angabe wie z.B. <code>20px</code> oder <code>120%</code> notieren. Prozentangaben beziehen sich auf die Schriftgröße.<br>
+<img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/eigenschaften/ausrichtung.htm#line_height">Beschreibung</a><br>&nbsp;
+</td>
+</tr>
+<tr>
+<th rowspan="2" nowrap="nowrap">
+<p>Vertikale<br>Ausrichtung</p>
+</th>
+<td class="code" width="100%" nowrap="nowrap">
+<code>vertical-align:Wert;</code>
+</td>
+</tr><tr>
+<td class="tabxpl">Für <code>Wert</code> einen der folgenden Werte notieren:<br>
+<code>top</code> = obenbündig ausrichten.<br>
+<code>middle</code> = mittig ausrichten.<br>
+<code>bottom</code> = untenbündig ausrichten.<br>
+<code>baseline</code> = an der Basislinie ausrichten (oder untenbündig, wenn es keine Basislinie gibt).<br>
+<code>sub</code> = tieferstellen (ohne die Schriftgröße zu reduzieren).<br>
+<code>super</code> = höherstellen (ohne die Schriftgröße zu reduzieren).<br>
+<code>text-top</code> = am oberen Schriftrand ausrichten.<br>
+<code>text-bottom</code> = am unteren Schriftrand ausrichten.<br>
+<img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/eigenschaften/ausrichtung.htm#vertical_align">Beschreibung</a><br>&nbsp;
+</td>
+</tr>
+<tr>
+<th rowspan="2" nowrap="nowrap">
+<p>Horizontale<br>Ausrichtung</p>
+</th>
+<td class="code" width="100%" nowrap="nowrap">
+<code>text-align:Wert;</code>
+</td>
+</tr><tr>
+<td class="tabxpl">Für <code>Wert</code> einen der folgenden Werte notieren:<br>
+<code>left</code> = linksbündig ausrichten (Voreinstellung).<br>
+<code>center</code> = zentriert ausrichten.<br>
+<code>right</code> = rechtsbündig ausrichten.<br>
+<code>justify</code> = als Blocksatz ausrichten.<br>
+<img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/eigenschaften/ausrichtung.htm#text_align">Beschreibung</a><br>&nbsp;
+</td>
+</tr>
+<tr>
+<th rowspan="2" nowrap="nowrap">
+<p>Textumbruch</p>
+</th>
+<td class="code" width="100%" nowrap="nowrap">
+<code>white-space:Wert;</code>
+</td>
+</tr><tr>
+<td class="tabxpl">Für <code>Wert</code> einen der folgenden Werte notieren:<br>
+<code>normal</code> = automatischer Zeilenumbruch (wie bei allen HTML-Elementen außer <code>pre</code> und <code>nowrap</code>).<br>
+<code>pre</code> = Zeilenumbruch wie im Editor eingegeben (so wie beim <code>pre</code>-Element).<br>
+<code>nowrap</code> = Kein automatischer Zeilenumbruch, Umbruch möglich durch entsprechende HTML-Tags.<br>
+<img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/eigenschaften/ausrichtung.htm#white_space">Beschreibung</a><br>&nbsp;
+</td>
+</tr>
+</table><br>&nbsp;
+
+
+
+<p class="doc"><a href="#top"><img src="../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="randabstand">CSS-Eigenschaften: Außenrand/Abstand</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th rowspan="2" nowrap="nowrap">
+<p>Außenrand/Abstand<br>oben</p>
+</th>
+<td class="code" width="100%" nowrap="nowrap">
+<code>margin-top:Wert;</code>
+</td>
+</tr><tr>
+<td class="tabxpl">Für <code>Wert</code> einen numerischen Wert wie <code>2.3cm</code> oder <code>24pt</code> notieren.<br>
+<img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/eigenschaften/randabstand.htm#margin_top">Beschreibung</a><br>&nbsp;
+</td>
+</tr>
+<tr>
+<th rowspan="2" nowrap="nowrap">
+<p>Außenrand/Abstand<br>unten</p>
+</th>
+<td class="code" width="100%" nowrap="nowrap">
+<code>margin-bottom:Wert;</code>
+</td>
+</tr><tr>
+<td class="tabxpl">Für <code>Wert</code> einen numerischen Wert wie <code>30px</code> oder <code>25mm</code> notieren.<br>
+<img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/eigenschaften/randabstand.htm#margin_bottom">Beschreibung</a><br>&nbsp;
+</td>
+</tr>
+<tr>
+<th rowspan="2" nowrap="nowrap">
+<p>Außenrand/Abstand<br>links</p>
+</th>
+<td class="code" width="100%" nowrap="nowrap">
+<code>margin-left:Wert;</code>
+</td>
+</tr><tr>
+<td class="tabxpl">Für <code>Wert</code> einen numerischen Wert wie <code>1.2cm</code> oder <code>40px</code> notieren.<br>
+<img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/eigenschaften/randabstand.htm#margin_left">Beschreibung</a><br>&nbsp;
+</td>
+</tr>
+<tr>
+<th rowspan="2" nowrap="nowrap">
+<p>Außenrand/Abstand<br>rechts</p>
+</th>
+<td class="code" width="100%" nowrap="nowrap">
+<code>margin-right:Wert;</code>
+</td>
+</tr><tr>
+<td class="tabxpl">Für <code>Wert</code> einen numerischen Wert wie <code>1.25cm</code> oder <code>65px</code> notieren.<br>
+<img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/eigenschaften/randabstand.htm#margin_right">Beschreibung</a><br>&nbsp;
+</td>
+</tr>
+<tr>
+<th rowspan="2" nowrap="nowrap">
+<p>Außenrand/Abstand<br>(allgemein)</p>
+</th>
+<td class="code" width="100%" nowrap="nowrap">
+<code>margin:Wert;</code>
+</td>
+</tr><tr>
+<td class="tabxpl">Für <code>Wert</code> einen oder mehrere Werte zu <code>margin-top</code>, <code>margin-bottom</code>, <code>margin-left</code> und <code>margin-right</code> notieren.<br>
+Eine Angabe = alle vier Ränder des Elements erhalten den gleichen Außenabstand.<br>
+Zwei Angaben = erste für oben/unten, zweite für rechts/links.<br>
+Drei Angaben = erste für oben, zweite für rechts/links, dritte für unten.<br>
+Vier Angaben = erste für oben, zweite für rechts, dritte für unten, vierte für links.<br>
+<img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/eigenschaften/randabstand.htm#margin">Beschreibung</a><br>&nbsp;
+</td>
+</tr>
+</table><br>&nbsp;
+
+
+
+<p class="doc"><a href="#top"><img src="../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="innenabstand">CSS-Eigenschaften: Innenabstand</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th rowspan="2" nowrap="nowrap">
+<p>Innenabstand oben</p>
+</th>
+<td class="code" width="100%" nowrap="nowrap">
+<code>padding-top:Wert;</code>
+</td>
+</tr><tr>
+<td class="tabxpl">Für <code>Wert</code> einen numerischen Wert wie <code>3px</code> oder <code>15pt</code> notieren.<br>
+<img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/eigenschaften/innenabstand.htm#padding_top">Beschreibung</a><br>&nbsp;
+</td>
+</tr>
+<tr>
+<th rowspan="2" nowrap="nowrap">
+<p>Innenabstand unten</p>
+</th>
+<td class="code" width="100%" nowrap="nowrap">
+<code>padding-bottom:Wert;</code>
+</td>
+</tr><tr>
+<td class="tabxpl">Für <code>Wert</code> einen numerischen Wert wie <code>0.7cm</code> oder <code>3em</code> notieren.<br>
+<img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/eigenschaften/innenabstand.htm#padding_bottom">Beschreibung</a><br>&nbsp;
+</td>
+</tr>
+<tr>
+<th rowspan="2" nowrap="nowrap">
+<p>Innenabstand links</p>
+</th>
+<td class="code" width="100%" nowrap="nowrap">
+<code>padding-left:Wert;</code>
+</td>
+</tr><tr>
+<td class="tabxpl">Für <code>Wert</code> einen numerischen Wert wie <code>30px</code> oder <code>1.4cm</code> notieren.<br>
+<img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/eigenschaften/innenabstand.htm#padding_left">Beschreibung</a><br>&nbsp;
+</td>
+</tr>
+<tr>
+<th rowspan="2" nowrap="nowrap">
+<p>Innenabstand rechts</p>
+</th>
+<td class="code" width="100%" nowrap="nowrap">
+<code>padding-right:Wert;</code>
+</td>
+</tr><tr>
+<td class="tabxpl">Für <code>Wert</code> einen numerischen Wert wie <code>25mm</code> oder <code>0.4in</code> notieren.<br>
+<img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/eigenschaften/innenabstand.htm#padding_right">Beschreibung</a><br>&nbsp;
+</td>
+</tr>
+<tr>
+<th rowspan="2" nowrap="nowrap">
+<p>Innenabstand<br>(allgemein)</p>
+</th>
+<td class="code" width="100%" nowrap="nowrap">
+<code>padding:Wert;</code>
+</td>
+</tr><tr>
+<td class="tabxpl">Für <code>Wert</code> einen numerische Angabe wie <code>20px</code> oder <code>0.4cm</code> notieren. Alle vier Seiten des Elements erhalten den gleichen Innenabstand.<br>
+<img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/eigenschaften/innenabstand.htm#padding">Beschreibung</a><br>&nbsp;
+</td>
+</tr>
+</table><br>&nbsp;
+
+
+
+<p class="doc"><a href="#top"><img src="../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="rahmen">CSS-Eigenschaften: Rahmen</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th rowspan="2" nowrap="nowrap">
+<p>Rahmendicke</p>
+</th>
+<td class="code" width="100%" nowrap="nowrap">
+<code>border-width:Wert;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* alle Seiten */<br>
+border-top-width:Wert;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* nur oben */<br>
+border-bottom-width:Wert;&nbsp;&nbsp;&nbsp;/* nur unten */<br>
+border-left-width:Wert;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* nur links */<br>
+border-right-width:Wert;&nbsp;&nbsp;&nbsp;&nbsp;/* nur rechts */</code>
+</td>
+</tr><tr>
+<td class="tabxpl">Für <code>Wert</code> einen numerischen Wert wie <code>2px</code> oder <code>1mm</code> oder einen der folgenden Werte notieren:<br>
+<code>thin</code> = dünn.<br>
+<code>medium</code> = mittelstark.<br>
+<code>thick</code> = dick.<br>
+<img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/eigenschaften/rahmen.htm#border_width">Beschreibung</a><br>&nbsp;
+</td>
+</tr>
+<tr>
+<th rowspan="2" nowrap="nowrap">
+<p>Rahmenfarbe</p>
+</th>
+<td class="code" width="100%" nowrap="nowrap">
+<code>border-color:Wert;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* alle Seiten */<br>
+border-top-color:Wert;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* nur oben */<br>
+border-bottom-color:Wert;&nbsp;&nbsp;&nbsp;/* nur unten */<br>
+border-left-color:Wert;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* nur links */<br>
+border-right-color:Wert;&nbsp;&nbsp;&nbsp;&nbsp;/* nur rechts */</code>
+</td>
+</tr><tr>
+<td class="tabxpl">Für <code>Wert</code> eine Farbangabe wie <code>#FFCC99</code>, <code>red</code> oder <code>rgb(96,255,0)</code> notieren.<br>
+<img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/eigenschaften/rahmen.htm#border_color">Beschreibung</a><br>&nbsp;
+</td>
+</tr>
+<tr>
+<th rowspan="2" nowrap="nowrap">
+<p>Rahmentyp</p>
+</th>
+<td class="code" width="100%" nowrap="nowrap">
+<code>border-style:Wert;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* alle Seiten */<br>
+border-top-style:Wert;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* nur oben */<br>
+border-bottom-style:Wert;&nbsp;&nbsp;&nbsp;/* nur unten */<br>
+border-left-style:Wert;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* nur links */<br>
+border-right-style:Wert;&nbsp;&nbsp;&nbsp;&nbsp;/* nur rechts */</code>
+</td>
+</tr><tr>
+<td class="tabxpl">Für <code>Wert</code> einen der folgenden Werte notieren:<br>
+<code>none</code> = kein Rahmen (bzw. unsichtbarer Rahmen).<br>
+<code>hidden</code> = kein Rahmen (bzw. unsichtbarer Rahmen),<br>
+<code>dotted</code> = gepunktet.<br>
+<code>dashed</code> = gestrichelt.<br>
+<code>solid</code> = durchgezogen.<br>
+<code>double</code> = doppelt durchgezogen.<br>
+<code>groove</code> = 3D-Effekt.<br>
+<code>ridge</code> = 3D-Effekt.<br>
+<code>inset</code> = 3D-Effekt.<br>
+<code>outset</code> = 3D-Effekt.<br>
+<img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/eigenschaften/rahmen.htm#border_style">Beschreibung</a><br>&nbsp;
+</td>
+</tr>
+<tr>
+<th rowspan="2" nowrap="nowrap">
+<p>Rahmen</p>
+</th>
+<td class="code" width="100%" nowrap="nowrap">
+<code>border:Wert;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* alle Seiten */<br>
+border-top:Wert;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* nur oben */<br>
+border-bottom:Wert;&nbsp;&nbsp;&nbsp;/* nur unten */<br>
+border-left:Wert;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* nur links */<br>
+border-right:Wert;&nbsp;&nbsp;&nbsp;&nbsp;/* nur rechts */</code>
+</td>
+</tr><tr>
+<td class="tabxpl">Für <code>Wert</code> jeweils drei Angaben mit geeigneten Werten für <code>border-style</code>, <code>border-width</code> und <code>border-color</code> mit Leerzeichen dazwischen notieren.<br>
+z.B. <code>border:3px solid #FFCC99;</code> oder <code>border-bottom:1cm inset red;</code>.<br>
+<img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/eigenschaften/rahmen.htm#border">Beschreibung</a><br>&nbsp;
+</td>
+</tr>
+</table><br>&nbsp;
+
+
+
+<p class="doc"><a href="#top"><img src="../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="hintergrund">CSS-Eigenschaften: Hintergrundfarben und -bilder</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th rowspan="2" nowrap="nowrap">
+<p>Hintergrundfarbe</p>
+</th>
+<td class="code" width="100%" nowrap="nowrap">
+<code>background-color:Wert;</code>
+</td>
+</tr><tr>
+<td class="tabxpl">Für <code>Wert</code> eine Farbangabe wie <code>#0000CC</code>, <code>fuchsia</code> oder <code>rgb(50%,60%,80%)</code> notieren.<br>
+<img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/eigenschaften/hintergrund.htm#background_color">Beschreibung</a><br>&nbsp;
+</td>
+</tr>
+<tr>
+<th rowspan="2" nowrap="nowrap">
+<p>Hintergrundbild</p>
+</th>
+<td class="code" width="100%" nowrap="nowrap">
+<code>background-image:url(URI);</code>
+</td>
+</tr><tr>
+<td class="tabxpl">Für <code>URI</code> eine Web-Adresse oder ein Ziel mit oder ohne Pfad angeben, wo sich die gewünschte Grafikdatei (GIF oder JPEG) befindet.<br>
+<img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/eigenschaften/hintergrund.htm#background_image">Beschreibung</a><br>&nbsp;
+</td>
+</tr>
+<tr>
+<th rowspan="2" nowrap="nowrap">
+<p>Wiederholungs-Effekt</p>
+</th>
+<td class="code" width="100%" nowrap="nowrap">
+<code>background-image:url(URI); background-repeat:Wert;</code>
+</td>
+</tr><tr>
+<td class="tabxpl">Für <code>Wert</code> einen der folgenden Werte notieren.<br>
+<code>repeat</code> = wiederholen (Voreinstellung).<br>
+<code>repeat-x</code> = nur "eine Zeile lang" waagerecht wiederholen.<br>
+<code>repeat-y</code> = nur "eine Spalte lang" senkrecht wiederholen.<br>
+<code>no-repeat</code> = nicht wiederholen, nur als Einzelbild anzeigen.<br>
+<img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/eigenschaften/hintergrund.htm#background_repeat">Beschreibung</a><br>&nbsp;
+</td>
+</tr>
+<tr>
+<th rowspan="2" nowrap="nowrap">
+<p>Wasserzeichen-Effekt</p>
+</th>
+<td class="code" width="100%" nowrap="nowrap">
+<code>background-image:url(URI); background-attachment:Wert;</code>
+</td>
+</tr><tr>
+<td class="tabxpl">Für <code>Wert</code> einen der folgenden Werte notieren:<br>
+<code>scroll</code> = mitscrollen (Voreinstellung).<br>
+<code>fixed</code> = Hintergrundbild bleibt stehen.<br>
+<img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/eigenschaften/hintergrund.htm#background_attachment">Beschreibung</a><br>&nbsp;
+</td>
+</tr>
+<tr>
+<th rowspan="2" nowrap="nowrap">
+<p>Hintergrundposition</p>
+</th>
+<td class="code" width="100%" nowrap="nowrap">
+<code>background-image:url(URI); background-position:Wert;</code>
+</td>
+</tr><tr>
+<td class="tabxpl">Für <code>Wert</code> entweder zwei numerische Angaben zur Bestimmung der linken oberen Startecke bezogen auf die linke obere Elementecke notieren,<br>z.B. <code>10px 30px</code>.<br>
+Oder für <code>Wert</code> einen der folgenden Werte notieren:<br>
+<code>top</code> = vertikal obenbündig.<br>
+<code>center</code> = horizontal zentriert.<br>
+<code>center</code> = vertikal mittig.<br>
+<code>bottom</code> = vertikal untenbündig.<br>
+<code>left</code> = horizontal linksbündig.<br>
+<code>right</code> = horizontal rechtsbündig.<br>
+<img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/eigenschaften/hintergrund.htm#background_position">Beschreibung</a><br>&nbsp;
+</td>
+</tr>
+<tr>
+<th rowspan="2" nowrap="nowrap">
+<p>Hintergrund<br>(allgemein)</p>
+</th>
+<td class="code" width="100%" nowrap="nowrap">
+<code>background:Wert;</code>
+</td>
+</tr><tr>
+<td class="tabxpl">Für <code>Wert</code> eine zusammenfassende Angabe aus <code>background-image</code>, <code>background-repeat</code>, <code>background-attachment</code> und <code>background-position</code> notieren.<br>
+z.B. <code>background:url(../bilder/background.gif) repeat-x fixed;</code><br>
+<img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/eigenschaften/hintergrund.htm#background">Beschreibung</a><br>&nbsp;
+</td>
+</tr>
+</table><br>&nbsp;
+
+
+
+<p class="doc"><a href="#top"><img src="../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="listen">Listenformatierung</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th rowspan="2" nowrap="nowrap">
+<p>Darstellungstyp</p>
+</th>
+<td class="code" width="100%" nowrap="nowrap">
+<code>list-style-type:Wert;</code>
+</td>
+</tr><tr>
+<td class="tabxpl">Für <code>Wert</code> einen der folgenden Werte notieren:<br>
+<code>decimal</code> = für <code>ol</code>-Listen: Nummerierung 1.,2.,3.,4. usw.<br>
+<code>lower-roman</code> = für <code>ol</code>-Listen: Nummerierung i.,ii.,iii.,iv. usw.<br>
+<code>upper-roman</code> = für <code>ol</code>-Listen: Nummerierung I.,II.,III.,IV. usw.<br>
+<code>lower-alpha</code> = für <code>ol</code>-Listen: Nummerierung a.,b.,c.,d. usw.<br>
+<code>upper-alpha</code> = für <code>ol</code>-Listen: Nummerierung A.,B.,C.,D. usw.<br>
+<code>lower-greek</code> = für <code>ol</code>-Listen: Nummerierung griechisch: &alpha;., &beta;., &gamma;., &delta;. usw.<br>
+<code>hebrew</code> = für <code>ol</code>-Listen: Nummerierung hebräisch<br>
+<code>decimal-leading-zero</code> = für <code>ol</code>-Listen: Nummerierung 01.,02.,03.,04., ... 98.,99. usw.<br>
+<code>cjk-ideographic</code> = für <code>ol</code>-Listen: Nummerierung mit ideographischen Zeichen<br>
+<code>hiragana</code> = für <code>ol</code>-Listen: Nummerierung in Japanisch (a, i, u, e, o, ka, ki, ... )<br>
+<code>katakana</code> = für <code>ol</code>-Listen: Nummerierung in Japanisch (A, I, U, E, O, KA, KI, ... )<br>
+<code>hiragana-iroha</code> = für <code>ol</code>-Listen: Nummerierung in Japanisch (i, ro, ha, ni, ho, he, to, ... )<br>
+<code>katakana-iroha</code> = für <code>ol</code>-Listen: Nummerierung in Japanisch (I, RO, HA, NI, HO, HE, TO, ... )<br>
+<code>disc</code> = für <code>ul</code>-Listen: Dateisymbol als Bullet-Zeichen.<br>
+<code>circle</code> = für <code>ul</code>-Listen: rundes Bullet-Zeichen.<br>
+<code>square</code> = für <code>ul</code>-Listen: rechteckiges Bullet-Zeichen.<br>
+<code>none</code> = kein Bullet-Zeichen, keine Nummerierung.<br>
+<img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/eigenschaften/listen.htm#list_style_type">Beschreibung</a><br>&nbsp;
+</td>
+</tr>
+<tr>
+<th rowspan="2" nowrap="nowrap">
+<p>Listeneinrückung</p>
+</th>
+<td class="code" width="100%" nowrap="nowrap">
+<code>list-style-position:Wert;</code>
+</td>
+</tr><tr>
+<td class="tabxpl">Für <code>Wert</code> einen der folgenden Werte notieren:<br>
+<code>inside</code> = eingerückt.<br>
+<code>outside</code> = ausgerückt (Voreinstellung).<br>
+<img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/eigenschaften/listen.htm#list_style_position">Beschreibung</a><br>&nbsp;
+</td>
+</tr>
+<tr>
+<th rowspan="2" nowrap="nowrap">
+<p>eigene Bullet-Grafik</p>
+</th>
+<td class="code" width="100%" nowrap="nowrap">
+<code>list-style-image:url(URI);</code>
+</td>
+</tr><tr>
+<td class="tabxpl">Für <code>URI</code> eine Web-Adresse oder ein Ziel mit oder ohne Pfad angeben, wo sich die gewünschte Grafikdatei (GIF oder JPEG) befindet.<br>
+<img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/eigenschaften/listen.htm#list_style_image">Beschreibung</a><br>&nbsp;
+</td>
+</tr>
+<tr>
+<th rowspan="2" nowrap="nowrap">
+<p>Listendarstellung<br>(allgemein)</p>
+</th>
+<td class="code" width="100%" nowrap="nowrap">
+<code>list-style:Wert;</code>
+</td>
+</tr><tr>
+<td class="tabxpl">Für <code>Wert</code> eine zusammenfassende Angabe aus <code>list-style-type</code>, <code>list-style-position</code> und <code>list-style-image</code> notieren. Angaben durch Leerzeichen trennen.<br>
+z.B. <code>list-style:lower-roman inside;</code><br>
+<img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/eigenschaften/listen.htm#list_style">Beschreibung</a><br>&nbsp;
+</td>
+</tr>
+</table><br>&nbsp;
+
+
+
+<p class="doc"><a href="#top"><img src="../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="tabellen">CSS-Eigenschaften: Tabellenformatierung</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th rowspan="2" nowrap="nowrap">
+<p>Ausrichtung<br>Tabellenüberschrift</p>
+</th>
+<td class="code" width="100%" nowrap="nowrap">
+<code>caption-side:Wert;</code>
+</td>
+</tr><tr>
+<td class="tabxpl">Bezieht sich sinnvollerweise auf das <code>caption</code>-Element. Für <code>Wert</code> einen der folgenden Werte notieren:<br>
+<code>top</code> = oberhalb der Tabelle.<br>
+<code>bottom</code> = unterhalb der Tabelle.<br>
+<code>left</code> = links neben der Tabelle.<br>
+<code>right</code> = rechts neben der Tabelle.<br>
+<img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/eigenschaften/tabellen.htm#caption_side">Beschreibung</a><br>&nbsp;
+</td>
+</tr>
+<tr>
+<th rowspan="2" nowrap="nowrap">
+<p>Fixe/variable Breiten</p>
+</th>
+<td class="code" width="100%" nowrap="nowrap">
+<code>table-layout:Wert;</code>
+</td>
+</tr><tr>
+<td class="tabxpl">Bezieht sich sinnvollerweise auf das <code>table</code>-Element. Für <code>Wert</code> einen der folgenden Werte notieren.<br>
+<code>fixed</code> = Breitenangaben haben Vorrang vor dem Zelleninhalt (Inhalt wird zur Not abgeschnitten).<br>
+<code>auto</code> = Zelleninhalt hat Vorrang vor Breitenangaben (Voreinstellung).<br>
+<img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/eigenschaften/tabellen.htm#table_layout">Beschreibung</a><br>&nbsp;
+</td>
+</tr>
+<tr>
+<th rowspan="2" nowrap="nowrap">
+<p>Rahmenmodell</p>
+</th>
+<td class="code" width="100%" nowrap="nowrap">
+<code>border-collapse:Wert;</code>
+</td>
+</tr><tr>
+<td class="tabxpl">Bezieht sich sinnvollerweise auf das <code>table</code>-Element. Für <code>Wert</code> einen der folgenden Werte notieren.<br>
+<code>separate</code> = Zellenrahmen fallen nicht zusammen.<br>
+<code>collapse</code> = Zellenrahmen fallen zusammen.<br>
+<img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/eigenschaften/tabellen.htm#border_collapse">Beschreibung</a><br>&nbsp;
+</td>
+</tr>
+<tr>
+<th rowspan="2" nowrap="nowrap">
+<p>Rahmenabstand<br>Gitternetz</p>
+</th>
+<td class="code" width="100%" nowrap="nowrap">
+<code>border-spacing:Wert;</code>
+</td>
+</tr><tr>
+<td class="tabxpl">Bezieht sich sinnvollerweise auf das <code>table</code>-Element. Für <code>Wert</code> eine numerische Angabe wie <code>3mm</code> oder <code>10px</code> notieren.<br>
+<img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/eigenschaften/tabellen.htm#border_spacing">Beschreibung</a><br>&nbsp;
+</td>
+</tr>
+<tr>
+<th rowspan="2" nowrap="nowrap">
+<p>Anzeige<br>leerer Zellen</p>
+</th>
+<td class="code" width="100%" nowrap="nowrap">
+<code>empty-cells:Wert;</code>
+</td>
+</tr><tr>
+<td class="tabxpl">Bezieht sich sinnvollerweise auf das <code>table</code>-Element. Für <code>Wert</code> einen der folgenden Werte notieren:<br>
+<code>show</code> = Zellenrahmen leerer Tabellenzellen werden angezeigt.<br>
+<code>hide</code> = Zellenrahmen leerer Tabellenzellen werden unterdrückt (Voreinstellung).<br>
+<img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/eigenschaften/tabellen.htm#empty_cells">Beschreibung</a><br>&nbsp;
+</td>
+</tr>
+<tr>
+<th rowspan="2" nowrap="nowrap">
+<p>Sprachausgabeunterstützung</p>
+</th>
+<td class="code" width="100%" nowrap="nowrap">
+<code>speak-header-cell:Wert;</code>
+</td>
+</tr><tr>
+<td class="tabxpl">Bezieht sich sinnvollerweise auf das <code>th</code>-Element. Für <code>Wert</code> einen der folgenden Werte notieren:<br>
+<code>always</code> = Kopfzelleninhalt bei jeder untergeordneten Datenzelle wiederholen.<br>
+<code>once</code> = Kopfzelleninhalt nur einmal wiedergeben (Normaleinstellung).<br>
+<img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/eigenschaften/tabellen.htm#speak_header">Beschreibung</a><br>&nbsp;
+</td>
+</tr>
+</table><br>&nbsp;
+
+
+
+<p class="doc"><a href="#top"><img src="../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="positionierung">CSS-Eigenschaften: Positionierung und Anzeige von Elementen</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th rowspan="2" nowrap="nowrap">
+<p>Positionsart</p>
+</th>
+<td class="code" width="100%" nowrap="nowrap">
+<code>position:Wert;</code>
+</td>
+</tr><tr>
+<td class="tabxpl">Für <code>Wert</code> einen der folgenden Werte notieren.<br>
+<code>absolute</code> = absolute Positionierung, gemessen am Rand des nächsthöheren Elternelements, das nicht die Normaleinstellung <code>position:static</code> hat. Scrollt mit.<br>
+<code>fixed</code> = absolute Positionierung, gemessen am "Viewport", d.h. am Browserfenster. Bleibt beim Scrollen stehen.<br>
+<code>relative</code> = relative Positionierung, gemessen an der Normalposition oder Anfangsposition des Elements selbst.<br>
+<code>static</code> = keine spezielle Positionierung, normaler Elementfluss (Normaleinstellung).<br>
+<img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/eigenschaften/positionierung.htm#position">Beschreibung</a><br>&nbsp;
+</td>
+</tr>
+<tr>
+<th rowspan="2" nowrap="nowrap">
+<p>Startposition<br>von oben</p>
+</th>
+<td class="code" width="100%" nowrap="nowrap">
+<code>top:Wert;</code>
+</td>
+</tr><tr>
+<td class="tabxpl">In Verbindung mit absoluter oder relativer Positionierung für <code>Wert</code> eine numerische Angabe wie <code>100px</code> oder <code>2cm</code> notieren.<br>
+<img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/eigenschaften/positionierung.htm#top">Beschreibung</a><br>&nbsp;
+</td>
+</tr>
+<tr>
+<th rowspan="2" nowrap="nowrap">
+<p>Startposition<br>von links</p>
+</th>
+<td class="code" width="100%" nowrap="nowrap">
+<code>left:Wert;</code>
+</td>
+</tr><tr>
+<td class="tabxpl">In Verbindung mit absoluter oder relativer Positionierung für <code>Wert</code> eine numerische Angabe wie <code>18mm</code> oder <code>30px</code> notieren.<br>
+<img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/eigenschaften/positionierung.htm#left">Beschreibung</a><br>&nbsp;
+</td>
+</tr>
+<tr>
+<th rowspan="2" nowrap="nowrap">
+<p>Startposition<br>von unten</p>
+</th>
+<td class="code" width="100%" nowrap="nowrap">
+<code>bottom:Wert;</code>
+</td>
+</tr><tr>
+<td class="tabxpl">In Verbindung mit absoluter oder relativer Positionierung für <code>Wert</code> eine numerische Angabe wie <code>150px</code> oder <code>1in</code> notieren.<br>
+<img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/eigenschaften/positionierung.htm#posbottom">Beschreibung</a><br>&nbsp;
+</td>
+</tr>
+<tr>
+<th rowspan="2" nowrap="nowrap">
+<p>Startposition<br>von rechts</p>
+</th>
+<td class="code" width="100%" nowrap="nowrap">
+<code>right:Wert;</code>
+</td>
+</tr><tr>
+<td class="tabxpl">In Verbindung mit absoluter oder relativer Positionierung für <code>Wert</code> eine numerische Angabe wie <code>4.5cm</code> oder <code>300px</code> notieren.<br>
+<img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/eigenschaften/positionierung.htm#right">Beschreibung</a><br>&nbsp;
+</td>
+</tr>
+<tr>
+<th rowspan="2" nowrap="nowrap">
+<p>Breite</p>
+</th>
+<td class="code" width="100%" nowrap="nowrap">
+<code>width:Wert;</code>
+</td>
+</tr><tr>
+<td class="tabxpl">Für <code>Wert</code> eine numerische Angabe wie <code>120mm</code> oder <code>580px</code> oder <code>auto</code> (Voreinstellung) notieren.<br>
+<img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/eigenschaften/positionierung.htm#width">Beschreibung</a><br>&nbsp;
+</td>
+</tr>
+<tr>
+<th rowspan="2" nowrap="nowrap">
+<p>Mindestbreite</p>
+</th>
+<td class="code" width="100%" nowrap="nowrap">
+<code>min-width:Wert;</code>
+</td>
+</tr><tr>
+<td class="tabxpl">Für <code>Wert</code> eine numerische Angabe wie <code>400px</code> oder <code>3cm</code> notieren.<br>
+<img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/eigenschaften/positionierung.htm#min_width">Beschreibung</a><br>&nbsp;
+</td>
+</tr>
+<tr>
+<th rowspan="2" nowrap="nowrap">
+<p>Maximalbreite</p>
+</th>
+<td class="code" width="100%" nowrap="nowrap">
+<code>max-width:Wert;</code>
+</td>
+</tr><tr>
+<td class="tabxpl">Für <code>Wert</code> eine numerische Angabe wie <code>600px</code> oder <code>3.8in</code> notieren. Sinnvoll in Verbindung mit <code>overflow:</code><br>
+<img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/eigenschaften/positionierung.htm#max_width">Beschreibung</a><br>&nbsp;
+</td>
+</tr>
+<tr>
+<th rowspan="2" nowrap="nowrap">
+<p>Höhe</p>
+</th>
+<td class="code" width="100%" nowrap="nowrap">
+<code>height:Wert;</code>
+</td>
+</tr><tr>
+<td class="tabxpl">Für <code>Wert</code> eine numerische Angabe wie <code>300px</code> oder <code>4cm</code> oder <code>auto</code> (Voreinstellung) notieren.<br>
+<img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/eigenschaften/positionierung.htm#height">Beschreibung</a><br>&nbsp;
+</td>
+</tr>
+<tr>
+<th rowspan="2" nowrap="nowrap">
+<p>Mindesthöhe</p>
+</th>
+<td class="code" width="100%" nowrap="nowrap">
+<code>min-height:Wert;</code>
+</td>
+</tr><tr>
+<td class="tabxpl">Für <code>Wert</code> eine numerische Angabe wie <code>35mm</code> oder <code>500px</code> notieren.<br>
+<img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/eigenschaften/positionierung.htm#min_height">Beschreibung</a><br>&nbsp;
+</td>
+</tr>
+<tr>
+<th rowspan="2" nowrap="nowrap">
+<p>Maximalhöhe</p>
+</th>
+<td class="code" width="100%" nowrap="nowrap">
+<code>max-height:Wert;</code>
+</td>
+</tr><tr>
+<td class="tabxpl">Für <code>Wert</code> eine numerische Angabe wie <code>250px</code> oder <code>1cm</code> notieren. Sinnvoll in Verbindung mit <code>overflow:</code><br>
+<img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/eigenschaften/positionierung.htm#max_height">Beschreibung</a><br>&nbsp;
+</td>
+</tr>
+<tr>
+<th rowspan="2" nowrap="nowrap">
+<p>Elementbereich<br>mit übergroßem<br>Inhalt</p>
+</th>
+<td class="code" width="100%" nowrap="nowrap">
+<code>overflow:Wert;</code>
+</td>
+</tr><tr>
+<td class="tabxpl">Für <code>Wert</code> einen der folgenden Werte notieren:<br>
+<code>visible</code> = Element wird so weit ausgedehnt, dass sein Inhalt auf jeden Fall komplett sichtbar ist.<br>
+<code>hidden</code> = Element wird abgeschnitten, wenn es die Grenzen überschreitet.<br>
+<code>scroll</code> = Element wird abgeschnitten, wenn es die Grenzen überschreitet. Der WWW-Browser sollte jedoch Scroll-Leisten anbieten, ähnlich wie in einem eingebetteten Frame-Fenster.<br>
+<code>auto</code> = Der Web-Browser soll entscheiden, wie das Element im Konfliktfall angezeigt wird. Auch das Anbieten von Scroll-Leisten soll dabei erlaubt sein.<br>
+<img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/eigenschaften/positionierung.htm#overflow">Beschreibung</a><br>&nbsp;
+</td>
+</tr>
+<tr>
+<th rowspan="2" nowrap="nowrap">
+<p>Schriftrichtung</p>
+</th>
+<td class="code" width="100%" nowrap="nowrap">
+<code>direction:Wert;</code>
+</td>
+</tr><tr>
+<td class="tabxpl">Für <code>Wert</code> einen der folgenden Werte notieren:<br>
+<code>ltr</code> = von links nach rechts.<br>
+<code>rtl</code> = von rechts nach links.<br>
+<img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/eigenschaften/positionierung.htm#direction">Beschreibung</a><br>&nbsp;
+</td>
+</tr>
+<tr>
+<th rowspan="2" nowrap="nowrap">
+<p>Textumfluss</p>
+</th>
+<td class="code" width="100%" nowrap="nowrap">
+<code>float:Wert;</code>
+</td>
+</tr><tr>
+<td class="tabxpl">Für <code>Wert</code> einen der folgenden Werte notieren:<br>
+<code>left</code> = Element steht links und wird rechts davon von nachfolgenden Elementen umflossen.<br>
+<code>right</code> = Element steht rechts und wird links davon von nachfolgenden Elementen umflossen.<br>
+<code>none</code> = Kein Umfluss (Normaleinstellung).<br>
+<img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/eigenschaften/positionierung.htm#float">Beschreibung</a><br>&nbsp;
+</td>
+</tr>
+<tr>
+<th rowspan="2" nowrap="nowrap">
+<p>Fortsetzung<br>bei Textumfluss</p>
+</th>
+<td class="code" width="100%" nowrap="nowrap">
+<code>clear:Wert;</code>
+</td>
+</tr><tr>
+<td class="tabxpl">Für <code>Wert</code> einen der folgenden Werte notieren:<br>
+<code>left</code> = Erzwingt bei <code>float:left</code> die Fortsetzung unterhalb.<br>
+<code>right</code> = Erzwingt bei <code>float:right</code> die Fortsetzung unterhalb.<br>
+<code>both</code> = Erzwingt in jedem Fall die Fortsetzung unterhalb.<br>
+<code>none</code> = Erzwingt keine Fortsetzung unterhalb. (Normaleinstellung).<br>
+<img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/eigenschaften/positionierung.htm#clear">Beschreibung</a><br>&nbsp;
+</td>
+</tr>
+<tr>
+<th rowspan="2" nowrap="nowrap">
+<p>Schichtposition<br>bei Überlappung</p>
+</th>
+<td class="code" width="100%" nowrap="nowrap">
+<code>z-index:Wert;</code>
+</td>
+</tr><tr>
+<td class="tabxpl">Sinnvoll bei absolut positionierten Elementen, die sich überlappen. Für <code>Wert</code> eine Zahl notieren. Je höher die Zahl, desto weiter vorne das Element, je niedriger, desto weiter hinten das Element.<br>
+<img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/eigenschaften/positionierung.htm#z_index">Beschreibung</a><br>&nbsp;
+</td>
+</tr>
+<tr>
+<th rowspan="2" nowrap="nowrap">
+<p>Anzeigeart<br>ohne Platzhalter</p>
+</th>
+<td class="code" width="100%" nowrap="nowrap">
+<code>display:Wert;</code>
+</td>
+</tr><tr>
+<td class="tabxpl">Für <code>Wert</code> einen der folgenden Werte notieren.<br>
+<code>block</code> = Erzwingt einen Block - das Element erzeugt eine neue Zeile.<br>
+<code>inline</code> = Erzwingt die Anzeige im Text - das Element wird im laufenden Textfluss angezeigt.<br>
+<code>list-item</code> = wie block, jedoch mit einem Aufzählungszeichen (Bullet) davor.<br>
+<code>marker</code> = deklariert  automatisch generierten Text für das Element.<br>
+<code>run-in</code> und <code>compact</code> = bewirken, dass das Element kontext-abhängig als Block-Element oder als Inline-Element dargestellt wird.<br>
+<code>none</code> = Element wird nicht angezeigt und es wird auch kein Platzhalter freigelassen.<br>
+&nbsp;<br>
+Ferner - für Tabellen aus Nicht-Tabellen-Elementen (z.B. bei XML):<br>
+<code>table</code> = Das Element enthält tabellarisch angeordnete Kindelemente und erzeugt eine neue Zeile. Wirkt wie das <code>table</code>-Element in HTML.<br>
+<code>inline-table</code> = Das Element enthält tabellarisch angeordnete Kindelemente und wird im laufenden Textfluss angezeigt. Wirkt wie das <code>table</code>-Element in HTML, aber inline.<br>
+<code>table-row</code> = Das Element enthält nebeneinander angeordnete Kindelemente. Wirkt wie das <code>tr</code>-Element in HTML.<br>
+<code>table-row-group</code> = Das Element enthält eine Gruppe von Elementen mit nebeneinander angeordneten Kindelementen. Wirkt wie das <code>tbody</code>-Element in HTML.<br>
+<code>table-header-group</code> = Das Element enthält eine Gruppe von Elementen mit nebeneinander angeordneten Kindelementen. Wirkt wie das <code>thead</code>-Element in HTML.<br>
+<code>table-footer-group</code> = Das Element enthält eine Gruppe von Elementen mit nebeneinander angeordneten Kindelementen. Wirkt wie das <code>tfoot</code>-Element in HTML.<br>
+<code>table-column</code> = Das Element steht für eine Gruppe von Elementen, die eine Spalte der Tabelle bilden. Wirkt wie das <code>col</code>-Element in HTML.<br>
+<code>table-column-group</code> = Das Element steht für eine Gruppe von Elementen mit der Eigenschaft table-cell. Wirkt wie das <code>colgroup</code>-Element in HTML.<br>
+<code>table-cell</code> = Das Element steht für eine Tabellenzelle. Wirkt wie das <code>td</code>-Element in HTML (auch für <code>th</code>-Elemente).<br>
+<code>table-caption</code> = Das Element steht für eine Tabellenüberschrift. Wirkt wie das <code>caption</code>-Element in HTML.<br>
+<img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/eigenschaften/positionierung.htm#display">Beschreibung</a><br>&nbsp;
+</td>
+</tr>
+<tr>
+<th rowspan="2" nowrap="nowrap">
+<p>Anzeigeart<br>mit Platzhalter</p>
+</th>
+<td class="code" width="100%" nowrap="nowrap">
+<code>visibility:Wert;</code>
+</td>
+</tr><tr>
+<td class="tabxpl">Für <code>Wert</code> einen der folgenden Werte notieren:<br>
+<code>hidden</code> = Der Inhalt des Element wird zunächst versteckt (nicht angezeigt).<br>
+<code>visible</code> = Der Inhalt des Element wird zunächst angezeigt (Normaleinstellung).<br>
+<img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/eigenschaften/positionierung.htm#visibility">Beschreibung</a><br>&nbsp;
+</td>
+</tr>
+<tr>
+<th rowspan="2" nowrap="nowrap">
+<p>Anzeigebereich<br>eingrenzen</p>
+</th>
+<td class="code" width="100%" nowrap="nowrap">
+<code>clip:rect(Wert1 Wert2 Wert3 Wert4);</code>
+</td>
+</tr><tr>
+<td class="tabxpl">Für <code>Wert1</code> Wert für "oben", gemessen an der oberen Elementgrenze, notieren, z.B. <code>0px</code><br>
+Für <code>Wert2</code> Wert für "rechts", gemessen an der linken Elementgrenze, notieren, z.B. <code>130px</code><br>
+Für <code>Wert3</code> Wert für "unten", gemessen an der oberen Elementgrenze, notieren, z.B. <code>130px</code><br>
+Für <code>Wert4</code> Wert für "links", gemessen an der linken Elementgrenze, notieren, z.B. <code>0px</code><br>
+<img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/eigenschaften/positionierung.htm#clip">Beschreibung</a><br>&nbsp;
+</td>
+</tr>
+</table><br>&nbsp;
+
+
+
+<p class="doc"><a href="#top"><img src="../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="anzeigefenster">CSS-Eigenschaften: Anzeigefenster</a></h2>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1" width="100%">
+
+<tr>
+<th rowspan="2" nowrap="nowrap">
+<p>Cursor</p>
+</th>
+<td class="code" width="100%" nowrap="nowrap">
+<code>cursor:Wert;</code>
+</td>
+</tr><tr>
+<td class="tabxpl">Zugeordnetes Element erhält beim Überfahren mit der Maus einen anderen Cursor. Für <code>Wert</code> einen der folgenden Werte notieren:<br>
+<code>auto</code> = automatischer Cursor (Normaleinstellung).<br>
+<code>default</code> = Plattformunabhängiger Standard-Cursor.<br>
+<code>crosshair</code> = Cursor in Form eines einfachen Fadenkreuzes.<br>
+<code>pointer</code> = Cursor in Form eines Zeigers.<br>
+<code>move</code> = Cursor in Form eines Kreuzes, das die Fähigkeit zum Bewegen des Elements signalisiert.<br>
+<code>n-resize</code> = Cursor in Form Pfeils, der nach oben zeigt (n = Norden).<br>
+<code>ne-resize</code> = Cursor in Form Pfeils, der nach rechts oben zeigt (ne = Nordost).<br>
+<code>e-resize</code> = Cursor in Form Pfeils, der nach rechts zeigt (e = Osten).<br>
+<code>se-resize</code> = Cursor in Form Pfeils, der nach rechts unten zeigt (se = Südost).<br>
+<code>s-resize</code> = Cursor in Form Pfeils, der nach unten zeigt (s = Süden).<br>
+<code>sw-resize</code> = Cursor in Form Pfeils, der nach links unten zeigt (sw = Südwest).<br>
+<code>w-resize</code> = Cursor in Form Pfeils, der nach links zeigt (w = Westen).<br>
+<code>nw-resize</code> = Cursor in Form Pfeils, der nach links oben zeigt (nw = Nordwest).<br>
+<code>text</code> = Cursor in einer Form, die normalen Text symbolisiert.<br>
+<code>wait</code> = Cursor in Form eines Symbols, das einen Wartezustand signalisiert.<br>
+<code>help</code> = Cursor in Form Symbols, das Hilfe zu dem Element signalisiert.<br>
+url([URI]) = Beliebiger Cursor, <code>URI</code> sollte eine GIF- oder JPG-Grafik sein.<br>
+<img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/eigenschaften/anzeigefenster.htm#cursor">Beschreibung</a><br>&nbsp;
+</td>
+</tr>
+<tr>
+<th rowspan="2" nowrap="nowrap">
+<p>Scrollbar<br>(Internet Explorer,<br>Konqueror und<br>Opera)</p>
+</th>
+<td class="code" width="100%" nowrap="nowrap">
+<code>
+scrollbar-base-color:Wert;<br>
+scrollbar-3dlight-color:Wert;<br>
+scrollbar-arrow-color:Wert;<br>
+scrollbar-darkshadow-color:Wert;<br>
+scrollbar-face-color:Wert;<br>
+scrollbar-highlight-color:Wert;<br>
+scrollbar-shadow-color:Wert;<br>
+scrollbar-track-color:Wert;<br>
+</code>
+</td>
+</tr><tr>
+<td class="tabxpl">Anwendbar auf die Elemente <code>body</code> und <code>textarea</code>. Für <code>Wert</code> eine Farbangabe wie <code>#0000CC</code>, <code>fuchsia</code> oder <code>rgb(50%,60%,80%)</code> notieren.<br>
+Es bedeuten:<br>
+<code>scrollbar-base-color</code> = Basisfarbe der Scroll-Leiste<br>
+<code>scrollbar-3dlight-color</code> = Farbe für 3D-Effekte<br>
+<code>scrollbar-arrow-color</code> = Farbe für Verschiebepfeile<br>
+<code>scrollbar-darkshadow-color</code> = Farbe für Schatten<br>
+<code>scrollbar-face-color</code> = Farbe für Oberfläche<br>
+<code>scrollbar-highlight-color</code> = Farbe für oberen und linken Rand<br>
+<code>scrollbar-shadow-color</code> = Farbe für unteren und rechten Rand<br>
+<code>scrollbar-track-color</code> = Farbe für freibleibenden Verschiebeweg<br>
+<img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../css/eigenschaften/anzeigefenster.htm#scrollbar">Beschreibung</a><br>&nbsp;
+</td>
+</tr>
+</table><br>&nbsp;
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="inhalt.htm"><img src="../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="inhalt.htm">Inhaltsverzeichnis</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="html.htm"><img src="../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="html.htm">Kurzreferenz: HTML</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../index.htm">SELFHTML</a> <img src="../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Navigationshilfen</a></td>
+</tr>
+</table>
+
+<p>&copy; 2007 <img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

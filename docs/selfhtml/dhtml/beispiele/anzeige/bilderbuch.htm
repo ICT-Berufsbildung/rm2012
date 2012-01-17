@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>Test</title>
+<script type="text/javascript" src="dhtml.js"></script>
+<script type="text/javascript">
+var Bild = new Array();
+Bild[0] = new Image();
+Bild[0].src = "bilderbuch01.gif";
+Bild[1] = new Image();
+Bild[1].src = "bilderbuch02.gif";
+Bild[2] = new Image();
+Bild[2].src = "bilderbuch03.gif";
+Bild[3] = new Image();
+Bild[3].src = "bilderbuch04.gif";
+Bild[4] = new Image();
+Bild[4].src = "bilderbuch05.gif";
+
+var bildbereich;
+var zeige = 0;
+var Breite = 300;
+var aktuelleBreite = 0;
+var Schrittweite = 6;
+var Schrittverzoegerung = 1;
+
+function Blaettern (Richtung) {
+  zeige = zeige + Richtung;
+  if (zeige > Bild.length - 1) {
+    zeige = 0;
+  } else if (zeige < 0) {
+    zeige = Bild.length - 1;
+  }
+  if (DOM || MSIE4) {
+    bildbereich.style.clip = "rect(0 0 225px 0)";
+  } else if (NS4) {
+    bildbereich.clip.right = 0;
+  }
+  if (DOM && bildbereich.firstChild) {
+    bildbereich.firstChild.src = Bild[zeige].src;
+  } else if (MSIE4) {
+    bildbereich.innerHTML = '<img src="' + Bild[zeige].src + '">';
+  } else if (NS4) {
+    bildbereich.visibility = "hide";
+    setContent("id", "Bildbereich", null, '<img src="' + Bild[zeige].src + '">');
+    bildbereich.visibility = "show";
+  }
+  BildAufbauen();
+}
+
+function BildAufbauen () {
+  if (aktuelleBreite <= Breite) {
+    if (DOM || MSIE4) {
+      bildbereich.style.clip = "rect(0 " + aktuelleBreite + "px 225px 0)";
+    } else if (NS4) {
+      bildbereich.clip.right = aktuelleBreite;
+    }
+    aktuelleBreite = aktuelleBreite + Schrittweite;
+    window.setTimeout("BildAufbauen()", Schrittverzoegerung);
+  } else {
+    aktuelleBreite = 0;
+    if (DOM || MSIE4) {
+      bildbereich.style.clip = "rect(0 " + Breite + "px 225px 0)";
+    } else if (NS4) {
+      bildbereich.clip.right = Breite;
+    }
+  }
+}
+
+function Init () {
+  bildbereich = getElement("id", "Bildbereich");
+  if (DOM && document.createElement && bildbereich.appendChild) {
+    var img = document.createElement("img");
+    img.setAttribute("src", Bild[0].src);
+    bildbereich.appendChild(img);
+  } else if (MSIE4) {
+    bildbereich.innerHTML = '<img src="' + Bild[0].src + '">';
+  } else if (NS4) {
+    setContent("id", "Bildbereich", null, '<img src="' + Bild[0].src + '">');
+  }
+}
+</script>
+<style type="text/css">
+body { color:black; background-color:white; }
+#Bildbereich { position:absolute; left:10px; top:140px; padding:0; clip:rect(0 300px 225px 0); visibility:show; }
+#Navigationsbereich { position:absolute; left:320px; top:140px; width:100px; font-size:24px; }
+</style>
+
+</head>
+<body onload="Init()">
+
+<div id="Bildbereich"></div>
+
+<div id="Navigationsbereich">
+[<a href="javascript:Blaettern(-1)">&lt;&lt;</a>]
+[<a href="javascript:Blaettern(1)">&gt;&gt;</a>]
+</div>
+
+<p><a href="../bilderbuch.htm#quelltext">zur&uuml;ck</a></p>
+</body>
+</html>

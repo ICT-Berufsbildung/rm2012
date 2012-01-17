@@ -1,0 +1,19 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>Test</title>
+</head><body>
+<layer name="L1" left="100" top="180">
+<a href="javascript:alert(document.L2.siblingBelow.name)">L2 siblingBelow</a><br>
+<a href="javascript:alert(document.L3.siblingBelow.name)">L3 siblingBelow</a><br>
+<a href="javascript:alert(document.L4.siblingBelow.name)">L4 siblingBelow</a><br>
+<a href="javascript:alert(document.L5.siblingBelow.name)">L5 siblingBelow</a><br>
+</layer>
+<layer name="L2" left="100" top="100" z-index="3" bgcolor="#FFFFE0">Layer-Inhalt L2</layer>
+<layer name="L3" left="120" top="120" z-index="1" bgcolor="#FFFFD0">Layer-Inhalt L3</layer>
+<layer name="L4" left="140" top="140" z-index="4" bgcolor="#FFFFC0">Layer-Inhalt L4</layer>
+<layer name="L5" left="140" top="140" z-index="2" bgcolor="#FFFFB0">Layer-Inhalt L5</layer>
+
+<p><a href="../layers.htm#sibling_below">zur&uuml;ck</a></p>
+</body>
+</html>

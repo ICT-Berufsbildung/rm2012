@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>ZweiFrames - Verweise</title>
+<script type="text/javascript">
+function FrameAendern (URI, Framename) {
+  parent[Framename].location.href = URI;
+}
+
+function ZweiFramesBack (Framename1, Framename2) {
+  Frame2 = parent[Framename2];
+  parent[Framename1].history.back();
+  if (!window.opera)
+    window.setTimeout("Frame2.history.back()", 100);
+}
+
+function ZweiFramesForward (Framename1, Framename2) {
+  Frame2 = parent[Framename2];
+  parent[Framename1].history.forward();
+  if (!window.opera)
+    window.setTimeout("Frame2.history.forward()", 100);
+}
+</script>
+</head>
+<body bgcolor="#EEEEEE" link="#AA5522" vlink="#772200" alink="#000000">
+<div>
+<hr noshade="noshade" size="1">
+
+<a href="javascript:ZweiFramesBack('oben', 'unten');">zur&uuml;ck</a>
+<b>|</b>
+<a href="javascript:ZweiFramesForward('oben', 'unten');">vor</a>
+<hr noshade="noshade" size="1">
+</div>
+
+<h2>Verweise</h2>
+<p>
+<a href="zweiframes_tu.htm" target="unten" onclick="FrameAendern('zweiframes_to.htm', 'oben')">Willkommen</a>
+<br>
+<a href="zweiframes_su.htm" target="unten" onclick="FrameAendern('zweiframes_so.htm', 'oben')">Susan Sarandon</a>
+<br>
+<a href="zweiframes_ju.htm" target="unten" onclick="FrameAendern('zweiframes_jo.htm', 'oben')">Jack Nicholson</a>
+</p>
+</body>
+</html>

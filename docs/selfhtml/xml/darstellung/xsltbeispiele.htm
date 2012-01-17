@@ -1,0 +1,445 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: XML / Darstellung von XML-Daten / Beispiele für XSLT</title>
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<meta name="description"    content="Wie XSLT funktioniert - Erklärungen anhand von Beispielen.">
+<meta name="keywords"       content="SELFHTML, XML, XSLT, Transformation">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-08-22T21:21:39+02:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/xml/darstellung/xsltbeispiele.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="Darstellung von XML-Daten" href="index.htm">
+<link rel="next" title="XSLT-Elemente" href="xsltelemente.htm">
+<link rel="prev" title="Grundlagen von XSL/XSLT" href="xslgrundlagen.htm">
+<link rel="first" title="XML-Darstellung mit Stylesheets" href="css.htm">
+<link rel="last" title="XPath-Funktionen" href="xpathfunktionen.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">XML/DTDs</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Darstellung von XML-Daten</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Beispiele für XSLT</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#hinweise">Hinweise zu den Beispielen</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#grussbeispiel">Erstes Beispiel: ein Gruß</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#textbeispiel">Zweites Beispiel: Text mit Formatierungen</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#linkbeispiel">Drittes Beispiel: Text mit Hyperlinks (Grafik und Multimedia)</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#glossarbeispiel">Viertes Beispiel: ein Glossar als Tabelle</a><br>
+</p>
+</td>
+</tr><tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><a class="an" name="hinweise">Hinweise zu den Beispielen</a></h2>
+
+<p>Um mit den Konzepten von XSLT vertraut zu werden, empfiehlt es sich, alle Beispiele auf dieser Seite der Reihe nach durchzuarbeiten und zu verstehen.</p>
+
+<p>Die Beispiele decken ein paar typische Einsatzmöglichkeiten von XSLT ab. Die Möglichkeiten der Sprache sind damit jedoch noch nicht ausgeschöpft. XSLT ist ja selbst eine XML-gerechte Sprache und besteht aus bestimmten Elementen und Attributen. Eine systematische Übersicht dazu finden Sie im Abschnitt <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;
+<a href="xsltelemente.htm">XSLT-Elemente</a>.</p>
+
+<p>Der Microsoft Internet Explorer 5.x hat je nach Auslieferungstyp Probleme mit diesen Beispielen. Der Grund ist, dass er mit einem veralteten XSLT-Parser ausgeliefert wurde und teilweise noch wird. Dieser Parser interpretiert XSLT basierend auf einem älteren Working Draft des W3-Konsortiums, der aber mittlerweile technisch längst überholt und durch die XSLT-1.0-Empfehlung ersetzt worden ist. Unglücklicherweise sind durch die Verbreitung des Internet Explorers auf diese Weise Millionen von Kopien eines völlig unbrauchbaren XSLT-Parsers in die Welt gelangt. Obwohl Microsoft längst Updates zu dem unbrauchbaren Werkzeug anbietet, ist nicht mehr zu verhindern, dass viele Anwender einen Internet Explorer besitzen, der XSLT-Übersetzungen nur über abenteuerliche Umwege und nur sehr unvollständig interpretiert. Deshalb bleibt der sinnvolle Einsatz von XSLT bis auf weiteres wohl nur server-seitig möglich. Einzelheiten zu der XSLT-Implementierung des Internet Explorers können Sie im Web z.B. in der <img src="../../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://web.archive.org/web/20060428015421/http://www.netcrucible.com/xslt/msxml-faq.htm">Unofficial MSXML XSLT FAQ</a> nachlesen.</p>
+
+<p>In den Beispielen auf dieser und den folgenden Seiten wird auf die ältere Implementierung des Internet Explorers keine Rücksicht genommen. XSLT wird so beschrieben, wie es heute verwendet werden sollte. Um die Beispiele nachzuvollziehen, gibt es z.B. Software-Werkzeuge wie <b>Saxon</b> oder <b>Xt</b>. Im Link-Verzeichnis des Online-Angebots von SELFHTML aktuell finden Sie Links zu solcher <img src="../../src/serverdok.gif" width="15" height="10" alt="Online-Seite">&nbsp;<a target="_top" href="http://aktuell.de.selfhtml.org/links/xml-software.htm">Link-Verzeichnis: XML-Software</a>.</p>
+
+<p>Beispielhaft sei die Arbeit mit <b>Saxon</b> beschrieben. Dieses Programm ist ein reiner XSLT-Parser, der aus einer XML-Datei und einem XSLT-Stylesheet eine Ausgabedatei aufgrund der XSLT-Definitionen erzeugt. Saxon ist rein kommandozeilenorientiert (für Windows-Anwender gibt es eine Version, die im DOS-Fenster lauffähig ist). Dadurch ist Saxon auch hervorragend geeignet, um beispielsweise von <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../../servercgi/cgi/cgihtml.htm">CGI</a> ausgeführt zu werden, die XML-Daten in HTML-Form an einen aufrufenden Browser senden wollen.</p>
+
+<p>Ein einfacher Aufruf von Saxon lautet:<br>
+<kbd>saxon meinedaten.xml meine.xsl &gt;ausgabe.html</kbd></p>
+
+<p>Dabei ist <var>meinedaten.xml</var> eine Datei mit einer XML-Datenstruktur. Die Datei <var>meine.xsl</var> enthält XSLT-Definitionen, wie XML-Datenstrukturen aus XML-Daten wie denen der <var>meinedaten.xml</var> in HTML übersetzt werden sollen. <var>ausgabe.html</var> ist der Name der HTML-Datei, die aus den XML-Ausgangsdaten und den Definitionen zur HTML-Übersetzung erzeugt werden soll.</p>
+
+<p>Auch in Verbindung mit <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../servercgi/cgi/cgihtml.htm">CGI</a>-Scripts lässt sich ein Programm wie Saxon hervorragend einsetzen. Wenn Sie sich mit CGI und Perl beschäftigen, finden Sie im Abschnitt <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../perl/funktionen/systemaufrufe.htm#qx">qx(...) - Andere Programme/Scripts ausführen und STDOUT auffangen</a> ein Beispiel beschrieben, wie Sie server-seitig gespeicherte XML-Daten mit Hilfe von Saxon und Perl als HTML-Code an den aufrufenden Browser senden lassen können.</p>
+
+<p>Die Beispiele dieser und der folgenden Seiten wurden auf diese Weise mit Saxon von XML nach HTML übersetzt. Die HTML-Ergebnisdateien sind als Anzeigebeispiele aufrufbar. Ebenfalls aufrufbar sind die XML-Dateien. </p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/xml10.gif" width="30" height="30" alt="XML 1.0" title="XML 1.0">&nbsp;<a class="an" name="grussbeispiel">Erstes Beispiel: ein Gruß</a></h2>
+
+<p>Das erste Beispiel zeigt den einfachsten möglichen Fall: es gibt eine DTD, in der nur ein einziges Element definiert wird. Die XML-Anwendungsdatei ist entsprechend einfach. Eine XSL-Datei, die XSLT-Anweisungen enthält, sorgt für eine Transformation nach HTML.</p>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/gruss.htm">Anzeigebeispiel: So sieht's aus</a> (Ergebnisdatei <var>gruss.htm</var>)<br>
+<img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/gruss.xml">Anzeigebeispiel: So sieht's aus</a> (Datei <var>gruss.xml</var> - XML/XSLT-fähiger Browser erforderlich)</p>
+
+<h3 class="xmp">Beispiel-DTD <var>gruss.dtd</var>:</h3>
+
+<pre>
+&lt;!ELEMENT gruss (#PCDATA)&gt;
+</pre>
+
+<h3 class="xmp">Beispiel einer gültigen Anwendung <var>gruss.xml</var>:</h3>
+
+<pre>
+&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;
+&lt;!DOCTYPE gruss SYSTEM "gruss.dtd"&gt;
+&lt;?xml-stylesheet type="text/xsl" href="gruss.xsl" ?&gt;
+
+&lt;gruss&gt;hallo Welt!&lt;/gruss&gt;
+</pre>
+
+<h3 class="xmp">Beispiel der eingebundenen XSL-Datei <var>gruss.xsl</var>:</h3>
+
+<pre>
+&lt;?xml version="1.0" encoding="iso-8859-1"?&gt;
+&lt;xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
+
+&lt;xsl:template match="/"&gt;
+ &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;
+ &lt;p align="center" style="font-family:Tahoma; font-size:64px; color:red"&gt;
+  &lt;xsl:value-of select="." /&gt;
+ &lt;/p&gt;
+ &lt;/body&gt;&lt;/html&gt;
+&lt;/xsl:template&gt;
+
+&lt;/xsl:stylesheet&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>In der Beispiel-DTD, die separat in einer Datei namens <var>gruss.dtd</var> gespeichert wird, wird das einzige Element des kleinen Beispiels, nämlich das Dokument-Element <code>gruss</code>, definiert. Einzelheiten zu solchen Elementdefinitionen finden Sie im Abschnitt <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../dtd/elemente.htm">Elemente und Verschachtelungsregeln</a>.</p>
+
+<p>In der XML-Anwendungsdatei <var>gruss.xml</var> wird in einer <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../regeln/dokumenttypdeklaration.htm#externe_dtd">Dokumenttyp-Deklaration mit externer DTD</a> auf die zuvor erstellte DTD Bezug genommen. Gleich im Anschluss an die Dokumenttyp-Deklaration, noch vor den eigentlichen Nutzdaten der Datei, folgt eine Anweisung, mit deren Hilfe eine XSL-Datei eingebunden wird:<br>
+<code>&lt;?xml-stylesheet type="text/xsl" href="gruss.xsl" ?&gt;</code></p>
+
+<p>Es handelt sich um eine <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../regeln/xmldeklaration.htm#verarbeitungsanweisungen">Verarbeitungsanweisung</a> an die verarbeitende Software. Durch die Notation <code>xml-stylesheet</code> weiß die verarbeitende Software, dass die nachfolgenden Attribute eine separate Stylesheet-Datei einbinden. Mit dem <code>href</code>-Attribut wird die Datei referenziert. Ebenfalls wichtig ist das Attribut <code>type</code>. Bei Verwendung von XSL erwartet der XML-Parser bei diesem Attribut den Wert <code>text/xsl</code>.</p>
+
+<p>Von Interesse ist nun der Aufbau der XSL-Datei, im Beispiel die Datei <var>gruss.xsl</var>. XSL-Stylesheet-Dateien erhalten üblicherweise die Endung <var>.xsl</var>. Da es sich bei XSL-Dateien ebenfalls um XML-gerechte Dateien handelt, beginnt die Datei wie üblich mit einer XML-Deklaration (im Beispiel: <code>&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</code>).</p>
+
+<p>Der gesamte Inhalt der XSL-Datei ist in <code>&lt;xsl:stylesheet...&gt;...&lt;/xsl:stylesheet&gt;</code> eingeschlossen. Die Notation mit dem Doppelpunkt ist die typische Notation, wenn in einer Datei mehrere <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../regeln/namensraeume.htm">XML-Namensräume</a> eingesetzt werden. Im einleitenden Tag wird angegeben, welche Namensräume verwendet werden. Anzugeben ist auf jeden Fall der Namensraum von XSL, der verwendet werden soll. Dabei sollten Sie <code>http://www.w3.org/1999/XSL/Transform</code> als Namensraum angeben. Der ältere Parser des Microsoft Internet Explorers kann die Daten dann freilich nicht verarbeiten. Moderne XSL-Parser dagegen erwarten diese Angabe.<br>
+Mit einem zweiten <code>xmlns</code>-Attribut im einleitenden <code>&lt;xsl:stylesheet&gt;</code>-Tag können Sie außerdem den Namensraum der gewünschten Ergebnissprache angeben. Im obigen Beispiel wurde darauf verzichtet. Wenn Sie jedoch ein XML-gerechtes Ergebnisdokument benötigen, müssen Sie dessen Namensraum angeben. Mit einer Angabe wie <code>xmlns="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"</code> geben Sie beispielsweise den Namensraum von XHTML 1.0 in der Variante Transitional an.</p>
+
+<p>Alle einleitenden und schließenden Tags innerhalb von <code>&lt;xsl:stylesheet...&gt;...&lt;/xsl:stylesheet&gt;</code>, die zum Namensraum von XSL gehören, sind an der Notation <code>&lt;xsl:...&gt;...&lt;/xsl:...&gt;</code> erkennbar. Der Namensraum, mit dem XSL eingebunden wird, muss übrigens nicht zwingend <code>xsl</code> lauten, doch hat sich dieser Name verständlicherweise eingebürgert.</p>
+
+<p>Das obige Beispiel fährt fort mit <code>&lt;xsl:template match="/"&gt;</code> (<i>engl. template = dt. Schablone</i>). <code>xsl:template</code> erhält im einleitenden Tag stets ein Attribut namens <code>match</code>, bei dem Sie angeben, welches Element aus Ihren XML-Daten transformiert werden soll. Mit der Angabe <code>match="/"</code> beziehen Sie sich auf die Dokumentwurzel der XML-Daten, repräsentiert durch das Element <code>gruss</code>, angewendet in dem Tag-Paar <code>&lt;gruss&gt;...&lt;/gruss&gt;</code>.</p>
+
+<p>Nachdem Sie mit <code>match</code> ausgewählt haben, auf welches XML-Element Sie sich bei der folgenden Template-Definition beziehen, können Sie als Inhalt des <code>xsl:template</code>-Elements notieren, wie das ausgewählte XML-Element transformiert werden soll. Da in HTML transformiert werden soll, wird also als Inhalt von <code>xsl:template</code> der gewünschte HTML-Code notiert. Im obigen Beispiel ist das eine vollständige kleine HTML-Datei. Der Grund dafür ist, dass mit <code>match="/"</code> ja die Dokumentwurzel der XML-Daten ausgewählt wurde. Da als Ergebnis eine vollständige HTML-Datei erzeugt werden soll, wird die Dokumentwurzel der XML-Daten in das typische Grundgerüst einer HTML-Datei transformiert.</p>
+
+<p>Innerhalb des HTML-Codes soll nun an einer gewünschten Stelle, im Beispiel zwischen <code>&lt;body&gt;</code> und <code>&lt;/body&gt;</code> in einem Absatz <code>&lt;p&gt;...&lt;/p&gt;</code>, der <b>Inhalt</b> von <code>&lt;gruss&gt;...&lt;/gruss&gt;</code> ausgegeben werden. Dazu dient im Stylesheet der Befehl <code>&lt;xsl:value-of select="."&nbsp;/&gt;</code> (<i>engl. value-of = dt. Wert von</i>). Die Angabe <code>select="."</code> bedeutet so viel wie "wähle den vollständigen Inhalt des aktuellen Elements aus". Damit die HTML-Ausgabe etwas attraktiver aussieht, enthält das einleitende <code>&lt;p&gt;</code>-Tag Formatierungsangaben. Auch CSS-Angaben sind dabei, wie Sie am Beispiel sehen können, erlaubt. Bei der Transformation wird an der entsprechenden Stelle also folgender HTML-Code erzeugt:<br>
+<code>&lt;p align="center" style="font-family:Tahoma; font-size:64px; color:red"&gt;<br>
+hallo Welt!<br>
+&lt;/p&gt;</code></p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/xml10.gif" width="30" height="30" alt="XML 1.0" title="XML 1.0">&nbsp;<a class="an" name="textbeispiel">Zweites Beispiel: Text mit Formatierungen</a></h2>
+
+<p>Das <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#grussbeispiel">Gruß-Beispiel</a> hat eine starre XML-Struktur. Laut DTD-Definition darf darin genau einmal <code>&lt;gruss&gt;...&lt;/gruss&gt;</code> notiert werden mit einem Grußtext als Inhalt. Das folgende Beispiel zeigt eine Datenstruktur, in der es ein Text-Element gibt, dass beliebig oft vorkommen kann, und das auch noch weitere, innere Elemente enthalten kann. Das Beispiel behandelt eine Produktnews-Datei, in der Nachrichten über neue Produkte auf dem Software-Markt gesammelt werden.<br>
+Die XSLT-Angaben zur Transformation nach HTML müssen in diesem komplexeren Beispiel etwas anders aufgebaut werden.</p>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/produktnews.htm">Anzeigebeispiel: So sieht's aus</a> (Ergebnisdatei <var>produktnews.htm</var>)<br>
+<img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/produktnews.xml">Anzeigebeispiel: So sieht's aus</a> (Datei <var>produktnews.xml</var> - XML/XSLT-fähiger Browser erforderlich)</p>
+
+<h3 class="xmp">Beispiel-DTD <var>produktnews.dtd</var>:</h3>
+
+<pre>
+&lt;!ELEMENT produktnews (#PCDATA | beschreibung)*&gt;
+&lt;!ELEMENT beschreibung (#PCDATA | hersteller | produkt | preis)*&gt;
+&lt;!ELEMENT hersteller (#PCDATA)&gt;
+&lt;!ELEMENT produkt (#PCDATA)&gt;
+&lt;!ELEMENT preis (#PCDATA)&gt;
+</pre>
+
+<h3 class="xmp">Beispiel einer gültigen Anwendung <var>produktnews.xml</var>:</h3>
+
+<pre>
+&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;
+&lt;!DOCTYPE produktnews SYSTEM "produktnews.dtd"&gt;
+&lt;?xml-stylesheet type="text/xsl" href="produktnews.xsl" ?&gt;
+&lt;produktnews&gt;
+
+Die neuesten Produktnachrichten:
+
+&lt;beschreibung&gt;
+Die Firma &lt;hersteller&gt;Fridolin Soft&lt;/hersteller&gt; hat eine neue Version des
+beliebten Ballerspiels &lt;produkt&gt;HitYourStick&lt;/produkt&gt; herausgebracht.
+Nach Angaben des Herstellers soll die neue Version, die nun auch auf dem
+Betriebssystem &lt;produkt&gt;Ganzfix&lt;/produkt&gt; läuft, um die &lt;preis&gt;80 Dollar&lt;/preis&gt;
+kosten.
+&lt;/beschreibung&gt;
+
+&lt;beschreibung&gt;
+Von &lt;hersteller&gt;Ripfiles Inc.&lt;/hersteller&gt; gibt es ein Patch zu der Sammel-CD-ROM
+&lt;produkt&gt;Best of other people's ideas&lt;/produkt&gt;. Einige der tollen
+Web-Seiten-Templates der CD-ROM enthielten bekanntlich noch versehentlich nicht
+gelöschte Angaben der Original-Autoren. Das Patch ist für schlappe
+&lt;preis&gt;200 Euro&lt;/preis&gt; zu haben.
+&lt;/beschreibung&gt;
+
+&lt;/produktnews&gt;
+</pre>
+
+<h3 class="xmp">Beispiel der eingebundenen XSL-Datei <var>produktnews.xsl</var>:</h3>
+
+<pre>
+&lt;?xml version="1.0" encoding="iso-8859-1"?&gt;
+&lt;xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
+
+&lt;xsl:template match="/"&gt;
+ &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body style="font-family:Verdana; font-size:24px; color:green"&gt;
+  &lt;xsl:apply-templates /&gt;
+ &lt;/body&gt;&lt;/html&gt;
+&lt;/xsl:template&gt;
+
+&lt;xsl:template match="beschreibung"&gt;
+ &lt;p style="font-family:Verdana; font-size:13px; color:black"&gt;
+   &lt;xsl:apply-templates /&gt;
+ &lt;/p&gt;
+&lt;/xsl:template&gt;
+
+&lt;xsl:template match="hersteller"&gt;
+ &lt;span style="font-weight:bold; color:red"&gt;&lt;xsl:value-of select="." /&gt;&lt;/span&gt;
+&lt;/xsl:template&gt;
+
+&lt;xsl:template match="produkt"&gt;
+ &lt;span style="font-weight:bold; color:blue"&gt;&lt;xsl:value-of select="." /&gt;&lt;/span&gt;
+&lt;/xsl:template&gt;
+
+&lt;xsl:template match="preis"&gt;
+ &lt;b&gt;&lt;xsl:value-of select="." /&gt;&lt;/b&gt;
+&lt;/xsl:template&gt;
+
+&lt;/xsl:stylesheet&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel definiert in der DTD <var>produktnews.dtd</var> die gewünschten Elemente und ihre Verschachtelungsregeln. In der Anwendungsdatei <var>produktnews.xml</var> sehen Sie ein Beispiel, wie diese Definitionen korrekt umgesetzt werden. Einzelheiten zu solchen Elementdefinitionen in DTDs finden Sie im Abschnitt <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../dtd/elemente.htm">Elemente und Verschachtelungsregeln</a>.</p>
+
+<p>Genau wie im <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#grussbeispiel">Gruß-Beispiel</a> wird in der XML-Datei wieder die XSL-Datei mit den Angaben zur Transformation nach HTML eingebunden. Die XSL-Datei - hier mit Namen <i>produktnews.xsl</i> - hat auch wieder das typische Grundgerüst, bestehend aus dem <code>xsl:stylesheet</code>-Element, das den Bezug zum Namensraum von XSL herstellt.</p>
+
+<p>Wie im Gruß-Beispiel wird die Dokumentwurzel mit <code>&lt;xsl:template match="/"&gt;</code> angesprochen. Zwischen diesem einleitenden Tag und seinem Gegenstück <code>&lt;/xsl:template&gt;</code> wird das HTML-Grundgerüst für die Transformation notiert. Innerhalb von <code>&lt;body&gt;...&lt;/body&gt;</code> ist in diesem Beispiel jedoch nur das leere Element <code>&lt;xsl:apply-templates&nbsp;/&gt;</code> notiert (<i>engl. apply-templates = dt. Schablonen anwenden</i>). Mit dieser Angabe weisen Sie den XSLT-Parser an, an der entsprechenden Stelle Templates anzuwenden, die außerhalb des aktuellen <code>xsl:template</code>-Elements notiert sind.<br>
+Dass in diesem Beispiel mehrere einzelne Template-Definitionen mit je eigenen <code>xsl:template</code>-Elementen benötigt werden, liegt daran, dass der Inhalt, der in der HTML-Ausgabe zwischen <code>&lt;body&gt;...&lt;/body&gt;</code> folgt, keinen starren Aufbau hat. So können innerhalb des Wurzelelements <code>produktnews</code> sowohl Text als auch beliebig viele Elemente vom Typ <code>beschreibung</code> und deren Kindelemente vorkommen. Die Angabe <code>&lt;xsl:apply-templates&nbsp;/&gt;</code> können Sie also lesen wie "beachte für Elemente, die innerhalb dieses Elements vorkommen, die separat definierten Templates für die betreffenden Elemente".</p>
+
+<p>Die zweite Template-Definition im Beispiel beginnt mit <code>&lt;xsl:template match="beschreibung"&gt;</code>. Damit geben Sie an, dass der folgende HTML-Code für alle Inhalte des Elementtyps <code>beschreibung</code> gilt. Im Beispiel wird für solche Elemente jeweils ein HTML-Absatz <code>&lt;p&gt;...&lt;/p&gt;</code> mit gewünschten Formatierungen erzeugt. Innerhalb dieses <code>xsl:template</code>-Elements ist wieder nur <code>&lt;xsl:apply-templates&nbsp;/&gt;</code> notiert. Der Grund ist auch in diesem Fall wieder, dass Elemente vom Typ <code>beschreibung</code> gemischten Inhalt mit weiteren möglichen Kindelementen enthalten können. Für diese Kindelemente werden wiederum eigene Templates definiert, die durch die Anweisung <code>&lt;xsl:apply-templates&nbsp;/&gt;</code> berücksichtigt werden.</p>
+
+<p>Für jeden der möglichen Kindelementtypen von <code>beschreibung</code>, im Beispiel die Typen <code>hersteller</code>, <code>produkt</code> und <code>preis</code>, werden Templates nach dem gleichen Muster angelegt. Da diese drei Elemente selbst keine weiteren Elemente mehr, sondern nur noch Zeicheninhalt (<code>#PCDATA</code>) enthalten können, beziehen sich die Angaben für die HTML-Formatierung einfach auf deren Inhalt. Den Inhalt müssen Sie dabei wie im Gruß-Beispiel mit <code>&lt;xsl:value-of select="."&nbsp;/&gt;</code> referenzieren.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/xml10.gif" width="30" height="30" alt="XML 1.0" title="XML 1.0">&nbsp;<a class="an" name="linkbeispiel">Drittes Beispiel: Text mit Hyperlinks (Grafik und Multimedia)</a></h2>
+
+<p>In den beiden ersten Beispielen wurde nur mit Elementen gearbeitet. Im Fall der Hyperlinks muss beim Erzeugen der HTML-Ausgabe jedoch auf ein einzelnes Attribut zugegriffen werden, nämlich auf das <code>href</code>-Attribut des <code>a</code>-Elements. Auch das ist mit XSLT möglich. Ebenso ist es, wenn Sie Grafiken oder Multimedia einbinden wollen. Dann müssen Sie beispielsweise auf das <code>src</code>-Attribut des <code>img</code>-Elements oder das <code>data</code>-Attribut des <code>object</code>-Elements zugreifen. Das folgende Beispiel demonstriert dies anhand der Hyperlinks.</p>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/linktext.htm">Anzeigebeispiel: So sieht's aus</a> (Ergebnisdatei <var>linktext.htm</var>)<br>
+<img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/linktext.xml">Anzeigebeispiel: So sieht's aus</a> (Datei <var>linktext.xml</var> - XML/XSLT-fähiger Browser erforderlich)</p>
+
+<h3 class="xmp">Beispiel-DTD <var>linktext.dtd</var>:</h3>
+
+<pre>
+&lt;!ELEMENT linktext (#PCDATA | link)*&gt;
+&lt;!ELEMENT link (#PCDATA)&gt;
+</pre>
+
+<h3 class="xmp">Beispiel einer gültigen Anwendung <var>linktext.xml</var>:</h3>
+
+<pre>
+&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;
+&lt;!DOCTYPE linktext SYSTEM "linktext.dtd"&gt;
+&lt;?xml-stylesheet type="text/xsl" href="linktext.xsl" ?&gt;
+&lt;linktext&gt;
+Unter der Adresse &lt;link&gt;http://www.w3.org/Style/XSL/&lt;/link&gt; finden Interessierte
+die Einstiegsseite des W3-Konsortiums zu XSL.
+&lt;/linktext&gt;
+</pre>
+
+<h3 class="xmp">Beispiel der eingebundenen XSL-Datei <var>linktext.xsl</var>:</h3>
+
+<pre>
+&lt;?xml version="1.0" encoding="iso-8859-1"?&gt;
+&lt;xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
+
+&lt;xsl:template match="/"&gt;
+ &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body bgcolor="#FFFFFF" text="#000000" link="#FF0000" vlink="#AA0000" alink="#000000" style="font-family:Arial; font-size:13px;"&gt;
+  &lt;xsl:apply-templates /&gt;
+ &lt;/body&gt;&lt;/html&gt;
+&lt;/xsl:template&gt;
+
+&lt;xsl:template match="link"&gt;
+ &lt;a&gt;&lt;xsl:attribute name="href"&gt;&lt;xsl:value-of select="." /&gt;&lt;/xsl:attribute&gt;
+ &lt;xsl:value-of select="." /&gt;&lt;/a&gt;
+&lt;/xsl:template&gt;
+
+&lt;/xsl:stylesheet&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel definiert in der DTD <var>linktext.dtd</var> die gewünschten Elemente. In der Anwendungsdatei <var>linktext.xml</var> sehen Sie ein Beispiel, wie diese Definitionen korrekt umgesetzt werden. Einzelheiten zu solchen Elementdefinitionen in DTDs finden Sie im Abschnitt <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../dtd/elemente.htm">Elemente (Tags) und Verschachtelungsregeln</a>.</p>
+
+<p>Genau wie im <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#grussbeispiel">Gruß-Beispiel</a> wird in der XML-Datei wieder die XSL-Datei mit den Angaben zur Transformation nach HTML eingebunden. Die XSL-Datei - hier mit Namen <var>linktext.xsl</var> - hat auch wieder das typische Grundgerüst.</p>
+
+<p>Wie im <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#textbeispiel">Text-Beispiel</a> kann das Dokument-Element <code>linktext</code> in diesem Beispiel gemischten Inhalt haben, bestehend aus Text und einem möglichen Kindelement <code>link</code>. Bei der Konstruktion der HTML-Ausgabe wird daher zwischen <code>&lt;body&gt;...&lt;/body&gt;</code> wieder nur das leere Element <code>&lt;xsl:apply-templates&nbsp;/&gt;</code> notiert. Der HTML-Code für das mögliche Kindelement <code>link</code> wird in dem eigenen Template definiert, das mit <code>&lt;xsl:template match="link"&gt;</code> beginnt.</p>
+
+<p>Bei diesem Template können Sie erkennen, wie auf einzelne Attribute zugegriffen wird. Denn um aus <code>&lt;link&gt;http://www.w3.org/Style/XSL/&lt;/link&gt;</code> eine anklickbare HTML-Ausgabe wie <code>&lt;a&nbsp;href="http://www.w3.org/Style/XSL/"&gt;http://www.w3.org/Style/XSL/&lt;/a&gt;</code> zu erzeugen, muss der Inhalt des <code>link</code>-Elements gleich zweimal ausgegeben werden: einmal als Wertzuweisung an das <code>href</code>-Attribut, und einmal als Inhalt des <code>a</code>-Elements.<br>
+Dazu notieren Sie beim HTML-Code, der erzeugt werden soll, erst einmal nur das einleitende Tag ohne Attribut, im Linkbeispiel also nur <code>&lt;a&gt;</code>. Anschließend notieren Sie <code>&lt;xsl:attribute name="href"&gt;</code>. Der XSLT-Parser weiß dann, dass sich das so angesprochende <code>href</code>-Attribut auf das zuvor notierte HTML-Element bezieht. Der Inhalt zwischen diesem Einleitungs-Tag und seinem Gegenstück <code>&lt;/xsl:attribute&gt;</code> ist der Wert, den Sie dem Attribut zuweisen möchten. Im obigen Beispiel soll das ja der Inhalt sein, der zwischen <code>&lt;link&gt;</code> und <code>&lt;/link&gt;</code> steht. Dieser Inhalt lässt sich mit der bereits bekannten Anweisung <code>&lt;xsl:value-of&nbsp;select="."&nbsp;/&gt;</code> referenzieren. So gelangt der Zeicheninhalt des XML-Elements in die Wertzuweisung an das HTML-Attribut.</p>
+
+<p>Gleichzeitig soll der Inhalt von <code>&lt;link&gt;...&lt;/link&gt;</code> aber in HTML auch als Inhalt von <code>&lt;a...&gt;...&lt;/a&gt;</code> erscheinen. Also wird auch dafür noch einmal <code>&lt;xsl:value-of&nbsp;select="."&nbsp;/&gt;</code> innerhalb des Templates für das <code>link</code>-Element notiert.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Bei Grafiken und Multimedia gehen Sie analog dazu vor. Angenommen in den XML-Daten steht:<br> <code>&lt;bild&gt;images/titel.gif&lt;/bild&gt;</code><br>
+Dann können Sie dies in XSL wie folgt in HTML übersetzen:<br>
+<code>&lt;xsl:template match="bild"&gt;<br>
+ &lt;img&gt;&lt;xsl:attribute name="src"&gt;&lt;xsl:value-of select="." /&gt;&lt;/xsl:attribute&gt;&lt;/img&gt;<br>
+&lt;/xsl:template&gt;</code></p>
+
+<p><b>Wichtig:</b> das <code>img</code>-Element in HTML sollten Sie in diesem Fall mit Anfangs- und End-Tag und nichts dazwischen notieren. Ansonsten produzieren die XSLT-Parser in der Regel Fehler.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/xml10.gif" width="30" height="30" alt="XML 1.0" title="XML 1.0">&nbsp;<a class="an" name="glossarbeispiel">Viertes Beispiel: ein Glossar</a></h2>
+
+<p>Ein Glossar ist ein typisches Dokument mit einer einfachen, sich wiederholenden Struktur. Ein Glossar besteht aus Begriffen und zugehörigen Definitionen. Jeweils ein Begriff mit Definition stellt ein Glossareintrag dar. Bei der Transformation dieser XML-Daten nach HTML soll das Glossar als zweispaltige Tabelle formatiert werden. In der linken Spalte stehen die Begriffe, und in der rechten Spalte die zugehörigen Definitionen.</p>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/glossar.htm">Anzeigebeispiel: So sieht's aus</a> (Ergebnisdatei <var>glossar.htm</var>)<br>
+<img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/glossar.xml">Anzeigebeispiel: So sieht's aus</a> (Datei <var>glossar.xml</var> - XML/XSLT-fähiger Browser erforderlich)</p>
+
+<h3 class="xmp">Beispiel-DTD <var>glossar.dtd</var>:</h3>
+
+<pre>
+&lt;!ELEMENT glossar     (eintrag)*&gt;
+&lt;!ELEMENT eintrag     (begriff,definition)&gt;
+&lt;!ELEMENT begriff     (#PCDATA)&gt;
+&lt;!ELEMENT definition  (#PCDATA)&gt;
+</pre>
+
+<h3 class="xmp">Beispiel einer gültigen Anwendung <var>glossar.xml</var>:</h3>
+
+<pre>
+&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;
+&lt;!DOCTYPE glossar SYSTEM "glossar.dtd"&gt;
+&lt;?xml-stylesheet type="text/xsl" href="glossar.xsl" ?&gt;
+&lt;glossar&gt;
+ &lt;eintrag&gt;
+    &lt;begriff&gt;Avatar&lt;/begriff&gt;
+   &lt;definition&gt;
+    Bezeichnet in der Mythologie einen Gott, der auf Erden wandelt.
+    Im Online-Sprachgebrauch eine grafische Phantasiefigur, mit der
+    ein Teilnehmer an Chats, Rollenspielen usw. teilnimmt.
+    &lt;/definition&gt;
+ &lt;/eintrag&gt;
+ &lt;eintrag&gt;
+    &lt;begriff&gt;Award&lt;/begriff&gt;
+   &lt;definition&gt;
+    Im WWW eine Auszeichnung für besonders gut gemachte Web-Seiten.
+    Eine Inflation von selbsternannten Award-Verleihern, deren Awards
+    nur den Zweck haben, Besucher auf die eigenen Seiten zu locken,
+    haben das Award-Wesen im Web jedoch stark beschädigt.
+    &lt;/definition&gt;
+ &lt;/eintrag&gt;
+&lt;/glossar&gt;
+</pre>
+
+<h3 class="xmp">Beispiel der eingebundenen XSL-Datei <var>glossar.xsl</var>:</h3>
+
+<pre>
+&lt;?xml version="1.0" encoding="iso-8859-1"?&gt;
+&lt;xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
+
+&lt;xsl:template match="/"&gt;
+ &lt;html&gt;
+ &lt;head&gt;
+ &lt;/head&gt;
+ &lt;body&gt;
+ &lt;table border="1"&gt;
+ &lt;tr&gt;
+  &lt;td&gt;&lt;b&gt;Begriff&lt;/b&gt;&lt;/td&gt;
+  &lt;td&gt;&lt;b&gt;Definition&lt;/b&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;xsl:for-each select="glossar/eintrag"&gt;
+ &lt;tr&gt;
+  &lt;td valign="top"&gt;&lt;xsl:value-of select="begriff" /&gt;&lt;/td&gt;
+  &lt;td valign="top"&gt;&lt;xsl:value-of select="definition" /&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;/xsl:for-each&gt;
+ &lt;/table&gt;
+ &lt;/body&gt;
+ &lt;/html&gt;
+ &lt;/xsl:template&gt;
+
+&lt;/xsl:stylesheet&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel definiert in der DTD <var>glossar.dtd</var> die gewünschten Elemente. In der Anwendungsdatei <var>glossar.xml</var> sehen Sie ein Beispiel, wie diese Definitionen korrekt umgesetzt werden. Einzelheiten zu solchen Elementdefinitionen in DTDs finden Sie im Abschnitt <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../dtd/elemente.htm">Elemente (Tags) und Verschachtelungsregeln</a>.</p>
+
+<p>Genau wie im <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#grussbeispiel">Gruß-Beispiel</a> wird in der XML-Datei wieder die XSL-Datei mit den Angaben zur Transformation nach HTML eingebunden. Die XSL-Datei - hier mit Namen <var>glossar.xsl</var> - hat auch wieder das typische Grundgerüst.</p>
+
+<p>Da das Glossar einen starren Aufbau hat, bestehend aus festem Elementinhalt mit fester Reihenfolge, ist es möglich, die gesamte gewünschte HTML-Ausgabe ähnlich wie im Gruß-Beispiel mit einem einzigen <code>xsl:template</code>-Element zu erzeugen. Ein wichtiger Unterschied zum Gruß-Beispiel besteht jedoch: während der Gruß in der XML-Datei nur einmal notiert werden durfte, kann das Glossar entsprechend der DTD-Definitionen aus beliebig vielen Glossareinträgen bestehen. Diese sind allerdings einheitlich aufgebaut.</p>
+
+<p>Für solche Fälle gibt es die Schleifenanweisung <code>xsl:for-each</code> (<i>engl. for-each = dt. für jedes einzelne</i>). Sie kommt im obigen Beispiel dort zum Einsatz, wo sie im HTML-Code einen Wiederholungs-Effekt erzeugen soll. Die Daten des Glossars sollen ja als HTML-Tabelle ausgegeben werden, also wird mit <code>&lt;table...&gt;...&lt;/table&gt;</code> eine entsprechende Tabelle erzeugt. Innerhalb der Schleife, die mit <code>&lt;xsl:for-each&nbsp;select="glossar/eintrag"&gt;</code> eingeleitet wird, wird eine Tabellenzeile konstruiert. Das führt dazu, dass beim Erzeugen der HTML-Ausgabe so viele Tabellenzeilen erzeugt werden, wie das Glossar Einträge hat. Innerhalb der Schleife wird als Inhalt von <code>&lt;tr&gt;...&lt;/tr&gt;</code> mit der bereits bekannten Anweisung <code>value-of</code> auf den durch die Schleife <b>jeweils</b> aktuellen Inhalt der Elemente <code>begriff</code> und <code>definition</code> Bezug genommen.</p>
+
+<p>Neu an dem Glossarbeispiel ist ferner die Adressierung <code>select="glossar/eintrag"</code> beim <code>xsl:for-each</code>-Element. Dort muss der gesamte <b>Pfadname</b> des Elements angegeben werden, bei dem die Schleife wiederholt werden soll. Der Pfadname beginnt beim Dokument-Element, also <code>glossar</code>. Gewünscht ist das Element <code>eintrag</code>, das ein Kindelement von <code>glossar</code> ist. Solche Hierarchien werden genauso notiert wie Verzeichnisnamen in URIs, also getrennt durch Schrägstriche. Die Regeln für solche Pfadangaben werden durch die Sprache <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;
+<a href="xpathsyntax.htm">XPath</a> geregelt.</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="xsltelemente.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="xsltelemente.htm">XSLT-Elemente</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="xslgrundlagen.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="xslgrundlagen.htm">Grundlagen von XSL/XSLT</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">XML/DTDs</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Darstellung von XML-Daten</a></td>
+</tr>
+</table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

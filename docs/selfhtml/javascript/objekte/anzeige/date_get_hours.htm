@@ -1,0 +1,22 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>Test</title>
+<script type="text/javascript">
+var jetzt = new Date();
+var Std = jetzt.getHours();
+if (Std >= 5 && Std < 12) {
+  alert("Guten Morgen!");
+} else if (Std >= 12 && Std < 18) {
+  alert("Guten Tag!");
+} else if (Std >= 18 && Std <= 23) {
+  alert("Guten Abend!");
+} else if (Std >= 0 && Std < 5) {
+  alert("Zeit, ins Bett zu gehen!");
+}
+</script>
+</head><body>
+
+<p><a href="../date.htm#get_hours">zur&uuml;ck</a></p>
+</body>
+</html>

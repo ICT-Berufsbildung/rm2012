@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE hotels SYSTEM "hotels.dtd">
+<hotels>
+
+<hotel name="Waldesruh" klasse="IV">
+Hotel am Waldesrand gelegen, 150 Betten, ruhig und teuer.
+</hotel>
+
+<hotel name="Arabesk" klasse="II" doppelzimmer="ja" einzelzimmer="ja">
+Einfaches Stadthotel, 400 Zimmer, annehmbar, ohne besonderen Komfort.
+</hotel>
+
+<hotel name="Fridolin" klasse="III" einzelzimmer="nein">
+Hotel in zentraler Lage, 100 Betten, angenehm, gute Verkehrsanbindung.
+</hotel>
+
+</hotels>
+

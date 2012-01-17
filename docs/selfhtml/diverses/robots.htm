@@ -1,0 +1,151 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: Diverse technische Ergänzungen / robots.txt - Robots kontrollieren</title>
+<link rel="stylesheet" type="text/css" href="../src/selfhtml.css">
+<meta name="description"    content="Wozu die Datei robots.txt gut ist, und nach welchen Regeln sie aufgebaut ist.">
+<meta name="keywords"       content="SELFHTML, robots.txt, Suchmaschinen, Robots, Such-Robots, Spider, Crawler">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-08-22T21:21:39+02:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/diverses/robots.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../src/favicon.ico">
+<link rel="author" title="Impressum" href="../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../index.htm">
+<link rel="up" title="Diverse technische Ergänzungen" href="index.htm">
+<link rel="next" title="Standard-Farbpaletten" href="farbpaletten.htm">
+<link rel="prev" title="Client-Identifikationen" href="clients.htm">
+<link rel="first" title="MIME-Typen" href="mimetypen.htm">
+<link rel="last" title="Standard-Farbpaletten" href="farbpaletten.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../index.htm">SELFHTML</a>/<a href="../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Diverse technische Ergänzungen</a> </td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../index.htm"><img src="../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">robots.txt - Robots kontrollieren</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#allgemeines">Allgemeines zur robots.txt</a><br>
+<img src="../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#speicherort_aufbau">Speicherort und Aufbau einer robots.txt</a><br>
+</p>
+</td>
+</tr><tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><a class="an" name="allgemeines">Allgemeines zur robots.txt</a></h2>
+
+<p>Es gibt Defacto-Standards im Internet, die einfach gewachsen sind, ohne es je zu einer <img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../intro/hilfsmittel/dokus.htm#rfcs">RFC</a> gebracht haben. Dazu gehört auch der Status, den die Datei <var>robots.txt</var> im Web hat. In einer Datei dieses Namens können Betreiber von Web-Projekten angeben, welcher Such-Robot welche Projektverzeichnisse auslesen darf und welcher was nicht lesen darf. Die Datei enthält also Anweisungen für Robots von Suchmaschinen. Die überwiegende Mehrheit der Robots moderner Suchmaschinen berücksichtigen das Vorhandensein einer <var>robots.txt</var>, lesen sie aus und befolgen die Anweisungen.</p>
+
+<p>Zwar lässt sich auch in einzelnen HTML-Dateien mit Hilfe eines Meta-Tags <img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../html/kopfdaten/meta.htm#robots">für Suchprogramme das Auslesen erlauben bzw. verbieten</a>. Doch das betrifft nur die jeweilige HTML-Datei und maximal alle weiteren, durch Verweise erreichbaren Dateien. In einer zentralen <var>robots.txt</var> können Sie dagegen unabhängig von der Datei- und Verweisstruktur Ihres Web-Projekts festlegen, welche Verzeichnisse und Verzeichnisbäume ausgelesen werden dürfen, und welche nicht.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="speicherort_aufbau">Speicherort und Aufbau einer robots.txt</a></h2>
+
+<p>Die <var>robots.txt</var> muss unter diesem Namen (alle Buchstaben klein geschrieben) im Wurzelverzeichnis der Web-Dateien der Domain abgelegt werden. Wenn Sie also einen Domain-Namen <var>mein-name.de</var> haben, dann muss die <var>robots.txt</var> in dem Verzeichnis abgelegt werden, in dem auch die oberste Einstiegsdatei von <var>www.mein-name.de</var> liegt. Der URI wäre also <var>http://www.mein-name.de/robots.txt</var>. Nur so kann sie von Suchmaschinen-Robots, die das Projekt aufsuchen, gefunden werden. Das bedeutet, dass Sie die Technik der <var>robots.txt</var> nur nutzen können, wenn Sie eine eigene Domain haben, nicht aber bei Webspace-Angeboten, wo Sie lediglich ein Homepage-Verzeichnis auf einem Server erhalten, ohne an das Wurzelverzeichnis der Domain zu kommen.</p>
+
+<p>Die <var>robots.txt</var> ist eine reine Textdatei und muss mit einem Texteditor bearbeitet werden.</p>
+
+<h3 class="xmp">Beispiel: <var>robots.txt</var>:</h3>
+
+<pre>
+# robots.txt zu http://www.mein-name.de/
+
+User-agent: UniversalRobot/1.0
+User-agent: mein-Robot
+Disallow: /quellen/dtd/
+
+User-agent: *
+Disallow: /unsinn/
+Disallow: /temp/
+Disallow: /newsticker.shtml
+</pre>
+
+<h3 class="xpl">Erläuterung</h3>
+
+<p>Die erste Zeile ist lediglich eine Kommentarzeile. Kommentarzeilen werden durch ein Gatterzeichen <code>#</code> eingeleitet.</p>
+
+<p>Ansonsten besteht eine <var>robots.txt</var> aus Datensätzen (<i>records</i>). Im obigen Beispiel sind zwei solcher Datensätze notiert.
+Ein Datensatz besteht grundsätzlich aus zwei Teilen. Im ersten Teil wird angegeben, für welche Robots (<code>User-agent</code>) die nachfolgenden Anweisungen gelten. Im zweiten Teil werden die Anweisungen selbst notiert. Die Anweisungen bestehen darin, den zuvor bestimmten Robots etwas zu verbieten (<code>Disallow</code>).</p>
+
+<p>Jede Zeile eines Datensatzes beginnt mit einem der zwei erlaubten Schlüsselwörter <code>User-agent</code> oder <code>Disallow</code>. Dahinter folgt, durch ein Doppelpunkt und Leerzeichen getrennt, die zugehörige Angabe. Zwischen den Datensätzen wird eine Leerzeile notiert. Innerhalb eines Datensatzes muss zunächst mindestens eine Zeile mit <code>User-agent:</code> beginnen. Dahinter ist immer nur eine Angabe möglich. Wenn Sie mehr als einen bestimmten Robot ansprechen möchten, müssen Sie mehrere Zeilen untereinander notieren, die mit <code>User-agent:</code> beginnen - so wie im ersten Datensatz des obigen Beispiels. Unterhalb der Zeilen, die mit <code>User-agent:</code> beginnen, werden die Zeilen notiert, die mit <code>Disallow</code> beginnen. Die Angaben dazu werden dann von den Robots beachtet, die im gleichen Datensatz mit <code>User-agent</code> spezifiziert wurden.</p>
+
+<p>Bei <code>User-agent:</code> ist entweder die Angabe <code>*</code> (Sternzeichen) erlaubt, was so viel bedeutet wie "alle Robots", oder der Name eines bestimmten Robots. Diesen Namen müssen Sie allerdings kennen. Wenn Sie <code>*</code> angeben, sollte in dem gleichen Datensatz keine weitere Angabe zu <code>User-agent</code> folgen, da dies dem Platzhalter für "alle" widersprechen würde.</p>
+
+<p>Hinter jeder Zeile, die mit <code>Disallow:</code> beginnt, können Sie jeweils eine Pfadangabe notieren. Die Robots werden diese Pfade auf Ihrer Seite dann nicht indizieren. Es besteht übrigens keine Möglichkeit, Verzeichnisse explizit für die Indizierung zu erlauben. Ein Schlüsselwort <code>Allow:</code> wurde niemals definiert.</p>
+
+<p>Bei den Angaben zu <code>Disallow:</code> können Sie Verzeichnispfade und einzelne Dateien mit Pfadangabe angeben. Wildcards wie <code>*</code> oder <code>*.*</code> sind dabei <b>nicht</b> erlaubt. Achten Sie darauf, bei Verzeichnispfaden einen abschließenden Schrägstrich <code>/</code> zu notieren. Wenn Sie nämlich beispielsweise <code>/index</code> notieren, wäre auch die Datei <code>/index.html</code> betroffen, und nicht nur das Unterverzeichnis <code>/index/</code>.</p>
+
+<p>Im ersten der obigen Beispiel-Datensätze wird angenommen, dass ein superschlauer Robot namens <code>UniversalRobot/1.0</code> sowie ein selbstgestrickter Robot namens <code>mein-Robot</code> Daten aus dem Verzeichnis <code>/quellen/dtd/</code> in ihre Suchmaschinen einspeisen. Das ist aber nicht erwünscht, weil in diesem Verzeichnis beispielsweise DTDs für XML-Dateien abgespeichert sind. Deshalb wird speziell diesen beiden Robots der Zugriff auf dieses Verzeichnis (und alle Unterverzeichnisse davon) verboten.</p>
+
+<p>Im zweiten Datensatz wird allen Robots verboten, die beiden Unterverzeichnisse <code>/unsinn/</code> und <code>/temp/</code> auszulesen. Die Verzeichnisnamen sprechen ja für sich, und es ist leicht ersichtlich, wozu dieses Verbot gut ist: nämlich um überflüssigen Datenmüll in den großen Suchmaschinen zu vermeiden. Ferner wird der Zugriff auf die Datei <code>newsticker.shtml</code> verboten. Der Grund könnte sein, dass diese Datei von einem über <img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../servercgi/server/ssi.htm">Server Side Includes</a> eingebundenen CGI-Script laufend aktuelle Daten erhält, weswegen es keinen Sinn hat, diese Datei in Suchmaschinen aufzunehmen.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Mit der folgenden Syntax erlauben Sie keinem Suchmaschinen-Robot, auch nur irgendetwas von ihren Daten auszulesen:<br>
+<code>User-agent: *<br>
+Disallow: /</code><br>
+Mit <code>/</code> bestimmen Sie "alle Daten dieses Verzeichnisses und aller Unterverzeichnisse".</p>
+
+<p>Mit der folgenden Syntax nehmen Sie einen bestimmten Robot namens <code>mein-Robot</code> von allen anderen Verboten aus:<br>
+<code>User-agent: mein-Robot<br>
+Disallow:</code><br>
+Durch eine fehlende Angabe hinter <code>Disallow:</code> wird alles erlaubt!</p>
+
+<p>Web-Browser ignorieren die <var>robots.txt</var>. Es ist also nicht möglich, damit Daten vor Anwendern zu schützen. Lesen Sie zu diesem Zweck den Abschnitt <img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../servercgi/server/htaccess.htm">.htaccess - Server-Reaktionen kontrollieren</a></p>
+
+<p>Aus demselben Grund besteht auch keinerlei Garantie, dass sich Suchmaschinen an die Verbote in <code>robots.txt</code> halten. Ordentlich programmierte Robots beachten die Datei, aber Robots, die mit bösen Absichten das Web durchsuchen, halten sich vermutlich nicht daran. Wenn Sie Informationen sicher vor allen Augen verstecken wollen, richten Sie z.B. einen Passwortschutz ein.</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="farbpaletten.htm"><img src="../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="farbpaletten.htm">Standard-Farbpaletten</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="clients.htm"><img src="../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="clients.htm">Client-Identifikationen</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../index.htm">SELFHTML</a>/<a href="../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Diverse technische Ergänzungen</a> </td>
+</tr>
+</table>
+
+<p>&copy; 2007 <img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

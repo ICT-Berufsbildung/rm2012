@@ -1,0 +1,490 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: Stylesheets / CSS-Eigenschaften / Rahmen</title>
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<meta name="description"    content="Welche CSS-Eigenschaften es gibt, um Rahmen für Elemente zu erzeugen.">
+<meta name="keywords"       content="SELFHTML, CSS, Stylesheets, Cascading Stylesheets, HTML, CSS-Eigenschaften, Rahmen, Schmuckrahmen, Einrahmung, border-top-width, border-bottom-width, border-left-width, border-right-width, border-width, border-top-style, border-left-style, border-right-style, border-bottom-style, border-style, border-left-color, border-top-color, border-right-color, border-color, border">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-11-12T14:12:32+01:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/css/eigenschaften/rahmen.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="CSS-Eigenschaften" href="index.htm">
+<link rel="next" title="Hintergrundfarben und -bilder" href="hintergrund.htm">
+<link rel="prev" title="Innenabstand" href="innenabstand.htm">
+<link rel="first" title="Schriftformatierung" href="schrift.htm">
+<link rel="last" title="Filter (nur Microsoft)" href="filter.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">Stylesheets (CSS)</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">CSS-Eigenschaften</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Rahmen</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#allgemeines">Allgemeines zu Rahmen</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#border_width">border[-top, -right, -bottom, -left]-width </a> (Rahmendicke)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#border_color">border[-top, -right, -bottom, -left]-color</a> (Rahmenfarbe)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#border_style">border[-top, -right, -bottom, -left]-style</a> (Rahmentyp)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#border">border[-top, -right, -bottom, -left]</a> (Rahmen allgemein)<br>
+
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#outline_width">outline-width </a> (Rahmendicke)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#outline_color">outline-color</a> (Rahmenfarbe)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#outline_style">outline-style</a> (Rahmentyp)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#outline">outline</a> (Rahmen allgemein)<br>
+</p>
+</td>
+</tr><tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><a class="an" name="allgemeines">Allgemeines zu Rahmen</a></h2>
+
+<p>Es gibt in CSS zwei Arten von Rahmen: Die erste Sorte läuft unter der Bezeichnung <code>border</code> und zeichnet immer rechteckige Rahmen um die Elemente. <code>border</code> ist schon seit CSS1 im Standard vertreten und wird von allen Browsern verstanden. Außerdem gibt es <code>outline</code>, welche erst seit CSS2 existiert und noch nicht von allen Browsern verstanden wird, obwohl diese Rahmenart andere und durchaus sinnvolle Eigenschaften hat.</p>
+
+<h3 class="inf">Allgemeines zu <code>border</code></h3>
+<p>Sinnvoll sind die hier beschriebenen Angaben für <code>border</code> besonders für HTML-Elemente, die einen eigenen Absatz erzeugen bzw. einen Block bilden, also etwa für <code>h[1-6]</code>, <code>p</code>, <code>blockquote</code>, <code>address</code>, <code>pre</code> sowie <code>div</code> oder <code>table</code>. Anwendbar sind sie aber auf alle Elemente. So ist es beispielsweise möglich, in HTML eine <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/tabellen/aufbau.htm#definieren">blinde Tabelle</a> zu notieren, in der aber doch einzelne Zellen einen Rahmen nach Wunsch erhalten - nämlich mit Hilfe von CSS-Rahmeneigenschaften. Auch auf <code>html</code> und <code>body</code> lassen sich die hier aufgelisteten Eigenschaften anwenden - in diesem Fall wird um den gesamten sichtbaren Körper einer HTML-Datei ein Rahmen gezeichnet.</p>
+
+<p>Wenn Sie bei Rahmendefinitionen nichts weiter angeben, kann es sein, dass die Inhalte von Elementen sehr nah an dem sie umgebenden Rahmen kleben. Zu diesem Zweck können Sie <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="innenabstand.htm">Innenabstände</a> definieren. Dadurch schaffen Sie einen Abstand zwischen dem Rahmen und seinem Inhalt.</p>
+
+<p>In der Regel werden Sie mehrere Angaben zu Rahmen kombinieren. So ist es sinnvoll, nicht nur eine Rahmendicke anzugeben, sondern auch die gewünschte Rahmenfarbe. Auch verschiedene Rahmentypen stehen zur Auswahl. Alle Rahmeneigenschaften können Sie wahlweise auf alle vier Seiten eines Elements anwenden, aber auch nur auf eine oder mehrere bestimmte Seiten.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Der Internet Explorer vor Version 5.5 zeichnet Rahmen nur um Blocklevel-Elemente.</p>
+
+<h3 class="inf">Allgemeines zu <code>outline</code></h3>
+
+<p>Die Eigenschaft <code>outline</code> orientiert sich, im Gegensatz zu <code>border</code> nicht an rechteckigen Blöcken, sondern ist explizit als "Rahmen für nicht-rechteckige Bereiche" definiert. Außerdem wird die Dicke der <code>outline</code> nicht zur Elementgröße hinzugerechnet, sondern als letzter Schritt "draufgemalt", ohne Platz wegzunehmen. Im Gegensatz zu den <code>border</code>-Rahmen können <code>outline</code>-Rahmen aber nur vollständig geschlossen zugewiesen werden, es fehlt die Möglichkeit, einzeln für oben, unten, links oder rechts separate Angaben zu machen. Vergleichen Sie am Besten die Beispiele zu <code>outline</code> und <code>border</code>, um den Unterschied zu verstehen.</p>
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/css10.gif" width="30" height="30" alt="CSS 1.0" title="CSS 1.0"><img src="../../src/netsc4.gif" width="30" height="30" alt="Netscape 4.0" title="Netscape 4.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="border_width">border[-top, -right, -bottom, -left]-width (Rahmendicke)</a></h2>
+
+<p>Sie können für ein Element die Rahmendicke bestimmen. Sinnvollerweise sollten Sie diese Angabe zumindest mit einer Angabe zum <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#border_style">Rahmentyp</a> kombinieren, gegebenenfalls aber auch mit einer Festlegung der <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#border_color">Rahmenfarbe</a>.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/border_width.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"&gt;
+&lt;html&gt;&lt;head&gt;&lt;title&gt;border-width&lt;/title&gt;
+&lt;style type="text/css"&gt;
+#links {
+  border-left-width:2.5em;
+  border-left-style:solid;
+  border-color:red;
+  padding-left:2.5em;
+  text-align:justify;
+}
+
+#linksrechts {
+  border-left-width:2.5em;
+  border-left-style:solid;
+  border-left-color:red;
+  padding-left:2.5em;
+  border-right-width:2.5em;
+  border-right-style:solid;
+  border-right-color:green;
+  padding-right:2.5em;
+  text-align:justify;
+}
+
+#rundrum {
+  border-width:1px;
+  border-style:solid;
+  border-color:blue;
+  padding:2.5em;
+  text-align:justify;
+}
+&lt;/style&gt;
+&lt;/head&gt;&lt;body&gt;
+
+&lt;p id="links"&gt;xxxxx xxxxx xxxxx usw.&lt;/p&gt;
+&lt;p id="linksrechts"&gt;xxxxx xxxxx xxxxx usw.&lt;/p&gt;
+&lt;p id="rundrum"&gt;xxxxx xxxxx xxxxx usw.&lt;/p&gt;
+
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Mit <code>border-width:</code> können Sie die Dicke des Rahmens um ein Element bestimmen. Erlaubt ist eine <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../formate/wertzuweisung.htm#numerische">numerische Angabe</a> (mit Ausnahme von Prozentwerten) für die Rahmendicke oder einer der folgenden Werte:</p>
+
+<p>
+<code>thin</code> = dünn.<br>
+<code>medium</code> = mittelstark.<br>
+<code>thick</code> = dick.<br>
+</p>
+
+<p>Um für einzelne Seiten des Elements eine unterschiedliche Rahmendicke zu bestimmen, gibt es zwei Möglichkeiten. Die eine ist, bei <code>border-width</code> mehrere Angaben zu notieren und diese durch Leerzeichen zu trennen.<br>
+zum Beispiel: <code>border-width:5px 5px;</code><br>
+Dabei gelten folgende Regeln:</p>
+
+<p>Zwei Angaben: die erste Angabe bedeutet die Rahmendicke für oben und unten, die zweite Angabe die Rahmendicke für rechts und links.<br>
+Drei Angaben: die erste Angabe bedeutet die Rahmendicke für oben, die zweite die Rahmendicke für rechts und links und die dritte die Rahmendicke für unten.<br>
+Vier Angaben: die erste Angabe bedeutet die Rahmendicke für oben, die zweite die Rahmendicke für rechts, die dritte die Rahmendicke für unten und die vierte die Rahmendicke für links.</p>
+
+<p>Die zweite Möglichkeit besteht darin, die Untereigenschaften von <code>border-width</code> zu verwenden:<br>
+<code>border-top-width</code> definiert die Rahmendicke für oben,<br>
+<code>border-right-width</code> die Rahmendicke für rechts,<br>
+<code>border-bottom-width</code> die Rahmendicke für unten und<br>
+<code>border-left-width</code> die Rahmendicke für links.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Die Angabe <code>border-width</code> wird nur interpretiert, wenn außerdem der Rahmentyp (<code>border-style</code>) angegeben wird, also etwa:<br>
+<code>&lt;p style="border-style:solid; border-width:thin"&gt;</code>.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/css10.gif" width="30" height="30" alt="CSS 1.0" title="CSS 1.0"><img src="../../src/netsc4.gif" width="30" height="30" alt="Netscape 4.0" title="Netscape 4.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="border_color">border[-top, -right, -bottom, -left]-color (Rahmenfarbe)</a></h2>
+
+<p>Sie können für ein Element die Rahmenfarbe bestimmen. Die Angabe dazu sollten Sie mit einer Angabe zum <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#border_style">Rahmentyp</a> und/oder einer Angabe zur <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#border_width">Rahmendicke</a> kombinieren.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/border_color.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"&gt;
+&lt;html&gt;&lt;head&gt;&lt;title&gt;border-color&lt;/title&gt;
+&lt;/head&gt;&lt;body&gt;
+
+&lt;p style="border-color:#FFFF00; border-width:2px; border-style:solid; padding:4px"&gt;
+xxxxx xxxxx xxxxx usw.&lt;/p&gt;
+
+&lt;p style="border-top-color:#FF00FF; border-left-color:#00FF00;
+border-right-color:#3333FF; border-bottom-color:#FFFF00; border-width:4px;
+border-style:solid; padding:8px"&gt;
+xxxxx xxxxx xxxxx usw.&lt;/p&gt;
+
+&lt;p style="border-color:cyan yellow; border-width:8px; border-style:solid; padding:16px"&gt;
+xxxxx xxxxx xxxxx usw.&lt;/p&gt;
+
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Mit <code>border-color:</code> können Sie die Rahmenfarbe bestimmen. Erlaubt ist eine <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../formate/wertzuweisung.htm#farben">Farbangabe</a> oder der Wert <code>transparent</code> (durchsichtiger Rahmen, interessant bei sich überlappenden Elementen, wie z.B. durch <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="positionierung.htm">Positionierung</a> möglich).</p>
+
+<p>Um für einzelne Seiten des Elements eine unterschiedliche Rahmenfarbe zu bestimmen, gibt es zwei Möglichkeiten. Die eine ist, bei <code>border-color</code> mehrere Angaben zu notieren und diese durch Leerzeichen zu trennen.<br>
+zum Beispiel: <code>border-color:#FFFF00 red;</code><br>
+Dabei gelten folgende Regeln:</p>
+
+<p>Zwei Angaben: die erste Angabe bedeutet die Rahmenfarbe für oben und unten, die zweite Angabe die Rahmenfarbe für rechts und links.<br>
+Drei Angaben: die erste Angabe bedeutet die Rahmenfarbe für oben, die zweite die Rahmenfarbe für rechts und links und die dritte die Rahmenfarbe für unten.<br>
+Vier Angaben: die erste Angabe bedeutet die Rahmenfarbe für oben, die zweite die Rahmenfarbe für rechts, die dritte die Rahmenfarbe für unten und die vierte die Rahmenfarbe für links.</p>
+
+<p>Die zweite Möglichkeit besteht darin, die Untereigenschaften von <code>border-color</code> zu verwenden:<br>
+<code>border-top-color</code> definiert die Rahmenfarbe für oben,<br>
+<code>border-right-color</code> die Rahmenfarbe für rechts,<br>
+<code>border-bottom-color</code> die Rahmenfarbe für unten und<br>
+<code>border-left-color</code> die Rahmenfarbe für links.<br>
+Die Untereigenschaften von <code>border-color</code> stehen im Gegensatz zu den Untereigenschaften von <code>border-width</code> jedoch erst seit CSS2 zur Verfügung und werden von älteren Browsern ignoriert.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Die Angabe <code>border-color</code> wird nur interpretiert, wenn außerdem der Rahmentyp (<code>border-style</code>) angegeben wird, also etwa:<br>
+<code>&lt;p style="border-style:solid; border-color:red"&gt;</code>.</p>
+
+<p>Netscape 4.x hat mit Angaben zur Rahmenfarbe zum Teil erhebliche Probleme und interpretiert teilweise augenscheinlich unsinniges Zeug. Das obige Beispiel etwa lässt ihn böse straucheln.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/css10.gif" width="30" height="30" alt="CSS 1.0" title="CSS 1.0"><img src="../../src/netsc4.gif" width="30" height="30" alt="Netscape 4.0" title="Netscape 4.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="border_style">border[-top, -right, -bottom, -left]-style (Rahmentyp)</a></h2>
+
+<p>Mit dem Rahmentyp können Sie verschiedene Schmuckrahmen definieren. Damit die Typen zur Geltung kommen, empfiehlt sich die Kombination mit Angaben zur <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#border_width">Rahmendicke</a> und/oder zur <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#border_color">Rahmenfarbe</a>.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/border_style.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"&gt;
+&lt;html&gt;&lt;head&gt;&lt;title&gt;border-style&lt;/title&gt;
+&lt;/head&gt;&lt;body&gt;
+
+&lt;p style="border-width:medium; border-color:#FF9999; border-style:dotted; padding:5px;"&gt;
+Textabsatz mit Rahmendicke medium und Typ dotted.&lt;/p&gt;
+&lt;p style="border-width:medium; border-color:#9999FF; border-style:dashed; padding:5px;"&gt;
+Textabsatz mit Rahmendicke medium und Typ dashed.&lt;/p&gt;
+&lt;p style="border-width:medium; border-color:#66CC66; border-style:solid; padding:5px;"&gt;
+Textabsatz mit Rahmendicke medium und Typ solid.&lt;/p&gt;
+&lt;p style="border-width:medium; border-color:#FF9999; border-style:double; padding:5px;"&gt;
+Textabsatz mit Rahmendicke medium und Typ double.&lt;/p&gt;
+&lt;p style="border-width:12px; border-color:#9999FF; border-style:groove; padding:5px;"&gt;
+Textabsatz mit Rahmendicke 12px und Typ groove.&lt;/p&gt;
+&lt;p style="border-width:12px; border-color:#66CC66; border-style:ridge; padding:5px;"&gt;
+Textabsatz mit Rahmendicke 12px und Typ ridge.&lt;/p&gt;
+&lt;p style="border-width:12px; border-color:#FF9999; border-style:inset; padding:5px;"&gt;
+Textabsatz mit Rahmendicke 12px und Typ inset.&lt;/p&gt;
+&lt;p style="border-width:12px; border-color:#9999FF; border-style:outset; padding:5px;"&gt;
+Textabsatz mit Rahmendicke 12px und Typ outset.&lt;/p&gt;
+
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Mit <code>border-style:</code> können Sie den Rahmentyp festlegen. Erlaubt ist eine der folgenden Angaben.</p>
+
+<p>
+<code>none</code> = kein Rahmen (bzw. unsichtbarer Rahmen).<br>
+<code>hidden</code> = kein Rahmen (bzw. unsichtbarer Rahmen), siehe <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#hidden">Hinweis</a>.<br>
+<code>dotted</code> = gepunktet.<br>
+<code>dashed</code> = gestrichelt.<br>
+<code>solid</code> = durchgezogen.<br>
+<code>double</code> = doppelt durchgezogen.<br>
+<code>groove</code> = 3D-Effekt.<br>
+<code>ridge</code> = 3D-Effekt.<br>
+<code>inset</code> = 3D-Effekt.<br>
+<code>outset</code> = 3D-Effekt.<br>
+</p>
+
+<p>Um für einzelne Seiten des Elements einen unterschiedlichen Rahmentyp zu bestimmen, gibt es zwei Möglichkeiten. Die eine ist, bei <code>border-style</code> mehrere Angaben zu notieren und diese durch Leerzeichen zu trennen.<br>
+zum Beispiel: <code>border-style:solid double;</code><br>
+Dabei gelten folgende Regeln:</p>
+
+<p>Zwei Angaben: die erste Angabe bedeutet den Rahmentyp für oben und unten, die zweite Angabe den Rahmentyp für rechts und links.<br>
+Drei Angaben: die erste Angabe bedeutet den Rahmentyp für oben, die zweite den Rahmentyp für rechts und links und die dritte den Rahmentyp für unten.<br>
+Vier Angaben: die erste Angabe bedeutet den Rahmentyp für oben, die zweite den Rahmentyp für rechts, die dritte den Rahmentyp für unten und die vierte den Rahmentyp für links.</p>
+
+<p>Die zweite Möglichkeit besteht darin, die Untereigenschaften von <code>border-style</code> zu verwenden:<br>
+<code>border-top-style</code> definiert den Rahmentyp für oben,<br>
+<code>border-right-style</code> den Rahmentyp für rechts,<br>
+<code>border-bottom-style</code> den Rahmentyp für unten und<br>
+<code>border-left-style</code> den Rahmentyp für links.<br>
+Die Untereigenschaften von <code>border-style</code> stehen im Gegensatz zu den Untereigenschaften von <code>border-width</code> jedoch erst seit CSS2 zur Verfügung und werden von älteren Browsern ignoriert.</p>
+
+<h3 class="inf">Beachten Sie:<a name="hidden">&nbsp;</a></h3>
+
+<p>Die Angabe <code>hidden</code> ist vor allem für benachbarte Tabellenzellen gedacht. Während die Angabe <code>none</code> nur den Rahmen des Elements unterdrückt, für das sie gilt, bewirkt <code>hidden</code>, dass auch Rahmen von Nachbarelementen unterdrückt werden, sofern diese Rahmen besitzen. Voraussetzung dafür ist allerdings, dass für das zugehörige <code>table</code>-Element die folgende CSS-Sondereigenschaft notiert ist:<br>
+<code>border-collapse:collapse</code><br>
+Dies ist eine neuere CSS-Eigenschaft, die Rahmenregeln für Tabellen erlaubt. Beim Wert <code>collapse</code> fallen alle Rahmen der Zellen sauber übereinander, sprich, eine Zelle mit rechtem Rand von 1px und eine Zelle rechts davon mit einem linken Rand von 1px bilden einen gemeinsamen Rahmen von 1px. Der gegenteilige mögliche Wert, der allerdings auch der Voreinstellung entspricht, lautet <code>separate</code>. Damit "stoßen" die Rahmen benachbarter Zellen nur aneinander, überlappen sich aber nicht. Im Beispiel der zwei erwähnten Zellen würde also optisch ein Zwischenrahmen von 2px Dicke entstehen.</p>
+
+<p>Netscape 4.x interpretiert <code>border-style</code> nicht vollständig und auch nur, wenn außerdem die eine Angabe zur Rahmendicke notiert wird, also etwa:<br>
+<code>&lt;p style="border-style:solid; border-width:thin"&gt;</code>.</p>
+
+<p>Einige der Effekte (z.B. <code>groove</code>) kommen nur zustande, wenn Sie eine Farbe angeben, die sich von schwarz unterscheidet.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/css10.gif" width="30" height="30" alt="CSS 1.0" title="CSS 1.0"><img src="../../src/netsc4.gif" width="30" height="30" alt="Netscape 4.0" title="Netscape 4.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="border">border[-top, -right, -bottom, -left] (Rahmen)</a></h2>
+
+<p>Diese Angabe ist eine Zusammenfassung der folgenden möglichen Einzelangaben:<br>
+<img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#border_width">border-width</a><br>
+<img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#border_style">border-style</a><br>
+<img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#border_color">border-color</a><br>
+</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/border.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"&gt;
+&lt;html&gt;&lt;head&gt;&lt;title&gt;border&lt;/title&gt;
+&lt;style type="text/css"&gt;
+h1 { border-bottom:4px double blue; padding-bottom:4px; margin:0px; }
+h2 { border-top:1px solid blue; margin:0px; }
+p { line-height:150%; }
+p.info { border:1px solid gray; background-color:#E0E0E0; padding:4px; margin:0px; }
+span.rahmen { border:2px solid red; }
+body { font-family:Tahoma,Helvetica,sans-serif; }
+&lt;/style&gt;
+&lt;/head&gt;&lt;body&gt;
+
+&lt;h1&gt;&amp;Uuml;berschrift erster Ordnung&lt;/h1&gt;
+
+&lt;p&gt;xxxxx xxxxx usw... &lt;span class="rahmen"&gt;xxxxx xxxxx xxxxx usw...&lt;/span&gt; xxxxx
+xxxxx&lt;/p&gt;
+
+&lt;h2&gt;&amp;Uuml;berschrift zweiter Ordnung&lt;/h2&gt;
+
+&lt;p&gt;xxxxx xxxxx xxxxx usw.&lt;/p&gt;
+
+&lt;p class="info"&gt;xxxxx xxxxx xxxxx usw.&lt;/p&gt;
+
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Mit <code>border:</code> können Sie das Aussehen eines Rahmens um ein Element bestimmen. Notieren Sie Angaben zu Linienstärke, Rahmentyp und Farbe mit Leerzeichen dazwischen, so wie in den Beispielen oben. Die Reihenfolge der Einzelangaben ist egal.</p>
+
+<p>Daneben können Sie zusammenhängende Angaben für Rahmendicke, Rahmenfarbe und Rahmentyp auch für einzelne Seiten des Elements machen. Dazu sind die Untereigenschaften von <code>border</code> gedacht:<br>
+<code>border-top</code> definiert eine zusammenhängende Angabe für oben,<br>
+<code>border-right</code> für rechts,<br>
+<code>border-bottom</code> für unten und<br>
+<code>border-left</code> für links.</p>
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/css20.gif" width="30" height="30" alt="CSS 2.0" title="CSS 2.0"><img src="../../src/op7.gif" width="30" height="30" alt="Opera 7.0" title="Opera 7.0"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq34.gif" width="30" height="30" alt="Konqueror 3.4" title="Konqueror 3.4"><img src="../../src/saf12.gif" width="30" height="30" alt="Safari 1.2" title="Safari 1.2">&nbsp;<a class="an" name="outline_width">outline-width (Rahmendicke)</a></h2>
+
+<p>Die Angabe der <code>outline-width</code> ist identisch zur <code>border-width</code>. Erlaubt ist eine <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../formate/wertzuweisung.htm#numerische">numerische Angabe</a> (mit Ausnahme von Prozentwerten) für die Rahmendicke oder einer der folgenden Werte:</p>
+
+<p>
+<code>thin</code> = dünn.<br>
+<code>medium</code> = mittelstark.<br>
+<code>thick</code> = dick.<br>
+</p>
+
+<p>Kombinieren Sie <code>outline-width</code> stets mit einer Angabe für <code>outline-style</code>, um eine sichtbare Rahmenlinie zu definieren.</p>
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/css20.gif" width="30" height="30" alt="CSS 2.0" title="CSS 2.0"><img src="../../src/op7.gif" width="30" height="30" alt="Opera 7.0" title="Opera 7.0"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq34.gif" width="30" height="30" alt="Konqueror 3.4" title="Konqueror 3.4"><img src="../../src/saf12.gif" width="30" height="30" alt="Safari 1.2" title="Safari 1.2">&nbsp;<a class="an" name="outline_color">outline-color (Rahmenfarbe)</a></h2>
+
+<p>Die Angabe von <code>outline-color</code> ist nahezu identisch zu <code>border-color</code>. Erlaubt ist eine <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../formate/wertzuweisung.htm#farben">Farbangabe</a> oder der Wert <code>invert</code> (invertierte Farbe, die durch Umkehrung aller Bits einer hexadezimalen Farbangabe entsteht).</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Die Farbangabe <code>invert</code> wird von vielen Browsern nicht unterstützt.</p>
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/css20.gif" width="30" height="30" alt="CSS 2.0" title="CSS 2.0"><img src="../../src/op7.gif" width="30" height="30" alt="Opera 7.0" title="Opera 7.0"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq34.gif" width="30" height="30" alt="Konqueror 3.4" title="Konqueror 3.4"><img src="../../src/saf12.gif" width="30" height="30" alt="Safari 1.2" title="Safari 1.2">&nbsp;<a class="an" name="outline_style">outline-style (Rahmentyp)</a></h2>
+
+<p>Die Angabe <code>outline-style</code> ist identisch zu <code>border-style</code>. Erlaubt ist eine der folgenden Angaben.</p>
+
+<p>
+<code>none</code> = kein Rahmen (bzw. unsichtbarer Rahmen).<br>
+<code>hidden</code> = kein Rahmen (bzw. unsichtbarer Rahmen), siehe <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#hidden">Hinweis</a>.<br>
+<code>dotted</code> = gepunktet.<br>
+<code>dashed</code> = gestrichelt.<br>
+<code>solid</code> = durchgezogen.<br>
+<code>double</code> = doppelt durchgezogen.<br>
+<code>groove</code> = 3D-Effekt.<br>
+<code>ridge</code> = 3D-Effekt.<br>
+<code>inset</code> = 3D-Effekt.<br>
+<code>outset</code> = 3D-Effekt.<br>
+</p>
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/css20.gif" width="30" height="30" alt="CSS 2.0" title="CSS 2.0"><img src="../../src/op7.gif" width="30" height="30" alt="Opera 7.0" title="Opera 7.0"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq34.gif" width="30" height="30" alt="Konqueror 3.4" title="Konqueror 3.4"><img src="../../src/saf12.gif" width="30" height="30" alt="Safari 1.2" title="Safari 1.2">&nbsp;<a class="an" name="outline">outline (Rahmen allgemein)</a></h2>
+
+<p>Diese Angabe ist eine Zusammenfassung der folgenden möglichen Einzelangaben:<br>
+<img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#outline_width">outline-width</a><br>
+<img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#outline_style">outline-style</a><br>
+<img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#outline_color">outline-color</a><br>
+</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/outline.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"&gt;
+&lt;html&gt;&lt;head&gt;&lt;title&gt;outline&lt;/title&gt;
+&lt;style type="text/css"&gt;
+h1 { outline:4px double blue; padding-bottom:4px; margin:0px; }
+h2 { outline:1px solid blue; margin:0px; }
+p { line-height:150%; }
+p.info { outline:4px solid invert; background-color:yellow; padding:4px; margin:0px; }
+span.rahmen { outline:2px solid red; }
+body { font-family:Tahoma,Helvetica,sans-serif; }
+&lt;/style&gt;
+&lt;/head&gt;&lt;body&gt;
+
+&lt;h1&gt;&amp;Uuml;berschrift erster Ordnung&lt;/h1&gt;
+
+&lt;p&gt;xxxxx xxxxx usw... &lt;span class="rahmen"&gt;xxxxx xxxxx xxxxx usw...&lt;/span&gt; xxxxx
+xxxxx&lt;/p&gt;
+
+&lt;h2&gt;&amp;Uuml;berschrift zweiter Ordnung&lt;/h2&gt;
+
+&lt;p&gt;xxxxx xxxxx xxxxx usw.&lt;/p&gt;
+
+&lt;p class="info"&gt;xxxxx xxxxx xxxxx usw.&lt;/p&gt;
+
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel ist nahezu eine identische Kopie von <code>border</code>.</p>
+
+<p>Mit <code>outline</code> können Sie das Aussehen eines Rahmens um ein Element bestimmen. Notieren Sie Angaben zu Linienstärke, Rahmentyp und Farbe mit Leerzeichen dazwischen, so wie in den Beispielen oben. Die Reihenfolge der Einzelangaben ist egal.</p>
+
+<p>Beachten Sie das unterschiedliche Verhalten des Rahmens beim <code>&lt;span&gt;</code>, wenn der darin enthaltene Text sich auf mehrere Zeilen verteilt. <code>outline</code> sorgt dafür, dass jeder einzelne Textabschnitt vollständig von einem Rahmen umschlossen ist, auch wenn die einzelnen Stücke nicht zusammenhängend platziert werden können. Bei <code>border</code> hingegen wird eventuell eine Seite eines Teilstückes offengelassen.</p>
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="hintergrund.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="hintergrund.htm">Hintergrundfarben und -bilder</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="innenabstand.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="innenabstand.htm">Innenabstand</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">Stylesheets (CSS)</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">CSS-Eigenschaften</a></td>
+</tr>
+</table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

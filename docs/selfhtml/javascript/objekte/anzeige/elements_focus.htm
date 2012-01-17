@@ -1,0 +1,25 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>Test</title>
+<script type="text/javascript">
+function Check () {
+  if (document.Testform.Todesjahr.value != "1832") {
+    alert("Sie wissen es einfach nicht!");
+    document.Testform.Todesjahr.focus();
+  } else {
+    alert("Bravo!");
+    window.location.href = "elements_focus_erfolg.htm";
+  }
+}
+</script>
+</head><body>
+<form action="" name="Testform">
+In welchem Jahr starb Goethe?<br>
+<input type="text" size="6" name="Todesjahr">
+<input type="button" value="Weiter" onclick="Check()">
+</form>
+
+<p><a href="../elements.htm#focus">zur&uuml;ck</a></p>
+</body>
+</html>

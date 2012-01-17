@@ -1,0 +1,429 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: Stylesheets / CSS-basierte Layouts / Browserweichen</title>
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<meta name="description"    content="CSS-Browserweichen zum Ausschließen älterer Browser">
+<meta name="keywords"       content="SELFHTML, CSS, Stylesheets, Cascading Stylesheets, CSS-basierte Layouts, Browserweiche, Hack, CSS-Hacks">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-11-10T04:37:24+01:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/css/layouts/browserweichen.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2004-10-01T00:00+02:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="CSS-basierte Layouts" href="index.htm">
+<link rel="next" title="Einführung in XML" href="../../xml/intro.htm">
+<link rel="prev" title="CSS-basierte Navigationsleisten" href="navigationsleisten.htm">
+<link rel="first" title="Einführung in CSS-basierte Layouts" href="einfuehrung.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"> <a href="../index.htm">Stylesheets</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"> <a href="index.htm">CSS-basierte Layouts</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">CSS-Browserweichen zum Ausschließen älterer Browser</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#ausschliessen">Veraltete Browser ausschließen</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#alternative">Alternative CSS-Dateien für den Internet Explorer (Conditional Comments)</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#browserweichen">Spezielle Browserweichen (CSS-Hacks)</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#attribut_selektor">Attribut-Selektor</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#kind_selektor">Kind-Selektor</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#star_html_hack">Star-HTML-Hack</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#star_plus_html_hack">Star-Plus-HTML-Hack</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#kommentar_hack">Kommentar-Hack</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#media_hack">Medienangabe</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#id_hack">Element-spezifischer Selektor</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#tan_hack">Tan-Hack</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#tantek_hack">Tantek-Hack</a>
+</p>
+</td>
+</tr><tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><a class="an" name="ausschliessen">Veraltete Browser ausschließen</a></h2>
+
+<p>Eine Seite mit sinnvoller HTML-Auszeichnung ist auch ohne CSS nutzbar, wie das <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="mehrspaltige.htm#zweispaltig">erste&nbsp;Beispiel-Layout</a> gezeigt hat. Die Verwendung von CSS-Eigenschaften wie <code>float</code>, besonders in Kombination mit <code>margin</code>, kann in älteren Browsern wie dem Netscape 4 zu fehlerhafter Darstellung bis hin zur Unbenutzbarkeit einer Seite führen. Es ist daher ratsam, diese fortschrittlichen CSS-Definitionen nur moderneren Browsern zukommen zu lassen. Hierzu bietet sich logisch an, die CSS-Definitionen nicht wie in den Beispielen im Stylebereich jeder HTML-Datei zu notieren, sondern in einer separaten CSS-Datei auszulagern und diese über die neuere Methode <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../formate/einbinden.htm#import">@import</a> einzubinden. Über die Angabe eines Ausgabemediums wie z.B. <code>all</code> würde auch der Internet Explorer für Windows ausgeschlossen.</p>
+
+<p>Sie können die CSS-Definitionen auch in zwei verschiedene Dateien aufteilen: eine für die einfachen Farb- und Schriftzuweisungen, die auch ältere Browser problemlos umsetzen können, und eine weitere für die Definition des Layouts. Erstere binden Sie - auch für ältere Browser - über das <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../formate/einbinden.htm#separat">link-Element</a> ein. Dies hat außerdem den Vorteil, dass beim Laden der über <code>@import</code> eingebundenen zweiten CSS-Datei die unschöne kurzzeitige Anzeige der Seite ohne Style-Definitionen im Internet Explorer vermieden wird.</p>
+
+<p>Bestimmte CSS-Definitionen machen ein weiteres Stylesheet für den Ausdruck erforderlich, z.B. wenn Sie eine helle Schriftfarbe für einen dunklen Bildschirm-Hintergrund angegeben haben. Diese CSS-Datei binden Sie - ebenfalls für <em>alle</em> Browser - über das <code>link</code>-Element mit einer <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../formate/einbinden.htm#link_media">Medienangabe</a> ein. Hierin können Sie auch bestimmte Bereiche wie z.B. die Navigation, die für den Ausdruck wenig geeignet sind, über <code>display:none</code> ausblenden.</p>
+
+<p>Ein HTML-Dokument, in dem auf diese Art unterschiedliche CSS-Dateien eingebunden sind, sieht folgendermaßen aus:</p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+       "http://www.w3.org/TR/html4/strict.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;CSS-basiertes Layout&lt;/title&gt;
+
+  &lt;link rel="stylesheet" type="text/css" href="basis.css"&gt;
+  &lt;style type="text/css"&gt;
+    @import url(modern.css);
+    /* evtl. seitenspezifische CSS-Definitionen */
+  &lt;/style&gt;
+  &lt;link rel="stylesheet" type="text/css" media="print" href="druck.css"&gt;
+
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;!-- HTML-Quelltext --&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Netscape 4 unterstützt auch bei Einbindung über das <code>link</code>-Element nur das Ausgabemedium <code>screen</code>; Sie können ihn über die Angabe anderer Ausgabemedien wie z.B. <code>all</code> ebenfalls ausschließen.<br>
+<code>@import</code>-Anweisungen sind stets vor weiteren CSS-Definitionen einzutragen.</p>
+
+<p>Um CSS-Dateien für bestimmte Ausgabemedien nur modernen Browsern einschließlich dem Internet Explorer zur Verfügung zu stellen, binden Sie eine CSS-Datei mit dem entsprechenden <code>media</code>-Attribut über das <code>link</code>-Element ein und referenzieren hierin eine weitere CSS-Datei über <code>@import</code>. Einzelne CSS-Anweisungen können Sie auch in einer über <code>@import</code> eingebundenen CSS-Datei mit <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../formate/einbinden.htm#media">Format-Definitionen&nbsp;für&nbsp;unterschiedliche&nbsp;Ausgabemedien</a> versehen.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="alternative">Alternative CSS-Dateien für den Internet Explorer (Conditional Comments)</a></h2>
+
+<p>Der Internet Explorer setzt zwar die für CSS-basierte Layouts erforderlichen Definitionen größtenteils um und muss nicht wie andere ältere Browser hiervon ausgeschlossen werden; die Umsetzung ist aber oft fehlerhaft oder unvollständig, sodass eine Korrektur oder alternative Definitionen erforderlich werden können. Eine Möglichkeit hierfür ist, zunächst die nach den Spezifikationen des W3C korrekten CSS-Anweisungen zu notieren und anschließend eine spezielle CSS-Datei nur für den Internet Explorer einzubinden. Erfreulicher Weise bietet Microsoft dazu mit den '<strong>conditional comments</strong>' eine valide Lösung für den Internet Explorer für Windows (die Mac-Versionen sind ohnehin bezüglich der CSS-Umsetzung nicht vergleichbar). Hierbei handelt es sich um spezielle HTML-Kommentare mit einer Bedingung, die der Internet Explorer ab der Version 5 auswertet und hiervon abhängig den im Kommentar enthaltenen HTML-Code ausführt oder nicht. Für alle anderen Browser handelt es sich lediglich um Kommentare, deren Inhalt ignoriert wird.</p>
+
+<p>Die folgenden Beispiele zeigen die Einbindung einer CSS-Datei für alle Browser, einer CSS-Datei nur für moderne Browser mit Ausnahme des Internet Explorer (auch der Version 7) und nachfolgend einige über conditional comments eingebundene CSS-Dateien:</p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+       "http://www.w3.org/TR/html4/strict.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;CSS-basiertes Layout&lt;/title&gt;
+  &lt;link rel="stylesheet" type="text/css" href="basis.css"&gt;
+
+  &lt;style type="text/css"&gt;<strong>@import url(modern_ohne_ie.css) all;</strong>&lt;/style&gt;
+
+  &lt;!--<strong>[if IE]</strong>&gt;
+    &lt;style type="text/css"&gt;@import url(ie.css);&lt;/style&gt;
+  &lt;![endif]--&gt;
+
+  &lt;!--<strong>[if IE 6]</strong>&gt;
+    &lt;style type="text/css"&gt;@import url(ie6.css);&lt;/style&gt;
+  &lt;![endif]--&gt;
+
+  &lt;!--<strong>[if lt IE 7]</strong>&gt;
+    &lt;style type="text/css"&gt;@import url(ie5-6.css);&lt;/style&gt;
+  &lt;![endif]--&gt;
+
+  &lt;!--<strong>[if lte IE 5.5999]</strong>&gt;
+    &lt;style type="text/css"&gt;@import url(ie55-.css);&lt;/style&gt;
+  &lt;![endif]--&gt;
+
+  &lt;!--<strong>[if gte IE 5.5]</strong>&gt;
+    &lt;style type="text/css"&gt;@import url(ie55+.css);&lt;/style&gt;
+  &lt;![endif]--&gt;
+
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;!-- HTML-Quelltext --&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Wie Sie an den Beispielen sehen, können auch Versionsangaben gemacht werden, die der Internet Explorer mit seiner im Windows-System eingetragenen Versionsnummer vergleicht (wenn Sie zum Testen mehrere Browserversionen installiert haben, wird daher immer die Version des Betriebssystems verwendet, sofern die Windows-Registry nicht manipuliert ist).</p>
+
+<p>Die in den conditional comments referenzierten CSS-Dateien werden von folgenden Versionen des Internet Explorer geladen:</p>
+
+<p>
+<code>[if IE]</code>: alle Versionen (ab 5.0),<br>
+<code>[if IE 6]</code>: alle 6er-Versionen,<br>
+<code>[if lt IE 7]</code>: alle Version <em>vor</em> 7 (less-than = kleiner als),<br>
+<code>[if lte IE 5.5999]</code>: alle Version <em>bis</em> 5.5 (less-than or equal = kleiner oder gleich),<br>
+<code>[if gte IE 5.5]</code>: alle Version <em>ab</em> 5.5 (greater-than or equal = größer oder gleich).
+</p>
+
+<p>In der Praxis ist meist nur eine Unterscheidung zwischen Versionen ab 6 und älteren erforderlich, da der Internet Explorer ab der Version 6 im standardkonformen Modus einige Fehler der Vorgänger nicht mehr macht und insbesondere das vom W3C spezifizierte <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../formate/box_modell.htm#w3c">Box-Modell</a> korrekt anwendet. Eine Differenzierung erübrigt sich meist ganz, wenn der Internet Explorer 6 in den abwärtskompatiblen Quirks-Modus versetzt wird, was auch ein beliebiger HTML-Kommentar (oder bei XHTML die Angabe der <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/xhtml/unterschiede.htm#xml_deklaration">XML-Deklaration</a>) in der ersten Zeile des Quelltextes bewirkt, da dieser Browser den folgenden Doctype dann nicht mehr erkennt. Der Internet Explorer 7 erkennt zwar eine XML-Deklaration, wird jedoch weiterhin durch einen HTML-Kommentar in den Quirks-Modus versetzt. Sofern Sie XHTML verwenden und nur die Version 7 des Internet Explorer im standardkonformen Modus eine korrekte Darstellung erreicht, bietet sich der Einsatz der ohnehin empfohlenen XML-Deklaration an.</p>
+
+<p>Sie sollten den Internet Explorer grundsätzlich nicht über die <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../formate/box_modell.htm#doctype_switch">Dokumenttyp-Weiche</a> in den Quirks-Modus versetzen, da dies auch andere Browser negativ beeinflusst und z.B. Opera ab Version 7 das falsche Box-Modell von Microsoft übernehmen würde.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="browserweichen">Spezielle Browserweichen (CSS-Hacks)</a></h2>
+
+<p>Oft sind es nur kleine Korrekturen, die für die einheitliche Umsetzung eines CSS-basierten Layouts erforderlich werden und meist reicht es, über eine Browserweiche (auch "Hack" genannt) den Internet Explorer von anderen Browsern zu unterscheiden, da erstgenannter viele CSS-Definitionen nicht standardkonform interpretiert. Browserweichen nutzen spezielle Selektoren oder Schreibweisen, die von Browsern unterschiedlich interpretiert bzw. teilweise übergangen werden. Das folgende Beispiel demonstriert einige ausgewählte Browserweichen:</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/css_weichen.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+       "http://www.w3.org/TR/html4/strict.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;CSS-Browserweichen&lt;/title&gt;
+&lt;style type="text/css"&gt;
+  body {
+    color: white; background: black;
+    font-family: Helvetica, Arial, sans-serif;
+  }
+  p {
+    padding: 0.2em;
+  }
+
+  #attribut {
+    color: red;
+  }
+  p<strong>[id]</strong>#attribut {
+    color: lime;
+  }
+  p[id] {
+    border: 1px solid green;
+  }
+
+  #childselector {
+    color: red;
+  }
+  <strong>html&gt;body</strong> #childselector {
+    color: lime;
+  }
+
+  #starhtml {
+    color: lime;
+  }
+  <strong>* html</strong> #starhtml {
+    color: red;
+  }
+
+  #starplushtml {
+    color: lime;
+  }
+  <strong>*:first-child+html</strong> #starplushtml {
+    color: red;
+  }
+
+  #comment {
+    color: red;
+  }
+  #comment<strong>/* */</strong> {
+    color: lime;
+  }
+
+  #atmedia {
+    color: red;
+  }
+  <strong>@media</strong> all {
+    #atmedia {
+      color: lime;
+    }
+  }
+
+  #element {
+    color: red;
+  }
+  <strong>p#</strong>element {
+    color: lime;
+  }
+
+  #tanhack {
+    color: lime;
+  }
+  <strong>* html</strong> #tanhack {
+    color: red;
+    <strong>c\olor:</strong> lime;
+  }
+&lt;/style&gt;
+
+&lt;style type="text/css"&gt;
+  #tantek {
+    color: red;
+  }
+  #tantek {
+    <strong>voice-family: "\"}\"";</strong>
+    voice-family: inherit;
+    color: lime;
+  }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;CSS-Browserweichen&lt;/h1&gt;
+&lt;p&gt;Die folgenden Beispiele werden standardkonform mit grüner Schrift
+   im Rahmen angezeigt, ansonsten mit roter Schrift ohne Rahmen.&lt;/p&gt;
+
+&lt;p id="attribut"&gt;Attribut-Selektor:
+   wird vom Internet Explorer ignoriert und definiert hier alle Rahmen.&lt;/p&gt;
+&lt;p id="childselector"&gt;Kind-Selektor:
+   wird vom Internet Explorer ignoriert.&lt;/p&gt;
+&lt;p id="starhtml"&gt;Star-HTML:
+   wird fälschlich vom Internet Explorer interpretiert.&lt;/p&gt;
+&lt;p id="starplushtml"&gt;Star-Plus-HTML:
+   wird f&auml;lschlich vom Internet Explorer 7 interpretiert.&lt;/p&gt;
+&lt;p id="comment"&gt;Selektor-Kommentar:
+   wird vom Internet Explorer bis Version 5 für Windows und Mac ignoriert.&lt;/p&gt;
+&lt;p id="atmedia"&gt;Medienangabe:
+   wird vom Internet Explorer 4 für Windows und den Mac-Versionen ignoriert.&lt;/p&gt;
+&lt;p id="element"&gt;Element-spezifischer Selektor:
+   wird vom Netscape 4 ignoriert.&lt;/p&gt;
+
+&lt;p id="tantek"&gt;Tantek-Hack:
+   wird vom Internet Explorer erst ab Version 6 korrekt interpretiert&lt;br&gt;
+   - im Netscape 4 kommt es hierdurch zu Fehlern im gesamten Style-Bereich!&lt;/p&gt;
+&lt;p id="tanhack"&gt;Tan-Hack:
+   beeinflusst nur den Internet Explorer vor Version 6&lt;br&gt;
+   - eine Kombination des Star-HTML- und Tantek-Hacks für einzelne Definitionen.&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<h4><a class="an" name="attribut_selektor">Attribut-Selektor:</a></h4>
+
+<pre>
+p[id] {
+  eigenschaft:wert;
+}
+</pre>
+
+<p>Selektiert ein Element (hier <code>&lt;p&gt;</code>), welches ein <code>id</code>-Attribut mit beliebigem Attributwert aufweist - und damit alle hier angeführten Beispiele. Gleichbedeutend zur Angabe der <code>#ID</code> ist dies im Grunde überflüssig, erfüllt aber den Zweck, alle Internet Explorer für Windows bis Version 6 und Netscape 4 auszuschließen.</p>
+
+<h4><a class="an" name="kind_selektor">Kind-Selektor:</a></h4>
+
+<pre>
+html&gt;body #ID {
+  eigenschaft:wert;
+}
+</pre>
+
+<p>Selektiert ein Element mit der ID "<code>ID</code>", das sich innerhalb des Elements <code>body</code> befindet, welches wiederum ein direktes Kind-Element von <code>html</code> ist. Dies extra anzugeben wäre an sich überflüssig, es schließt aber ebenfalls alle Internet Explorer für Windows bis Version 6 und Netscape 4 aus. Achtung: Der Selektor <code>body&gt;#ID</code> würde von älteren Versionen des Internet Explorer falsch interpretiert werden.</p>
+
+<h4><a class="an" name="star_html_hack">Star-HTML-Hack:</a></h4>
+
+<pre>
+* html #ID {
+  eigenschaft:wert;
+}</pre>
+
+<p>Dies ist zwar ein valider, aber unsinniger Selektor, da <code>html</code> kein Elternelement hat (der Universalselektor <code>*</code> steht für ein beliebiges Element). Alle Internet Explorer für Windows bis Version 6 akzeptieren diese Notation jedoch und interpretieren die nachfolgenden Deklarationen. Dieser Selektor schließt also alle übrigen Browser einschließlich Netscape 4 aus.</p>
+
+<h4><a class="an" name="star_plus_html_hack">Star-Plus-HTML-Hack:</a></h4>
+
+<pre>
+*:first-child+html #ID {
+  eigenschaft:wert;
+}</pre>
+
+<p>Dies ist ebenso ein valider wie unsinniger Selektor, der nur vom Internet Explorer 7 (und vielleicht auch künftigen Versionen) akzeptiert wird. Der einfachere Selektor <code>*+html</code> würde leider auch vom Opera fälschlich berücksichtigt. Beachten Sie, dass Sie diesen Selektor nicht mit dem Star-HTML-Hack in einer Regel kombinieren können und ggfls. zwei Regeln notieren müssen, um alle Internet-Explorer anzusprechen.</p>
+
+<h4><a class="an" name="kommentar_hack">Selektor-Kommentar:</a></h4>
+
+<pre>
+#ID/* */ {
+  eigenschaft:wert;
+}</pre>
+
+<p>Ein CSS-Kommentar unmittelbar nach dem Selektor schließt den Internet Explorer 4 und 5 für Windows und Mac aus.</p>
+
+<h4><a class="an" name="media_hack">Medienangabe:</a></h4>
+
+<pre>
+@media all {
+  #ID {
+    eigenschaft:wert;
+  }
+}</pre>
+
+<p>Diese Variante selektiert hier ein Element mit der ID "<code>ID</code>" für alle <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../formate/einbinden.htm#medientypen">Medientypen</a>, wodurch ältere Browser ausgeschlossen werden: der Internet Explorer 4 für Windows und alle Mac-Versionen sowie Netscape 4.</p>
+
+<h4><a class="an" name="id_hack">Element-spezifischer Selektor:</a></h4>
+
+<pre>
+p#ID {
+ eigenschaft:wert;
+}</pre>
+
+<p>Selektiert ein Element (hier <code>&lt;p&gt;</code>) mit der ID "<code>ID</code>", was den Ausschluss von Netscape 4 zur Folge hat.</p>
+
+<h4><a class="an" name="tan_hack">Tan-Hack (Modified Simplified Box Model Hack):</a></h4>
+
+<pre>
+* html #id {
+  e\igenschaft:wert;
+}
+</pre>
+
+<p>Die angeführte Notation setzt die innerhalb der <img src="../../src/up.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#star_html_hack">Star-HTML</a>-Browserweiche zunächst an ältere Internet Explorer für Windows angepassten Eigenschaften für den Internet Explorer 6 wieder zurück. Setzen Sie das Escape-Zeichen <code>\</code> an eine beliebige Stelle innerhalb der Eigenschaft, jedoch nicht direkt vor einen der Buchstaben <code>a</code> bis <code>f</code>, da dieser sonst als hexadezimaler Wert interpretiert werden würde. Diese Browserweiche eignet sich ebenfalls zur Korrektur des falschen Box-Modells für ältere Windows Internet Explorer, ist jedoch wegen der dreifachen Angabe eines jeden Wertes etwas aufwändig. Durch die Kombination mit der Star-HTML-Browserweiche werden Probleme mit anderen Browsern ausgeschlossen. Das Kapitel über die Behandlung des Box-Modells enthält ein <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../formate/box_modell.htm#tan_hack">Beispiel</a>.</p>
+
+<h4><a class="an" name="tantek_hack">Tantek-Hack:</a></h4>
+
+<pre>
+selektor {
+  eigenschaft:wert;      /* Deklaration fuer IE 5.x */
+  voice-family:"\"}\"";  /* ab hier ignoriert IE 5.x nachfolgende Deklarationen */
+  voice-family:inherit;
+  eigenschaft:wert;      /* Korrektur fuer andere Browser */
+}
+</pre>
+
+<p>Diese Methode beruht auf der Ausnutzung eines Fehlers im Internet Explorer der Version 5.x. Zunächst wird die für den Internet Explorer 5.x vorgesehene Deklaration angeführt und anschließend der Sprachausgabe-Eigenschaft <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../eigenschaften/sprachausgabe.htm#voice_family">voice-family</a> der unsinnige, aber gültige Wert <code>"}"</code> zugewiesen  - die inneren Hochkommata sind gemäß CSS-Syntax mit Backslashes maskiert (CSS-Escape-Sequenz) und daher Bestandteil des Wertes. Korrekt arbeitende Browser werden davon nicht negativ beeinflusst, von alten Versionen des Internet Explorer jedoch wird keine der nachfolgenden Angaben beachtet, da sie die geschweifte Klammer als Ende der Regel interpretieren. Die in der ersten Zeile definierte Deklaration wird zunächst von allen Browsern akzeptiert, die nachfolgende Korrektur für standardkonforme Browser übergeht der IE 5.x. Somit eignet sich diese Browserweiche zur Korrektur des falschen Box-Modells (siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../formate/box_modell.htm#tantek_hack">Beispiel</a>) von Microsoft bei Dokumenten, in denen der Internet Explorer 6 über die <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/allgemein/grundgeruest.htm#dokumenttyp">Dokumenttyp-Deklaration</a> in den <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../formate/box_modell.htm#standardkonform">standardkonformen Modus</a> versetzt wurde. Verwenden Sie den Tantek-Hack nur in einer vor Netscape 4 verborgenen CSS-Datei, da in diesem Browser ein schwerer Fehler bei der Interpretation des gesamten Style-Bereichs verursacht wird.</p>
+
+<h3 class="inf"><a class="an" name="empfehlung">Beachten Sie:</a></h3>
+
+<p>Die auf fehlerhafter oder unzureichender CSS-Implementierung aufbauenden Browserweichen können in aktuellen Browsern unerwünschte Begleiterscheinungen haben. Auch ist nicht ausgeschlossen, dass künftige Browserversionen zwar weiterhin den Fehler enthalten, den Sie mittels eines Hacks korrigieren, dies jedoch nicht mehr funktioniert, da just die Programmstelle korrigiert wurde, die die Nutzung des Hacks erst ermöglicht hat. Sie sollten daher das über eine Browserweiche erzielte Ergebnis mit unterschiedlichen Browsern kritisch begutachten und dies in regelmäßigen Abständen mit neu erschienenen Versionen wiederholen.</p>
+
+<p>Auf der sicheren Seite sind Sie, wenn Sie nach Möglichkeit weitestgehend auf den Einsatz von CSS-Hacks verzichten.</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="../../xml/intro.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../xml/intro.htm">Einführung in XML</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="navigationsleisten.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="navigationsleisten.htm">CSS-basierte Navigationsleisten</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"> <a href="../index.htm">Stylesheets</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"> <a href="index.htm">CSS-basierte Layouts</a></td>
+</tr>
+</table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

@@ -1,0 +1,248 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: HTML/XHTML / Verweise (Links) / Projekt-interne Verweise</title>
+<meta name="description"    content="Wie Sie Verweise zwischen den Seiten Ihres Web-Projekts definieren können.">
+<meta name="keywords"       content="SELFHTML, HTML, XHTML, Verweise, Links, Hyperlinks, Projektverweise, interne Verweise, datei-interne Verweise, Anker, Ankerverweise, Ankernamen, Rückverweise, a, name, href">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-11-16T01:48:05+01:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/html/verweise/xxxxx.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="Verweise (Links)" href="index.htm">
+<link rel="next" title="Projekt-externe Verweise" href="projektextern.htm">
+<link rel="prev" title="Verweise definieren und gestalten" href="definieren.htm">
+<link rel="first" title="Verweise definieren und gestalten" href="definieren.htm">
+<link rel="last" title="Tabulator-Reihenfolge und Tastaturkürzel für Verweise" href="tastatur.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">HTML/XHTML</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Verweise (Links)</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Projekt-interne Verweise</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#dateien">Verweise zu Dateien oder Quellen im Projekt</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#anker">Anker definieren und Verweise zu Ankern</a><br>
+</p>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><img src="../../src/html20.gif" width="30" height="30" alt="HTML 2.0" title="HTML 2.0"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../../src/msie1.gif" width="30" height="30" alt="MS IE 1.0" title="MS IE 1.0"><img src="../../src/netsc1.gif" width="30" height="30" alt="Netscape 1.0" title="Netscape 1.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="dateien">Verweise zu Dateien oder Quellen im Projekt</a></h2>
+
+<p>Ein Web-Projekt besteht typischerweise aus mehreren bis vielen Einzelseiten, die miteinander verlinkt sind. Einleitende Bemerkungen dazu finden Sie im Abschnitt <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../allgemein/organisation.htm">Informationsverteilung und Dateiorganisation</a>.</p>
+
+<p>Um Verweise auf andere Projektdateien zu definieren, empfiehlt es sich, relative Angaben zum Verweisziel zu machen. Das Projekt bleibt dadurch flexibler, und die Verweise funktionieren auch in anderen Umgebungen (z.B. solange Sie das Projekt lokal auf Ihrem PC erstellen und austesten wollen, oder wenn Sie es mal auf CD-ROM präsentieren möchten).</p>
+
+<h3 class="xmp">Beispiel Teil 1 - <var>index.htm</var>:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/index.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+       "http://www.w3.org/TR/html4/strict.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Relative Verweise zu Dateien oder Quellen im Projekt&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h1&gt;Homepage&lt;/h1&gt;
+
+&lt;p&gt;Dies ist eine ganz einfache Homepage mit einem
+  &lt;a href="zweiteseite.htm"&gt;Verweis zu einer anderen Seite des Projekts&lt;/a&gt;.
+  Eine &lt;a href="../../tabellen/anzeige/layout.htm"&gt;aufwendigere Homepage
+  mit projektinternen Verweisen&lt;/a&gt; k&amp;ouml;nnen Sie aber ebenfalls aufrufen.
+&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xmp">Beispiel Teil 2 - <var>zweiteseite.htm</var>:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/zweiteseite.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+       "http://www.w3.org/TR/html4/strict.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Relative Verweise zu Dateien oder Quellen im Projekt&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div style="width:100%; border:thin solid gray; padding:5px"&gt;
+  &lt;a href="index.htm"&gt;Homepage&lt;/a&gt;
+&lt;/div&gt;
+
+&lt;h1&gt;Zweite Seite&lt;/h1&gt;
+
+&lt;p&gt;Ja, hurra, geschafft!&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel zeigt zwei kleinere HTML-Dateien. Die erste - mit Namen <var>index.htm</var> - enthält einen Verweis zur zweiten Datei. Der Dateiname der zweiten Datei lautet <var>zweiteseite.htm</var>. Beide Dateien sind im gleichen Verzeichnis abgelegt. Deshalb genügt bei <code>href</code> die Angabe des Dateinamens ohne weitere Zusätze. Im Beispiel der Datei <var>index.htm</var> wird aber auch noch gezeigt, wie Verweise zu Dateien in anderen Verzeichnissen definiert werden. Die genaue Syntax solcher relativen Angaben wird im Abschnitt <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../allgemein/referenzieren.htm#relativ">Mit relativen Pfadangaben relativ zum Basis-URI referenzieren</a> beschrieben.</p>
+
+<p>Die zweite Datei im Beispiel (<var>zweiteseite.htm</var>) enthält einen typischen "Rückverweis" auf die erste Seite, also auf die "Einstiegsseite". Ein Rückverweis ist kein spezieller Verweis, sondern einfach wieder ein Verweis auf die gewünschte Datei. Da beide Dateien im gleichen Verzeichnis liegen, genügt auch in diesem Fall wieder die Angabe des Dateinamens, also <code>href="index.htm"</code></p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Der "Rückverweis" in der zweiten Datei wird im obigen Beispiel mit Hilfe eines <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../text/bereiche.htm">allgemeinen Bereichs</a>, dem ein paar CSS-Formate zugewiesen sind, optisch etwas aufgewertet. Er steht am Anfang des sichtbaren Dateikörpers und durch den Rahmen, den er dank CSS erhält, wirkt der Bereich wie eine Navigationsleiste. Es ist sehr empfehlenswert, solche typischen Navigationsverweise immer an der gleichen Stelle einer Seite zu notieren und optisch so zu gestalten, dass der Navigationszweck ersichtlich ist. HTML bietet keine speziellen Verweise oder gestalterischen Möglichkeiten für Navigationsleisten und Navigationsverweise an. Navigationsleisten müssen Sie mit den zur Verfügung stehenden Bordmitteln selbst kreieren. (Genaugenommen ist diese Aussage falsch: HTML bietet sehr wohl so etwas an, nämlich mit der Möglichkeit, <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../kopfdaten/beziehungen.htm">logische Beziehungen</a> zu definieren. Leider wird dies jedoch von den Browsern bis heute nicht unterstützt.)</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/html20.gif" width="30" height="30" alt="HTML 2.0" title="HTML 2.0"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../../src/msie1.gif" width="30" height="30" alt="MS IE 1.0" title="MS IE 1.0"><img src="../../src/netsc1.gif" width="30" height="30" alt="Netscape 1.0" title="Netscape 1.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="anker">Anker definieren und Verweise zu Ankern</a></h2>
+
+<p>Sie können innerhalb einer HTML-Datei Anker definieren. Dann können Sie Verweise zu solchen Ankern setzen, um einen Sprung genau an die Ankerstelle innerhalb der Datei zu veranlassen. Der Verweis kann in der gleichen Datei stehen. Dann wird einfach ein Sprung innerhalb der angezeigten Seite ausgeführt. Der Verweis kann aber auch in einer anderen Datei stehen. Dann wird die Zieldatei geladen, und der Browser springt, sobald er die Stelle mit dem Anker geladen hat, an die entsprechende Stelle innerhalb der Datei.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/a_name.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+       "http://www.w3.org/TR/html4/strict.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Anker definieren und Verweise zu Ankern&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h1&gt;&lt;a name="anfang"&gt;Lange Seite&lt;/a&gt;&lt;/h1&gt;
+
+&lt;h2&gt;&lt;a name="kapitel1" href="#kapitel1"&gt;Kapitel 1&lt;/a&gt;&lt;/h2&gt;
+
+&lt;hr&gt;&lt;hr&gt;&lt;hr&gt;&lt;hr&gt;&lt;hr&gt;&lt;hr&gt;&lt;hr&gt;&lt;hr&gt;&lt;hr&gt;&lt;hr&gt;&lt;hr&gt;&lt;hr&gt;&lt;hr&gt;&lt;hr&gt;&lt;hr&gt;&lt;hr&gt;
+&lt;!-- usw. lauter Trennlinien, um Raum zu schaffen --&gt;
+
+&lt;h2&gt;&lt;a name="kapitel2"&gt;Kapitel 2&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href="#anfang"&gt;Seitenanfang&lt;/a&gt;, &lt;a href="#kapitel2"&gt;Kapitel 2&lt;/a&gt; oder
+&lt;a href="../projektintern.htm#anker"&gt;Anker definieren und Verweise zu Ankern&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr&gt;&lt;hr&gt;&lt;hr&gt;&lt;hr&gt;&lt;hr&gt;&lt;hr&gt;&lt;hr&gt;&lt;hr&gt;&lt;hr&gt;&lt;hr&gt;&lt;hr&gt;&lt;hr&gt;&lt;hr&gt;&lt;hr&gt;&lt;hr&gt;&lt;hr&gt;
+&lt;!-- usw. lauter Trennlinien, um Raum zu schaffen --&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Ein Anker wird genau wie ein Verweis mit Hilfe des <code>a</code>-Elements erzeugt. Der Unterschied besteht darin, dass kein Attribut <code>href</code> notiert wird, sondern stattdessen ein Attribut <code>name</code>. Ein kompletter Anker sieht also so aus:<br>
+<code>&lt;a name="ankername"&gt;...&lt;/a&gt;</code></p>
+
+<h3>Wahl eines geeigneten Ankernamens</h3>
+
+<p>Den Ankernamen können Sie frei vergeben. Vergeben Sie möglichst kurze, aber prägnante und lesbare Namen. Sie sollten im Ankernamen lediglich die lateinischen Buchstaben, die arabischen Ziffern sowie als Sonderzeichen höchstens den Unterstrich (<code>_</code>), den Bindestrich (<code>-</code>) und den Punkt (<code>.</code>) benutzen. Als erstes Zeichen des Namens sollten Sie einen Buchstaben wählen.</p>
+
+<p>Diese Empfehlung ist eine Faustregel, die sich in der Praxis als sicher herausgestellt hat. Es gibt nämlich keine klaren und eindeutigen Vorschriften für Ankernamen. HTML 4 schränkt nicht ein, welche Zeichen Sie in Ankernamen verwenden dürfen. Demnach dürfen im <code>name</code>-Attribut alle in HTML zugelassenen Zeichen und Sonderzeichen notiert werden, z.B. <code>&lt;a name="Ein &hearts; für Kinder"&gt;...&lt;/a&gt;</code> <i>rein formal</i> zulässig.</p>
+
+<p>Trotzdem gelten einige Regeln dadurch, dass Ankernamen in einer <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../allgemein/referenzieren.htm#uri">URI</a> auftauchen, sobald Sie einen Verweis mit dem Anker als Ziel notieren. Diese Regeln der technischen Standards RFC 2396 und RFC 3986 sind aber immer noch sehr freizügig: Neben lateinischen Buchstaben (a-z bzw. A-Z) und arabischen Ziffern (0-9) sind zahlreiche Sonderzeichen erlaubt (<code>/?:@.-_~!$&amp;'()*+,;=</code>). Alle anderen Zeichen, darunter das Leerzeichen und deutsche Umlaute, können nicht direkt notiert werden, sondern müssen kompliziert umschrieben werden. Das Zeichen wird mittels der Kodierung UTF-8 mit ein oder mehreren Bytes ausgedrückt. Die zweistelligen Hexadezimalwerte der Bytes werden nacheinander notiert, indem ihnen jeweils ein Prozentzeichen <code>%</code> vorangestellt wird. Zum Beispiel wird das Gatterzeichen <code>#</code> mit <code>%23</code> umschrieben und der Umlaut <code>ö</code> mit <code>%C3%B6</code>.</p>
+
+<p>Soweit die graue Theorie - denn die Praxis sieht ganz anders aus. Fast kein Browser unterstützt all diese Sonderzeichen in Ankernamen und verarbeitet Verweise auf solche Anker korrekt. Sie sollten sich daher auf die wenigen genannten Zeichen beschränken, die den verbreiteten Browsern keine Probleme machen.</p>
+
+<p>Die Zurückhaltung beim Wählen geeigneter Ankernamen ist auch für die "Zukunftsfähigkeit" Ihrer HTML-Dateien sinnvoll. Denn seit HTML 4 können Anker alleine mit dem <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../attribute/allgemeine.htm#uebersicht">Universalattribut id</a> anstelle eines <code>a</code>-Elements mit <code>name</code>-Attribut notiert werden. Dies hat einige Vorteile, denn Sie können bereits vorhandenen Elementen, z.B. Überschriften, <code>id</code>-Attribute zuweisen. Somit kann das <code>a</code>-Element eingespart werden:</p>
+
+<pre>&lt;h2 id="ankername"&gt;Text der &amp;Uuml;berschrift&lt;/h2&gt;</pre>
+
+<p>Manche alte Browser wie Netscape 4 verstehen jedoch nur die Notation <code>&lt;a name=&quot;ankername&quot;&gt;...&lt;/a&gt;</code>. Der entscheidende Punkt ist nun, dass für das <code>id</code>-Attribut in HTML 4 sehr strenge Regeln gelten: Neben den lateinischen Buchstaben A-Z und den arabischen Ziffern sind nur der Unterstrich, der Bindestrich, der Punkt und der Doppelpunkt erlaubt. Sie sehen, diese Anforderungen stimmen mit der oben genannten Faustregel nahezu überein. Wenn Sie also momentan oder in Zukunft Anker mit dem <code>id</code>-Attribut realisieren möchten, sollten Sie diese Regel berücksichtigen.</p>
+
+<p>Für <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../xhtml/index.htm">XHTML</a> gelten wieder andere Regeln für das Attribut <code>name</code> beim <code>a</code>-Element sowie das Universalattribut <code>id</code>. XHTML 1.0 erlaubt im Gegensatz zu HTML 4.x zwar unzählige Zeichen aus allen Schriftkulturen der Welt im <code>name</code>-Attribut (darunter deutsche Umlaute). Aber von den genannten Sonderzeichen sind lediglich der Unterstrich, der Bindestrich, der Punkt und der Doppelpunkt erlaubt. Gleichzeitig werden Anker in XHTML nicht mehr über das <code>name</code>-, sondern nur noch über das <code>id</code>-Attribut definiert, für das ähnliche Einschränkungen gelten. In abwärtskompatiblen XHTML-Dokumenten können Sie beide Attribute mit identischem Attributwert notieren, wie es unter <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../xhtml/unterschiede.htm#verweise_anker">Unterschiede zwischen XHTML und HTML: Verweise zu Ankern</a> beschrieben ist:</p>
+
+<pre>&lt;h2&gt;&lt;a name="ankername" id="ankername"&gt;Text der &amp;Uuml;berschrift&lt;/a&gt;&lt;/h2&gt;</pre>
+
+<h3>Inhalt des Ankers</h3>
+
+<p>Was Sie zwischen <code>&lt;a name="ankername"&gt;</code> und <code>&lt;/a&gt;</code> als Inhalt notieren, ist das Sprungziel für Verweise, die zu diesem Anker führen. Es ist durchaus erlaubt, einen leeren Anker zu notieren, also <code>&lt;a name="ankername"&gt;&lt;/a&gt;</code>. Einige ältere Browser führen Verweise zu leeren Ankern jedoch nicht aus, weshalb es besser ist, den Anker immer um einen konkreten Inhalt zu setzen. Beachten Sie dabei aber, dass das <code>a</code>-Element selber ein <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/elemente.htm#inline_elemente">Inline-Element</a> ist und keine <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/elemente.htm#block_elemente">Block-Elemente</a> als Inhalt haben darf. Wenn Sie also beispielsweise eine Überschrift als Anker definieren wollen, was ja durchaus typisch ist, dann notieren Sie wie im obigen Beispiel in der Überschrift den Anker und darin den Text der Überschrift.</p>
+
+<h3>Verweise zu Ankern in der aktuellen Datei und anderen Dateien</h3>
+
+<p>Um innerhalb einer Datei einen Verweis zu einem in der Datei vorhandenen Anker zu notieren, gilt folgendes Schema:</p>
+
+<pre>&lt;a href="#ankername"&gt;Verweistext&lt;/a&gt;</pre>
+
+<p>Das Verweisziel beginnt also mit einem Gatterzeichen <code>#</code>, unmittelbar gefolgt vom Ankernamen.</p>
+
+<p>Wenn der Verweis zu einem Anker in einer anderen Datei führen soll, wird zuerst die Datei adressiert. Hinter dem Dateinamen folgt das Gatterzeichen <code>#</code> und dahinter der Ankername.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Beim Definieren von Ankern sowie in Verweisen dorthin müssen Sie auf die gleiche Groß- und Kleinschreibung bei der Ankernamen achten. Denn gemäß dem HTML-Standard müssen Browser den Anker namens <code>ankername</code> nicht anspringen, wenn der Verweis auf einen Anker namens <code>Ankername</code> zeigt. Auch wenn dies viele Browser nicht so streng sehen, sollten Sie auf einheitliche Groß-/Kleinschreibung achten. Verzichten Sie möglichst auf Großschreibung und nutzen Sie einheitlich Kleinbuchstaben.</p>
+
+<p>Wenngleich Browser beim Anspringen von Ankern zwischen Groß- und Kleinschreibung unterscheiden sollen, darf ein Anker unabhängig von seiner Groß- und Kleinschreibung nur einmal im Dokument vorkommen. Das heißt, dass die Anker <code>&lt;a name="Ankername"&gt;...&lt;/a&gt;</code> und <code>&lt;a name="ankername"&gt;...&lt;/a&gt;</code> nicht gleichzeitig in einem Dokument vorkommen dürfen, denn sie unterscheiden sich nur in der Groß-/Kleinschreibung. Zudem dürfen Sie <code>&lt;a name="ankername"&gt;...&lt;/a&gt;</code> nur einmal im Dokument notieren.</p>
+
+<p>Daran anschließend gilt die Regel, dass das <code>name</code>-Attribut beim <code>a</code>-Element (und anderen) denselben <i>Namensraum</i> wie das <code>id</code>-Attribut besitzt. Das bedeutet, dass Sie z.B. den Anker <code>ankername</code> nicht gleichzeitig einmal mit <code>&lt;a name="ankername"&gt;</code> und einmal mit <code>id="ankername"</code> an einem anderen Elementen definieren dürfen. Wenn Sie also gleichzeitig beide Methoden nutzen, um einen Anker zu notieren, sollten Sie das <code>id</code>-Attribut direkt beim <code>a</code>-Element notieren: <code>&lt;a name="ankername" id="ankername"&gt;...&lt;/a&gt;</code>. Dies ist wie beschrieben vor allen Dingen in XHTML-Dokumenten wichtig.</p>
+
+<p>Bei Verweisen innerhalb einer Datei erzeugt der Web-Browser, wenn die Datei in einer HTTP-Umgebung angezeigt wird, keinen neuen Server-Zugriff, sofern er die Datei so vollständig in den Arbeitsspeicher geladen hat, dass er den Sprung ausführen kann.</p>
+
+<p>Einige Browser, z.B. der Internet Explorer, kennen auch "intern reservierte" Ankernamen wie <code>top</code>. Wenn Sie also einen Verweis <code>&lt;a href="#top"&gt;...&lt;/a&gt;</code> notieren und kein Anker dieses Namens in der Datei existiert, springt der Browser beim Ausführen des Verweises an den Anfang der Seite.</p>
+
+<p>Manche Browser haben Schwierigkeiten, zu Ankern zu springen, die innerhalb einer <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../tabellen/index.htm">Tabelle</a> notiert sind.</p>
+
+<p>Es ist durchaus möglich, <code>a</code>-Elemente zu notieren, die sowohl ein <code>href</code>- als auch ein <code>name</code>-Attribut haben. Absichtlich selbstbezügliche Verweise können Sie beispielsweise so erzeugen:</p>
+
+<pre>&lt;a name="hier" href="#hier"&gt;immer sch&amp;ouml;n hierbleiben!&lt;/a&gt;</pre>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="projektextern.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="projektextern.htm">Projekt-externe Verweise</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="definieren.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="definieren.htm">Verweise definieren und gestalten</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">HTML/XHTML</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Verweise (Links)</a></td>
+</tr></table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

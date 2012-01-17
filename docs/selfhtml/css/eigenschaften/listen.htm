@@ -1,0 +1,287 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: Stylesheets / CSS-Eigenschaften / Listenformatierung</title>
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<meta name="description"    content="Welche CSS-Eigenschaften es gibt, um Aufzählungslisten oder nummerierte Listen in HTML zu gestalten und zu kontrollieren.">
+<meta name="keywords"       content="SELFHTML, CSS, Stylesheets, Cascading Stylesheets, HTML, CSS-Eigenschaften, Listen, Aufzählungslisten, nummerierte Listen, ul, ol, li, list-style-type, list-style-position, list-style-image, list-style, Bulltets, Bullet-Grafiken, Aufzählungszeichen, römische Nummerierung">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-08-22T21:21:39+02:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/css/eigenschaften/listen.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="CSS-Eigenschaften" href="index.htm">
+<link rel="next" title="Tabellenformatierung" href="tabellen.htm">
+<link rel="prev" title="Hintergrundfarben und -bilder" href="hintergrund.htm">
+<link rel="first" title="Schriftformatierung" href="schrift.htm">
+<link rel="last" title="Filter (nur Microsoft)" href="filter.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">Stylesheets (CSS)</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">CSS-Eigenschaften</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Listenformatierung</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#allgemeines">Allgemeines zur Listenformatierung</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#list_style_type">list-style-type</a> (Darstellungstyp)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#list_style_position">list-style-position</a> (Listeneinrückung)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#list_style_image">list-style-image</a> (eigene Bullet-Grafik)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#list_style">list-style</a> (Listendarstellung allgemein)<br>
+</p>
+</td>
+</tr><tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><a class="an" name="allgemeines">Allgemeines zur Listenformatierung</a></h2>
+
+<p>Die Stylesheet-Angaben für Listen beziehen sich speziell auf die HTML-Elemente <code>ul</code> (<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/text/listen.htm#aufzaehlung">Aufzählungslisten</a>) und <code>ol</code> (<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/text/listen.htm#nummeriert">nummerierte Listen</a>).</p>
+
+<p>Sie können mit Hilfe von Stylesheet-Angaben die gleichen Formatierungen erzwingen, wie es in den einleitenden HTML-Tags <code>&lt;ul&gt;</code> und <code>&lt;ol&gt;</code> mit Hilfe von zusätzlichen Attributen möglich ist. Die entsprechenden Attribute sind in HTML 4.0 jedoch alle als "deprecated" ausgewiesen, also als künftig unerwünscht. Stattdessen sollen die hier beschriebenen CSS-Eigenschaften verwendet werden, um solche Listen zu formatieren. Neben den Möglichkeiten, die HTML bietet, stehen auch erweiterte Möglichkeiten zum Formatieren von Listen zur Verfügung, etwa die Möglichkeit, Listen aus- statt einzurücken oder eine eigene Grafik als Aufzählungssymbol zu definieren.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/css10.gif" width="30" height="30" alt="CSS 1.0" title="CSS 1.0"><img src="../../src/netsc4.gif" width="30" height="30" alt="Netscape 4.0" title="Netscape 4.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="list_style_type">list-style-type  (Darstellungstyp)</a></h2>
+
+<p>Für Aufzählungslisten können Sie das Erscheinungsbild des Bullet-Zeichens bestimmen. Für nummerierte Liste können Sie die Darstellung der Durchnummerierung beeinflussen.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/list_style_type.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"&gt;
+&lt;html&gt;&lt;head&gt;&lt;title&gt;list-style-type&lt;/title&gt;
+&lt;/head&gt;&lt;body&gt;
+
+&lt;h4&gt;Aufz&amp;auml;hlungsliste &amp;lt;ul&amp;gt; mit Darstellungstyp &lt;i&gt;disc&lt;/i&gt;&lt;/h4&gt;
+&lt;ul style="list-style-type:disc"&gt;
+&lt;li&gt;Probieren geht &amp;uuml;ber Studieren&lt;/li&gt;
+&lt;!--usw.--&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Aufz&amp;auml;hlungsliste &amp;lt;ul&amp;gt; mit Darstellungstyp &lt;i&gt;circle&lt;/i&gt;&lt;/h4&gt;
+&lt;ul style="list-style-type:circle"&gt;
+&lt;li&gt;Probieren geht &amp;uuml;ber Studieren&lt;/li&gt;
+&lt;!--usw.--&gt;
+&lt;/ul&gt;
+&lt;!--usw.--&gt;
+
+&lt;h4&gt;Nummerierte Liste &amp;lt;ol&amp;gt; mit Darstellungstyp &lt;i&gt;decimal&lt;/i&gt;&lt;/h4&gt;
+&lt;ol style="list-style-type:decimal"&gt;
+&lt;li&gt;Tagesordnung&lt;/li&gt;
+&lt;!--usw.--&gt;
+&lt;/ol&gt;
+&lt;h4&gt;Nummerierte Liste &amp;lt;ol&amp;gt; mit Darstellungstyp &lt;i&gt;lower-roman&lt;/i&gt;&lt;/h4&gt;
+&lt;ol style="list-style-type:lower-roman"&gt;
+&lt;li&gt;Tagesordnung&lt;/li&gt;
+&lt;!--usw.--&gt;
+&lt;/ol&gt;
+
+&lt;!--usw.--&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Mit <code>list-style-type:</code> können Sie das Aussehen von Listenzeichen kontrollieren. Erlaubt ist eine der folgenden Angaben.</p>
+
+<p>
+<code>decimal</code> = für <code>ol</code>-Listen: Nummerierung 1.,2.,3.,4. usw.<br>
+<code>lower-roman</code> = für <code>ol</code>-Listen: Nummerierung i.,ii.,iii.,iv. usw.<br>
+<code>upper-roman</code> = für <code>ol</code>-Listen: Nummerierung I.,II.,III.,IV. usw.<br>
+<code>lower-alpha</code> oder <code>lower-latin</code> = für <code>ol</code>-Listen: Nummerierung a.,b.,c.,d. usw.<br>
+<code>upper-alpha</code> oder <code>upper-latin</code> = für <code>ol</code>-Listen: Nummerierung A.,B.,C.,D. usw.<br>
+<code>disc</code> = für <code>ul</code>-Listen: gefüllter Kreis als Bullet-Zeichen<br>
+<code>circle</code> = für <code>ul</code>-Listen: leerer Kreis als Bullet-Zeichen<br>
+<code>square</code> = für <code>ul</code>-Listen: rechteckiges Bullet-Zeichen<br>
+<code>none</code> = kein Bullet-Zeichen, keine Nummerierung<br>
+</p>
+
+<p><img src="../../src/css20.gif" width="30" height="30" alt="CSS 2.0" title="CSS 2.0"><img src="../../src/netsc6.gif" width="30" height="30" alt="Netscape 6.0" title="Netscape 6.0"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0"> Die folgenden, neueren CSS-Angaben sind ebenfalls möglich, werden bislang jedoch nur von Netscape ab Version 6.0, Firefox und teilweise von Opera, Konqueror und Safari interpretiert:</p>
+
+<p>
+<code>lower-greek</code> = für <code>ol</code>-Listen: Nummerierung mit den griechischen Buchstaben: &alpha;., &beta;., &gamma;., &delta;. usw.<br>
+<code>hebrew</code> = für <code>ol</code>-Listen: Nummerierung mit den hebräischen Buchstaben<br>
+<code>decimal-leading-zero</code> = für <code>ol</code>-Listen: Nummerierung mit führender 0: 01.,02.,03.,04., ... 98.,99. usw.<br>
+<code>cjk-ideographic</code> = für <code>ol</code>-Listen: Nummerierung mit ideographischen Zeichen<br>
+<code>hiragana</code> = für <code>ol</code>-Listen: Nummerierung in Japanisch (a, i, u, e, o, ka, ki, ... )<br>
+<code>katakana</code> = für <code>ol</code>-Listen: Nummerierung in Japanisch (A, I, U, E, O, KA, KI, ... )<br>
+<code>hiragana-iroha</code> = für <code>ol</code>-Listen: Nummerierung in Japanisch (i, ro, ha, ni, ho, he, to, ... )<br>
+<code>katakana-iroha</code> = für <code>ol</code>-Listen: Nummerierung in Japanisch (I, RO, HA, NI, HO, HE, TO, ... )</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/css10.gif" width="30" height="30" alt="CSS 1.0" title="CSS 1.0"><img src="../../src/netsc6.gif" width="30" height="30" alt="Netscape 6.0" title="Netscape 6.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="list_style_position">list-style-position (Listeneinrückung)</a></h2>
+
+<p>Sie können bestimmen, wie sich Bullet-Zeichen oder Nummerierung mit dem Inhalt eines Listenpunktes in Bezug auf Einrückung verhalten.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/list_style_position.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"&gt;
+&lt;html&gt;&lt;head&gt;&lt;title&gt;list-style-position&lt;/title&gt;
+&lt;/head&gt;&lt;body&gt;
+
+&lt;h4&gt;Nummerierte Liste &amp;lt;ol&amp;gt; mit Listeneinr&amp;uuml;ckung &lt;i&gt;inside&lt;/i&gt;&lt;/h4&gt;
+&lt;ol style="list-style-position:inside"&gt;
+&lt;li&gt;Tagesordnung&lt;br&gt;
+zweizeilig&lt;/li&gt;
+&lt;!--usw.--&gt;
+&lt;/ol&gt;
+
+&lt;h4&gt;Nummerierte Liste &amp;lt;ol&amp;gt; mit Listeneinr&amp;uuml;ckung &lt;i&gt;outside&lt;/i&gt;&lt;/h4&gt;
+&lt;ol style="list-style-position:outside"&gt;
+&lt;li&gt;Tagesordnung&lt;br&gt;
+zweizeilig&lt;/li&gt;
+&lt;!--usw.--&gt;
+&lt;/ol&gt;
+
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Mit <code>list-style-position:</code> können Sie das Einrückungsverhalten kontrollieren. Erlaubt ist eine der folgenden Angaben.</p>
+
+<p>
+<code>inside</code> = eingerückt.<br>
+<code>outside</code> = ausgerückt (Voreinstellung).
+</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/css10.gif" width="30" height="30" alt="CSS 1.0" title="CSS 1.0"><img src="../../src/netsc6.gif" width="30" height="30" alt="Netscape 6.0" title="Netscape 6.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="list_style_image">list-style-image (eigene Bullet-Grafik)</a></h2>
+
+<p>Sie können eine eigene geeignete Grafik als Bullet-Zeichen für Aufzählungslisten bestimmen.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/list_style_image.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"&gt;
+&lt;html&gt;&lt;head&gt;&lt;title&gt;list-style-image&lt;/title&gt;
+&lt;/head&gt;&lt;body&gt;
+
+&lt;h4&gt;Aufz&amp;auml;hlungsliste &amp;lt;ul&amp;gt; mit eigener Bullet-Grafik&lt;/h4&gt;
+&lt;ul style="list-style-image:url(list_style_image.gif)"&gt;
+&lt;li&gt;&amp;#160;&lt;a href="../../../html/index.htm"&gt;&lt;b&gt;HTML/XHTML&lt;/b&gt;&lt;/a&gt;&lt;br&gt;
+Die Sprache des Web&lt;/li&gt;
+&lt;!--usw.--&gt;
+&lt;/ul&gt;
+
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Mit <code>list-style-image:url([Dateiname])</code> können Sie eine Grafik für das eigene Bullet-Zeichen angeben. Anstatt einer Grafikreferenz ist auch der Wert <code>none</code> erlaubt. Als Grafikdateitypen sollten Sie wie in HTML üblich GIF-, PNG- oder JPG-Grafiken benutzen.</p>
+
+<p>Im Beispiel wird vorausgesetzt, dass sich die Grafikdatei im gleichen Verzeichnis befindet wie die HTML-Datei. Wenn die Grafik in einem anderen Verzeichnis steht, müssen Sie den relativen oder absoluten Pfadnamen angeben. Das funktioniert genau so wie beim <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/grafiken/einbinden.htm">Einbinden von Grafiken</a> in HTML.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/css10.gif" width="30" height="30" alt="CSS 1.0" title="CSS 1.0"><img src="../../src/netsc4.gif" width="30" height="30" alt="Netscape 4.0" title="Netscape 4.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="list_style">list-style (Listendarstellung allgemein)</a></h2>
+
+<p>Diese Angabe ist eine Zusammenfassung der folgenden möglichen Einzelangaben:<br>
+<img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#list_style_type">list-style-type</a> (Darstellungstyp)<br>
+<img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#list_style_position">list-style-position</a> (Listeneinrückung)<br>
+<img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#list_style_image">list-style-image</a> (Eigene Bullet-Grafik)<br>
+</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/list_style.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"&gt;
+&lt;html&gt;&lt;head&gt;&lt;title&gt;list-style&lt;/title&gt;
+&lt;/head&gt;&lt;body&gt;
+
+&lt;h4&gt;Nummerierte Liste &amp;lt;ol&amp;gt; mit den Angaben &lt;i&gt;lower-roman inside&lt;/i&gt;&lt;/h4&gt;
+&lt;ol style="list-style:lower-roman inside"&gt;
+&lt;li&gt;bei Anette vorbeischauen&lt;br&gt;
+und Gr&amp;uuml;&amp;szlig;e an Gundula ausrichten&lt;/li&gt;
+&lt;!--usw.--&gt;
+&lt;/ol&gt;
+
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Mit <code>list-style:</code> können Sie zusammenfassende Angaben zum Aussehen von Aufzählungslisten oder nummerierten Listen machen. Notieren Sie Angaben zum Darstellungstyp, zur Listeneinrückung sowie zur Bullet-Grafik mit Leerzeichen dazwischen, so wie im Beispiel oben. Die Reihenfolge der Einzelangaben ist egal. Es ist nicht erforderlich, zu allen Angaben etwas zu notieren.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Netscape 4.x interpretiert nur einen Teil dieser Angaben.</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="tabellen.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="tabellen.htm">Tabellenformatierung</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="hintergrund.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="hintergrund.htm">Hintergrundfarben und -bilder</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">Stylesheets (CSS)</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">CSS-Eigenschaften</a></td>
+</tr>
+</table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

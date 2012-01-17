@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="choose.xsl" ?>
+<test>
+<zahl>69</zahl>
+<zahl>12345</zahl>
+<zahl>743</zahl>
+<zahl>915743</zahl>
+</test>
+

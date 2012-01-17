@@ -1,0 +1,13 @@
+<!ENTITY % artikel "artikelnummer, artikelname, artikelmenge">
+<!ENTITY % zusatz "beschreibung | warenklasse">
+<!ELEMENT lager (eingang | ausgang)*>
+<!ELEMENT eingang (eingangsnummer, (%artikel;), (%zusatz;))>
+<!ELEMENT ausgang (ausgangsnummer, (%artikel;), (%zusatz;))>
+<!ELEMENT eingangsnummer (#PCDATA)>
+<!ELEMENT ausgangsnummer (#PCDATA)>
+<!ELEMENT artikelnummer  (#PCDATA)>
+<!ELEMENT artikelname    (#PCDATA)>
+<!ELEMENT artikelmenge   (#PCDATA)>
+<!ELEMENT beschreibung   (#PCDATA)>
+<!ELEMENT warenklasse    (#PCDATA)>
+

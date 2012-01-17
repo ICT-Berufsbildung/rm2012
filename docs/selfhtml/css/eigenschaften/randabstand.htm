@@ -1,0 +1,324 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: Stylesheets / CSS-Eigenschaften / Außenrand und Abstand</title>
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<meta name="description"    content="Welche CSS-Eigenschaften es gibt, um Abstände zwischen Elementen zu erzeugen.">
+<meta name="keywords"       content="SELFHTML, CSS, Stylesheets, Cascading Stylesheets, HTML, CSS-Eigenschaften, Abstand, Absatzabstand, Nebenabstand, Rand, Außenrand, margin, margin-top, margin-bottom, margin-left, margin-right">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-08-22T21:21:39+02:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/css/eigenschaften/randabstand.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="CSS-Eigenschaften" href="index.htm">
+<link rel="next" title="Innenabstand" href="innenabstand.htm">
+<link rel="prev" title="Ausrichtung und Absatzkontrolle" href="ausrichtung.htm">
+<link rel="first" title="Schriftformatierung" href="schrift.htm">
+<link rel="last" title="Filter (nur Microsoft)" href="filter.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">Stylesheets (CSS)</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">CSS-Eigenschaften</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Außenrand und Abstand</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#allgemeines">Allgemeines zu Außenrand und Abstand</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#margin_top">margin-top</a> (Außenrand/Abstand oben)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#margin_right">margin-right</a> (Außenrand/Abstand rechts)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#margin_bottom">margin-bottom</a> (Außenrand/Abstand unten)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#margin_left">margin-left</a> (Außenrand/Abstand links)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#margin">margin</a> (Außenrand/Abstand allgemein)<br>
+</p>
+</td>
+</tr><tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><a class="an" name="allgemeines">Allgemeines zu Außenrand und Abstand</a></h2>
+
+<p>Außenrand oder Abstand bedeutet: erzwungener Leerraum zwischen dem aktuellen Element und seinem Elternelement oder Nachbarelement. Für ein <code>p</code>-Element, also einen Textabsatz etwa, der direkt innerhalb des <code>body</code>-Elements notiert ist, markieren Angaben zu linkem und rechten Außenrand seinen Abstand zu den Elementgrenzen des <code>body</code>-Elements. Wenn mehrere solcher <code>p</code>-Absätze aufeinander folgen, markieren Angaben zum Außenrand oben und unten den Abstand zwischen den Absätzen. Das folgende Bild veranschaulicht die Möglichkeiten, Außenränder und Abstände zu definieren:</p>
+
+<p><img src="randabstand.gif" width="300" height="150" alt="Außenrand und Abstand"></p>
+
+<p>Sinnvoll sind die hier beschriebenen CSS-Eigenschaften für alle HTML-Elemente, die einen eigenen Absatz erzeugen bzw. einen Block bilden, also etwa für <code>h[1-6]</code>, <code>p</code>, <code>blockquote</code>, <code>address</code> oder <code>pre</code>. Block-Elemente sind aber auch HTML-Elemente wie <code>div</code> und <code>table</code>. Auch auf <code>body</code> lassen sich die hier aufgelisteten Stylesheet-Angaben anwenden - in diesem Fall werden Ränder für den gesamten sichtbaren Körper der HTML-Datei definiert.</p>
+
+<p>Mit negativen Werten, also Angaben wie beispielsweise -50px, können Sie für besondere gestalterische Zwecke erreichen, dass sich Elemente überlappen.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/css10.gif" width="30" height="30" alt="CSS 1.0" title="CSS 1.0"><img src="../../src/netsc4.gif" width="30" height="30" alt="Netscape 4.0" title="Netscape 4.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="margin_top">margin-top (Außenrand/Abstand oben)</a></h2>
+
+<p>Sie können bestimmen, wie viel Abstand ein Element zu seinem Vorgängerelement oder zu seinem Elternelement nach oben hin hat.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/margin_top.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"&gt;
+&lt;html&gt;&lt;head&gt;&lt;title&gt;margin-top&lt;/title&gt;
+&lt;style type="text/css"&gt;
+  h1,h2,h3 { margin-top:3em; }
+  div.beispiel { margin-top:100px; margin-left:200px; }
+&lt;/style&gt;
+&lt;/head&gt;&lt;body&gt;
+
+&lt;h1&gt;&amp;Uuml;berschrift erster Ordnung&lt;/h1&gt;
+&lt;div class="beispiel"&gt;
+Bereich mit der Beispiel-Klasse.
+&lt;h1&gt;&amp;Uuml;berschrift erster Ordnung&lt;/h1&gt;
+&lt;/div&gt;
+
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Mit <code>margin-top:</code> können Sie den Rand/Abstand oben bestimmen. Erlaubt ist eine <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../formate/wertzuweisung.htm#numerische">numerische Angabe</a> oder der Wert <code>auto</code> oder <code>inherit</code>. Im obigen Beispiel wird für Überschriften 1., 2. und 3. Ordnung ein vorausgehender Abstand von 3em definiert. Ferner wird eine Klasse <code>beispiel</code> für das <code>div</code>-Element definiert. Solche Bereiche haben laut Definition im Beispiel 100 Pixel Abstand zu ihrem vorausgehenden Element (und 200 Pixel Abstand nach links, definiert mit <code>margin-left</code>).</p>
+
+<p>Wenn das Vorgänger- oder Elternelement eine Angabe zu <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#margin_bottom">margin-bottom</a> hat, gilt nur eine der beiden Angaben für den Gesamtabstand zwischen den beiden Elementen, und zwar diejenige, die den größten Abstand definiert. Wenn also ein erster Textabsatz <code>margin-bottom:10px</code> hat und ein folgender Textabsatz <code>margin-top:15px</code>, dann wird der Abstand zwischen beiden Absätzen auf <code>15px</code> berechnet. Wenn eine der beiden Gegen-Angaben negativ ist, wird der tatsächliche Abstand zwischen den beiden Elementen aus dem Wert der positiven abzüglich der negativen Angabe berechnet.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Bei Verwendung im <code>body</code>-Element bestimmt <code>margin-top:</code> den Abstand zum oberen Fensterrand.<br>
+Der Wert <code>auto</code> entspricht dem Ausgangswert <code>0</code> für diese Eigenschaft, setzt also lediglich einen zuvor definierten Wert zurück.</p>
+
+<p>Einige frühe Netscape 4.x-Versionen beherrschen das Zusammenrechnen von Abstandsangaben oben und unten noch nicht und addieren beide Werte.</p>
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/css10.gif" width="30" height="30" alt="CSS 1.0" title="CSS 1.0"><img src="../../src/netsc6.gif" width="30" height="30" alt="Netscape 6.0" title="Netscape 6.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="margin_right">margin-right (Außenrand/Abstand rechts)</a></h2>
+
+<p>Sie können den rechten Abstand/Rand eines Elements festlegen. Wenn das Element einen rechten Nachbarn hat (etwa bei zwei nebeneinanderliegenden Grafiken die erste der beiden), dann bedeutet die Angabe den Abstand zum rechts davon liegenden Element. Wenn das Element keinen rechten Nachbarn hat (etwa ein normaler Textabsatz), dann bedeutet die Angabe den Rand relativ zum Elternelement (z.B. zum Seitenrand, der für das <code>body</code>-Element festgelegt ist.). Wenn kein übergeordnetes Elternelement mehr da ist (also beim <code>body</code>-Element selbst), dann bezieht sich die Angabe auf den rechten Abstand des Dokumentinhalts vom Anzeigefenster.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/margin_right.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"&gt;
+&lt;html&gt;&lt;head&gt;&lt;title&gt;margin-right&lt;/title&gt;
+&lt;style type="text/css"&gt;
+  p { text-align:right; }
+&lt;/style&gt;
+&lt;/head&gt;&lt;body&gt;
+
+&lt;p style="margin-right:1em"&gt;Dieser rechtsb&uuml;ndig ausgerichtete
+ Textabsatz hat einen Abstand von 1em zum rechten Rand.&lt;/p&gt;
+&lt;p style="margin-right:3em"&gt;Dieser rechtsb&uuml;ndig ausgerichtete
+ Textabsatz hat einen Abstand von 3em zum rechten Rand.&lt;/p&gt;
+
+&lt;!--usw.--&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Mit <code>margin-right:</code> können Sie den Rand/Abstand rechts bestimmen. Erlaubt ist eine <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../formate/wertzuweisung.htm#numerische">numerische Angabe</a> oder der Wert <code>auto</code> oder <code>inherit</code>.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Der Wert <code>auto</code> setzt den rechten Abstand auf die gesamte noch zur Verfügung stehende Breite, wirkt sich also ohne Angabe zu <code>margin-left</code> nicht aus. Über <code>margin-left:auto; margin-right:auto</code> können Block-Elemente zentriert werden. Der Internet Explorer unterstützt dies allerdings bis zur Version 5.x noch nicht; Sie können jedoch dessen fehlerhafte Umsetzung von <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="ausrichtung.htm#text_align">text-align</a> zur Zentrierung von Block-Elementen ausnutzen.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/css10.gif" width="30" height="30" alt="CSS 1.0" title="CSS 1.0"><img src="../../src/netsc4.gif" width="30" height="30" alt="Netscape 4.0" title="Netscape 4.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="margin_bottom">margin-bottom (Außenrand/Abstand unten)</a></h2>
+
+<p>Sie können bestimmen, wie viel Abstand ein Element zu seinem Nachfolgerelement nach unten hin hat, oder - wenn es das letzte Kindelement eines Elements ist - wie viel Abstand es zu dessen unterem Rand hin hat.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/margin_bottom.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"&gt;
+&lt;html&gt;&lt;head&gt;&lt;title&gt;margin-bottom&lt;/title&gt;&lt;/head&gt;
+&lt;body&gt;
+
+&lt;p style="margin-bottom:3em"&gt;Dieser Textabsatz hat einen
+Abstand von 3em zum darauffolgenden.&lt;/p&gt;
+
+&lt;p style="margin-bottom:10%"&gt;Dieser Textabsatz hat einen
+Abstand von 10% zum darauffolgenden.&lt;/p&gt;
+
+&lt;p style="margin-bottom:50px"&gt;Dieser Textabsatz hat einen
+Abstand von 50px zum darauffolgenden.&lt;/p&gt;
+
+&lt;p&gt;Dieser Textabsatz dient nur noch zu Vergleichszwecken und hat keinen
+definierten Nachabstand.&lt;/p&gt;
+
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Mit <code>margin-bottom:</code> können Sie den Rand/Abstand nach unten bestimmen. Erlaubt ist eine <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../formate/wertzuweisung.htm#numerische">numerische Angabe</a> oder der Wert <code>auto</code> oder <code>inherit</code>. Für Hinweise zu addierenden Angaben für <code>margin-bottom</code> und <code>margin-top</code> bei aufeinanderfolgenden Elementen siehe <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#margin_top">margin-top</a>.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Bei Verwendung im <code>body</code>-Element bestimmt <code>margin-bottom:</code> den Abstand zum unteren Fensterrand.<br>
+Der Wert <code>auto</code> entspricht dem Ausgangswert <code>0</code> für diese Eigenschaft, setzt also lediglich einen zuvor definierten Wert zurück.</p>
+
+<p>Bei Netscape 4.x hat die Angabe <code>margin-top</code> (für den Abstand oben) in jedem Fall Vorrang vor der Angabe <code>margin-bottom</code> (für den Abstand unten), weshalb dort das intelligente Addieren zwischen Angaben zu beiden Eigenschaften nicht so funktioniert wie es sollte.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/css10.gif" width="30" height="30" alt="CSS 1.0" title="CSS 1.0"><img src="../../src/netsc4.gif" width="30" height="30" alt="Netscape 4.0" title="Netscape 4.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="margin_left">margin-left (Außenrand/Abstand links)</a></h2>
+
+<p>Sie können den linken Abstand/Rand eines Elements festlegen. Wenn das Element einen linken Nachbarn hat (etwa bei zwei nebeneinanderliegenden Grafiken die zweite der beiden), dann bedeutet die Angabe den Abstand zum links davon liegenden Element. Wenn das Element keinen linken Nachbarn hat (etwa ein normaler Textabsatz), dann bedeutet die Angabe den Rand relativ zum Elternelement (z.B. zum Seitenrand, der für das <code>body</code>-Element festgelegt ist). Wenn kein übergeordnetes Elternelement mehr da ist (also beim <code>body</code>-Tag selbst), dann bedeutet die Angabe den linken Abstand des Dokumentinhalts vom Anzeigefenster.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/margin_left.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"&gt;
+&lt;html&gt;&lt;head&gt;&lt;title&gt;margin-left&lt;/title&gt;
+&lt;style type="text/css"&gt;
+  body { margin-left:100px; }
+  p,div,table,ul,ol { margin-left:30px; }
+&lt;/style&gt;
+&lt;/head&gt;&lt;body&gt;
+
+&lt;h1&gt;Eine &amp;Uuml;berschrift erster Ordnung&lt;/h1&gt;
+&lt;p&gt;Ein Textabsatz, nochmals weiter eingezogen.&lt;/p&gt;
+&lt;p&gt;Noch einer davon.&lt;/p&gt;
+&lt;h2&gt;Eine &amp;Uuml;berschrift zweiter Ordnung&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Ein Listenpunkt&lt;/li&gt;
+&lt;li&gt;Noch ein Listenpunkt&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Mit <code>margin-left:</code> können Sie den Rand/Abstand links bestimmen. Erlaubt ist eine <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../formate/wertzuweisung.htm#numerische">numerische Angabe</a> oder der Wert <code>auto</code> oder <code>inherit</code>. Im obigen Beispiel wird zunächst ein globaler linker Seitenrand von 100 Pixeln definiert, indem diese Angabe dem <code>body</code>-Element zugewiesen wird. Für Fließtextabsätze, Bereiche, Tabellen, und Listen wird zusätzlich ein linker Rand von 30 Pixeln definiert, sodass sich bei diesen Elementen insgesamt ein linker Rand von 130 Pixeln zum linken Fensterrand ergibt. Überschriften etwa, für die nichts weiter festgelegt ist, erscheinen dann links ausgerückt.</p>
+
+<p>Bei Nachbarelementen oder verschachtelten Elementen, bei denen Angaben zu <code>margin-left</code> und <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#margin_right">margin-right</a> aufeinandertreffen, werden beide Angaben in jedem Fall addiert.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Der Wert <code>auto</code> setzt den linken Abstand auf die gesamte noch zur Verfügung stehende Breite, kann also zur rechtsbündigen Ausrichtung von Block-Elementen verwendet werden. Der Internet Explorer setzt dies allerdings bis zur Version 5.x noch nicht um.</p>
+
+<p>Wenn Sie beispielsweise zwei Grafiken nebeneinander referenzieren und dabei <code>margin-left</code>angeben, reagiert Netscape 4.x zum Teil sehr unterschiedlich und nicht besonders nachvollziehbar.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/css10.gif" width="30" height="30" alt="CSS 1.0" title="CSS 1.0"><img src="../../src/netsc4.gif" width="30" height="30" alt="Netscape 4.0" title="Netscape 4.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="margin">margin (Außenrand/Abstand allgemein)</a></h2>
+
+<p>Diese Angabe ist eine Zusammenfassung der folgenden fakultativen Einzelangaben:<br>
+<img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#margin_top">margin-top</a><br>
+<img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#margin_right">margin-right</a><br>
+<img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#margin_bottom">margin-bottom</a><br>
+<img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#margin_left">margin-left</a>
+</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/margin.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"&gt;
+&lt;html&gt;&lt;head&gt;&lt;title&gt;margin&lt;/title&gt;
+&lt;style type="text/css"&gt;
+.typA { margin: 1cm; background-color:#99FF99; }
+.typB { margin: 1cm 2cm; background-color:#FFFF99; }
+.typC { margin: 1cm 2cm 3cm; background-color:#99FFFF; }
+.typD { margin: 1cm 2cm 3cm 4cm; background-color:#FF99FF; }
+&lt;/style&gt;
+&lt;/head&gt;&lt;body&gt;
+
+&lt;div class="typA"&gt;&lt;h1&gt;typA mit margin: 1cm&lt;/h1&gt;&lt;/div&gt;
+&lt;hr&gt;
+&lt;div class="typB"&gt;&lt;h1&gt;typB mit margin: 1cm 2cm&lt;/h1&gt;&lt;/div&gt;
+&lt;hr&gt;
+&lt;div class="typC"&gt;&lt;h1&gt;typC mit margin: 1cm 2cm 3cm&lt;/h1&gt;&lt;/div&gt;
+&lt;hr&gt;
+&lt;div class="typD"&gt;&lt;h1&gt;typD mit margin: 1cm 2cm 3cm 4cm&lt;/h1&gt;&lt;/div&gt;
+&lt;hr&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Mit <code>margin:</code> können Sie den Rand/Abstand für oben, rechts, unten und links bestimmen. Erlaubt sind ein bis vier <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../formate/wertzuweisung.htm#numerische">numerische Angaben</a> oder die Werte <code>auto</code> und <code>inherit</code>.</p>
+
+<p>Eine Angabe bedeutet: alle vier Ränder des Elements erhalten den gleichen Außenabstand.</p>
+
+<p>Bei mehreren Angaben werden diese abhängig von deren Anzahl interpretiert.<br>
+Zwei Angaben bedeuten: die erste Angabe bedeutet den Abstand für oben und unten, die zweite den Abstand für rechts und links.<br>
+Drei Angaben bedeuten: die erste Angabe bedeutet den Abstand für oben, die zweite den Abstand für rechts und links und die dritte den Abstand für unten.<br>
+Vier Angaben bedeuten: die erste Angabe bedeutet den Abstand für oben, die zweite den Abstand für rechts, die dritte den Abstand für unten und die vierte den Abstand für links.</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="innenabstand.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="innenabstand.htm">Innenabstand</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="ausrichtung.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="ausrichtung.htm">Ausrichtung und Absatzkontrolle</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">Stylesheets (CSS)</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">CSS-Eigenschaften</a></td>
+</tr>
+</table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

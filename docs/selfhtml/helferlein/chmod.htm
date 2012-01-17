@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: Kleine Helferlein / Unix-Dateirechte-Setzer (chmod)</title>
+<link rel="stylesheet" type="text/css" href="../src/selfhtml.css">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-08-18T05:08:52+02:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/helferlein/chmod.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<script type="text/javascript">
+function Oct (r, w, x) {
+  i=0;
+  if (r)
+    i += 4;
+  if (w)
+    i += 2;
+  if (x)
+    i += 1;
+  return i;
+}
+function Letters (r, w, x) {
+  s="";
+  if (r) {
+    s += "r";
+  } else {
+    s += "-"
+  }
+  if (w) {
+    s += "w";
+  } else {
+    s += "-";
+  }
+  if (x) {
+    s += "x";
+  } else {
+    s += "-";
+  }
+  return s;
+}
+function Rechte () {
+  document.chmod.rwx.value = Letters(document.chmod.or.checked, document.chmod.ow.checked, document.chmod.ox.checked)
+    + Letters(document.chmod.gr.checked, document.chmod.gw.checked, document.chmod.gx.checked)
+    + Letters(document.chmod.ar.checked, document.chmod.aw.checked, document.chmod.ax.checked);
+
+  document.chmod.oct.value= ""
+    + Oct(document.chmod.or.checked, document.chmod.ow.checked, document.chmod.ox.checked)
+    + Oct(document.chmod.gr.checked, document.chmod.gw.checked, document.chmod.gx.checked)
+    + Oct(document.chmod.ar.checked, document.chmod.aw.checked, document.chmod.ax.checked);
+}
+</script>
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../src/favicon.ico">
+<link rel="author" title="Impressum" href="../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../editorial/copyright.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td class="nav"><a class="an" name="top"><img src="../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../index.htm">SELFHTML</a>/<a href="../navigation/index.htm">Navigationshilfen</a> <img src="../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Kleine Helferlein</a></td>
+</tr></table>
+
+<h1 class="ph1">Unix-Dateirechte-Setzer (chmod)</h1>
+
+<p>Vergeben Sie die gewünschten Rechte mit Hilfe der Checkboxen. Im ersten der unteren Felder wird dann der daraus entstehende "Rechte-String" angezeigt, im zweiten die Oktalschreibweise der gewählten Rechte.</p>
+
+<p>Die Möglichkeiten zur Rechtevergabe entsprechen den klassischen Unix-Dateirechten, wonach für jede Datei und jedes Verzeichnis die Lese-, Schreib- und Ausführrechte des Besitzers, seiner Default-Gruppe und aller übrigen Benutzer einstellbar ist. Auf Unix-Systemen werden solche Rechte mit dem <kbd>chmod</kbd>-Befehl gesetzt. Dabei geben Sie die Oktalschreibweise an, z.B.:<br>
+<kbd>chmod 755 counter.pl</kbd><br>
+Wenn Sie sich Verzeichniseinträge auflisten lassen, z.B. mit dem Kommando <kbd>ls&nbsp;-l</kbd>, dann werden die Dateirechte normalerweise in der Form des "Rechte-Strings" angezeigt.</p>
+
+<form name="chmod" action="">
+
+<table border="0" cellspacing="0" cellpadding="3" class="form" >
+<tr>
+<td width="33%"><b>Besitzer (owner)</b></td>
+<td width="33%"><b>Gruppe (group)</b></td>
+<td width="34%"><b>Welt (all)</b></td>
+</tr>
+<tr>
+<td colspan="3"><img src="../src/formhr.gif" width="99%" height="1" alt=""></td>
+</tr>
+<tr>
+<td><input type="Checkbox" name="or" onclick="Rechte()"> Lesen</td>
+<td><input type="Checkbox" name="gr" onclick="Rechte()"> Lesen</td>
+<td><input type="Checkbox" name="ar" onclick="Rechte()"> Lesen</td>
+</tr>
+<tr>
+<td><input type="Checkbox" name="ow" onclick="Rechte()"> Schreiben</td>
+<td><input type="Checkbox" name="gw" onclick="Rechte()"> Schreiben</td>
+<td><input type="Checkbox" name="aw" onclick="Rechte()"> Schreiben</td>
+</tr>
+<tr>
+<td><input type="Checkbox" name="ox" onclick="Rechte()"> Ausführen</td>
+<td><input type="Checkbox" name="gx" onclick="Rechte()"> Ausführen</td>
+<td><input type="Checkbox" name="ax" onclick="Rechte()"> Ausführen</td>
+</tr>
+<tr><td colspan="3"><img src="../src/formhr.gif" width="99%" height="1" alt=""></td></tr>
+<tr>
+<td><input type="text" name="rwx" size="10" value="---------" style="font-family:monospace"></td>
+<td colspan="2">Zeigt die Rechte in "rwx"-Form an</td>
+</tr><tr>
+<td><input type="text" name="oct" size="10" value="000" style="font-family:monospace"></td>
+<td colspan="2">Zeigt die Rechte in Oktalschreibweise an</td>
+</tr>
+</table>
+</form>
+
+</body>
+</html>

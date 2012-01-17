@@ -1,0 +1,229 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: HTML/XHTML / Weiterführende HTML-Elemente / Script-Bereiche in HTML</title>
+<meta name="description"    content="Wie Sie in HTML Bereiche für JavaScript oder vergleichbare Script-Sprachen definieren können">
+<meta name="keywords"       content="SELFHTML, HTML, JavaScript, Scripts, script, noscript, type, src, charset, defer">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-11-16T01:48:05+01:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/html/transit/scripts.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="Weiterführende HTML-Elemente" href="index.htm">
+<link rel="next" title="Allgemeine Universalattribute" href="../attribute/allgemeine.htm">
+<link rel="prev" title="Stylesheet-Bereiche in HTML" href="stylesheets.htm">
+<link rel="first" title="Stylesheet-Bereiche in HTML" href="stylesheets.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">HTML/XHTML</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Weiterführende HTML-Elemente</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Script-Bereiche in HTML</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#definieren">Script-Bereich definieren</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#noscript">Noscript-Bereich definieren</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#weitere">Weitere Angaben zum Script</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#weitere_infos">Weitere Informationen</a><br>
+</p>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><img src="../../src/html40.gif" width="30" height="30" alt="HTML 4.0" title="HTML 4.0"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/netsc2.gif" width="30" height="30" alt="Netscape 2.0" title="Netscape 2.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="definieren">Script-Bereich definieren</a></h2>
+
+<p>Sie können im Dateikopf, also zwischen <code>&lt;head&gt;</code> und <code>&lt;/head&gt;</code>, oder auch innerhalb des Dateikörpers, also zwischen <code>&lt;body&gt;</code> und <code>&lt;/body&gt;</code>, einen oder mehrere Script-Bereiche definieren. Innerhalb von Script-Bereichen können Sie Anweisungen der verwendeten Script-Sprache notieren.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/script.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+       "http://www.w3.org/TR/html4/strict.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Script-Bereiche definieren&lt;/title&gt;
+&lt;script type="text/javascript"&gt;
+function Zeit () {
+  var Jetzt = new Date();
+  var Tag = Jetzt.getDate();
+  var Monat = Jetzt.getMonth() + 1;
+  var Jahr = Jetzt.getYear();
+  if (Jahr &lt; 999)
+    Jahr += 1900;
+  var Vortag = ((Tag &lt; 10) ? "0" : "");
+  var Vormon = ((Monat &lt; 10) ? ".0" : ".");
+  var Datum = Vortag + Tag + Vormon + Monat + "." + Jahr;
+  document.write("&lt;h1&gt;" + Datum + "&lt;\/h1&gt;")
+}
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;script type="text/javascript"&gt;
+  Zeit();
+&lt;/script&gt;
+
+&lt;p&gt;Aktuelle Nachrichten ...&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Mit <code>&lt;script&gt;</code> leiten Sie einen Script-Bereich ein, mit <code>&lt;/script&gt;</code> beenden Sie den Bereich. Innerhalb des Bereichs können Sie Anweisungen der verwendeten Script-Sprache notieren. Aus Sicht von HTML wird alles, was innerhalb des Bereichs steht, als "nackter Text" betrachtet. Dabei kann es allerdings zu Konflikten zwischen einer Sprache wie JavaScript und einem streng SGML-konformen <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../allgemein/textauszeichnung.htm#html_parser">HTML-Parser</a> kommen. Ein solcher Parser betrachtet den Script-Bereich als beendet, sobald er auf die nächste Zeichenfolge <code>&lt;/</code> stößt. Wenn Sie innerhalb von JavaScript diese Zeichenfolge benötigen, wie im obigen Beispiel in der letzten Anweisung, wo mit Hilfe von <code>document.write</code> eine Überschrift erster Ordnung ins Dokument geschrieben wird. Am Ende des ausgegebenen Textes ist dort <code>&lt;\/h1&gt;</code> notiert statt <code>&lt;/h1&gt;</code>. Der Backslash dient in JavaScript dazu, ein nachfolgendes Zeichen zu maskieren, was im Beispiel an der Stelle aus JavaScript-Sicht aber keine weitere Bedeutung hat und nichts weiter bewirkt. Der Backslash ist auch nicht für den JavaScript-Interpreter gedacht, sondern für penible HTML-Parser.</p>
+
+<p>Innerhalb des einleitenden <code>&lt;script&gt;</code>-Tags geben Sie mit dem Pflichtattribut <code>type</code> an, welche Script-Sprache Sie innerhalb des Bereichs benutzen möchten. Als Wert weisen Sie den <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../diverses/mimetypen.htm">MIME-Typ</a> der Script-Sprache zu. Die gängigste Angabe ist dabei <code>text/javascript</code> für JavaScript.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Das immer noch oft genutzte Attribut <code>language</code>, mit dem viele Web-Designer im einleitenden <code>&lt;script&gt;</code>-Tag die Script-Sprache angeben (z.B. <code>language="JavaScript"</code>), wurde als veraltet ("deprecated") eingestuft und ist damit nicht in der <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/varianten.htm">Strict-Variante von HTML</a> enthalten. Die Browser erkennen Scripte mit <code>language="JavaScript"</code> zwar als JavaScript, aber für modernere Browser reicht auch das Attribut <code>type</code> zur Erkennung der Sprache aus. Sie sollten daher möglichst auf das <code>language</code>-Attribut verzichten. Näheres findet Sie im Abschnitt <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../javascript/intro.htm#javascriptbereiche">JavaScript-Bereiche in HTML definieren</a>.</p>
+
+<p>Auf die Script-Befehle wird hier nicht näher eingegangen. Lesen Sie dazu das
+<img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../../javascript/index.htm">JavaScript-Kapitel</a> innerhalb dieser Dokumentation.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/html40.gif" width="30" height="30" alt="HTML 4.0" title="HTML 4.0"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/netsc2.gif" width="30" height="30" alt="Netscape 2.0" title="Netscape 2.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="noscript">Noscript-Bereich definieren</a></h2>
+
+<p>Sie können einen Bereich definieren, der nur angezeigt wird, wenn die verwendete Script-Sprache nicht verfügbar ist, das Script also nicht ausführbar ist. Dies ist der Fall, wenn der Browser die Script-Sprache nicht kennt, oder wenn der Anwender das Interpretieren der Script-Sprache in den Einstellungen seines Browsers ausgeschaltet hat.</p>
+
+<p>Wichtig ist eine solche Angabe beispielsweise, wenn Ihre Seiten intensiv JavaScript benutzen, um Inhalte anzuzeigen oder Verweise auszuführen. In solchen Fällen ist ein Projekt ohne JavaScript kaum nutzbar. Mit einem Noscript-Bereich können Sie einen entsprechenden Hinweis einbauen.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/noscript.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+       "http://www.w3.org/TR/html4/strict.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Noscript-Bereiche definieren&lt;/title&gt;
+&lt;script type="text/javascript"&gt;
+function Zeit () {
+  var Jetzt = new Date();
+  var Tag = Jetzt.getDate();
+  var Monat = Jetzt.getMonth() + 1;
+  var Jahr = Jetzt.getYear();
+  if (Jahr &lt; 999)
+    Jahr += 1900;
+  var Vortag = ((Tag &lt; 10) ? "0" : "");
+  var Vormon = ((Monat &lt; 10) ? ".0" : ".");
+  var Datum = Vortag + Tag + Vormon + Monat + "." + Jahr;
+  document.write("&lt;h1&gt;" + Datum + "&lt;\/h1&gt;")
+}
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;script type="text/javascript"&gt;
+  Zeit();
+&lt;/script&gt;
+
+&lt;noscript&gt;
+  &lt;h1&gt;Guten Tag!&lt;/h1&gt;
+&lt;/noscript&gt;
+
+&lt;p&gt;Aktuelle Nachrichten ...&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel enthält genau die gleichen Scripts wie weiter oben bei <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#definieren">Script-Bereich definieren</a> beschrieben. Diesmal wurde jedoch zusätzlich an Browser gedacht, die kein JavaScript kennen, oder bei denen JavaScript ausgeschaltet ist. Für solche Browser wird an der Stelle, an der bei script-fähigen Browsern die script-erzeugte <code>h1</code>-Überschrift mit dem aktuellen Datum eingesetzt wird, einfach eine gewöhnliche <code>h1</code>-Überschrift mit dem Inhalt <code>Guten Tag!</code> notiert.</p>
+
+<p>Mit <code>&lt;noscript&gt;</code> leiten Sie einen Noscript-Bereich ein, mit <code>&lt;/noscript&gt;</code> beenden Sie ihn. Dazwischen werden <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/elemente.htm#block_elemente">Block-Elemente</a> erwartet, also beispielsweise Überschriften, Textabsätze oder <code>div</code>-Bereiche.</p>
+
+<p>Web-Browser, die das <code>noscript</code>-Element kennen, zeigen den Inhalt dazwischen nur dann an, wenn der Anwender die benutzte Script-Sprache, etwa JavaScript, deaktiviert hat. Web-Browser, die gar keine Script-Sprachen kennen, kennen zwar auch das  <code>noscript</code>-Element nicht, aber einer alten Regel gemäß ignorieren sie die Auszeichnung einfach und zeigen den Inhalt des Elements ganz normal an.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/html40.gif" width="30" height="30" alt="HTML 4.0" title="HTML 4.0"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../../src/msie4.gif" width="30" height="30" alt="MS IE 4.0" title="MS IE 4.0"><img src="../../src/netsc3.gif" width="30" height="30" alt="Netscape 3.0" title="Netscape 3.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="weitere">Weitere Angaben zum Script</a></h2>
+
+<p>Es gibt in HTML eine Reihe weiterer Optionen für Script-Bereiche, die als Attribute im einleitenden <code>&lt;script&gt;</code>-Tag notiert werden können:</p>
+
+<p>Mit dem Attribut <code>src</code> können Sie ein Script einbinden, das in einer separaten Datei notiert ist. Das ist von Vorteil, wenn Sie ein Script auf vielen Seiten verwenden wollen. Dann brauchen Sie das Script nur noch zu referenzieren, statt es jedesmal in der Datei zu notieren. Dieser Script-Bereich in der Datei sollte dann leer bleiben und kein zusätzliches lokales Script enthalten, um Probleme mit älteren Browsern zu vermeiden. Ein Beispiel für das Einbinden externer JavaScript-Dateien und genauere Hinweise dazu finden Sie im Abschnitt <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../javascript/intro.htm#javascriptdateien">JavaScript in separaten Dateien</a>.</p>
+
+<p>Wenn Sie mit <code>src</code> ein externes Script einbinden, können Sie zusätzlich mit dem Attribut <code>charset</code> die <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../inter/zeichenkodierungen.htm">Kodierung</a> angeben, nach der die externe Quelle verarbeitet werden soll. Das ist beispielsweise wichtig, wenn Sie in einem Script deutsche Umlaute und Sonderzeichen nicht maskieren, z.B. bei HTML-Ausgaben. In diesem Fall können Sie <code>charset="ISO-8859-1"</code> angeben, um dem Browser mitzuteilen, dass er die Kodierung <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../inter/zeichenkodierungen.htm#iso8859_1">ISO-8859-1</a> verwenden soll. Erlaubt sind Kodierungsangaben, wie sie unter der Web-Adresse <img src="../../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.iana.org/assignments/character-sets">http://www.iana.org/assignments/character-sets</a> angegeben sind.</p>
+
+<p>Ein weiteres Attribut namens <code>defer</code> (Standalone-Attribut) soll verhindern, dass ein Script dynamisch Text schreibt. Einzelne JavaScript-Anweisungen wie <code>document.write()</code> werden dadurch unterbunden. Beachten Sie, dass dieses Attribut bislang jedoch nur von neueren Versionen des Internet Explorers interpretiert wird.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="weitere_infos">Weitere Informationen</a></h2>
+
+<p>In der <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../referenz/index.htm">HTML-Referenz</a> finden Sie genaue Angaben darüber, wo die hier beschriebenen Elemente vorkommen dürfen, welche Attribute sie haben können und was bei den einzelnen Attributen zu beachten ist:<br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/elemente.htm#script">Element-Referenz</a> für Script-Bereiche<br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/attribute.htm#script">Attribut-Referenz</a> für Script-Bereiche<br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/elemente.htm#noscript">Element-Referenz</a> für Noscript-Bereiche<br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/attribute.htm#noscript">Attribut-Referenz</a> für Noscript-Bereiche</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="../attribute/allgemeine.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../attribute/allgemeine.htm">Allgemeine Universalattribute</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="stylesheets.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="stylesheets.htm">Stylesheet-Bereiche in HTML</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">HTML/XHTML</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Weiterführende HTML-Elemente</a></td>
+</tr></table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

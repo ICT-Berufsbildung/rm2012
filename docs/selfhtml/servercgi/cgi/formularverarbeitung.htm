@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: Webserver/CGI / CGI / HTML-Formulare und CGI</title>
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<meta name="description"    content="Der Zusammenhang zwischen einem HTML-Formular und einem CGI-Script, das die Formulardaten verarbeitet.">
+<meta name="keywords"       content="SELFHTML, CGI, HTML, Formulare, www-form-url-encoded, GET, POST">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-11-10T19:31:11+01:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/servercgi/cgi/formularverarbeitung.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="CGI" href="index.htm">
+<link rel="next" title="MIME-Typen" href="../../diverses/mimetypen.htm">
+<link rel="prev" title="CGI-Umgebungsvariablen" href="umgebungsvariablen.htm">
+<link rel="first" title="CGI und HTML" href="cgihtml.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">Webserver/CGI</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">CGI</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">HTML-Formulare und CGI</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#get_post">Formulardaten übertragen mit GET oder POST</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#datenstrom">Datenstrom bei Übertragung von Formulardaten</a><br>
+</p>
+</td>
+</tr><tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><a class="an" name="get_post">Formulardaten übertragen mit GET oder POST</a></h2>
+
+<p>Das Hypertext Transfer Protocol (HTTP) ist das Übertragungsprotokoll, mit dem Web-Browser und Webserver Daten austauschen. Dafür gibt es HTTP-Anfragemethoden. Zwei HTTP-Anfragemethoden sind im Zusammenhang mit der Übertragung von Formulardaten von Bedeutung:</p>
+
+<ul>
+<li><code>GET</code><br>
+In einem HTML-Formular erzwingen Sie diese Methode durch die Angabe von <code>method="get"</code> im einleitenden <code>&lt;form&gt;</code>-Tag. Bei dieser Angabe werden die ausgefüllten Formulardaten zuerst an die Server-Software übertragen und von dieser in einer bestimmten Umgebungsvariablen mit dem Namen <code>QUERY_STRING</code> zwischenspeichert. Ein CGI-Script, das aufgrund der Angabe von <code>action</code> im einleitenden Formular-Tag aufgerufen wird, muss den Inhalt dieser Umgebungsvariablen auslesen, um an die Formulardaten heranzukommen (siehe auch den Abschnitt über <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="umgebungsvariablen.htm">CGI-Umgebungsvariablen</a>). In Perl ist das beispielsweise mit einer Anweisung wie <code>$form_daten = $ENV{'QUERY_STRING'};</code> möglich. Wenn ein HTML-Formular die GET-Methode verwendet, wird der Formulardatenstrom, getrennt durch ein Fragezeichen, zum URI des CGI-Programmaufrufs hinzugefügt. Im Web-Browser des Anwenders ist dies nach dem Absenden des Formulars in der Adresszeile sichtbar.</li>
+<li><code>POST</code><br>
+In einem HTML-Formular erzwingen Sie diese Methode durch die Angabe von <code>method="post"</code> im einleitenden <code>&lt;form&gt;</code>-Tag. Die Angabe bewirkt, dass die  ausgefüllten Formulardaten direkt an die Adresse übertragen werden, die bei <code>action</code> angegeben ist. Ein CGI-Script, das bei <code>action</code> aufgerufen wird, muss die Standardeingabe auslesen, um an die Formulardaten heranzukommen. In Perl geht das beispielsweise mit einer Anweisung wie <code>read(STDIN, my $Daten, $ENV{CONTENT_LENGTH});</code>. Beachten Sie dabei, dass das Programm die Umgebungsvariable <code>CONTENT_LENGTH</code> auslesen muss, um zu ermitteln, wie viele Zeichen es von der Standardeingabe lesen soll. Das ist erforderlich, da der übergebene Datenstrom kein Datenendekennzeichen enthält!</li>
+</ul>
+
+<p>Wenn Sie ein vorhandenes CGI-Script einsetzen wollen, müssen Sie wissen, nach welcher der beiden Methoden das betreffende Script die Daten erwartet. Normalerweise ist das vom Autor des CGI-Scripts dokumentiert. Einige Scripts sind auch so intelligent, beide Möglichkeiten abzufragen - in diesem Fall ist es egal, welche Anfragemethode Sie im HTML-Formular wählen. Wenn Sie eigene Scripts schreiben, müssen Sie eine Anfragemethode festlegen oder ebenfalls so intelligent programmieren, dass es egal ist, welche Methode im HTML-Formular angegeben wird.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="datenstrom">Datenstrom bei Übertragung von Formulardaten</a></h2>
+
+<p>Ein typisches HTML-Formular besteht aus benannten Feldern (z.B. für Name, E-Mail-Adresse und Kommentartext). Bei der Übertragung eines ausgefüllten Formulars an den Server-Rechner bzw. ein CGI-Programm müssen die Daten so übertragen werden, dass es dem CGI-Script möglich ist, zu erkennen, aus welchen Feldern das Formular besteht, und welche Daten der Anwender in welches Feld eingetragen hat. Deshalb gibt es eine bestimmte Kodierungsmethode, die Formularfelder und deren Daten voneinander trennt. Diese Kodierungsmethode benutzt folgende Regeln:</p>
+<ul>
+<li>Die einzelnen Formularelemente inklusive ihrer Daten werden durch ein kaufmännisches und (<code>&amp;</code>) voneinander getrennt.</li>
+<li>Name und Daten eines Formularelements werden durch ein Gleichheitszeichen (<code>=</code>) voneinander getrennt.</li>
+<li>Leerzeichen in den eingegebenen Daten (z.B. bei mehreren Wörtern) werden durch ein Pluszeichen (<code>+</code>) ersetzt.</li>
+<li>Alle Zeichen, die nicht in der <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../inter/zeichenkodierungen.htm#iso8859">ASCII-Codetabelle</a> vorkommen, sowie einige Sonderzeichen werden durch eine Hexadezimalzeichenfolge umschrieben, eingeleitet durch ein Prozentzeichen (<code>%</code>) und dahinter der Hexadezimalwert des Zeichens. Welchen Wert ein Zeichen hat, hängt von der verwendeten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../inter/sprache.htm">Zeichenkodierung</a> ab. Diese können Sie über das Attribut <code>accept-charset</code> bestimmen, siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href=" ../../html/formulare/definieren.htm#zeichenkodierung">Zeichenkodierung der Formulardaten</a>. Zum Beispiel wird der deutsche Umlaut <code>ö</code> im Falle der Kodierung <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../inter/zeichenkodierungen.htm#iso8859_liste">ISO 8859-1</a> durch <code>%F6</code> umschrieben.</li>
+<li>Alle Zeichen, die in diesen Regeln als Steuerzeichen vorkommen (also &amp;, +, = und %) werden ebenfalls hexadezimal umschrieben, und zwar genau so wie Zeichen außerhalb von ASCII.</li>
+</ul>
+<p>Das folgende Beispiel zeigt zunächst den Quelltext eines HTML-Formulars und darunter ein Bild, wie das Formular im Web-Browser mit Anwendereingaben aussieht. Unterhalb des Bildes sehen Sie, wie der Formulardatenstrom entsprechend den Kodierungsregeln aussieht, nachdem der Anwender das Formular abgesendet hat.</p>
+
+<h3 class="xmp">Beispiel: HTML-Formular</h3>
+
+<pre>
+&lt;form action="/cgi-bin/comments.pl" method="post" accept-charset="ISO-8859-1"&gt;
+&lt;p&gt;Name:&lt;br&gt;
+&lt;input name="AnwenderName" size="40"&gt;&lt;/p&gt;
+&lt;p&gt;E-Mail:&lt;br&gt;
+&lt;input name="AnwenderMail" size="40"&gt;&lt;/p&gt;
+&lt;p&gt;Text:&lt;br&gt;
+&lt;textarea name="Text" rows="5" cols="50"&gt;&lt;/textarea&gt;&lt;/p&gt;
+&lt;p&gt;&lt;input type="submit" value="Formulardaten absenden"&gt;&lt;/p&gt;
+&lt;/form&gt;
+</pre>
+
+<h3 class="xmp">Beispiel: Abbildung des HTML-Formulars im Web-Browser mit Anwendereingaben</h3>
+
+<p><img src="formular.gif" width="435" height="283" alt="Formular"></p>
+
+<h3 class="xmp">Beispiel: Formulardatenstrom aufgrund dieser Formulareingaben</h3>
+
+<pre>
+AnwenderName=Stefan+M%FCnz&amp;AnwenderMail=beispiel@example.org&amp;Text=Das+ist+ein+kleiner+Text
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>So kodiert der Web-Browser die Formulardaten beim Absenden des Formulars. Diese Zeichenkette wird mit einer der erlaubten Methoden POST oder GET an das aufgerufene CGI-Script übergeben. Das CGI-Script kann diesen Datenstrom in Kenntnis der Kodierungsregeln selbst auseinanderdividieren, um die Formulardaten beispielsweise feldweise zu verarbeiten. Eine elegantere Methode ist es, dies einem Perl-Modul zu überlassen, das diese Arbeit übernimmt - dem <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../perl/module/cgi.htm">CGI-Modul</a>.</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="../../diverses/mimetypen.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../diverses/mimetypen.htm">MIME-Typen</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="umgebungsvariablen.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="umgebungsvariablen.htm">CGI-Umgebungsvariablen</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">Webserver/CGI</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">CGI</a></td>
+</tr>
+</table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

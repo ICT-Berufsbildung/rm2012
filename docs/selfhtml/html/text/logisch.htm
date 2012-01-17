@@ -1,0 +1,343 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: HTML/XHTML / Elemente zur Textstrukturierung / Logische Auszeichnungen im Text</title>
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<meta name="description"    content="Wie Sie in HTML Text mit Elementen auszeichnen, die vor allem logische Bedeutung haben.">
+<meta name="keywords"       content="SELFHTML, HTML, logische Textauszeichnung, Textauszeichnung, Inline-Elemente, em, strong, code, samp, kbd, var, cite, dfn, acronym, abbr, q, ins, del, bdo">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-10-31T12:25:34+01:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/html/text/logisch.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="Elemente zur Textstrukturierung" href="index.htm">
+<link rel="next" title="Physische Auszeichnungen im Text" href="physisch.htm">
+<link rel="prev" title="Präformatierter Text (wie im Editor eingegeben)" href="praeformatiert.htm">
+<link rel="first" title="Überschriften" href="ueberschriften.htm">
+<link rel="last" title="Ältere browser-proprietäre Elemente" href="proprietaer.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">HTML/XHTML</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Elemente zur Textstrukturierung</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Logische Auszeichnungen im Text</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#allgemeines">Allgemeines zur logischen Auszeichnung im Text</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#elemente">HTML-Elemente für logische Auszeichnung im Text</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#aenderungsmarkierung">Änderungsmarkierungen im Dokument</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#textrichtung">Textrichtung ändern</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#formatieren">Logische Elemente für Textauszeichnung formatieren mit CSS</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#weitere_infos">Weitere Informationen</a><br>
+</p>
+</td>
+</tr><tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><a class="an" name="allgemeines">Allgemeines zur logischen Auszeichnung im Text</a></h2>
+
+<p>In HTML gibt es logische und <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="physisch.htm">physische</a> Elemente zur Auszeichnung von Text. Logische Textauszeichnungen haben Bedeutungen wie "betont" oder "emphatisch". Bei logischen Elementen entscheidet der Web-Browser, wie ein solcher Text hervorgehoben wird (z.B. fett, kursiv oder andersfarbig). In Verbindung mit Stylesheets können Sie logische Textauszeichnungen allerdings nach Wunsch formatieren.</p>
+
+<p>Im Unterschied zu Elementen wie Überschriften, Textabsätzen, Listen usw., die ja auch der logischen Strukturierung von Text dienen, sind die hier beschriebenen Elemente jedoch so genannte <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/elemente.htm#inline_elemente">Inline-Elemente</a>, während Überschriften, Textabsätze, Listen usw. als <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/elemente.htm#block_elemente">Block-Elemente</a> bezeichnet werden. Inline-Elemente erzeugen keinen Absatz (genauer: keine neue Zeile) im Textfluss.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="elemente">HTML-Elemente für logische Auszeichnung im Text</a></h2>
+
+<p>Es stehen verschiedene HTML-Elemente zur Verfügung, um Text logisch auszuzeichnen.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/logisch.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+       "http://www.w3.org/TR/html4/strict.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;HTML-Elemente f&amp;uuml;r logische Auszeichnung im Text&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;Alles logisch&lt;/h1&gt;
+
+&lt;p&gt;Die Kreter sagen, da&amp;szlig; &lt;strong&gt;alle Kreter l&amp;uuml;gen&lt;/strong&gt;.
+Das stimmt aber nicht, weil alle Kreter l&amp;uuml;gen.&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Inline-Elemente für Auszeichnungen im Text müssen - zumindest in der HTML-Variante "Strict" - innerhalb anderer Block-Elemente vorkommen. Im obigen Beispiel ist ein <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="absaetze.htm">Textabsatz</a> notiert und innerhalb davon eine logische Textauszeichnung. Am Anfang des Textbereichs, der ausgezeichnet werden soll, wird ein einleitendes Tag (im Beispiel das Tag <code>&lt;strong&gt;</code>) eingefügt. Am Ende des gewünschten
+Textbereichs wird ein entsprechendes Abschluss-Tag eingefügt (im Beispiel
+<code>&lt;/strong&gt;</code>).</p>
+
+<p>Folgende Elemente dieser Art stehen zur Verfügung:</p>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<th>Element (Notation)</th>
+<th>Status</th>
+<th>Bedeutung</th>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>&lt;em&gt;...&lt;/em&gt;</code></td>
+<td valign="top" nowrap="nowrap"><img src="../../src/html20.gif" width="30" height="30" alt="HTML 2.0" title="HTML 2.0"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../../src/msie2.gif" width="30" height="30" alt="MS IE 2.0" title="MS IE 2.0"><img src="../../src/netsc1.gif" width="30" height="30" alt="Netscape 1.0" title="Netscape 1.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;</td>
+<td class="tabxpl">zeichnet einen Text aus als betonten, wichtigen Text ("emphatisch")</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>&lt;strong&gt;...&lt;/strong&gt;</code></td>
+<td valign="top" nowrap="nowrap"><img src="../../src/html20.gif" width="30" height="30" alt="HTML 2.0" title="HTML 2.0"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../../src/msie1.gif" width="30" height="30" alt="MS IE 1.0" title="MS IE 1.0"><img src="../../src/netsc1.gif" width="30" height="30" alt="Netscape 1.0" title="Netscape 1.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;</td>
+<td class="tabxpl">zeichnet einen Text aus mit der Bedeutung "stark betont" (Steigerung von "em")</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>&lt;code&gt;...&lt;/code&gt;</code></td>
+<td valign="top" nowrap="nowrap"><img src="../../src/html20.gif" width="30" height="30" alt="HTML 2.0" title="HTML 2.0"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../../src/msie1.gif" width="30" height="30" alt="MS IE 1.0" title="MS IE 1.0"><img src="../../src/netsc1.gif" width="30" height="30" alt="Netscape 1.0" title="Netscape 1.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;</td>
+<td class="tabxpl">zeichnet einen Text aus mit der Bedeutung "dies ist Quelltext"</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>&lt;samp&gt;...&lt;/samp&gt;</code></td>
+<td valign="top" nowrap="nowrap"><img src="../../src/html20.gif" width="30" height="30" alt="HTML 2.0" title="HTML 2.0"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../../src/msie2.gif" width="30" height="30" alt="MS IE 2.0" title="MS IE 2.0"><img src="../../src/netsc1.gif" width="30" height="30" alt="Netscape 1.0" title="Netscape 1.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;</td>
+<td class="tabxpl">zeichnet einen Text aus mit der Bedeutung "Dies ist ein Beispiel". Im engeren Sinne können auch Beispiel-Ausgaben von Programmen und Scripten auf diese Weise ausgezeichnet werden.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>&lt;kbd&gt;...&lt;/kbd&gt;</code></td>
+<td valign="top" nowrap="nowrap"><img src="../../src/html20.gif" width="30" height="30" alt="HTML 2.0" title="HTML 2.0"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../../src/msie2.gif" width="30" height="30" alt="MS IE 2.0" title="MS IE 2.0"><img src="../../src/netsc1.gif" width="30" height="30" alt="Netscape 1.0" title="Netscape 1.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;</td>
+<td class="tabxpl">zeichnet einen Text aus mit der Bedeutung "dies stellt eine Benutzereingabe dar"</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>&lt;var&gt;...&lt;/var&gt;</code></td>
+<td valign="top" nowrap="nowrap"><img src="../../src/html20.gif" width="30" height="30" alt="HTML 2.0" title="HTML 2.0"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../../src/msie1.gif" width="30" height="30" alt="MS IE 1.0" title="MS IE 1.0"><img src="../../src/netsc1.gif" width="30" height="30" alt="Netscape 1.0" title="Netscape 1.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;</td>
+<td class="tabxpl">zeichnet einen Text aus mit der Bedeutung "dies ist eine Variable oder ein variabler Name"</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>&lt;cite&gt;...&lt;/cite&gt;</code></td>
+<td valign="top" nowrap="nowrap"><img src="../../src/html20.gif" width="30" height="30" alt="HTML 2.0" title="HTML 2.0"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../../src/msie2.gif" width="30" height="30" alt="MS IE 2.0" title="MS IE 2.0"><img src="../../src/netsc1.gif" width="30" height="30" alt="Netscape 1.0" title="Netscape 1.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;</td>
+<td class="tabxpl">zeichnet einen Text aus mit der Bedeutung "dies ist die Quelle oder der Autor". Das eigentliche Zitat wird mit <code>q</code> oder <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="zitate_adressen.htm#zitate">blockquote</a> ausgezeichnet.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>&lt;dfn&gt;...&lt;/dfn&gt;</code></td>
+<td valign="top" nowrap="nowrap"><img src="../../src/html32.gif" width="30" height="30" alt="HTML 3.2" title="HTML 3.2"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../../src/msie2.gif" width="30" height="30" alt="MS IE 2.0" title="MS IE 2.0"><img src="../../src/netsc6.gif" width="30" height="30" alt="Netscape 6.0" title="Netscape 6.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;</td>
+<td class="tabxpl">zeichnet einen Text aus mit der Bedeutung "dies ist eine Definition".</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>&lt;abbr&gt;...&lt;/abbr&gt;</code></td>
+<td valign="top" nowrap="nowrap"><img src="../../src/html40.gif" width="30" height="30" alt="HTML 4.0" title="HTML 4.0"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../../src/nb.gif" width="30" height="30" alt=""><img src="../../src/netsc6.gif" width="30" height="30" alt="Netscape 6.0" title="Netscape 6.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;</td>
+<td class="tabxpl">zeichnet einen Text aus mit der Bedeutung "dies ist eine Abkürzung"</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>&lt;acronym&gt;...&lt;/acronym&gt;</code></td>
+<td valign="top" nowrap="nowrap"><img src="../../src/html40.gif" width="30" height="30" alt="HTML 4.0" title="HTML 4.0"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../../src/msie4.gif" width="30" height="30" alt="MS IE 4.0" title="MS IE 4.0"><img src="../../src/netsc6.gif" width="30" height="30" alt="Netscape 6.0" title="Netscape 6.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;</td>
+<td class="tabxpl">zeichnet einen Text aus mit der Bedeutung "dies ist ein Akronym". Akronyme sind besondere Abkürzungen, die aus den Anfangsbuchstaben mehrerer (Teil-)Wörter gebildet werden. Sie werden im Deutschen in der Regel ohne Punkte gebildet ("Lkw"). Akronyme lassen sich darüber hinaus meist als Wort aussprechen (z.B. "NATO").</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>&lt;q cite="Quelle"&gt;...&lt;/q&gt;</code></td>
+<td valign="top" nowrap="nowrap"><img src="../../src/html40.gif" width="30" height="30" alt="HTML 4.0" title="HTML 4.0"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../../src/msie4.gif" width="30" height="30" alt="MS IE 4.0" title="MS IE 4.0"><img src="../../src/netsc6.gif" width="30" height="30" alt="Netscape 6.0" title="Netscape 6.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;</td>
+<td class="tabxpl">zeichnet einen Text aus mit der Bedeutung "dies ist ein Zitat mit Quellenangabe"</td>
+</tr>
+</table>
+<br>&nbsp;
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/html40.gif" width="30" height="30" alt="HTML 4.0" title="HTML 4.0"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../../src/msie4.gif" width="30" height="30" alt="MS IE 4.0" title="MS IE 4.0"><img src="../../src/netsc6.gif" width="30" height="30" alt="Netscape 6.0" title="Netscape 6.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="aenderungsmarkierung">Änderungsmarkierungen im Dokument</a></h2>
+
+<p>Wenn Sie Dokumente in HTML bearbeiten, bei denen es wichtig ist, Änderungen zu protokollieren, dann können Sie logische Textauszeichnungen für gelöschte und eingefügte Textpassagen verwenden.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/ins_del.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+       "http://www.w3.org/TR/html4/strict.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;&amp;Auml;nderungsmerkierungen im Dokument&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;Viel falsch&lt;/h1&gt;
+
+&lt;p&gt;Goethe wurde im Jahre &lt;del&gt;1768&lt;/del&gt;&lt;ins&gt;1749&lt;/ins&gt; geboren
+und war ein begnadeter &lt;del&gt;Sportler&lt;/del&gt;&lt;ins&gt;Schriftsteller&lt;/ins&gt;.&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Mit <code>&lt;del&gt;</code>...<code>&lt;/del&gt;</code> zeichnen Sie Text aus, der nicht mehr gültig ist (<i>del = delete = löschen</i>). Mit <code>&lt;ins&gt;</code>...<code>&lt;/ins&gt;</code> können Sie Text auszeichnen, der neu dazugekommen ist (<i>ins = insert = einfügen</i>).</p>
+
+<p>Zur exakteren Auszeichnung sind noch zwei Attribute in beiden einleitenden Tags erlaubt:</p>
+
+<p>Mit dem Attribut <code>datetime</code> im einleitenden Tag von <code>&lt;ins&gt;</code> oder <code>&lt;del&gt;</code> können Sie den Zeitpunkt der Änderung festhalten. Eine Angabe wie <code>&lt;ins datetime="2001-06-25T10:59+01:00"&gt;</code> bedeutet: "eingefügt am 25.6.2001 um 10 Uhr 59" nach Zeitzone UTC-Zeit plus 1 Stunde. Die Uhrzeit/Zeitzonenangabe können Sie auch weglassen, etwa so: <code>&lt;ins datetime="2001-06-25"&gt;</code>. UTC bedeutet "Coordinated Universal Time".</p>
+
+<p>Mit dem Attribut <code>cite</code> können Sie einen URI angeben, der als der Grund für die Änderung gelten kann - beispielsweise ein verbindliches Dokument, auf dem Ihr Dokument beruht, und das mittlerweile geändert wurde. Eine Angabe wie <code>&lt;ins cite="http://www.w3.org/TR/1999/REC-html401-19991224"&gt;</code> bedeutet: dieser Text wurde aufgrund der HTML-Spezifikation 4.01 vom 24.12.1999 eingefügt (der angegebene URI ist die Adresse, an der die HTML-Spezifikation zu finden ist).</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Die beiden Elemente <code>ins</code> und <code>del</code> haben eine Sonderstellung, was ihr Vorkommen betrifft. Diese beiden Elemente dürfen entweder innerhalb von <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/elemente.htm#block_elemente">Block-Elementen</a> vorkommen - dann fungieren sie selber als Inline-Elemente. Oder sie werden außerhalb von Block-Elementen notiert - dann fungieren sie selber als Block-Elemente und können mehrere andere Block-Elemente und deren gesamten Inhalt einschließen.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/html40.gif" width="30" height="30" alt="HTML 4.0" title="HTML 4.0"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../../src/msie55.gif" width="30" height="30" alt="MS IE 5.5" title="MS IE 5.5"><img src="../../src/netsc6.gif" width="30" height="30" alt="Netscape 6.0" title="Netscape 6.0"><img src="../../src/op72.gif" width="30" height="30" alt="Opera 7.20" title="Opera 7.20"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/safwk.gif" width="30" height="30" alt="Safari WebKit (Entwicklerversion)" title="Safari WebKit (Entwicklerversion)">&nbsp;<a class="an" name="textrichtung">Textrichtung ändern</a></h2>
+
+<p>Wenn Sie HTML in Verbindung mit Sprachen benutzen, die eine andere Textrichtung als von links nach rechts haben, kann es zu Konflikten bei der Textrichtung kommen, vor allem, wenn Sie zwei Sprachen mit unterschiedlicher Textrichtung im Text gemischt verwenden. Wenn Sie Unicodes in HTML notieren, wird dabei normalerweise automatisch auch die Textrichtung der Sprache berücksichtigt. Wenn Sie etwa die Unicodes für ein arabisches Wort von links nach rechts notieren, sollte die Software die Zeichenkette dennoch so auflösen, dass die Darstellung von rechts nach links erfolgt, weil das die Textrichtung im Arabischen ist. Sollte das aus irgendwelchen Gründen nicht funktionieren, können Sie mit Hilfe eines HTML-Elements nachhelfen.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/bdo.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+       "http://www.w3.org/TR/html4/strict.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Textrichtung &amp;auml;ndern&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;Umgekehrt&lt;/h1&gt;
+
+&lt;p&gt;Hier wird das Wort &amp;quot;umgekehrt&amp;quot; einfach &lt;bdo dir="rtl"&gt;umgekehrt&lt;/bdo&gt;.&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Mit <code>&lt;bdo dir="rtl"&gt;</code> leiten Sie einen Text ein, der von rechts nach links dargestellt wird, und mit <code>&lt;bdo dir="ltr"&gt;</code> einen Text, der von links nach rechts dargestellt wird. <code>&lt;/bdo&gt;</code> beendet den Text mit der anderen Schreibrichtung (<i>bdo = bidirectional overwrite = Überschreiben der automatischen Bidirektionalität</i>). Mit dem Attribut <code>dir</code> erzwingen Sie die Textrichtung (<i>rtl = right to left = rechts nach links</i>).</p>
+
+<p>Das Attribut <code>dir</code> gehört zu den <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../attribute/index.htm">Universalattributen</a> und darf in allen einleitenden HTML-Tags stehen, in denen Text vorkommen kann. Das <code>bdo</code>-Element ist für solche Fälle gedacht, in denen <code>dir</code> in anderen HTML-Elementen zu Problemen führt, beispielsweise bei verschachtelten Tags mit widersprüchlichen Anweisungen zur Textrichtung.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/html40.gif" width="30" height="30" alt="HTML 4.0" title="HTML 4.0"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/netsc4.gif" width="30" height="30" alt="Netscape 4.0" title="Netscape 4.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="formatieren">Logische Elemente für Textauszeichnung formatieren mit CSS</a></h2>
+
+<p>Wie logische Elemente zur Textauszeichnung genau dargestellt werden, darauf haben Sie mit HTML keinen Einfluss. Die Browser benutzen Default-Formatierungen. Mit <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../../css/index.htm">Stylesheets</a> können Sie solche Elemente jedoch nach Wunsch formatieren. Bei Verwendung von Stylesheets müssen Sie zunächst wissen, wie man <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../../css/formate/index.htm">CSS-Formate definieren</a> kann. Anschließend sind Sie in der Lage, CSS-Eigenschaften anzuwenden. Maßgeblich sind im hier beschriebenen Zusammenhang z.B. folgende CSS-Eigenschaften:<br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/schrift.htm">Schriftformatierung</a><br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/hintergrund.htm">Hintergrundfarben und -bilder</a></p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/logisch_style.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+       "http://www.w3.org/TR/html4/strict.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Logische Elemente für Textauszeichnung formatieren mit CSS&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;Viele viele bunte Logis&lt;/h1&gt;
+
+&lt;p&gt;
+Text mit dem &lt;em style="color:blue"&gt;em-Element&lt;/em&gt;&lt;br&gt;
+Text mit dem &lt;strong style="color:red"&gt;strong-Element&lt;/strong&gt;&lt;br&gt;
+Text mit dem &lt;code style="color:purple"&gt;code-Element&lt;/code&gt;&lt;br&gt;
+&lt;!-- usw. --&gt;
+&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Die verschiedenen logischen Elemente im Beispiel erhalten  unterschiedliche Schriftfarben. Formatieren können die Browser allerdings nur jene Elemente, die sie kennen.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="weitere_infos">Weitere Informationen</a></h2>
+
+<p>In der <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../referenz/index.htm">HTML-Referenz</a> finden Sie Angaben darüber, wo die logischen Textauszeichnungen vorkommen dürfen, welche Attribute sie haben können und was bei den einzelnen Attributen zu beachten ist:<br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/elemente.htm#em">Element-Referenz</a> und <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/attribute.htm#em">Attribut-Referenz</a> für <code>&lt;em&gt;...&lt;/em&gt;</code><br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/elemente.htm#strong">Element-Referenz</a> und <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/attribute.htm#strong">Attribut-Referenz</a> für <code>&lt;strong&gt;...&lt;/strong&gt;</code><br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/elemente.htm#code">Element-Referenz</a> und <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/attribute.htm#code">Attribut-Referenz</a> für <code>&lt;code&gt;...&lt;/code&gt;</code><br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/elemente.htm#samp">Element-Referenz</a> und <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/attribute.htm#samp">Attribut-Referenz</a> für <code>&lt;samp&gt;...&lt;/samp&gt;</code><br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/elemente.htm#kbd">Element-Referenz</a> und <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/attribute.htm#kbd">Attribut-Referenz</a> für <code>&lt;kbd&gt;...&lt;/kbd&gt;</code><br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/elemente.htm#var">Element-Referenz</a> und <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/attribute.htm#var">Attribut-Referenz</a> für <code>&lt;var&gt;...&lt;/var&gt;</code><br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/elemente.htm#cite">Element-Referenz</a> und <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/attribute.htm#cite">Attribut-Referenz</a> für <code>&lt;cite&gt;...&lt;/cite&gt;</code><br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/elemente.htm#dfn">Element-Referenz</a> und <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/attribute.htm#dfn">Attribut-Referenz</a> für <code>&lt;dfn&gt;...&lt;/dfn&gt;</code><br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/elemente.htm#acronym">Element-Referenz</a> und <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/attribute.htm#acronym">Attribut-Referenz</a> für <code>&lt;acronym&gt;...&lt;/acronym&gt;</code><br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/elemente.htm#abbr">Element-Referenz</a> und <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/attribute.htm#abbr">Attribut-Referenz</a> für <code>&lt;abbr&gt;...&lt;/abbr&gt;</code><br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/elemente.htm#q">Element-Referenz</a> und <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/attribute.htm#q">Attribut-Referenz</a> für <code>&lt;q&gt;...&lt;/q&gt;</code><br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/elemente.htm#ins">Element-Referenz</a> und <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/attribute.htm#ins">Attribut-Referenz</a> für <code>&lt;ins&gt;...&lt;/ins&gt;</code><br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/elemente.htm#del">Element-Referenz</a> und <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/attribute.htm#del">Attribut-Referenz</a> für <code>&lt;del&gt;...&lt;/del&gt;</code><br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/elemente.htm#bdo">Element-Referenz</a> und <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/attribute.htm#bdo">Attribut-Referenz</a> für <code>&lt;bdo&gt;...&lt;/bdo&gt;</code>
+</p>
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="physisch.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="physisch.htm">Physische Auszeichnungen im Text</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="praeformatiert.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="praeformatiert.htm">Präformatierter Text (wie im Editor eingegeben)</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">HTML/XHTML</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Elemente zur Textstrukturierung</a></td>
+</tr>
+</table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+
+</body>
+</html>

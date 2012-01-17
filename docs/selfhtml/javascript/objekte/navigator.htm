@@ -1,0 +1,364 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: JavaScript / Objektreferenz / navigator</title>
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<meta name="description"    content="Welche Aufgaben, Eigenschaften und Methoden das navigator-Objekt in JavaScript hat.">
+<meta name="keywords"       content="SELFHTML, JavaScript, Objekte, navigator, appCodeName, appName, appVersion, cookieEnabled, language, platform, userAgent, javaEnabled">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-11-08T02:11:45+01:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/javascript/objekte/navigator.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="Objektreferenz" href="index.htm">
+<link rel="next" title="mimeTypes" href="mimetypes.htm">
+<link rel="prev" title="Math" href="math.htm">
+<link rel="first" title="Hinweise zur JavaScript-Objektreferenz" href="hinweise.htm">
+<link rel="last" title="Objektunabhängige Funktionen" href="unabhaengig.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">JavaScript/DOM</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Objektreferenz</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">navigator</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p><img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#allgemeines">navigator: Allgemeines zur Verwendung</a> </p>
+
+<h3>Eigenschaften:</h3>
+
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#app_code_name">appCodeName</a> (Spitzname des Browsers)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#app_name">appName</a> (offizieller Name des Browsers)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#app_version">appVersion</a> (Browser-Version)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#cookie_enabled">cookieEnabled</a> (Cookies erlaubt)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#language">language</a> (Browser-Sprache)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#platform">platform</a> (Plattform, auf der der Browser läuft)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#user_agent">userAgent</a> (HTTP-Identifikation des Browsers)
+</p>
+
+<h3>Methoden:</h3>
+
+<p><img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#java_enabled">javaEnabled()</a> (Java-Verfügbarkeit überprüfen)</p>
+
+<h3>Unterobjekte:</h3>
+
+<p>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="mimetypes.htm">mimeTypes</a><br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="plugins.htm">plugins</a>
+</p>
+
+
+</td>
+</tr><tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><a class="an" name="allgemeines">navigator: Allgemeines zur Verwendung</a></h2>
+
+<p>Über das Objekt <code>navigator</code> können Sie in einem JavaScript Informationen darüber ermitteln, welchen Web-Browser der Anwender verwendet sowie einige nähere Spezifikationen dazu. Das kann zum Beispiel interessant sein, um die Ausführung von JavaScript-Anweisungen davon abhängig zu machen, welchen Browser der Anwender benutzt. Eine zuverlässigere Möglichkeit, um Fehlermeldungen in Browsern zu vermeiden, die bestimmte verwendete JavaScript-Befehle nicht kennen, bietet die <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../sprache/objekte.htm#existenzabfrage">Abfrage, ob ein Objekt existiert</a>.</p>
+
+<p>Eigenschaften und Methoden von <code>navigator</code> können Sie direkt ansprechen. Beispiel: <code>navigator.appName</code>.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/js10.gif" width="30" height="30" alt="JavaScript 1.0" title="JavaScript 1.0"><img src="../../src/netsc2.gif" width="30" height="30" alt="Netscape 2.0" title="Netscape 2.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0"><img src="../../src/jsread.gif" width="60" height="30" alt="Lesen">&nbsp;<a class="an" name="app_code_name">appCodeName</a></h2>
+
+<p>Speichert den Spitznamen des Browsers. Dieses Feature wurde von Netscape deshalb erfunden, weil der Netscape-Browser den Spitznamen "Mozilla" trägt.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/navigator_app_code_name.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;script type="text/javascript"&gt;
+if (navigator.appCodeName == "Mozilla")
+  alert("So ein drachenstarker Browser!");
+&lt;/script&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+<p>Das Beispiel ermittelt beim Einlesen der Datei, ob der vom Anwender benutzte Browser auf den Spitznamen "Mozilla" hört. Wenn ja, wird die Meldung "So ein drachenstarker Browser!" ausgegeben.</p>
+
+<p>Sowohl Netscape als auch der Internet Explorer, Opera, Konqueror und Safari speichern in dieser Eigenschaft den Wert "Mozilla".</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/js10.gif" width="30" height="30" alt="JavaScript 1.0" title="JavaScript 1.0"><img src="../../src/netsc2.gif" width="30" height="30" alt="Netscape 2.0" title="Netscape 2.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0"><img src="../../src/jsread.gif" width="60" height="30" alt="Lesen">&nbsp;<a class="an" name="app_name">appName</a></h2>
+
+<p>Speichert den Namen des Browsers, den der Anwender verwendet.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/navigator_app_name.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;script type="text/javascript"&gt;
+document.write("So, so, Sie verwenden also " + navigator.appName);
+&lt;/script&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+<p>Das Beispiel schreibt mit der <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="document.htm#write">write()</a>-Methode in die HTML-Datei, welchen Browser der Anwender verwendet.</p>
+
+<p>Netscape speichert in dieser Eigenschaft beispielsweise den Wert "Netscape", der Internet Explorer den Wert "Microsoft Internet Explorer".</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Unter Opera kann der Anwender frei wählen, wie sich der Browser identifiziert. Safari und Mozilla Firefox identifizieren sich als "Netscape".</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/js10.gif" width="30" height="30" alt="JavaScript 1.0" title="JavaScript 1.0"><img src="../../src/netsc2.gif" width="30" height="30" alt="Netscape 2.0" title="Netscape 2.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0"><img src="../../src/jsread.gif" width="60" height="30" alt="Lesen">&nbsp;<a class="an" name="app_version">appVersion</a></h2>
+
+<p>Speichert die Version des Browsers, den der Anwender verwendet.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/navigator_app_version.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;script type="text/javascript"&gt;
+if (navigator.appVersion.substring(0, 1) == "4")
+  alert("Oh, ein Browser der 4. Generation!");
+&lt;/script&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+<p>Das Beispiel fragt ab, ob das erste Zeichen aus dem Wert, der in <code>navigator.appVersion</code> gespeichert ist, eine 4 ist. Wenn ja, wird eine Meldung ausgegeben.</p>
+
+<p>Der Wert von <code>navigator.appVersion</code> umfasst mehr als nur die reine Produktversion.<br>
+Netscape 4.01 liefert z.B. folgenden Wert: "4.01 [en] (Win95; I)"<br>
+der Internet Explorer 4.0 liefert z.B.: "4.0 (compatible; MSIE 4.0; Windows 95)"</p>
+
+<p>Um Teile aus einer solchen Zeichenkette zu extrahieren wie im Beispiel mit der Methode <code>substring()</code>, lesen Sie den Abschnitt über das <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="string.htm">string</a>-Objekt.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Unter Opera kann der Anwender frei wählen, wie sich der Browser identifiziert. Auch im Mozilla Firefox, Safari und im Konqueror ist es möglich, diese Angabe zu manipulieren. Damit können je nach Nutzereinstellung auch in dieser Eigenschaft beliebige und eventuell unrealistische Werte gespeichert sein.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/msjs.gif" width="30" height="30" alt="MS JScript" title="MS JScript"><img src="../../src/netsc6.gif" width="30" height="30" alt="Netscape 6.0" title="Netscape 6.0"><img src="../../src/msie4.gif" width="30" height="30" alt="MS IE 4.0" title="MS IE 4.0"><img src="../../src/op7.gif" width="30" height="30" alt="Opera 7" title="Opera 7"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0"><img src="../../src/jsread.gif" width="60" height="30" alt="Lesen">&nbsp;<a class="an" name="cookie_enabled">cookieEnabled</a></h2>
+
+<p>Speichert, ob der Nutzer das Setzen von <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="document.htm#cookie">Cookies</a> erlaubt. Sind diese erlaubt, so enthält die Eigenschaft <code>true</code>, sonst <code>false</code>. Nicht geprüft werden kann mit dieser Eigenschaft, ob der Nutzer vor dem Speichern eine Warnmeldung erhält. In diesem Fall ist in der Eigenschaft ebenfalls <code>true</code> gespeichert.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/navigator_cookie_enabled.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;script type="text/javascript"&gt;
+if (navigator.cookieEnabled == true) {
+  document.write("Cookies erlaubt");
+} else if (navigator.cookieEnabled == false) {
+  document.write("Cookies verboten.");
+} else {
+  document.write("Verrate ich nicht.");
+}
+&lt;/script&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+<p>Das Beispiel wird  gefragt, ob der Nutzer Cookies erlaubt. Ist das der Fall, wird mit der <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="document.htm#write">write()</a>-Methode eine entsprechende Information ausgegeben. Sind keine Cookies verfügbar, wird gefragt, ob Cookies verboten sind. Browser, die <code>cookieEnabled</code> kennen und keine Cookies erlauben, folgen dem <code>if</code>-Zweig der Anweisung. Browser, die diese Eigenschaft nicht kennen, geben den Text <code>"Verrate ich nicht."</code> aus.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/js12.gif" width="30" height="30" alt="JavaScript 1.2" title="JavaScript 1.2"><img src="../../src/netsc4.gif" width="30" height="30" alt="Netscape 4.0" title="Netscape 4.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0"><img src="../../src/jsread.gif" width="60" height="30" alt="Lesen">&nbsp;<a class="an" name="language">language</a></h2>
+
+<p>Speichert die Sprache der Benutzerführung des Browsers, den der Anwender verwendet. Die Sprache wird dabei mit den international üblichen Abkürzungen gespeichert, z.B. "en" für englisch oder "de" für deutsch.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/navigator_language.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;script type="text/javascript"&gt;
+if (navigator.language.indexOf("en") &gt; -1) {
+  document.write("dear visitor, welcome on our pages");
+} else if (navigator.language.indexOf("de") &gt; -1) {
+  document.write("Sehr geehrter Besucher, willkommen auf unseren Seiten");
+}
+&lt;/script&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel ermittelt, welche Benutzersprache der Browser des Anwenders verwendet. Wenn es englisch ist, wird mit der <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="document.htm#write">write()</a>-Methode ein englischer Begrüßungstext in die HTML-Datei geschrieben, wenn es deutsch ist, ein deutscher Begrüßungstext.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Im Internet Explorer heißt diese Eigenschaft <code>navigator.browserLanguage</code>. Safari 1.0 identifiziert sich trotz deutscher Benutzerführung als englisch, in späteren Versionen ist dies korrekt.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/js12.gif" width="30" height="30" alt="JavaScript 1.2" title="JavaScript 1.2"><img src="../../src/netsc4.gif" width="30" height="30" alt="Netscape 4.0" title="Netscape 4.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0"><img src="../../src/jsread.gif" width="60" height="30" alt="Lesen">&nbsp;<a class="an" name="platform">platform</a></h2>
+
+<p>Speichert, auf welchem Betriebssystemtyp der Browser läuft, den der Anwender verwendet.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/navigator_platform.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;script type="text/javascript"&gt;
+alert(navigator.platform);
+&lt;/script&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+<p>Das Beispiel gibt beim Einlesen der Datei in einem Meldungsfenster aus, auf welcher Plattform der Browser beim Anwender läuft.</p>
+
+<p>Bei Windows 95 gibt Netscape beispielsweise "Win32" aus, Safari identifiziert die Plattform als "MacPPC"</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/js10.gif" width="30" height="30" alt="JavaScript 1.0" title="JavaScript 1.0"><img src="../../src/netsc2.gif" width="30" height="30" alt="Netscape 2.0" title="Netscape 2.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0"><img src="../../src/jsread.gif" width="60" height="30" alt="Lesen">&nbsp;<a class="an" name="user_agent">userAgent</a></h2>
+
+<p>Speichert alle wichtigen Informationen über den Browser, den der Anwender verwendet, und zwar in der Form, die der Browser auch bei jeder HTTP-Anforderung einer Datei im WWW sendet.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/navigator_user_agent.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;/head&gt;&lt;body&gt;
+Diese Daten sendet Ihr Browser, wenn er Dateien im WWW anfordert:&lt;br&gt;
+&lt;script type="text/javascript"&gt;
+document.write(navigator.userAgent);
+&lt;/script&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+<p>Das Beispiel schreibt in die HTML-Datei, mit welchen Daten sich der verwendete Browser im WWW ausgibt. Auf der Seite <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../diverses/clients.htm">Client-Identifikationen</a> finden Sie eine Übersicht bekannter Ausgaben, die in dieser Eigenschaft enthalten sein können. Die Übersicht kann helfen, wenn Sie Abfragen nach bestimmten Browsern, Versionen oder Plattformen durchführen wollen.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Unter Opera kann der Anwender frei wählen, wie sich der Browser identifiziert. Damit sind je nach Nutzereinstellung in dieser Eigenschaft verschiedene Werte gespeichert. Unabhängig von den Nutzereinstellungen ist jedoch in dieser Eigenschaft immer das Wort <code>Opera</code>, wenn auch an verschiedenen Positionen, enthalten. Auch in Mozilla Firefox und Safari ist es möglich, diese Angabe zu manipulieren.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/js11.gif" width="30" height="30" alt="JavaScript 1.1" title="JavaScript 1.1"><img src="../../src/netsc3.gif" width="30" height="30" alt="Netscape 3.0" title="Netscape 3.0"><img src="../../src/msie4.gif" width="30" height="30" alt="MS IE 4.0" title="MS IE 4.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="java_enabled">javaEnabled()</a></h2>
+
+<p>Testet, ob Java auf dem Browser des Anwenders verfügbar ist oder nicht. Liefert <code>true</code> zurück, wenn Java verfügbar ist, und <code>false</code>, wenn nicht.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/navigator_java_enabled.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;script type="text/javascript"&gt;
+if (navigator.javaEnabled()) {
+  document.write('&lt;applet code="zticker.class" width="150" height="25"&gt;&lt;\/applet&gt;');
+}
+&lt;/script&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel fragt mit <code>if (navigator.javaEnabled())</code> ab, ob Java verfügbar ist. Wenn ja, wird mit der <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="document.htm#write">write()</a>-Methode der HTML-Code für die Platzierung eines Java-Applets geschrieben.</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="mimetypes.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="mimetypes.htm">mimeTypes</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="math.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="math.htm">Math</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">JavaScript/DOM</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Objektreferenz</a></td>
+</tr>
+</table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

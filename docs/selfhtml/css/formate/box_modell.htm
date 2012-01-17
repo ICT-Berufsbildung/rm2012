@@ -1,0 +1,407 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: Stylesheets / CSS-Formate definieren / Das CSS Box-Modell</title>
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<meta name="description"    content="Wie das Box-Modell die Ausdehnung von Elementen definiert und wie Browser damit umgehen.">
+<meta name="keywords"       content="SELFHTML, CSS, Stylesheets, Cascading Stylesheets, Box-Modell, Breite, Höhe, Browser, Dokumenttyp, Deklaration, Doctype, Switch, Switching, Umgehung, Hacks, CSS-Hacks">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-10-03T20:41:08+02:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/css/formate/box_modell.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="CSS-Formate definieren" href="index.htm">
+<link rel="next" title="Schriftformatierung" href="../eigenschaften/schrift.htm">
+<link rel="prev" title="Maßeinheiten, Farbangaben und Wertzuweisung" href="wertzuweisung.htm">
+<link rel="first" title="Stylesheets in HTML einbinden" href="einbinden.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">Stylesheets</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">CSS-Formate definieren</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Das Box-Modell</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#w3c">Berechnung von Breite und Höhe</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#box_model_bug">Der Box-Modell-Fehler des Internet Explorer</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#doctype_switch">Dokumenttyp-Weiche ("Doctype Switch")</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#doctype_switch_beispiele">Beispiele unterschiedlicher Darstellung</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#browser">Browser mit Dokumenttyp-Weiche</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#standardkonform">Dokumenttyp-Deklarationen für den standardkonformen Modus</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#workarounds">Umgehungsstrategien für mangelhafte Browser</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#freiraum">Verzicht auf pixelgenaue Ausrichtung</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#verschachtelung">Trennung der Breite und Höhe von Rahmen und Innenabstand</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#css_hacks">Browserweichen (CSS-Hacks)</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#tan_hack">Tan-Hack</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#tantek_hack">Tantek-Hack</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#html_kommentar">HTML-Kommentar</a>
+</p>
+</td>
+</tr><tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><img src="../../src/css10.gif" width="30" height="30" alt="CSS 1.0" title="CSS 1.0">&nbsp;<a class="an" name="w3c">Berechnung von Breite und Höhe</a></h2>
+
+<p>Das Box-Modell definiert die Berechnung der Breite und Höhe von Elementen. Seit der CSS1-Spezifikation des W3-Konsortiums aus dem Jahre 1996 errechnet sich die Gesamtbreite eines Elements aus einer <strong>Addition</strong></p>
+
+<p>der <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../eigenschaften/positionierung.htm#width">Breite</a> des Elementinhalts (<code>width</code>),<br>
+des <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../eigenschaften/innenabstand.htm">Innenabstands</a> (<code>padding</code>),<br>
+der <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../eigenschaften/rahmen.htm#border_width">Rahmenstärke</a> (<code>border-width</code>) und<br>
+des <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../eigenschaften/randabstand.htm">Außenabstands</a> (<code>margin</code>).</p>
+
+<p>Dies gilt analog für die <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../eigenschaften/positionierung.htm#height">Höhe</a> (<code>height</code>) sowie generell für alle <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="wertzuweisung.htm">Maßeinheiten</a>; diese dürfen auch gemischt angewandt werden.</p>
+
+<h3 class="inf">Grafische Darstellung des Box-Modells:</h3>
+
+<p><img src="anzeige/box_modell.png" width="538" height="368" alt="Darstellung des Box-Modells" style="border:1px dotted #000"></p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p>Wird ein Element mit einer Breite von 200 Pixel, einer Höhe von 100 Pixel und einem Innenabstand und Rahmen von je 20 Pixel Stärke auf allen Seiten definiert, beträgt die tatsächliche Breite letztendlich 280 Pixel (20 für <code>border-left</code>, 20 für <code>padding-left</code>, 200 für <code>width</code>, 20 für <code>padding-right</code> und 20 für <code>border-right</code>), die Höhe 180 Pixel (20 für <code>border-top</code>, 20 für <code>padding-top</code>, 100 für <code>height</code>, 20 für <code>padding-bottom</code> und 20 für <code>border-bottom</code>). Ein zusätzlich definierter Außenabstand müsste zu diesen Werten nochmals addiert werden.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="box_model_bug">Der Box-Modell-Fehler des Internet Explorer</a></h2>
+
+<p>Als "Box Model Bug" wird der Fehler in älteren Windows-Versionen des Internet Explorer (einschließlich 5.5) bezeichnet, die Innenabstände und Rahmenstärken entgegen der Spezifikation nicht zur Gesamtbreite zu addieren - dies ist nur beim Außenabstand korrekt der Fall. In oben angeführtem Beispiel ergibt sich damit eine Gesamtbreite von 200 Pixel, also lediglich die mittels <code>width</code> definierte Breite. Dem Inhalt stehen nach Subtraktion von 40 Pixel für den Rahmen und weiteren 40 Pixel für den Innenabstand (jeweils 20 Pixel links und rechts) demnach nur mehr 120 Pixel zur Verfügung, was vor allem in vermeintlich pixelgenauen Layouts störende Abweichungen verursacht.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="doctype_switch">Dokumenttyp-Weiche ("Doctype Switch")</a></h2>
+
+<p>Microsoft bereinigte den Fehler und führte mit Version 6 des Browsers eine Möglichkeit ein, die Darstellung zwischen der falschen und der korrekten Variante umzuschalten. Ein grundsätzlicher Wechsel hin zu einer korrekten Darstellung hätte es mit sich gebracht, dass sehr viele Seiten zwar im Grunde korrekt, aber dennoch anders als vom Ersteller beabsichtigt dargestellt worden wären. Es musste daher eine Möglichkeit gefunden werden, dem Browser mitzuteilen, welchen Modus er benutzen soll.</p>
+
+<p>Man ging davon aus, dass vor allem alte Seiten, die auf Basis des falschen Box-Modells erstellt und nur mit dem Internet Explorer einschließlich Version 5.5 getestet worden waren, keine oder eine <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/allgemein/grundgeruest.htm#dokumenttyp">Dokumenttyp-Deklaration</a> einer weniger strengen HTML-Variante aufweisen und knüpfte die korrekte Darstellung an die Verwendung spezieller Varianten. Diese Notlösung bot den Vorteil, auf zusätzliche Elemente verzichten zu können.</p>
+
+<p>Dokumente, die als syntaktisch strenge (X)HTML-Variante deklariert sind, werden vom Internet Explorer 6 unter Berücksichtigung des korrekten Box-Modells dargestellt - im sogenannten "standard mode". Auf Seiten, die keine oder eine weniger strenge Deklaration aufweisen, wird das fehlerhafte Microsoft-Box-Modell angewandt, um Abwärtskompatibilität zu gewährleisten. Dieser Modus wird als "quirks mode" bezeichnet.</p>
+
+<p>Auch das Fehlen der Adresse, unter welcher die <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/allgemein/grundgeruest.htm#dokumenttyp_beispiel">Dokumenttyp-Definition</a> (DTD) beim W3-Konsortium abgerufen werden kann, bewirkt bei HTML 4.01 teilweise einen Rückfall in den Quirks-Modus.</p>
+
+<h3 class="xmp"><a class="an" name="doctype_switch_beispiele">Beispiele unterschiedlicher Darstellung</a></h3>
+
+<h4><a class="an" name="html_4.01_transitional">Box-Modell mit Dokumenttyp-Deklaration HTML 4.01 Transitional ohne URI</a></h4>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/box_modell_html_401_transitional.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"&gt;
+&lt;html&gt;&lt;head&gt;
+&lt;title&gt;Box-Modell: Dokumenttyp HTML 4.01 Transitional ohne URI&lt;/title&gt;
+&lt;/head&gt;&lt;body&gt;
+
+&lt;p style="width:200px; padding:20px; border:20px solid #66a"&gt;
+  Soll-Breite: 280px
+&lt;/p&gt;
+&lt;p&gt;&lt;img src="lineal.gif" width="300" height="20" alt="Lineal"&gt;&lt;/p&gt;
+
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<p>Das Beispiel zeigt in allen Versionen des Internet Explorer und Opera 7 die Anwendung des Microsoft-Box-Modells. Dies gilt nicht für Browser, die auf dem Gecko-Kern basieren (Mozilla, Firefox, Netscape ab Version 6), Konqueror und Opera bis Version 6, welche alle Seiten mit standardkonformer Auslegung des Box-Modells darstellen.</p>
+
+<h4><a class="an" name="html_4.01_transitional_uri">Box-Modell mit Dokumenttyp-Deklaration HTML 4.01 Transitional mit URI</a></h4>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/box_modell_html_401_transitional_uri.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+  "http://www.w3.org/TR/html4/loose.dtd"&gt;
+&lt;html&gt;&lt;head&gt;
+&lt;title&gt;Box-Modell: Dokumenttyp HTML 4.01 Transitional mit URI&lt;/title&gt;
+&lt;/head&gt;&lt;body&gt;
+
+&lt;p style="width:200px; padding:20px; border:20px solid #66a"&gt;
+  Soll-Breite: 280px
+&lt;/p&gt;
+&lt;p&gt;&lt;img src="lineal.gif" width="300" height="20" alt="Lineal"&gt;&lt;/p&gt;
+
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<p>Die Ergänzung um die Adresse der DTD bewirkt in den meisten Browsern bereits eine standardkonforme Darstellung.</p>
+
+<h4><a class="an" name="html_4.01_strict">Box-Modell mit Dokumenttyp-Deklaration HTML 4.01 Strict</a></h4>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/box_modell_html_401_strict.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"&gt;
+&lt;html&gt;&lt;head&gt;
+&lt;title&gt;Box-Modell: Dokumenttyp HTML 4.01 Strict&lt;/title&gt;
+&lt;/head&gt;&lt;body&gt;
+
+&lt;p style="width:200px; padding:20px; border:20px solid #66a"&gt;
+  Soll-Breite: 280px
+&lt;/p&gt;
+&lt;p&gt;&lt;img src="lineal.gif" width="300" height="20" alt="Lineal"&gt;&lt;/p&gt;
+
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<p>Dieses Beispiel wird von allen Browsern korrekt dargestellt. Davon ausgenommen sind, wie bereits erwähnt, lediglich Internet Explorer für Windows bis zu Version 5.5 - die Mac-Versionen des Browsers sind nicht betroffen. Diese HTML-Variante führt am ehesten zu einer gleichen Darstellung und sollte daher bevorzugt eingesetzt werden.</p>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Alle drei Beispiele weisen im <code>p</code>-Element identische Eigenschaften auf, der Unterschied in der Darstellung ergibt sich einzig aus der Dokumenttyp-Deklaration.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/netsc6.gif" width="30" height="30" alt="Netscape 6.0" title="Netscape 6.0"><img src="../../src/msie6.gif" width="30" height="30" alt="MS IE 6" title="MS IE 6"><img src="../../src/op7.gif" width="30" height="30" alt="Opera 7" title="Opera 7"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="browser">Browser mit Dokumenttyp-Weiche</a></h2>
+
+<p>Wie bei den Beispielen angeführt, übernahmen auch andere Hersteller diese Methode und so weisen im Grunde alle aktuellen Versionen verbreiteter Browser ebenfalls einen "Doctype Switch" auf. Opera 7 orientiert sich am Internet Explorer 6, um größtmögliche Kompatibilität zu erreichen. Netscape ab Version 6, Mozilla Firefox, Konqueror und Safari dagegen orientieren sich diesbezüglich immer am Standard. Der Dokumenttyp wirkt sich in diesen Browsern hauptsächlich auf die Fehlerkorrektur, nicht aber auf das Box-Modell aus.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Netscape 4.x berechnet Dimensionen ebenso falsch wie der Internet Explorer 5.x. für Windows.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="standardkonform">Dokumenttyp-Deklarationen für den standardkonformen Modus</a></h2>
+
+<p>Um aktuelle Browser in den standardkonformen Anzeigemodus zu schalten, empfiehlt es sich, einen der folgenden "sicheren" Dokumenttypen zu notieren:</p>
+
+<h3 class="xmp">HTML 4.01 Transitional mit URI</h3>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+  "http://www.w3.org/TR/html4/loose.dtd"&gt;
+</pre>
+
+<h3 class="xmp">HTML 4.01 Strict mit und ohne URI</h3>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+  "http://www.w3.org/TR/html4/strict.dtd"&gt;
+</pre>
+
+<h3 class="xmp">XHTML 1.0 Strict</h3>
+
+<pre>
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"&gt;
+</pre>
+
+<p>Bezüglich XHTML ist zu beachten, dass der Internet Explorer 6 die Dokumenttyp-Deklaration nur in der ersten Zeile eines Dokuments auswertet. Dies hat zur Folge, dass bei Notation einer <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/xhtml/unterschiede.htm#xml_deklaration">XML-Deklaration</a> in den Quirks-Modus geschaltet wird.</p>
+
+<pre>
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+</pre>
+
+<p>Diese Zeile ist beim Einsatz von XHTML nicht zwingend erforderlich, Sie können sie unter bestimmten Umständen, die in der oben genannten Erläuterung beschrieben sind, weglassen.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="workarounds">Umgehungsstrategien für mangelhafte Browser</a></h2>
+
+<h3><a class="an" name="freiraum">Verzicht auf pixelgenaue Ausrichtung</a></h3>
+
+<p>Die einfachste Variante, den Box-Modell-Fehler zu umgehen, besteht darin, auf den Versuch, ein pixelgenaues Layout zu erreichen, zu verzichten und allen Elementen etwas Freiraum zu lassen, sodass etwaige Abweichungen zwar vorhanden sind, aber die Darstellung nicht beeinträchtigen. Sollte dies nicht möglich sein, setzen Sie eine der im folgenden beschriebenen Methoden ein, um eine korrekte Darstellung zu erreichen.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h3><a class="an" name="verschachtelung">Trennung der Breite und Höhe von Rahmen und Innenabstand</a></h3>
+
+<p>Eine Möglichkeit, eine einheitliche Darstellung zu erreichen, besteht darin, auf die gleichzeitige Angabe von <code>width</code> bzw. <code>height</code> und <code>border</code>/<code>padding</code> bei ein und demselben Element zu verzichten. Dies erreichen Sie mittels eines zusätzlichen Elements, das mit der gewünschten Gesamtbreite entsprechend dem korrekten Box-Modell definiert wird. Dem inneren Element können Sie nun problemlos <code>border</code> und <code>padding</code> zuweisen, da die Berechnung der Breite des äußeren Elements davon nicht beeinflusst wird.</p>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/box_modell_verschachtelung.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"&gt;
+&lt;html&gt;&lt;head&gt;
+&lt;title&gt;Box-Modell: Workaround bei Dokumenttyp HTML 4.01 Transitional ohne URI&lt;/title&gt;
+&lt;/head&gt;&lt;body&gt;
+
+&lt;div style="width:280px;"&gt;
+  &lt;p style="padding:20px; border:20px solid #66a"&gt;Soll-Breite: 280px&lt;/p&gt;
+  &lt;p&gt;&lt;img src="lineal.gif" width="300" height="20" alt="Lineal"&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das äußere Element weist eine Breite von <code>280px</code> auf, dies ist der Wert, der sich aus einer korrekten Berechnung ergibt. Die im inneren Element definierten Werte für <code>border</code> und <code>padding</code> wirken sich darauf nicht aus.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h3><a class="an" name="css_hacks">Browserweichen (CSS-Hacks)</a></h3>
+
+<p>Es ist möglich, Browsern die gewünschten CSS-Eigenschaften zukommen zu lassen und problematische Deklarationen vor anderen Browsern mit Hilfe einer <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../layouts/browserweichen.htm#browserweichen">CSS-Browserweiche</a> zu "verstecken" - dies wird als "Hack" bezeichnet. Die in diesem Kapitel angeführten Beispiele eignen sich zur Korrektur des Box-Modell-Fehlers.</p>
+
+<p>Beachten Sie bitte den Hinweis bezüglich der <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../layouts/browserweichen.htm#empfehlung">Verwendung von CSS-Hacks</a> am Ende des Kapitels.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h3><a class="an" name="tan_hack">Tan-Hack</a></h3>
+
+<p>Speziell zur Umgehung des Box-Modell-Fehlers im Internet Explorer 5.x für Windows eignet sich der "Tan-Hack" (auch "Modified Simplified Box Model Hack" genannt).</p>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/box_modell_tan_hack.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+  "http://www.w3.org/TR/html4/loose.dtd"&gt;
+&lt;html&gt;&lt;head&gt;
+&lt;title&gt;Box-Modell: Workaround mittels Modified Simplified Box Model Hack&lt;/title&gt;
+&lt;style type="text/css"&gt;
+
+#bereich {
+  width:200px; padding:20px; border:20px solid #66a;
+}
+
+* html #bereich {  /* nur fuer Internet Explorer */
+  width:280px;     /* Version 5.x */
+  w\idth:200px;    /* Version 6 */
+}
+
+&lt;/style&gt;
+&lt;/head&gt;&lt;body&gt;
+
+&lt;div id="bereich"&gt;Soll-Breite: 280px&lt;/div&gt;
+&lt;p&gt;&lt;img src="lineal.gif" width="300" height="20" alt="Lineal"&gt;&lt;/p&gt;
+
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Nachdem mit dem Selektor <code>#bereich</code> die gewünschten Eigenschaften wie gewohnt definiert wurden, wird ein gleichlautender Selektor, nun allerdings mit voranstehendem <code>* html</code> notiert. Dabei handelt es sich um den so genannten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../layouts/browserweichen.htm#star_html_hack">Star-HTML-Hack</a>, der alle Browser außer dem Internet Explorer bis zur Version 6 von der Interpretation der enthaltenen Deklarationen ausschließt. Zunächst wird für den Internet Explorer 5.x. die Breite gemäß Microsoft-Box-Modell angegeben, danach für den Internet Explorer 6 die korrekte Breite gemäß W3C-Box-Modell. Um den am Beginn für Version 5.x notierten Wert nicht zu überschreiben, wird die Eigenschaft <code>width</code> mit einem Backslash (CSS-Escape-Sequenz) notiert: <code>w\idth</code>. Dies hat zur Folge, dass die ältere Version die Deklaration ignoriert.</p>
+
+<p>Das Kapitel über Browserweichen erläutert die <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../layouts/browserweichen.htm#tan_hack">Funktionsweise des Tan-Hacks</a>.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h3><a class="an" name="tantek_hack">Tantek-Hack</a></h3>
+
+<p>Auch der sogenannte "Tantek-Hack" korrigiert die Darstellung im Internet Explorer 5.x für Windows.</p>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/box_modell_tantek_hack.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+  "http://www.w3.org/TR/html4/loose.dtd"&gt;
+&lt;html&gt;&lt;head&gt;
+&lt;title&gt;Box-Modell: Workaround mittels Tantek-Hack&lt;/title&gt;
+&lt;style type="text/css"&gt;
+
+#bereich {
+  padding:20px; border:20px solid #66a;
+  width:280px;
+  voice-family:"\"}\""; /* ab hier ignoriert IE 5.x nachfolgende Deklarationen */
+  voice-family:inherit;
+  width:200px;
+}
+
+&lt;/style&gt;
+&lt;/head&gt;&lt;body&gt;
+
+&lt;div id="bereich"&gt;Soll-Breite: 280px&lt;/div&gt;
+&lt;p&gt;&lt;img src="lineal.gif" width="300" height="20" alt="Lineal"&gt;&lt;/p&gt;
+
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Zunächst werden allen Eigenschaften Werte zugewiesen, die der Internet Explorer 5.x für eine korrekte Darstellung benötigt. Die Deklaration <code>voice-family:"\"}\"";</code> bewirkt, dass nachfolgende Angaben von diesem Browser ignoriert werden. Somit eignet sich dieser Bereich dafür, anderen Browsern die korrekten Werte zur Verfügung zu stellen. Das Ergebnis ist eine gleichwertige Darstellung trotz des Box-Modell-Fehlers des IE 5.x.</p>
+
+<p>Das Kapitel über Browserweichen erläutert die <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../layouts/browserweichen.htm#tantek_hack">Funktionsweise des Tantek-Hacks</a>.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h3><a class="an" name="html_kommentar">HTML-Kommentar vor Dokumenttyp-Deklaration</a></h3>
+
+<p>Sollte ein im standardkompatiblen Modus neu hinzugekommener Fehler des Internet Explorer 6 oder 7 die Umschaltung in den Quirks-Modus erfordern, können Sie dies auch erreichen, indem Sie einen <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/allgemein/kommentare.htm#nicht_angezeigt">HTML-Kommentar</a> in die erste Zeile des Dokuments setzen. Andere Browser werden hierdurch nicht beeinflusst und wenden bei entsprechender Dokumenttyp-Deklaration das korrekte Box-Modell an, sodass eine Korrektur nur für die Windows-Variante des Internet Explorer erforderlich ist - dies allerdings für <em>alle</em> Versionen. Künftige Versionen des Internet Explorer könnten solche Dokumente jedoch standardkonform darstellen, sodass sich diese Methode nur dann eignet, wenn Sie bei Erscheinen neuer Browserversionen testen, um eine dann eventuell abweichende Darstellung abermals zu korrigieren.</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="../eigenschaften/schrift.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../eigenschaften/schrift.htm">Schriftformatierung</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="wertzuweisung.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="wertzuweisung.htm">Maßeinheiten, Farbangaben und Wertzuweisung</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">Stylesheets</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">CSS-Formate definieren</a></td>
+</tr>
+</table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

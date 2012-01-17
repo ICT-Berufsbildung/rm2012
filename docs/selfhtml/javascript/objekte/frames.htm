@@ -1,0 +1,217 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: JavaScript / Objektreferenz / frames</title>
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<meta name="description"    content="Welche Aufgaben, Eigenschaften und Methoden das window-Objekt in JavaScript hat.">
+<meta name="keywords"       content="SELFHTML, JavaScript, Objekte, frames, length">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-08-22T21:21:39+02:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/javascript/objekte/frames.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="Objektreferenz" href="index.htm">
+<link rel="next" title="document" href="document.htm">
+<link rel="prev" title="window" href="window.htm">
+<link rel="first" title="Hinweise zur JavaScript-Objektreferenz" href="hinweise.htm">
+<link rel="last" title="Objektunabhängige Funktionen" href="unabhaengig.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">JavaScript/DOM</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Objektreferenz</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">frames</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p><img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#allgemeines">frames: Allgemeines zur Verwendung</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#scripts">Auf JavaScripts in anderen Frames zugreifen</a></p>
+
+<h3>Eigenschaft:</h3>
+
+<p><img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#length">length</a> (Anzahl Frames)</p>
+
+<h3>Unterobjekte:</h3>
+
+<p><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="document.htm">document</a><br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="event.htm">event</a><br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="history.htm">history</a><br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="location.htm">location</a></p>
+
+
+
+</td>
+</tr><tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><a class="an" name="allgemeines">frames: Allgemeines zur Verwendung</a></h2>
+
+<p>Mit dem Objekt <code>frames</code> haben Sie Zugriff auf <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../../html/frames/index.htm">Frames</a>, also auf ein Frame-Set und seine Frame-Fenster, die in einer HTML-Datei definiert sind.</p>
+
+<p>Da jedes Frame-Fenster aus Sicht des Browsers ein eigenes Fenster darstellt, ist das <code>frames</code>-Objekt lediglich eine Variante des <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="window.htm">window</a>-Objekts, also des allgemeinen Fensterobjekts. Alle Eigenschaften und Methoden, die zum <code>window</code>-Objekt gehören, lassen sich auch auf das <code>frames</code>-Objekt, also auf einzelne Frame-Fenster anwenden. Das <code>frames</code>-Objekt stellt nur deshalb ein eigenes Objekt dar, weil es eine zusätzliche Eigenschaft enthält, und weil bei der Adressierung von Frame-Fenstern in JavaScript ein paar Besonderheiten zu beachten sind:</p>
+
+<h3 class="xmp">Schema 1 / Beispiel 1:</h3>
+
+<pre>
+parent.frames[#].Eigenschaft/Methode();
+
+parent.frames[1].location.href = "sport.html";
+</pre>
+
+<h3 class="xmp">Schema 2 / Beispiel 2:</h3>
+
+<pre>
+parent.NameDesFrames.Eigenschaft/Methode();
+
+parent.RechtesFenster.back();
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+<p><code>parent</code> ist ein reservierter Fenstername, den Sie zum Ansprechen von Fenstern innerhalb eines Frame-Sets verwenden können. Anstelle von <code>parent</code> können Sie auch <code>top</code> verwenden. Mit <code>parent</code> sprechen Sie das Eltern-Fenster des aktuellen Frame-Fensters an, mit <code>top</code> in jedem Fall das oberste Anzeigefenster des Browsers.</p>
+
+<p>Frame-Fenster können Sie auf zwei Arten ansprechen:</p>
+<ul>
+<li>mit einer Indexnummer (wie in Schema 1 / Beispiel 1)<br>
+Bei Verwendung von Indexnummern geben Sie <code>frames</code> an und dahinter in eckigen Klammern, das wie vielte Frame-Fenster im Frame-Set Sie meinen. Beachten Sie, dass der Zähler bei 0 beginnt, d.h. das erste Frame-Fenster sprechen Sie mit <code>frames[0]</code> an, das zweite Frame-Fenster mit <code>frames[1]</code> usw. Beim Zählen gilt die Reihenfolge, in der die <code>&lt;frame&gt;</code>-Befehle im Frame-Set definiert sind.</li>
+<li>mit dem Namen des Frame-Fensters (wie in Schema 2 / Beispiel 2)<br>
+Dabei geben Sie den Namen an, der bei der HTML-Definition des Frame-Fenster bei <code>&lt;frame ...&gt;</code> im Attribut <code>name</code> definiert worden ist.</li>
+</ul>
+
+<p>Da das <code>frames</code>-Objekt eigentlich eine Variante des <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="window.htm">window</a>-Objekts ist, können Sie nicht nur die alle Eigenschaften und Methoden des <code>window</code>-Objekts auf das frames-Objekt anwenden, sondern auch alle anderen, die in der Hierarchie unterhalb des <code>window</code>-Objekts stehen. Ebenso, wie Sie beispielsweise mit <code>window.document.forms[0].elements[0].value = "Stefan"</code> den Inhalt eines Formular Eingabefelds in einer gewöhnlichen HTML-Datei ändern können, können Sie das gleiche innerhalb eines Frame-Sets etwa mit <code>parent.frames[1].document.forms[0].elements[0].value = "Stefan"</code> erreichen.</p>
+
+<p>Ein typisches Anwendungsbeispiel für den Einsatz des Frame-Objekts finden Sie in diesem Dokument: <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../beispiele/zweiframes.htm">Zwei Frames gleichzeitig ändern</a>.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/js10.gif" width="30" height="30" alt="JavaScript 1.0" title="JavaScript 1.0"><img src="../../src/netsc2.gif" width="30" height="30" alt="Netscape 2.0" title="Netscape 2.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="scripts">Auf JavaScripts in anderen Frames zugreifen</a></h2>
+
+<p>Mit der gleichen Syntax, wie Sie auf HTML-Elemente in anderen Frame-Fenstern zugreifen können, können Sie auch auf JavaScripts zugreifen, die in einem anderen Frame-Fenster aktuell notiert sind. So können Sie Variablen des anderen Scripts auslesen und Funktionen des anderen Scripts aufrufen.</p>
+
+<p>Das folgende Beispiel zeigt ein Frameset mit zwei Fenstern oben und unten. Das obere Fenster hat bei der Frameset-Definition den Namen <code>oberesFenster</code> erhalten. Aus dem unteren Frame-Fenster wird nun auf ein JavaScript im oberen Frame-Fenster zugegriffen</p>
+
+<h3 class="xmp">Beispieldatei im oberen Frame-Fenster:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/bsp_frame_scripts.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;script type="text/javascript"&gt;
+var c = 0;
+
+function gibaus_c () {
+  alert(c);
+}
+
+function erhoehe_c () {
+  c++;
+  window.setTimeout("erhoehe_c()", 100);
+}
+&lt;/script&gt;
+&lt;/head&gt;&lt;body onload="erhoehe_c()"&gt;
+&lt;p&gt;Hier wird einfach nur 10 mal pro Sekunde die Variable &lt;i&gt;c&lt;/i&gt; erh&amp;ouml;ht!&lt;/p&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xmp">Beispieldatei im unteren Frame-Fenster:</h3>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;script type="text/javascript"&gt;
+function reset_c () {
+  parent.oberesFenster.c = 0;
+}
+&lt;/script&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;p&gt;
+&lt;a href="javascript:parent.oberesFenster.gibaus_c()"&gt;Variable &lt;i&gt;c&lt;/i&gt; anzeigen!&lt;/a&gt;&lt;br&gt;
+&lt;a href="javascript:reset_c()"&gt;Variable &lt;i&gt;c&lt;/i&gt; auf 0 setzen!&lt;/a&gt;
+&lt;/p&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Im oberen Fenster ist ein Script mit zwei <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../sprache/funktionen.htm">Funktionen</a> namens <code>gibaus_c()</code> und <code>erhoehe_c()</code> notiert. Die Funktion <code>erhoehe_c()</code> wird mit dem Event-Handler <code>onload</code> im einleitenden <code>&lt;body&gt;</code>-Tag erstmals gestartet und ruft sich dann mit Hilfe der Methode <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="window.htm#set_timeout">setTimeout()</a> alle 100 Millisekunden, also 10 mal pro Sekunde selber wieder auf. Dabei erhöht sie jedesmal die Variable <code>c</code> um 1.</p>
+
+<p>Im unteren Fenster sind zwei Verweise notiert. Der erste gibt den aktuellen Zählerstand von <code>c</code> aus. Dazu wird mit <code>parent.oberesFenster.gibaus_c()"</code> auf die Funktion <code>gibaus_c()</code> im anderen Frame-Fenster zugegriffen. Der zweite Verweis ruft eine Funktion <code>reset_c()</code> auf, die im Dateikopf des eigenen Dokuments notiert ist. Diese greift jedoch mit <code>parent.oberesFenster.c</code> auf die Variable <code>c</code> im anderen Frame-Fenster zu und setzt diese auf 0 zurück.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/js10.gif" width="30" height="30" alt="JavaScript 1.0" title="JavaScript 1.0"><img src="../../src/netsc2.gif" width="30" height="30" alt="Netscape 2.0" title="Netscape 2.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0"><img src="../../src/jsread.gif" width="60" height="30" alt="Lesen">&nbsp;<a class="an" name="length">length</a></h2>
+
+<p>Speichert, wie viele Frame-Fenster ein übergeordnetes Fenster enthält.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/bsp_frame_length_frame.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;script type="text/javascript"&gt;
+for (var i = 0; i &lt; parent.frames.length; i++)
+  alert(parent.frames[i].name);
+&lt;/script&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+<p>Mit <code>parent.frames.length</code> oder <code>top.frames.length</code> können Sie die Anzahl der Frame-Fenster ermitteln. Im Beispiel wird angenommen, dass die HTML-Datei innerhalb eines Frame-Sets aufgerufen wird. Beim Einlesen der Datei gibt die Datei mit der Methode <code>alert()</code> nacheinander die Namen aller Frame-Fenster im Frame-Set aus. Dazu dient die for-Schleife. Die Eigenschaft <code>parent.frames.length</code> dient als Abbruchbedingung für die Schleife. Da der Schleifenzähler <code>i</code> bei jedem Schleifendurchlauf um 1 erhöht wird, wird mit <code>parent.frames[i]</code> jeweils das nächste Frame-Fenster angesprochen.</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="document.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="document.htm">document</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="window.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="window.htm">window</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">JavaScript/DOM</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Objektreferenz</a></td>
+</tr>
+</table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

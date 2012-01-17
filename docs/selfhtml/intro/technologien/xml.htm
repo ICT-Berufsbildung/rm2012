@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: Einführung / Web-Technologien / XML und XML-Derivate</title>
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<meta name="description"    content="Welche Rolle XML bei den heute verfügbaren Web-Technologien spielt, und worin die Aufgaben von XML bestehen.">
+<meta name="keywords"       content="SELFHTML, Web-Technologien, Technologien, XML, XSL, XSLT, XML-Derivate">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-08-22T21:21:39+02:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/intro/technologien/xml.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="Web-Technologien" href="index.htm">
+<link rel="next" title="JavaScript/DOM" href="javascript.htm">
+<link rel="prev" title="Stylesheets" href="css.htm">
+<link rel="first" title="HTML" href="html.htm">
+<link rel="last" title="Flash" href="flash.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">Einführung</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Web-Technologien</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">XML und XML-Derivate</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#definitionssprache">XML als Definitionssprache für Auszeichnungssprachen</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#derivate">XML-Derivate</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#versionen">XML-Versionen</a><br>
+</p>
+</td>
+</tr><tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><a class="an" name="definitionssprache">XML als Definitionssprache für Auszeichnungssprachen</a></h2>
+
+<p>Stellen Sie sich vor, irgendjemand hätte irgendwann für ein weit verbreitetes Textverarbeitungsprogramm wie MS Word eine bestimmte Dokumentvorlage erstellt. Stellen Sie sich weiter vor, diese Dokumentvorlage würde sich irgendwie immer mehr verbreiten, jeder Word-Anwender hätte sie, und jeder Word-Anwender würde seine Dokumente fortan nur noch mit dieser einen Dokumentvorlage erstellen.</p>
+
+<p>Genau das ist im Grunde bei HTML der Fall. HTML ist eine Sprache, die mit Hilfe von SGML definiert wird und eine Reihe von festen Elementen enthält. Es ist zwar eine Sprache, die eigentlich alle wichtigen Elemente enthält, die ein Web-Autor heute so braucht, doch es bleiben genügend Wünsche offen. Denn es gibt viele Texte, die anwendungsspezifische Datenstrukturen haben. Nehmen Sie beispielsweise E-Mails. Eine E-Mail hat bestimmte Kopfdaten wie Absender, Empfänger, Thema, Absendezeit, sowie den eigentlichen Text. Wenn Sie eine solche E-Mail mit allen Feldern auf einer Web-Seite wiedergeben möchten, können Sie natürlich für die Felder "Absender", "Empfänger" usw. einfach normale Textabsätze verwenden. Sinnvoller wäre es allerdings, Auszeichnungselemente mit Namen wie "Absender" oder "Empfänger" zu haben. Nur so würde die semantische Datenstruktur der E-Mail erhalten bleiben.</p>
+
+<p>Und genau dies ist der Unterschied zwischen HTML und XML. XML wird auch mit Hilfe von SGML, der Mutter aller Auszeichnungssprachen, definiert. Doch es ist keine "SGML-Anwendung", so wie HTML, sondern ein "SGML-Profil". Das ist eine Stufe abstrakter, man spricht dabei auch von "generalized markup", also von "verallgemeinerter Auszeichnung".</p>
+
+<p>Im Grunde ist XML auch gar keine Konkurrenz zu HTML, sondern vielmehr zu SGML. Denn mit Hilfe von XML können Sie wie mit SGML eigene, neue Sprachen "erfinden". XML selbst ist also nur dazu da, um Auszeichnungssprachen zu definieren. Eine solche Auszeichnungssprache muss bestimmte Grundkonventionen einhalten. Die Bestandteile der Auszeichnungssprache müssen nach einem vorgeschriebenen Schema definiert werden. XML ist dabei das "Regelwerk", das Schema. Beim Definieren eigener Auszeichnungssprachen mit XML können Sie eigene Namen vergeben. So können Sie zum Beispiel Elemente definieren, um Bereiche eines Dokuments als Lexikonartikel auszuzeichnen, als Musiknote oder als Bestandteil einer chemischen Formel. Sie müssen bei der Definition der Elemente jedoch exakt festlegen, welche Eigenschaften das Element hat, zum Beispiel, innerhalb welcher anderen Elemente es vorkommen kann und innerhalb welcher nicht. Wenn Sie dann ein XML-Dokument mit der Definition einer eigenen Sprache erstellt haben, können Sie Dateien in dieser Sprache erstellen und im Dateikopf angeben, auf welche XML-Definitionen Sie sich in dieser Datei beziehen.</p>
+
+<p>Auszeichnungssprachen, die Sie mit XML definieren, sind wie HTML logisch/semantische Sprachen. Denn mit XML können Sie Elemente und deren grundsätzliche Eigenschaften definieren, aber Sie können nicht angeben, wie eine interpretierende Software ein Element bei der Darstellung formatieren soll. Da ein Browser bei selbst "erfundenen" Elementen nicht mal auf Voreinstellungen zurückgreifen kann, so wie bei HTML, ist eigentlich überhaupt keine sinnvolle Anzeige möglich. XML ist deshalb noch viel stärker als HTML auf die Ergänzung durch eine Style-Sprache angewiesen. Durch Formatierung von Elementen wird bei XML-Sprachen eine optisch brauchbare Darstellung überhaupt erst möglich. Dazu gibt es, genau wie bei HTML, eine ergänzende Stylesheet-Sprache. Diese Sprache heißt <b>XSL</b> (<i>Extensible Stylesheet Language - erweiterbare Formatsprache</i>). XSL ist noch leistungsfähiger als <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="css.htm">CSS</a>. Denn XSL besteht nicht nur aus Formateigenschaften wie Schriftgröße, Farbe, Zeilenabstand usw. XSL übernimmt auch erweiterte Aufgaben der Textverarbeitung wie das sortierte Ausgeben von listenartigen Daten, automatische Nummerierung usw. Ein Ableger von XSL namens <b>XSLT</b> (<i>XSL Transformation</i>) erlaubt es sogar, Daten von einer XML-basierten Auszeichnungssprache in eine andere zu konvertieren. Das Konzept dazu ist ziemlich genial - XSLT können Sie sich vorstellen wie einen "Universal-Konverter", einen Babelfish für Auszeichnungssprachen. Er kann von einer in die andere Sprache übersetzen. So ist es beispielsweise möglich, Daten in einer XML-basierten eigenen Sprache zu speichern, diese aber beim Präsentieren im Web auf dem Server, also bevor die Daten zum Browser gelangen, mit Hilfe von XSLT in HTML zu übersetzen. Beim Browser kommt dann lupenreines HTML an, und er bekommt gar nichts davon mit, dass die Daten eigentlich in einer für ihn möglicherweise unverständlichen XML-Sprache gespeichert sind.</p>
+
+<p>Für normales Homepage-Design ist XML bis heute relativ uninteressant. HTML und CSS sind für normale Texte und deren Gestaltung am Bildschirm hervorragend geeignet und meistens ausreichend. Doch im professionellen Bereich gibt es genügend Fälle, in denen der Einsatz von XML seine Berechtigung hat. Eigentlich überall dort, wo anwendungsspezifische Datenstrukturen vorliegen und der Wunsch besteht, diese beim Speichern der Daten nicht aufzugeben (siehe E-Mail-Beispiel weiter oben).</p>
+
+<p>Der Internet Explorer ist seit Version 5.x in der Lage, Dateien mit XML-basierten Sprachen zu erkennen und zu verarbeiten. Von XSL und XSLT versteht er allerdings noch recht wenig, gerade mal genug, um ein paar grobe Aufgaben der Darstellung damit zu lösen. Netscape erkennt XML seit der Produktversion 6.x. Angesichts dieser Tatsache ist es heute nicht sehr ratsam, XML direkt auf die Browser loszulassen. In der Praxis wird XML heute vor allem eingesetzt, um Daten semantisch optimal und frei von allem Layout-Ballast zu speichern. Für die Präsentation als Web-Seiten werden die Daten dann serverseitig mit Hilfe von XSLT oder mit Hilfe eines selbstgeschriebenen <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="perl.htm">CGI</a>-Scripts in HTML übersetzt.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="derivate">XML-Derivate</a></h2>
+
+<p>Auszeichnungssprachen, die mit Hilfe von XML definiert sind, werden auch als XML-Derivate, also als XML-Ableger bezeichnet. XML ist also vorstellbar wie der Stamm eines Baumes, der sich in lauter Äste entfaltet, wobei alle Äste die "Gene" des Stamms enthalten.</p>
+
+<p>Neben Auszeichnungssprachen, die Sie mit XML für Ihre eigenen Zwecke definieren können, gibt es aber auch XML-basierte Sprachen, die für die allgemeine Verwendung vorgesehen sind. So bietet beispielsweise auch das W3-Konsortium gleich mehrere, mit Hilfe von XML definierte Auszeichnungssprachen öffentlich an in der Hoffnung, dass diese eine breitere Anwendung finden. Es handelt sich um Sprachen mit ganz unterschiedlichen Aufgaben. So gibt es beispielsweise ein Dateiformat namens <b>SVG</b>, mit dessen Hilfe sich Vektorgrafiken erzeugen lassen, oder eine Sprache namens <b>MathML</b> zum exakten Auszeichnen mathematisch-wissenschaftlicher Formeln. Wenn von XML die Rede ist, dann ist damit meistens nicht nur der Kern von XML gemeint, sondern auch eine ganze Familie von XML-basierten Sprachen - eben die XML-Derivate.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="versionen">XML-Versionen</a></h2>
+
+<p>Genau wie <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="html.htm">HTML</a> und <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="css.htm">CSS</a> wird
+XML vom W3-Konsortium standardisiert. Die offizielle Dokumentation zu XML beschreibt dabei, nach welchen Regeln XML-basierte Auszeichnungssprachen definiert werden. Zum Redaktionsschluss des vorliegenden Dokuments lag die dritte Auflage der Empfehlung zu  XML 1.0 vor, veröffentlicht am 04.02.2004. Auf den Seiten des W3-Konsortiums können Sie die jeweils aktuelle Version aufrufen:</p>
+
+<p><img src="../../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.w3.org/TR/REC-xml/">Aktuelle XML-Spezifikation</a></p>
+
+<p>Auch XSL und XSLT werden vom W3-Konsortium standardisiert. Die entsprechenden aktuellen Dokumente finden Sie ebenfalls im Web:</p>
+
+<p><img src="../../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.w3.org/TR/xsl/">Aktuelle Spezifikation für XSL</a></p>
+
+<p><img src="../../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.w3.org/TR/xslt">Aktuelle Spezifikation für XSL Transformations (XSLT)</a></p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Im Link-Verzeichnis des Online-Angebots von SELFHTML aktuell finden Sie weitere relevante und aktuelle Verweise, z.B. zu deutschen Übersetzungen und weiteren Quellen:</p>
+
+<p><img src="../../src/serverdok.gif" width="15" height="10" alt="Online-Seite">&nbsp;<a target="_top" href="http://aktuell.de.selfhtml.org/links/xml.htm">SELFHTML-Linkverzeichnis: XML, DTDs und XSL(T)</a></p>
+
+<p>Innerhalb der vorliegenden Dokumentation wird XML 1.0 im Kapitel <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../../xml/index.htm">XML/DTDs</a> behandelt. Dabei wird auch XSLT beschrieben.</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="javascript.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="javascript.htm">JavaScript/DOM</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="css.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="css.htm">Stylesheets</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">Einführung</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Web-Technologien</a></td>
+</tr>
+</table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>Sinn des Lebens zum Quadrat</title>
+</head>
+<body>
+<script type="text/javascript">
+function SchreibeTabelle () {
+  var SinnDesLebens = 42;
+  var i, x, y;
+  document.write('<table border="1"><tr>');
+  document.write('<td bgcolor="#EEEEEE">Wert<\/td>');
+  document.write('<td bgcolor="#EEEEEE">Wert<sup>2<\/sup><\/td>');
+  document.write('<td bgcolor="#EEEEEE">Wert<sup>3<\/sup><\/td><\/tr>');
+  for (i=1; i <= SinnDesLebens; ++i) {
+    x = i * i;
+    y = i * i * i;
+    document.write("<tr><td>" + i + "<\/td>");
+    document.write("<td>" + x + "<\/td>");
+    document.write("<td>" + y + "<\/td><\/tr>");
+  }
+  document.write("<\/table>");
+}
+SchreibeTabelle();
+</script>
+
+<p><a href="../variablen.htm#aendern">zur&uuml;ck</a></p>
+</body>
+</html>

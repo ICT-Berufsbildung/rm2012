@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>quotes:</title>
+<style type="text/css">
+:lang(de)    { quotes:"\201E" "\201C" "\201A" "\2018"; }
+:lang(de-DE) { quotes:"\00BB" "\00AB" "\203A" "\2039"; }
+:lang(de-CH) { quotes:"\00AB" "\00BB" "\2039" "\203A"; }
+:lang(en)    { quotes:"\201C" "\201D" "\2018" "\2019"; }
+:lang(fr)    { quotes:"\00AB\A0" "\A0\00BB" "\2039\A0" "\A0\203A"; }
+
+q:before { content:open-quote; color:#a00; }
+q:after { content:close-quote; color:#a00; }
+q q:before { content:open-quote; color:#0a0; }
+q q:after { content:close-quote; color:#0a0; }
+
+q { font-size:40px; }
+q q { color:#888; }
+code { font-weight:bold; }
+</style>
+</head><body>
+
+<p><q lang="de">Sie sagte <q>es geht mir gut</q></q> deutsch <code>de</code></p>
+<p><q lang="de-de">Sie sagte <q>es geht mir gut</q></q> deutsch (französische Variante) <code>de-DE</code></p>
+<p><q lang="de-ch">Sie sagte <q>es geht mir gut</q></q> deutsch (Schweiz) <code>de-CH</code></p>
+<p><q lang="en">She said <q>I am fine</q></q> englisch <code>en</code></p> 
+<p><q lang="fr">Elle dit <q>Je vais bien</q></q> französisch <code>fr</code></p>
+
+<p><a href="../pseudoformate.htm#anfuehrungszeichen">zur&uuml;ck</a></p>
+</body></html>

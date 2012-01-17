@@ -1,0 +1,478 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: HTML/XHTML / Elemente zur Textstrukturierung / Listen</title>
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<meta name="description"    content="Wie Sie Aufzählungslisten, nummerierte Listen, Glossarlisten und andere, speziellere Listentypen in HTML definieren, und welche weiteren Möglichkeiten zur Formatierung von Listen bestehen.">
+<meta name="keywords"       content="SELFHTML, HTML, Listen, Aufzählungslisten, nummerierte Listen, Definitionslisten, Glossarlisten, Verzeichnislisten, Menülisten, ul, ol, dl, dt, dd, dir, menu, compact, type, start">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-10-31T12:25:34+01:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/html/text/listen.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="Elemente zur Textstrukturierung" href="index.htm">
+<link rel="next" title="Zitate und Adressen" href="zitate_adressen.htm">
+<link rel="prev" title="Zeilenumbruch" href="zeilenumbruch.htm">
+<link rel="first" title="Überschriften" href="ueberschriften.htm">
+<link rel="last" title="Ältere browser-proprietäre Elemente" href="proprietaer.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">HTML/XHTML</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Elemente zur Textstrukturierung</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Listen</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#aufzaehlung">Aufzählungsliste definieren</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#nummeriert">Nummerierte Liste definieren</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#definition">Definitionsliste definieren</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#verzeichnis_menue">Verzeichnis- oder Menüliste definieren</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#html_eigenschaften">HTML-Eigenschaften für Listen</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#formatieren">Listen formatieren mit CSS</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#weitere_infos">Weitere Informationen</a><br>
+</p>
+</td>
+</tr><tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><img src="../../src/html20.gif" width="30" height="30" alt="HTML 2.0" title="HTML 2.0"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../../src/msie1.gif" width="30" height="30" alt="MS IE 1.0" title="MS IE 1.0"><img src="../../src/netsc1.gif" width="30" height="30" alt="Netscape 1.0" title="Netscape 1.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="aufzaehlung">Aufzählungsliste definieren</a></h2>
+
+<p>Aufzählungslisten sind z.B. von Bedeutung, um Produkteigenschaften oder Argumente für eine These übersichtlich darzustellen. Bei einer Aufzählungsliste werden alle Listeneinträge mit einem Aufzählungszeichen (Bullet) versehen.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/ul.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+       "http://www.w3.org/TR/html4/strict.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Aufz&amp;auml;hlungslisten definieren&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;Liste wichtiger Reime&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Probieren geht &amp;uuml;ber Studieren&lt;/li&gt;
+  &lt;li&gt;Liebe geht &amp;uuml;ber Triebe&lt;/li&gt;
+  &lt;li&gt;Tante f&amp;auml;llt &amp;uuml;ber Kante&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p><code>&lt;ul&gt;</code> leitet eine Aufzählungsliste ein (<i>ul&nbsp;=&nbsp;unordered list&nbsp;=&nbsp;unsortierte Liste</i>). Mit <code>&lt;li&gt;</code> beginnt ein neuer Punkt innerhalb der Liste (<i>li&nbsp;=&nbsp;list item&nbsp;=&nbsp;Listeneintrag</i>). <code>&lt;/li&gt;</code> beendet den Listeneintrag. Es ist zwar nach HTML-Standard erlaubt, das abschließende <code>&lt;/li&gt;</code>-Tag wegzulassen, doch davon ist abzuraten. <code>&lt;/ul&gt;</code> beendet die Liste.</p>
+
+<p>Wie das Bullet dargestellt wird, bestimmt dabei der Web-Browser.</p>
+
+<p><a class="an" name="verschachteln">Das Verschachteln</a> von Listen ist ebenfalls möglich.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/ul_ul.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+       "http://www.w3.org/TR/html4/strict.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Verschachtelte Listen&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;Dies und das im Web&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Suchmaschinen
+    &lt;ul&gt;
+      &lt;li&gt;Google&lt;/li&gt;
+      &lt;li&gt;AltaVista&lt;/li&gt;
+      &lt;li&gt;Fireball&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Verzeichnisse
+    &lt;ul&gt;
+      &lt;li&gt;Yahoo&lt;/li&gt;
+      &lt;li&gt;Web.de&lt;/li&gt;
+      &lt;li&gt;Dino-Online&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Was anderes&lt;/li&gt;
+  &lt;li&gt;Noch was anderes&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Zwischen <code>&lt;li&gt;</code> und <code>&lt;/li&gt;</code> darf eine komplette weitere Liste stehen. Auch andere Listentypen sind dabei erlaubt.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/html20.gif" width="30" height="30" alt="HTML 2.0" title="HTML 2.0"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../../src/msie1.gif" width="30" height="30" alt="MS IE 1.0" title="MS IE 1.0"><img src="../../src/netsc1.gif" width="30" height="30" alt="Netscape 1.0" title="Netscape 1.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="nummeriert">Nummerierte Liste definieren</a></h2>
+
+<p>Nummerierte Listen sind z.B. von Bedeutung, um nacheinander auszuführende Aktionen oder Rangfolgen übersichtlich darzustellen. Bei einer nummerierten Liste werden alle Listeneinträge automatisch durchnummeriert.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/ol.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+       "http://www.w3.org/TR/html4/strict.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Nummerierte Liste definieren&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;Todo-Liste&lt;/h1&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;bei Anette vorbeischauen&lt;/li&gt;
+  &lt;li&gt;bei Bianca vorbeischauen&lt;/li&gt;
+  &lt;li&gt;bei Christine vorbeischauen&lt;/li&gt;
+  &lt;!-- usw. --&gt;
+&lt;/ol&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p><code>&lt;ol&gt;</code> leitet eine nummerierte Liste ein (<i>ol&nbsp;=&nbsp;ordered list&nbsp;=&nbsp;nummerierte Liste</i>). Mit <code>&lt;li&gt;</code> beginnt ein neuer Punkt innerhalb der Liste (<i>li&nbsp;=&nbsp;list item&nbsp;=&nbsp;Listeneintrag</i>). <code>&lt;/li&gt;</code> beendet den Listeneintrag. Es ist zwar nach HTML-Standard erlaubt, das abschließende <code>&lt;/li&gt;</code>-Tag wegzulassen, doch davon ist abzuraten. <code>&lt;/ol&gt;</code> beendet die Liste.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p><img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#verschachteln">Verschachteln</a> von nummerierten Listen ist ebenfalls möglich, bewirkt aber keine Gesamtnummerierung. Automatische Nummerierungshierarchien wie 1, 1.1, 1.1.1, sind mit HTML alleine nicht möglich.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/html20.gif" width="30" height="30" alt="HTML 2.0" title="HTML 2.0"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../../src/msie1.gif" width="30" height="30" alt="MS IE 1.0" title="MS IE 1.0"><img src="../../src/netsc1.gif" width="30" height="30" alt="Netscape 1.0" title="Netscape 1.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="definition">Definitionsliste definieren</a></h2>
+
+<p>Definitionslisten sind für Glossare gedacht. Glossare bestehen aus einer Liste von Einträgen. Die Einträge eines Glossars bestehen aus einem zu definierenden Ausdruck (z.B. ein Fachbegriff) und der zugehörigen Definition.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/dl_dt_dd.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+       "http://www.w3.org/TR/html4/strict.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Definitionslisten definieren&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;DF&amp;Uuml;-Abkürzungen&lt;/h1&gt;
+
+&lt;dl&gt;
+  &lt;dt&gt;AA&lt;/dt&gt;
+  &lt;dd&gt;Auto Answer (Modem)&lt;/dd&gt;
+  &lt;dt&gt;AAE&lt;/dt&gt;
+  &lt;dd&gt;Allgemeine Anschalte-Erlaubnis&lt;/dd&gt;
+  &lt;dt&gt;AARP&lt;/dt&gt;
+  &lt;dd&gt;Appletalk Address Resolution Protocol&lt;/dd&gt;
+  &lt;!-- usw. --&gt;
+&lt;/dl&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p><code>&lt;dl&gt;</code> leitet eine Definitionsliste ein (<i>dl&nbsp;=&nbsp;definition list&nbsp;=&nbsp;Definitionsliste</i>).<br>
+<code>&lt;dt&gt;</code> leitet einen zu definierenden Ausdruck ein (<i>dt&nbsp;=&nbsp;definition (list) term&nbsp;=&nbsp;Ausdruck in der Definitionsliste</i>).<br>
+<code>&lt;dd&gt;</code> leitet eine Definition eines Ausdrucks ein (<i>dd&nbsp;=&nbsp;definition (list) definition&nbsp;=&nbsp;Definition in der Definitionsliste</i>).<br>
+<code>&lt;/dl&gt;</code> beendet die Liste. Die End-Tags <code>&lt;/dt&gt;</code> und <code>&lt;/dd&gt;</code> dürfen zwar auch fehlen, doch davon ist abzuraten.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Das <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#verschachteln">Verschachteln</a> von Definitionslisten ist ebenfalls möglich. Dadurch können Sie baumartige Strukturen im Text abbilden. Netscape verwendet beispielsweise beim Aufbau seiner Lesezeichendatei verschachtelte Definitionslisten, um die baumartig strukturierbaren Lesezeichen zu verwalten. "Innere" Listen müssen dabei innerhalb des <code>dd</code>-Elements notiert werden.</p>
+
+<p>Die Abfolge von <code>dt</code>- und <code>dd</code>-Elementen innerhalb einer <code>dl</code>-Liste ist nicht streng geregelt. Es dürfen auch mehrere <code>dt</code>- oder <code>dd</code>-Elemente hintereinander folgen.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/html20.gif" width="30" height="30" alt="HTML 2.0" title="HTML 2.0"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../../src/deprecated.gif" width="30" height="30" alt="deprecated (missbilligt)" title="deprecated (missbilligt)"><img src="../../src/msie1.gif" width="30" height="30" alt="MS IE 1.0" title="MS IE 1.0"><img src="../../src/netsc1.gif" width="30" height="30" alt="Netscape 1.0" title="Netscape 1.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="verzeichnis_menue">Verzeichnis- oder Menüliste definieren</a></h2>
+
+<p>Verzeichnis- und Menülisten werden in der Praxis kaum verwendet und sind auch mittlerweile als <i>deprecated</i> gekennzeichnet, sollen also künftig aus dem HTML-Standard entfallen. Sie werden von den heutigen Browsern entweder nicht mehr oder nicht anders dargestellt als gewöhnliche Aufzählungslisten.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/dir_menu.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+       "http://www.w3.org/TR/html4/loose.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Verzeichnis- oder Men&amp;uuml;liste definieren&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;Verzeichnisse und Men&amp;uuml;s&lt;/h1&gt;
+
+&lt;dir&gt;
+  &lt;li&gt;/usr/home/&lt;/li&gt;
+  &lt;li&gt;/usr/home/web/&lt;/li&gt;
+  &lt;li&gt;/usr/home/web/data/&lt;/li&gt;
+&lt;/dir&gt;
+
+&lt;menu&gt;
+  &lt;li&gt;Datei&lt;/li&gt;
+  &lt;li&gt;Bearbeiten&lt;/li&gt;
+  &lt;li&gt;Ansicht&lt;/li&gt;
+&lt;/menu&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Eine Verzeichnisliste leiten Sie mit <code>&lt;dir&gt;</code> ein und beenden sie durch <code>&lt;/dir&gt;</code> (<i>dir = directory = Verzeichnis</i>). <code>&lt;menu&gt;</code> leitet eine Menüliste ein, <code>&lt;/menu&gt;</code> beendet die Menüliste. Mit <code>&lt;li&gt;</code> beginnt in beiden Listentypen ein neuer Punkt innerhalb der Liste (<i>li&nbsp;=&nbsp;list item&nbsp;=&nbsp;Listeneintrag</i>). Das End-Tag <code>&lt;/li&gt;</code> am Ende eines Listeneintrags ist nicht zwingend erforderlich, aber zu empfehlen.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Verzeichnis- und Menülisten dürfen - im Gegensatz zu Aufzählungslisten - keine absatzerzeugenden Elemente zwischen <code>&lt;li&gt;</code> und <code>&lt;/li&gt;</code> enthalten. Sie sind nur für zeilenartige Listen gedacht.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/html32.gif" width="30" height="30" alt="HTML 3.2" title="HTML 3.2"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../../src/deprecated.gif" width="30" height="30" alt="deprecated (missbilligt)" title="deprecated (missbilligt)"><img src="../../src/msie2.gif" width="30" height="30" alt="MS IE 2.0" title="MS IE 2.0"><img src="../../src/netsc11.gif" width="30" height="30" alt="Netscape 1.1" title="Netscape 1.1"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="html_eigenschaften">HTML-Eigenschaften für Listen</a></h2>
+
+<p>Es gibt eine Reihe von Attributen, die das Erscheinungsbild von Listen beeinflussen. So lassen sich beispielsweise nummerierte Listen auch alphabetisch und römisch nummerieren, und für Aufzählungslisten lässt sich der Typ des Bullet-Zeichens festlegen. Doch all diese HTML-Attribute sind mittlerweile als <i>deprecated</i> gekennzeichnet und sollen künftig aus dem HTML-Standard entfallen. Stattdessen sollten Sie <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#formatieren">Listen mit CSS formatieren</a>.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/ul_ol_dl_eigenschaften.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+       "http://www.w3.org/TR/html4/loose.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Eigenschaften von Listen&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;Listen mit HTML-Attributen&lt;/h1&gt;
+
+&lt;h2&gt;Aufz&auml;hlungsliste&lt;/h2&gt;
+
+&lt;ul type="square"&gt;
+  &lt;li&gt;Probieren geht &uuml;ber Studieren&lt;/li&gt;
+  &lt;li&gt;Liebe geht &uuml;ber Triebe&lt;/li&gt;
+  &lt;li&gt;Tante f&auml;llt &uuml;ber Kante&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;Nummerierte Liste, r&ouml;misch&lt;/h2&gt;
+
+&lt;ol type="I"&gt;
+  &lt;li value="10"&gt;bei Anette vorbeischauen (Wert 10)&lt;/li&gt;
+  &lt;li&gt;bei Bianca vorbeischauen&lt;/li&gt;
+  &lt;li&gt;bei Christine vorbeischauen&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2&gt;Nummerierte Liste mit Startwert 7&lt;/h2&gt;
+
+&lt;ol start="7"&gt;
+  &lt;li&gt;bei Anette vorbeischauen&lt;/li&gt;
+  &lt;li&gt;bei Bianca vorbeischauen&lt;/li&gt;
+  &lt;li&gt;bei Christine vorbeischauen&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2&gt;Definitionsliste&lt;/h2&gt;
+
+&lt;dl compact&gt;
+  &lt;dt&gt;AA&lt;/dt&gt;
+  &lt;dd&gt;Auto Answer (Modem)&lt;/dd&gt;
+  &lt;dt&gt;AAE&lt;/dt&gt;
+  &lt;dd&gt;Allgemeine Anschalte-Erlaubnis&lt;/dd&gt;
+  &lt;dt&gt;AARP&lt;/dt&gt;
+  &lt;dd&gt;Appletalk Address Resolution Protocol&lt;/dd&gt;
+&lt;/dl&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Für Aufzählungslisten können Sie das Symbol bestimmen, das vor den Listeneinträgen angezeigt wird:<br>
+<code>&lt;ul type="circle"&gt;</code> für nicht ausgefüllte Kreise (<i>circle = Kreis</i>).<br>
+<code>&lt;ul type="disc"&gt;</code> für ausgefüllte Kreise (<i>disc = Scheibe</i>)<br>
+<code>&lt;ul type="square"&gt;</code> für Rechtecke (<i>square = Rechteck</i>).</p>
+
+<p>Für nummerierte Listen können Sie die Art der Nummerierung bestimmen:<br>
+Mit <code>&lt;ol type="I"&gt;</code> werden die Listeneinträge mit
+I., II., III., IV. usw. nummeriert.<br>
+Mit <code>&lt;ol type="i"&gt;</code> werden die Listeneinträge mit
+i., ii., iii., iv. usw. nummeriert.<br>
+Mit <code>&lt;ol type="A"&gt;</code> werden die Listeneinträge mit
+A., B., C. usw. nummeriert.<br>
+Mit <code>&lt;ol type="a"&gt;</code> werden die Listeneinträge mit
+a., b., c. usw. nummeriert.</p>
+
+<p>Mit <code>start</code> innerhalb des einleitenden Tags von <code>&lt;ol&gt;</code> können Sie einen beliebigen Startwert setzen, z.B. <code>&lt;ol start="7"&gt;</code>. Die Nummerierung beginnt dann bei 7.</p>
+
+<p>Mit <code>value</code> innerhalb des Tags von <code>&lt;li&gt;</code> in einer nummerierten Liste können Sie den Startwert beliebig neu setzen, z.B. auf <code>&lt;li value="15"&gt;</code>. Die Nummerierung fährt dann bei 15 fort.</p>
+
+<p>Mit dem Attribut <code>compact</code> innerhalb des einleitenden Tags einer beliebigen Liste können Sie die kompaktere Darstellung bestimmen. Dies wurde allerdings von den Browsern noch nie oder nur vorübergehend mal interpretiert.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/html40.gif" width="30" height="30" alt="HTML 4.0" title="HTML 4.0"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/netsc4.gif" width="30" height="30" alt="Netscape 4.0" title="Netscape 4.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="formatieren">Listen formatieren mit CSS</a></h2>
+
+<p>Wie eine Liste genau dargestellt wird, darauf haben Sie mit HTML keinen Einfluss. Die Browser benutzen Default-Formatierungen, um Listen darzustellen. Mit <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../../css/index.htm">Stylesheets</a> können Sie ganze Listen und ihre Listenpunkte jedoch nach Wunsch formatieren. Bei Verwendung von Stylesheets müssen Sie zunächst wissen, wie man <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../../css/formate/index.htm">CSS-Formate definieren</a> kann. Anschließend sind Sie in der Lage, CSS-Eigenschaften anzuwenden. Maßgeblich sind im hier beschriebenen Zusammenhang folgende CSS-Eigenschaften:<br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/listen.htm">Listenformatierung</a><br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/schrift.htm">Schriftformatierung</a><br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/ausrichtung.htm">Ausrichtung und Absatzkontrolle</a><br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/randabstand.htm">Außenrand und Abstand</a></p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/list_style.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+       "http://www.w3.org/TR/html4/strict.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Listen formatieren mit CSS&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;Listen mit CSS&lt;/h1&gt;
+
+&lt;h2&gt;Aufz&amp;auml;hlungsliste&lt;/h2&gt;
+
+&lt;ul style="list-style-type:disc; color:red; font-weight:bold;"&gt;
+  &lt;li&gt;Probieren geht &amp;uuml;ber Studieren&lt;/li&gt;
+  &lt;li&gt;Liebe geht &amp;uuml;ber Triebe&lt;/li&gt;
+  &lt;li&gt;Tante f&amp;auml;llt &amp;uuml;ber Kante&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;Nummerierte Liste&lt;/h2&gt;
+
+&lt;ol style="list-style-type:upper-roman; font-weight:bold;"&gt;
+  &lt;li style="color:blue"&gt;bei Anette vorbeischauen&lt;/li&gt;
+  &lt;li style="color:maroon"&gt;bei Bianca vorbeischauen&lt;/li&gt;
+  &lt;li style="color:olive"&gt;bei Christine vorbeischauen&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2&gt;Definitionsliste&lt;/h2&gt;
+
+&lt;dl style="font-size:0.7em; font-family:Verdana,Arial,sans-serif"&gt;
+  &lt;dt&gt;AA&lt;/dt&gt;
+  &lt;dd&gt;Auto Answer (Modem)&lt;/dd&gt;
+  &lt;dt&gt;AAE&lt;/dt&gt;
+  &lt;dd&gt;Allgemeine Anschalte-Erlaubnis&lt;/dd&gt;
+  &lt;dt&gt;AARP&lt;/dt&gt;
+  &lt;dd&gt;Appletalk Address Resolution Protocol&lt;/dd&gt;
+&lt;/dl&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Im Beispiel wird für eine Aufzählungsliste (<code>&lt;ul&gt;...&lt;/ul&gt;</code>) bestimmt, dass sie ein Disk-Symbol als Bullet-Zeichen erhält, fett und in roter Farbe erscheint. Für eine nummerierte Liste (<code>&lt;ol&gt;...&lt;/ol&gt;</code>) wird bestimmt, dass sie in römischen großen Ziffern zählt, und dass ihre Einträge fett dargestellt werden. Ihre einzelnen Listenpunkte werden zudem in unterschiedlichen Farben dargestellt. Für eine Definitionsliste (<code>&lt;dl&gt;...&lt;/dl&gt;</code>) wird eine kleinere Schriftgröße als normal und eine bestimmte Schriftart bestimmt.</p>
+
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="weitere_infos">Weitere Informationen</a></h2>
+
+<p>In der <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../referenz/index.htm">HTML-Referenz</a> finden Sie Angaben darüber, wo die verschiedenen Listentypen vorkommen dürfen, welche anderen Elemente sie enthalten dürfen, welche Attribute sie haben können und was bei den einzelnen Attributen zu beachten ist:<br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/elemente.htm#ul">Element-Referenz</a> für Aufzählungslisten (<code>&lt;ul&gt;...&lt;/ul&gt;</code>)<br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/attribute.htm#ul">Attribut-Referenz</a> für Aufzählungslisten (<code>&lt;ul&gt;...&lt;/ul&gt;</code>)<br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/elemente.htm#ol">Element-Referenz</a> für nummerierte Listen (<code>&lt;ol&gt;...&lt;/ol&gt;</code>)<br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/attribute.htm#ol">Attribut-Referenz</a> für nummerierte Listen (<code>&lt;ol&gt;...&lt;/ol&gt;</code>)<br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/elemente.htm#dl">Element-Referenz</a> für Definitionslisten (<code>&lt;dl&gt;...&lt;/dl&gt;</code>)<br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/attribute.htm#dl">Attribut-Referenz</a> für Definitionslisten (<code>&lt;dl&gt;...&lt;/dl&gt;</code>)<br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/elemente.htm#dir">Element-Referenz</a> für Verzeichnislisten (<code>&lt;dir&gt;...&lt;/dir&gt;</code>)<br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/attribute.htm#dir">Attribut-Referenz</a> für Verzeichnislisten (<code>&lt;dir&gt;...&lt;/dir&gt;</code>)<br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/elemente.htm#menu">Element-Referenz</a> für Menülisten (<code>&lt;menu&gt;...&lt;/menu&gt;</code>)<br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/attribute.htm#menu">Attribut-Referenz</a> für Menülisten (<code>&lt;menu&gt;...&lt;/menu&gt;</code>)</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="zitate_adressen.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="zitate_adressen.htm">Zitate und Adressen</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="zeilenumbruch.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="zeilenumbruch.htm">Zeilenumbruch</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">HTML/XHTML</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Elemente zur Textstrukturierung</a></td>
+</tr>
+</table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

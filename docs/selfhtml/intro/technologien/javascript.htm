@@ -1,0 +1,120 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: Einführung / Web-Technologien / JavaScript/DOM</title>
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<meta name="description"    content="Welche Aufgaben die Script-Sprache JavaScript hat, was sich hinter dem DOM verbirgt, und wie beides zusammengehört.">
+<meta name="keywords"       content="SELFHTML, Web-Technologien, Technologien, JavaScript, DOM">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-08-22T21:21:39+02:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/intro/technologien/javascript.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="Web-Technologien" href="index.htm">
+<link rel="next" title="Perl" href="perl.htm">
+<link rel="prev" title="XML und XML-Derivate" href="xml.htm">
+<link rel="first" title="HTML" href="html.htm">
+<link rel="last" title="Flash" href="flash.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">Einführung</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Web-Technologien</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">JavaScript/DOM</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#anwendungen">Web-Seiten als Anwendungen</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#infos">JavaScript-Informationen</a><br>
+</p>
+</td>
+</tr><tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><a class="an" name="anwendungen">Web-Seiten als Anwendungen</a></h2>
+
+<p>In HTML können Sie unter anderem Formulare definieren. Solche Formulare können Eingabefelder, Auswahllisten, Buttons usw. enthalten. Der Anwender kann ein Formular ausfüllen und über das Web absenden. Das ist für viele Zwecke eine segensreiche Erfindung. Doch HTML erlaubt Ihnen als Formularanbieter beispielsweise nicht, die Eingaben des Anwenders vor dem Absenden des Formulars auf Vollständigkeit und Plausibilität zu prüfen. Mit JavaScript ist das jedoch möglich.</p>
+
+<p>Oder ein anderer Fall: Sie können in HTML zwar Multimedia-Dateien einbinden, aber wenn diese HTML-Datei im Web steht, können Sie nicht wissen, ob Ihre Seitenbesucher einen Browser besitzen, der das entsprechende Multimediaformat anzeigen kann. Da wäre es praktisch, das Einbinden der Multimedia-Datei davon abhängig zu machen, ob der Browser des Anwenders das entsprechende Format anzeigen kann oder nicht. Auch so etwas ist mit JavaScript möglich.</p>
+
+<p>Für diese und unzählige andere nützliche, allerdings auch weniger nützliche Zwecke erfand Netscape eine Programmiersprache namens JavaScript. Durch JavaScript können Web-Seiten, die mit Hilfe von <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="html.htm">HTML</a> aus strukturiertem Text bestehen und mit <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="css.htm">CSS</a> gestaltet sind, ihren reinen "Dokument-Charakter" aufgeben und eher wie Programme, wie Anwendungen wirken. JavaScript erlaubt es, Maus- und Tastatureingaben des Anwenders zu verarbeiten und darauf mit Bildschirmausgaben oder dynamischen Änderungen innerhalb der angezeigten Web-Seite zu reagieren. So lässt sich mit JavaScript beispielsweise ein HTML-Formular zu einem Zinseszinsberechner umfunktionieren. Der Anwender gibt ein paar Werte ein, JavaScript berechnet etwas und gibt das Ergebnis aus.</p>
+
+<p>All diese Dinge laufen im Web-Browser des Anwenders ab, während eine Web-Seite am Bildschirm angezeigt wird. Es ist keine zusätzliche Kommunikation zwischen Web-Browser und Web-Server erforderlich. Wenn die Web-Seite zum Browser übertragen wurde und sich damit im Arbeitsspeicher des Anwender-Rechners befindet, sind JavaScripts, die in die Web-Seite integriert sind, lokal ausführbar. Damit Programmierer auf dem Rechner des Anwenders keinen Unfug treiben können, ist JavaScript allerdings in seinen Möglichkeiten stark beschränkt. Es ist mit JavaScript beispielsweise nicht möglich, mal eben eine Datei auf dem Rechner des Anwenders auszulesen oder diese gar zu löschen. Die Möglichkeiten von JavaScript sind auf das Umfeld der Web-Seite eingeschränkt, in die so ein Script eingebettet ist.</p>
+
+<p>JavaScripts können Sie ebenso wie Stylesheets direkt innerhalb von HTML-Dateien notieren oder wahlweise als separate Datei einbinden. Damit bezieht sich ein solches JavaScript auf die Seite, in die es eingebunden ist und kann auf das unmittelbare Umfeld und die Elemente dieser Seite zugreifen. Was den Zugriff auf Elemente einer HTML-Datei betrifft, muss man jedoch einen wichtigen Unterschied machen: mit klassischem JavaScript, wie es Netscape zunächst einführte, lässt sich nur auf bestimmte Elemente zugreifen, beispielsweise auf Formularelemente. Mittlerweile setzen sich jedoch Ansätze durch, bei denen der Script-Sprachen-Zugriff auf beliebige HTML-Elemente möglich ist, und zwar lesend und schreibend. So wird es beispielsweise möglich, den Text eines Textabsatzes dynamisch auszutauschen, wenn der Anwender an eine bestimmte Stelle klickt. Auf diese Weise werden HTML-Dateien zu richtigen interaktiven Anwendungen - was sich etwa hervorragend für didaktische Zwecke nutzen lässt. Für das dynamische Verändern von am Bildschirm angezeigten Web-Seiten hat sich auch der Begriff <b>Dynamic HTML</b> eingebürgert.</p>
+
+<p>Den Zugriff auf beliebige Elemente regelt das <b>Document Object Model (DOM)</b>. Dabei handelt es sich nicht um eine Programmiersprache, sondern um ein Schema für Programmiersprachen, das beschreibt, wie auf die Elemente von HTML- und auch auf die Elemente von beliebigen <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="xml.htm">XML</a>-basierten Dokumenten zugegriffen werden kann. Das DOM regelt also beispielsweise, welche Möglichkeiten eine Sprache wie JavaScript bereitstellen muss, um dem Programmierer zu erlauben, den Text einer Überschrift erster Ordnung in einer HTML-Datei zu ermitteln und durch einen anderen Text zu ersetzen. Das DOM ist im Gegensatz zu JavaScript keine konkrete Programmiersprache. Es ist lediglich eine Vorgabe, die in modernen Script-Sprachen für Web-Seiten umgesetzt werden sollte. Denn das DOM wird wie HTML, CSS und JavaScript vom W3-Konsortium standardisiert und hat damit einen normativen Charakter. In den JavaScript-Modulen der verbreiteten Browser wird das DOM allmählich umgesetzt. Der Internet Explorer unterstützt DOM-gerechtes JavaScript seit Version 5.x, Netscape seit Version 6.x.</p>
+
+<p>Die Mehrzahl der heutigen Web-Seiten setzt JavaScript in irgendeiner Form ein - die meisten so wie es gedacht ist, nämlich als Unterstützung für bestimmte Aufgaben, die sich mit HTML einfach nicht lösen lassen. Einige Seiten sind aber auch komplett JavaScript-basiert. Anwender, die in ihrem Browser JavaScript deaktiviert haben (was bei allen Browsern möglich ist), sehen von solchen Seiten rein gar nichts.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="infos">JavaScript-Informationen</a></h2>
+
+<p>JavaScript ist anders als HTML, CSS oder XML keine unabhängige Technologie, sondern eine von Netscape lizenzierte Programmiersprache. Obwohl JavaScript im Internet Explorer genauso funktioniert wie im Netscape-Browser, steckt in Wirklichkeit beim Internet Explorer eine andere Sprache namens <b>JScript</b> dahinter. JScript ist die Microsoft-Antwort auf JavaScript, was den Web-Seiten-Entwickler allerdings nicht kümmern muss, denn der JScript-Interpreter des Internet Explorers kommt mit JavaScript zurecht.
+Als Ersteller von Web-Seiten können Sie also in JavaScript programmieren, was Sie wollen, ohne sich um Lizenzfragen kümmern zu müssen. Die Weiterentwicklung von JavaScript liegt jedoch in den Händen des Lizenzinhabers und nicht in denen einer unabhängigen Organisation wie dem W3-Konsortium. In den Händen des W3-Konsortiums liegt dagegen die Standardisierung des DOM, das eine wichtige Grundlage für modernes JavaScript ist. Das Dokument für das DOM in der Version 1.0 finden Sie auf den Web-Seiten des W3-Konsortiums:</p>
+
+<p><img src="../../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.w3.org/TR/REC-DOM-Level-1/">Document Object Model (DOM) 1.0 Spezifikation</a></p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Im Link-Verzeichnis des Online-Angebots von SELFHTML aktuell finden Sie weitere relevante und aktuelle Verweise, z.B. zu Original-Dokumentationen von Netscape und weiteren Quellen:</p>
+
+<p><img src="../../src/serverdok.gif" width="15" height="10" alt="Online-Seite">&nbsp;<a target="_top" href="http://aktuell.de.selfhtml.org/links/javascript.htm">SELFHTML-Linkverzeichnis: JavaScript und DOM</a></p>
+
+<p>Innerhalb der vorliegenden Dokumentation werden JavaScript und DOM im Kapitel <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../../javascript/index.htm">JavaScript/DOM</a> behandelt. Relevant ist darüber hinaus das Kapitel <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../../dhtml/index.htm">Dynamisches HTML</a>, in dem bestimmte Techniken für den Zugriff auf Elemente einer Web-Seite eingehender beschrieben werden.</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="perl.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="perl.htm">Perl</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="xml.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="xml.htm">XML und XML-Derivate</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">Einführung</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Web-Technologien</a></td>
+</tr>
+</table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

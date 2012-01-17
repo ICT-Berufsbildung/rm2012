@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>Test</title></head>
+<body>
+<object id="Adressen" classid="clsid:333C7BC4-460F-11D0-BC04-0080C7055A83">
+ <param name="DataURL" value="adressen.txt">
+ <param name="UseHeader" value="true">
+ <param name="FieldDelim" value="|">
+</object>
+<form action="">
+<table id="Anzeigetabelle" datasrc="#Adressen" datapagesize="1" width="100%" border="1">
+<colgroup><col width="200"><col></colgroup>
+<tr>
+<td bgcolor="#EEEEEE"><b>Adressen</b></td>
+<td bgcolor="#EEEEEE" align="right">
+<input type="button" value=" &lt; " onclick="document.all.Anzeigetabelle.previousPage();">
+<input type="button" value=" &gt; " onclick="document.all.Anzeigetabelle.nextPage();">
+</td>
+</tr><tr>
+<td bgcolor="#EEEEEE" valign="top"><b>Name:</b></td>
+<td bgcolor="#FFFFE0" valign="top"><span datafld="Name"></span></td>
+</tr><tr>
+<td bgcolor="#EEEEEE" valign="top"><b>Vorname:</b></td>
+<td bgcolor="#FFFFE0" valign="top"><span datafld="Vorname"></span></td>
+</tr><tr>
+<td bgcolor="#EEEEEE" valign="top"><b>Stra&szlig;e:</b></td>
+<td bgcolor="#FFFFE0" valign="top"><span datafld="Strasse"></span></td>
+</tr><tr>
+<td bgcolor="#EEEEEE" valign="top"><b>Postleitzahl:</b></td>
+<td bgcolor="#FFFFE0" valign="top"><span datafld="PLZ"></span></td>
+</tr><tr>
+<td bgcolor="#EEEEEE" valign="top"><b>Wohnort:</b></td>
+<td bgcolor="#FFFFE0" valign="top"><span datafld="Ort"></span></td>
+</tr><tr>
+<td bgcolor="#EEEEEE" valign="top"><b>Telefon:</b></td>
+<td bgcolor="#FFFFE0" valign="top"><span datafld="Tel"></span></td>
+</tr><tr>
+<td bgcolor="#EEEEEE" valign="top"><b>E-Mail:</b></td>
+<td bgcolor="#FFFFE0" valign="top"><span datafld="EMail"></span></td>
+</tr></table></form>
+
+<p><a href="../datenanbindung.htm#tabelle2">zur&uuml;ck</a></p>
+</body>
+</html>

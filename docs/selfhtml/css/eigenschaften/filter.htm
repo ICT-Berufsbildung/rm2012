@@ -1,0 +1,597 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: Stylesheets / CSS-Eigenschaften / Filter (nur Microsoft)</title>
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<meta name="description"    content="Welche CSS-Eigenschaften es beim Internet Explorer gibt, um grafische Filterfunktionen anzuwenden.">
+<meta name="keywords"       content="SELFHTML, CSS, Stylesheets, Cascading Stylesheets, HTML, CSS-Eigenschaften, Filter, Effekte, Schatten, Glühen, Verzerrung, Invertierung, filter:Alpha, filter:Blur, filter:Chroma, filter:DropShadow, filter:FlipH, filter:FlipV, filter:Glow, filter:Gray, filter:Invert, filter:Mask, filter:Shadow, filter:Wave, filter:XRay">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-10-30T14:19:30+01:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/css/eigenschaften/filter.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="CSS-Eigenschaften" href="index.htm">
+<link rel="next" title="Einführung in CSS-basierte Layouts" href="../layouts/einfuehrung.htm">
+<link rel="prev" title="Anzeigefenster" href="anzeigefenster.htm">
+<link rel="first" title="Schriftformatierung" href="schrift.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">Stylesheets (CSS)</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">CSS-Eigenschaften</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Filter (nur Microsoft)</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#allgemeines">Allgemeines zu Filtern</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#alpha">filter:Alpha()</a> (Vordergrund/Hintergrund verschmelzen)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#blur">filter:Blur()</a> (Verwisch-Effekt)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#chroma">filter:Chroma()</a> (Transparenzfarbe)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#drop_shadow">filter:DropShadow()</a> (Schattenwurf)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#flip_h">filter:FlipH()</a> (Horizontal spiegeln)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#flip_v">filter:FlipV()</a> (Vertikal spiegeln)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#glow">filter:Glow()</a> (Glühender Rand)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#gray">filter:Gray()</a> (Graustufen)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#invert">filter:Invert()</a> (Invertieren)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#mask">filter:Mask()</a> (Transparenzmaske)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#shadow">filter:Shadow()</a> (Schatten)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#wave">filter:Wave()</a> (Wellenartige Störung)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#x_ray">filter:XRay()</a> (Fotonegativ-Effekt)
+</p>
+</td>
+</tr><tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><a class="an" name="allgemeines">Allgemeines zu Filtern</a></h2>
+
+<p>Die hier vorgestellten Eigenschaften kommen aus dem Bereich der Bildbearbeitung. Die Filter berechnen Effekte, die sich auf geeignete Objekte anwenden lassen.</p>
+
+<p>Durch diese Filter werden zwar sehr interessante optische Effekte möglich. Auch kunstvolle Textgestaltung ist damit möglich, was manche Grafik ersparen hilft. Dennoch sind all die Eigenschaften für Filter kein CSS-Standard und ein proprietäres Leistungsmerkmal des Internet Explorer. Andere Browser interpretieren diese Eigenschaften nicht.</p>
+
+<p>Sie können für einzelne Elemente Filter angeben, die das Element dynamisch verändern. Das Prinzip ist immer das gleiche.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<pre>
+&lt;img src="grafik.gif" style="filter:Blur(strength=50)"&gt;
+&lt;img src="grafik.gif" style="filter:Blur(strength=50) FlipH();"&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Mit <code>filter:</code> können Sie einen Effekt-Filter bestimmen. Hinter dem Doppelpunkt folgt der Aufruf eines Filters. Einige Filter erwarten Parameter, andere nicht. Die Parameter und Ihre Wertangaben zu den Filtern notieren Sie in Klammern unmittelbar hinter dem Filternamen, so wie im obigen Beispiel <code>(strength=50)</code> als Parameter an den Filter <code>Blur()</code> übergeben wird mit einem Gleichheitszeichen. Wenn ein Filter keine Parameter erwartet, notieren Sie trotzdem die Klammern, lassen den Inhalt dazwischen aber leer.</p>
+
+<p>Sie können auch mehrere Filter kombinieren. Im zweiten der obigen Beispiele werden etwa die beiden Filter <code>Blur()</code> und <code>FlipH()</code> kombiniert. Dazu dürfen Sie nur einmal das Schlüssenwort <code>filter:</code> notieren. Zwischen diesem Schlüsselwort und dem nächsten Semikolon (<code>;</code>) zum Abschließen der Stylesheet-Angabe können Sie mehrere Filter notieren. Trennen Sie die Filter durch ein Leerzeichen vor dem Namen des nächsten Filters, so wie im Beispiel vor <code>FlipH()</code>.</p>
+
+<p>Die Filter sind für die folgenden HTML-Elemente gedacht (bei anderen funktionieren sie nicht):</p>
+<p>
+<code>body</code> (Effekt betrifft die gesamte angezeigte Seite)<br>
+<code>button</code> (Effekt betrifft die Schaltfläche)<br>
+<code>div</code> (Effekt betrifft den Bereich in Verbindung mit den Stylesheet-Angaben <code>width:</code> und/oder <code>height:</code> und/oder <code>position:</code>)<br>
+<code>img</code> (Effekt betrifft die referenzierte Grafik)<br>
+<code>input</code> (Effekt betrifft das Eingabefeld)<br>
+<code>marquee</code> (Effekt betrifft den Lauftext)<br>
+<code>span</code> (Effekt betrifft den Bereich in Verbindung mit den Stylesheet-Angaben <code>width:</code> und/oder <code>height:</code> und/oder <code>position:</code>)<br>
+<code>table</code> (Effekt betrifft die Tabelle)<br>
+<code>td</code> (Effekt betrifft die Datenzelle einer Tabelle)<br>
+<code>textarea</code> (Effekt betrifft das mehrzeilige Eingabefeld)<br>
+<code>tfoot</code> (Effekt betrifft den Fußbereich einer Tabelle)<br>
+<code>th</code> (Effekt betrifft die Kopfzelle einer Tabelle)<br>
+<code>thead</code> (Effekt betrifft den Kopfbereich einer Tabelle)<br>
+<code>tr</code> (Effekt betrifft die Zeile einer Tabelle)<br>
+</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Es gibt noch drei weitere Microsoft-Filter, die jedoch Script-Sprachen-Unterstützung benötigen.
+Überhaupt werden diese Filter erst so richtig interessant, wenn sie dynamisch verändert werden. Lesen Sie dazu im Kapitel über <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../../dhtml/index.htm">Dynamisches HTML</a> den Abschnitt <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../dhtml/modelle/dynamische_filter.htm">Dynamische Filter (nur Microsoft)</a>.</p>
+
+<p>Auf dieser Seite werden die Filter beschrieben, die mit dem Internet Explorer 4.0 eingeführt wurden. Mit der Version 5.5 seines Browsers hat Microsoft wieder eine neue, erweiterte Syntax eingeführt.<br>
+An die Stelle des Syntax-Schemas: <code>filter:filtername(Eigenschaften)</code><br>
+tritt das neue Syntax-Schema: <code>filter:progid:DXImageTransform.Microsoft.filtername(Eigenschaften)</code></p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/msie4.gif" width="30" height="30" alt="MS IE 4.0" title="MS IE 4.0">&nbsp;<a class="an" name="alpha">filter:Alpha() (Vordergrund/Hintergrund verschmelzen)</a></h2>
+
+<p>Mit diesem Filter können Sie Vordergrundelemente mit Hintergrundelementen farblich verschmelzen. Der Filter erlaubt verschiedene Möglichkeiten, wie ein Vordergrundelement aus seinem Hintergrund "heraustreten" kann.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/filter_alpha.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"&gt;
+&lt;html&gt;&lt;head&gt;&lt;title&gt;filter:Alpha()&lt;/title&gt;
+&lt;/head&gt;&lt;body&gt;
+
+&lt;div style="background-image:url(background3.jpg); padding:20px; text-align:center"&gt;
+&lt;img src="filter_alpha.gif" style="filter:Alpha(opacity=100, finishopacity=0, style=2)" width="247" height="383" alt="Grafik"&gt;&lt;/div&gt;
+
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Mit <code>filter:Alpha()</code> können Sie Vordergrundelemente und Hintergrundelemente ineinander verschmelzen. Geeignet ist der Filter z.B. für Grafiken, die auf Hintergrundgrafiken erscheinen. Dieser Filter erwartet folgende Parameter:</p>
+
+<p><code>opacity</code> steht für den Deckgrad am Ursprung der Verschmelzung. Erlaubt sind Werte zwischen 0 und 100. Wert 0 bedeutet: vollkommen transparent (Hintergrund scheint voll durch), Wert 100 bedeutet: vollkommen abdeckend (Hintergrund scheint nicht durch).</p>
+<p><code>finishopacity</code> steht für den Deckgrad am Ende der Verschmelzung. Erlaubt sind Werte zwischen 0 und 100. Wert 0 bedeutet: vollkommen transparent (Hintergrund scheint voll durch), Wert 100 bedeutet: vollkommen abdeckend (Hintergrund scheint nicht durch).</p>
+<p><code>style</code> steht für die Art, in der der Filter wirkt. Erlaubt sind die Werte 0, 1, 2 und 3.<br>
+0 bedeutet: Hintergrund und Vordergrund werden farblich addiert. Das Vordergrundelement wird farblich entsprechend manipuliert. Keine Verschmelzung. Angaben zu den anderen Parametern sind in diesem Fall nicht erforderlich, d.h. <code>Alpha(style=0)</code> genügt.<br>
+1 bedeutet: linearer Verlauf von einem selbst definierbaren Anfangspunkt zu einem selbst definierbaren Endpunkt. Am Anfangspunkt gilt der Wert, der bei <code>opacity</code> angegeben wird. Ab dem Endpunkt verliert der Wert für <code>opacity</code> seinen Einfluss, und der Wert für <code>finishopacity</code> dominiert. Den Anfangspunkt bestimmen Sie durch <code>startx</code> und <code>starty</code>, den Endpunkt durch <code>finishx</code> und <code>finishy</code>.<br>
+2 bedeutet: radialer (elliptischer) Verlauf von innen nach außen. Ganz innen gilt der angegebene Wert für <code>opacity</code>, ganz außen der angegebene Wert für <code>finishopacity</code>. In diesem Fall können Sie Angaben zu <code>startx</code>, <code>starty</code>, <code>finishx</code> und <code>finishy</code> weglassen, so wie im obigen Beispiel.<br>
+3 bedeutet: rechteckiger Verlauf von innen nach außen. Ganz innen gilt der angegebene Wert für <code>opacity</code>, ganz außen der angegebene Wert für <code>finishopacity</code>. In diesem Fall können Sie Angaben zu <code>startx</code>, <code>starty</code>, <code>finishx</code> und <code>finishy</code> weglassen, so wie im obigen Beispiel.</p>
+<p><code>startx</code> steht für den Anfangspunkt vom linken Rand aus gesehen in Prozent relativ zur Breite des Elements. Nur in Verbindung mit <code>style=1</code> von Bedeutung.</p>
+<p><code>starty</code> steht für den Anfangspunkt vom oberen Rand aus gesehen in Prozent relativ zur Höhe des Elements. Nur in Verbindung mit <code>style=1</code> von Bedeutung.</p>
+<p><code>finishx</code> steht für den Endpunkt vom linken Rand aus gesehen in Prozent relativ zur Breite des Elements. Nur in Verbindung mit <code>style=1</code> von Bedeutung.</p>
+<p><code>finishy</code> steht für den Endpunkt vom oberen Rand aus gesehen in Prozent relativ zur Höhe des Elements. Nur in Verbindung mit <code>style=1</code> von Bedeutung.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/msie4.gif" width="30" height="30" alt="MS IE 4.0" title="MS IE 4.0">&nbsp;<a class="an" name="blur">filter:Blur() (Verwisch-Effekt)</a></h2>
+
+<p>Dieser Filter erlaubt es, Grafiken in HTML mit Verwisch-Effekt auszustatten.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/filter_blur.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"&gt;
+&lt;html&gt;&lt;head&gt;&lt;title&gt;filter:Blur()&lt;/title&gt;
+&lt;/head&gt;&lt;body&gt;
+
+&lt;p&gt;links das Bild in seiner normalen Form, rechts mit Blur()-Filter:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src="filter_blur.jpg" width="91" height="177" alt="Bild"&gt;
+&lt;img src="filter_blur.jpg" width="91" height="177" alt="Bild"
+          style="filter:Blur(direction=45, strength=40)"&gt;&lt;/p&gt;
+
+&lt;p style="width:100%; padding:20px; font-size:56px; color:red;
+  filter:Blur(direction=235, strength=6)"&gt;Text mit Blur-Effekt&lt;/p&gt;
+
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Mit <code>filter:Blur()</code> können Sie einen Verwisch-Effekt definieren. Geeignet ist der Filter für Grafiken. Dieser Filter erwartet folgende Parameter:</p>
+
+<p>Den Parameter <code>add</code> brauchen Sie nur anzugeben, wenn Sie <code>add=0</code> notieren wollen. Dann erscheinen die Konturen der Grafik gar nicht mehr, und am Bildschirm erscheint nur noch die Verwischspur. Der Effekt wird dadurch sehr stark, die eigentliche Grafik ist oft nicht mehr zu erkennen.</p>
+<p><code>direction</code> steht für die Richtung, in die die Verwischspur führt. Es wirkt dann so, als ob die Grafik aus dieser Richtung kommt. Erlaubt sind die Werte 0, 45, 90, 135, 180, 225, 270, 315:<br>
+0 bedeutet: Die Verwischspur zeigt nach oben.<br>
+45 bedeutet: Die Verwischspur zeigt nach oben rechts.<br>
+90 bedeutet: Die Verwischspur zeigt nach rechts.<br>
+135 bedeutet: Die Verwischspur zeigt nach unten rechts.<br>
+180 bedeutet: Die Verwischspur zeigt nach unten.<br>
+225 bedeutet: Die Verwischspur zeigt nach unten links.<br>
+270 bedeutet: Die Verwischspur zeigt nach links.<br>
+315 bedeutet: Die Verwischspur zeigt nach oben links.</p>
+<p><code>strength</code> steht für die Stärke des Verwisch-Effektes. <var>0</var> bedeutet keinen Verwisch-Effekt, jeder höhere Wert die Verwischspur in Pixeln. Beachten Sie jedoch, dass die Grafik innerhalb ihrer normalen Bildgröße dargestellt wird. Verwischspuren von Konturen, die sehr nah am Bildrand sind, werden nur bis zum Bildrand gezogen.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/msie4.gif" width="30" height="30" alt="MS IE 4.0" title="MS IE 4.0">&nbsp;<a class="an" name="chroma">filter:Chroma() (Transparenzfarbe)</a></h2>
+
+<p>Mit diesem Filter können Sie bei Grafiken eine Farbe als transparent definieren. Anders als bei <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../grafik/techniken.htm#transparenz">transparenten GIF-Grafiken</a> werden jedoch auch alle anderen Farben der Grafik betroffen.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/filter_chroma.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"&gt;
+&lt;html&gt;&lt;head&gt;&lt;title&gt;filter:Chroma()&lt;/title&gt;
+&lt;/head&gt;&lt;body&gt;
+
+&lt;p&gt;links das Bild in seiner normalen Form, rechts mit Chroma()-Filter:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src="filter_chroma.gif" width="106" height="109" alt="Bild"&gt;
+&lt;img src="filter_chroma.gif" style="filter:Chroma(color=#DDBB99)" width="106" height="109" alt="Bild"&gt;&lt;/p&gt;
+
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Mit <code>filter:Chroma()</code> können Sie eine Farbe in einer Grafik als transparent definieren. Der Filter erwartet folgenden Parameter:</p>
+
+<p><code>color</code> steht für eine <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../formate/wertzuweisung.htm#farben">Farbangabe</a>.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/msie4.gif" width="30" height="30" alt="MS IE 4.0" title="MS IE 4.0">&nbsp;<a class="an" name="drop_shadow">filter:DropShadow() (Schattenwurf)</a></h2>
+
+<p>Dieser Filter bewirkt einen Schatteneffekt für alle Konturen eines Elements. Bei Text bilden die Zeichen die Konturen, bei Grafiken sollten Sie nur solche für den Filter benutzen, die eindeutige Konturen haben, z.B. Cliparts.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/filter_drop_shadow.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"&gt;
+&lt;html&gt;&lt;head&gt;&lt;title&gt;filter:DropShadow()&lt;/title&gt;
+&lt;/head&gt;&lt;body&gt;
+
+&lt;div style="width:100%; font-size:85px; color:blue; filter:DropShadow(color=#C0C0C0, offx=3, offy=3)"&gt;
+Text mit Schattenwurf&lt;/div&gt;
+
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Mit <code>filter:DropShadow()</code> können Sie einen Schattenwurf erzwingen. Der Filter erwartet folgende Parameter:</p>
+
+<p><code>color</code> steht für die Farbe, die als Schatten definiert werden soll (siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../formate/wertzuweisung.htm#farben">Farbangaben</a>).</p>
+<p><code>offx</code> steht für die Anzahl an horizontalen Pixel für den Schatteneffekt. Positive Zahlen bewirken einen Schatteneffekt rechts, negative einen Schatteneffekt links.</p>
+<p><code>offy</code> steht für die Anzahl an vertikalen Pixel für den Schatteneffekt. Positive Zahlen bewirken einen Schatteneffekt unten, negative mit Minuszeichen davor einen Schatteneffekt oben.</p>
+<p>Den Parameter <code>positive</code> sollten Sie nur angeben, wenn Sie nur für die transparenten Pixel einer Grafik (siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../grafik/techniken.htm#transparenz">transparente GIF-Grafiken</a>) einen Schatteneffekt erzwingen wollen. Dazu sollte dieser Parameter den Wert 1 erhalten.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Für verlaufende Schatten können Sie den Filter für <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#shadow">filter:Shadow()</a> verwenden.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/msie4.gif" width="30" height="30" alt="MS IE 4.0" title="MS IE 4.0">&nbsp;<a class="an" name="flip_h">filter:FlipH() (Horizontal spiegeln)</a></h2>
+
+<p>Mit diesem Filter können Sie eine Grafik horizontal spiegelverkehrt anzeigen.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/filter_flip_h.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"&gt;
+&lt;html&gt;&lt;head&gt;&lt;title&gt;filter:FlipH()&lt;/title&gt;
+&lt;/head&gt;&lt;body&gt;
+
+&lt;p&gt;Links die normale Grafik, rechts mit FlipH()-Filter:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src="filter_flip.jpg" width="200" height="140" alt="Bild"&gt;
+&lt;img src="filter_flip.jpg" style="filter:FlipH()" width="200" height="140" alt="Bild"&gt;&lt;/p&gt;
+
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Mit <code>filter:FlipH()</code> bewirken Sie die horizontale Spiegelung. Geeignet ist der Filter für Grafiken in HTML. Dieser Filter erwartet keine Parameter.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/msie4.gif" width="30" height="30" alt="MS IE 4.0" title="MS IE 4.0">&nbsp;<a class="an" name="flip_v">filter:FlipV() (Vertikal spiegeln)</a></h2>
+
+<p>Mit diesem Filter können Sie eine Grafik vertikal spiegelverkehrt anzeigen.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/filter_flip_v.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"&gt;
+&lt;html&gt;&lt;head&gt;&lt;title&gt;filter:FlipV()&lt;/title&gt;
+&lt;/head&gt;&lt;body&gt;
+
+&lt;p&gt;Links die normale Grafik, rechts mit FlipV()-Filter:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src="filter_flip.jpg" width="200" height="140" alt="Bild"&gt;
+&lt;img src="filter_flip.jpg" style="filter:FlipV()" width="200" height="140" alt="Bild"&gt;&lt;/p&gt;
+
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Mit <code>filter:FlipV()</code> bewirken Sie die vertikale Spiegelung. Geeignet ist der Filter für Grafiken in HTML. Dieser Filter erwartet keine Parameter.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/msie4.gif" width="30" height="30" alt="MS IE 4.0" title="MS IE 4.0">&nbsp;<a class="an" name="glow">filter:Glow() (Glühender Rand)</a></h2>
+
+<p>Dieser Filter bewirkt einen "Heiligenschein" um ein Text- oder Grafikobjekt.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/filter_glow.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"&gt;
+&lt;html&gt;&lt;head&gt;&lt;title&gt;filter:Glow()&lt;/title&gt;
+&lt;/head&gt;&lt;body&gt;
+
+&lt;div style="width:100%; font-size:85px; color:#9999CC;
+    filter:Glow(color=#000000, strength=12)"&gt;Gl&amp;uuml;hender Text&lt;/div&gt;
+
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Mit <code>filter:Glow()</code> können Sie einen glühenden Rand definieren. Dieser Filter erwartet folgende Parameter:</p>
+
+<p><code>color</code> steht für die Farbe, die als Glühfarbe definiert werden soll (siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../formate/wertzuweisung.htm#farben">Farbangaben</a>).</p>
+<p><code>strength</code> steht für die Stärke der Wirkung. Erlaubt sind Werte zwischen 1 und 255, praxisgerecht sind aber in den meisten Fällen nur Werte zwischen 1 und etwa 20.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/msie4.gif" width="30" height="30" alt="MS IE 4.0" title="MS IE 4.0">&nbsp;<a class="an" name="gray">filter:Gray() (Graustufen)</a></h2>
+
+<p>Dieser Filter entfernt alle Farbinformationen aus einem Element oder einer Grafik und wandelt sie stattdessen in Graustufen um.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/filter_gray.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"&gt;
+&lt;html&gt;&lt;head&gt;&lt;title&gt;filter:Gray()&lt;/title&gt;
+&lt;/head&gt;&lt;body&gt;
+
+&lt;p&gt;Links die normale Grafik, rechts mit Gray()-Filter:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src="filter_gray.jpg" width="200" height="240" alt="Bild"&gt;
+&lt;img src="filter_gray.jpg" style="filter:Gray()" width="200" height="240" alt="Bild"&gt;&lt;/p&gt;
+
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Mit <code>filter:Gray()</code> können Sie Graustufen erzwingen. Geeignet ist der Filter besonders für Grafiken. Dieser Filter erwartet keine Parameter.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/msie4.gif" width="30" height="30" alt="MS IE 4.0" title="MS IE 4.0">&nbsp;<a class="an" name="invert">filter:Invert() (Invertieren)</a></h2>
+
+<p>Dieser Filter invertiert farbige Elemente und Grafiken. Alle Farben werden bei der Anzeige in ihre Komplementärfarben verwandelt.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/filter_invert.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"&gt;
+&lt;html&gt;&lt;head&gt;&lt;title&gt;filter:Invert()&lt;/title&gt;
+&lt;/head&gt;&lt;body&gt;
+
+&lt;p&gt;Links die normale Grafik, rechts mit Invert()-Filter:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src="filter_invert.jpg" width="200" height="200" alt="Bild"&gt;
+&lt;img src="filter_invert.jpg" style="filter:Invert()" width="200" height="200" alt="Bild"&gt;&lt;/p&gt;
+
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Mit <code>filter:Invert()</code> können Sie invertieren. Geeignet ist der Filter besonders für Grafiken. Dieser Filter erwartet keine Parameter.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/msie4.gif" width="30" height="30" alt="MS IE 4.0" title="MS IE 4.0">&nbsp;<a class="an" name="mask">filter:Mask() (Transparenzmaske)</a></h2>
+
+<p>Dieser Filter ist für <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../grafik/techniken.htm#transparenz">transparente GIF-Grafiken</a> gedacht. Er ersetzt alle transparenten Pixel der Grafik durch eine gewünschte Farbe und stattdessen alle nicht-transparenten Pixel der Grafik durch die Farbe, die in der Grafik als transparent definiert ist.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/filter_mask.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"&gt;
+&lt;html&gt;&lt;head&gt;&lt;title&gt;filter:Mask()&lt;/title&gt;
+&lt;/head&gt;&lt;body&gt;
+
+&lt;p&gt;Links die normale Grafik, rechts mit Mask()-Filter:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src="filter_mask.gif" width="100" height="94" alt="Bild"&gt;
+&lt;img src="filter_mask.gif" style="filter:Mask(color=#000066)" width="100" height="94" alt="Bild"&gt;&lt;/p&gt;
+
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Mit <code>filter:Mask()</code> können Sie für eine transparente GIF-Grafik eine Transparenzmaske definieren. Der Filter erwartet folgenden Parameter:</p>
+
+<p><code>color</code> steht für eine <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../formate/wertzuweisung.htm#farben">Farbangabe</a>.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/msie4.gif" width="30" height="30" alt="MS IE 4.0" title="MS IE 4.0">&nbsp;<a class="an" name="shadow">filter:Shadow() (Schatten)</a></h2>
+
+<p>Dieser Filter bewirkt einen Verlaufsschatten um die Konturen eines Elements.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/filter_shadow.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"&gt;
+&lt;html&gt;&lt;head&gt;&lt;title&gt;filter:Shadow()&lt;/title&gt;
+&lt;/head&gt;&lt;body&gt;
+
+&lt;div style="width:100%; font-size:64px; color:magenta; filter:Shadow(color=#000000, direction=45)"&gt;
+Text mit Schatten&lt;/div&gt;
+
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Mit <code>filter:Shadow()</code> können Sie einen Schatten erzeugen. Dieser Filter erwartet folgende Parameter:</p>
+
+<p><code>color</code> steht für eine Schattenfarbe (siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../formate/wertzuweisung.htm#farben">Farbangaben</a>).</p>
+<p><code>direction</code> steht für die Richtung, in die der Schatteneffekt führt. Erlaubt sind die Werte 0, 45, 90, 135, 180, 225, 270, 315:<br>
+0 bedeutet: Der Schatteneffekt zeigt nach oben.<br>
+45 bedeutet: Der Schatteneffekt zeigt nach oben rechts.<br>
+90 bedeutet: Der Schatteneffekt zeigt nach rechts.<br>
+135 bedeutet: Der Schatteneffekt zeigt nach unten rechts.<br>
+180 bedeutet: Der Schatteneffekt zeigt nach unten.<br>
+225 bedeutet: Der Schatteneffekt zeigt nach unten links.<br>
+270 bedeutet: Der Schatteneffekt zeigt nach links.<br>
+315 bedeutet: Der Schatteneffekt zeigt nach oben links.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/msie4.gif" width="30" height="30" alt="MS IE 4.0" title="MS IE 4.0">&nbsp;<a class="an" name="wave">filter:Wave() (Wellenartige Störung)</a></h2>
+
+<p>Dieser Filter bewirkt eine wellenförmige Verzerrung des betroffenen Text- oder Grafikobjekts.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/filter_wave.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"&gt;
+&lt;html&gt;&lt;head&gt;&lt;title&gt;filter:Wave()&lt;/title&gt;
+&lt;/head&gt;&lt;body&gt;
+
+&lt;div style="width:100%; font-size:123px; font-weight:900; color:#FFCCFF;
+ filter:Wave(freq=5, lightstrength=20, phase=50, strength=6) Shadow(color=#808080, direction=135);"&gt;
+ Wave-Text&lt;/div&gt;
+
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Mit <code>filter:Wave()</code> können Sie eine wellenartige Verzerrung definieren. Dieser Filter erwartet folgende Parameter:</p>
+
+<p><code>freq</code> steht für die Wellenfrequenz. Je höher der Wert, desto kleiner die Wellen, je niedriger, desto größer die einzelnen Wellen. Praxisnah sind etwa Werte zwischen 5 und 50.</p>
+<p><code>lightstrength</code> steht für die Stärke des Lichts im Welleneffekt in Prozent. Werte zwischen 0 und 100.</p>
+<p><code>phase</code> steht für den Beginn der Sinus-Wellenphase in Prozent. Werte zwischen 0 und 100. Bei 0 beginnt der Welleneffekt normal, bei 25 etwa beginnt er bei 90°.</p>
+<p><code>strength</code> steht für die Stärke des gesamten Effekts. Praxisnah sind z.B. Werte zwischen 1 und 10.</p>
+<p><code>add</code> steht für die Anzeige der Originalgrafik. <code>add=1</code> bewirkt, dass die Originalgrafik zu der verzerrten Grafik hinzugefügt wird. Bei <code>add=0</code> wird die Originalgrafik nicht hinzugefügt.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/msie4.gif" width="30" height="30" alt="MS IE 4.0" title="MS IE 4.0">&nbsp;<a class="an" name="x_ray">filter:XRay() (Fotonegativ-Effekt)</a></h2>
+
+<p>Dieser Filter konvertiert alle Farben eines Elements oder einer Grafik in Graustufen und bewirkt einen Effekt wie ein Fotonegativ.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/filter_x_ray.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"&gt;
+&lt;html&gt;&lt;head&gt;&lt;title&gt;filter:XRay()&lt;/title&gt;
+&lt;/head&gt;&lt;body&gt;
+
+&lt;p&gt;Links die normale Grafik, rechts mit XRay()-Filter:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src="filter_x_ray.jpg" width="276" height="189" alt=""&gt;
+&lt;img src="filter_x_ray.jpg" style="filter:XRay()" width="276" height="189" alt=""&gt;&lt;/p&gt;
+
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Mit <code>filter:XRay()</code> können Sie den Fotonegativ-Effekt erzwingen. Dieser Filter erwartet keine Parameter.</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="../layouts/einfuehrung.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../layouts/einfuehrung.htm">Einführung in CSS-basierte Layouts</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="anzeigefenster.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="anzeigefenster.htm">Anzeigefenster</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">Stylesheets (CSS)</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">CSS-Eigenschaften</a></td>
+</tr>
+</table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

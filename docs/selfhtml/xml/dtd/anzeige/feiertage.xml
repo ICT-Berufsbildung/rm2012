@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE feiertage SYSTEM "feiertage.dtd">
+<feiertage>
+<feiertag datum="6.1." ereignis="Hl. Drei Könige" />
+<feiertag datum="1.5." ereignis="Arbeiterfeiertag" />
+<feiertag datum="25.12." ereignis="1. Weihnachtstag" />
+</feiertage>
+

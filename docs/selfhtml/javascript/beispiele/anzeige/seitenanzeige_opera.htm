@@ -1,0 +1,26 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>Seitenanzeige in Frames verhindern</title>
+<script type="text/javascript">
+if (top != self) {
+  if (window.opera) {
+    window.onload = opera_befreien;
+  } else {
+    top.location = self.location;
+  }
+}
+
+function opera_befreien () {
+  document.links["befreien"].click();
+}
+
+</script>
+</head>
+<body>
+<a name="befreien" href="seitenanzeige_opera.htm" target="_top"></a>
+<h1>Keine Chance f&uuml;r Schaufenster-Anbieter!</h1>
+
+</body>
+</html>

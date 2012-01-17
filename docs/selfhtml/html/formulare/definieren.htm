@@ -1,0 +1,251 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: HTML/XHTML / Formulare / Formulare definieren</title>
+<meta name="description"    content="Wie Sie in HTML Formulare definieren, und wozu Formulare da sind.">
+<meta name="keywords"       content="SELFHTML, HTML, XHTML, Formulare, E-Mail-Formulare, mailto-Formulare, post, get, form, action, method, enctype, target, accept-charset">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-10-03T08:55:27+02:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/html/formulare/definieren.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="Formulare" href="index.htm">
+<link rel="next" title="Eingabefelder und Eingabebereiche" href="eingabe.htm">
+<link rel="prev" title="Verweis-sensitive Grafiken (Image Maps)" href="../grafiken/verweis_sensitive.htm">
+<link rel="last" title="Formulare verarbeiten" href="verarbeiten.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">HTML/XHTML</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Formulare</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Formulare definieren</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#allgemeines">Allgemeines zu Formularen</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#bereich">Formularbereich definieren</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#zielfenster">Zielfenster für Server-Antwort</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#zeichenkodierung">Zeichenkodierung der Formulardaten</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#weitere_infos">Weitere Informationen</a><br>
+</p>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><a class="an" name="allgemeines">Allgemeines zu Formularen</a></h2>
+
+<p>HTML stellt die Möglichkeit zur Verfügung, Formulare zu erstellen. In Formularen kann der Anwender Eingabefelder ausfüllen, in mehrzeiligen Textfeldern Text eingeben, aus Listen Einträge auswählen usw. Wenn das Formular fertig ausgefüllt ist, kann der Anwender auf einen Button klicken, um das Formular abzusenden.</p>
+
+<p>Dazu geben Sie beim Erstellen eines Formulars an, was mit den Daten des ausgefüllten Formulars passieren soll. Sie können die Daten dann von einem CGI-Programm auf dem Server-Rechner weiterverarbeiten lassen.</p>
+
+<p>Formulare können sehr unterschiedliche Aufgaben haben. So werden sie zum Beispiel eingesetzt:</p>
+
+<ul>
+<li>um bestimmte, gleichartig strukturierte Auskünfte von Anwendern einzuholen,</li>
+<li>um Anwendern das Suchen in Datenbeständen zu ermöglichen,</li>
+<li>um Anwendern die Möglichkeit zu geben, selbst Daten für einen Datenbestand beizusteuern,</li>
+<li>um dem Anwender die Möglichkeit individueller Interaktion zu bieten, etwa um aus einer Produktpalette etwas Bestimmtes zu bestellen.</li>
+</ul>
+
+<p>Ein Software-Hersteller könnte z.B. ein Formular zur Verfügung stellen, in dem der Anwender angeben kann, welche Produkte der Firma er besitzt, wie er Kenntnis von den Produkten erhalten hat, welchen Beruf er ausübt, auf welchem Rechnertyp die Software bei ihm läuft usw. Auf diese Weise könnte er gleichartig strukturiertes und daher gut vergleichbares Feedback von Anwendern einholen.</p>
+
+<p>Viele Suchdienste im Internet bieten dem aufrufenden Web-Browser Eingabeformulare an, in denen der Anwender seinen Suchwunsch spezifizieren kann. Ohne solche Formulare wäre das Durchsuchen gar nicht möglich. Die meisten Suchdienste bieten darüber hinaus auch die Möglichkeit an, eigene Internet-Adressen in die Datenbank einzuspeisen. Das Einholen der dazu nötigen Information geschieht ebenfalls mit Hilfe von Formularen.</p>
+
+<p>Immer zahlreicher werden auch die Online-Shops im Internet. Egal ob Bücher, Tickets oder Unterwäsche - um solche Bestell-Services zu realisieren, sind Formulare erforderlich, in denen der Anwender seine Bestellwünsche genau angeben kann.</p>
+
+<p>Wenn Sie dem Anwender auf Ihren Web-Seiten einfach nur eine Möglichkeit anbieten wollen, direkt mit Ihnen in Kontakt zu treten, genügt allerdings auch ein einfacher <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../verweise/email.htm">E-Mail-Verweis</a> an die eigene E-Mail-Adresse.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Nicht wenige Anbieter versuchen über Formulare, Anwenderadressen zu sammeln, um diese dann zu verkaufen, oder um Auskünfte einzuholen, zu denen ein Anwender nicht verpflichtet ist. Dazu wird häufig ein Anwenderbegehren als Köder benutzt - beispielsweise ein Gewinnspiel oder die Downloadmöglichkeit der kostenlosen Ausprobierversion einer teueren Software.</p>
+
+<p>Dieser Missbrauch hat einige selbsternannte Hüter des Datenschutzes auf den Plan gerufen, die aber leider an der falschen Ecke kehren und sich nicht an die rechtlich meist gut abgesicherten Datenjäger wenden, sondern an ahnungslose Homepage-Besitzer, die ein kleines Formular im Web haben und plötzlich dafür abgemahnt werden. Dabei wird mit dem Prinzip der so genannten "Datensparsamkeit" argumentiert (siehe auch Hinweise zum Teledienste-Datenschutzgesetz (TDDSG) im Abschnitt <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../projekt/recht.htm#gesetze">Gesetze für "neue Medien" (in Deutschland)</a>). Versuchen Sie also nicht, den Anwender mit Hilfe von Formularen wie eine Zitrone auszuquetschen. Beschränken Sie sich auf solche Formularfelder, die für den Formularzweck erkennbar nötig sind.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/html20.gif" width="30" height="30" alt="HTML 2.0" title="HTML 2.0"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../../src/msie1.gif" width="30" height="30" alt="MS IE 1.0" title="MS IE 1.0"><img src="../../src/netsc1.gif" width="30" height="30" alt="Netscape 1.0" title="Netscape 1.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="bereich">Formularbereich definieren</a></h2>
+
+<p>Sie können an einer beliebigen Stelle innerhalb des Dateikörpers einer HTML-Datei ein Formular definieren.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<pre>
+&lt;form action="http://www.example.org/cgi-bin/feedback.pl" method="get"&gt;
+&lt;!-- hier folgen die Formularelemente --&gt;
+&lt;/form&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Mit <code>&lt;form&gt;...&lt;/form&gt;</code> definieren Sie ein Formular (<i>form = Formular</i>). Alles, was zwischen dem einleitenden <code>&lt;form&gt;</code>-Tag und dem abschließenden Tag <code>&lt;/form&gt;</code> steht, gehört zum Formular. Das sind hauptsächlich Elemente des Formulars wie Eingabefelder, Auswahllisten oder Buttons.</p>
+
+<p>Um die Formularelemente zu platzieren und zu beschriften, können Sie dazwischen aber auch andere HTML-Elemente notieren. Dabei müssen Sie folgendes beachten: Gemäß der <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/varianten.htm#typen">HTML-Variante Strict</a> dürfen Sie innerhalb eines Formulars nur <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/elemente.htm#block_elemente">Block-Elemente</a> (und Script-Bereiche) notieren, also etwa Überschriften, Textabsätze, allgemeine Bereiche oder Tabellen. In der HTML-Variante Transitional ist es dagegen außerdem erlaubt, zwischen <code>&lt;form&gt;</code> und <code>&lt;/form&gt;</code> auch gemischten Inhalt aus Text und <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/elemente.htm#inline_elemente">Inline-Elementen</a> zu notieren. Innerhalb des <code>form</code>-Elements können Sie auch mit einem <code>fieldset</code>-Element arbeiten, um Formularelemente zu umschließen (siehe dazu <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="strukturieren.htm#gruppieren">Elemente gruppieren</a>).</p>
+
+<p>Im einleitenden <code>&lt;form&gt;</code>-Tag geben Sie mit dem Pflichtattribut <code>action</code> an, an welchen URI die Formulardaten beim Absenden des Formular übertragen werden sollen (<i>action = Aktion</i>). Der URI sollte die Adresse eines Programmes auf dem Server-Rechner sein, das die Formulardaten weiterverarbeitet. Üblicherweise handelt es sich dabei um ein CGI-Script, das z.B. in Perl und PHP geschrieben wurde.</p>
+
+<p>Für den Wert des <code>action</code>-Attributes gelten die Regeln zum <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../allgemein/referenzieren.htm">Referenzieren in HTML</a>. Das Referenzieren mit relativen oder absoluten Pfadangaben ist also ebenso möglich wie das oben im Beispiel gezeigte Referenzieren mit einem absoluten URI:<br>
+
+<pre>
+&lt;form action="/cgi-bin/auswertung.pl"&gt;
+&lt;form action="../../cgi-bin/suche.cgi"&gt;
+&lt;form action="konktakt.php"&gt;
+</pre>
+
+<p>Eine weiteres wichtiges Attribut bei der Formulardefinition ist das Attribut <code>method</code>. Dabei bestimmen Sie, nach welcher HTTP-Übertragungsmethode die Formulardaten an ihr Ziel gelangen. Dabei gibt es zwei mögliche Werte:</p>
+
+<ul>
+
+<li>Wenn Sie <code>method="get"</code> wählen, hängt der Browser die Formulardaten als Parameter an die Aufrufadresse an (diese Angabe ist nicht zwingend erforderlich, da <code>get</code> als Default-Einstellung definiert ist). Beachten Sie, dass die Anzahl der übergebenen Zeichen je nach Browser auf ca. 2000 limitiert sein kann. Die Anfrage, die beim Server eintrifft, sieht dann beispielsweise so aus:<br>
+<code>http://www.example.org/cgi-bin/feedback.cgi?AnwenderName=Stefan+M%FCnz&amp;AnwenderMail=beispiel@example.org&amp;Text=Das+ist+ein+kleiner+Text</code>. Das verarbeitende CGI-Programm kann diese als Parameter übergebene Zeichenkette auslesen und für die Datenverarbeitung auseinanderdröseln. Wenn Sie sich näher dafür interessieren, können Sie den Abschnitt <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../servercgi/cgi/formularverarbeitung.htm">HTML-Formulare und CGI</a> lesen.</li>
+
+<li>Wenn Sie <code>method="post"</code> wählen, überträgt der Web-Browser die Formulardaten mit einer speziellen POST-Anfrage an den Web-Server (<i>post = verschicken</i>). Der Web-Server stellt die Daten dem CGI-Programm über den Standardeingabekanal zur Verfügung. Bei CGI-Scripts müssen Sie diese POST-Methode auf jeden Fall dann verwenden, wenn die Formulardaten zu umfangreich für die GET-Methode sind.</li>
+
+</ul>
+
+<p>Das W3-Konsortium empfiehlt, die Methode <code>get</code> dann zu wählen, wenn das auswertende Programm die Daten nur zur Ablaufsteuerung benötigt (z.B. für eine Suche oder zum Weiterblättern), während die Methode <code>post</code> für Fälle empfohlen wird, in denen die Daten über das auswertende Programm hinaus weiterverarbeitet werden (z.B. Speicherung in einer Datenbank oder Auslösung einer Bestellung).</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Es ist möglich, als Wert für das Attribut <code>action</code> eine E-Mail-Adresse anzugeben, z.B. <code>action="mailto:fritz.eierschale@example.org"</code> zusammen mit den Attributen <code>method="post" enctype="text/plain"</code>. Das erwünschte Ziel davon ist, dass der Web-Browser die Formulardaten an die angegebene E-Mail-Adresse versendet. Bei solchen E-Mail-Formularen besteht keine Garantie auf Erfolg. Es hängt vom Browser und anderen Einstellungen auf dem Rechner des Anwenders ab, ob der Formularversand klappt. E-Mail-Formulare gelten deshalb mittlerweile als überholt, zumal es Alternativen gibt. Mehr dazu im Abschnitt <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="verarbeiten.htm">Formulare verarbeiten</a>.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/html40.gif" width="30" height="30" alt="HTML 4.0" title="HTML 4.0"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/netsc2.gif" width="30" height="30" alt="Netscape 2.0" title="Netscape 2.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="zielfenster">Zielfenster für Server-Antwort</a></h2>
+
+<p>Wenn Sie mit <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../frames/index.htm">Frames</a> arbeiten und in einem Frame-Fenster ein Formular haben, nach dessen Absenden die Server-Antwort bzw. die Antwort eines CGI-Scripts in einem anderen Frame-Fenster angezeigt werden soll, können Sie das gewünschte Zielfenster angeben.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<pre>
+&lt;form action="/cgi-bin/auswertung.pl" method="get" target="Daten"&gt;
+&lt;!-- hier folgen die Formularelemente --&gt;
+&lt;/form&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Mit dem Attribut <code>target</code> können Sie im einleitenden <code>&lt;form&gt;</code>-Tag den Namen des Frame-Fensters angeben, in dem die Server-Antwort ausgegeben werden soll. Es muss sich entweder um einen Fensternamen handeln, der für ein Frame-Fenster dem <code>name</code>-Attribut im <code>&lt;frame&gt;</code>-Tag vergeben wurde, oder um einen der folgenden reservierten Fensternamen:<br>
+<code>_self</code>, um die Server-Antwort im aktuellen Fenster auszugeben,<br>
+<code>_parent</code>, um für die Server-Antwort bei verschachtelten Framesets das aktuelle Frameset zu sprengen,<br>
+<code>_top</code>, um für die Server-Antwort bei verschachtelten Framesets alle Framesets zu sprengen.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Das <code>target</code>-Attribut ist zwar nicht als <i>deprecated</i> gekennzeichnet, doch um es einzusetzen, müssen Sie die HTML-Variante Transitional verwenden. Der Grund ist, dass dieses Attribut vorwiegend für Verweise bei Verwendung von Frames gedacht ist und Frames eine eigene HTML-Variante haben, die von der Einstufung her der Variante Transitional entspricht.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/html40.gif" width="30" height="30" alt="HTML 4.0" title="HTML 4.0"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0">&nbsp;<a class="an" name="zeichenkodierung">Zeichenkodierung der Formulardaten</a></h2>
+
+<p>Sie können angeben, mit welcher Zeichenkodierung der Browser die eingegebenen Formulardaten an den Web-Server senden soll. Dabei können Sie eine oder mehrere Kodierungen angeben, aus denen der Browser eine unterstützte auswählen kann. Näheres zu Zeichenkodierungen können Sie auf der Seite <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../inter/sprache.htm">Computer und geschriebene Sprache</a> nachlesen.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<pre>
+&lt;form action="/cgi-bin/auswertung.pl" method="post" accept-charset="ISO-8859-1"&gt;
+&lt;!-- hier folgen die Formularelemente --&gt;
+&lt;/form&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Mit dem Attribut <code>accept-charset</code> können Sie Kodierungen angeben. Trennen Sie mehrere Angaben durch Leerzeichen oder Kommata. Erlaubt sind Kodierungsangaben, wie sie auf der Web-Adresse <img src="../../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.iana.org/assignments/character-sets">http://www.iana.org/assignments/character-sets</a> angegeben sind. Die im Beispiel genannte Kodierung ISO-8859-1 wird insbesondere auf der Seite <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../inter/zeichenkodierungen.htm">Zeichenkodierungen (ISO-8859-Familie und andere)</a> beschrieben.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Die Implementierung der Zeichenkodierung beim Formulardatenversand ist in den einzelnen Browsern unterschiedlich gelöst. Daraus resultieren diverse Probleme bei der Erkennung, welche Kodierung tatsächlich benutzt wurde.</p>
+
+<p>Um Problemen absolut aus dem Weg zu gehen und sicherzustellen, dass die gesendeten Daten in einer verarbeitungsfähigen Form bei Ihnen ankommen, beachten Sie die folgenden Hinweise:</p>
+
+<ul>
+<li>Verwenden Sie nur eine einzige Kodierungsangabe im Attribut, keine Liste von mehreren Alternativen. Ein Browser ist nicht gezwungen, die "passendste" Kodierung zu verwenden, er kann auch einfach die allererste verwenden. Da die meisten Browser nicht mitsenden, welche Kodierung tatsächlich verwendet wurde, wäre es Ihnen unmöglich zu erkennen, welche Kodierung verwendet wurde. Bei nur einer eingetragenen Möglichkeit sind keine Zweifel möglich.</li>
+<li>Setzen Sie die Angaben für die Kodierung im HTTP-Header (per Serverkonfiguration - wird derzeit in SELFHTML nicht behandelt), im <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../kopfdaten/meta.htm#zeichenkodierung">Meta-Tag</a> und im Attribut <code>accept-charset</code> auf identische Werte. Manche Browser werden verwirrt und verhalten sich u.U. unvorhersehbar, wenn sich diese drei Angaben widersprechen.</li>
+<li>Um wirklich alle eingebbaren Zeichen der Benutzer erhalten zu können, benutzen Sie die Unicode-Kodierung <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../inter/unicode.htm">UTF-8</a>. Da UTF-8 relativ neu ist und erst in den letzten Jahren Verbreitung gefunden hat, könnten alte Browser mit dieser Kodierung Probleme haben - diese werden allerdings zum Glück immer seltener eingesetzt.</li>
+</ul>
+
+<p>Probleme mit unpassender Kodierungsangabe im Formular zeigen sich durch die folgenden möglichen Indizien:</p>
+
+<ul>
+<li>Umlaute werden "zerstört", d.h. anstelle des Umlauts stehen ein oder mehrere anscheinend sinnlose Zeichen, die normalen Buchstaben von A bis Z erscheinen jedoch problemlos. Dieses Problem tritt auf, wenn die Kodierung der eingegebenen Daten eine andere ist, als die der ausgegebenen Daten, ohne dass eine entsprechende Umkodierung erfolgt.</li>
+<li>Anstelle von Zeichen tauchen numerische Zeichenreferenzen der Form <code>&amp;#1234;</code> im Text auf. Alternativ erscheinen anstelle der Zeichen auch Fragezeichen. In beiden Fällen hat der Benutzer ein Zeichen in das Formular eingegeben, welches sich mit der Kodierung laut <code>accept-charset</code> des Formulars nicht kodieren lässt.</li>
+</ul>
+
+<p>Wenn Sie Ihre Formulare und die serverseitigen Skripte in die Lage versetzen, UTF-8 zu verarbeiten, können alle diese Probleme umgangen werden. Die Verwendung von UTF-8 bzw. generell Unicode ist daher sehr empfehlenswert - auch wenn Sie keine internationale Website planen.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="weitere_infos">Weitere Informationen</a></h2>
+
+<p>In der <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../referenz/index.htm">HTML-Referenz</a> finden Sie Angaben darüber, wo das <code>form</code>-Element vorkommen darf, welche Attribute erlaubt sind und was bei den einzelnen Attributen zu beachten ist:<br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/elemente.htm#form">Element-Referenz</a> für Formulare (<code>&lt;form&gt;...&lt;/form&gt;</code>)<br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/attribute.htm#form">Attribut-Referenz</a> für Formulare (<code>&lt;form&gt;...&lt;/form&gt;</code>)</p>
+
+<p>Zur Datenverarbeitung von Formularen mit Hilfe von CGI-Scripts gibt es innerhalb der vorliegenden Dokumentation das Kapitel <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../../perl/index.htm">CGI/Perl</a>.</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="eingabe.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="eingabe.htm">Eingabefelder und Eingabebereiche</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="../grafiken/verweis_sensitive.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../grafiken/verweis_sensitive.htm">Verweis-sensitive Grafiken (Image Maps)</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">HTML/XHTML</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Formulare</a></td>
+</tr></table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

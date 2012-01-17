@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: Einführung / Web-Technologien / Stylesheets (CSS)</title>
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<meta name="description"    content="Welche Aufgaben Stylesheets haben, und welchen Stellenwert diese Ergänzungssprache zu HTML heute hat.">
+<meta name="keywords"       content="SELFHTML, Web-Technologien, Technologien, CSS, Cascading Stylesheets, Styles, Formatierung, Gestaltung">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-08-22T21:21:39+02:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/intro/technologien/css.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="Web-Technologien" href="index.htm">
+<link rel="next" title="XML und XML-Derivate" href="xml.htm">
+<link rel="prev" title="HTML" href="html.htm">
+<link rel="first" title="HTML" href="html.htm">
+<link rel="last" title="Flash" href="flash.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">Einführung</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Web-Technologien</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Stylesheets</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#formatsprache">Formatsprache für HTML-Elemente</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#versionen">CSS-Versionen</a><br>
+</p>
+</td>
+</tr><tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><a class="an" name="formatsprache">Formatsprache für HTML-Elemente</a></h2>
+
+<p>Mit HTML definieren Sie den grundsätzlichen Aufbau Ihrer Web-Seiten, die Elemente, die Strukturen, die Verweise, die referenzierten Elemente wie Grafiken, Multimedia usw. Aber HTML ist eigentlich nicht dazu gedacht, um exakt anzugeben, wie ein Element genau aussehen soll. So können Sie in HTML eine Überschrift definieren und dabei angeben, dass es sich um eine Überschrift 1. Ordnung handeln soll. Sie können innerhalb von HTML aber nicht bestimmen, wie groß, in welcher Schriftart usw. die Überschrift dargestellt werden soll. Das übernimmt der Web-Browser bei der Anzeige. Er benutzt dabei eine Mischung aus Grundeinstellungen, die der Anwender vornehmen kann, und fest programmierten Darstellungen einzelner HTML-Elemente.</p>
+
+<p>An diesem Punkt setzen die Cascading Stylesheets ein. Es handelt sich dabei um eine unmittelbare Ergänzungssprache, die vorwiegend für HTML entwickelt wurde. Sie klinkt sich nahtlos in HTML ein und erlaubt das beliebige Formatieren einzelner HTML-Elemente. Mit Hilfe von Stylesheets können Sie beispielsweise festlegen, dass alle Überschriften 1. Ordnung 24 Punkt groß sind, in roter Helvetica-Schrift, mit einem Nachabstand von 16 Punkt und mit einer grünen doppelten Rahmenlinie oberhalb dargestellt werden. Sie können aber genauso gut auch für einen beliebigen Text festlegen, dass nur dieser Text 3 Zentimeter groß sein soll und eine gelbe Hintergrundfarbe erhält. Daneben hält CSS auch Möglichkeiten zum punktgenauen Platzieren von Elementen am Bildschirm und für andere Ausgabemedien wie Drucker oder Audio-Systeme bereit.</p>
+
+<p>CSS erlaubt es, zentrale Formate zu definieren, beispielsweise für alle Überschriften erster Ordnung, oder für alle Textabsätze mit einem bestimmten Klassennamen, oder für kursiv ausgezeichneten Text, der innerhalb einer Tabellenzelle vorkommt. Die zentralen Formate können sich auf eine HTML-Datei beziehen, aber auch in eine externe Style-Datei ausgelagert werden, die Sie dann in allen gewünschten HTML-Dateien einbinden können. So werden einheitliche Formatvorgaben möglich, und der HTML-Code wird von unnötigem Ballast befreit.</p>
+
+<p>CSS ist mit HTML eng verzahnt. Es lohnt sich daher, beide Sprachen gleichzeitig zu erlernen. Im HTML-Kapitel der vorliegenden Dokumentation werden Sie bei den Beschreibungen zu einzelnen HTML-Elementen deshalb immer auch auf die Möglichkeiten hingewiesen, wie Sie diese Elemente mit Hilfe von CSS gestalten können.</p>
+
+<p>CSS ist ebenso wie HTML eine Klartextsprache. Auch für CSS brauchen Sie keine bestimmte Software, es genügt ein Texteditor. CSS ist wie HTML eine offen dokumentierte und vom W3-Konsortium standardisierte Sprache, die Sie frei und ohne Lizenzprobleme verwenden können.</p>
+
+<p>Vom Internet Explorer wurde CSS schon recht früh unterstützt, da Microsoft sein Know How aus dem Bereich der visuellen Textverarbeitung in den Browser einfließen lassen konnte. Netscape tat sich dagegen schwer mit der Implementierung. Was die immer noch verbreitete Version 4.x an CSS beherrscht, ist insgesamt wenig ermutigend, und Web-Designer müssen alle Augenblicke lang wieder mit bösen Überraschungen bei diesem Browser rechnen. Erst in der von Grund auf neu programmierten 6er-Version des Netscape-Browsers ist CSS sauber umgesetzt. Aber auch beim Internet Explorer gab es lange Zeit eigenwillige Interpretationen einzelner CSS-Eigenschaften. Auch hier kann man erst seit der 5er-Version eine ausgereifte Umsetzung erwarten.</p>
+
+<p>Das Verhalten der Browser ist der Grund, warum CSS bis heute eher vorsichtig eingesetzt wird. Dennoch setzt mittlerweile die Mehrzahl der Angebote im Web CSS mit Erfolg ein, und solange Sie Ihre Seiten mit verschiedenen Browsern austesten - was Sie ohnehin tun sollten - besteht kein Grund mehr, auf CSS und seine Vorteile zu verzichten.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="versionen">CSS-Versionen</a></h2>
+
+<p>Das Standardisierungsverfahren bei CSS folgt den gleichen Regeln wie das von HTML. Die erste CSS-Sprachversion in Form einer offiziellen Empfehlung (<i>Recommendation</i>) stammt bereits vom 17.12.1996, wurde allerdings 1999 noch mal in überarbeiteter Form herausgegeben. Die Spezifikation zu CSS1 ist auf den Seiten des W3-Konsortiums verfügbar:</p>
+
+<p><img src="../../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.w3.org/TR/REC-CSS1">CSS1-Spezifikation</a></p>
+
+<p>Seitdem wurde CSS fleißig weiterentwickelt. Viele CSS-Eigenschaften, die längst beliebt geworden sind - etwa das absolute Positionieren von Elementen - gehören zum "CSS Level 2". Die Version 2.0 stammt vom 12.05.1998. Auch diese Version können Sie aufrufen:</p>
+
+<p><img src="../../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.w3.org/TR/REC-CSS2/">CSS2-Spezifikation</a></p>
+
+<p>Obwohl schon 1998 veröffentlicht, ist CSS2 noch immer nicht vollständig in allen verbreiteten Browsern umgesetzt. Beim W3-Konsortium wird indessen längst an den Versionen 2.1 und 3.0 gearbeitet. Über die <img src="../../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.w3.org/Style/CSS/">Einstiegsseite zu CSS</a> beim W3-Konsortium können Sie sich über die laufende Weiterentwicklung informieren.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Im Link-Verzeichnis des Online-Angebots von SELFHTML aktuell finden Sie weitere relevante und aktuelle Verweise, z.B. zu deutschen Übersetzungen und weiteren Quellen:</p>
+
+<p><img src="../../src/serverdok.gif" width="15" height="10" alt="Online-Seite">&nbsp;<a target="_top" href="http://aktuell.de.selfhtml.org/links/css.htm">SELFHTML-Linkverzeichnis: CSS Stylesheets</a></p>
+
+<p>Innerhalb der vorliegenden Dokumentation werden CSS1, CSS2 und CSS 2.1 im Kapitel <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../../css/index.htm">Stylesheets</a> beschrieben.</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="xml.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="xml.htm">XML und XML-Derivate</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="html.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="html.htm">HTML</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">Einführung</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Web-Technologien</a></td>
+</tr>
+</table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

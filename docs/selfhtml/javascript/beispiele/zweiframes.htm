@@ -1,0 +1,193 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: JavaScript / Anwendungsbeispiele / Zwei Frames gleichzeitig ändern</title>
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<meta name="description"    content="Wie Sie mit Hilfe von JavaScript die Inhalte von zwei Frames beim Klick auf einen Verweis gleichzeitig ändern können.">
+<meta name="keywords"       content="SELFHTML, JavaScript, Frames, zwei Frames gleichzeitig, location.href, history.back, history.forward, eval, History">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-10-03T08:55:27+02:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/javascript/beispiele/zweiframes.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="Anwendungsbeispiele" href="index.htm">
+<link rel="next" title="Seitenanzeige in Frames verhindern" href="seitenanzeige.htm">
+<link rel="prev" title="Objektunabhängige Funktionen" href="../objekte/unabhaengig.htm">
+<link rel="last" title="Änderungen der Fenstergröße überwachen" href="fensterueberwachen.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">JavaScript/DOM</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Anwendungsbeispiele</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Zwei Frames gleichzeitig ändern</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#hinweise">Hinweise zu diesem Beispiel</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#quelltext">Quelltext mit Erläuterungen</a><br>
+</p>
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/zweiframes.htm">Anzeigebeispiel: So sieht's aus</a></p>
+</td>
+</tr><tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><a class="an" name="hinweise">Hinweise zu diesem Beispiel</a></h2>
+
+<p>Wer schon einmal ein HTML-Projekt mit mehreren <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../../html/frames/index.htm">Frames</a> erstellt hat, kann nachvollziehen, dass es manchmal wünschenswert ist, beim Aktivieren eines Verweises nicht nur den Inhalt eines, sondern zweier oder mehrerer Frame-Fenster gleichzeitig zu ändern. Eine Möglichkeit ist, in solchen Fällen auf eine Datei zu verweisen, die ein neues, entsprechendes Frameset definiert. Wenn Sie aber viele solcher Verweise haben, wird dieses Verfahren schnell aufwendig. Als Alternative dazu können Sie sich mit einem JavaScript behelfen.</p>
+
+<p>Die Basis bildet ein gewöhnlicher Verweis, der beim Aktivieren einen der beiden Frames ändert. Das Ändern des zweiten Frames wird durch ein JavaScript bewerkstelligt, das beim Klicken auf den Verweis ausgeführt wird. Diese Aufteilung hat allerdings den grundlegenden Nachteil, dass bei fehlender oder abgeschalteter JavaScript-Unterstützung des Browsers nur ein Frame geändert wird. Dies hat zum Beispiel die Auswirkung, dass Robots von Suchmaschinen nur zu den Seiten vordringen können, die im ersten Frame erscheinen, denn sie folgen nur dem <code>href</code>-Verweisziel.</p>
+
+<p>Ein weiterer Nachteil ist, dass dabei die History-Funktion im Browser nicht mehr so arbeitet wie gewünscht. Denn aus Sicht des Browsers wurden zwei Verweise ausgeführt, doch ein History-Eintrag springt nur eine Seite zurück. Der Anwender muss also zweimal auf den Zurück-Button des Browsers klicken, um wieder dahin zu kommen, wo er vor dem Anklicken des Verweises war. Eine Möglichkeit, dieses unerwünschte Verhalten auszuschalten, ist, selber Verweise anzubieten, die das "Zurück" und "Vorwärts" im Browser auslösen, jedoch so, dass sich dabei wie gewünscht ebenfalls zwei Frames gleichzeitig ändern. Das Beispiel auf dieser Seite zeigt deshalb auch, wie sich so etwas realisieren lässt.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/netsc2.gif" width="30" height="30" alt="Netscape 2.0" title="Netscape 2.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="quelltext">Quelltext mit Erläuterungen</a></h2>
+
+<p>Das Beispiel zeigt die Datei mit den Frameset-Definitionen und die Datei mit den Verweisen. Die übrigen Dateien, die im Anzeigebeispiel aufgerufen werden, sind für das Verständnis ohne Bedeutung.</p>
+
+<h3 class="xmp">Beispiel - Datei <var>zweiframes.htm</var>:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/zweiframes.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Zwei Frames gleichzeitig &amp;auml;ndern&lt;/title&gt;
+&lt;/head&gt;
+&lt;frameset cols="180,*"&gt;
+ &lt;frame src="zweiframes_links.htm" name="links"&gt;
+ &lt;frameset rows="180,*"&gt;
+   &lt;frame src="zweiframes_to.htm" name="oben"&gt;
+   &lt;frame src="zweiframes_tu.htm" name="unten"&gt;
+ &lt;/frameset&gt;
+&lt;/frameset&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xmp">Beispiel - Datei <var>zweiframes_links.htm</var>:</h3>
+
+<pre>
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;ZweiFrames - Verweise&lt;/title&gt;
+&lt;script type="text/javascript"&gt;
+function FrameAendern (URI, Framename) {
+  parent[Framename].location.href = URI;
+}
+
+function ZweiFramesBack (Framename1, Framename2) {
+  Frame2 = parent[Framename2];
+  parent[Framename1].history.back();
+  if (!window.opera)
+    window.setTimeout("Frame2.history.back()", 100);
+}
+
+function ZweiFramesForward (Framename1, Framename2) {
+  Frame2 = parent[Framename2];
+  parent[Framename1].history.forward();
+  if (!window.opera)
+    window.setTimeout("Frame2.history.forward()", 100);
+}
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body bgcolor="#EEEEEE" link="#AA5522" vlink="#772200" alink="#000000"&gt;
+&lt;div&gt;
+&lt;hr noshade="noshade" size="1"&gt;
+
+&lt;a href="javascript:ZweiFramesBack('oben', 'unten');"&gt;&lt;b&gt;zurück&lt;/b&gt;&lt;/a&gt;
+&lt;b&gt;|&lt;/b&gt;
+&lt;a href="javascript:ZweiFramesForward('oben', 'unten');"&gt;&lt;b&gt;vor&lt;/b&gt;&lt;/a&gt;
+&lt;hr noshade="noshade" size="1"&gt;
+&lt;/div&gt;
+
+&lt;h2&gt;Verweise&lt;/h2&gt;
+&lt;p&gt;
+&lt;a href="zweiframes_tu.htm" target="unten" onclick="FrameAendern('zweiframes_to.htm', 'oben')"&gt;&lt;b&gt;Willkommen&lt;/b&gt;&lt;/a&gt;
+&lt;br&gt;
+&lt;a href="zweiframes_su.htm" target="unten" onclick="FrameAendern('zweiframes_so.htm', 'oben')"&gt;&lt;b&gt;Susan Sarandon&lt;/b&gt;&lt;/a&gt;
+&lt;br&gt;
+&lt;a href="zweiframes_ju.htm" target="unten" onclick="FrameAendern('zweiframes_jo.htm', 'oben')"&gt;&lt;b&gt;Jack Nicholson&lt;/b&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Der erste Teil des Beispiels zeigt die Datei <var>zweiframes.htm</var>, die das Frame-Set für eine Schauspielerinfothek bereitstellt. Das Frame-Set ist dreigeteilt: links ein Frame-Fenster mit Namen <code>links</code> für Verweise, und rechts zwei Frames mit den Namen <code>oben</code> und <code>unten</code> für Informationen.</p>
+
+<p>Der zweite Teil des Beispiels zeigt die Datei <var>zweiframes_links.htm</var>, die ja, wie in der Datei <var>zweiframes.htm</var> ersichtlich, gleich zu Beginn in das linke Frame-Fenster geladen wird. Diese Datei enthält die Verweise. Alle Verweise ändern den Inhalt von zwei Frame-Fenstern gleichzeitig, nämlich jeweils den der beiden rechten Frames mit den Namen <code>oben</code> und <code>unten</code>. Deshalb ist in dieser Datei auch der JavaScript-Code für das Ändern der beiden anderen Frames notiert.</p>
+
+<p>Um die Funktionsweise zu verstehen, ist es sinnvoll, zunächst einmal die HTML-Verweise im <code>&lt;body&gt;</code>-Bereich der Datei <var>zweiframes_links.htm</var> zu betrachten. Die ersten beiden Verweise enthalten im <code>href</code>-Attribut JavaScript-Code, eingeleitet durch den Pseudo-Event-Handler <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../sprache/eventhandler.htm#javascript">javascript:</a>. Dahinter folgt jeweils der Aufruf einer <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../sprache/funktionen.htm">Funktion</a>. Bei dem Verweis mit dem Verweistext <code>zur&amp;uuml;ck</code> wird die Funktion <code>ZweiFramesBack()</code> aufgerufen und bei dem Verweis mit dem Verweistext <code>vor</code> die Funktion <code>ZweiFramesForward</code>. In beiden Fällen werden der jeweils aufgerufenen Funktion die Namen der zwei Frames als Parameter übergeben, nämlich <code>'oben'</code> und <code>'unten'</code>.</p>
+
+<p>Bei den übrigen Verweisen handelt es sich zunächst um gewöhnliche <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/frames/verweise.htm#zu_anderen_frames">Verweise zu anderen Frames</a>. Sie enthalten im <code>href</code>-Attribut die Datei, die im ersten, unteren Frame erscheinen soll. Dazu besitzen sie das Attribut <code>target="unten"</code>. Im Event-Handler <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../sprache/eventhandler.htm#onclick">onclick</a> befindet sich der JavaScript-Code, der den zweiten Frame beim Klick auf den Link ändert. Dieser ruft die Funktion <code>FrameAendern()</code> auf, welche den zweiten, oberen Frame ändert.</p>
+
+<p>Im Kopf der HTML-Datei, also zwischen <code>&lt;head&gt;</code> und <code>&lt;/head&gt;</code>, wird mit <code>&lt;script type="text/javascript"&gt;</code> .... <code>&lt;/script&gt;</code> ein <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../intro.htm#javascriptbereiche">JavaScript-Bereich definiert</a>. Innerhalb dieses Bereichs sind die drei Funktionen <code>FrameAendern()</code>, <code>ZweiFramesBack()</code> und <code>ZweiFramesForward()</code> notiert, die von den Verweisen in der Datei aufgerufen werden.</p>
+
+<p>Die Funktion <code>FrameAendern()</code> erwartet zwei Parameter:<br>
+1. den <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/allgemein/referenzieren.htm#uri">URI</a> des gewünschten Inhalts des zweiten Frame-Fensters (<code>URI</code>)<br>
+2. den Namen des gewünschten zweiten Frame-Fensters innerhalb des Frame-Sets (<code>Framename</code>)<br>
+Dadurch ist die Funktion allgemein gehalten, d.h. Sie können diese Funktion auch in ganz anderen Frame-Sets zum gleichen Zweck verwenden.<br>
+Innerhalb der Funktion wird über <code>parent[Framename]</code> das <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../objekte/window.htm">window</a>-Objekt des zweiten Frames angesprochen. Mit dieser alternativen Schreibweise zum Ansprechen von Unterobjekten kann der Framename variabel sein. Wenn der Funktion beispielsweise der Framename "oben" übergeben wird, entspricht dieser Ausdruck der Notation <code>parent.oben</code>.<br>
+Das Ändern der Eigenschaft <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../objekte/location.htm#href">location.href</a> bewirkt einen JavaScript-Verweis zu einer anderen Adresse. Dieser Eigenschaft wird die beim Funktionsaufruf übergebene Adresse <code>URI</code> zugewiesen.</p>
+
+<p>Die Funktionen <code>ZweiFramesBack()</code> und <code>ZweiFramesForward()</code> benötigen ebenfalls zwei Parameter, nämlich die Namen der betroffenen Frame-Fenster (<code>Framename1</code> und <code>Framename2</code>). Mit Aufrufen der Objektmethoden <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../objekte/history.htm#back">history.back()</a> bzw. <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../objekte/history.htm#forward">history.forward()</a> erreichen sie die Funktionalität der entsprechenden Buttons "Zurück" und "Vor" im Browser. Dass der jeweils zweite Aufruf der Objektmethoden noch mal in ein <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../objekte/window.htm#set_timeout">setTimeout()</a> mit einer geringen Verzögerung von 1/10 Sekunde gesetzt ist, hat pragmatische Gründe: manche Browser würden ansonsten "vergessen", den zweiten Aufruf durchzuführen. </p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Opera 5.12 interpretiert die Methode <code>history.back()</code> auf das <code>_top</code>-Fenster bezogen und ignoriert die Angabe des Zielfensters beim Aufruf der Methode. Das gilt auch, wenn Sie die Methode innerhalb eines Frames selbst aufrufen. Der Browser hält sich strikt an die Reihenfolge der History-Einträge im Hauptfenster. Wurden mittels JavaScript zwei Frames gleichzeitig geändert, betrachtet Opera diese Änderung als einen Eintrag und geht in der History zwei Schritte zurück. Aus diesem Grund gilt es zu verhindern, dass Opera ein zweites Mal ein <code>history.back()</code> ausführt. Dies wird im obigen Beispiel mit <code>if (!window.opera)</code> erreicht. Nur ein Opera-Browser kennt das Objekt <code>window.opera</code>. In der <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../sprache/bedingt.htm#if_else">bedingten Anweisung</a> wird gefragt, ob der Browser dieses Objekt <b>nicht</b> kennt. Nur in diesem Fall wird die Objektmethode ein zweites Mal aufgerufen.</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="seitenanzeige.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="seitenanzeige.htm">Seitenanzeige in Frames verhindern</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="../objekte/unabhaengig.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../objekte/unabhaengig.htm">Objektunabhängige Funktionen</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">JavaScript/DOM</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Anwendungsbeispiele</a></td>
+</tr>
+</table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

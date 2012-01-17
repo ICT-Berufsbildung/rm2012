@@ -1,0 +1,347 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: HTML/XHTML / Tabellen / Aufbau einer Tabelle</title>
+<meta name="description"    content="Wie Sie in HTML Tabellen mit oder ohne sichtbaren Linien definieren können.">
+<meta name="keywords"       content="SELFHTML, HTML, XHTML, Tabellen, Tabellenrahmen, Tabellenkopf, Tabellenfuß, Tabellenkörper, Tabellenzeilen, Datenzellen, Kopfzellen, vordefinierte Spalten, Spaltendefinition, table, tr, td, th, colgroup, col, thead, tbody, tfoot, border, width, span">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-10-31T14:21:30+01:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/html/tabellen/aufbau.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="Tabellen" href="index.htm">
+<link rel="next" title="Gestaltung einer Tabelle" href="gestaltung.htm">
+<link rel="prev" title="Ältere browser-proprietäre Elemente" href="../text/proprietaer.htm">
+<link rel="last" title="Tabellen und nicht-visuelle Medien" href="nicht_visuell.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">HTML/XHTML</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Tabellen</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Aufbau einer Tabelle</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#definieren">Tabellen definieren</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#vordefinieren">Spalten vordefinieren</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#kopf_koerper_fuss">Kopf, Körper und Fuß einer Tabelle definieren</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#weitere">Weitere Informationen</a><br>
+</p>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><img src="../../src/html32.gif" width="30" height="30" alt="HTML 3.2" title="HTML 3.2"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../../src/msie2.gif" width="30" height="30" alt="MS IE 2.0" title="MS IE 2.0"><img src="../../src/netsc11.gif" width="30" height="30" alt="Netscape 1.1" title="Netscape 1.1"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="definieren">Tabellen definieren</a></h2>
+
+<p>Sie können in HTML Tabellen definieren, um tabellarische Daten darzustellen, oder um Text und Grafik attraktiver am Bildschirm zu verteilen. Obwohl Tabellen natürlich vornehmlich zur Darstellung tabellarischer Daten geschaffen wurden, sind sie in der heutigen Praxis des Web-Designs vor allem als Grundgestaltungsmittel für Seiten-Layouts nicht mehr wegzudenken. Mehr dazu im Abschnitt <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="layouts.htm">Tabellen als Mittel für Web-Seiten-Layouts</a>. Puristen, die HTML so weit wie möglich von gestalterischen Aufgaben befreit sehen wollen, rümpfen darüber zwar die Nase - aber so klar sind die Grenzen zwischen Struktur und Gestaltung nicht immer. Die saubere Verteilung von Information auf einer Web-Seite ist durchaus ein Aspekt der Strukturierung, obwohl sie zugleich ein Aspekt der Gestaltung ist. Rein optisch lässt sich also grundsätzlich unterscheiden zwischen Tabellen, die Gitternetzlinien haben (für tabellarische Daten), und Tabellen ohne sichtbare Gitternetzlinien (so genannte "blinde Tabellen" für mehrspaltigen Text oder für Verteilung von Inhalten auf einer Web-Seite).</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/table_tr_th_td.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+       "http://www.w3.org/TR/html4/strict.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Aufbau einer Tabelle&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h1&gt;Tabelle mit Gitternetzlinien&lt;/h1&gt;
+
+&lt;table border="1"&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Berlin&lt;/th&gt;
+    &lt;th&gt;Hamburg&lt;/th&gt;
+    &lt;th&gt;M&amp;uuml;nchen&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Milj&amp;ouml;h&lt;/td&gt;
+    &lt;td&gt;Kiez&lt;/td&gt;
+    &lt;td&gt;Bierdampf&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Buletten&lt;/td&gt;
+    &lt;td&gt;Frikadellen&lt;/td&gt;
+    &lt;td&gt;Fleischpflanzerl&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;h1&gt;Tabelle ohne Gitternetzlinien (blinde Tabelle)&lt;/h1&gt;
+
+&lt;table border="0"&gt;
+  &lt;tr&gt;
+    &lt;td&gt;&lt;h2&gt;ARQ&lt;/h2&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;p&gt;Automatic Repeat Request. Eine allgemeine Bezeichnung
+    f&amp;uuml;r Fehlerprotokolle, die &amp;Uuml;bertragungsfehler erkennt und
+    defekte Bl&amp;ouml;cke selbst&amp;auml;ndig wiederholt&lt;/p&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;&lt;h2&gt;HDLC&lt;/h2&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;p&gt;High Level Data Link Control. Ein Standard-Protokoll, das
+    von der Kommission f&amp;uuml;r internationale Standards f&amp;uuml;r
+    Softwareanwendungen in synchronen Anlagen verwendet wird.&lt;/p&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Die folgende Grafik zeigt die Wirkung der HTML-Elemente, die eine Tabelle erzeugen:</p>
+
+<p><img src="aufbau.png" width="314" height="178" alt="Aufbau einer Tabelle"></p>
+
+<p><code>&lt;table&gt;</code> leitet eine Tabelle ein (<i>table = Tabelle</i>). Wenn die Tabelle sichtbare Gitternetzlinien enthalten soll, müssen Sie im einleitenden <code>&lt;table&gt;</code>-Tag das Attribut <code>border</code> notieren und ihm einen Wert größer <code>0</code> zuweisen. Der angegebene Wert ist dann die Breite des Rahmens in Pixeln. Um eine blinde Tabelle ohne sichtbaren Rahmen und Gitternetzlinien zu erzeugen, lassen Sie die Angabe zu <code>border</code> entweder weg, oder - was sauberer ist - Sie notieren <code>border="0"</code>.</p>
+
+<p><code>&lt;tr&gt;</code> leitet eine neue Tabellenzeile ein (<i>tr = table row = Tabellenzeile</i>). Im Anschluss daran werden die Zellen (Spalten) der betreffenden Reihe definiert. Am Ende einer Tabellenzeile wird ein abschließendes Tag <code>&lt;/tr&gt;</code> notiert.</p>
+
+<p>Eine Tabelle kann Kopfzellen und gewöhnliche Datenzellen enthalten. Text in Kopfzellen wird hervorgehoben (meist fett und zentriert ausgerichtet). <code>&lt;th&gt;</code> leitet eine Kopfzelle ein, <code>&lt;td&gt;</code> eine normale Datenzelle (<i>th = table header = Tabellenkopf, td = table data = Tabellendaten</i>). Der Inhalt einer Zelle wird jeweils hinter dem Tag notiert. Obwohl die zugehörigen End-Tags <code>&lt;/th&gt;</code> bzw. <code>&lt;/td&gt;</code> offiziell optional sind, ist dringend zu empfehlen, sie immer und in jedem Fall zu notieren.</p>
+
+<p>In einer Tabellenzelle können beliebige Elemente stehen, d.h. außer normalem Text z.B. auch andere Block- und Inline-Elemente. Sogar eine weitere Tabelle können Sie innerhalb einer Zelle definieren.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Die Anzahl der Zellen sollte bei jeder Zeile gleich sein, sodass die Tabelle durchweg die gleiche Anzahl Spalten pro Zeile hat. In der ersten Zeile, die Sie definieren, legen Sie deshalb durch die Anzahl der dort definierten Zellen die Anzahl der Spalten Ihrer Tabelle fest.</p>
+
+<p>Tabellenzellen dürfen auch leer sein. Wenn Sie in einer Zeile für eine Spalte keine Daten eingeben wollen, notieren Sie ein einfaches <code>&lt;td&gt;</code><code>&lt;/td&gt;</code>. Beachten Sie dabei jedoch, dass viele Web-Browser die Zelle in diesem Fall als "nicht vorhanden" darstellt. Probieren Sie deshalb auch mal die Notation <code>&lt;td&gt;&amp;#160;&lt;/td&gt;</code> für leere Tabellenzellen aus.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/html40.gif" width="30" height="30" alt="HTML 4.0" title="HTML 4.0"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../../src/msie4.gif" width="30" height="30" alt="MS IE 4.0" title="MS IE 4.0"><img src="../../src/netsc4.gif" width="30" height="30" alt="Netscape 4.0" title="Netscape 4.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="vordefinieren">Spalten vordefinieren</a></h2>
+
+<p>Die Darstellung einer Tabelle ergibt sich zwar automatisch aus den definierten Zeilen und Spalten. Doch für einen Web-Browser ist es nicht ganz einfach, die Darstellung frühzeitig zu ermitteln. Er muss erst die gesamte Tabelle einlesen, bevor er irgendetwas davon darstellen kann. Bei großen Tabellen kann das zu unschönen leeren Bildschirminhalten während des Seitenaufbaus führen.</p>
+
+<p>HTML 4.0 bietet eine Syntax an, um dem Browser gleich zu Beginn der Tabelle mitzuteilen, wie viele Spalten die Tabelle hat, und wie breit diese sind. Dadurch kann der Browser die Tabelle schneller aufbauen, d.h. bereits Teile der Tabelle anzeigen, bevor die gesamte Tabelle eingelesen ist. Ältere Browser ignorieren diese Angaben allerdings. Netscape-Browser können erst ab Version 6 korrekt mit den Beispielen umgehen. Beispielschema 3 wird vom Internetexplorer nicht korrekt verarbeitet.</p>
+
+<h3 class="xmp">Beispielschema 1:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/colgroup_col.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;table border="1"&gt;
+  &lt;colgroup&gt;
+    &lt;col width="80"&gt;
+    &lt;col width="100"&gt;
+    &lt;col width="320"&gt;
+  &lt;/colgroup&gt;
+  &lt;tr&gt;
+    &lt;td&gt;1. Zeile, 1. Spalte&lt;/td&gt;
+    &lt;td&gt;1. Zeile, 2. Spalte&lt;/td&gt;
+    &lt;td&gt;1. Zeile, 3. Spalte&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;!-- usw. andere Zeilen der Tabelle --&gt;
+&lt;/table&gt;
+</pre>
+
+<h3 class="xmp">Beispielschema 2:</h3>
+
+<pre>
+&lt;table border="1"&gt;
+  &lt;colgroup width="200" span="3"&gt;&lt;/colgroup&gt;
+  &lt;tr&gt;
+    &lt;td&gt;1. Zeile, 1. Spalte&lt;/td&gt;
+    &lt;td&gt;1. Zeile, 2. Spalte&lt;/td&gt;
+    &lt;td&gt;1. Zeile, 3. Spalte&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;!-- usw. andere Zeilen der Tabelle --&gt;
+&lt;/table&gt;
+</pre>
+
+<h3 class="xmp">Beispielschema 3:</h3>
+
+<pre>
+&lt;table border="1" width="100%"&gt;
+  &lt;colgroup&gt;
+    &lt;col width="4*"&gt;
+    &lt;col width="2*"&gt;
+    &lt;col width="1*"&gt;
+  &lt;/colgroup&gt;
+  &lt;tr&gt;
+    &lt;td&gt;1. Zeile, 1. Spalte&lt;/td&gt;
+    &lt;td&gt;1. Zeile, 2. Spalte&lt;/td&gt;
+    &lt;td&gt;1. Zeile, 3. Spalte&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;!-- usw. andere Zeilen der Tabelle --&gt;
+&lt;/table&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Mit <code>&lt;colgroup&gt;</code> leiten Sie hinter dem einleitenden <code>&lt;table&gt;</code>-Tag eine Vorab-Definition der Tabellenspalten ein (<i>colgroup = column group = Spaltengruppe</i>). Dabei haben Sie zwei Möglichkeiten: entweder Sie möchten unterschiedlich breite Tabellenspalten haben. Dann gehen Sie so vor wie im obigen Beispielschema 1. Oder Sie haben eine Tabelle, in der alle Spalten die gleiche einheitliche Breite haben sollen. Dann können Sie so vorgehen wie im obigen Beispielschema 2.</p>
+
+<p>Im Beispielschema 1 enthält das <code>&lt;colgroup&gt;</code>-Tag keine weiteren Attribute. Dafür notieren Sie im Anschluss an <code>&lt;colgroup&gt;</code> für jede einzelne gewünschte Tabellenspalte je ein <code>&lt;col&gt;</code>-Tag. Das erste <code>&lt;col&gt;</code>-Tag definiert die erste Spalte, das zweite die zweite Spalte usw. Wenn Sie keine weiteren Angaben machen, wird die Breite der Spalten automatisch aufgrund des Tabelleninhalts ermittelt. Mit <code>width</code> [Pixel/Prozent] können Sie jedoch eine Spaltenbreite für die einzelnen Spalten vorgeben (<i>width = Breite</i>). Mit <code>width="100"</code> erzwingen Sie beispielsweise eine Spaltenbreite von 100 Pixeln, und mit <code>width=33%</code> eine Breite von einem Drittel der Breite der Gesamttabelle.</p>
+
+<p>Im Beispielschema 2 werden keine <code>&lt;col&gt;</code>-Tags notiert. Stattdessen notieren Sie im einleitenden <code>&lt;colgroup&gt;</code>-Tag das Attribut <code>span</code> (<i>span = spannen</i>). Als Wert weisen Sie die Anzahl der Spalten zu, die Sie wünschen. Mit dem Attribut <code>width</code> können Sie in diesem Fall eine einheitliche Spaltenbreite für alle Spalten definieren.</p>
+
+<p>Bei <code>width</code> haben Sie neben der Möglichkeit, Pixel oder Prozentwerte anzugeben, auch noch eine dritte Möglichkeit: Sie können das relative Breitenverhältnis der Spalten untereinander bestimmen, unabhängig davon, wie breit die Tabelle im Verhältnis zum Anzeigefenster ist. Eine solche Möglichkeit stellt das obige Beispielschema 3 vor. Bei Breitenangaben dieser Art weisen Sie <code>width</code> eine Zahl und dahinter ein Sternzeichen zu. Das Sternzeichen ist dabei nur ein Signalzeichen für den Browser, dass er die Zahlen davor nicht als Pixel interpretieren soll. Wichtig sind die Zahlen. Im obigen Beispiel 3 werden drei Spalten definiert, bei denen die relativen Zahlen 4, 2 und 1 in der Summe 7 ergeben. Damit definieren Sie eine Tabelle, bei der die erste Spalte vier Siebtel der Tabellenbreite einnimmt, die zweite Spalte zwei Siebtel, und die dritte Spalte ein Siebtel.<br>
+Zur Geltung kommt ein relatives Spaltenverhältnis aber erst, wenn Sie außerdem eine Breite für die gesamte Tabelle angeben. Im obigen Beispielschema 3 geschieht das durch die Angabe <code>width="100%"</code> im einleitenden <code>&lt;table&gt;</code>-Tag.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p><code>&lt;col&gt;</code>-Tags dürfen in HTML kein Abschluss-Tag haben. Das abschließende <code>&lt;/colgroup&gt;</code>-Tag ist dagegen optional. In <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../xhtml/index.htm">XHTML</a> ist das schließende <code>&lt;col&gt;</code>-Tag aber erforderlich. Wenn Sie <b>XHTML-Standard-konform</b> arbeiten, müssen Sie daher das <code>col</code>-Element als inhaltsleer kennzeichnen. Dazu notieren Sie das alleinstehende Tag in der Form <code>&lt;col&nbsp;...&nbsp;/&gt;</code>. Weitere Informationen finden Sie im Kapitel <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../xhtml/index.htm">XHTML und HTML</a>.</p>
+
+<p>Auch das <code>&lt;col&gt;</code>-Tag darf das Attribut <code>span</code> erhalten. Dadurch gruppieren Sie jedoch nicht mehrere Spalten zu einer, sondern Sie geben lediglich an, dass Attribute dieser Spalte auch für die nächsten soundsoviel Spalten gelten sollen. Wenn Sie beispielsweise <code>&lt;col span="3" width="100"&gt;</code> notieren, erhalten diese und die nächsten zwei Spalten die Breite von 100 Pixeln.</p>
+
+<p>Das <code>&lt;colgroup&gt;</code>-Tag darf die Attribute <code>span</code> und <code>width</code> auch dann enthalten, wenn unterhalb davon <code>&lt;col&gt;</code>-Tags definiert werden. Dabei überschreibt die Anzahl der definierten <code>&lt;col&gt;</code>-Tags jedoch die Angabe, die mit <code>&lt;colgroup span=&gt;</code> gemacht wurde, und das Attribut <code>width</code> innerhalb eines <code>&lt;col&gt;</code>-Tags hat Vorrang vor der Angabe <code>width</code> im <code>&lt;colgroup&gt;</code>-Tag.</p>
+
+<p>Es ist auch erlaubt, mehrere <code>&lt;colgroup&gt;</code>-Tags zu notieren. So können Sie beispielsweise mit <code>&lt;colgroup width="100" span="3"&gt;</code> und <code>&lt;colgroup width="50" span="5"&gt;</code> hintereinander notiert insgesamt 8 Spalten für die Tabelle definieren, wobei die ersten drei Spalten eine Breite von 100 Pixeln erhalten und die nachfolgenden fünf Spalten eine Breite von 50 Pixeln.</p>
+
+<p>Für die Breite der Tabellenspalten gelten die gleichen Hinweise wie beim <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="gestaltung.htm#breiten_hoehen">Erzwingen von Spaltenbreiten</a> auf herkömmliche Weise.</p>
+
+<p>Zu Beispielschema 2: Safari bis Version 2.0.4 vergrößert Spalten nach dem Schema <code>width="200" span="3"</code> nicht.</p>
+
+<p>Zu Beispielschema 3: Internet Explorer, Opera, Konqueror und Safari interpretieren relative Angaben nach dem Schema <code>width="4*"</code> nicht. Diese Möglichkeit beschränkt sich daher auf Mozilla Firefox.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/html40.gif" width="30" height="30" alt="HTML 4.0" title="HTML 4.0"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../../src/msie4.gif" width="30" height="30" alt="MS IE 4.0" title="MS IE 4.0"><img src="../../src/netsc6.gif" width="30" height="30" alt="Netscape 6.0" title="Netscape 6.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="kopf_koerper_fuss">Kopf, Körper und Fuß einer Tabelle definieren</a></h2>
+
+<p>Sie können eine Tabelle logisch in Bereiche aufteilen: einen Kopfbereich, einen oder mehrere Datenbereiche und einen Fußbereich. Interessant ist dies zum Beispiel in Verbindung mit der Möglichkeit, <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="gestaltung.htm#regeln_gitternetz">Regeln für Gitternetzlinien</a> zu bestimmen. Beim Ausdruck langer Tabellen sollte der Browser Tabellenkopf und Tabellenfuß auf jeder Seite wiederholen.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/thead_tfoot_tbody.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+       "http://www.w3.org/TR/html4/strict.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Kopf, K&amp;ouml;rper und Fu&amp;szlig; einer Tabelle definieren&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h1&gt;Betroffene Menschen&lt;/h1&gt;
+
+&lt;table border="1" rules="groups"&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Assoziation 1&lt;/th&gt;
+      &lt;th&gt;Assoziation 2&lt;/th&gt;
+      &lt;th&gt;Assoziation 3&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tfoot&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;i&gt;betroffen:&lt;br&gt;4 Mio. Menschen&lt;/i&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;i&gt;betroffen:&lt;br&gt;2 Mio. Menschen&lt;/i&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;i&gt;betroffen:&lt;br&gt;1 Mio. Menschen&lt;/i&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tfoot&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Berlin&lt;/td&gt;
+      &lt;td&gt;Hamburg&lt;/td&gt;
+      &lt;td&gt;M&amp;uuml;nchen&lt;/td&gt;
+    &lt;/tr&gt;&lt;tr&gt;
+      &lt;td&gt;Milj&amp;ouml;h&lt;/td&gt;
+      &lt;td&gt;Kiez&lt;/td&gt;
+      &lt;td&gt;Bierdampf&lt;/td&gt;
+    &lt;/tr&gt;&lt;tr&gt;
+      &lt;td&gt;Buletten&lt;/td&gt;
+      &lt;td&gt;Frikadellen&lt;/td&gt;
+      &lt;td&gt;Fleischpflanzerl&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Den Tabellenkopf leiten Sie mit <code>&lt;thead&gt;</code> ein (<i>thead = table head = Tabellenkopf</i>). Daran anschließend können Sie eine oder mehrere Zeilen der Tabelle notieren, die zum Kopfbereich gehören sollen. Mit <code>&lt;/thead&gt;</code> schließen Sie den Tabellenkopf ab (das End-Tag ist bei allen Elementen für Tabellenkopf, Tabellenfuß und Tabellenkörper optional, aber dringend zu empfehlen).</p>
+
+<p>Wenn Sie einen Tabellenfuß notieren möchten, müssen Sie diesen vor den Tabellenkörper-Elementen notieren. Den Tabellenfuß leiten Sie mit <code>&lt;tfoot&gt;</code> ein (<i>tfoot = table foot = Tabellenfuß</i>). Daran anschließend können Sie eine oder mehrere Zeilen der Tabelle notieren, die zum Fußbereich gehören sollen. Mit <code>&lt;/tfoot&gt;</code> schließen Sie den Tabellenfuß ab.</p>
+
+<p>Einen Tabellenkörper leiten Sie mit <code>&lt;tbody&gt;</code> ein (<i>tbody = table body = Tabellenkörper</i>). Daran anschließend notieren Sie den Datenbereich mit einer oder mehreren Tabellenzeilen. Mit <code>&lt;/tbody&gt;</code> schließen Sie den Tabellenkörper ab.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Die Aufteilung einer Tabelle mittels <code>thead</code>, <code>tfoot</code> und <code>tbody</code> ist freiwillig. Wenn Sie kein solches Element angeben, gelten alle Zeilen der Tabelle als Tabellenkörper. Falls Sie jedoch mit den Elementen arbeiten, müssen Sie die Reihenfolge <code>thead</code> &rarr; <code>tfoot</code> &rarr; <code>tbody</code> beachten. Die Elemente <code>thead</code> und <code>tfoot</code> dürfen pro Tabelle nur einmal vorkommen, das <code>tbody</code>-Element einmal oder beliebig oft. In vielen Fällen ist die Aufteilung in <code>thead</code> und einen oder mehrere <code>tbody</code> sinnvoll. Auf diese Weise können Sie bequem inhaltlich zusammenhängende Tabellezeilen gruppieren, zum Beispiel um deren Zellen später mit <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/index.htm">Stylesheets</a> unterschiedlich zu formatieren.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="weitere">Weitere Informationen</a></h2>
+
+<p>Alle hier vorgestellten Elemente können <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../attribute/index.htm">Universalattribute</a> enthalten.</p>
+
+<p>In der <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../referenz/index.htm">HTML-Referenz</a> finden Sie Angaben darüber, wo die hier vorgestellten HTML-Elemente vorkommen dürfen, welche anderen Elemente sie enthalten dürfen, welche Attribute sie haben können und was bei den einzelnen Attributen zu beachten ist:<br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/elemente.htm#table">Element-Referenz</a> und <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/attribute.htm#table">Attribut-Referenz</a> für Tabellen (<code>&lt;table&gt;...&lt;/table&gt;</code>)<br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/elemente.htm#tr">Element-Referenz</a> und <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/attribute.htm#tr">Attribut-Referenz</a> für Tabellenzeilen (<code>&lt;tr&gt;...&lt;/tr&gt;</code>)<br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/elemente.htm#th">Element-Referenz</a> und <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/attribute.htm#th">Attribut-Referenz</a> für Kopfzellen (<code>&lt;th&gt;...&lt;/th&gt;</code>)<br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/elemente.htm#td">Element-Referenz</a> und <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/attribute.htm#td">Attribut-Referenz</a> für Datenzellen (<code>&lt;td&gt;...&lt;/td&gt;</code>)<br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/elemente.htm#colgroup">Element-Referenz</a> und <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/attribute.htm#colgroup">Attribut-Referenz</a> für Spaltengruppen (<code>&lt;colgroup&gt;...&lt;/colgroup&gt;</code>)<br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/elemente.htm#col">Element-Referenz</a> und <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/attribute.htm#col">Attribut-Referenz</a> für Spalten (<code>&lt;col&gt;</code>)<br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/elemente.htm#thead">Element-Referenz</a> und <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/attribute.htm#thead">Attribut-Referenz</a> für Tabellenkopf (<code>&lt;thead&gt;...&lt;/thead&gt;</code>)<br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/elemente.htm#tfoot">Element-Referenz</a> und <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/attribute.htm#tfoot">Attribut-Referenz</a> für Tabellenfuß (<code>&lt;tfoot&gt;...&lt;/tfoot&gt;</code>)<br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/elemente.htm#tbody">Element-Referenz</a> und <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/attribute.htm#tbody">Attribut-Referenz</a> für Tabellenkörper (<code>&lt;tbody&gt;...&lt;/tbody&gt;</code>)</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="gestaltung.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="gestaltung.htm">Gestaltung einer Tabelle</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="../text/proprietaer.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../text/proprietaer.htm">Ältere browser-proprietäre Elemente</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">HTML/XHTML</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Tabellen</a></td>
+</tr></table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

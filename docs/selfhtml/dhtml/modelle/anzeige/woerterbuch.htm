@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>W&ouml;rterbuch</title>
+<script language="JScript" type="text/jscript">
+<!--
+function Suchen() {
+  var Datensaetze = 1000;
+  document.all.Anzeigetabelle.style.display = "none";
+  var Suchausdruck = "";
+  var Suchbegriffe = 0;
+  if (document.Eingabe.SuchDeu.value != "") {
+   Suchausdruck = Suchausdruck + "Deutsch = " + document.Eingabe.SuchDeu.value;
+   Suchbegriffe++;
+  }
+  if (document.Eingabe.SuchEng.value != "") {
+    if (Suchbegriffe > 0) {
+      Suchausdruck = Suchausdruck + " & Englisch = " + document.Eingabe.SuchEng.value;
+    } else {
+      Suchausdruck = Suchausdruck + "Englisch = " + document.Eingabe.SuchEng.value;
+    }
+    Suchbegriffe++;
+  }
+  if (document.Eingabe.SuchFra.value != "") {
+    if (Suchbegriffe > 0) {
+      Suchausdruck = Suchausdruck + " & Franzoesisch = " + document.Eingabe.SuchFra.value;
+    } else {
+      Suchausdruck = Suchausdruck + "Franzoesisch = " + document.Eingabe.SuchFra.value;
+    }
+    Suchbegriffe++;
+  }
+  if (document.Eingabe.SuchIta.value != "") {
+    if (Suchbegriffe > 0) {
+      Suchausdruck = Suchausdruck + " & Italienisch = " + document.Eingabe.SuchIta.value;
+    } else {
+      Suchausdruck = Suchausdruck + "Italienisch = " + document.Eingabe.SuchIta.value;
+    }
+    Suchbegriffe++;
+  }
+  if (document.Eingabe.SuchSpa.value != "") {
+    if (Suchbegriffe > 0) {
+      Suchausdruck = Suchausdruck + " & Spanisch = " + document.Eingabe.SuchSpa.value;
+    } else {
+      Suchausdruck = Suchausdruck + "Spanisch = " + document.Eingabe.SuchSpa.value;
+    }
+    Suchbegriffe++;
+  }
+  document.all.Begriffe.object.Filter = Suchausdruck;
+  document.all.Begriffe.Reset();
+  document.all.Anzeigetabelle.dataSrc = "#Begriffe";
+  if (document.all.Begriffe.recordset.recordCount < Datensaetze) {
+    document.all.Anzeigetabelle.dataPageSize = Begriffe.recordset.recordCount;
+    document.all.Treffer.innerText = Begriffe.recordset.recordCount + " Suchtreffer!";
+    document.all.Anzeigetabelle.style.display = "block";
+  } else {
+    document.all.Treffer.innerText = "0 Suchtreffer!";
+  }
+}
+//-->
+</script>
+</head>
+<body>
+<object id="Begriffe" classid="clsid:333C7BC4-460F-11D0-BC04-0080C7055A83">
+ <param name="DataURL" value="woerterbuch.txt">
+ <param name="UseHeader" value="true">
+ <param name="Filter" value="">
+ <param name="FieldDelim" value=";">
+</object>
+
+<p>Die durchsuchbare Datenbank enth&auml;lt 1000 Eintr&auml;ge. Suchen Sie nach Begriffen in einer oder mehreren Sprachen. Bei der Suche in mehreren Sprachen werden die Eingaben logisch durch UND verkn&uuml;pft. Sie d&uuml;rfen auch das Wildcard-Zeichen <b>*</b> f&uuml;r Teilausdr&uuml;cke verwenden. Suchen Sie z.B. mal im Feld (Deutsch) nach <b>Arbeits*</b> oder im Feld (Italienisch) nach <b>*ore</b> oder im Feld (Englisch) nach <b>*computer</b>.</p>
+
+<form action="" name="Eingabe">
+Suche nach:<br>
+<input name="SuchDeu" type="text" width="40"> (Deutsch)<br>
+<input name="SuchEng" type="text" width="40"> (Englisch)<br>
+<input name="SuchFra" type="text" width="40"> (Franzoesisch)<br>
+<input name="SuchIta" type="text" width="40"> (Italienisch)<br>
+<input name="SuchSpa" type="text" width="40"> (Spanisch)<br>
+<input type="button" style="width:150px; height:25px;" value="Suche starten" onclick="Suchen()">
+</form>
+
+<table border="1" cellpadding="1" cellspacing="0"><tr><td>
+<table width="100%">
+<tr>
+<td valign="top" colspan="5">
+<span id="Treffer" style="color:#0000CC; font-weight:bold;">&#160;</span>
+</td>
+</tr>
+<tr>
+<td bgcolor="#EEEEEE" valign="top" width="20%"><b>Deutsch:</b></td>
+<td bgcolor="#EEEEEE" valign="top" width="20%"><b>Englisch:</b></td>
+<td bgcolor="#EEEEEE" valign="top" width="20%"><b>Franz&ouml;sisch:</b></td>
+<td bgcolor="#EEEEEE" valign="top" width="20%"><b>Italienisch:</b></td>
+<td bgcolor="#EEEEEE" valign="top" width="20%"><b>Spanisch:</b></td>
+</tr>
+</table>
+<table id="Anzeigetabelle" style="display:none" width="100%">
+<tr>
+<td bgcolor="#FFFFE0" valign="top" width="20%"><span datafld="Deutsch"></span></td>
+<td bgcolor="#FFFFE0" valign="top" width="20%"><span datafld="Englisch"></span></td>
+<td bgcolor="#FFFFE0" valign="top" width="20%"><span datafld="Franzoesisch"></span></td>
+<td bgcolor="#FFFFE0" valign="top" width="20%"><span datafld="Italienisch"></span></td>
+<td bgcolor="#FFFFE0" valign="top" width="20%"><span datafld="Spanisch"></span></td>
+</tr>
+</table>
+</td></tr></table>
+
+<p><a href="../datenanbindung.htm#durchsuchbar2">zur&uuml;ck</a></p>
+</body>
+</html>

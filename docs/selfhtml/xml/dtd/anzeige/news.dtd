@@ -1,0 +1,7 @@
+<!ELEMENT news (newsdaten)*>
+<!ENTITY datenquelle SYSTEM "news.txt" >
+<!ELEMENT newsdaten EMPTY>
+<!ATTLIST newsdaten
+   quelle            ENTITY              #REQUIRED
+>
+

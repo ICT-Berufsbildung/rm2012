@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="attribute.xsl" ?>
+<test>
+<text ausrichtung="links">
+Das ist linksbündiger Text
+</text>
+<text ausrichtung="zentriert">
+Das ist zentrierter Text
+</text>
+<text ausrichtung="rechts">
+Das ist rechtsbündiger Text
+</text>
+</test>
+

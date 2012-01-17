@@ -1,0 +1,262 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: JavaScript / Objektreferenz / Function</title>
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<meta name="description"    content="Welche Aufgaben und Methoden das Function-Objekt in JavaScript hat.">
+<meta name="keywords"       content="SELFHTML, JavaScript, Objekte, Function, arguments, arity, caller">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-09-20T06:02:21+02:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/javascript/objekte/function.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="Objektreferenz" href="index.htm">
+<link rel="next" title="Math" href="math.htm">
+<link rel="prev" title="Date" href="date.htm">
+<link rel="first" title="Hinweise zur JavaScript-Objektreferenz" href="hinweise.htm">
+<link rel="last" title="Objektunabhängige Funktionen" href="unabhaengig.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">JavaScript/DOM</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Objektreferenz</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Function</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p><img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#allgemeines">Allgemeines zur Verwendung</a> </p>
+
+<h3>Eigenschaften:</h3>
+
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#arguments">arguments</a> (Argumentnamen-Array)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#arity">arity</a> (Anzahl Argumente)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#caller">caller</a> (Namen der aufrufenden Funktion)</p>
+
+
+
+</td>
+</tr><tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><a class="an" name="allgemeines">Function: Allgemeines zur Verwendung</a></h2>
+
+<p>Über das Objekt <code>Function</code> haben Sie Zugriff auf Eigenschaften einer JavaScript-<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../sprache/funktionen.htm">Funktion</a>. JavaScript-Funktionen werden dadurch also selbst Gegenstand von JavaScript-Anweisungen. Sinnvoll ist das Arbeiten mit dem Function-Objekt beispielsweise im Zusammenhang mit einer variablen Anzahl von Parametern in einer Funktion.</p>
+
+<p>Ein neues <code>Function</code>-Objekt können Sie extra erzeugen.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<pre>
+var Farbe = new Function("NeueFarbe", "document.bgColor = NeueFarbe;");
+</pre>
+
+<h3 class="xmp">Beispielentsprechung in normaler Schreibweise:</h3>
+
+<pre>
+function Farbe (NeueFarbe) {
+  document.bgColor = NeueFarbe;
+}
+</pre>
+
+<h3 class="xmp">Beispielaufruf für beide Fälle:</h3>
+
+<pre>
+&lt;a href="javascript:Farbe('#FFCC99')"&gt;Neue Hintergrundfarbe&lt;/a&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Betrachten Sie in dem Beispiel zunächst den mittleren Teil ("Beispielentsprechung in normaler Schreibweise"). Das ist die normale Definition einer Funktion. Im Teil darüber wird die gleiche Funktion definiert, jedoch in Form eines Funktionsobjekts. Das Funktionsobjekt wird mit <code>new Function(...)</code> erzeugt. Der Rückgabewert wird in einer Variablen gespeichert, im Beispiel in der Variablen <code>Farbe</code>. Als Parameter erwartet die <code>Function</code>-Funktion eine beliebige Anzahl Parameter, die bis zum vorletzten als Parameter interpretiert werden, die die Funktion erwarten soll. Im Beispiel gibt es einen solchen Parameter, nämlich den Parameter <code>NeueFarbe</code>. Der letzte Parameter, der der <code>Function</code>-Funktion übergeben wird, ist eine Zeichenkette, die den gesamten Funktionsinhalt darstellt, also die JavaScript-Anweisungen innerhalb der Funktion.</p>
+
+<p>Eine Variable, in der eine Funktion gespeichert ist, wie im Beispiel die Variable <code>Farbe</code>, können Sie genauso aufrufen wie eine Funktion. Der dritte Teil ("Beispielaufruf für beide Fälle") gilt tatsächlich für beide Fälle, denn im einen Fall wird die Variable <code>Farbe</code> aufgerufen, in der eine ganze Funktion gespeichert ist, und im anderen Fall wird eine Funktion namens <code>Farbe()</code> aufgerufen.</p>
+
+<p>Sie müssen jedoch kein neues Funktionsobjekt erzeugen, sondern können auch direkt Eigenschaften des Funktionsobjekts auf eine Funktion anwenden.</p>
+
+<h3 class="xmp">Beispiel für direktes Verwenden von Funktionseigenschaften:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/function_allgemeines.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;script type="text/javascript"&gt;
+function HTMLListe (Typ) {
+  document.write("&lt;" + Typ + "&gt;");
+  for (var i = 1; i &lt; HTMLListe.arguments.length; i++)
+    document.write("&lt;li&gt;" + HTMLListe.arguments[i] + "&lt;/li&gt;");
+  document.write("&lt;/" + Typ + "&gt;");
+}
+
+HTMLListe("ol", "eins", "zwei", "drei");
+&lt;/script&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<p>Das Beispiel schreibt dynamisch eine HTML-Liste, entweder als Aufzählungsliste oder als nummerierte Liste, in die Datei. Dies geschieht in einer Funktion namens <code>HTMLListe()</code>. Unterhalb der Funktion steht der Aufruf der Funktion. Dabei werden vier Parameter übergeben. Die Funktion <code>HTMLListe()</code> erwartet jedoch nur einen Parameter, nämlich den Parameter <code>Typ</code>. Dabei sollte man <code>ul</code> oder <code>ol</code> übergeben. Abhängig davon erzeugt die Funktion eine Aufzählungsliste oder eine nummerierte Liste.</p>
+
+<p>Innerhalb der Funktion wird jedoch mit <code>HTMLListe.arguments.length</code> die tatsächliche Anzahl der übergebenen Elemente abgefragt. Die Funktion nimmt an, dass alle Parameter ab dem zweiten Elemente der gewünschten Liste sind. Die Funktion schreibt mit <code>document.write()</code>-Befehlen die entsprechenden Listenpunkte und setzt dabei reihenweise die übergebenen Parameter ein, da diese Aktion innerhalb einer <code>for</code>-Schleife erfolgt.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/js11.gif" width="30" height="30" alt="JavaScript 1.1" title="JavaScript 1.1"><img src="../../src/netsc3.gif" width="30" height="30" alt="Netscape 3.0" title="Netscape 3.0"><img src="../../src/msie4.gif" width="30" height="30" alt="MS IE 4.0" title="MS IE 4.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0"><img src="../../src/jsread.gif" width="60" height="30" alt="Lesen">&nbsp;<a class="an" name="arguments">arguments</a></h2>
+
+<p>Speichert die Argumente, die einer Funktion übergeben wurden, in einem Array, also einer Kette von Elementen. Jedes Element stellt ein Argument dar. Die Eigenschaft ist nur innerhalb der Funktion verfügbar, auf die sie sich bezieht.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/function_arguments.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;script type="text/javascript"&gt;
+function Test (Name, Vorname) {
+  document.write("Funktion bekam " + Test.arguments.length + " Argumente");
+  for (var i = 0; i &lt; Test.arguments.length; ++i)
+    document.write("&lt;BR&gt;" + Test.arguments[i]);
+}
+
+Test("Muenz", "Stefan");
+&lt;/script&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel definiert eine Funktion <code>Test()</code>, die zwei Parameter übergeben bekommt. Die Funktion schreibt dynamisch in die HTML-Datei, wie viele Parameter sie erwartet, und danach in einer <code>for</code>-Schleife, welche Werte übergeben wurden.</p>
+
+<p>Mit <code>Funktionsname.arguments.length</code> ermitteln Sie die Anzahl der tatsächlich übergebenen Parameter (nicht die Anzahl der erwarteten Parameter).</p>
+
+<p>Mit <code>Funktionsname.arguments[0]</code> sprechen Sie den Wert des ersten übergebenen Parameters an, mit <code>Funktionsname.arguments[1]</code> den des zweiten Parameters usw.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Seit dem JavaScript-Standard Version 1.4 ist <code>arguments</code> keine Eigenschaft des Funktionsobjekts mehr, sondern steht in der Funktion als lokale Variable zur Verfügung, die Sie einfach über <code>arguments</code> statt <code>Funktionsobjekt.arguments</code> ansprechen können.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/js12.gif" width="30" height="30" alt="JavaScript 1.2" title="JavaScript 1.2"><img src="../../src/netsc4.gif" width="30" height="30" alt="Netscape 4.0" title="Netscape 4.0"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/jsread.gif" width="60" height="30" alt="Lesen">&nbsp;<a class="an" name="arity">arity</a></h2>
+
+<p>Speichert die Anzahl Argumente, die eine Funktion erwartet. Die Eigenschaft ist nur außerhalb der Funktion verfügbar, auf die sie sich bezieht.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/function_arity.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;script type="text/javascript"&gt;
+function Test (Name, Vorname) {
+  return (Vorname + " " + Name);
+}
+
+alert("Funktion erwartet " + Test.arity + " Argumente");
+&lt;/script&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel definiert eine Funktion <code>Test()</code>, die zwei Parameter erwartet. Die Funktion wird im Beispiel gar nicht aufgerufen, dafür wird in einem Meldungsfenster ausgegeben, wie viele Argumente die Funktion <code>Test()</code> erwartet. Dazu wird die Eigenschaft <code>arity</code> auf die gewünschte Funktion angewendet.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Mit dem JavaScript-Standard Version 1.4 wurde <code>arity</code> als veraltet erklärt und durch die Eigenschaft <code>length</code> ersetzt. Diese Eigenschaft können Sie genauso wie <code>arity</code> verwenden, z.B. <code>Funktionsobjekt.length</code>.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/js11.gif" width="30" height="30" alt="JavaScript 1.1" title="JavaScript 1.1"><img src="../../src/netsc3.gif" width="30" height="30" alt="Netscape 3.0" title="Netscape 3.0"><img src="../../src/msie4.gif" width="30" height="30" alt="MS IE 4.0" title="MS IE 4.0"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/jsread.gif" width="60" height="30" alt="Lesen">&nbsp;<a class="an" name="caller">caller</a></h2>
+
+<p>Speichert die gesamte Funktion, von der aus die aktuelle Funktion aufgerufen wird. Hat den Wert <code>null</code>, falls der Aufruf direkt von einem Event-Handler oder beim Einlesen der Datei von außerhalb einer anderen Funktion erfolgte. Die Eigenschaft ist nur innerhalb der Funktion verfügbar, auf die sie sich bezieht. </p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/function_caller.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;script type="text/javascript"&gt;
+function Test () {
+  alert(Test.caller);
+}
+
+function Aufruf () {
+  Test();
+}
+&lt;/script&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;a href="javascript:Aufruf()"&gt;Wer ruft Test()?&lt;/a&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel definiert im Dateikopf zwei Funktionen, eine Funktion <code>Test()</code> und eine Funktion <code>Aufruf()</code>. Die Funktion <code>Test()</code> tut nichts anderes als auszugeben, von wo sie aufgerufen wurde, die Funktion <code>Aufruf()</code> nichts anderes, als <code>Test()</code> aufzurufen. In der Datei ist ferner ein Verweis notiert. Beim Anklicken des Verweises wird die Funktion <code>Aufruf()</code> aufgerufen, die wiederum <code>Test()</code> aufruft, woraufhin <code>Test()</code> den gesamten Code der Funktion <code>Aufruf()</code> ausgibt.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Die <code>caller</code>-Eigenschaft wurde in JavaScript 1.3 als veraltet ("deprecated") erklärt. Ein Ersatz existiert nicht.</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="math.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="math.htm">Math</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="date.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="date.htm">Date</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">JavaScript/DOM</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Objektreferenz</a></td>
+</tr>
+</table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

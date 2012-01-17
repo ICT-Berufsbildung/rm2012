@@ -1,0 +1,180 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: Dynamisches HTML / Beispiele für die Praxis / Laufende Datums-/Uhrzeitanzeige</title>
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<meta name="description"    content="Wie Sie mit dynamischem HTML eine laufende Anzeige für Datum und Uhrzeit in eine Web-Seite einbauen können.">
+<meta name="keywords"       content="SELFHTML, Dynamisches HTML, Dynamic HTML, DHTML, Document Object Model, DOM, Datum, Uhrzeit, laufende Uhr">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-09-20T06:02:21+02:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/dhtml/beispiele/datumuhr.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="Beispiele für die Praxis" href="index.htm">
+<link rel="next" title="Bilderbuch zum Umblättern" href="bilderbuch.htm">
+<link rel="prev" title="Dynamische Navigationsleiste" href="navigation.htm">
+<link rel="first" title="Allgemeine DHTML-Bibliothek" href="dhtml_bibliothek.htm">
+<link rel="last" title="Bilderbuch zum Umblättern" href="bilderbuch.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">Dynamisches HTML</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Beispiele für die Praxis</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Laufende Datums-/Uhrzeitanzeige</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#hinweise">Hinweise zu diesem Beispiel</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#quelltext">Quelltext mit Erläuterungen</a><br>
+</p>
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/datumuhr.htm">Anzeigebeispiel: So sieht's aus</a>
+</p>
+</td>
+</tr><tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><a class="an" name="hinweise">Hinweise zu diesem Beispiel</a></h2>
+
+<p>Dieses Beispiel zeigt, wie Sie eine laufende Uhr, die Sie beliebig formatieren können, so realisieren können, dass sie ab Internet Explorer V4.x und Netscape V4.x funktioniert. In der Praxis eignet sich eine solche laufende Uhr z.B. für Seiten, die dauerhaft eingeblendet werden, z.B. in einem Frame-Fenster, dessen Inhalt sich beim Surfen nicht ändert, oder auf Seiten, die Multimedia-Spiele oder einen eingebetteten Chat enthalten - also auf Seiten, die der Anwender lange anzeigt, ohne darin weiterzuscrollen oder die Seite zu verlassen.</p>
+
+<p>Das Beispiel benutzt die <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="dhtml_bibliothek.htm">DHTML-Bibliothek</a>, um das zu leisten, was in dem Beispiel an dynamischem HTML erforderlich ist.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/dom10.gif" width="30" height="30" alt="DOM 1.0" title="DOM 1.0"><img src="../../src/js12.gif" width="30" height="30" alt="JavaScript 1.2" title="JavaScript 1.2"><img src="../../src/netsc4x.gif" width="30" height="30" alt="Netscape 4.x" title="Netscape 4.x"><img src="../../src/msie4.gif" width="30" height="30" alt="MS IE 4.0" title="MS IE 4.0"><img src="../../src/op7.gif" width="30" height="30" alt="Opera 7" title="Opera 7"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="quelltext">Quelltext mit Erläuterungen</a></h2>
+
+<p>Das Beispiel zeigt eine vollständige HTML-Datei, in der die laufende Datums-/Uhrzeit-Anzeige eingebettet ist. Die Datei <code>dhtml.js</code>, in der die Funktionen der DHTML-Bibliothek enthalten sind, muss vorhanden sein und sich im Beispiel im gleichen Verzeichnis befinden wie die HTML-Datei.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/datumuhr.htm">Anzeigebeispiel: So sieht's aus</a> (<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="dhtml_bibliothek.htm#quelltext">DHTML-Bibliothek</a>)</p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;
+&lt;title&gt;Test&lt;/title&gt;
+&lt;script type="text/javascript" src="dhtml.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript"&gt;
+function ZeitAnzeigen () {
+  var Wochentagname = new Array("Sonntag", "Montag", "Dienstag", "Mittwoch",
+                                "Donnerstag", "Freitag", "Samstag");
+  var Jetzt = new Date();
+  var Tag = Jetzt.getDate();
+  var Monat = Jetzt.getMonth() + 1;
+  var Jahr = Jetzt.getYear();
+  if (Jahr &lt; 999)
+    Jahr += 1900;
+  var Stunden = Jetzt.getHours();
+  var Minuten = Jetzt.getMinutes();
+  var Sekunden = Jetzt.getSeconds();
+  var WoTag = Jetzt.getDay();
+  var Vortag = (Tag &lt; 10) ? "0" : "";
+  var Vormon = (Monat &lt; 10) ? ".0" : ".";
+  var Vorstd = (Stunden &lt; 10) ? "0" : "";
+  var Vormin = (Minuten &lt; 10) ? ":0" : ":";
+  var Vorsek = (Sekunden &lt; 10) ? ":0" : ":";
+  var Datum = Vortag + Tag + Vormon + Monat + "." + Jahr;
+  var Uhrzeit = Vorstd + Stunden + Vormin + Minuten + Vorsek + Sekunden;
+  var Gesamt = Wochentagname[WoTag] + ", " + Datum + ", " + Uhrzeit;
+
+  if (DHTML) {
+    if (NS4) {
+      setContent("id", "Uhr", null, '&lt;span class="Uhr"&gt;' + Gesamt + "&lt;\/span&gt;");
+    } else {
+      setContent("id", "Uhr", null, Gesamt);
+    }
+    window.setTimeout("ZeitAnzeigen()", 1000);
+  }
+}
+
+&lt;/script&gt;
+&lt;style type="text/css"&gt;
+#Uhr { position:absolute; top:10px; left:10px; }
+#RestDerSeite { position:absolute; top:50px; left:10px; }
+.Uhr { font-family:Arial; font-size:24px; color:blue; }
+.RestDerSeite { font-family:Arial; color:black; }
+&lt;/style&gt;
+
+&lt;/head&gt;
+&lt;body onload="window.setTimeout('ZeitAnzeigen()', 1000)"&gt;
+
+&lt;div id="Uhr" class="Uhr"&gt;&amp;nbsp;&lt;/div&gt;
+
+&lt;div id="RestDerSeite" class="RestDerSeite"&gt;
+
+&lt;h1&gt;Willkommen auf dieser Seite&lt;/h1&gt;
+&lt;p&gt;hier gehts ganz normal weiter&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Im Körper der HTML-Datei im Beispiel werden insgesamt zwei <code>div</code>-Bereiche definiert. Beide Bereiche erhalten einen id-Namen und erhalten über den jeweiligen id-Namen im <code>style</code>-Bereich im Dateikopf entsprechende CSS-Eigenschaften zugewiesen. Beide Bereiche werden absolut positioniert. Ohne diesen Trick wäre die ganze Sache mit Netscape 4.x nicht realisierbar. Der erste Bereich dient zur Anzeige von Datum und Uhrzeit, und der zweite Bereich enthält den gesamten restlichen Inhalt der Datei, weshalb er auch den Namen <code>RestDerSeite</code> trägt.</p>
+
+<p>Der erste Bereich enthält zunächst nur ein geschütztes Leerzeichen. So sieht man zunächst noch nichts von dem Bereich, aber das Leerzeichen ist wichtig, damit der Bereich einen Inhalt hat. Ansonsten würde beim ersten dynamischen Zugriff auf seinen Inhalt mit DOM-fähigen Browsern und den Funktionen der DHTML-Bibliothek ein Fehler erzeugt.</p>
+
+<p>Die Beispieldatei enthält ferner zwei JavaScript-Bereiche im Dateikopf. Im ersten, leeren JavaScript-Bereich wird die DHTML-Bibliothek eingebunden, im zweiten steht die Funktion <code>ZeitAnzeigen()</code>, die für die Zeitanzeige verantwortlich ist. Im einleitenden <code>&lt;body&gt;</code>-Tag ist der <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../javascript/sprache/eventhandler.htm">Event-Handler</a> <code>onload</code>, der eintritt, wenn die Datei und alle ihre eingebundenen Ressourcen vollständig geladen sind. Diesem Event-Handler ist ein Funktionsaufruf zugeordnet. Er startet die Funktion <code>ZeitAnzeigen()</code>, jedoch eingebettet in eine <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../javascript/objekte/window.htm#set_timeout">setTimeout</a>-Anweisung, die den Aufruf um 1 Sekunde bzw. 1000 Millisekunden verzögert. In der ersten Sekunde wird also noch nichts angezeigt.</p>
+
+<p>Innerhalb der Funktion <code>ZeitAnzeigen()</code> wird zunächst ein <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../javascript/objekte/array.htm">Array</a> für die deutschen Wochentage definiert. Anschließend ermittelt die Funktion mit Hilfe des <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../javascript/objekte/date.htm">Date</a>-Objekts die aktuelle Zeit. Mit Hilfe diverser Formatierbefehlen erzeugt sie dann eine Zeichenkette, die eine ordentliche Datums-/Uhrzeitdarstellung Konvention nach deutscher Konvention enthält. Diese Zeichenkette wird in der Variablen mit dem Namen <code>Gesamt</code> gespeichert. All diese Dinge haben noch nichts mit der Anzeige zu tun.</p>
+
+<p>Der eigentliche DHTML-Teil ist dank der eingebundenen DHTML-Bibliothek kein großes Problem. Mit <code>if (DHTML)</code> wird zunächst abgefragt, ob überhaupt Dynamisches HTML verfügbar ist. Der gesamte Code zum dynamischen Schreiben in den <code>div</code>-Bereich wird davon abhängig gemacht. So werden Fehlermeldungen in Browsern vermieden, die zwar JavaScript, aber kein Dynamisches HTML beherrschen. Dann wird abgefragt, ob mit dem älteren Netscape-Modell gearbeitet wird. Wenn ja, sieht das dynamische Schreiben in den <code>div</code>-Bereich ein klein wenig anders aus als in den übrigen Fällen. Der Grund ist eine weitere Schwäche des Netscape-4-Browsers. Er würde die CSS-Klasse <code>Uhr</code> im einleitenden <code>div</code>-Tag ignorieren, wenn man sie ihm nicht noch mal in Form eines <code>span</code>-Elements mit in den dynamischen Bereich schreiben würde. Nur so erhält die Datums-/Uhrzeitanzeige die CSS-Formatierungen, die im Dateikopf im <code>style</code>-Bereich für die <code>Uhr</code>-Klasse festgelegt werden. Das dynamische Ändern des <code>div</code>-Inhalts geschieht durch Aufruf der Bibliotheksfunktion <code>setContent()</code>, die sich um alle weiteren Einzelheiten kümmert.</p>
+
+<p>In der letzten Anweisung innerhalb der Funktion <code>ZeitAnzeigen()</code> ruft sich die Funktion selber wieder auf, und zwar wieder mit einer durch <code>window.setTimeout()</code> bewirkten Zeitverzögerung von 1000 Millisekunden oder einer Sekunde. Dadurch passiert eine Sekunde lang nichts, und dann wird die Zeit erneut geschrieben.</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="bilderbuch.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="bilderbuch.htm">Bilderbuch zum Umblättern</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="navigation.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="navigation.htm">Dynamische Navigationsleiste</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">Dynamisches HTML</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Beispiele für die Praxis</a></td>
+</tr>
+</table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

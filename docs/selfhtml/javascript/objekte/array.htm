@@ -1,0 +1,626 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: JavaScript / Objektreferenz / Array</title>
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<meta name="description"    content="Welche Aufgaben, Eigenschaften und Methoden das Array-Objekt in JavaScript hat.">
+<meta name="keywords"       content="SELFHTML, JavaScript, Objekte, Array, index, input, length, concat, join, pop, push, reverse, shift, slice, splice, sort, toSource, toString, unshift">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-10-03T08:55:27+02:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/javascript/objekte/array.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="Objektreferenz" href="index.htm">
+<link rel="next" title="Boolean" href="boolean.htm">
+<link rel="prev" title="location" href="location.htm">
+<link rel="first" title="Hinweise zur JavaScript-Objektreferenz" href="hinweise.htm">
+<link rel="last" title="Objektunabhängige Funktionen" href="unabhaengig.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">JavaScript/DOM</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Objektreferenz</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Array</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+
+<p><img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#allgemeines">Allgemeines zur Verwendung</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#assoziative_arrays">Assoziative Arrays</a> (Arrays mit Zeichenketten als Schlüssel)
+</p>
+
+<h3>Eigenschaften:</h3>
+
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#length">length</a> (Anzahl Elemente)<br>
+</p>
+
+
+
+<h3>Methoden:</h3>
+
+<p><img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#concat">concat()</a> (Arrays verketten)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#join">join()</a> (Array in Zeichenkette umwandeln)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#pop">pop()</a> (letztes Array-Element löschen)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#push">push()</a> (neue Array-Elemente anhängen)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#reverse">reverse()</a> (Elementreihenfolge umkehren)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#shift">shift()</a> (Erstes Array-Element entfernen)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#slice">slice()</a> (Teil-Array extrahieren)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#splice">splice()</a> (Elemente löschen und hinzufügen)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#sort">sort()</a> (Array sortieren)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#unshift">unshift()</a> (Elemente am Array-Anfang einfügen)<br>
+</p>
+
+</td>
+</tr><tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><a class="an" name="allgemeines">Array: Allgemeines zur Verwendung</a></h2>
+
+<p>Das Objekt <code>Array</code> ist als "Container" für Ketten gleichartiger Variablen gedacht. In der Programmierersprache spricht man auch von einem "Vektor". Wenn Sie beispielsweise die 16 Grundfarben speichern wollen, brauchen Sie keine 16 Variablen, sondern ein Array-Objekt, in dem Sie 16 gleichartige Werte (im Beispiel: Farbwerte) speichern können.</p>
+
+<h3 class="xmp">Schema 1 / Beispiel 1:</h3>
+
+<pre>
+Objektname = new Array();
+MeineFrauen = new Array();
+</pre>
+
+<h3 class="xmp">Schema 2 / Beispiel 2:</h3>
+
+<pre>
+Objektname = new Array(Zahl);
+MeineFrauen = new Array(100);
+</pre>
+
+<h3 class="xmp">Schema 3 / Beispiel 3:</h3>
+
+<pre>
+Objektname = new Array(Element0, Element1, ..., element_n);
+MeineFrauen = new Array("Anita", "Bettina", "Christa", "Doris");
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+<p>Eine Objektinstanz von <code>Array</code> speichern Sie in einem selbst vergebenen Objektnamen. Hinter dem Namen folgt ein Gleichheitszeichen. Dahinter folgt das reservierte Wort <code>new</code> und der Aufruf der Objektfunktion <code>Array()</code>.</p>
+
+<p>Benutzen Sie Schema 1, wenn Sie zum Zeitpunkt der Definition noch nicht wissen, wie viele Elemente in dem Variablenvektor gespeichert werden sollen.<br>
+Benutzen Sie Schema 2, wenn Sie zum Zeitpunkt der Definition bereits wissen, wie viele Elemente in dem Variablenvektor gespeichert werden sollen. Die Anzahl können Sie der Objektfunktion als Parameter übergeben.<br>
+Benutzen Sie Schema 3, um den Variablenvektor gleich mit Anfangswerten vorzubelegen. Bei den Varianten 1 und 2 bleiben die einzelnen Variablen des Variablenvektors leer, bis ihnen im Programmverlauf ein Wert zugewiesen wird.</p>
+
+<p>Nachdem Sie eine Instanz des Array-Objekts erzeugt haben, können Sie dies in Ihrem JavaScript-Code verwenden.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/array_allgemeines.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;script type="text/javascript"&gt;
+Zahlen = new Array(34, 86, 167, 413);
+var x = Zahlen[1];
+alert(x);
+&lt;/script&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Nachdem Sie eine Instanz des Array-Objekts in einem Namen gespeichert haben (im Beispiel der Name <code>Zahlen</code>), können Sie wie in der zweiten Zeile gezeigt einzelne Werte innerhalb des Variablenvektors ansprechen. Im Beispiel wird eine gewöhnliche Variable <code>x</code> definiert. In dieser Variablen wird der Wert der zweiten Variable des Zahlen-Vektors gespeichert, also 86. Beachten Sie, dass der Zähler bei 0 beginnt, d.h. den ersten Wert im Vektor sprechen Sie im Beispiel mit <code>Zahlen[0]</code> an, den zweiten mit <code>Zahlen[1]</code> usw.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Sie können auch mehrdimensionale Arrays erzeugen.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/array_mehrdimensional.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;script type="text/javascript"&gt;
+var a = new Array(4);
+for (var i = 0; i &lt; a.length; ++i)
+  a[i] = new Array(10);
+a[3][1] = "Hallo";
+alert(a[3][1]);
+&lt;/script&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+<p>Das Beispiel definiert zunächst einen Array <code>a</code> mit 4 Elementen. Dann wird in einer <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../sprache/schleifen.htm#for">for-Schleife</a> für jedes dieser Elemente ein neuer Array definiert, wobei für jeden Array 10 leere Elemente erzeugt werden. Anschließend können Sie durch eine Angabe wie <code>a[3][1]</code> das zweite Element (1) im vierten Array (3) ansprechen. im Beispiel wird dieses Element mit dem Wert <code>Hallo</code> belegt. Zur Kontrolle wird der Wert in einem Meldungsfenster ausgegeben.</p>
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+<h2><img src="../../src/js10.gif" width="30" height="30" alt="JavaScript 1.0" title="JavaScript 1.0"><img src="../../src/netsc2.gif" width="30" height="30" alt="Netscape 2.0" title="Netscape 2.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="assoziative_arrays">Assoziative Arrays</a></h2>
+
+<p>Als assoziative Arrays bezeichnet man Sammlungen von Elementen, bei denen der Zugriff auf einzelne Elemente mit Hilfe einer Zeichenkette erfolgt. Die Zeichenkette wird als <i>Schlüssel</i> für den Zugriff bezeichnet. <b>Im Gegensatz zu anderen Programmiersprachen gibt es in JavaScript keine assoziativen Arrays.</b> Arrays in JavaScript erlauben den Zugriff auf die Elemente lediglich über Indexnummern. Man kann jedoch mit Hilfe von <code>Object()</code> das Verhalten eines assoziativen Arrays teilweise nachbauen. Es handelt sich dann um ein allgemeines Objekt, an dem die Elemente als Objekteigenschaften hängen. Auf Eigenschaften kann man nicht nur über den Punkt-Operator zugreifen (<code>objekt.eigenschaft</code>), sondern auch über eine Notation, die dem Index-Operator bei Arrays gleicht (<code>objekt["eigenschaft"]</code>). Dadurch lassen sich beliebige Schlüssel erzeugen.</p>
+
+<p>Das Tricksen über allgemeine Objekte bringt einige Fallstricke mit sich. Ein solcher "unechter" assoziativer Array besitzt nämlich nicht die auf dieser Seite beschriebenen Methoden und Eigenschaften eines gewöhnlichen Arrays. Beispielsweise ist es nicht möglich, über <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#length">length</a> die Anzahl der Elemente zu ermitteln. Die Elemente eines solchen "Arrays" können stets nur mit dem Namen oder über eine <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../sprache/schleifen.htm#for_in">for-in</a>-Schleife angesprochen werden.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/array_assoziative_arrays.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;script type="text/javascript"&gt;
+var Mitarbeiter = new Array();
+
+Mitarbeiter[0] = new Object();
+Mitarbeiter[0]["Name"] = "Müller";
+Mitarbeiter[0]["Vorname"] = "Hans";
+Mitarbeiter[0]["Wohnort"] = "Dresden";
+
+Mitarbeiter[1] = new Object();
+Mitarbeiter[1]["Name"] = "Schulze";
+Mitarbeiter[1]["Vorname"] = "Frauke";
+Mitarbeiter[1]["Wohnort"] = "Berlin";
+
+for (var i = 0; i &lt; Mitarbeiter.length; i++) {
+  document.write("&lt;dl&gt;&lt;dt&gt;Mitarbeiter " + (i + 1) + "&lt;\/dt&gt;");
+  for (var Eigenschaft in Mitarbeiter[i])
+    document.write("&lt;dd&gt;" + Eigenschaft + ": " + Mitarbeiter[i][Eigenschaft] + "&lt;\/dd&gt;");
+  document.write("&lt;\/dl&gt;");
+}
+&lt;/script&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+<p>Das Beispiel definiert einen Array <code>Mitarbeiter</code>. Dieser Array besitzt zwei Elemente. Jedes dieser Elemente stellt ein Objekt dar. Den Objekten werden jeweils Eigenschaften zugefügt, diese Schlüssel heißen  <code>Name</code>, <code>Vorname</code> und <code>Wohnort</code>. Jedem dieser Eigenschaften wird ein entsprechender Wert zugeordnet.</p>
+
+<p>Die nachfolgende <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../sprache/schleifen.htm#for">for</a>-Schleife dient dazu, die Elemente des Arrays <code>Mitarbeiter</code> und die jeweiligen Eigenschaften auszugeben. Nach Beginn der <code>for</code>-Schleife wird zuerst mit der <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="document.htm#write">write</a>-Methode der Beginn einer Definitionsliste in das Dokument geschrieben und dabei die laufende Nummer des Mitarbeiters angegeben. Dies entspricht der um eins erhöhten Position im Array, da bei Array-Elementen die Zählung bei 0 beginnt. Anschließend wird eine weitere, innere Schleife aufgerufen. Da hierbei auf ein Objekt zugegriffen wird, muss eine <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../sprache/schleifen.htm#for_in">for in</a>-Schleife verwendet werden. Diese Schleife durchläuft alle Eigenschaften des angesprochenen Objektes und schreibt dessen Namen und den zugehörigen Wert ins Dokument. Sobald die <code>for-in</code>-Schleife beendet ist, wird auch die Definitionsliste geschlossen und das nächste Element im Array <code>Mitarbeiter</code> verarbeitet.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>In vielen Quellen wird auch von assoziativen Arrays gesprochen, wenn diese mit <code>new Array()</code> erzeugt werden. Da ein <code>Array</code> immer auch ein <code>Object</code> ist, ist dies zwar möglich. Dennoch können die Eigenschaften und Methoden des erzeugten Arrays nicht verwendet werden, es ist daher unnötig und irreführend, hier <code>Array()</code> zu verwenden.</p>
+
+<p>Trotzdem wird das Konstrukt von Schlüssel/Werte-Paaren als assoziativer Array bezeichnet. Sie sollten sich bewusst sein, das dies in JavaScript lediglich ein <code>Object</code> darstellt, auf dessen Eigenschaften Sie über Schlüssel zugreifen können.</p>
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+<h2><img src="../../src/js10.gif" width="30" height="30" alt="JavaScript 1.0" title="JavaScript 1.0"><img src="../../src/netsc2.gif" width="30" height="30" alt="Netscape 2.0" title="Netscape 2.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0"><img src="../../src/jsread.gif" width="60" height="30" alt="Lesen">&nbsp;<a class="an" name="length">length</a></h2>
+
+<p>Speichert die Anzahl der Elemente in einem Array. Beachten Sie, dass alle JavaScript-Objekte, die eine Eigenschaft <code>length</code> besitzen, wie zum Beispiel die Objekte <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="forms.htm">forms</a> oder <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="elements.htm">elements</a>, aus Sicht von JavaScript Arrays darstellen.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/array_length.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;script type="text/javascript"&gt;
+var Zahlen = new Array(1, 2, 4, 8, 16, 32, 64, 128, 256);
+alert(Zahlen.length + " Zahlen sind definiert");
+&lt;/script&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+<p>Das Beispiel definiert einen Array, bestehend aus 9 Zahlen. Anschließend wird zur Kontrolle ausgegeben, wie viele Elemente der Array enthält.</p>
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+<h2><img src="../../src/js12.gif" width="30" height="30" alt="JavaScript 1.2" title="JavaScript 1.2"><img src="../../src/netsc4.gif" width="30" height="30" alt="Netscape 4.0" title="Netscape 4.0"><img src="../../src/msie4.gif" width="30" height="30" alt="MS IE 4.0" title="MS IE 4.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="concat">concat()</a></h2>
+
+<p>Hängt einen Array an einen anderen an. Erwartet als Parameter den Namen des anzuhängenden Arrays. Gibt den zusammengefügten Array als Array zurück. Sie können auch mehrere Arrays als Parameter an die Methode übergeben.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/array_concat.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;script type="text/javascript"&gt;
+var Zahlen = new Array(1, 2, 3);
+var AndereZahlen = new Array(10, 20, 30);
+ZahlenGesamt = Zahlen.concat(AndereZahlen);
+alert(ZahlenGesamt.length);
+&lt;/script&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+<p>Das Beispiel definiert zunächst zwei Arrays <code>Zahlen</code> und <code>AndereZahlen</code> mit je drei Zahlen. In der Variablen <code>Zahlengesamt</code> wird anschließend der Rückgabewert von <code>concat()</code> gespeichert, wobei die Methode auf den ersten definierten Array <code>Zahlen</code> angewendet wird und den zweiten Array <code>AndereZahlen</code> an diesen Array anhängt. Zur Kontrolle wird nach der Operation die Gesamtzahl der Elemente von <code>ZahlenGesamt</code> ausgegeben. Dieser Array enthält nun die Werte 1,2,3,10,20,30 und hat deshalb also 6 Elemente.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Die Methode <code>concat()</code> erzeugt unterschiedliche Referenzen auf die ihr übergebenen Arrays. Ist in den miteinander zu verknüpfenden Arrays ein Objekt gespeichert, so ist in dem neu erzeugten Array eine Art Zeiger auf dieses Objekt gespeichert. Das bedeutet, wird das Objekt geändert, so ändert sich auch der von der Methode <code>concat()</code> erzeugte Array. Sind in den verknüpften Arrays jedoch Zahlen und Zeichenketten enthalten, so wird von diesen Werten eine Kopie erzeugt. Nachträgliche Änderungen haben dann keinen Einfluss auf den von der Methode <code>concat()</code> erzeugten Array.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/array_concat_referenz.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;script type="text/javascript"&gt;
+var Zahlen = new Array(1, 2);
+var mehrZahlen = new Array(Zahlen, 3, 4);
+var AndereZahlen = new Array(5, 6, 7);
+
+ZahlenGesamt = mehrZahlen.concat(AndereZahlen);
+alert(ZahlenGesamt);
+
+Zahlen[0] = 70;
+alert("Zahlen: " + Zahlen);
+
+AndereZahlen[0] = 70;
+alert("AndereZahlen: " + AndereZahlen);
+
+alert("ZahlenGesamt: " + ZahlenGesamt);
+&lt;/script&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Im Beispiel wurden drei Arrays angelegt. Das erste Element im Array <code>mehrZahlen</code> ist dabei der Array <code>Zahlen</code>. Damit ist im Array <code>mehrZahlen</code> ein Objekt vom Typ Array gespeichert. Mit der Methode <code>concat()</code> wird an den Array <code>mehrZahlen</code> der Array <code>AndereZahlen</code> angehängt. In der Variablen <code>ZahlenGesamt</code> ist dann ein Array mit den Elementen 1,2,3,4,5,6,7 gespeichert.<br>
+Im nachfolgenden Scriptteil erhalten die ersten Elemente der Arrays <code>Zahlen</code> und <code>AndereZahlen</code> jeweils den Wert 70. Beide Arrays werden auch richtig geändert, wie die Kontrollausgabe mittels eines Meldungsfensters zeigt. Im von der Methode <code>concat()</code> erzeugten Array <code>ZahlenGesamt</code> sind jetzt die Werte 70,2,3,4,5,6,7 gespeichert. Das letzte Meldungsfenster zeigt dies an. Die Änderung des Arrays <code>Zahlen</code> wurde also übernommen, die Änderung im Array <code>AndereZahlen</code> dagegen nicht. Der Grund ist, dass der Array <code>Zahlen</code> als Objekt im Array <code>mehrZahlen</code> enthalten war und deshalb jede Änderung übernommen wird. Die Werte des Arrays <code>AndereZahlen</code> waren dagegen vom Typ <code>Zahl</code>, und es wurde lediglich eine Kopie angelegt. Nachträgliche Änderungen bleiben damit wirkungslos.</p>
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+<h2><img src="../../src/js11.gif" width="30" height="30" alt="JavaScript 1.1" title="JavaScript 1.1"><img src="../../src/netsc3.gif" width="30" height="30" alt="Netscape 3.0" title="Netscape 3.0"><img src="../../src/msie4.gif" width="30" height="30" alt="MS IE 4.0" title="MS IE 4.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="join">join()</a></h2>
+
+<p>Verwandelt einen Array in eine Zeichenkette. Erwartet als Parameter ein oder mehrere Trennzeichen, durch das/die die Array-Einträge in der Zeichenkette voneinander getrennt sein sollen.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/array_join.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;script type="text/javascript"&gt;
+var Zahlen = new Array(1, 2, 4, 8, 16, 32, 64, 128, 256);
+var Zahlenkette = Zahlen.join(" ");
+alert(Zahlenkette);
+&lt;/script&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+<p>Das Beispiel definiert einen Array mit 9 Zahlen. Dann wird die Methode <code>join</code> auf die Variable <code>Zahlen</code> angewendet, in der der Array gespeichert ist. Dabei wird im Beispiel ein Leerzeichen als Parameter übergeben. Der Rückgabewert der Prozedur wird in der Variablen <code>Zahlenkette</code> gespeichert. Der Effekt ist, dass in <code>Zahlenkette</code> alle definierten Zahlen stehen, und zwar durch Leerzeichen voneinander getrennt. Zur Kontrolle wird das Ergebnis als Meldungsfenster ausgegeben.</p>
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+<h2><img src="../../src/js12.gif" width="30" height="30" alt="JavaScript 1.2" title="JavaScript 1.2"><img src="../../src/netsc4.gif" width="30" height="30" alt="Netscape 4.0" title="Netscape 4.0"><img src="../../src/msie55.gif" width="30" height="30" alt="MS IE 5.5" title="MS IE 5.5"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="pop">pop()</a></h2>
+
+<p>Entfernt das letzte Element aus einem Array und ändert dadurch die Anzahl der Elemente im Array. Der Rückgabewert der Methode ist der Inhalt des gelöschten Elementes.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/array_pop.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;script type="text/javascript"&gt;
+var Zahlen = new Array(1, 2, 3, 4, 5);
+alert(Zahlen.length + " Zahlen im Array");
+function Entfernen () {
+  Zahlen.pop();
+  alert(Zahlen.length + " Zahlen im Array");
+}
+&lt;/script&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;a href="javascript:Entfernen()"&gt;Zahl entfernen&lt;/a&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel definiert beim Einlesen der Datei einen Array <code>Zahlen</code> mit 5 Elementen. Zur Kontrolle wird in einem Meldungsfenster die Elementanzahl ausgegeben. Im Dateikörper enthält das Beispiel einen Verweis. Bei jedem Anklicken des Verweises wird die Funktion <code>Entfernen()</code> aufgerufen, die mit der <code>pop()</code>-Methode jeweils das letzte Element aus dem Zahlen-Array entfernt. Zur Kontrolle wird die neue Länge des Arrays ausgegeben.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Bei Browsern, die <code>pop()</code> nicht kennen, können Sie das letzte Element entfernen, indem Sie dem Array eine neue Länge zuweisen, z.B. mit <code>Zahlen.length=Zahlen.length-1</code>.</p>
+
+<p>Der Internet Explorer kennt die Methode <code>pop()</code> erst ab Version 5.5.</p>
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+<h2><img src="../../src/js12.gif" width="30" height="30" alt="JavaScript 1.2" title="JavaScript 1.2"><img src="../../src/netsc4.gif" width="30" height="30" alt="Netscape 4.0" title="Netscape 4.0"><img src="../../src/msie55.gif" width="30" height="30" alt="MS IE 5.5" title="MS IE 5.5"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="push">push()</a></h2>
+
+<p>Hängt ein oder mehrere Elemente an das Ende eines Arrays an. Erwartet als Parameter ein oder mehrere anzuhängende Elemente. Gibt in der JavaScript-Version 1.2 das letzte (neueste) Element zurück, in neueren JavaScript-Versionen dagegen die Länge des Arrays.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/array_push.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;script type="text/javascript"&gt;
+var Orte = new Array("Augsburg");
+document.write("&lt;p&gt;" + Orte.join(", ") + "&lt;br&gt;");
+var NeuestesElement = Orte.push("Berlin");
+document.write(Orte.join(", ") + "&lt;br&gt;");
+document.write("Neu dabei: " + NeuestesElement + "&lt;\/p&gt;");
+var NeuestesElement = Orte.push("Chemnitz", "Dortmund", "Essen", "Frankfurt");
+document.write("&lt;p&gt;" + Orte.join(", ") + "&lt;br&gt;");
+document.write("Neuestes Element: " + NeuestesElement + "&lt;\/p&gt;");
+&lt;/script&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+<p>Das Beispiel erzeugt in einem JavaScript, das im Dateikörper steht, einen Array <code>Orte</code>, in dem zunächst nur ein Wert, nämlich <code>Augsburg</code>, gespeichert wird. Zur Kontrolle wird der Inhalt mit der <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="document.htm#write">write()</a>-Methode in die Datei geschrieben. Anschließend wird dem Array mit der <code>push()</code>-Methode ein Element angehängt, nämlich <code>Berlin</code>. Der Rückgabewert der Operation wird in der Variablen <code>NeuestesElement</code> gespeichert. Zur Kontrolle wird dann der erweiterte Array und der Rückgabewert in die Datei geschrieben. Der Array besteht jetzt aus den Elementen <code>Augsburg</code> und <code>Berlin</code>. Das neueste Element ist <code>Berlin</code>. Dann werden nach dem gleichen Schema gleich vier neue Elemente an den Array angehängt. Der Array besteht hinterher aus den zwei bisherigen Städten plus den vier neuen. In der Variablen <code>NeuestesElement</code> wird jedoch nur das letzte, neueste Element gespeichert. Im Beispiel ist das <code>Frankfurt</code>. Zur Kontrolle werden auch diese Vorgänge in die Datei geschrieben.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Der Internet Explorer kennt die Methode <code>push()</code> erst ab Version 5.5. Bei Browsern, welche die Methode <code>push()</code> nicht kennen, können Sie ein neues Element anhängen, indem Sie z.B.  mit <code>Zahlen[Zahlen.length] = "Wert"</code> den Array erweitern.</p>
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+<h2><img src="../../src/js11.gif" width="30" height="30" alt="JavaScript 1.1" title="JavaScript 1.1"><img src="../../src/netsc3.gif" width="30" height="30" alt="Netscape 3.0" title="Netscape 3.0"><img src="../../src/msie4.gif" width="30" height="30" alt="MS IE 4.0" title="MS IE 4.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="reverse">reverse()</a></h2>
+
+<p>Kehrt die Elementreihenfolge innerhalb eines Arrays um. Das erste Element ist hinterher das letzte, das letzte das erste.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/array_reverse.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;script type="text/javascript"&gt;
+var Name = new Array("S", "T", "E", "F", "A", "N");
+Name.reverse();
+document.write(Name.join(""));
+&lt;/script&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+<p>Das Beispiel definiert einen Array <code>Name</code>, dessen Elemente aus den einzelnen Buchstaben des Namens Stefan bestehen. Anschließend wird auf diesen Array die Methode <code>reverse()</code> angewendet. Mit Hilfe der <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#join">join()</a>-Methode wird der Array mit seiner neuen Elementreihenfolge anschließend so in die Datei geschrieben, dass keine Zeichen zwischen den Elementen stehen (das wird durch die leere Zeichenkette <code>""</code> bei <code>join()</code> erreicht). Als Effekt erscheint der Name Stefan rückwärts geschrieben in der Datei.</p>
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+<h2><img src="../../src/js12.gif" width="30" height="30" alt="JavaScript 1.2" title="JavaScript 1.2"><img src="../../src/netsc4.gif" width="30" height="30" alt="Netscape 4.0" title="Netscape 4.0"><img src="../../src/msie55.gif" width="30" height="30" alt="MS IE 5.5" title="MS IE 5.5"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="shift">shift()</a></h2>
+
+<p>Entfernt das erste Element aus einem Array. Die nachfolgenden Elemente rücken entsprechend nach vorne. Das bisher zweite Element wird das neue erste usw. Gibt das entfernte Element zurück.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/array_shift.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;script type="text/javascript"&gt;
+var Zahlen = new Array(1, 2, 3, 4, 5);
+alert("Erste Zahl im Array: " + Zahlen[0]);
+function Entfernen () {
+  var geloeschtesElement = Zahlen.shift();
+  alert("Erste Zahl im Array: " + Zahlen[0]);
+}
+&lt;/script&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;a href="javascript:Entfernen()"&gt;Zahl entfernen&lt;/a&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel definiert beim Einlesen der Datei einen Array <code>Zahlen</code> mit 5 Elementen. Zur Kontrolle wird in einem Meldungsfenster der Wert des ersten Elements ausgegeben, im Beispiel <code>1</code>. Im Dateikörper enthält das Beispiel einen Verweis. Bei jedem Anklicken des Verweises wird die Funktion <code>Entfernen()</code> aufgerufen, die mit der <code>shift()</code>-Methode jeweils das erste Element aus dem Zahlen-Array entfernt. Zur Kontrolle wird das neue erste Element ausgegeben.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Der Internet Explorer kennt die Methode <code>shift()</code> erst ab Version 5.5.</p>
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+<h2><img src="../../src/js12.gif" width="30" height="30" alt="JavaScript 1.2" title="JavaScript 1.2"><img src="../../src/netsc4.gif" width="30" height="30" alt="Netscape 4.0" title="Netscape 4.0"><img src="../../src/msie4.gif" width="30" height="30" alt="MS IE 4.0" title="MS IE 4.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="slice">slice()</a></h2>
+
+<p>Extrahiert einen Teil aus einem Array. Erwartet als ersten Parameter die Indexnummer des ersten zu extrahierenden Elements und als zweiten Parameter die Indexnummer des Elements, dass dem letzen zu extrahierenden Element folgt. Als zweiter Parameter kann auch ein negativer Wert übergeben werden. Dies bedeutet so viel wie "das soundsoviele Element von hinten". Ein Wert von -1 bedeutet also, dass das vorletze Element noch extrahiert wird, das letzte Element nicht mehr.<br>
+Die Methode gibt die extrahierten Elemente als neuen Array zurück. Wird der zweite Parameter weggelassen, werden alle Elemente bis um Ende des Arrays extrahiert.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/array_slice.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;script type="text/javascript"&gt;
+var Zahlen = new Array(1, 2, 3, 4, 5);
+for (var i = 0; i &lt; Zahlen.length; ++i) {
+  var NeueZahlen = Zahlen.slice(i);
+  alert(NeueZahlen.join(","));
+}
+&lt;/script&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel definiert einen Array <code>Zahlen</code> mit fünf Elementen. Anschließend ist eine <code>for</code>-Schleife notiert. Die Schleife zählt von 0 bis 4. Innerhalb der Schleife wird bei jedem Schleifendurchgang das Ergebnis von <code>Zahlen.slice(i)</code> in einem neuen Array namens <code>NeueZahlen</code> gespeichert. Der Schleifenzähler <code>i</code> ist dabei die Indexnummer des ersten zu extrahierenden Elements. Der zweite Parameter von <code>slice()</code> wird weggelassen wird, sodass alle Elemente von Element <code>i</code> bis einschließlich zum letzten Element extrahiert. Da <code>i</code> bei jedem Schleifendurchgang höher wird, werden im Beispiel immer weniger Zahlen extrahiert, und zwar immer die hinteren des Arrays.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Die Methode <code>slice()</code> erzeugt unterschiedliche Referenzen auf die ihr übergebenen Arrays. Ist in den miteinander zu verknüpfenden Arrays ein Objekt gespeichert, so ist in dem neu erzeugten Array eine Art Zeiger auf dieses Objekt gespeichert. Das bedeutet: Wird das Objekt geändert, so ändert sich auch der von der Methode <code>slice()</code> erzeugte Array. Sind in den verknüpften Arrays dagegen Zahlen und Zeichenketten enthalten, so wird eine Kopie erzeugt. Nachträgliche Änderungen haben dann keinen Einfluss auf den von <code>slice()</code> erzeugten Array.<br>
+In ihrer Referenzierung verhält sich die Methode <code>slice()</code> genauso wie
+die Methode <img src="../../src/up.gif" width="14" height="10" alt="nach oben"><a href="#concat">concat()</a>.</p>
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+<h2><img src="../../src/js12.gif" width="30" height="30" alt="JavaScript 1.2" title="JavaScript 1.2"><img src="../../src/netsc4.gif" width="30" height="30" alt="Netscape 4.0" title="Netscape 4.0"><img src="../../src/msie55.gif" width="30" height="30" alt="MS IE 5.5" title="MS IE 5.5"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="splice">splice()</a></h2>
+
+<p>Fügt ein oder mehrere neue Elemente in einen Array ein, und zwar an einer bestimmten gewünschten Stelle. Überschreibt dabei vorhandene Elemente. Erwartet folgende Parameter:<br>
+<b>1.</b> <i>Startindex</i> = Indexnummer im Array, an der das oder die neuen Elemente eingefügt werden sollen.<br>
+<b>2.</b> <i>Anzahl</i> = Anzahl zu löschender Elemente.<br>
+<b>3.[4...]</b> <i>Element[e]</i> = neue Elemente.<br>
+Der 3. und die folgenden Parameter sind optional. Wenn Sie nur die ersten beiden Parameter angeben, dient <code>splice()</code> nur zum löschen.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/array_splice.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;script type="text/javascript"&gt;
+var a = new Array("a", "b", "c", "d", "e", "f");
+alert(a);
+
+a.splice(2, 2, "w", "x");
+alert(a);
+
+a.splice(3, 1, "y", "z");
+alert(a);
+&lt;/script&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+<p>Das Beispiel definiert einen Array <code>a</code>, bestehend aus 5 Elementen mit den Buchstaben a bis f. Anschließend wird auf diesen Array die <code>splice()</code>-Methode angewendet, und zwar so: an Indexnummer 2, also bei dem 3. Buchstaben im Array, werden 2 Elemente gelöscht und dann 2 Elemente eingefügt, nämlich w und x. Die Elemente c und d werden dabei mit den Werten überschrieben. Der Array hat nun den Inhalt a, b, w, x, e, f.<br>
+Im 2. Beispiel wird ab dem 4. Buchstaben ein Element gelöscht und dann ebenfalls 2 Elemente eingefügt. Jetzt hat der Array den Inhalt: a, b, w, y, z, e, f.</p>
+
+<p>Der Internet Explorer kennt die Methode <code>splice()</code> erst ab Version 5.5.</p>
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+<h2><img src="../../src/js11.gif" width="30" height="30" alt="JavaScript 1.1" title="JavaScript 1.1"><img src="../../src/netsc3.gif" width="30" height="30" alt="Netscape 3.0" title="Netscape 3.0"><img src="../../src/msie4.gif" width="30" height="30" alt="MS IE 4.0" title="MS IE 4.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="sort">sort()</a></h2>
+
+<p>Sortiert die Elemente eines Arrays. Wenn Sie keinen Parameter übergeben, wird lexikalisch sortiert, numerische Werte werden also intern in Zeichenketten verwandelt und wie Zeichenketten sortiert. Dabei kommt beispielsweise die Zahl 13 vor der Zahl 7, weil "13" als Zeichenkette lexikalisch vor "7" kommt. Wenn Sie numerische Werte sortieren wollen, können Sie eine Vergleichsfunktion definieren und deren Namen als Parameter übergeben.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/array_sort.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;script type="text/javascript"&gt;
+function Numsort (a, b) {
+  return a - b;
+}
+
+var Namen = new Array("Ina", "Bettina", "Tina", "Martina");
+Namen.sort();
+
+var Zahlen = new Array(27, 2, 10, 4);
+Zahlen.sort(Numsort);
+
+var Namenausgabe = Namen.join(",");
+var Zahlenausgabe = Zahlen.join(",");
+document.write("sortierte Namen: " + Namenausgabe + "&lt;br&gt;");
+document.write("sortierte Zahlen: " + Zahlenausgabe);
+&lt;/script&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+<p>Das Beispiel zeigt, wie Sie Zeichenketten und numerische Werte sortieren können. Im Beispiel wird ein Array <code>Namen</code> definiert, dessen Elemente Zeichenketten darstellen. Um einen solchen Array zu sortieren, genügt es, die Methode <code>sort()</code> einfach auf den Array anzuwenden. Die Elemente des Arrays werden dann neu angeordnet, nämlich lexikalisch aufsteigend sortiert. Um Zahlen zu sortieren brauchen Sie eine einfache Vergleichsfunktion. Sie können dazu die im Beispiel definierte Funktion <code>Numsort()</code> verwenden. Das Beispiel definiert einen Array <code>Zahlen</code> und wendet die <code>sort()</code>-Methode auf diesen Array so an, dass der Funktionsname <code>Numsort</code> als Parameter übergeben wird. Dadurch werden die Elemente des Arrays numerisch sortiert.<br>
+Die Funktion <code>Numsort()</code> regelt, wie zwei Elemente sortiert werden. Sie besitzt die Parameter <code>a</code> und <code>b</code>. Während des Sortiervorganges wird die Funktion mit jeweils 2 Array-Elementen aufgerufen. Ein erwarteter Rückgabewert ist eine Zahl, die entweder kleiner, gleich oder größer als 0 ist. Eine solche Zahl entsteht durch die Differenz der beiden Parameter. Ist der Rückgabewert von <code>Numsort()</code> größer als 0, so bedeutet das, der Parameter <code>a</code> hat einen höheren Index als der Parameter <code>b</code>. In der Sortierreihenfolge kommt damit <code>b</code> vor <code>a</code>. Ist der Rückgabewert von <code>Numsort()</code> kleiner als 0, so bedeutet das, der Parameter <code>a</code> hat einen niedrigeren Index als der Parameter <code>b</code>. In der Sortierreihenfolge kommt damit <code>a </code>vor <code>b</code>. Tritt der Rückgabewert 0 ein, so sind beide Elemente gleich und brauchen in ihrer Reihenfolge nicht verändert werden.<br>
+Wenn Sie eine umgekehrte Sortierreihenfolge wünschen, wenden Sie nach der <code>sort()</code>-Methode die <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#reverse">reverse()</a>-Methode an.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+<h2><img src="../../src/js12.gif" width="30" height="30" alt="JavaScript 1.2" title="JavaScript 1.2"><img src="../../src/netsc4.gif" width="30" height="30" alt="Netscape 4.0" title="Netscape 4.0"><img src="../../src/msie55.gif" width="30" height="30" alt="MS IE 5.5" title="MS IE 5.5"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="unshift">unshift()</a></h2>
+
+<p>Fügt am Anfang eines Arrays ein oder mehrere neue Elemente ein. Erwartet als Parameter die einzufügenden Elemente. Gibt die neue Elementzahl des Arrays zurück.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/array_unshift.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;script type="text/javascript"&gt;
+var Zahlen = new Array(5, 6, 7, 8, 9);
+var NeueAnzahl = Zahlen.unshift(1, 2, 3, 4);
+alert(NeueAnzahl);
+alert(Zahlen.join(","));
+&lt;/script&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+<p>Das Beispiel definiert einen Array <code>Zahlen</code> mit 5 Elementen, nämlich den Zahlen von 5 bis 9. Anschließend werden dem Array mit Hilfe der <code>unshift()</code>-Methode am Anfang 4 neue Zahlen hinzugefügt, nämlich die Zahlen von 1 bis 4. Der Rückgabewert der Operation wird in der Variablen <code>NeueAnzahl</code> gespeichert. Zur Kontrolle wird anschließend zunächst der Wert von <code>NeueAnzahl</code> ausgegeben und danach der komplette neue Array. Die Anzahl der Elemente ist nun 9, und der Array besteht aus den Elementen 1,2,3,4,5,6,7,8,9.</p>
+
+<p>Der Internet Explorer kennt die Methode <code>unshift()</code> erst ab Version 5.5.</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="boolean.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="boolean.htm">Boolean</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="location.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="location.htm">location</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">JavaScript/DOM</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Objektreferenz</a></td>
+</tr>
+</table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

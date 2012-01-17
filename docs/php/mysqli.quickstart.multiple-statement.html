@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Multiple Statements</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="mysqli.quickstart.stored-procedures.html">Stored Procedures</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="mysqli.quickstart.transactions.html">API support for transactions</a></div>
+ <div class="up"><a href="mysqli.quickstart.html">Quickstart</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="mysqli.quickstart.multiple-statement" class="section">
+  <h2 class="title">Multiple Statements</h2>
+  <p class="para">
+   MySQL optionally allows having multiple statements in one statement string.
+   Sending multiple statements at once reduces client-server
+   round trips but requires special handling.
+  </p>
+  <p class="para">
+   Multiple statements or multi queries must be executed
+   with <span class="function"><a href="mysqli.multi-query.html" class="function">mysqli_multi_query()</a></span>. The individual statements
+   of the statement string are seperated by semicolon.
+   Then, all result sets returned by the executed statements must be fetched.
+  </p>
+  <p class="para">
+   The MySQL server allows having statements that do return result sets and
+   statements that do not return result sets in one multiple statement.
+  </p>
+  <p class="para">
+   <div class="example" id="example-1573">
+    <p><b>Example #1 Multiple Statements</b></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+$mysqli&nbsp;=&nbsp;new&nbsp;mysqli("example.com",&nbsp;"user",&nbsp;"password",&nbsp;"database");<br />if&nbsp;($mysqli-&gt;connect_errno))<br />&nbsp;echo&nbsp;"Failed&nbsp;to&nbsp;connect&nbsp;to&nbsp;MySQL:&nbsp;("&nbsp;.&nbsp;$mysqli-&gt;connect_errno&nbsp;.&nbsp;")&nbsp;"&nbsp;.&nbsp;$mysqli-&gt;connect_error;<br /><br />if&nbsp;(!$mysqli-&gt;query("DROP&nbsp;TABLE&nbsp;IF&nbsp;EXISTS&nbsp;test")&nbsp;||<br />&nbsp;&nbsp;&nbsp;&nbsp;!$mysqli-&gt;query("CREATE&nbsp;TABLE&nbsp;test(id&nbsp;INT)"))<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;"Table&nbsp;creation&nbsp;failed:&nbsp;("&nbsp;.&nbsp;$mysqli-&gt;errno&nbsp;.&nbsp;")&nbsp;"&nbsp;.&nbsp;$mysqli-&gt;error;<br /><br />$sql&nbsp;=&nbsp;"SELECT&nbsp;COUNT(*)&nbsp;AS&nbsp;_num&nbsp;FROM&nbsp;test;&nbsp;";<br />$sql.=&nbsp;"INSERT&nbsp;INTO&nbsp;test(id)&nbsp;VALUES&nbsp;(1);&nbsp;";<br />$sql.=&nbsp;"SELECT&nbsp;COUNT(*)&nbsp;AS&nbsp;_num&nbsp;FROM&nbsp;test;&nbsp;";<br /><br />if&nbsp;(!$mysqli-&gt;multi_query($sql))<br />&nbsp;echo&nbsp;"Multi&nbsp;query&nbsp;failed:&nbsp;("&nbsp;.&nbsp;$mysqli-&gt;errno&nbsp;.&nbsp;")&nbsp;"&nbsp;.&nbsp;$mysqli-&gt;error;<br /><br />do&nbsp;{<br />&nbsp;if&nbsp;($res&nbsp;=&nbsp;$mysqli-&gt;store_result())&nbsp;{<br />&nbsp;&nbsp;var_dump($res-&gt;fetch_all(MYSQLI_ASSOC));<br />&nbsp;&nbsp;$res-&gt;free();<br />&nbsp;}<br />}&nbsp;while&nbsp;($mysqli-&gt;more_results()&nbsp;&amp;&amp;&nbsp;$mysqli-&gt;next_result());</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>The above example will output:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+array(1) {
+  [0]=&gt;
+  array(1) {
+    [&quot;_num&quot;]=&gt;
+    string(1) &quot;0&quot;
+  }
+}
+array(1) {
+  [0]=&gt;
+  array(1) {
+    [&quot;_num&quot;]=&gt;
+    string(1) &quot;1&quot;
+  }
+}
+</pre></div>
+    </div>
+   </div>
+  </p>
+  <p class="para">
+   <em class="emphasis">Security considerations</em>
+  </p>
+  <p class="para">
+   The API functions <span class="function"><a href="mysqli.query.html" class="function">mysqli_query()</a></span> and
+   <span class="function"><a href="mysqli.real-query.html" class="function">mysqli_real_query()</a></span> do not set a connection flag necessary
+   for activating multi queries in the server. An extra API call is used for
+   multiple statements to reduce the likeliness of accidental SQL injection
+   attacks. An attacker may try to add statements such as
+   <i>; DROP DATABASE mysql</i> or <i>; SELECT SLEEP(999)</i>.
+   If the attacker succeeds in adding SQL to the statement string but
+   <i>mysqli_multi_query</i> is not used, the server will not
+   execute the second, injected and malicious SQL statement.
+  </p>
+  <p class="para">
+   <div class="example" id="example-1574">
+    <p><b>Example #2 SQL ijnection</b></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+$mysqli&nbsp;=&nbsp;new&nbsp;mysqli("example.com",&nbsp;"user",&nbsp;"password",&nbsp;"database");<br />$res&nbsp;=&nbsp;$mysqli-&gt;query("SELECT&nbsp;1;&nbsp;DROP&nbsp;TABLE&nbsp;mysql.user");<br />if&nbsp;(!$res)<br />&nbsp;&nbsp;echo&nbsp;"Error&nbsp;executing&nbsp;query:&nbsp;("&nbsp;.&nbsp;$mysqli-&gt;errno&nbsp;.&nbsp;")&nbsp;"&nbsp;.&nbsp;$mysqli-&gt;error;</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>The above example will output:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+Error executing query: (1064) You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near &#039;DROP TABLE mysq.user&#039; at line 1
+</pre></div>
+    </div>
+   </div>
+  </p>
+  <p class="para">
+   <em class="emphasis">Prepared statements</em>
+  </p>
+  <p class="para">
+   Use of the multiple statement with prepared statements is not supported.
+  </p>
+  <p class="para">
+   <em class="emphasis">See also</em>
+  </p>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><a href="mysqli.query.html" class="link"> <span class="methodname"><a href="mysqli.query.html" class="methodname">mysqli::query()</a></span></a></li>
+    <li class="member"><a href="mysqli.multi-query.html" class="link"> <span class="methodname"><a href="mysqli.multi-query.html" class="methodname">mysqli::multi_query()</a></span></a></li>
+    <li class="member"><a href="mysqli.next-result.html" class="link"> <span class="methodname"><b>mysqli_result::next-result()</b></span></a></li>
+    <li class="member"><a href="mysqli.more-results.html" class="link"> <span class="methodname"><b>mysqli_result::more-results()</b></span></a></li>
+   </ul>
+  </p>
+ </div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="mysqli.quickstart.stored-procedures.html">Stored Procedures</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="mysqli.quickstart.transactions.html">API support for transactions</a></div>
+ <div class="up"><a href="mysqli.quickstart.html">Quickstart</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

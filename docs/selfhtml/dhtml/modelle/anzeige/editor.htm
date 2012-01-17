@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>Test</title>
+<style type="text/css">
+body { color:#000000; background-color:#FFFFFF; }
+#User { background-color:#FFFFC0; padding:10px; }
+form { background-color:#EEEEEE; padding:10px; }
+h1 { font-family:Arial,sans-serif; font-size:2.2em; font-weight:normal; border-bottom:2px solid red; }
+h2 { font-family:Arial,sans-serif; font-size:1.8em; font-weight:normal; border-bottom:1px solid red; }
+h3 { font-family:Arial,sans-serif; font-size:1.1em; font-weight:bold; }
+p { font-family:Arial,sans-serif; font-size:1em; }
+</style>
+<script type="text/javascript">
+function Hinzufuegen () {
+  var Typ = document.Formular.Elementtyp.options[document.Formular.Elementtyp.selectedIndex].value;
+  var Elementknoten = document.createElement(Typ);
+  if (Typ != "hr") {
+    var Textknoten = document.createTextNode(document.Formular.Elementinhalt.value);
+    Elementknoten.appendChild(Textknoten);
+  }
+  document.getElementById("User").appendChild(Elementknoten);
+}
+</script>
+</head><body>
+
+<form action="" name="Formular">
+<select name="Elementtyp" size="1">
+<option value="h1">&Uuml;berschrift 1</option>
+<option value="h2">&Uuml;berschrift 2</option>
+<option value="h3">&Uuml;berschrift 3</option>
+<option value="p">Textabsatz</option>
+<option value="hr">Trennlinie</option>
+</select>
+<input type="text" name="Elementinhalt" size="50">
+<input type="button" value="Hinzuf&uuml;gen" onclick="Hinzufuegen()">
+</form>
+
+<div id="User">
+</div>
+
+<p><a href="../dom.htm#neue_knoten">zur&uuml;ck</a></p>
+</body>
+</html>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="decimal_format.xsl" ?>
+<test>
+<wert>1230348345</wert>
+<wert>17235807</wert>
+<wert>12345</wert>
+</test>
+

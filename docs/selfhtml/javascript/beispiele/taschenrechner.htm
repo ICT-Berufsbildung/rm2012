@@ -1,0 +1,241 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: JavaScript / Anwendungsbeispiele / Taschenrechner</title>
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<meta name="description"    content="Wie Sie mit Hilfe von JavaScript einen Taschenrechner simulieren können.">
+<meta name="keywords"       content="SELFHTML, JavaScript, Taschenrechner">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-08-22T21:21:39+02:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/javascript/beispiele/taschenrechner.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="Anwendungsbeispiele" href="index.htm">
+<link rel="next" title="Monatskalender" href="monatskalender.htm">
+<link rel="prev" title="Seitenanzeige in Frames verhindern" href="seitenanzeige.htm">
+<link rel="first" title="Zwei Frames gleichzeitig ändern" href="zweiframes.htm">
+<link rel="last" title="Änderungen der Fenstergröße überwachen" href="fensterueberwachen.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">JavaScript/DOM</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Anwendungsbeispiele</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Taschenrechner</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#hinweise">Hinweise zu diesem Beispiel</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#quelltext">Quelltext mit Erläuterungen</a><br>
+</p>
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/taschenrechner.htm">Anzeigebeispiel: So sieht's aus</a></p>
+</td>
+</tr><tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><a class="an" name="hinweise">Hinweise zu diesem Beispiel</a></h2>
+
+<p>Das Beispiel baut mit Hilfe eines HTML-Formulars einen halbwegs "echt" aussehenden Taschenrechner auf. Der Anwender kann diesen Taschenrechner wie üblich bedienen. Allerdings bietet dieser Taschenrechner im Gegensatz zu normalen Taschenrechnern auch die Möglichkeit an, direkt ins Display Daten einzugeben. Außerdem berechnet dieser Taschenrechner auch Serienrechnungen wie <kbd>1+2+3+4+5+6+7+8+9</kbd> und Klammerausdrücke wie <kbd>3*(2+4)</kbd>.</p>
+
+<p>Anhand dieses Beispiels können Sie studieren, wie man Formulareingaben mit JavaScript zur direkten Interaktion verwenden kann. Das Taschenrechner-Beispiel ist ein JavaScript-Einsatz vom Typus <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../../helferlein/index.htm">Kleine Helferlein</a>. Diese Art Einsatz von JavaScript gehört zu den sinnvollsten Einsatzmöglichkeiten.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/netsc2.gif" width="30" height="30" alt="Netscape 2.0" title="Netscape 2.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="quelltext">Quelltext mit Erläuterungen</a></h2>
+
+<p>Das Beispiel zeigt die vollständige HTML-Datei mit dem Taschenrechner.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/taschenrechner.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Taschenrechner&lt;/title&gt;
+&lt;script type="text/javascript"&gt;
+function Check (Eingabe) {
+  var nur_das = "0123456789[]()-+*%/.";
+  for (var i = 0; i &lt; Eingabe.length; i++)
+    if (nur_das.indexOf(Eingabe.charAt(i)) &lt; 0)
+      return false;
+  return true;
+}
+
+function Ergebnis () {
+  var x = 0;
+  if (Check(window.document.Rechner.Display.value))
+    x = eval(window.document.Rechner.Display.value);
+  window.document.Rechner.Display.value = x;
+}
+
+function Hinzufuegen (Zeichen) {
+  window.document.Rechner.Display.value = window.document.Rechner.Display.value + Zeichen;
+}
+
+function Sonderfunktion (Funktion) {
+  if (Check(window.document.Rechner.Display.value)) {
+    if (Funktion == "sqrt") {
+      var x = 0;
+      x = eval(window.document.Rechner.Display.value);
+      window.document.Rechner.Display.value = Math.sqrt(x);
+    }
+    if (Funktion == "pow") {
+      var x = 0;
+      x = eval(window.document.Rechner.Display.value);
+      window.document.Rechner.Display.value = x * x;
+    }
+    if (Funktion == "ln") {
+      var x = 0;
+      x = eval(window.document.Rechner.Display.value);
+      window.document.Rechner.Display.value = Math.log(x);
+    }
+  } else
+    window.document.Rechner.Display.value = 0}
+&lt;/script&gt;
+&lt;style type="text/css"&gt;
+.button {  width:60px; text-align:center;
+           font-family:System,sans-serif;
+           font-size:100%; }
+.display { width:100%; text-align:right;
+           font-family:System,sans-serif;
+           font-size:100%; }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body bgcolor="#FFFFE0"&gt;
+
+&lt;form name="Rechner" action="" onsubmit="Ergebnis();return false;"&gt;
+&lt;table border="5" cellpadding="10" cellspacing="0"&gt;
+&lt;tr&gt;
+&lt;td bgcolor="#C0C0C0"&gt;
+&lt;input type="text" name="Display" align="right" class="display"&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;tr&gt;
+&lt;td  bgcolor="#E0E0E0"&gt;
+&lt;table border="0" cellpadding="0" cellspacing="2"&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;input type="button" width="60" class="button" value="  7   " onclick="Hinzufuegen('7')"&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type="button" width="60" class="button" value="  8   " onclick="Hinzufuegen('8')"&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type="button" width="60" class="button" value="  9   " onclick="Hinzufuegen('9')"&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type="button" width="60" class="button" value="  +   " onclick="Hinzufuegen('+')"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;input type="button" width="60" class="button" value="  4   " onclick="Hinzufuegen('4')"&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type="button" width="60" class="button" value="  5   " onclick="Hinzufuegen('5')"&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type="button" width="60" class="button" value="  6   " onclick="Hinzufuegen('6')"&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type="button" width="60" class="button" value="  -   " onclick="Hinzufuegen('-')"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;input type="button" width="60" class="button" value="  1   " onclick="Hinzufuegen('1')"&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type="button" width="60" class="button" value="  2   " onclick="Hinzufuegen('2')"&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type="button" width="60" class="button" value="  3   " onclick="Hinzufuegen('3')"&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type="button" width="60" class="button" value="  *   " onclick="Hinzufuegen('*')"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;input type="button" width="60" class="button" value="  0   " onclick="Hinzufuegen('0')"&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type="button" width="60" class="button" value="  .   " onclick="Hinzufuegen('.')"&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type="button" width="60" class="button" value="  =   " onclick="Ergebnis()"&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type="button" width="60" class="button" value="  /   " onclick="Hinzufuegen('/')"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;input type="button" width="60" class="button" value="sqrt " onclick="Sonderfunktion('sqrt')"&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type="button" width="60" class="button" value=" pow " onclick="Sonderfunktion('pow')"&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type="button" width="60" class="button" value=" ln " onclick="Sonderfunktion('ln')"&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type="reset"  width="60" class="button" value="  C  "&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/form&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<h4>Funktion zur Berechnung des Inhalts des Rechenfelds:</h4>
+
+<p>Im Beispiel werden im Kopf der HTML-Datei mehrere <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../sprache/funktionen.htm">Funktionen</a> notiert, welche die Funktionalität des Taschenrechners ermöglichen. Die Funktion <code>Ergebnis()</code> errechnet den aktuellen Inhalt des Rechenfeldes. Innerhalb der Funktion wird eine <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../sprache/variablen.htm">Variable</a> <code>x</code> definiert, in der das Ergebnis der Berechnung gespeichert wird. Um das Ergebnis zu erhalten, wird die Rechenoperation, die in dem übergebenen Formularfeld (dem Rechenfeld des Taschenrechners) steht, an die mächtige <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../objekte/unabhaengig.htm">objektunabhängige JavaScript-Funktion</a> <code>eval()</code> übergeben. Diese Funktion übernimmt automatisch die gesamte Berechnung der Rechenoperation. Voraussetzung ist natürlich, dass die Rechenoperation keine ungültigen Zeichen enthält. Ansonsten erzeugt JavaScript eine Fehlermeldung.<br>
+Aus diesem Grund wird vor jeder Verwendung von <code>eval()</code> die Funktion <code>check()</code> aufgerufen, welche die Gültigkeit der Eingaben prüft. Nur wenn diese Funktion <code>true</code> zurück gibt, wird die Methode <code>eval()</code> angewendet. Ansonsten wird im Display der Wert <code>0</code> angezeigt.<br>
+Um das errechnete Ergebnis, das in der Variablen <code>x</code> gespeichert wird, im Rechenfeld des Taschenrechners anzuzeigen, wird dem entsprechenden Formularfeld einfach der Wert von <code>x</code> zugewiesen.</p>
+
+<h4>Funktion zur Prüfung der Gültigkeit der Eingabe</h4>
+
+<p>Die Funktion Check(Eingabe) überprüft, ob die Werte von <code>Eingabe</code> nur die vorgegebenen Zeichen enthält. Diese sind in der Variablen <code>nur_das</code> abgelegt. Mit einer <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../sprache/schleifen.htm#for">for</a>-Schleife wird die übergebene Zeichenkette Zeichen für Zeichen daraufhin überprüft, ob dieses Zeichen in dem Bereich von <code>nur_das</code> vorkommt. Mit der Methode <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../objekte/string.htm#char_at">charAt()</a> wird aus der Variablen <code>Eingabe</code> das Zeichen an der Position <code>i</code> extrahiert und an <code>nur_das.indexOf()</code> als Parameter übergeben. Die Methode <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../objekte/string.htm#index_of">indexOf()</a> prüft daraufhin, ob das Zeichen in <code>nur_das</code> enthalten ist. Tritt ein ungültiges Zeichen auf, so wird die Funktion abgebrochen und der Wert <code>false</code> zurückgegeben. Andernfalls gibt die Funktion <code>true</code> zurück.</p>
+
+<h4>Funktion zum Hinzufügen eines Zeichens in das Rechenfeld:</h4>
+
+<p>Die Funktion <code>Hinzufuegen()</code> im Beispiel wird aufgerufen, wenn der Anwender auf einen der Buttons im Taschenrechner-Formular klickt. Das können Ziffern (<kbd>0</kbd> bis <kbd>9</kbd>) oder Rechenoperatoren (<kbd>+</kbd>&nbsp;<kbd>-</kbd>&nbsp;<kbd>*</kbd>&nbsp;<kbd>/</kbd>) oder ein Dezimalpunkt sein. Um das Zeichen hinzuzufügen, wird dem aktuellen Wert des Rechenfeldes einfach der bisherige Wert plus das neue Zeichen zugewiesen. Dabei kommt der <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../sprache/operatoren.htm#zeichenkettenverknuepfung">Operator zur Zeichenkettenverknüpfung</a> (<code>+</code>) zum Einsatz. Das neue Zeichen wird der Funktion als Parameter übergeben.</p>
+
+<h4>Funktion zur Berechnung von Sonderfunktionen:</h4>
+
+<p>Die Funktion <code>Sonderfunktion()</code> im Beispiel ist für die Berechnung von drei mathematischen Funktionen zuständig, für die es im Taschenrechner entsprechende Buttons gibt: die Funktionen "sqrt" (Quadratwurzel), "pow" (Quadrat) und "ln" (natürlicher Logarithmus über 10). Die Funktion erwartet drei Parameter: den Index des Formulars, in dem sich das Rechenfeld befindet, den Index des Feldes innerhalb dieses Formulars, und eine Zeichenkette, die die auszuführende mathematische Funktion kennzeichnet. Innerhalb der Funktion wird der dritte Parameter abgefragt. Erlaubt sind die Übergabewerte "sqrt", "pow" und "ln". Falls einer dieser Werte übergeben wurde, berechnet die Funktion innerhalb des entsprechenden If-Zweigs den gewünschten Wert. Dazu wird die Rechenoperation oder die Zahl, die in dem übergebenen Formularfeld (dem Rechenfeld des Taschenrechners) steht, an die JavaScript-Standardfunktion <code>eval()</code> übergeben. Diese Funktion übernimmt automatisch die gesamte Berechnung der Rechenoperation. Das Ergebnis wird in <code>x</code> gespeichert. Falls es sich nur um eine einfache Zahl handelt, wird diese Zahl in <code>x</code> gespeichert. Mit einer entsprechenden JavaScript-Methode, z.B. der Methode <code>sqrt()</code> zur Errechnung der Quadratwurzel, wird das Ergebnis der mathematischen Sonderfunktion berechnet und zugleich dem Rechen-/Ergebnisfeld des Taschenrechner-Formulars zugewiesen.</p>
+
+<h4>Button-Klick als Zeichen in Rechenfeld eintragen:</h4>
+
+<p>Innerhalb des Taschenrechner-Formulars im Beispiel werden die Buttons für Ziffern, Operatoren usw. definiert. Beim Klicken auf einen solchen Button soll natürlich eine entsprechende Reaktion erfolgen. Dies geschieht mit Hilfe des <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../sprache/eventhandler.htm">Event-Handlers</a> <code>onclick</code>. Der Event-Handler wird aktiv, wenn der entsprechende Button angeklickt wird, und ruft dann eine der im Dateikopf definierten Funktionen auf. Bei einer Ziffer wird beispielsweise die Funktion <code>Hinzufuegen()</code> aufgerufen. Dazu wird der Funktion der erwartete Parameter übergeben, also das hinzuzufügende Zeichen. Das Taschenrechner-Formular erhält bei der Definition einen Namen, im Beispiel den Namen "Rechner". Auch das Rechen-/Ergebnisfeld, das im JavaScript-Code sehr oft angesprochen wird, erhält einen Namen - den Namen "Display". Das <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../objekte/forms.htm">Formular-Objekt</a> und das <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../objekte/elements.htm">Formularelement-Objekt</a> des Rechen-/Ergebnisfeldes kann deshalb mit <code>window.document.Rechner.Display</code> adressiert werden.</p>
+
+<h4>Inhalt des Rechenfelds löschen:</h4>
+
+<p>Der Button mit der Aufschrift "C" im Beispiel dient zum Löschen der bisherigen Eingaben. Dazu braucht man kein JavaScript. Stattdessen genügt es, einen Button vom Typ <code>reset</code> zu definieren.</p>
+
+<h4>Absenden des Formulares verhindern</h4>
+
+<p>Da der Taschenrechner ein einzeiliges Formularfeld enthält, kann dieses Formular jederzeit mit Betätigung der Eingabetaste abgesendet werden. Ein Absenden ist im Zusammenhang mit dem Taschenrechner jedoch unerwünscht. Deshalb wird im einleitenden <code>&lt;form&gt;</code>-Tag der <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../sprache/eventhandler.htm">Event-Handler</a> <code>onsubmit</code> notiert. Dahinter folgt der Aufruf der Funktion <code>Ergebnis()</code> und anschließend <code>return false</code>. Diese Notation bewirkt, dass wenn der Anwender die Eingabetaste drückt, die Berechnung des Ergebnisse erfolgt und gleichzeitig ein Abschicken des Formulares verhindert wird.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Im HTML-Standard ist die Verwendung des Attributes <code>width</code> für <code>input</code>-Felder nicht erlaubt. Der Netscape 4.x interpretiert jedoch keine CSS-Eigenschaften für solche Formularfelder. Im Interesse des Layouts wurden daher trotz der Verletzung des HTML-Standards die <code>width</code>-Attribute verwendet.</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="monatskalender.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="monatskalender.htm">Monatskalender</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="seitenanzeige.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="seitenanzeige.htm">Seitenanzeige in Frames verhindern</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">JavaScript/DOM</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Anwendungsbeispiele</a></td>
+</tr>
+</table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>Test</title>
+<script type="text/javascript">
+function WerteSetzen () {
+  document.getElementsByTagName("body")[0].text = document.Formular.Text.value;
+  document.getElementsByTagName("body")[0].link = document.Formular.Link.value;
+  document.getElementsByTagName("body")[0].vLink = document.Formular.VLink.value;
+  document.getElementsByTagName("body")[0].bgColor = document.Formular.BgColor.value;
+}
+</script>
+</head><body>
+<h1>Ein dynamisches Dokument</h1>
+<a href="news.htm">Ein Link zu den News</a>
+
+<form action="" name="Formular">
+<pre>
+Textfarbe:           <input type="text" size="7" name="Text">
+Linkfarbe:           <input type="text" size="7" name="Link">
+Linkfarbe (besucht): <input type="text" size="7" name="VLink">
+Hintergrundfarbe:    <input type="text" size="7" name="BgColor">
+Einstellungen:       <input type="button" value="Testen!" onclick="WerteSetzen()">
+</pre>
+</form>
+
+<p><a href="../htmlelemente.htm#body">zur&uuml;ck</a></p>
+</body>
+</html>

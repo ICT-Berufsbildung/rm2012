@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="message.xsl" ?>
+<test>
+<lottozahl>32</lottozahl>
+<lottozahl>8</lottozahl>
+<lottozahl>13</lottozahl>
+<lottozahl>40</lottozahl>
+<lottozahl>3</lottozahl>
+<lottozahl>59</lottozahl>
+</test>
+

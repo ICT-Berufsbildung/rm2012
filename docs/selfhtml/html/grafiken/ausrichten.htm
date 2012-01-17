@@ -1,0 +1,332 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: HTML/XHTML / Grafiken / Grafiken ausrichten</title>
+<meta name="description"    content="Wie Sie Grafiken im Verhältnis zum umgebenden Text vertikal ausrichten können, Text um Grafiken fließen lassen und Text und Grafik sauber zuordnen.">
+<meta name="keywords"       content="SELFHTML, HTML, XHTML, Grafiken, Bilder, img, br, align, hspace, vspace, clear">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-10-31T12:25:34+01:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/html/grafiken/ausrichten.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="Grafiken" href="index.htm">
+<link rel="next" title="Grafiken als Verweise" href="verweise.htm">
+<link rel="prev" title="Grafiken einbinden" href="einbinden.htm">
+<link rel="first" title="Grafiken einbinden" href="einbinden.htm">
+<link rel="last" title="Verweis-sensitive Grafiken (Image Maps)" href="verweis_sensitive.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">HTML/XHTML</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Grafiken</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Grafiken ausrichten</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#zum_text">Grafik zum umgebenden Text ausrichten</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#textumfluss">Text um Grafik fließen lassen</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#tabellen">Grafik und andere Inhalte ausrichten mit Tabellen</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#css">Grafiken ausrichten mit CSS</a><br>
+</p>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><img src="../../src/html32.gif" width="30" height="30" alt="HTML 3.2" title="HTML 3.2"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../../src/deprecated.gif" width="30" height="30" alt="deprecated (missbilligt)" title="deprecated (missbilligt)"><img src="../../src/msie2.gif" width="30" height="30" alt="MS IE 2.0" title="MS IE 2.0"><img src="../../src/netsc11.gif" width="30" height="30" alt="Netscape 1.1" title="Netscape 1.1"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="zum_text">Grafik zum umgebenden Text ausrichten</a></h2>
+
+<p>Da das <code>img</code>-Element ein <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/elemente.htm#inline_elemente">Inline-Element</a> ist, können Grafiken mitten in einem Text platziert werden. Wenn nun aber die Grafik höher ist als die Zeilenhöhe, dann muss der Text der gleichen Zeile in irgendeiner Weise zur Grafik ausgerichtet werden. Wenn Sie nichts anderes angeben, wird der Text untenbündig zur Grafik ausgerichtet. Sie können jedoch mit Hilfe eines Attributs selbst bestimmen, wie der Text zur Grafik ausgerichtet werden soll. Dieses Attribut ist allerdings als <i>deprecated</i> gekennzeichnet und soll künftig aus dem HTML-Standard entfallen. Die gleiche Wirkung lässt sich nämlich auch mit <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#css">CSS Stylesheets</a> erzielen.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/img_align_zeile.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+       "http://www.w3.org/TR/html4/loose.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Grafik zum umgebenden Text ausrichten&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h1&gt;Woran der Denker denkt&lt;/h1&gt;
+
+&lt;p&gt;
+  Denkt der Denker
+  &lt;img src="denker.png" width="70" height="137" align="top" alt="Denker"&gt;
+  an das Oben?
+&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;p&gt;
+  Denkt der Denker
+  &lt;img src="denker.png" width="70" height="137" align="middle" alt="Denker"&gt;
+  an die Mitte?
+&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;p&gt;
+  Denkt der Denker
+  &lt;img src="denker.png" width="70" height="137" align="bottom" alt="Denker"&gt;
+  an das Unten?
+&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel enthält drei kurze, normalerweise in eine Zeile passende Textabsätze, bei denen jeweils die gleiche Grafik mitten im Text platziert ist. In allen drei Absätzen wird die darin notierte Grafik mit Hilfe von HTML zum Text davor und dahinter ausgerichtet.</p>
+
+<p>Mit dem HTML-Attribut <code>align</code> im <code>&lt;img&gt;</code>-Tag können Sie Text in der gleichen Zeile zur Grafik ausrichten (<i>align = Ausrichtung</i>):<br>
+Mit <code>align="top"</code> wird der Text obenbündig zur Grafik ausgerichtet (<i>top = oben</i>).<br>
+Mit <code>align="middle"</code> wird der Text mittig zur Grafik ausgerichtet (<i>middle = mittig</i>).<br>
+Mit <code>align="bottom"</code> wird der Text untenbündig zur Grafik ausgerichtet (<i>bottom = unten</i>).</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Die Browser interpretieren zum Teil noch weitere Angaben. Diese sind jedoch nicht im HTML-Standard verzeichnet und führen deshalb zu ungültigem HTML. Erwähnt seien sie trotzdem:<br>
+Mit <code>align="texttop"</code> richten Sie den Text obenbündig zur Grafik aus, und zwar an der Oberkante des kleinsten Textes in der Zeile (<i>texttop = oben am Text</i>).<br>
+Mit <code>align="absmiddle"</code> richten Sie den Text absolut mittig zur Grafik aus, auch bei unterschiedlichen Textgrößen (<i>absmiddle = absolute middle = in jedem Fall mittig</i>).<br>
+Mit <code>align="absbottom"</code> richten Sie den Text untenbündig zur Grafik aus, und zwar an der Unterkante des kleinsten Textes in der Zeile (<i>absbottom = absolute bottom = in jedem Fall untenbündig</i>).<br>
+Mit <code>align="baseline"</code> richten Sie den Text genauso aus wie mit der Standardangabe <code>align="bottom"</code>. Benutzen Sie deshalb besser die Standardangabe.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/html32.gif" width="30" height="30" alt="HTML 3.2" title="HTML 3.2"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../../src/deprecated.gif" width="30" height="30" alt="deprecated (missbilligt)" title="deprecated (missbilligt)"><img src="../../src/msie2.gif" width="30" height="30" alt="MS IE 2.0" title="MS IE 2.0"><img src="../../src/netsc11.gif" width="30" height="30" alt="Netscape 1.1" title="Netscape 1.1"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="textumfluss">Text um Grafik fließen lassen</a></h2>
+
+<p>Grafiken, die Sie mit dem <code>&lt;img&gt;</code>-Tag referenzieren, können Sie links oder rechts ausrichten. Der umgebende Text fließt dabei um die Grafik. Mit zwei weiteren Attributen können Sie Abstand zum umfließenden Text erzeugen, damit der Text nicht direkt an der Grafik "klebt". Den automatischen Textumfluss können Sie auch abbrechen und die Textfortsetzung unterhalb der Grafik erzwingen. Alle dazu notwendigen Attribute sind allerdings als <i>deprecated</i> gekennzeichnet und sollen künftig aus dem HTML-Standard entfallen. Die gleiche Wirkung lässt sich nämlich auch mit <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#css">Stylesheets</a> erzielen.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/img_align_fluss.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+       "http://www.w3.org/TR/html4/loose.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Text um Grafik flie&szlig;en lassen&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h1&gt;&lt;img src="text.png" width="311" height="194" align="left" vspace="10" hspace="20" alt="Text?"&gt;Ein Text&lt;/h1&gt;
+
+&lt;p&gt;Manche Texte erschlie&amp;szlig;en sich nur aus der n&amp;ouml;tigen Distanz. &lt;!-- usw. --&gt;
+Aber das hier, das ist richtiger Text. Und er flie&amp;szlig;t sogar, n&amp;auml;mlich um die
+Grafik.&lt;br clear="all"&gt;&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Mit <code>align="left"</code> richten Sie eine Grafik linksbündig aus. Nachfolgend notierter Text fließt rechts um die Grafik.<br>
+Mit <code>align="right"</code> können Sie die Grafik rechtsbündig ausrichten. Der nachfolgend notierte Text fließt dann links um die Grafik.<br>
+Von "nachfolgend notiertem Text" wird hier nur der Einfachheit halber gesprochen. Es kann sich um beliebige Elemente handeln, also z.B. auch andere Grafiken, Tabellen, Multimedia-Referenzen usw.</p>
+
+<p>Um Abstand zwischen Grafik und umfließendem Text zu erzeugen, stehen die Attribute <code>hspace</code> und <code>vspace</code> zur Verfügung.<br>
+Mit <code>hspace</code> [Pixel] bestimmen Sie den Abstand zwischen Grafik und anderen Elementen links bzw. rechts davon (<i>hspace = horizontal space = horizontaler Abstand</i>).<br>
+Mit <code>vspace</code> [Pixel] bestimmen Sie den Abstand zwischen Grafik und anderen Elementen darüber bzw. darunter (<i>vspace = vertical space = vertikaler Abstand</i>).<br>
+Das Attribut <code>hspace</code> betrifft immer den linken <b>und</b> den rechten Randabstand von der Grafik, <code>vspace</code> immer den oberen <b>und</b> den unteren Randabstand. Wenn Sie also beispielsweise bei einer links ausgerichteten Grafik <code>hspace</code> definieren, wird nicht nur rechts der Grafik zum nebenstehenden Text ein Abstand erzeugt, sondern auch links zum Rand des Anzeigefensters hin. Um dies zu verhindern, können Sie exakter arbeiten, indem Sie <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#css">Stylesheets</a> verwenden.<br>
+Sie können beide Attribute notieren oder auch nur eines davon.</p>
+
+<p>Um den automatischen Textumfluss zu unterbrechen und zu erzwingen, dass alles was folgt unterhalb der Grafik angezeigt wird, können Sie einen <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../text/zeilenumbruch.htm">Zeilenumbruch</a> mit dem Attribut <code>clear</code> notieren.<br>
+Mit <code>&lt;br clear="all"&gt;</code> erreichen Sie, dass der Textfluss ab der nächsten Zeile in jedem Fall unterhalb der Grafik fortgesetzt wird.<br>
+Mit <code>&lt;br clear="left"&gt;</code> erreichen Sie, dass der Textfluss ab der nächsten Zeile unterhalb einer linksbündig ausgerichteten Grafik fortgesetzt wird.<br>
+Mit <code>&lt;br clear="right"&gt;</code> erreichen Sie, dass der Textfluss ab der nächsten Zeile unterhalb einer rechtsbündig ausgerichteten Grafik fortgesetzt wird.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/html32.gif" width="30" height="30" alt="HTML 3.2" title="HTML 3.2"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../../src/msie2.gif" width="30" height="30" alt="MS IE 2.0" title="MS IE 2.0"><img src="../../src/netsc11.gif" width="30" height="30" alt="Netscape 1.1" title="Netscape 1.1"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="tabellen">Grafik und andere Inhalte ausrichten mit Tabellen</a></h2>
+
+<p>In der Praxis kommt es häufig vor, dass Sie Grafiken sauber nebeneinander oder untereinander platzieren und mit Text beschriften wollen. In solchen Fällen bietet sich das Arbeiten mit "blinden", also unsichtbaren <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../tabellen/index.htm">Tabellen</a> an.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/img_tabellen.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+       "http://www.w3.org/TR/html4/loose.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Grafik und andere Inhalte ausrichten mit Tabellen&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div align="center"&gt;
+  &lt;table border="0" cellpadding="4" width="600"&gt;
+    &lt;tr&gt;
+      &lt;th&gt;&lt;h3&gt;Schadenfreude&lt;/h3&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;h3&gt;Erstaunen&lt;/h3&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;h3&gt;Skepsis&lt;/h3&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;h3&gt;Betretenheit&lt;/h3&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td align="center"&gt;&lt;img src="ausdruck_1.gif" width="100" height="100" alt="Schadenfreude"&gt;&lt;/td&gt;
+      &lt;td align="center"&gt;&lt;img src="ausdruck_2.gif" width="100" height="100" alt="Erstaunen"&gt;&lt;/td&gt;
+      &lt;td align="center"&gt;&lt;img src="ausdruck_3.gif" width="100" height="100" alt="Skepsis"&gt;&lt;/td&gt;
+      &lt;td align="center"&gt;&lt;img src="ausdruck_4.gif" width="100" height="100" alt="Betretenheit"&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td align="center" valign="top"&gt;ist die sch&amp;ouml;nste Freude, kann aber Feinde schaffen&lt;/td&gt;
+      &lt;td align="center" valign="top"&gt;gebar die Philosophie und wird von Rechthabern immer wieder untersch&amp;auml;tzt&lt;/td&gt;
+      &lt;td align="center" valign="top"&gt;ist bisweilen angebracht, sollte aber nicht das weitere Dazulernen behindern&lt;/td&gt;
+      &lt;td align="center" valign="top"&gt;ist sehr unangenehm, w&amp;auml;hrt aber nicht ewig&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Im Beispiel wird eine blinde Tabelle (<code>border="0"</code>) mit vier Spalten definiert. In der ersten Zeile stehen vier Überschriften, in der zweiten vier entsprechende Grafiken, und in der dritten vier zugehörige Texte. Die Tabelle ist innerhalb eines allgemeinen Bereichs zentriert ausgerichtet (<code>&lt;div align="center"&gt;...&lt;/div&gt;</code>) und hat eine Breite von 600 Pixeln.</p>
+
+<p>Mit <code>cellpadding="4"</code> im einleitenden <code>&lt;table&gt;</code>-Tag wird sichergestellt, dass sich die Zelleninhalte nicht zu nahe kommen.</p>
+
+<p>Mit <code>align="center"</code> werden die Inhalte der Datenzellen zentriert ausgerichtet. Da die Beschreibungstexte unterschiedlich lang sein können, wird mit <code>valign="top"</code> in deren Datenzellen erreicht, dass sie alle obenbündig ausgerichtet werden.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/html40.gif" width="30" height="30" alt="HTML 4.0" title="HTML 4.0"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../../src/msie4.gif" width="30" height="30" alt="MS IE 4.0" title="MS IE 4.0"><img src="../../src/netsc6.gif" width="30" height="30" alt="Netscape 6.0" title="Netscape 6.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="css">Grafiken ausrichten mit CSS</a></h2>
+
+<p>Stylesheets bieten Eigenschaften an, mit deren Hilfe die beiden Funktionen <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#zum_text">Grafik zum umgebenden Text ausrichten</a> und <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#textumfluss">Text um Grafik fließen lassen</a> ebenso realisierbar sind wie mit HTML. Das "Fein-Tuning" ist mit Hilfe von CSS sogar deutlich genauer. Mit CSS müssen Sie arbeiten, wenn Sie die in diesem Abschnitt beschriebenen Effekte erzielen und dabei aber mit der HTML-Variante "Strict" arbeiten wollen.<br>
+Bei Verwendung von Stylesheets müssen Sie zunächst wissen, wie man <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../../css/formate/index.htm">CSS-Formate definieren</a> kann. Anschließend sind Sie in der Lage, CSS-Eigenschaften anzuwenden. Maßgeblich sind im hier beschriebenen Zusammenhang folgende CSS-Eigenschaften:<br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/ausrichtung.htm#vertical_align">vertical-align</a> (Vertikale Ausrichtung)<br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/positionierung.htm#float">float</a> (Textumfluss)<br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/positionierung.htm#clear">clear</a> (Fortsetzung bei Textumfluss)<br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/randabstand.htm">Außenrand und Abstand</a></p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/img_css.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+       "http://www.w3.org/TR/html4/strict.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Grafiken ausrichten mit CSS&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h1&gt;Woran der Denker denkt&lt;/h1&gt;
+
+&lt;p&gt;
+  Denkt der Denker
+  &lt;img src="denker.png" width="70" height="137" style="vertical-align:text-top" alt="Denker"&gt;
+  an das Oben?
+&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;p&gt;
+  Denkt der Denker
+  &lt;img src="denker.png" width="70" height="137" style="vertical-align:middle" alt="Denker"&gt;
+  an die Mitte?
+&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;p&gt;
+  Denkt der Denker
+  &lt;img src="denker.png" width="70" height="137" style="vertical-align:text-bottom" alt="Denker"&gt;
+  an das Unten?
+&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;h2&gt;
+  &lt;img src="text.png" width="311" height="194" style="float:left; margin-right:20px;
+  margin-bottom:10px" alt="Text?"&gt;Oder denkt er an ...?
+&lt;/h2&gt;
+
+&lt;p&gt;
+  Manche Texte erschlie&amp;szlig;en sich nur aus der n&amp;ouml;tigen Distanz. &lt;!-- usw. --&gt;
+  Aber das hier, das ist richtiger Text. Und er flie&amp;szlig;t sogar,
+  n&amp;auml;mlich um die Grafik.&lt;br style="clear:both"&gt;
+&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Mit <code>style="vertical-align:text-top"</code> erreichen Sie in einem <code>&lt;img&gt;</code>-Tag das Gleiche wie mit <code>align="top"</code>,<br>
+mit <code>style="vertical-align:middle"</code> das Gleiche wie in standardkonformen Browsern mit <code>align="middle"</code>,<br>
+und mit <code>style="vertical-align:text-bottom"</code> das Gleiche wie mit <code>align="bottom"</code>.<br>
+Mit <code>style="float:left; margin-right:20px; margin-bottom:10px"</code> wird erreicht, dass die Grafik links ausgerichtet wird und nachfolgender Text rechts um die Grafik fließt. Dabei wird zwischen Grafik und Text ein Abstand von 20 Pixeln gehalten (links von der Grafik wird dagegen, anders als beim HTML-Attribut <code>hspace</code>, kein Abstand von 20 Pixeln erzeugt). Nach unten hin, also zum Text unterhalb wird ein Abstand von 10 Pixeln definiert.</p>
+
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="verweise.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="verweise.htm">Grafiken als Verweise</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="einbinden.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="einbinden.htm">Grafiken einbinden</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">HTML/XHTML</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Grafiken</a></td>
+</tr></table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

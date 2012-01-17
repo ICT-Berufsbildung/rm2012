@@ -1,0 +1,331 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: HTML/XHTML / Grafiken / Grafiken einbinden</title>
+<meta name="description"    content="Wie Sie in HTML Grafiken einbinden, welche Dateitypen dafür in Frage kommen, und worauf Sie achten sollten.">
+<meta name="keywords"       content="SELFHTML, HTML, XHTML, Grafiken, Bilder, Icons, GIF, JPG, JPEG, PNG, ICO, img, src, alt, width, height, border, name, longdesc">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-10-31T14:21:30+01:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/html/grafiken/einbinden.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="Grafiken" href="index.htm">
+<link rel="next" title="Grafiken ausrichten" href="ausrichten.htm">
+<link rel="prev" title="Tabulator-Reihenfolge und Tastaturkürzel für Verweise" href="../verweise/tastatur.htm">
+<link rel="last" title="Verweis-sensitive Grafiken (Image Maps)" href="verweis_sensitive.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">HTML/XHTML</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Grafiken</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Grafiken einbinden</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#allgemeines">Allgemeines zu Grafiken</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#referenz">Grafikreferenz definieren</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#breite_hoehe">Breite und Höhe von Grafiken</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#rahmen">Rahmen um Grafiken</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#namen">Namen für Grafiken</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#langbeschreibung">Langbeschreibung für Grafiken</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#weitere_infos">Weitere Informationen</a><br>
+</p>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><a class="an" name="allgemeines">Allgemeines zu Grafiken</a></h2>
+
+<p>Um Grafiken in Ihre HTML-Dateien einzubinden, referenzieren Sie die Grafikdateien an gewünschten Stellen im HTML-Quelltext. Geeignete Dateiformate für Web-gerechte Grafiken sind vor allem GIF und JPEG, allmählich aber auch PNG (Einzelheiten zu diesen Formaten siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../grafik/formate.htm">Grafikformate für Web-Seiten</a>).</p>
+
+<p>Wenn Sie HTML-Dateien fürs Web erstellen, sollten Sie darauf achten, dass die darin referenzierten Grafiken nicht zu groß sind, denn aufwendige Grafiken verursachen lange Ladezeiten und Missmut beim Anwender. Reduzieren Sie in Ihren Grafiken gegebenenfalls die Anzahl der Farben, verringern Sie die Bildgröße und stopfen Sie nicht zu viele Grafik-Referenzen in eine einzige HTML-Datei. In jedem Fall sollten Sie <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#breite_hoehe">Breite und Höhe</a> mit angeben.</p>
+
+<p>Grafiken sind aus HTML-Sicht <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/elemente.htm#inline_elemente">Inline-Elemente</a>. In der "Strict"-Variante von HTML müssen solche Elemente innerhalb von <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/elemente.htm#block_elemente">Block-Elementen</a> vorkommen, etwa in einem Textabsatz oder einem allgemeinen Bereich oder auch einer Tabellenzelle.</p>
+
+<p>Unter grafischen Benutzeroberflächen wie MS-Windows, Macintosh, KDE und anderen können Web-Browser die referenzierten Grafiken direkt im Anzeigefenster anzeigen. Web-Browser für textorientierte Oberflächen (z.B. DOS-Textmodus, Unix-Textmodus) müssen ein separates Grafik-Betrachtungsprogramm aufrufen, um eine Grafik anzuzeigen.</p>
+
+<p>Wenn Sie wichtige HTML-Dateien Ihres Web-Projekts, etwa die Einstiegsseite, vollständig grafisch gestalten, also fast keinen Text, dafür nur Grafikreferenzen verwenden, erschweren Sie automatischen Suchprogrammen, die von vielen Suchdiensten im Web eingesetzt werden, die Identifizierung des Inhalts Ihres Projekts. Im Zweifelsfall müssen Sie abwägen, was Ihnen wichtiger ist: das grafische Erscheinungsbild oder die inhaltliche Identifizierbarkeit. Falls Sie wichtige HTML-Dateien Ihres Web-Projekts vorwiegend durch Grafikreferenzen gestalten, sollten Sie zumindest die Möglichkeit der <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../kopfdaten/meta.htm">Meta-Angaben zum Inhalt</a> nutzen.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/html20.gif" width="30" height="30" alt="HTML 2.0" title="HTML 2.0"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../../src/msie1.gif" width="30" height="30" alt="MS IE 1.0" title="MS IE 1.0"><img src="../../src/netsc1.gif" width="30" height="30" alt="Netscape 1.0" title="Netscape 1.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="referenz">Grafikreferenz definieren</a></h2>
+
+<p>An einer gewünschten Stelle können Sie eine Grafik referenzieren.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/img.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+       "http://www.w3.org/TR/html4/strict.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Grafikreferenz definieren&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h1&gt;Tanzmaus&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src="tanzmaus.png" alt="Tanzmaus"&gt;&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Für Grafikreferenzen gibt es in HTML das <code>&lt;img&gt;</code>-Tag (<i>img = image = Bild, src = source = Quelle</i>). Es handelt sich um ein Standalone-Tag ohne Elementinhalt und ohne End-Tag. Mit Hilfe von Attributen bestimmen Sie nähere Einzelheiten der Grafikreferenz. Zwei Attribute sind Pflicht und müssen immer angegeben werden:</p>
+
+<p>Mit dem Attribut <code>src</code> bestimmen Sie die gewünschte Grafikdatei. Dabei gelten die Regeln zum <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../allgemein/referenzieren.htm">Referenzieren in HTML</a>. Wenn sich die Grafikdatei also beispielsweise im gleichen Verzeichnis wie die HTML-Datei befindet, in der die Grafikreferenz steht, dann genügt einfach die Angabe des Dateinamens der Grafik - so wie im obigen Beispiel. Das Referenzieren mit relativen oder absoluten Pfadangaben ist jedoch ebenso möglich, z.B.:<br>
+<code>&lt;img src="verzeichnis/datei.gif" alt="Grafik"&gt;<br>
+&lt;img src="verzeichnis/unterverz/datei.gif" alt="Grafik"&gt;<br>
+&lt;img src="../datei.gif" alt="Grafik"&gt;<br>
+&lt;img src="../../../datei.gif" alt="Grafik"&gt;<br>
+&lt;img src="../woanders/datei.gif" alt="Grafik"&gt;</code><br>
+Auch das Referenzieren von einem vollständigen URI ist möglich, z.B.:<br>
+<code>&lt;img src="http://www.example.org/grafiken/taggi01.gif" alt="Taggi"&gt;</code></p>
+
+<p><strong><a name="alt_attribut">Das Attribut</a> <code>alt</code> ist Pflichtangabe</strong> für jede Grafikeinbindung. Geben Sie darin einen Alternativtext an für den Fall, dass die Grafik nicht angezeigt werden kann. Das sollte bei rein illustrierenden Schmuckgrafiken in der Form <code>alt=""</code> geschehen, um die Grafik als inhaltslos zu kennzeichnen. Vermeiden Sie es in solchen Fällen, die <code>alt</code>-Attribute von Grafiken mit unsinnigen Inhalten wie <var>"spacer.gif"</var> o.ä. zu befüllen.</p>
+
+<p>Es gibt viele Gründe, warum eine Grafik nicht angezeigt werden kann, z.B. weil der Anwender das Anzeigen von Grafiken in seinem Browser deaktiviert hat, oder weil der Anwender das Laden der Seite abgebrochen hat, bevor die Grafik übertragen wurde. Der Alternativtext kann ein einzelnes Wort sein, aber auch eine Kurzbeschreibung, etwa so:<br>
+<code>&lt;img src="luftbild.jpg" alt="Luftaufnahme des Grundst&amp;uuml;cks vom 27.05.2001 aus ca. 300m H&amp;ouml;he"&gt;</code><br>
+Welcher Alternativtext der jeweils passendste ist, hängt von den jeweilgen Umständen ab. Grafiken, welche Text enthalten, sollten beispielsweise als Alternativtext auf jeden Fall diesen Text erhalten.</p>
+
+<h3 class="inf"><a class="an" name="referenz2">Beachten Sie:</a></h3>
+
+<p>Der Internet Explorer zeigt den Alternativtext als Tooltip an, wenn man mit dem Mauszeiger länger über der Grafik verweilt. Dieses Verhalten ist zwar nicht verboten, stört aber häufig den Seitenautor. Und es verleitet zu der Annahme, das <code>alt</code>-Attribut wäre für diesen Tooltip grundsätzlich zuständig, was aber vollkommen falsch ist. Wenn Sie ihre Grafiken mit erklärenden Tooltips versehen wollen, nutzen Sie das Attribut <code>title</code>. Da es ein <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../attribute/allgemeine.htm">Universalattribut</a> ist, können Sie <code>title</code> auch in fast jedem anderen Tag verwenden und so beispielsweise auch einzelne Worte oder Textabsätze mit Tooltips versehen.</p>
+
+<p>Der Internet Explorer gibt dem <code>title</code>-Attribut für die Tooltip-Anzeige Vorrang vor dem <code>alt</code>-Attribut. Verwenden Sie deshalb beispielsweise <code>title=""</code>, um die Tooltip-Anzeige des <code>alt</code>-Attributs im Internet Explorer abzuschalten.</p>
+
+<p>Sie können ohne weiteres Grafiken von fremden Adressen in Ihre Seiten einbinden. Fragen Sie in diesem Fall jedoch in jedem Fall den Anbieter der Grafik um Erlaubnis, denn das Einbinden von Grafiken ist - im Gegensatz zu Verweisen auf fremde Inhalte - ein Zueigenmachen von fremden Inhalten. Auch besteht keine Garantie, dass die Grafikreferenz jederzeit bis in alle Zukunft funktioniert, denn wenn der Fremdanbieter die Grafik bei sich entfernt oder umbenennt, wird auf Ihrer Seite nur noch ein so genanntes <img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/broken_image.htm">broken image</a> angezeigt.</p>
+
+<p>Achten Sie bei der Wertzuweisung an das <code>src</code>-Attribut unbedingt auf Groß-/Kleinschreibung von Dateinamen und Verzeichnisnamen. Die meisten Server-Rechner laufen mit Betriebssystemen, bei denen streng zwischen Groß- und Kleinschreibung unterschieden wird. Am einfachsten und sichersten ist es, wenn Sie alle Datei- und Verzeichnisnamen kleinschreiben - sowohl beim Vergeben der Namen als auch beim Referenzieren in der HTML-Datei.</p>
+
+<p>Netscape interpretiert ein proprietäres Attribut <code>lowsrc</code>, das Sie zusätzlich zum <code>src</code>-Attribut notieren können, und bei dem Sie eine Grafikdatei angeben, die weniger Speicher benötigt als die bei <code>src</code> referenzierte Grafik. Die <code>lowsrc</code>-Grafik lädt der Browser dann zuerst und kann sie schon anzeigen, während die andere Grafik noch geladen wird. Dieses Attribut erzeugt jedoch ungültiges HTML und hat sich in der Praxis auch als überflüssig erwiesen.</p>
+
+<p>Wenn Sie <b>XHTML-Standard-konform</b> arbeiten, müssen Sie das <code>img</code>-Element als inhaltsleer kennzeichnen. Dazu notieren Sie das alleinstehende Tag in der Form <code>&lt;img&nbsp;...&nbsp;/&gt;</code>. Weitere Informationen finden Sie im Kapitel <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../xhtml/index.htm">XHTML und HTML</a>.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/html20.gif" width="30" height="30" alt="HTML 2.0" title="HTML 2.0"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../../src/msie1.gif" width="30" height="30" alt="MS IE 1.0" title="MS IE 1.0"><img src="../../src/netsc1.gif" width="30" height="30" alt="Netscape 1.0" title="Netscape 1.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="breite_hoehe">Breite und Höhe von Grafiken</a></h2>
+
+<p>Wenn Sie Grafiken in HTML-Dateien einbinden, die Sie im Web anbieten wollen, sollten Sie stets die Breite und Höhe der Grafik mit angeben. Dadurch entnimmt der Web-Browser bereits der HTML-Datei, wie groß die Grafik ist, und muss nicht warten, bis er die entsprechende Header-Information der Grafikdatei ausgelesen hat. So kann er die gesamte Web-Seite bereits am Bildschirm aufbauen und bei noch nicht eingelesenen Grafiken erst mal eine entsprechend große Freifläche anzeigen. Wenn Sie Breite und Höhe nicht angeben, wartet der Browser dagegen mit der Anzeige der Web-Seite, bis er alle nötigen Größenangaben aus eingebundenen Grafikdateien eingelesen hat, oder er muss den Bildschirmaufbau korrigieren, was nicht sehr schön aussieht.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/img_width_height.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+       "http://www.w3.org/TR/html4/strict.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Breite und H&ouml;he von Grafiken&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h1&gt;Tanzb&amp;auml;r&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src="tanzbaer.png" width="368" height="383" alt="Tanzb&amp;auml;r"&gt;&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Mit dem Attribut <code>width</code> geben Sie die Breite der Grafik an, und mit <code>height</code> die Höhe (<i>width = Breite, height = Höhe</i>). Notieren Sie die Maße ohne Einheiten, wird automatisch <code>px</code> für Pixel herangezogen.</p>
+
+<p>Es existieren mehrere Möglichkeiten, die genaue Breite und Höhe einer Grafik zu ermitteln. Entweder Sie nutzen ein Grafikprogramm, das diese Werte anzeigt, oder einen HTML-Editor, der beim Einbinden einer Grafik im Dialog auch gleich den Dateikopf der Grafik ausliest und die entsprechenden Angaben in das <code>&lt;img&gt;</code>-Tag automatisch einfügt. Ferner sind diese Eigenschaften zumeist via Kontext-Menü in Dateimanagern und Browsern abrufbar.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Sie können auch Angaben zu Breite und Höhe einer Grafik machen, die absichtlich von den tatsächlichen Abmessungen der Grafik abweichen. Dadurch können Sie interessante Verzerrungseffekte erreichen, wie man sie von Cartoons kennt.</p>
+
+<p>Neben Pixelangaben sind bei <code>width</code> und <code>height</code> auch Prozentangaben erlaubt. Solche Angaben beziehen sich auf den zur Verfügung stehenden Raum. Wenn sich die Grafik also beispielsweise in einem normalen Textabsatz befindet, bewirkt die Angabe <code>width="100%"</code>, dass die Grafik über die gesamte Breite des Anzeigefensters (abzüglich der Seitenränder der angezeigten Webseite) dargestellt wird. Die Höhe wird hierbei zwar proportional angepasst, aber da Browser keine Bildbearbeitungsprogramme sind, kann die Qualität darunter leiden. Sinnvoll ist eine Prozentangabe beispielsweise bei Grafiken, die eine Linie darstellen (vgl. <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../grafik/sorten.htm#bars">Bars</a>), um diese über die gesamte verfügbare Breite zu strecken.</p>
+
+<p>Wenn Sie eine Grafik haben, die Sie an anderer Stelle in kleinerer Form wiederholen möchten (zum Beispiel ein Logo, das auf der Einstiegsseite groß angezeigt werden soll und auf den Unterseiten kleiner), brauchen Sie keine zwei Grafiken. Es genügt, wenn Sie, um eine Grafik kleiner darzustellen, die Angaben zu Breite und/oder Höhe proportional verkleinern. Wenn Ihr Logo beispielsweise die Ausmaße 300 Pixel breit und 200 Pixel hoch hat, können Sie es halb so groß darstellen, indem Sie beim Einbinden der Grafik <code>width="150" height="100"</code> angeben. Sinnvoll ist das aber nur, wenn die große Grafik bereits angezeigt wurde und sich im Cache-Speicher des Browsers befindet und wenn sich der Qualitätsverlust durch die fehlende Nachschärfung nicht negativ auswirkt.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/html32.gif" width="30" height="30" alt="HTML 3.2" title="HTML 3.2"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../../src/deprecated.gif" width="30" height="30" alt="deprecated (missbilligt)" title="deprecated (missbilligt)"><img src="../../src/msie2.gif" width="30" height="30" alt="MS IE 2.0" title="MS IE 2.0"><img src="../../src/netsc11.gif" width="30" height="30" alt="Netscape 1.1" title="Netscape 1.1"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="rahmen">Rahmen um Grafiken</a></h2>
+
+<p>Sie können festlegen, dass der Browser einen Rahmen um die Grafik zeichnet. Das entsprechende Attribut ist jedoch als <i>deprecated</i> gekennzeichnet und soll künftig aus dem HTML-Standard entfallen. Umrahmung ist auch mit Hilfe von Stylesheets möglich, und dort mit viel mehr Möglichkeiten.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/img_border.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+       "http://www.w3.org/TR/html4/loose.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Rahmen um Grafiken&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h1&gt;Baum am Abend&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src="baum.jpg" width="320" height="400" border="4" alt="Abendbaum"&gt;&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Mit dem Attribut <code>border</code> innerhalb der Grafikreferenz wird ein Rahmen um die Grafik definiert (<i>border = Rand</i>). Die Angabe erfolgt in Pixeln und bedeutet die Rahmendicke. Die Rahmenfarbe ist diejenige, die Text an der gleichen Stelle haben würde.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/html32.gif" width="30" height="30" alt="HTML 3.2" title="HTML 3.2"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../../src/msie4.gif" width="30" height="30" alt="MS IE 4.0" title="MS IE 4.0"><img src="../../src/netsc3.gif" width="30" height="30" alt="Netscape 3.0" title="Netscape 3.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="namen">Namen für Grafiken</a></h2>
+
+<p>Sie können festlegen, dass eine Grafik einen Namen erhält. Dies ist in Verbindung mit JavaScript sinnvoll. Der Name einer Grafik kann zum Beispiel beim JavaScript-Objekt <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../javascript/objekte/images.htm">images</a> von Bedeutung sein.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/img_name.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+       "http://www.w3.org/TR/html4/loose.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Namen f&amp;uuml;r Grafiken&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h1&gt;Baum&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src="baum.jpg" width="320" height="400" name="Baumbild" alt="Abendbaum"&gt;&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Mit <code>name</code> vergeben Sie einen Namen für die Grafik.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/html40.gif" width="30" height="30" alt="HTML 4.0" title="HTML 4.0"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../../src/netsc6.gif" width="30" height="30" alt="Netscape 6.0" title="Netscape 6.0"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1">&nbsp;<a class="an" name="langbeschreibung">Langbeschreibung für Grafiken</a></h2>
+
+<p>Wenn Ihnen die Möglichkeit, mit dem <code>alt</code>-Attribut einen gewöhnlichen Alternativtext für eine Grafik zu notieren, nicht genügt, können Sie seit HTML 4.0 auch zu einer anderen Stelle oder Datei verweisen, wo sich nähere Textinformation zu der Grafik befindet. Der Browser könnte beispielsweise nur dann einen Verweis zu dieser Stelle anbieten, wenn die Grafik nicht anzeigbar ist.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/img_longdesc.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+       "http://www.w3.org/TR/html4/strict.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Langbeschreibung f&amp;uuml;r Grafiken&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h1&gt;Alte Zeiten&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src="altezeiten.jpg" width="271" height="265" alt="alte Zeiten" longdesc="altezeiten.htm"&gt;&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Mit dem Attribut <code>longdesc</code> können Sie auf eine Stelle verweisen, wo die Grafik in Textform näher beschrieben wird. Erlaubt ist ein URI, d.h. bei der Angabe gelten die Regeln zum <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../allgemein/referenzieren.htm">Referenzieren in HTML</a>.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Lediglich Netscape ab 6.0 und Firefox unterstützen dieses Attribut bislang, und auch nur sehr versteckt: mit der rechten Maustaste über der Grafik klicken, aus dem Kontextmenü die Option <i>Eigenschaften</i> wählen, und in dem Dialog, der dann erscheint, auf die Adresse zu <i>Beschreibung</i> klicken bzw. die dort angegebene Adresse in die Adressenzeile des Browsers kopieren.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="weitere_infos">Weitere Informationen</a></h2>
+
+<p>In der <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../referenz/index.htm">HTML-Referenz</a> finden Sie Angaben darüber, wo das <code>&lt;img&gt;</code>-Tag vorkommen darf, welche Attribute es haben kann und was bei den einzelnen Attributen zu beachten ist:<br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/elemente.htm#img">Element-Referenz</a> für Grafikreferenzen (<code>&lt;img&gt;</code>)<br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/attribute.htm#img">Attribut-Referenz</a> für Grafikreferenzen (<code>&lt;img&gt;</code>)</p>
+
+<p>Das Kapitel <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../../grafik/index.htm">Grafik</a> enthält eine Einführung in web-gerechte Grafik, mit Beispielen und Beschreibungen zu einzelnen grafischen Techniken.</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="ausrichten.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="ausrichten.htm">Grafiken ausrichten</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="../verweise/tastatur.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../verweise/tastatur.htm">Tabulator-Reihenfolge und Tastaturkürzel für Verweise</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">HTML/XHTML</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Grafiken</a></td>
+</tr></table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

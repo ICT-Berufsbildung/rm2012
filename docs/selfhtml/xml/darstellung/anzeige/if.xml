@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="if.xsl" ?>
+<test>
+<ergebnis><name>Crystol Freak</name><punkte>453</punkte></ergebnis>
+<ergebnis><name>Demian</name><punkte>199</punkte></ergebnis>
+<ergebnis><name>Ueberflieger</name><punkte>347</punkte></ergebnis>
+<ergebnis><name>CaptainX</name><punkte>106</punkte></ergebnis>
+</test>
+

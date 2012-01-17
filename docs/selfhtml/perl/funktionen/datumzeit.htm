@@ -1,0 +1,204 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: Perl / Funktionsreferenz / Funktionen für Datum und Uhrzeit</title>
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<meta name="description"     content="Welche Funktionen es in Perl gibt, um einen Zeitpunkt zu ermitteln und ausgehend davon Datum und Uhrzeit.">
+<meta name="keywords"        content="SELFHTML, Perl, Funktionen, Perl-Funktionen, Datum, Uhrzeit, Zeit, gmtime, localtime, time, ctime-Standard">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-11-09T00:29:27+01:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/perl/funktionen/datumzeit.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="Perl-Funktionen" href="index.htm">
+<link rel="next" title="Funktionen für Ein-/Ausgabe und Lesen/Schreiben von Daten" href="einausgabe.htm">
+<link rel="prev" title="Funktionen für die Kontrolle des laufenden Scripts" href="kontrolle.htm">
+<link rel="first" title="Funktionen für Zeichenketten" href="zeichenketten.htm">
+<link rel="last" title="Funktionen für Module und Packages" href="module.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">Perl</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Perl-Funktionen</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Funktionen für Datum und Uhrzeit</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#allgemeines">Allgemeines zu diesen Funktionen</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#gmtime">gmtime</a> - Zeitpunkt in Datums-/Uhrzeit-Elemente aufschlüsseln (Greenwich-Zeitzone)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#localtime">localtime</a> - Zeitpunkt in Datums-/Uhrzeit-Elemente aufschlüsseln (lokale Zeitzone)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#time">time</a> - Zeitpunkt ermitteln<br>
+</p>
+</td>
+</tr><tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><a class="an" name="allgemeines">Allgemeines zu diesen Funktionen</a></h2>
+
+<p>Die Basisfunktion der Zeitberechnung unter Perl ist <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#time">time</a>. Sie ermittelt den aktuellen Zeitpunkt, und zwar in Sekunden, die seit dem logischen Unix-Urknall, seit dem 1.1.1970, 0.00 Uhr, vergangen sind. Mit dieser Zahl können Sie dann eine der Funktionen <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#localtime">localtime</a> oder <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#gmtime">gmtime</a> versorgen, um die einzelnen Elemente von Datum und Uhrzeit des aktuellen Zeitpunkts zu erhalten, also etwa Tag, Monat, Jahr oder  Stunden und Minuten der Uhrzeit.</p>
+
+<p>Beachtenswert ist auch das <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../module/standardmodule.htm">Standardmodul</a> <code>Time::Local</code>. Dort finden Sie Umkehrfunktionen zu den hier vorgestellten Funktionen <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#localtime">localtime</a> und <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#gmtime">gmtime</a>.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="gmtime">gmtime - Zeitpunkt in Datums-/Uhrzeit-Elemente aufschlüsseln (Greenwich-Zeitzone)</a></h2>
+
+<p>Funktioniert genauso wie <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#localtime">localtime</a>, mit dem einzigen Unterschied, dass nicht die Uhrzeit auf dem Rechner ermittelt wird, sondern die Greenwich-Zeit (Nullmeridian).</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="localtime">localtime - Zeitpunkt in Datums-/Uhrzeit-Elemente aufschlüsseln (lokale Zeitzone)</a></h2>
+
+<p>Ermittelt für einen Zeitpunkt die einzelnen Zeitangaben.</p>
+
+<p>Erwartet als Parameter:<br>
+<strong>1.</strong> die Anzahl Sekunden, gerechnet ab dem 1.1.1970, bis zum gewünschten Zeitpunkt. Um die Daten für den aktuellen Zeitpunkt zu ermitteln, einfach <code>time</code> oder gar nichts übergeben.</p>
+
+<p>Gibt wahlweise eine Liste zurück, die aus 9 Elementen besteht, in denen die Einzeldaten gespeichert sind, oder eine Zeichenkette, gemäß der C-Funktion <code>ctime</code>, die zum ANSI-Standard gehört.</p>
+
+<h3 class="xmp"><a class="an" name="beispiel1">Beispiel eines vollständigen CGI-Scripts in Perl:</a></h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="http://de.selfhtml.org/cgi-bin/812/datumzeit1.pl">Anzeigebeispiel: So sieht's aus</a> (Zum Aufruf des Scripts ist eine Internet-Verbindung erforderlich)</p>
+
+<pre>
+#!/usr/bin/perl -w
+
+use strict;
+use CGI::Carp qw(fatalsToBrowser);
+
+my ($Sekunden, $Minuten, $Stunden, $Monatstag, $Monat,
+    $Jahr, $Wochentag, $Jahrestag, $Sommerzeit) = localtime(time);
+my $CTIME_String = localtime(time);
+$Monat+=1;
+$Jahrestag+=1;
+$Monat = $Monat &lt; 10 ? $Monat = "0".$Monat : $Monat;
+$Monatstag = $Monatstag &lt; 10 ? $Monatstag = "0".$Monatstag : $Monatstag;
+$Stunden = $Stunden &lt; 10 ? $Stunden = "0".$Stunden : $Stunden;
+$Minuten = $Minuten &lt; 10 ? $Minuten = "0".$Minuten : $Minuten;
+$Sekunden = $Sekunden &lt; 10 ? $Sekunden = "0".$Sekunden : $Sekunden;
+$Jahr+=1900;
+my @Wochentage = ("Sonntag","Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag");
+my @Monatsnamen = ("","Januar","Februar","M&amp;auml;rz","April","Mai","Juni",
+           "Juli","August","September","Oktober","November","Dezember");
+
+print "Content-type: text/html\n\n";
+print '&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"&gt;', "\n";
+print "&lt;html&gt;&lt;head&gt;&lt;title&gt;Test-Ausgabe&lt;/title&gt;&lt;/head&gt;&lt;body&gt;\n";
+print "Datum (Variante 1): $Wochentage[$Wochentag], der $Monatstag.$Monat.$Jahr&lt;br&gt;\n";
+print "Datum (Variante 2): $Wochentage[$Wochentag], der $Monatstag. $Monatsnamen[$Monat] $Jahr&lt;br&gt;\n";
+print "Uhrzeit (Variante 1): $Stunden.$Minuten Uhr&lt;br&gt;\n";
+print "Uhrzeit (Variante 2): $Stunden.$Minuten:$Sekunden Uhr&lt;br&gt;\n";
+print "Der heutige Tag ist der $Jahrestag. Tag im laufenden Jahr&lt;br&gt;\n";
+print "Als CTIME-Ausgabe lautet dieser Zeitpunkt: $CTIME_String&lt;br&gt;\n";
+$Sommerzeit ? print "Es ist Sommerzeit\n" : print "Es ist Normalzeit (keine Sommerzeit)\n";
+print "&lt;/body&gt;&lt;/html&gt;\n";
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel ermittelt die Zeitangaben des aktuellen Zeitpunkts, und zwar einmal im Listenkontext (erster Aufruf von <code>localtime</code>), und einmal im skalaren Kontext (zweiter Aufruf). Anschließend bereitet das Script die ermittelten Daten für die Ausgabe auf. Denn die zurückgegebenen Werte sind in vielen Fällen eher "Rohdaten", die für eine ordentliche Ausgabe noch nachbehandelt werden müssen.<br>
+Die Werte für <code>$Monat</code> und <code>$Jahrestag</code> werden zunächst um 1 erhöht, da der Rückgabewert intern bei 0 zu zählen beginnt (für Monate gelten anfangs die Monatsnummern 0 bis 11, und nicht 1 bis 12).<br>
+Dann werden diverse Angaben so formatiert, dass sie eine führende 0 erhalten, falls der Wert kleiner als 10 ist. Denn eine Uhrzeitangabe wie <code>8.1</code> ist wohl kaum erwünscht, es soll schließlich <code>08.01</code> ausgegeben werden. Erreicht wird dies mit Hilfe einer <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../sprache/bedingt.htm#entweder_oder">einfachen Entweder-Oder-Abfrage</a>.<br>
+Die Jahreszahl wird um 1900 erhöht. Der Grund: der (numerische) Rückgabewert für das Jahr besteht in der Anzahl Jahre seit 1900. Für das Jahr 2000 würde also beispielsweise 100 zurückgegeben. Erst durch das Hinzuzählen von 1900 gelangt man zur tatsächlichen Jahreszahl.<br>
+Die dann definierten Listen für Wochentage und Monatsnamen bieten für die spätere Ausgabe die Möglichkeit, deutschsprachige Zeitbezeichnungen zu verwenden.<br>
+Das Beispielscript erstellt HTML-Code, um die ermittelten Daten auszugeben. Dabei kann sich das Script auf die nachbehandelten Daten verlassen.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="time">time - Zeitpunkt ermitteln</a></h2>
+
+<p>Ermittelt die Anzahl Sekunden, die vom 1.1.1970 0.00 Uhr bis zum Augenblick des Aufrufs vergangen sind.</p>
+
+<p>Erwartet keinen Parameter.</p>
+
+<p>Gibt die Anzahl Sekunden zurück.</p>
+
+<h3 class="xmp"><a class="an" name="beispiel2">Beispiel eines vollständigen CGI-Scripts in Perl:</a></h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="http://de.selfhtml.org/cgi-bin/812/datumzeit2.pl">Anzeigebeispiel: So sieht's aus</a> (Zum Aufruf des Scripts ist eine Internet-Verbindung erforderlich)</p>
+
+<pre>
+#!/usr/bin/perl -w
+
+use strict;
+use CGI::Carp qw(fatalsToBrowser);
+
+my $Sekunden = time();
+my $Stunden = int($Sekunden / 3600);
+my $Tage = int($Sekunden / (24 * 3600));
+my $Wochen = int($Sekunden / (7 * 24 * 3600));
+
+print "Content-type: text/html\n\n";
+print '&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"&gt;', "\n";
+print "&lt;html&gt;&lt;head&gt;&lt;title&gt;Test-Ausgabe&lt;/title&gt;&lt;/head&gt;&lt;body&gt;\n";
+print "seit dem 1.1.1970, 0.00 Uhr sind $Sekunden Sekunden vergangen.&lt;br&gt;\n";
+print "Das sind $Stunden Stunden, $Tage Tage und $Wochen Wochen.\n";
+print "&lt;/body&gt;&lt;/html&gt;\n";
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel ruft <code>time</code> auf und speichert den Rückgabewert der Funktion in den Skalar <code>$Sekunden</code>. Anschließend berechnet das Script aus der Sekundenzahl die darin enthaltenen Stunden, Tage und Wochen. Um jeweils nur die ganzzahligen Anteile der Bruchberechnungen zu erhalten, wird die Funktion <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="berechnungen.htm#int">int</a> darauf angewendet. Zur Kontrolle gibt das Script HTML-Code mit den ermittelten Zahlen aus.</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="einausgabe.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="einausgabe.htm">Funktionen für Ein-/Ausgabe und Lesen/Schreiben von Daten</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="kontrolle.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="kontrolle.htm">Funktionen für die Kontrolle des laufenden Scripts</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">Perl</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Perl-Funktionen</a></td>
+</tr>
+</table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

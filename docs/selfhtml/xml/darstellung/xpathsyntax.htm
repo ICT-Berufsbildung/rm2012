@@ -1,0 +1,639 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: XML / Darstellung von XML-Daten / XPath-Syntax</title>
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<meta name="description"    content="Welche Aufgaben die Sprache XPath hat, und wie sich mit XPath Pfade zu Knoten darstellen lassen.">
+<meta name="keywords"       content="SELFHTML, XML, XPath, XPath-Adressierung, Knoten, Knotensets, Pfade, Achsen">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-09-12T12:31:37+02:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/xml/darstellung/xpathsyntax.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="Darstellung von XML-Daten" href="index.htm">
+<link rel="next" title="XPath-Funktionen" href="xpathfunktionen.htm">
+<link rel="prev" title="XSLT-Elemente" href="xsltelemente.htm">
+<link rel="first" title="XML-Darstellung mit Stylesheets" href="css.htm">
+<link rel="last" title="XPath-Funktionen" href="xpathfunktionen.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">XML/DTDs</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Darstellung von XML-Daten</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">XPath-Syntax</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#xpathaufgaben">Die Aufgaben von XPath</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#knotentypen_achsen_pfade">Knotentypen, Achsen und Pfade</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#notation">Ausführliche und verkürzte Notation</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#dokumentwurzel">Adressierung der Dokumentwurzel</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#absolute_pfadangaben">Adressierung mit absoluten Pfadangaben</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#relative_pfadangaben">Adressierung mit relativen Pfadangaben</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#attribute">Adressierung von Attributen</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#wildcards">Adressierung mit Wildcards</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#position_bedingungen">Adressierung mit Positionsangaben und Bedingungen</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#operatoren">XPath-Operatoren</a><br>
+</p>
+</td>
+</tr><tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><a class="an" name="xpathaufgaben">Die Aufgaben von XPath</a></h2>
+
+<p>XPath ist ebenso wie XML, XSL und XSLT ein Sprachprojekt des W3-Konsortiums. Für XPath gibt es eine eigene Arbeitsgruppe, die an der Spezifikation der XPath-Sprache arbeitet. Im November 1999 ist dabei die Version 1.0 der Empfehlung (Recommendation) für XPath herausgekommen. Die jeweils aktuelle Spezifikation und die Fortentwicklung der XPath-Sprache können Sie über die <img src="../../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.w3.org/TR/xpath">W3C-Einstiegsseite zu XPath</a> mitverfolgen.</p>
+
+<p>XPath ist jedoch lediglich eine Art Hilfssprache, die erforderlich ist, damit XSLT seine Aufgaben wahrnehmen kann. XPath hat dabei <b>drei</b> wichtige Aufgaben:</p>
+
+<ul>
+<li>Adressierung von Daten</li>
+<li>Definition logischer Ausdrücke</li>
+<li>Zusätzliche Funktionen</li>
+</ul>
+
+<h3>Adressierung von Daten</h3>
+
+<p>Beim Übersetzen einer XML-Dokumentstruktur in eine andere XML-Dokumentstruktur, also etwa beim Übersetzen eines Dokuments mit eigener XML-DTD in ein HTML-Dokument, ist es wichtig, jeden Bestandteil der Datenstruktur genau ansprechen zu können. Wenn Sie im (XML-)Ausgangsbaum beispielsweise stehen haben: <code>&lt;augen farbe="graublau"&gt;</code>, und Sie möchten im (HTML-)Ergebnisbaum daraus erzeugen: <code>&lt;th&gt;Augenfarbe&lt;/th&gt;&lt;td&gt;graublau&lt;/td&gt;</code>, dann müssen Sie auf das Attribut <code>farbe</code> des Elements <code>augen</code> zugreifen. Angenommen weiter, das Element <code>augen</code> ist sowohl ein Kindelement eines Elements namens <code>person</code>, als auch ein Kindelement eines Elements namens <code>phantombilddaten</code> in einem anderen Zweig des gleichen XML-Dokuments, können Sie erahnen, dass für die eindeutige Adressierung von Dokumentbestandteilen eine brauchbare Adressierungs-Syntax benötigt wird. Typische Fälle, in denen die XPath-Adressierung zum Einsatz kommt, sind z.B. das <code>select</code>-Attribut der <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="xsltelemente.htm#value_of">xsl:value-of</a>-Anweisung oder das <code>match</code>-Attribut der <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="xsltelemente.htm#template">xsl:template</a>-Anweisung.</p>
+
+<p>Das Adressieren von Daten mit XPath wird auf dieser Seite weiter unten beschrieben.</p>
+
+<h3>Definition logischer Ausdrücke</h3>
+
+<p>Damit sind logische Ausdrücke gemeint, die vom XSLT-Prozessor mit verarbeitet werden, und die zur Funktionalität bestimmter XSLT-Elemente wichtig sind. Logische Ausdrücke enthalten Operatoren und können damit z.B. zwei Werte vergleichen. Ähnlich wie die Adressierung von Daten kommt die Definition von Ausdrücken in bestimmten Wertzuweisungen an Attribute von XSLT-Elementen vor. Ein typisches Beispiel ist das <code>test</code>-Attribut der <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="xsltelemente.htm#if">xsl:if</a>-Anweisung. Darin wird eine Bedingung formuliert, die wahr oder falsch sein kann. Nur wenn sie wahr ist, werden untergeordnete Anweisungen ausgeführt. Eine Bedingung wie <code>test="alter&nbsp;&amp;gt;=&nbsp;18"</code> (hat das Element <code>alter</code> einen Wert größer gleich 18?) ist so ein typischer logischer Ausdruck. Die Syntax dabei basiert auf XPath.</p>
+
+<p>Die Definition von logischen Ausdrücken mit XPath wird auf dieser Seite im Abschnitt <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#operatoren">XPath-Operatoren</a> beschrieben.</p>
+
+<h3>Zusätzliche Funktionen</h3>
+
+<p>Seinen großen Leistungsumfang erhält XSLT nicht zuletzt durch ein Arsenal an zusätzlichen Funktionen, die bestimmte Aufgaben wahrnehmen. So gibt es z.B. eine Funktion <code>position()</code>, die beim Abarbeiten mehrerer Elemente in einer Reihe zurückliefert, das wievielte Element gerade bearbeitet wird. Diese Information lässt sich beispielsweise dazu nutzen, um die Elemente im Ergebnisbaum zu nummerieren. Eine andere typische Funktion namens <code>starts-with()</code> überprüft, ob eine Zeichenkette mit einer bestimmten Teilzeichenkette beginnt. Wenn diese Funktion etwa als Bedingung in einer <code>xsl:if</code>-Anweisung notiert wird, lässt sich das Erzeugen des Ergebnisbaums von der Abfrage beeinflussen, ob der Wert eines Elements mit einem bestimmten Zeichen oder einer bestimmten Zeichenfolge beginnt. So könnte eine Bedingung wie <code>test="starts-with(plz,'8')"</code> zum Beispiel abfragen, ob der Wert einer Postleitzahl mit <code>8</code> beginnt, und nur Elemente in den Ergebnisbaum übernehmen, bei denen dies der Fall ist.</p>
+
+<p>Die zusätzlichen Funktionen werden auf der Seite <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="xpathfunktionen.htm">XPath-Funktionen</a> beschrieben.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/xpath10.gif" width="30" height="30" alt="XPath 1.0" title="XPath 1.0">&nbsp;<a class="an" name="knotentypen_achsen_pfade">Knotentypen, Achsen und Pfade</a></h2>
+
+<p>XML-gerechte Dokumente sind wie die Verzeichnis- und Dateistruktur auf einem Datenträger aufgebaut. Dort gibt es ein Wurzelverzeichnis, das Verzeichnisse (Ordner) und Dateien enthalten kann. Jedes untergeordnete Verzeichnis kann wiederum andere Unterverzeichnisse und Dateien enthalten usw. Man spricht dabei auch von Baumstruktur. Auf der Seite <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../regeln/baumstruktur.htm">Baumstruktur und Knoten einer XML-Datei</a> wird dieses Modell einführend beschrieben.</p>
+
+<p>Ebenso, wie man bei der Dateistruktur auf einem Datenträger von Verzeichnissen oder Ordnern, Dateien und Pfadangaben für Dateien spricht, braucht man für die Adressierung von Bestandteilen eines XML-Dokuments eine geeignete Terminologie. Zu diesem Zweck gibt es in XPath verschiedene Knotentypen, Achsen und Pfade. Die Begriffe, die dabei auftauchen, werden im folgenden vorgestellt. Die Begriffe muten zunächst etwas akademisch an, aber zum Verständnis von XPath sind sie wichtig. Entscheidend sind die englischen Originalbegriffe (<i>kursiv</i> geschrieben).</p>
+
+<h3><a name="knotentypen">Knotentypen</a></h3>
+
+<p>Jeder Bestandteil der Baumstruktur einer XML-Datei wird als Knoten bezeichnet. Da es in XML jedoch durchaus namhaft zu machende Bestandteile wie Elemente, Attribute usw. gibt, wird von entsprechenden Knotenypen gesprochen. Die Knotentypen sind nicht unmittelbar Bestandteil der Adressierungs-Syntax von XPath, doch es ist sinnvoll, die Begriffe zu kennen. XPath unterscheidet 7 Knotentypen:</p>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<th>Knotentyp</th>
+<th>Bedeutung</th>
+</tr>
+<tr>
+<td class="code">Wurzelknoten<br><i>(root node)</i></td>
+<td class="tabxpl">Dies ist die Wurzel eines XML-Dokuments. Der Wurzelknoten ist selbst kein Element, sondern nur die abstrakte Ursprungswurzel der Baumstruktur des Dokuments.</td>
+</tr>
+<tr>
+<td class="code">Elementknoten<br><i>(element node)</i></td>
+<td class="tabxpl">Jedes Element (auch das Dokument-Element) stellt aus XPath-Sicht einen Elementknoten dar. Ein Element namens <code>a</code>, bestehend aus dem Anfangs- und End-Tag <code>&lt;a&gt;...&lt;/a&gt;</code>, ist beispielsweise ein <i>element node</i>. Untergeordnete Elemente (auch als Kindelemente bezeichnet) sind ebenfalls <i>element nodes</i>, also beispielsweise ein Element namens <code>b</code>, bestehend aus dem Anfangs- und End-Tag <code>&lt;b&gt;...&lt;/b&gt;</code>, das innerhalb von <code>&lt;a&gt;...&lt;/a&gt;</code> vorkommen kann.</td>
+</tr>
+<tr>
+<td class="code">Attributknoten<br><i>(attribute node)</i></td>
+<td class="tabxpl">Jedes Attribut, das zu einem Element gehört, wird als Attributknoten bezeichnet. Ein Attribut <code>b="irgendwas"</code>, das im Anfangs-Tag eines Elements <code>a</code> vorkommt und dann also in der Form <code>&lt;a b="irgendwas"&gt;</code> notiert wird, gilt als <i>attribute node</i> des Elements <code>a</code>. Der Attributknoten besteht also aus dem Attributnamen und dem zugewiesenen Wert.</td>
+</tr>
+<tr>
+<td class="code">Textknoten<br><i>(text node)</i></td>
+<td class="tabxpl">Jeder Zeicheninhalt, der keine anderen Knoten mehr enthält, wird als Textknoten bezeichnet. In einer Notation wie <code>&lt;a b="irgendwas"&gt;und ein kleiner Text&lt;/a&gt;</code> ist der Inhalt des Elements ein <i>text node</i>.</td>
+</tr>
+<tr>
+<td class="code">Namensraumknoten<br><i>(namespace node)</i></td>
+<td class="tabxpl">Sowohl Elemente als auch Attribute können Namensraumangaben enthalten, wenn entsprechende Namensräume in eine XML-Datei importiert werden. Ähnlich wie Attributknoten einem Elementknoten zugeordnet sind, sind Namensraumknoten einem Elementknoten oder einem Attributknoten zugeordnet. Bei einer Notation wie <code>&lt;x:a y:b="irgendwas"&gt;</code> sind <code>x</code> und <code>y</code> Namensraumangaben. <code>x</code> ist ein <i>namespace node</i>, der dem Element <code>a</code> zugeordnet ist, und <code>y</code> ein <i>namespace node</i>, der dem Attribut <code>b</code> zugeordnet ist.</td>
+</tr>
+<tr>
+<td class="code">Verarbeitungsanweisungsknoten<br><i>(processing instruction node)</i></td>
+<td class="tabxpl">Verarbeitungsanweisungen, die in einem XML-Dokument vorkommen (sie beginnen mit <code>&lt;?</code> und enden mit <code>?&gt;</code>), stehen außerhalb des eigentlichen Dokumentbaums. Sie stellen aus XPath-Sicht einen eigenen Knotentyp dar, wobei das Ziel der Verarbeitungsanweisung den Namen des Knoten und der Rest den Inhalt des Knotens bildet. In einer Verarbeitungsanweisung wie <code>&lt;?xml-stylesheet type="text/xsl" href="darstellung.xsl"?&gt;</code> ist der Teil <code>xml-stylesheet</code> der Name des Knotens.<br>
+Die XML-Deklaration <code>&lt;?xml version="1.0"?&gt;</code>, die zu Beginn einer XML-Datei notiert werden sollte, ist allerdings keine Verarbeitungsanweisung in diesem Sinne, auch wenn sie syntaktisch genau so aussieht.</td>
+</tr>
+<tr>
+<td class="code">Kommentarknoten<br><i>(comment node)</i></td>
+<td class="tabxpl">Kommentare, also Inhalte, die in die Zeichenfolgen <code>&lt;!--</code> und <code>--&gt;</code> eingeschlossen sind, werden als Kommentarknoten bezeichnet. Der Kommentarknoten ist dabei der Inhalt des Kommentars. Bei einem Kommentar wie <code>&lt;!--irgendwas--&gt;</code> ist die Zeichenfolge <code>irgendwas</code> der <i>comment node</i>.</td>
+</tr>
+</table>
+
+<h3><a name="achsen">Achsen</a></h3>
+
+<p>Die Baumstruktur eines XML-Dokuments ergibt für die einzelnen Knoten, dass diese verschiedene Beziehungen untereinander haben. So gibt es Knoten, die von anderen Knoten abhängen, und solche, die auf einer gemeinsamen Ebene liegen. Dafür hält XPath verschiedene Begriffe bereit, die aus der Verwandtschaftsterminologie stammen und als Achsen (<i>axes</i>) bezeichnet werden. Die englischen Begriffe (in der folgenden Tabelle <i>kursiv</i> dargestellt) werden auch bei der <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#notation">ausführlichen Adressierung</a> verwendet. XPath unterscheidet 13 Achsen:</p>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<th>Achse</th>
+<th>Bedeutung</th>
+<th>Visualisierung</th>
+</tr>
+<tr>
+<td class="code">Kind<br><i>(child)</i></td>
+<td class="tabxpl">Unmittelbar untergeordnete Knoten. In einer Struktur wie <code>&lt;a&gt;&lt;b&gt;...&lt;/b&gt;&lt;/a&gt;</code> ist das Element <code>b</code> aus Sicht des Elements <code>a</code> ein <i>child</i>.</td>
+<td class="tabxpl" nowrap="nowrap">siehe <img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/child.htm">grafische Darstellung</a></td>
+</tr>
+<tr>
+<td class="code">Elternknoten<br><i>(parent)</i></td>
+<td class="tabxpl">Der unmittelbar übergeordnete Knoten. In einer Struktur wie <code>&lt;a&gt;&lt;b&gt;...&lt;/b&gt;&lt;/a&gt;</code> ist das Element <code>a</code> aus Sicht des Elements <code>b</code> ein <i>parent</i>.</td>
+<td class="tabxpl" nowrap="nowrap">siehe <img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/parent.htm">grafische Darstellung</a></td>
+</tr>
+<tr>
+<td class="code">Nachkommen<br><i>(descendant)</i></td>
+<td class="tabxpl">Untergeordnete Knoten, auch solche, die weiter als unmittelbar untergeordnet sind. In einer Struktur wie <code>&lt;a&gt;&lt;b&gt;&lt;c&gt;...&lt;/c&gt;&lt;/b&gt;&lt;/a&gt;</code> ist sowohl das Element <code>b</code> als auch das Element <code>c</code> aus Sicht des Elements <code>a</code> ein <i>descendant</i>.</td>
+<td class="tabxpl" nowrap="nowrap">siehe <img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/descendant.htm">grafische Darstellung</a></td>
+</tr>
+<tr>
+<td class="code">Vorfahr<br><i>(ancestor)</i></td>
+<td class="tabxpl">Übergeordnete Knoten, auch solche, die weiter als unmittelbar übergeordnet sind. In einer Struktur wie <code>&lt;a&gt;&lt;b&gt;&lt;c&gt;...&lt;/c&gt;&lt;/b&gt;&lt;/a&gt;</code> ist sowohl das Element <code>b</code> als auch das Element <code>a</code> aus Sicht des Elements <code>c</code> ein <i>ancestor</i>.</td>
+<td class="tabxpl" nowrap="nowrap">siehe <img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/ancestor.htm">grafische Darstellung</a></td>
+</tr>
+<tr>
+<td class="code">Nachfolgende Knoten<br><i>(following)</i></td>
+<td class="tabxpl">Knoten, die nach dem aktuellen Knoten im restlichen XML-Dokument folgen, unabhängig von der Hierarchie der Knoten (ausgeschlossen Nachkommen-Knoten des aktuellen Knotens). In einer Struktur wie <code>&lt;a&gt;&lt;b&gt;&lt;c&gt;...&lt;/c&gt;&lt;/b&gt;&lt;b&gt;&lt;c&gt;...&lt;/c&gt;&lt;/b&gt;&lt;/a&gt;</code> haben aus Sicht des ersten <code>c</code>-Elements das zweite <code>b</code>-Element, das zweite <code>c</code>-Element und dessen Inhalt den Status <i>following</i>.</td>
+<td class="tabxpl" nowrap="nowrap">siehe <img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/following.htm">grafische Darstellung</a></td>
+</tr>
+<tr>
+<td class="code">Vorherige Knoten<br><i>(preceding)</i></td>
+<td class="tabxpl">Knoten, die vor dem aktuellen Knoten im XML-Dokument stehen, unabhängig von der Hierarchie der Knoten (ausgeschlossen Vorfahr-Knoten des aktuellen Knotens). In einer Struktur wie <code>&lt;a&gt;&lt;b&gt;&lt;c&gt;...&lt;/c&gt;&lt;c&gt;...&lt;/c&gt;&lt;/b&gt;&lt;b&gt;&lt;/b&gt;&lt;/a&gt;</code> haben aus Sicht des zweiten <code>b</code>-Elements das erste <code>b</code>-Element und dessen Kind-Elemente den Status <i>preceding</i>.</td>
+<td class="tabxpl" nowrap="nowrap">siehe <img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/preceding.htm">grafische Darstellung</a></td>
+</tr>
+<tr>
+<td class="code">Nachfolgende Geschwisterknoten<br><i>(following-sibling)</i></td>
+<td class="tabxpl">Knoten, die nach dem aktuellen Knoten im restlichen XML-Dokument folgen, und zwar auf der gleichen Hierarchie-Ebene. In einer Struktur wie <code>&lt;a&gt;&lt;b&gt;&lt;c&gt;...&lt;/c&gt;&lt;c&gt;...&lt;/c&gt;&lt;/b&gt;&lt;/a&gt;&lt;c&gt;...&lt;/c&gt;</code> hat aus Sicht des ersten <code>c</code>-Elements das zweite <code>c</code>-Element den Status <i>following-sibling</i>, das dritte <code>c</code>-Element dagegen nicht.</td>
+<td class="tabxpl" nowrap="nowrap">siehe <img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/following_sibling.htm">grafische Darstellung</a></td>
+</tr>
+<tr>
+<td class="code">Vorherige Geschwisterknoten<br><i>(preceding-sibling)</i></td>
+<td class="tabxpl">Knoten, die vor dem aktuellen Knoten im XML-Dokument stehen, und zwar auf der gleichen Hierarchie-Ebene. In einer Struktur wie <code>&lt;c&gt;...&lt;/c&gt;&lt;a&gt;&lt;b&gt;&lt;c&gt;...&lt;/c&gt;&lt;c&gt;...&lt;/c&gt;&lt;/b&gt;&lt;/a&gt;</code> hat aus Sicht des dritten <code>c</code>-Elements das zweite <code>c</code>-Element den Status <i>preceding-sibling</i>, das erste <code>c</code>-Element dagegen nicht.</td>
+<td class="tabxpl" nowrap="nowrap">siehe <img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/preceding_sibling.htm">grafische Darstellung</a></td>
+</tr>
+<tr>
+<td class="code">Attribut<br><i>(attribute)</i></td>
+<td class="tabxpl">Attributknoten eines Elements. Attribute erhalten damit, obwohl auch sie ihren Platz in der Hierarchie einer XML-Dokumentstruktur haben, eine Sonderstellung und werden nicht in das Schema der Begriffe <i>child</i>, <i>parent</i>, <i>descendant</i> und <i>ancestor</i> eingefügt. In einer Struktur wie <code>&lt;a b="irgendwas"&gt;</code> ist <code>b</code> aus Sicht von <code>a</code> ein <i>attribute</i>.</td>
+<td class="tabxpl" nowrap="nowrap">&nbsp;</td>
+</tr>
+<tr>
+<td class="code">Namensraum<br><i>(namespace)</i></td>
+<td class="tabxpl">Zugehöriger Namensraumknoten des aktuellen Elements. In einer Struktur wie <code>&lt;x:a&gt;...&lt;/x:a&gt;</code> ist aus Sicht des <code>a</code>-Elements <code>x</code> der zugehörige <i>namespace</i>.</td>
+<td class="tabxpl" nowrap="nowrap">&nbsp;</td>
+</tr>
+<tr>
+<td class="code">Der aktuelle Knoten selbst<br><i>(self)</i></td>
+<td class="tabxpl">Der aktuelle Knoten. Wenn in einer Struktur wie <code>&lt;a&gt;&lt;b&gt;&lt;c&gt;...&lt;/c&gt;&lt;c&gt;...&lt;/c&gt;&lt;/b&gt;&lt;/a&gt;</code> vom XSLT-Prozessor gerade das <code>b</code>-Element verarbeitet wird, dann hat dieses in dem Moment den Status <i>self</i>.</td>
+<td class="tabxpl" nowrap="nowrap">siehe <img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/self.htm">grafische Darstellung</a></td>
+</tr>
+<tr>
+<td class="code">Nachkommen oder der aktuelle Knoten selbst<br><i>(descendant-or-self)</i></td>
+<td class="tabxpl">Der aktuelle Knoten oder Nachkommen davon. Wenn in einer Struktur wie <code>&lt;a&gt;&lt;b&gt;&lt;c&gt;...&lt;/c&gt;&lt;c&gt;...&lt;/c&gt;&lt;/b&gt;&lt;/a&gt;</code> vom XSLT-Prozessor gerade das <code>b</code>-Element verarbeitet wird, dann haben dieses und das nachfolgende <code>c</code>-Element in dem Moment den Status <i>descendant-or-self</i>.</td>
+<td class="tabxpl" nowrap="nowrap">siehe <img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/descendant_or_self.htm">grafische Darstellung</a></td>
+</tr>
+<tr>
+<td class="code">Vorfahre oder der aktuelle Knoten selbst<br><i>(ancestor-or-self)</i></td>
+<td class="tabxpl">Der aktuelle Knoten oder Vorfahren davon. Wenn in einer Struktur wie <code>&lt;a&gt;&lt;b&gt;&lt;c&gt;...&lt;/c&gt;&lt;c&gt;...&lt;/c&gt;&lt;/b&gt;&lt;/a&gt;</code> vom XSLT-Prozessor gerade das <code>b</code>-Element verarbeitet wird, dann haben dieses und das vorhergehende <code>a</code>-Element in dem Moment den Status <i>ancestor-or-self</i>.</td>
+<td class="tabxpl" nowrap="nowrap">siehe <img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/ancestor_or_self.htm">grafische Darstellung</a></td>
+</tr>
+</table>
+
+
+
+<h3><a name="pfade">Pfade</a></h3>
+
+<p>XPath stellt zwei syntaktische Mittel bereit, um den Pfad zu einem oder mehreren Knoten zu notieren:</p>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<th>Notation</th>
+<th>Beschreibung</th>
+<th>Bedeutung</th>
+</tr>
+<tr>
+<td class="code"><code>/</code></td>
+<td class="tabxpl">einfacher Schrägstrich</td>
+<td class="tabxpl">Pfad-Trennzeichen für tatsächliche Namen von Knoten. In einer Struktur wie <code>&lt;a&gt;&lt;b&gt;&lt;c&gt;...&lt;/c&gt;&lt;c&gt;...&lt;/c&gt;&lt;/b&gt;&lt;/a&gt;</code> lässt sich das <code>c</code>-Element als Pfadangabe in der Form <code>a/b/c</code> darstellen.</td>
+</tr>
+<tr>
+<td class="code"><code>::</code></td>
+<td class="tabxpl">doppelter Doppelpunkt</td>
+<td class="tabxpl">Pfad-Trennzeichen für Knotenangaben mit Achsen. In einer Struktur wie <code>&lt;a&gt;&lt;b&gt;&lt;c&gt;...&lt;/c&gt;&lt;c&gt;...&lt;/c&gt;&lt;/b&gt;&lt;/a&gt;</code> lässt sich das <code>c</code>-Element als Pfadangabe z.B. in der Form <code>a/b/child::c</code> darstellen. Mehr dazu im folgenden Abschnitt.</td>
+</tr>
+</table>
+<br>&nbsp;
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/xpath10.gif" width="30" height="30" alt="XPath 1.0" title="XPath 1.0">&nbsp;<a class="an" name="notation">Ausführliche und verkürzte Notation</a></h2>
+
+<p>Beim Adressieren von Knoten einer XML-Datenstruktur gibt es Ausdrücke wie <code>/child::person/child::augen/attribute::farbe</code>. Solche Ausdrücke werden als <b>ausführliche Notation</b> bezeichnet, weil sie die vollen Achsenbezeichnungen enthalten. Der Ausdruck <code>/child::person/child::augen/attribute::farbe</code> kann jedoch ebensogut in der Form <code>/person/augen/@farbe</code> notiert werden. Dies ist die <b>verkürzte Notation</b>, die auf die Achsenbezeichnung <code>child::</code> verzichtet und einige andere Einsparungen erlaubt. In den Beispielen weiter unten werden die beiden Notationsvarianten jeweils parallel gezeigt.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/xpath10.gif" width="30" height="30" alt="XPath 1.0" title="XPath 1.0">&nbsp;<a class="an" name="dokumentwurzel">Adressierung der Dokumentwurzel</a></h2>
+
+<p>Jedes XML-Dokument hat eine Wurzel, die auch adressierbar ist.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<pre>
+&lt;xsl:template match="/"&gt;
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Beispiel&lt;/title&gt;&lt;/head&gt;
+&lt;body&gt;
+ &lt;xsl:apply-templates /&gt;
+&lt;/body&gt;&lt;/html&gt;
+&lt;/xsl:template&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Der Wurzelknoten eines XML-Dokuments wird mit einem einzelnen Schrägstrich (<code>/</code>) adressiert. Im Beispiel wird mit <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="xsltelemente.htm#template">xsl:template</a> ein Template für die XML-Dokumentwurzel definiert. Im <code>match</code>-Attribut wird die Dokumentwurzel adressiert.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/xpath10.gif" width="30" height="30" alt="XPath 1.0" title="XPath 1.0">&nbsp;<a class="an" name="absolute_pfadangaben">Adressierung mit absoluten Pfadangaben</a></h2>
+
+<p>Knoten eines XML-Dokuments sind mit Hilfe einer absoluten Pfadangabe adressierbar.</p>
+
+<h3 class="xmp">Beispiel 1 (ausführliche Notation):</h3>
+
+<pre>
+&lt;xsl:template match="/child::adresse/child::vorname"&gt;
+&lt;b&gt;&lt;xsl:value-of select="/child::adresse/child::vorname" /&gt;&lt;/b&gt;
+&lt;/xsl:template&gt;
+</pre>
+
+<h3 class="xmp">Beispiel 2 (verkürzte Notation):</h3>
+
+<pre>
+&lt;xsl:template match="/adresse/vorname"&gt;
+&lt;b&gt;&lt;xsl:value-of select="/adresse/vorname" /&gt;&lt;/b&gt;
+&lt;/xsl:template&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Absolute Pfadangaben beginnen mit einem Schrägstrich (<code>/</code>), der die Dokumentwurzel repräsentiert. Weitere Hierarchie-Ebenen werden durch weitere Schrägstriche markiert. Die Knoten, über die der Pfad läuft, werden wie in Beispiel 1 gezeigt durch ihre Achse und den gewünschten Knotennamen bezeichnet, getrennt durch doppelten Doppelpunkt (<code>::</code>). Ebenfalls erlaubt und häufiger verwendet ist allerdings die in Beispiel 2 gezeigte verkürzte Notation ohne Achsenbezeichnungen. Im Beispiel wird mit der <code>xsl:template</code>-Anweisung ein Template für ein Element namens <code>vorname</code> definiert, das ein Kindelement des Elements <code>adresse</code> ist, das wiederum ein Kindelement der Dokumentwurzel ist. Auch im <code>select</code>-Attribut der <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="xsltelemente.htm#value_of">xsl:value-of</a>-Anweisung wird die Syntax verwendet.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/xpath10.gif" width="30" height="30" alt="XPath 1.0" title="XPath 1.0">&nbsp;<a class="an" name="relative_pfadangaben">Adressierung mit relativen Pfadangaben</a></h2>
+
+<p>Knoten eines XML-Dokuments sind mit Hilfe einer relativen Pfadangabe adressierbar.</p>
+
+<h3 class="xmp">Angenommene XML-Struktur:</h3>
+
+<pre>
+&lt;liga&gt;
+ &lt;liga-eintrag&gt;
+  &lt;spieler&gt;...&lt;/spieler&gt;
+   &lt;ergebnis&gt;
+    &lt;punktzahl&gt;...&lt;/punktzahl&gt;
+   &lt;/ergebnis&gt;
+ &lt;/liga-eintrag&gt;
+&lt;/liga&gt;
+</pre>
+
+<h3 class="xmp">Beispiel 1 (ausführliche Notation):</h3>
+
+<pre>
+&lt;xsl:template match="./child::liga-eintrag/child::ergebnis"&gt;
+ &lt;span class="normal"&gt;&lt;xsl:value-of select="parent::spieler" /&gt;&lt;/span&gt;
+ &lt;span class="betont"&gt;&lt;xsl:value-of select="./child::punktzahl" /&gt;&lt;/span&gt;
+&lt;/xsl:template&gt;
+</pre>
+
+<h3 class="xmp">Beispiel 2 (verkürzte Notation):</h3>
+
+<pre>
+&lt;xsl:template match="liga-eintrag/ergebnis"&gt;
+ &lt;span class="normal"&gt;&lt;xsl:value-of select="../spieler" /&gt;&lt;/span&gt;
+ &lt;span class="betont"&gt;&lt;xsl:value-of select="punktzahl" /&gt;&lt;/span&gt;
+&lt;/xsl:template&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel nimmt eine typische verschachtelte Elementstruktur an. Es nimmt an, dass es für das Element <code>liga</code> eine Template-Definition gibt, in der mit der <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="xsltelemente.htm#apply_templates">xsl:apply-templates</a>-Anweisung untergeordnete Templates aufgerufen werden. Weiterhin nimmt das Beispiel an, dass für das Element <code>liga-eintrag</code> keine Template-Definition exisitert, erst wieder für dessen Kindelement <code>ergebnis</code>. Um dieses Element aus Sicht des Großvaterelements <code>liga</code> zu adressieren, ist eine relative Pfadangabe im <code>match</code>-Attribut der <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="xsltelemente.htm#template">xsl:template</a>-Anweisung nötig. In der ausführlichen Notation lautet diese Pfadangabe <code>./child::liga-eintrag/child::ergebnis</code>, in der verkürzten, leichter lesbaren Notation <code>liga-eintrag/ergebnis</code>. Die Zeichenfolge <code>./</code> (Punkt und Schrägstrich) steht für "aktueller Standpunkt". Diese Zeichenfolge kann auch weggelassen werden. Ansonsten besteht die relative Pfadangabe einfach aus der Folge der hierarchie-bestimmenden Knotennamen. Bei der ausführlichen Notation wird dabei stets noch die Achsenbezeichnung <code>child::</code> benutzt, während bei der verkürzten Notation die bloßen Knotennamen (im Beispiel die Elementnamen <code>liga-eintrag</code> und <code>ergebnis</code>) genügen. Trennzeichen für Hierarchie-Ebenen ist der einfache Schrägstrich (<code>/</code>).</p>
+
+<p>Innerhalb der Template-Definition für das Element <code>ergebnis</code> wird unter anderem HTML-Code für ein anderes Element der Ausgangsdaten, nämlich für das Element <code>spieler</code> notiert. Dieses Element liegt jedoch auf der gleichen Hierarchie-Ebene wie das aktuelle Element <code>ergebnis</code> (Geschwisterknoten). Um es aus Sicht von <code>ergebnis</code> anzusprechen, muss es über den Umweg des gemeinsamen Elternelements adressiert werden. In der ausführlichen Notation steht dafür die Achsenbezeichnung <code>parent::</code> zur Verfügung, gefolgt vom Namen des anderen Kindknotens. In der verkürzten Notation genügt die Angabe von zwei Punkten, gefolgt von einem Schrägstrich (<code>../</code>), um den Weg über das Elternelement zu beschreiben.</p>
+
+<p>Für die HTML-Ausgabe des Elements <code>punktzahl</code> wird ebenfalls eine relative Adressierung verwendet. Da das Element <code>punktzahl</code> aus Sicht des aktuellen Elements <code>ergebnis</code> einfach ein Kindelement ist, genügen die Angaben <code>./child::punktzahl</code> (ausführliche Notation) bzw. <code>punktzahl</code> (verkürzte Notation) zur Adressierung.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/xpath10.gif" width="30" height="30" alt="XPath 1.0" title="XPath 1.0">&nbsp;<a class="an" name="attribute">Adressierung von Attributen</a></h2>
+
+<p>Attribute von Elementen werden in XPath als Attributknoten behandelt und entsprechend adressiert.</p>
+
+<h3 class="xmp">Beispiel 1 (ausführliche Notation):</h3>
+
+<pre>
+&lt;xsl:template match="./child::augen/attribute::farbe"&gt;
+  &lt;tr&gt;&lt;td&gt;&lt;b&gt;&lt;xsl:text&gt;Augenfarbe:&lt;/xsl:text&gt;&lt;/b&gt;&lt;/td&gt;
+  &lt;td&gt;&lt;xsl:value-of select="." /&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/xsl:template&gt;
+</pre>
+
+<h3 class="xmp">Beispiel 2 (verkürzte Notation):</h3>
+
+<pre>
+&lt;xsl:template match="augen/@farbe"&gt;
+  &lt;tr&gt;&lt;td&gt;&lt;b&gt;&lt;xsl:text&gt;Augenfarbe:&lt;/xsl:text&gt;&lt;/b&gt;&lt;/td&gt;
+  &lt;td&gt;&lt;xsl:value-of select="." /&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/xsl:template&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel nimmt an, dass es eine XML-Notation <code>&lt;augen farbe="..."&gt;</code> gibt. Für das Attribut wird ein eigenes Template definiert. Dabei wird im HTML-Ergebnisbaum eine zweispaltige Tabellenzeile erzeugt, in der links das statische Wort <code>Augenfarbe:</code> steht, während in der rechten Spalte der Wert des Attributs <code>farbe</code> ausgegeben wird. Das <code>match</code>-Attribut der Template-Definition wird so adressiert, dass das Template von einem Elternelement von <code>augen</code> aus - z.B. von <code>person</code> - aufgerufen werden kann. Der Pfad lautet dann in der ausführlichen Notation <code>./child::augen/attribute::farbe</code> und in der verkürzten, gebräuchlicheren Notation <code>augen/@farbe</code>. Bei der ausführlichen Notation kommen also die Achsenbezeichnungen <code>child::</code> (für Kindelement <code>child</code> aus Sicht von <code>person</code>) und <code>attribute::</code> für die Auswahl von dessen Attribut <code>farbe</code> zum Einsatz. In der verkürzten Notation genügt die relative Angabe des Kindelements <code>augen</code> und der Attributname, angeführt von einem Klammeraffen (<code>@</code>).</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/xpath10.gif" width="30" height="30" alt="XPath 1.0" title="XPath 1.0">&nbsp;<a class="an" name="wildcards">Adressierung mit Wildcards</a></h2>
+
+<p>Die Adressierung mit Wildcards erlaubt es, mehrere Knoten auf einmal auszuwählen.</p>
+
+<h3 class="xmp">Angenommene XML-Struktur:</h3>
+
+<pre>
+&lt;dateicode&gt;
+ &lt;signature&gt;474946383961&lt;/signature&gt;
+ &lt;screen-descriptor&gt;10000200B30000&lt;/screen-descriptor&gt;
+ &lt;color-map&gt;000000BF000000BF00BFBF00&lt;/color-map&gt;
+ &lt;extension-block&gt;21F90401000000&lt;/extension-block&gt;
+ &lt;!-- usw. --&gt;
+&lt;/dateicode&gt;
+</pre>
+
+<h3 class="xmp">Beispiel 1 (ausführliche Notation):</h3>
+
+<pre>
+&lt;xsl:template match="dateicode"&gt;
+ &lt;xsl:value-of select="child::*" /&gt;
+&lt;/xsl:template&gt;
+</pre>
+
+<h3 class="xmp">Beispiel 2 (verkürzte Notation):</h3>
+
+<pre>
+&lt;xsl:template match="dateicode"&gt;
+ &lt;xsl:value-of select="*" /&gt;
+&lt;/xsl:template&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel nimmt an, dass mit Hilfe von XML-Elementen der Aufbau einer Binärdatei (im Beispiel: GIF-Format) beschrieben wird. In der Ausgabe sollen die Inhalte aller Kindelemente von <code>dateicode</code> einfach in einem Rutsch geschrieben werden. In der Template-Definition zu <code>dateicode</code> wird dies im <code>select</code>-Attribut der <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="xsltelemente.htm#value_of">xsl:value-of</a>-Anweisung durch Angabe des Wildcard-Zeichens <code>*</code> (Sternzeichen) erreicht. In der ausführlichen Notation ist die Achsenbezeichnung <code>child::</code> angegeben, in der verkürzten Notation kann diese entfallen.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Das Wildcard-Zeichen <code>*</code> (Sternzeichen) wählt nur auf der nächstunteren Hierarchie-Ebene aus. Eine verschärfte Form ist die Zeichenfolge <code>//</code> (zwei Schrägstriche). Damit wird auf allen untergeordneten Hierarchie-Ebenen ausgewählt, egal, wie tief sich der Baum noch verzweigt.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/xpath10.gif" width="30" height="30" alt="XPath 1.0" title="XPath 1.0">&nbsp;<a class="an" name="position_bedingungen">Adressierung mit Positionsangabe und Bedingungen</a></h2>
+
+<p>Durch absolute und relative Adressierung ist noch nicht jedes beliebige Element ansprechbar. Angenommen, ein Element namens <code>liste</code> hat 25 Kindelemente namens <code>listeneintrag</code>, dann greift eine Adressierung wie <code>liste/listeneintrag</code> nur auf das erste dieser Elemente zu. Solche Probleme lassen sich zwar auch durch <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="xsltelemente.htm#for_each">xsl:for-each</a>-Schleifen in den Griff bekommen, doch manchmal wird man auch nur ein bestimmtes der Kindelemente ansprechen wollen, und nicht alle der Reihe nach. Die folgenden Beispiele zeigen Adressierungen mit Positionsangaben und Bedingungen, um bestimmte einzelne Elemente zu adressieren. Dabei kommen zum Teil auch <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="xpathfunktionen.htm">XPath-Funktionen</a> zum Einsatz.</p>
+
+<p>Syntax-Bestandteile in eckigen Klammern (<code>[]</code>) gehören ebenfalls zum Inventar der Adressierung mit Positionsangaben und Bedingungen. Solche Bestandteile werden als <b>Prädikate</b> bezeichnet. Viele der folgenden Beispiele verwenden solche Prädikate.</p>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<th>Beispiel</th>
+<th>Notation</th>
+<th>Erläuterung</th>
+</tr>
+<tr>
+<td class="code"><code>self::liste</code></td>
+<td class="tabxpl">ausführlich</td>
+<td class="tabxpl">adressiert das aktuelle Element, jedoch nur dann, wenn es vom Typ <code>liste</code> ist.</td>
+</tr>
+<tr>
+<td class="code"><code>child::listeneintrag[position() = 3]</code></td>
+<td class="tabxpl">ausführlich</td>
+<td class="tabxpl">adressiert das 3. Kindelement vom Typ <code>listeneintrag</code> mit Hilfe der XPath-Funktion <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="xpathfunktionen.htm#position">position()</a>.</td>
+</tr>
+<tr>
+<td class="code"><code>listeneintrag[3]</code></td>
+<td class="tabxpl">verkürzt</td>
+<td class="tabxpl">adressiert das 3. Kindelement vom Typ <code>listeneintrag</code>.</td>
+</tr>
+<tr>
+<td class="code"><code>child::listeneintrag[position() = last()]</code></td>
+<td class="tabxpl">ausführlich</td>
+<td class="tabxpl">adressiert das letzte Kindelement vom Typ <code>listeneintrag</code> mit Hilfe der XPath-Funktion <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="xpathfunktionen.htm#last">last()</a>.</td>
+</tr>
+<tr>
+<td class="code"><code>listeneintrag[last()]</code></td>
+<td class="tabxpl">verkürzt</td>
+<td class="tabxpl">adressiert das letzte Kindelement vom Typ <code>listeneintrag</code> mit Hilfe der XPath-Funktion <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="xpathfunktionen.htm#last">last()</a>.</td>
+</tr>
+<tr>
+<td class="code"><code>listeneintrag[last()-1]</code></td>
+<td class="tabxpl">verkürzt</td>
+<td class="tabxpl">adressiert das vorletzte Kindelement vom Typ <code>listeneintrag</code> mit Hilfe der XPath-Funktion <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="xpathfunktionen.htm#last">last()</a>.</td>
+</tr>
+<tr>
+<td class="code"><code>/buch/kapitel[2]/abschnitt[4]/absatz[17]</code></td>
+<td class="tabxpl">verkürzt</td>
+<td class="tabxpl">adressiert in einem Buch absolut den 17. Absatz des 4. Abschnitts im 2. Kapitel (entsprechende XML-Elementnamen vorausgesetzt).</td>
+</tr>
+<tr>
+<td class="code"><code>child::augen[attribute::farbe='blau']</code></td>
+<td class="tabxpl">ausführlich</td>
+<td class="tabxpl">adressiert das Kindelement <code>augen</code>, jedoch nur dann, wenn es ein Attribut <code>farbe</code> mit dem Wert <code>blau</code> hat.</td>
+</tr>
+<tr>
+<td class="code"><code>augen[@farbe='blau']</code></td>
+<td class="tabxpl">verkürzt</td>
+<td class="tabxpl">adressiert das Kindelement <code>augen</code>, jedoch nur dann, wenn es ein Attribut <code>farbe</code> mit dem Wert <code>blau</code> hat.</td>
+</tr>
+<tr>
+<td class="code"><code>child::augen[attribute::farbe and attribute::sehstaerke]</code></td>
+<td class="tabxpl">ausführlich</td>
+<td class="tabxpl">adressiert das Kindelement <code>augen</code>, jedoch nur dann, wenn es sowohl ein Attribut <code>farbe</code> als auch ein Attribut <code>sehstaerke</code> hat (egal mit welchen zugewiesenen Werten).</td>
+</tr>
+<tr>
+<td class="code"><code>augen[@farbe and @sehstaerke]</code></td>
+<td class="tabxpl">verkürzt</td>
+<td class="tabxpl">adressiert das Kindelement <code>augen</code>, jedoch nur dann, wenn es sowohl ein Attribut <code>farbe</code> als auch ein Attribut <code>sehstaerke</code> hat (egal mit welchen zugewiesenen Werten).</td>
+</tr>
+<tr>
+<td class="code"><code>/child::*[self::inhaltsverzeichnis or self::stichwortverzeichnis]</code></td>
+<td class="tabxpl">ausführlich</td>
+<td class="tabxpl">adressiert in einem Buch absolut alle Kindelemente unterhalb der Wurzel, jedoch nur solche, die als Elementnamen <code>inhaltsverzeichnis</code> oder <code>stichwortverzeichnis</code> haben.</td>
+</tr>
+<tr>
+<td class="code"><code>.</code></td>
+<td class="tabxpl">verkürzt</td>
+<td class="tabxpl">adressiert den aktuellen Knoten.</td>
+</tr>
+<tr>
+<td class="code"><code>..</code></td>
+<td class="tabxpl">verkürzt</td>
+<td class="tabxpl">adressiert den Elternknoten des aktuellen Knotens.</td>
+</tr>
+<tr>
+<td class="code"><code>kapitel//absatz</code></td>
+<td class="tabxpl">verkürzt</td>
+<td class="tabxpl">adressiert alle Elemente vom Typ <code>absatz</code>, die aus Sicht eines aktuellen Knotens unterhalb von Elementen vom Typ <code>kapitel</code> liegen. Die Syntax <code>//</code> wird auch als <i>recursive descent operator</i> bezeichnet. <code>//X</code> bezeichnet das gleiche wie <code>/descendant-or-self::node()/X</code>.</td>
+</tr>
+<tr>
+<td class="code"><code>buch//kapitel[position() &lt; 5]</code></td>
+<td class="tabxpl">verkürzt</td>
+<td class="tabxpl">adressiert die ersten vier Kindelemente des Typs <code>kapitel</code> innerhalb eines Elements vom Typ <code>buch</code>.</td>
+</tr>
+</table>
+<br>&nbsp;
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/xpath10.gif" width="30" height="30" alt="XPath 1.0" title="XPath 1.0">&nbsp;<a class="an" name="operatoren">XPath-Operatoren</a></h2>
+
+<p>XPath bietet eine Reihe von Operatoren an, die es erlauben, Werte zu vergleichen, Berechnungen durchzuführen, oder Ausdrücke zu bewerten. Solche Operatoren können in Attributen bestimmter <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="xsltelemente.htm">XSLT-Elemente</a> vorkommen. Dort helfen sie, Bedingungen zu formulieren, Elementpositionen zu berechnen und anderes mehr. XPath kennt folgende Operatoren:</p>
+
+
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<th>Operator</th>
+<th>Bedeutung</th>
+</tr>
+<tr>
+<td class="code"><code>+</code></td>
+<td class="tabxpl">Addition</td>
+</tr>
+<tr>
+<td class="code"><code>-</code></td>
+<td class="tabxpl">Subtraktion</td>
+</tr>
+<tr>
+<td class="code"><code>*</code></td>
+<td class="tabxpl">Multiplikation - jedoch nur, wenn vor dem Operator keines der folgenden Zeichen bzw. keine der folgenden Zeichenfolgen steht: <code>@ :: ( [ ) ,</code></td>
+</tr>
+<tr>
+<td class="code"><code>=</code></td>
+<td class="tabxpl">gleich (Vergleich zweier Werte)</td>
+</tr>
+<tr>
+<td class="code"><code>!=</code></td>
+<td class="tabxpl">ungleich (Vergleich zweier Werte)</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>&lt;</code> bzw. <code>&amp;lt;</code></td>
+<td class="tabxpl">kleiner als (Vergleich zweier Werte). Maskierung innerhalb von XSLT erforderlich.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>&gt;</code> bzw. <code>&amp;gt;</code></td>
+<td class="tabxpl">größer als (Vergleich zweier Werte). Maskierung innerhalb von XSLT zu empfehlen.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>&lt;=</code> bzw. <code>&amp;lt;=</code></td>
+<td class="tabxpl">kleiner als oder gleich (Vergleich zweier Werte). Maskierung innerhalb von XSLT erforderlich.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>&gt;=</code> bzw. <code>&amp;gt;=</code></td>
+<td class="tabxpl">größer als oder gleich (Vergleich zweier Werte). Maskierung innerhalb von XSLT zu empfehlen.</td>
+</tr>
+<tr>
+<td class="code"><code>and</code></td>
+<td class="tabxpl">logische Und-Verknüpfung (beide Ausdrücke)</td>
+</tr>
+<tr>
+<td class="code"><code>or</code></td>
+<td class="tabxpl">logische Oder-Verknüpfung (einer von beiden Ausdrücken)</td>
+</tr>
+<tr>
+<td class="code"><code>div</code></td>
+<td class="tabxpl">Fließkommateilung</td>
+</tr>
+<tr>
+<td class="code"><code>mod</code></td>
+<td class="tabxpl">Rest der Fließkommateilung</td>
+</tr>
+</table>
+<br>&nbsp;
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="xpathfunktionen.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="xpathfunktionen.htm">XPath-Funktionen</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="xsltelemente.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="xsltelemente.htm">XSLT-Elemente</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">XML/DTDs</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Darstellung von XML-Daten</a></td>
+</tr>
+</table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

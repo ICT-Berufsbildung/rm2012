@@ -1,0 +1,22 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>Test</title>
+<script type="text/javascript">
+function Springen () {
+  var x = parseInt(document.Springer.document.Eingabe.hr.value);
+  var y = parseInt(document.Springer.document.Eingabe.vr.value);
+  document.Springer.moveTo(x, y);
+}
+</script>
+</head><body>
+<layer name="Springer" top="150" left="100" width="200" height="200" bgColor="#FFFFE0">
+<form action="" name="Eingabe">
+links oben neu: <input type="text" size="5" name="hr"> (von links)<br>
+links oben neu: <input type="text" size="5" name="vr"> (von oben)<br>
+<input type="button" value="Springe" onclick="Springen()">
+</form>
+
+<p><a href="../layers.htm#move_to">zur&uuml;ck</a></p>
+</body>
+</html>

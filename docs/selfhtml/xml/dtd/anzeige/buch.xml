@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE buch SYSTEM "buch.dtd">
+
+
+<buch>
+
+<titel>
+<haupttitel>Ich bin der Valentin</haupttitel>
+<untertitel>Wie mein Leben wurde was es geworden ist</untertitel>
+</titel>
+
+<impressum>
+<cip>Deutsche Bibliothek - CIP-Einheitsaufnahme:<zeilenumbruch />
+Titeldatensatz erhältlich bei der Deutschen Bibliothek</cip>
+<copyright>&#169;2000 alle Rechte beim Verlag</copyright>
+<verlag>Eigenverlag, Hinter den Sieben Bergen</verlag>
+</impressum>
+
+
+<inhaltsverzeichnis>
+<ivz_ueberschrift>Inhaltsverzeichnis</ivz_ueberschrift>
+
+<ivz_kapiteleintrag>Meine frühen Jahre</ivz_kapiteleintrag>
+<ivz_abschnittseintrag>Kindheit</ivz_abschnittseintrag>
+<ivz_abschnittseintrag>Jugend</ivz_abschnittseintrag>
+
+<ivz_kapiteleintrag>Wie ich zum Manne wurde</ivz_kapiteleintrag>
+<ivz_abschnittseintrag>Die erste Liebe</ivz_abschnittseintrag>
+
+</inhaltsverzeichnis>
+
+
+<kapitel>
+<kap_ueberschrift>Meine frühen Jahre</kap_ueberschrift>
+
+<abschnitt>
+<ab_ueberschrift>Kindheit</ab_ueberschrift>
+
+<fliesstext>
+Meine Kindheit bestand aus zwei Lebensabschnitten:
+</fliesstext>
+
+<aufzaehlung>
+<aufzaehlungspunkt>- dem Säuglingsalter</aufzaehlungspunkt>
+<aufzaehlungspunkt>- dem Kindesalter</aufzaehlungspunkt>
+</aufzaehlung>
+
+</abschnitt>
+
+<abschnitt>
+<ab_ueberschrift>Jugend</ab_ueberschrift>
+
+<fliesstext>
+Meine Jugend bestand im wesentlichen aus Pickeln.
+</fliesstext>
+
+</abschnitt>
+
+</kapitel>
+
+
+
+<kapitel>
+<kap_ueberschrift>Wie ich zum Manne wurde</kap_ueberschrift>
+
+<abschnitt>
+<ab_ueberschrift>Die erste Liebe</ab_ueberschrift>
+
+<fliesstext>
+Sie <hervorgehoben>kam</hervorgehoben>, <hervorgehoben>geschah</hervorgehoben>, und <hervorgehoben>verging</hervorgehoben> wieder.
+</fliesstext>
+
+<grafik>
+<grafikdatei>ersteliebe.tif</grafikdatei>
+</grafik>
+
+</abschnitt>
+
+</kapitel>
+
+
+
+<stichwortverzeichnis>
+<svz_ueberschrift>Stichwortverzeichnis</svz_ueberschrift>
+
+<svz_eintrag>Jugend</svz_eintrag>
+<svz_eintrag>Kindheit</svz_eintrag>
+<svz_eintrag>Liebe</svz_eintrag>
+<svz_eintrag>Pickel</svz_eintrag>
+<svz_eintrag>Säugling</svz_eintrag>
+
+</stichwortverzeichnis>
+
+</buch>

@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>Test</title>
+<script type="text/javascript">
+function Weiter () {
+  if (document.Testform.Art[0].checked == true) {
+    window.location.href = "frmdatei.htm";
+  } else {
+    window.location.href = "datei.htm";
+  }
+}
+</script>
+</head><body>
+<form name="Testform" action="">
+<input type="radio" name="Art" value="mit"> mit DHTML
+<input type="radio" name="Art" value="ohne"> ohne DHTML
+<br><input type="button" value="Starten" onclick="Weiter()">
+</form>
+<script type="text/javascript">
+dhtml = false;
+
+if (document.layers || document.all || document.getElementById)
+  dhtml = true;
+if (dhtml == true && document.Testform.Art[0].defaultChecked == false)
+  document.Testform.Art[0].checked = true;
+</script>
+
+<p><a href="../elements.htm#default_checked">zur&uuml;ck</a></p>
+</body>
+</html>

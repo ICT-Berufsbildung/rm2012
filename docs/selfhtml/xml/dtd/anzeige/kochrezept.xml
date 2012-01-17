@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE kochrezept SYSTEM "kochrezept.dtd">
+<kochrezept>
+  <zutatenliste>
+     <zutat>300 g  Kartoffeln geschält</zutat>
+     <zutat>2 lg Lauchstangen</zutat>
+     <zutat>1 Zwiebel</zutat>
+     <zutat>1 tb Butter</zutat>
+     <zutat>600 ml Wasser</zutat>
+  </zutatenliste>
+  <anweisungsfolge>
+     <anweisung>Kartoffeln in kleine Würfel schneiden.</anweisung>
+     <anweisung>Lauch putzen und in dünne Ringe schneiden.</anweisung>
+     <anweisung>Zwiebel schälen, fein würfeln und in der Butter glasig dünsten.</anweisung>
+     <anweisung>Kartoffeln, Lauch und Wasser hinzufügen und 18 bis 20 Minuten garen.</anweisung>
+  </anweisungsfolge>
+</kochrezept>

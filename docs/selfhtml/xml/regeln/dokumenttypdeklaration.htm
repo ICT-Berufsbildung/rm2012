@@ -1,0 +1,155 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: XML / Regeln für XML-Dateien / Die Dokumenttyp-Deklaration</title>
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<meta name="description"    content="Welche Bedeutung die Dokumenttyp-Deklaration &lt;!DOCTYPE... in einer XML-Datei hat.">
+<meta name="keywords"       content="SELFHTML, XML, Dokumenttyp, Dokumenttyp-Deklaration, DOCTYPE">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-11-08T02:11:45+01:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/xml/regeln/dokumenttypdeklaration.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="Regeln für XML-Dateien" href="index.htm">
+<link rel="next" title="Regeln für Tags, Attribute, Wertzuweisungen und Kommentare" href="tagsattrwerte.htm">
+<link rel="prev" title="XML-Deklaration und Verarbeitungsanweisungen" href="xmldeklaration.htm">
+<link rel="first" title="XML-Deklaration und Verarbeitungsanweisungen" href="xmldeklaration.htm">
+<link rel="last" title="Regeln beim Editieren von XML und Dateinamenkonventionen" href="allgemein.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">XML/DTDs</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Regeln für XML-Dateien</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Die Dokumenttyp-Deklaration</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#dtds">Interne und externe DTDs</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#interne_dtd">Dokumenttyp-Deklaration mit interner DTD</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#externe_dtd">Dokumenttyp-Deklaration mit externer  DTD</a><br>
+</p>
+</td>
+</tr><tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><a class="an" name="dtds">Interne und externe DTDs</a></h2>
+
+<p>Die Dokumenttyp-Deklaration dient dazu, den Bezug zu einer <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../dtd/index.htm">Document Type Definition (DTD)</a> herzustellen.</p>
+
+<p>Dabei gibt es zwei Möglichkeiten. Entweder Sie definieren die DTD-Regeln innerhalb der Dokumenttyp-Deklaration (<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#interne_dtd">
+Dokumenttyp-Deklaration mit interner DTD</a>), oder Sie geben eine separate Datei an, in der diese Regeln definiert sind (<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#externe_dtd">Dokumenttyp-Deklaration mit externer DTD</a>). Eine externe DTD können Sie lokal adressieren, sofern sich die DTD-Datei auf dem gleichen Rechner(system) befindet wie die Daten. Die externe DTD kann sich jedoch auch auf einem anderen Rechner im Internet befinden. Dann können Sie die DTD mit einem <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/allgemein/referenzieren.htm#uri">URI</a> adressieren.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/xml10.gif" width="30" height="30" alt="XML 1.0" title="XML 1.0"><img src="../../src/msie5.gif" width="30" height="30" alt="MS IE 5.0" title="MS IE 5.0"><img src="../../src/netsc6.gif" width="30" height="30" alt="Netscape 6.0" title="Netscape 6.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/saf12.gif" width="30" height="30" alt="Safari 1.2" title="Safari 1.2">&nbsp;<a class="an" name="interne_dtd">Dokumenttyp-Deklaration mit interner DTD</a></h2>
+
+<p>Die Dokumenttyp-Deklaration muss zu Beginn einer XML-Datei hinter der <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="xmldeklaration.htm">XML-Deklaration</a> (<code>&lt;?xml...?&gt;</code>) folgen. Die internen DTD-Definitionen notieren Sie innerhalb der Dokumenttyp-Deklaration.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<pre>
+&lt;?xml version="1.0"?&gt;
+&lt;!DOCTYPE Gruss [
+  &lt;!ELEMENT Gruss (#PCDATA)&gt;
+]&gt;
+&lt;Gruss&gt;Hallo Jupiter!&lt;/Gruss&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Die Dokumenttyp-Deklaration beginnt mit <code>&lt;!DOCTYPE</code>. Dahinter folgt, durch Leerraum getrennt, der Name des Dokumenttyps - im Beispiel <code>Gruss</code>. Der Name des Dokumenttyps muss mit dem Namen des Dokument-Elements, also dem äußersten Element in der XML Datei, identisch sein. Die DTD notieren Sie hinter dem Namen des Dokumenttyps <b>in eckigen Klammern</b>. Die Definitionen können sich über mehrere Zeilen erstrecken. Am Ende muss eine schließende eckige Klammer stehen und das abschließende <code>&gt;</code> der Dokumenttyp-Deklaration. Im Anschluss daran können Daten entsprechend der DTD notiert werden.</p>
+
+<p>Zur Syntax von DTD-Definitionen siehe <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../dtd/index.htm">Dokumenttyp-Definitionen (DTDs)</a>.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Netscape, Opera, Firefox und Safari nehmen zwar von der internen DTD notiz, beachten aber dessen Angaben bis auf wenige Ausnahmen nicht.</p>
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/xml10.gif" width="30" height="30" alt="XML 1.0" title="XML 1.0"><img src="../../src/msie5.gif" width="30" height="30" alt="MS IE 5.0" title="MS IE 5.0"><img src="../../src/netsc6.gif" width="30" height="30" alt="Netscape 6.0" title="Netscape 6.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/saf12.gif" width="30" height="30" alt="Safari 1.2" title="Safari 1.2">&nbsp;<a class="an" name="externe_dtd">Dokumenttyp-Deklaration mit externer DTD</a></h2>
+
+<p>Die Dokumenttyp-Deklaration muss auch hier zu Beginn einer XML-Datei hinter der <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="xmldeklaration.htm">XML-Deklaration</a> (<code>&lt;?xml...?&gt;</code>) folgen. Innerhalb der Dokumenttyp-Deklaration notieren Sie die Referenz zu der Datei mit den DTD-Definitionen.</p>
+
+<h3>Beispiele für Dokumenttyp-Deklaration mit externer DTD</h3>
+
+<pre>
+&lt;?xml version="1.0"?&gt;
+&lt;!DOCTYPE EMail SYSTEM "../src/email.dtd"&gt;
+</pre>&nbsp;
+<pre>
+&lt;?xml version="1.0"?&gt;
+&lt;!DOCTYPE EMail SYSTEM "http://www.example.org/xmlvorlagen/email.dtd"&gt;
+</pre>&nbsp;
+<pre>
+&lt;?xml version="1.0"?&gt;
+&lt;!DOCTYPE EMail PUBLIC "-//MeineFirma Solutions//DTD EMail V 1.0//DE"
+  "http://www.example.org/dtds/email.dtd">
+</pre>
+
+<h3 class="xpl">Erläuterung</h3>
+
+<p>Die Dokumenttyp-Deklaration beginnt mit <code>&lt;!DOCTYPE</code>. Dahinter folgt, durch Leerraum getrennt, der Name des Dokumenttyps - in allen drei obigen Beispielen <code>EMail</code>. Die nächste Angabe in den drei obigen Beispielen lautet entweder <code>SYSTEM</code> oder <code>PUBLIC</code>. Eine dieser beiden Angaben ist nötig, wenn sich die DTD-Definitionen in einer separaten Datei befinden. Verwenden Sie <code>SYSTEM</code>, wenn Sie den Speicherort der DTD explizit angeben, sei es auf dem eigenen Rechnersystem oder auf einem entfernten Rechner im Internet. Die ersten beiden der obigen Beispiele zeigen entsprechende Adressierungen. Verwenden Sie dagegen <code>PUBLIC</code>, wenn Sie den Speicherort der Datei mit den DTD-Definitionen nicht explizit, sondern durch einen so genannten öffentlichen Bezeichner (<i>public identifier</i>) angeben. Solche Angaben zu einem öffentlichen Bezeichner bestehen aus drei Teilen: erstens der Angabe zur veröffentlichenden Person oder Institution, zweitens einer Bezeichnung der DTD, beginnend mit <code>DTD</code>, gefolgt vom Namen der DTD und einer Versionsangabe, und drittens aus einer Angabe zur Sprache, in der die Namen der Elemente, Attribute usw. in der DTD definiert sind. <code>DE</code> steht für deutsch, <code>EN</code> für englisch usw. Hinter der Angabe zum öffentlichen Bezeichner kann dann noch - wie im obigen Beispiel - die Internet-Adresse mit dem tatsächlichen Speicherort der DTD folgen. Öffentliche Bezeichner sind für den Fall gedacht, dass der verarbeitende XML-Parser keine Möglichkeit hat, auf die entfernte DTD zuzugreifen (z.B. weil keine Internet-Verbindung besteht). Eine echte Gültigkeitsprüfung gegen die DTD ist in einem solchen Fall natürlich nur möglich, wenn der Parser die Regeln der DTD "kennt".</p>
+
+<p>DTD-Dateien haben üblicherweise die Endung <code>.dtd</code>. Bei der Adressierung gelten die gleichen Regeln wie beim <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/allgemein/referenzieren.htm">Referenzieren in HTML</a>.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Netscape, Opera, Firefox und Safari nehmen zwar von der externen DTD Notiz, beachten aber dessen Angaben bis auf wenige Ausnahmen nicht.</p>
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="tagsattrwerte.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="tagsattrwerte.htm">Regeln für Tags, Attribute, Wertzuweisungen und Kommentare</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="xmldeklaration.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="xmldeklaration.htm">XML-Deklaration und Verarbeitungsanweisungen</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">XML/DTDs</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Regeln für XML-Dateien</a></td>
+</tr>
+</table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

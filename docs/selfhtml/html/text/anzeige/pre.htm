@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+       "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>Textabschnitt mit pr&auml;formatiertem Text definieren - pre</title>
+</head>
+<body>
+<h1>Ostern mit Pascal</h1>
+
+<pre>
+ <code>
+  FUNCTION Osterberechnung(year : INTEGER) : INTEGER;
+  VAR  a, b, c, d, e, f, g, h, i, k, l, m : INTEGER;
+  BEGIN
+     a  :=  year MOD 19;
+     b  :=  year DIV 100;
+     c  :=  year MOD 100;
+     d  :=  b DIV 4;
+     e  :=  b MOD 4;
+     f  :=  ( b + 8 ) DIV 25;
+     g  :=  ( b  f + 1 ) DIV 3;
+     h  :=  ( 19 * a + b  d  g + 15 ) MOD 30;
+     i  :=  c DIV 4;
+     k  :=  c MOD 4;
+     l  :=  ( 32 + 2 * e + 2 * i  h  k ) MOD 7;
+     m  :=  ( a + 11 * h + 22 * l ) DIV 451;
+     Easter :=  h + l - 7 * m + 22;
+  END{FUNC};
+ </code>
+</pre>
+
+<p><a href="../praeformatiert.htm#definieren">zur&uuml;ck</a></p>
+</body>
+</html>

@@ -1,0 +1,603 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: Perl / Funktionsreferenz / Funktionen für Berechnungen</title>
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<meta name="description"    content="Welche Funktionen es in Perl gibt, um kaufmännische oder mathematische Berechnungen durchzuführen.">
+<meta name="keywords"       content="SELFHTML, Perl, Funktionen, Perl-Funktionen, Berechnungen, abs, atan2, cos, exp, hex, int, log, oct, rand, sin, sqrt, srand">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-11-09T00:29:27+01:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/perl/funktionen/berechnungen.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="Perl-Funktionen" href="index.htm">
+<link rel="next" title="Funktionen für die Kontrolle des laufenden Scripts" href="kontrolle.htm">
+<link rel="prev" title="Funktionen für Listen bzw. Arrays und Hashes" href="listenhashes.htm">
+<link rel="first" title="Funktionen für Zeichenketten" href="zeichenketten.htm">
+<link rel="last" title="Funktionen für Module und Packages" href="module.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">Perl</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Perl-Funktionen</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Funktionen für Berechnungen</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#allgemeines">Allgemeines zu diesen Funktionen</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#abs">abs</a> - absoluten Wert einer Zahl ermitteln<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#atan2">atan2</a> - Arcus Tangens von y durch x ermitteln<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#cos">cos</a> - Cosinus einer Zahl ermitteln<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#exp">exp</a> - Exponentialwert einer Zahl auf Basis der Zahl "e" ermitteln<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#hex">hex</a> - Dezimalwert einer Hexadezimalzahl ermitteln<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#int">int</a> - Ganzzahlanteil einer Zahl ermitteln<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#log">log</a> - Natürlichen Logarithmus einer Zahl ermitteln<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#oct">oct</a> - Dezimalwert einer Oktalzahl ermitteln<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#rand">rand</a> - Zufallswert ermitteln<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#sin">sin</a> - Sinus einer Zahl ermitteln<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#sqrt">sqrt</a> - Quadratwurzel einer Zahl ermitteln<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#srand">srand</a> - Zufallsberechnung initialisieren<br>
+</p>
+</td>
+</tr><tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><a class="an" name="allgemeines">Allgemeines zu diesen Funktionen</a></h2>
+
+<p>Perl stellt in seinem Kern nur wenige mathematische Funktionen zur Verfügung, da es eher als Sprache für Zeichenketten- und Dateiverarbeitung konzipiert ist. Es gibt jedoch mächtige Module, die Perl auch zu einer mathematisch mächtigen Sprache machen. Beachten Sie neben den hier beschriebenen Funktionen deshalb auch die <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../module/standardmodule.htm">Standardmodule</a>, die sich problemlos einbinden lassen und viele weitere interessante Funktionen für mathematisch-naturwissenschaftliche und kaufmännische Berechnungen zur Verfügung stellen.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="abs">abs - absoluten Wert einer Zahl ermitteln</a></h2>
+
+<p>Erwartet als Parameter:<br>
+<strong>1.</strong> eine beliebige erlaubte Zahl.</p>
+
+<p>Gibt den positiven Wert der Zahl zurück, falls sie negativ ist. Ist die Zahl positiv, wird sie unverändert zurückgegeben.</p>
+
+<h3 class="xmp"><a class="an" name="beispiel1">Beispiel eines vollständigen CGI-Scripts in Perl:</a></h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="http://de.selfhtml.org/cgi-bin/812/berechnungen1.pl">Anzeigebeispiel: So sieht's aus</a> (Zum Aufruf des Scripts ist eine Internet-Verbindung erforderlich)</p>
+
+<pre>
+#!/usr/bin/perl -w
+
+use strict;
+use CGI::Carp qw(fatalsToBrowser);
+
+my @Zahlen = (1463.45,2038.02,-12348.12,5671.12,-4939.48,-1124.09);
+
+print "Content-type: text/html\n\n";
+print '&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"&gt;', "\n";
+print "&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;&lt;/head&gt;&lt;body&gt;\n";
+print "&lt;table border=\"1\"&gt;\n";
+print "&lt;tr&gt;&lt;th&gt;schwarze Zahlen&lt;/th&gt;&lt;th style=\"color:red\"&gt;rote Zahlen&lt;/th&gt;&lt;/tr&gt;\n";
+foreach my $Zahl (@Zahlen) {
+  if($Zahl &gt;= 0) {
+    print "&lt;tr&gt;&lt;td&gt;$Zahl&lt;/td&gt;&lt;td style=\"color:red\"&gt;&amp;nbsp;&lt;/td&gt;&lt;/tr&gt;\n";
+  }
+  else {
+    my $Abszahl = abs($Zahl);
+    print "&lt;tr&gt;&lt;td&gt;&amp;nbsp;&lt;/td&gt;&lt;td style=\"color:red\"&gt;$Abszahl&lt;/td&gt;&lt;/tr&gt;\n";
+  }
+}
+print "&lt;/table&gt;\n";
+print "&lt;/body&gt;&lt;/html&gt;\n";
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel definiert eine Liste <code>@Zahlen</code>. Einige der Zahlen sind positiv, andere negativ. Anschließend wird HTML-Code ausgegeben. Dabei wird eine Tabelle mit zwei Spalten erzeugt. Links stehen positive (schwarze) Zahlen, rechts negative (rote) Zahlen. Die roten Zahlen sollen ohne das Minusvorzeichen, aber eben in roter Färbung dargestellt werden. Deshalb wird, falls eine Zahl negativ ist, die Funktion <code>abs</code> auf die Zahl angewendet. Das Ergebnis wird in dem Skalar <code>$Abszahl</code> gespeichert und ausgegeben.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="atan2">atan2 - Arcus Tangens von x durch y ermitteln</a></h2>
+
+<p>Erwartet als Parameter:<br>
+<strong>1.</strong> eine beliebige erlaubte Zahl x,<br>
+<strong>2.</strong> eine beliebige erlaubte Zahl y.</p>
+
+<p>Gibt den Arcus Tangens von x durch y zurück.</p>
+
+<h3 class="xmp"><a class="an" name="beispiel2">Beispiel eines vollständigen CGI-Scripts in Perl:</a></h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="http://de.selfhtml.org/cgi-bin/812/berechnungen2.pl">Anzeigebeispiel: So sieht's aus</a> (Zum Aufruf des Scripts ist eine Internet-Verbindung erforderlich)</p>
+
+<pre>
+#!/usr/bin/perl -w
+
+use strict;
+use CGI::Carp qw(fatalsToBrowser);
+
+print "Content-type: text/html\n\n";
+print '&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"&gt;', "\n";
+print "&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;&lt;/head&gt;&lt;body&gt;\n";
+my $Wert = atan2(1.394,5.01);
+print "Der Arcus Tangens von 5.01 durch 1.394 lautet $Wert\n";
+print "&lt;/body&gt;&lt;/html&gt;\n";
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel übergibt der Funktion <code>atan2</code> die beiden Gleitkommazahlen 1.394 und 5.01. Die Funktion gibt den Arcus Tangens von 1.394/5.01 zurück. Zur Kontrolle wird HTML-Code mit dem Ergebnis ausgegeben.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="cos">cos - Cosinus einer Zahl ermitteln</a></h2>
+
+<p>Erwartet als Parameter:<br>
+<strong>1.</strong> eine beliebige erlaubte Zahl.</p>
+
+<p>Gibt den Cosinus der Zahl zurück.</p>
+
+<h3 class="xmp"><a class="an" name="beispiel3">Beispiel eines vollständigen CGI-Scripts in Perl:</a></h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="http://de.selfhtml.org/cgi-bin/812/berechnungen3.pl">Anzeigebeispiel: So sieht's aus</a> (Zum Aufruf des Scripts ist eine Internet-Verbindung erforderlich)</p>
+
+<pre>
+#!/usr/bin/perl -w
+
+use strict;
+use CGI::Carp qw(fatalsToBrowser);
+
+print "Content-type: text/html\n\n";
+print '&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"&gt;', "\n";
+print "&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;&lt;/head&gt;&lt;body&gt;\n";
+my $Eins = cos(0);
+print "1 bleibt $Eins, wie bedingt bedacht\n";
+print "&lt;/body&gt;&lt;/html&gt;\n";
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel erzeugt die Zahl 1 aus dem Cosinus von 0 (dessen Ergebnis 1 ist). Zur Kontrolle wird HTML-Code mit der Zahl in einem entfernt an Karneval erinnernden Sinnspruch ausgegeben.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="exp">exp - Exponentialwert einer Zahl auf Basis der Zahl "e" ermitteln</a></h2>
+
+<p>Erwartet als Parameter:<br>
+<strong>1.</strong> eine beliebige erlaubte Zahl.</p>
+
+<p>Gibt den Exponentialwert der Zahl zurück.</p>
+
+<h3 class="xmp"><a class="an" name="beispiel4">Beispiel eines vollständigen CGI-Scripts in Perl:</a></h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="http://de.selfhtml.org/cgi-bin/812/berechnungen4.pl">Anzeigebeispiel: So sieht's aus</a> (Zum Aufruf des Scripts ist eine Internet-Verbindung erforderlich)</p>
+
+<pre>
+#!/usr/bin/perl -w
+
+use strict;
+use CGI::Carp qw(fatalsToBrowser);
+
+print "Content-type: text/html\n\n";
+print '&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"&gt;', "\n";
+print "&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;&lt;/head&gt;&lt;body&gt;\n";
+my $x = exp(1);
+print "x = $x\n";
+print "&lt;/body&gt;&lt;/html&gt;\n";
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel erzeugt HTML-Code. Dabei wird der Exponentialwert von 1 ermittelt und in dem Skalar <code>$x</code> gespeichert. Das Ergebnis wird ausgegeben.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="hex">hex - Dezimalwert einer Hexadezimalzahl ermitteln</a></h2>
+
+<p>Konvertiert einen als Zeichenkette vorliegenden Hexadezimalwert in eine entsprechende Dezimalzahl.</p>
+
+<p>Erwartet als Parameter:<br>
+<strong>1.</strong> eine Zeichenkette, die einen gültigen Hexadezimalwert darstellt, also beispielsweise <code>"0xB56A"</code> oder <code>"B56A"</code>.</p>
+
+<p>Gibt den entsprechenden Dezimalwert als numerischen Wert zurück.</p>
+
+<h3 class="xmp"><a class="an" name="beispiel5">Beispiel eines vollständigen CGI-Scripts in Perl:</a></h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="http://de.selfhtml.org/cgi-bin/812/berechnungen5.pl?336699">Anzeigebeispiel: So sieht's aus</a> - mit dem Übergabeparameter 336699 für Dunkelblau<br> (Zum Aufruf des Scripts ist eine Internet-Verbindung erforderlich)</p>
+
+<pre>
+#!/usr/bin/perl -w
+
+use strict;
+use CGI::Carp qw(fatalsToBrowser);
+
+my $Farbe = $ENV{'QUERY_STRING'};
+my $RotwertHex = substr($Farbe,0,2);
+my $GruenwertHex = substr($Farbe,2,2);
+my $BlauwertHex = substr($Farbe,4,2);
+my $RotwertDez = hex($RotwertHex);
+my $GruenwertDez = hex($GruenwertHex);
+my $BlauwertDez = hex($BlauwertHex);
+
+print "Content-type: text/html\n\n";
+print '&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"&gt;', "\n";
+print "&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;&lt;/head&gt;&lt;body&gt;\n";
+print "Die Farbe #$Farbe hat folgende RGB-Anteile:&lt;br&gt;\n";
+print "Rotwert: $RotwertDez&lt;br&gt;\n";
+print "Gr&amp;uuml;nwert: $GruenwertDez&lt;br&gt;\n";
+print "Blauwert: $BlauwertDez&lt;br&gt;\n";
+print "&lt;/body&gt;&lt;/html&gt;\n";
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel-CGI-Script erwartet einen Übergabeparameter, der beim Aufruf über einen URI hinter einem Fragezeichen notiert wird. Der Übergabeparameter besteht aus einer HTML-typischen Farbangabe, jedoch ohne das einleitende Gatterzeichen #. Beispiel:
+<code>http://localhost/cgi-bin/test.pl?FF9933</code>.</p>
+
+<p>Das Beispiel-Script ermittelt den übergebenen Parameter aus der <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../servercgi/cgi/umgebungsvariablen.htm">CGI-Umgebungsvariablen</a> QUERY_STRING und speichert den Wert im Skalar <code>$Farbe</code>. Mit Hilfe der Funktion <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="zeichenketten.htm#substr">substr</a> werden die Anteile für Rot, Grün und Blau aus der hexadezimalen Angabe extrahiert. Wenn die übergebene Zahl beispielsweise FF9933 lautet, wird in <code>$RotwertHex</code> der Wert <code>"FF"</code> gespeichert, in <code>$GruenwertHex</code> der Wert <code>"99"</code> und in <code>$BlauwertHex</code> der Wert <code>"33"</code>. Aus diesen Hexadezimalangaben wird durch Anwendung der Funktion <code>hex</code> jeweils der entsprechende dezimale Farbanteil ermittelt. Das Beispiel gibt die ermittelten Farbanteile aus.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="int">int - Ganzzahlanteil einer Zahl ermitteln</a></h2>
+
+<p>Die Funktion dient einerseits dazu, den Ganzzahlanteil einer Kommazahl vom Nachkommateil zu trennen. Andererseits kann sie auch auf Zeichenketten angewendet werden. Dann interpretiert sie die Zeichenkette so lange, bis sie auf ein Zeichen stößt, das nicht mehr numerisch interpretiert werden kann.</p>
+
+<p>Erwartet als Parameter:<br>
+<strong>1.</strong> eine Zahl oder Zeichenkette.</p>
+
+<p>Liefert den als Ganzzahl interpretierbaren Teil der übergebenen Daten zurück.</p>
+
+<h3 class="xmp"><a class="an" name="beispiel6">Beispiel eines vollständigen CGI-Scripts in Perl:</a></h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="http://de.selfhtml.org/cgi-bin/812/berechnungen6.pl">Anzeigebeispiel: So sieht's aus</a> (Zum Aufruf des Scripts ist eine Internet-Verbindung erforderlich)</p>
+
+<pre>
+#!/usr/bin/perl -w
+
+use strict;
+use CGI::Carp qw(fatalsToBrowser);
+
+my $Ganzzahl = 23;
+my $Kommazahl = 3.1415;
+my $Minuszahl = -3.999;
+
+my $Ganzzahl_Int = int($Ganzzahl);
+my $Kommazahl_Int = int($Kommazahl);
+my $Minuszahl_Int = int($Minuszahl);
+
+print "Content-type: text/html\n\n";
+print '&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"&gt;', "\n";
+print "&lt;html&gt;&lt;head&gt;&lt;title&gt;Test-Ausgabe&lt;/title&gt;&lt;/head&gt;&lt;body&gt;\n";
+print "$Ganzzahl nach Anwendung von int: $Ganzzahl_Int&lt;br&gt;\n";
+print "$Kommazahl nach Anwendung von int: $Kommazahl_Int&lt;br&gt;\n";
+print "$Minuszahl nach Anwendung von int: $Minuszahl_Int\n";
+print "&lt;/body&gt;&lt;/html&gt;\n";
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel definiert verschiedene Skalare: eine normale Ganzzahl, eine Kommazahl und eine negative Zahl, ebenfalls eine Kommazahl. Daraufhin wird auf jeden der Skalare die Funktion <code>int</code> angewendet. Die Rückgabewerte werden in eigenen, neuen Skalaren gespeichert. Zur Kontrolle wird HTML-Code mit den Werten vor und nach Anwendung der <code>int</code>-Funktion ausgegeben.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="log">log - natürlichen Logarithmus einer Zahl ermitteln</a></h2>
+
+<p>Erwartet als Parameter:<br>
+<strong>1.</strong> eine beliebige erlaubte Zahl.</p>
+
+<p>Gibt den natürlichen Logarithmus der Zahl zurück.</p>
+
+<h3 class="xmp"><a class="an" name="beispiel7">Beispiel eines vollständigen CGI-Scripts in Perl:</a></h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="http://de.selfhtml.org/cgi-bin/812/berechnungen7.pl">Anzeigebeispiel: So sieht's aus</a> (Zum Aufruf des Scripts ist eine Internet-Verbindung erforderlich)</p>
+
+<pre>
+#!/usr/bin/perl -w
+
+use strict;
+use CGI::Carp qw(fatalsToBrowser);
+
+my $Eins = log(exp(1));
+print "Content-type: text/html\n\n";
+print '&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"&gt;', "\n";
+print "&lt;html&gt;&lt;head&gt;&lt;title&gt;Test-Ausgabe&lt;/title&gt;&lt;/head&gt;&lt;body&gt;\n";
+print "$Eins";
+print "&lt;/body&gt;&lt;/html&gt;\n";
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Im Beispiel wird ein Skalar <code>$Eins</code> definiert. Diesem Skalar wird das Ergebnis der Funktion<code>log</code> zugewiesen. Die Zahl, die dieser Funktion übergeben wird, ist im Beispiel der Rückgabewert der Funktion <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#exp">exp</a>, angewendet auf die Zahl 1. Da <code>exp</code> die Umkehrfunktion von <code>log</code> ist, ist das Ergebnis des verschachtelten Aufrufs beider Funktionen der Wert 1. Zur Kontrolle wird HTML-Code mit dem Ergebnis ausgegeben.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="oct">oct - Dezimalwert einer Oktalzahl ermitteln</a></h2>
+
+<p>Konvertiert einen als Zeichenkette vorliegenden Oktalwert in eine entsprechende Dezimalzahl.</p>
+
+<p>Erwartet als Parameter:<br>
+<strong>1.</strong> eine Zeichenkette, die einen gültigen Oktalwert darstellt, also beispielsweise <code>"755"</code> oder <code>"0755"</code>.</p>
+
+<p>Gibt den entsprechenden Dezimalwert als numerischen Wert zurück.</p>
+
+<h3 class="xmp"><a class="an" name="beispiel8">Beispiel eines vollständigen CGI-Scripts in Perl:</a></h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="http://de.selfhtml.org/cgi-bin/812/berechnungen8.pl?755">Anzeigebeispiel: So sieht's aus</a> - mit der Rechteangabe 755 als Übergabeparameter<br> (Zum Aufruf des Scripts ist eine Internet-Verbindung erforderlich)</p>
+
+<pre>
+#!/usr/bin/perl -w
+
+use strict;
+use CGI::Carp qw(fatalsToBrowser);
+
+my $UnixRechtOct = $ENV{'QUERY_STRING'};
+my $DezRecht = oct($UnixRechtOct);
+
+print "Content-type: text/html\n\n";
+print '&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"&gt;', "\n";
+print "&lt;html&gt;&lt;head&gt;&lt;title&gt;Test-Ausgabe&lt;/title&gt;&lt;/head&gt;&lt;body&gt;\n";
+print "Die Dezimaldarstellung der Unix-Rechteangabe $UnixRechtOct lautet $DezRecht\n";
+print "&lt;/body&gt;&lt;/html&gt;\n";
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Ein typischer bekannter Anwendungsfall für Oktalwerte sind die Rechtevergaben für User, Group und World im Unix-Dateisystem. Das Beispiel-CGI-Script erwartet so eine typische oktale Rechteangabe und ermittelt daraus den entsprechenden Dezimalwert. Dazu erwartet das Script einen Übergabeparameter, der beim Aufruf über einen URI hinter einem Fragezeichen notiert wird. Der Übergabeparameter besteht aus einem Oktalwert. Beispiel:<br>
+<code>http://localhost/cgi-bin/test.pl?0755</code>.</p>
+
+<p>Das Script ermittelt den übergebenen Parameter aus der <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../servercgi/cgi/umgebungsvariablen.htm">CGI-Umgebungsvariablen</a> <code>QUERY_STRING</code> und speichert den Wert im Skalar <code>$UnixRechtOct</code>. Dieser Skalar wird wiederum der Funktion <code>oct</code> übergeben, die eine Dezimalzahl daraus erzeugt, die in <code>$DezRecht</code> gespeichert wird. Zur Kontrolle gibt das Script die beiden Werte aus.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="rand">rand - Zufallswert ermitteln</a></h2>
+
+<p>Ermittelt eine Zufallszahl zwischen 0 und 1, wenn kein Parameter übergeben wird, oder eine Zufallszahl zwischen 0 inklusive und der Zahl <code>n</code> exklusive, wenn <code>n</code> als Parameter übergeben wird. Das Ergebnis ist eine Gleitpunktzahl.</p>
+
+<p>Erwartet als Parameter:<br>
+<strong>1.</strong> (optional) eine Zahl. Wenn angegeben, wird eine Zufallszahl zwischen 0 und dieser Zahl ermittelt, ansonsten zwischen 0 und 1.</p>
+
+<p>Gibt die ermittelte Zufallszahl zurück.</p>
+
+<h3 class="xmp"><a class="an" name="beispiel9">Beispiel eines vollständigen CGI-Scripts in Perl:</a></h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="http://de.selfhtml.org/cgi-bin/812/berechnungen9.pl">Anzeigebeispiel: So sieht's aus</a> (Zum Aufruf des Scripts ist eine Internet-Verbindung erforderlich)</p>
+
+<pre>
+#!/usr/bin/perl -w
+
+use strict;
+use CGI::Carp qw(fatalsToBrowser);
+
+my @Zahlen;
+for(my $i = 0; $i &lt; 7; $i++) {
+  $Zahlen[$i] = int(rand(49) + 1);
+}
+my @Lottozahlen = sort(NummernSort @Zahlen);
+
+print "Content-type: text/html\n\n";
+print '&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"&gt;', "\n";
+print "&lt;html&gt;&lt;head&gt;&lt;title&gt;Test-Ausgabe&lt;/title&gt;&lt;/head&gt;&lt;body&gt;\n";
+print "Der Lottotip von Perl lautet:&lt;br&gt;\n";
+print "$Lottozahlen[0], $Lottozahlen[1], $Lottozahlen[2], $Lottozahlen[3], $Lottozahlen[4], $Lottozahlen[5]&lt;br&gt;\n";
+print "Die Zusatzzahl lautet: $Lottozahlen[6]\n";
+print "&lt;/body&gt;&lt;/html&gt;\n";
+
+sub NummernSort {
+ if($a &lt; $b)
+  { return -1; }
+ elsif($a == $b)
+  { return 0; }
+ else
+  { return 1; }
+}
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Script nimmt Ihnen die Entscheidung ab, sich Lottozahlen auszudenken. Es ermittelt 7 Zahlen (6 plus Zusatzzahl) zwischen 1 und 49. Die Zahlen werden in einer <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../sprache/schleifen.htm#for">for-Schleife</a> ermittelt. Damit wirklich ganze Zahlen zwischen 1 und 49 gefunden werden, wird dem Aufruf der <code>rand</code>-Funktion die Zahl 49 als Parameter übergeben. Damit werden jedoch nur Zahlen zwischen 0.0x und 48.9x ermittelt. Durch Hinzuzählen von 1 sind es Zahlen zwischen 1.0x und 49.9x. Indem auf diese gesamte Operation dann noch die Funktion <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#int">int</a> angewendet wird, kommen ganze Zahlen zwischen 1 und 49 heraus.<br>
+Um die Zahlen schön sortiert auszugeben, wird noch die Funktion <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="listenhashes.htm#sort">sort</a> angewendet. Da es sich um eine numerische Sortierung handelt, benutzt das Script auch die Hilfsfunktion für numerische Sortierung.<br>
+Das Script gibt die ermittelten Lottozahlen aus.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Bei dieser Art von Zufallszahlerzeugung handelt es sich nicht um "echte" Zufallszahlen, sondern um Pseudo-Zufallszahlen, die aufgrund eines Anfangswertes mit Hilfe eines Algorithmus erzeugt werden. Sie können diesen Anfangswert auch selbst bestimmen. Dazu dient die Funktion <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#srand">srand</a>.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="sin">sin - Sinus einer Zahl ermitteln</a></h2>
+
+<p>Erwartet als Parameter:<br>
+<strong>1.</strong> eine beliebige erlaubte Zahl.</p>
+
+<p>Gibt den Sinus der Zahl zurück.</p>
+
+<h3 class="xmp"><a class="an" name="beispiel10">Beispiel eines vollständigen CGI-Scripts in Perl:</a></h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="http://de.selfhtml.org/cgi-bin/812/berechnungen10.pl">Anzeigebeispiel: So sieht's aus</a> (Zum Aufruf des Scripts ist eine Internet-Verbindung erforderlich)</p>
+
+<pre>
+#!/usr/bin/perl -w
+
+use strict;
+use CGI::Carp qw(fatalsToBrowser);
+
+my $x = 2;
+my $Fx = sin($x) + sin(2*$x) - sin(3*$x) + sin(4*$x) - sin(5*$x) + 0.3*sin(25*$x);
+
+print "Content-type: text/html\n\n";
+print '&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"&gt;', "\n";
+print "&lt;html&gt;&lt;head&gt;&lt;title&gt;Test-Ausgabe&lt;/title&gt;&lt;/head&gt;&lt;body&gt;\n";
+print "$Fx\n";
+print "&lt;/body&gt;&lt;/html&gt;\n";
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel zeigt eine Mehrfachanwendung der Funktion <code>sin</code> innerhalb einer Berechnung. Das Script gibt das Ergebnis der Berechnung aus.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="sqrt">sqrt - Quadratwurzel einer Zahl ermitteln</a></h2>
+
+<p>Erwartet als Parameter:<br>
+<strong>1.</strong> eine beliebige Zahl größer 0.</p>
+
+<p>Gibt die Quadratwurzel der Zahl zurück.</p>
+
+<h3 class="xmp"><a class="an" name="beispiel11">Beispiel eines vollständigen CGI-Scripts in Perl:</a></h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="http://de.selfhtml.org/cgi-bin/812/berechnungen11.pl">Anzeigebeispiel: So sieht's aus</a> (Zum Aufruf des Scripts ist eine Internet-Verbindung erforderlich)</p>
+
+<pre>
+#!/usr/bin/perl -w
+
+use strict;
+use CGI::Carp qw(fatalsToBrowser);
+
+print "Content-type: text/html\n\n";
+print '&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"&gt;', "\n";
+print "&lt;html&gt;&lt;head&gt;&lt;title&gt;Test-Ausgabe&lt;/title&gt;&lt;/head&gt;&lt;body&gt;\n";
+for(my $i = 1; $i &lt;= 1000; $i++) {
+  my $Wurzel = sqrt($i);
+  if($Wurzel == int($Wurzel)) {
+    print "Quadratzahl von $Wurzel ist $i&lt;br&gt;\n";
+  }
+}
+print "&lt;/body&gt;&lt;/html&gt;\n";
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel-Script gibt HTML-Code aus. Dabei wird in einer <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../sprache/schleifen.htm#for">for-Schleife</a> für die Zahlen 1 bis 1000 mit <code>sqrt</code> die Quadratwurzel ermittelt und jeweils in dem Skalar <code>$Wurzel</code> gespeichert. Dann wird der darin gespeicherte Wert daraufhin abgefragt, ob er mit der Ganzzahl dieses Wertes identisch ist. Zu diesem Zweck wird die Funktion <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#int">int</a> angewendet.<br>
+Wenn <code>$Wurzel</code> und <code>int($Wurzel)</code> identisch sind, handelt es sich bei dem aktuellen Schleifenwert von <code>$i</code> um eine Quadratzahl. Ist das im Beispiel der Fall, wird eine entsprechende Zeile ausgegeben. Auf diese Weise gibt das Script alle Quadratzahlen zwischen 1 und 1000 aus.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="srand">srand - Zufallsberechnung initialisieren</a></h2>
+
+<p>Wenn Sie mit <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#rand">rand</a> Zufallszahlen erzeugen, benötigt Perl intern einen Initialisierungswert. Wenn Sie selber keinen Wert angeben, ermittelt Perl automatisch einen. Sie können den Wert jedoch auch selber angeben.</p>
+
+<p>Erwartet als Parameter:<br>
+<strong>1.</strong> eine beliebige erlaubte Ganzzahl bzw. eine Zahl, von der der Ganzzahlanteil verwendet wird.</p>
+
+<h3 class="xmp"><a class="an" name="beispiel12">Beispiel eines vollständigen CGI-Scripts in Perl:</a></h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="http://de.selfhtml.org/cgi-bin/812/berechnungen12.pl">Anzeigebeispiel: So sieht's aus</a> (Zum Aufruf des Scripts ist eine Internet-Verbindung erforderlich)</p>
+
+<pre>
+#!/usr/bin/perl -w
+
+use strict;
+use CGI::Carp qw(fatalsToBrowser);
+
+srand(42);
+my $Zufall_1 = rand();
+my $Zufall_2 = rand();
+
+srand(42);
+my $Zufall_3 = rand();
+my $Zufall_4 = rand();
+
+print "Content-type: text/html\n\n";
+print '&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"&gt;', "\n";
+print "&lt;html&gt;&lt;head&gt;&lt;title&gt;Test-Ausgabe&lt;/title&gt;&lt;/head&gt;&lt;body&gt;\n";
+print "Zufall 1: $Zufall_1&lt;br&gt;\n";
+print "Zufall 2: $Zufall_2&lt;br&gt;\n";
+print "Zufall 3: $Zufall_3&lt;br&gt;\n";
+print "Zufall 4: $Zufall_4\n";
+print "&lt;/body&gt;&lt;/html&gt;\n";
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel verdeutlicht die Wirkungsweise von <code>srand</code> und den folgenden Aufrufen von <code>rand</code>. <code>srand</code> wird zweimal mit demselben Wert, nämlich mit der Zahl 42, initialisiert. Anschließend wird jeweils zweimal die Funktion <code>rand</code> aufgerufen, und die ermittelten Zufallswerte werden jeweils in eigenen Skalaren gespeichert. Das Beispiel gibt die vier Skalare aus. Die Werte von <code>$Zufall_1</code> und <code>$Zufall_3</code> sind dabei gleich, ebenso die Werte von <code>$Zufall_2</code> und <code>$Zufall_4</code>. Und das ist kein Zufall, sondern die Folge der Tatsache, dass jede bestimmte <code>srand</code>-Initialisierung die gleiche Serie von Zufallszahlen bei jedem anschließenden <code>rand</code>-Aufruf erzeugt.</p>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="kontrolle.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="kontrolle.htm">Funktionen für die Kontrolle des laufenden Scripts</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="listenhashes.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="listenhashes.htm">Funktionen für Listen bzw. Arrays und Hashes</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">Perl</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Perl-Funktionen</a></td>
+</tr>
+</table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

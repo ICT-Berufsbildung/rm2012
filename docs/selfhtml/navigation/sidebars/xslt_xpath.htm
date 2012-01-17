@@ -1,0 +1,159 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: Navigationshilfen / XSLT- und XPath-Sidebar</title>
+<meta name="description"    content="SELFHTML-Sidebar für XSLT und XPath - Verweissammlung auf Beschreibungen und die Referenz aller XSLT- und XPath-Elemente.">
+<meta name="keywords"       content="SELFHTML, XSLT, XPath, Sidebar, Panel, Beschreibung, Referenz, Elemente, Übersicht">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-11-13T23:28:08+01:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/navigation/sidebars/xslt_xpath.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../stichwort.htm">
+<link rel="search" title="Suche" href="../suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="SELFHTML Navigationshilfen" href="../index.htm">
+<style type="text/css">
+ body { margin:0; padding:0; color:#666; font-size:11px; font-family:arial,sans-serif; background:#fff url('selfhtml.png') 0px 26px no-repeat; }
+ h1 { font-size:22px; margin:0; padding:6px 0 10px 55px; line-height:20px; }
+ h3 { font-size:13px; margin:5px 0 0 0; }
+ p { margin:5px; }
+ code { color:#0000c0; background-color:inherit; font-size:12px; }
+ img { border:none; }
+ ul { list-style-type:none; margin:0 5px 1em 5px; padding:0; border-bottom:1px solid #888; }
+ li { border-bottom:1px solid #ddd; line-height:20px; }
+ li:hover { color:inherit; background-color:#ffa; }
+ a, a:link, a:visited { font-size:11px; color:#a52; background-color:#fff; text-decoration:none; }
+ li a, li a:link, li a:visited { border-color:#bbb #888 #888 #bbb; border-width:1px; border-style:solid; margin:0px; padding:1px 3px; font-family:"courier",sans-serif; color:#a52; background-color:#eee; text-decoration:none; }
+ a:hover { color:#900; background-color:#ddf; }
+ li a:hover { color:#900; background-color:#ddf; border-color:#888 #555 #555 #888; }
+ a:active { color:#ffa; background-color:#555; border-color:#900;}
+ a.akt { border:none; }
+ a.na { cursor:text; color:#bbb; background-color:#f8f8f8; border-color:#ddd; }
+ a.na:hover { color:#bbb; background-color:#f8f8f8; border-color:#ddd; }
+ strong { font-weight:normal; }
+ #reiter ul { padding:0; margin:0; color:#000; background-color:#ddd; }
+ #reiter ul li { list-style-type:none; margin:0; position:relative; top:2px; display:inline; }
+ #reiter ul li a { padding:1px; margin:0; border-width:1px 1px 0 0; border-style:solid; border-color:#778 #99a #778 #fff; background-color:#eee; text-decoration:none; font-family:arial,sans-serif; }
+ #reiter ul li a:link, #reiter ul li a:visited { color:#952; }
+ #reiter ul li a:link:hover, #reiter ul li a:visited:hover { background-color:#ffa; border-color:#227; }
+ #reiter ul li strong { padding:2px; margin:0; border-top:1px solid #778; border-right:1px solid #778; background-color:#e8e8e8; background-color:#fff; border-bottom:1px solid #fff; }
+ #footer a { font-weight:bold; text-decoration:underline; }
+</style>
+</head>
+<body id="top">
+
+<div id="reiter"><ul><li><a href="html.htm" target="_self">HTML</a></li><li><a href="css.htm" target="_self">CSS</a></li><li><a href="javascript.htm" target="_self">JS/DOM</a></li><li><strong>XSLT/XPath</strong></li><li><a href="perl.htm" target="_self">Perl</a></li><li><a href="aktuell.htm" target="_self">aktuell</a></li></ul></div>
+
+<h1>XSLT-/XPath-<br>Sidebar</h1>
+
+<ul id="legende">
+ <li><a>B</a> = Beschreibung</li>
+ <li><a>W</a> = W3C-Spezifikation</li>
+</ul>
+
+<ul id="sidebar">
+ <li><h3 id="xsl">XSLT</h3></li>
+ <li><a target="_content" href="../../xml/darstellung/xsltelemente.htm#apply_imports">B</a> <a target="_content" href="http://www.w3.org/TR/xslt.html#element-apply-imports">W</a> <code>xsl:apply-imports</code></li>
+ <li><a target="_content" href="../../xml/darstellung/xsltelemente.htm#apply_templates">B</a> <a target="_content" href="http://www.w3.org/TR/xslt.html#element-apply-templates">W</a> <code>xsl:apply-templates</code></li>
+ <li><a target="_content" href="../../xml/darstellung/xsltelemente.htm#attribute">B</a> <a target="_content" href="http://www.w3.org/TR/xslt.html#element-attribute">W</a> <code>xsl:attribute</code></li>
+ <li><a target="_content" href="../../xml/darstellung/xsltelemente.htm#attribute_set">B</a> <a target="_content" href="http://www.w3.org/TR/xslt.html#element-attribute-set">W</a> <code>xsl:attribute-set</code></li>
+ <li><a target="_content" href="../../xml/darstellung/xsltelemente.htm#call_template">B</a> <a target="_content" href="http://www.w3.org/TR/xslt.html#element-call-template">W</a> <code>xsl:call-template</code></li>
+ <li><a target="_content" href="../../xml/darstellung/xsltelemente.htm#choose">B</a> <a target="_content" href="http://www.w3.org/TR/xslt.html#element-choose">W</a> <code>xsl:choose</code></li>
+ <li><a target="_content" href="../../xml/darstellung/xsltelemente.htm#comment">B</a> <a target="_content" href="http://www.w3.org/TR/xslt.html#element-comment">W</a> <code>xsl:comment</code></li>
+ <li><a target="_content" href="../../xml/darstellung/xsltelemente.htm#copy">B</a> <a target="_content" href="http://www.w3.org/TR/xslt.html#element-copy">W</a> <code>xsl:copy</code></li>
+ <li><a target="_content" href="../../xml/darstellung/xsltelemente.htm#copy_of">B</a> <a target="_content" href="http://www.w3.org/TR/xslt.html#element-copy-of">W</a> <code>xsl:copy-of</code></li>
+ <li><a target="_content" href="../../xml/darstellung/xsltelemente.htm#decimal_format">B</a> <a target="_content" href="http://www.w3.org/TR/xslt.html#element-decimal-format">W</a> <code>xsl:decimal-format</code></li>
+ <li><a target="_content" href="../../xml/darstellung/xsltelemente.htm#element">B</a> <a target="_content" href="http://www.w3.org/TR/xslt.html#element-element">W</a> <code>xsl:element</code></li>
+ <li><a target="_content" href="../../xml/darstellung/xsltelemente.htm#fallback">B</a> <a target="_content" href="http://www.w3.org/TR/xslt.html#element-fallback">W</a> <code>xsl:fallback</code></li>
+ <li><a target="_content" href="../../xml/darstellung/xsltelemente.htm#for_each">B</a> <a target="_content" href="http://www.w3.org/TR/xslt.html#element-for-each">W</a> <code>xsl:for-each</code></li>
+ <li><a target="_content" href="../../xml/darstellung/xsltelemente.htm#if">B</a> <a target="_content" href="http://www.w3.org/TR/xslt.html#element-if">W</a> <code>xsl:if</code></li>
+ <li><a target="_content" href="../../xml/darstellung/xsltelemente.htm#import">B</a> <a target="_content" href="http://www.w3.org/TR/xslt.html#element-include">W</a> <code>xsl:import</code></li>
+ <li><a target="_content" href="../../xml/darstellung/xsltelemente.htm#include">B</a> <a target="_content" href="http://www.w3.org/TR/xslt.html#element-include">W</a> <code>xsl:include</code></li>
+ <li><a target="_content" href="../../xml/darstellung/xsltelemente.htm#key ">B</a> <a target="_content" href="http://www.w3.org/TR/xslt.html#element-key">W</a> <code>xsl:key </code></li>
+ <li><a target="_content" href="../../xml/darstellung/xsltelemente.htm#message">B</a> <a target="_content" href="http://www.w3.org/TR/xslt.html#element-message">W</a> <code>xsl:message</code></li>
+ <li><a target="_content" href="../../xml/darstellung/xsltelemente.htm#namespace_alias">B</a> <a target="_content" href="http://www.w3.org/TR/xslt.html#element-namespace-alias">W</a> <code>xsl:namespace-alias</code></li>
+ <li><a target="_content" href="../../xml/darstellung/xsltelemente.htm#number">B</a> <a target="_content" href="http://www.w3.org/TR/xslt.html#element-number">W</a> <code>xsl:number</code></li>
+ <li><a target="_content" href="../../xml/darstellung/xsltelemente.htm#otherwise">B</a> <a target="_content" href="http://www.w3.org/TR/xslt.html#element-otherwise">W</a> <code>xsl:otherwise</code></li>
+ <li><a target="_content" href="../../xml/darstellung/xsltelemente.htm#output">B</a> <a target="_content" href="http://www.w3.org/TR/xslt.html#element-output">W</a> <code>xsl:output</code></li>
+ <li><a target="_content" href="../../xml/darstellung/xsltelemente.htm#param">B</a> <a target="_content" href="http://www.w3.org/TR/xslt.html#element-param">W</a> <code>xsl:param</code></li>
+ <li><a target="_content" href="../../xml/darstellung/xsltelemente.htm#preserve_space">B</a> <a target="_content" href="http://www.w3.org/TR/xslt.html#element-preserve-space">W</a> <code>xsl:preserve-space</code></li>
+ <li><a target="_content" href="../../xml/darstellung/xsltelemente.htm#processing_instruction">B</a> <a target="_content" href="http://www.w3.org/TR/xslt.html#element-processing-instruction">W</a> <code>xsl:processing-instruction</code></li>
+ <li><a target="_content" href="../../xml/darstellung/xsltelemente.htm#sort">B</a> <a target="_content" href="http://www.w3.org/TR/xslt.html#element-sort">W</a> <code>xsl:sort</code></li>
+ <li><a target="_content" href="../../xml/darstellung/xsltelemente.htm#strip_space">B</a> <a target="_content" href="http://www.w3.org/TR/xslt.html#element-strip-space">W</a> <code>xsl:strip-space</code></li>
+ <li><a target="_content" href="../../xml/darstellung/xsltelemente.htm#stylesheet">B</a> <a target="_content" href="http://www.w3.org/TR/xslt.html#element-stylesheet">W</a> <code>xsl:stylesheet</code></li>
+ <li><a target="_content" href="../../xml/darstellung/xsltelemente.htm#template">B</a> <a target="_content" href="http://www.w3.org/TR/xslt.html#element-template">W</a> <code>xsl:template</code></li>
+ <li><a target="_content" href="../../xml/darstellung/xsltelemente.htm#text">B</a> <a target="_content" href="http://www.w3.org/TR/xslt.html#element-text">W</a> <code>xsl:text</code></li>
+ <li><a target="_content" href="../../xml/darstellung/xsltelemente.htm#transform">B</a> <a target="_content" href="http://www.w3.org/TR/xslt.html#element-transform">W</a> <code>xsl:transform</code></li>
+ <li><a target="_content" href="../../xml/darstellung/xsltelemente.htm#value_of">B</a> <a target="_content" href="http://www.w3.org/TR/xslt.html#element-value-of">W</a> <code>xsl:value-of</code></li>
+ <li><a target="_content" href="../../xml/darstellung/xsltelemente.htm#variable">B</a> <a target="_content" href="http://www.w3.org/TR/xslt.html#element-variable">W</a> <code>xsl:variable</code></li>
+ <li><a target="_content" href="../../xml/darstellung/xsltelemente.htm#when">B</a> <a target="_content" href="http://www.w3.org/TR/xslt.html#element-when">W</a> <code>xsl:when</code></li>
+ <li><a target="_content" href="../../xml/darstellung/xsltelemente.htm#with_param">B</a> <a target="_content" href="http://www.w3.org/TR/xslt.html#element-with-param">W</a> <code>xsl:with-param</code></li>
+ <li><h3 id="xpath">XPath</h3></li>
+ <li><a target="_content" href="../../xml/darstellung/xpathfunktionen.htm#boolean">B</a> <a target="_content" href="http://www.w3.org/TR/xpath.html#function-boolean">W</a> <code>boolean()</code></li>
+ <li><a target="_content" href="../../xml/darstellung/xpathfunktionen.htm#ceiling">B</a> <a target="_content" href="http://www.w3.org/TR/xpath.html#function-ceiling">W</a> <code>ceiling()</code></li>
+ <li><a target="_content" href="../../xml/darstellung/xpathfunktionen.htm#concat">B</a> <a target="_content" href="http://www.w3.org/TR/xpath.html#function-concat">W</a> <code>concat()</code></li>
+ <li><a target="_content" href="../../xml/darstellung/xpathfunktionen.htm#contains">B</a> <a target="_content" href="http://www.w3.org/TR/xpath.html#function-contains">W</a> <code>contains()</code></li>
+ <li><a target="_content" href="../../xml/darstellung/xpathfunktionen.htm#count">B</a> <a target="_content" href="http://www.w3.org/TR/xpath.html#function-count">W</a> <code>count()</code></li>
+ <li><a target="_content" href="../../xml/darstellung/xpathfunktionen.htm#current">B</a> <a target="_content" href="http://www.w3.org/TR/xslt.html#function-current">W</a> <code>current()</code></li>
+ <li><a target="_content" href="../../xml/darstellung/xpathfunktionen.htm#document">B</a> <a target="_content" href="http://www.w3.org/TR/xslt.html#function-document">W</a> <code>document()</code></li>
+ <li><a target="_content" href="../../xml/darstellung/xpathfunktionen.htm#element_available">B</a> <a target="_content" href="http://www.w3.org/TR/xslt.html#function-element-available">W</a> <code>element-available()</code></li>
+ <li><a target="_content" href="../../xml/darstellung/xpathfunktionen.htm#false">B</a> <a target="_content" href="http://www.w3.org/TR/xpath.html#function-false">W</a> <code>false()</code></li>
+ <li><a target="_content" href="../../xml/darstellung/xpathfunktionen.htm#floor">B</a> <a target="_content" href="http://www.w3.org/TR/xpath.html#function-floor">W</a> <code>floor()</code></li>
+ <li><a target="_content" href="../../xml/darstellung/xpathfunktionen.htm#format_number">B</a> <a target="_content" href="http://www.w3.org/TR/xslt.html#function-format-number">W</a> <code>format-number()</code></li>
+ <li><a target="_content" href="../../xml/darstellung/xpathfunktionen.htm#function_available">B</a> <a target="_content" href="http://www.w3.org/TR/xslt.html#function-element-available">W</a> <code>function-available()</code></li>
+ <li><a target="_content" href="../../xml/darstellung/xpathfunktionen.htm#generate_id">B</a> <a target="_content" href="http://www.w3.org/TR/xslt.html#function-generate-id">W</a> <code>generate-id()</code></li>
+ <li><a target="_content" href="../../xml/darstellung/xpathfunktionen.htm#id">B</a> <a target="_content" href="http://www.w3.org/TR/xpath.html#function-id">W</a> <code>id()</code></li>
+ <li><a target="_content" href="../../xml/darstellung/xpathfunktionen.htm#key">B</a> <a target="_content" href="http://www.w3.org/TR/xslt.html#function-key">W</a> <code>key()</code></li>
+ <li><a target="_content" href="../../xml/darstellung/xpathfunktionen.htm#lang">B</a> <a target="_content" href="http://www.w3.org/TR/xpath.html#function-lang">W</a> <code>lang()</code></li>
+ <li><a target="_content" href="../../xml/darstellung/xpathfunktionen.htm#last">B</a> <a target="_content" href="http://www.w3.org/TR/xpath.html#function-last">W</a> <code>last()</code></li>
+ <li><a target="_content" href="../../xml/darstellung/xpathfunktionen.htm#local_name">B</a> <a target="_content" href="http://www.w3.org/TR/xpath.html#function-local-name">W</a> <code>local-name()</code></li>
+ <li><a target="_content" href="../../xml/darstellung/xpathfunktionen.htm#name">B</a> <a target="_content" href="http://www.w3.org/TR/xpath.html#function-name">W</a> <code>name()</code></li>
+ <li><a target="_content" href="../../xml/darstellung/xpathfunktionen.htm#namespace_uri">B</a> <a target="_content" href="http://www.w3.org/TR/xpath.html#function-namespace-uri">W</a> <code>namespace-uri()</code></li>
+ <li><a target="_content" href="../../xml/darstellung/xpathfunktionen.htm#normalize_space">B</a> <a target="_content" href="http://www.w3.org/TR/xpath.html#function-normalize-space">W</a> <code>normalize-space()</code></li>
+ <li><a target="_content" href="../../xml/darstellung/xpathfunktionen.htm#not">B</a> <a target="_content" href="http://www.w3.org/TR/xpath.html#function-not">W</a> <code>not()</code></li>
+ <li><a target="_content" href="../../xml/darstellung/xpathfunktionen.htm#number">B</a> <a target="_content" href="http://www.w3.org/TR/xpath.html#function-number">W</a> <code>number()</code></li>
+ <li><a target="_content" href="../../xml/darstellung/xpathfunktionen.htm#position">B</a> <a target="_content" href="http://www.w3.org/TR/xpath.html#function-position">W</a> <code>position()</code></li>
+ <li><a target="_content" href="../../xml/darstellung/xpathfunktionen.htm#round">B</a> <a target="_content" href="http://www.w3.org/TR/xpath.html#function-round">W</a> <code>round()</code></li>
+ <li><a target="_content" href="../../xml/darstellung/xpathfunktionen.htm#starts_with">B</a> <a target="_content" href="http://www.w3.org/TR/xpath.html#function-starts-with">W</a> <code>starts-with()</code></li>
+ <li><a target="_content" href="../../xml/darstellung/xpathfunktionen.htm#string">B</a> <a target="_content" href="http://www.w3.org/TR/xpath.html#function-string">W</a> <code>string()</code></li>
+ <li><a target="_content" href="../../xml/darstellung/xpathfunktionen.htm#string_length">B</a> <a target="_content" href="http://www.w3.org/TR/xpath.html#function-string-length">W</a> <code>string-length()</code></li>
+ <li><a target="_content" href="../../xml/darstellung/xpathfunktionen.htm#substring">B</a> <a target="_content" href="http://www.w3.org/TR/xpath.html#function-substring">W</a> <code>substring()</code></li>
+ <li><a target="_content" href="../../xml/darstellung/xpathfunktionen.htm#substring_after">B</a> <a target="_content" href="http://www.w3.org/TR/xpath.html#function-substring-after">W</a> <code>substring-after()</code></li>
+ <li><a target="_content" href="../../xml/darstellung/xpathfunktionen.htm#substring_before">B</a> <a target="_content" href="http://www.w3.org/TR/xpath.html#function-substring-before">W</a> <code>substring-before()</code></li>
+ <li><a target="_content" href="../../xml/darstellung/xpathfunktionen.htm#sum">B</a> <a target="_content" href="http://www.w3.org/TR/xpath.html#function-sum">W</a> <code>sum()</code></li>
+ <li><a target="_content" href="../../xml/darstellung/xpathfunktionen.htm#system_property">B</a> <a target="_content" href="http://www.w3.org/TR/xslt.html#function-system-property">W</a> <code>system-property()</code></li>
+ <li><a target="_content" href="../../xml/darstellung/xpathfunktionen.htm#translate">B</a> <a target="_content" href="http://www.w3.org/TR/xpath.html#function-translate">W</a> <code>translate()</code></li>
+ <li><a target="_content" href="../../xml/darstellung/xpathfunktionen.htm#true">B</a> <a target="_content" href="http://www.w3.org/TR/xpath.html#function-true">W</a> <code>true()</code></li>
+ <li><a target="_content" href="../../xml/darstellung/xpathfunktionen.htm#unparsed_entity_uri">B</a> <a target="_content" href="http://www.w3.org/TR/xslt.html#function-unparsed-entity-uri">W</a> <code>unparsed-entity-uri()</code></li>
+</ul>
+
+<p id="footer">
+ <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a target="_content" href="index.htm">Installationsanleitung</a><br>
+ &copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a target="_content" href="../../editorial/impressum.htm">Impressum</a>
+</p>
+
+<!--[if gte IE 5]>
+<script type="text/javascript">
+allLinks = document.getElementsByTagName("a");
+for (var i = 0; i<allLinks.length; i++) {
+  if (allLinks[i].target == "_content") {
+    allLinks[i].target = "_main";
+  }
+}
+</script>
+<![endif]-->
+</body>
+</html>

@@ -1,0 +1,1003 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: JavaScript / Objektreferenz / String</title>
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<meta name="description"    content="Welche Aufgaben, Eigenschaften und Methoden das String-Objekt in JavaScript hat.">
+<meta name="keywords"       content="SELFHTML, JavaScript, Objekte, Zeichenketten, String, length, anchor, big, blink, bold, charAt, charCodeAt, concat, fixed, fontcolor, fontsize, fromCharCode, indexOf, italics, lastIndexOf, link, match, replace, search, slice, small, split, strike, sub, substr, substring, sup, toLowerCase, toUpperCase">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-11-09T03:26:19+01:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/javascript/objekte/string.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="Objektreferenz" href="index.htm">
+<link rel="next" title="Objektunabhängige Funktionen" href="unabhaengig.htm">
+<link rel="prev" title="screen" href="screen.htm">
+<link rel="first" title="Hinweise zur JavaScript-Objektreferenz" href="hinweise.htm">
+<link rel="last" title="Objektunabhängige Funktionen" href="unabhaengig.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">JavaScript/DOM</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Objektreferenz</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">String</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p><img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#allgemeines">Allgemeines zur Verwendung</a> </p>
+
+<h3>Eigenschaften:</h3>
+
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#length">length</a> (Anzahl Zeichen)<br>
+</p>
+
+<h3>Methoden:</h3>
+
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#anchor">anchor()</a> (Verweisanker erzeugen)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#big">big()</a> (großen Text erzeugen)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#blink">blink()</a> (blinkenden Text erzeugen)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#bold">bold()</a> (fetten Text erzeugen)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#char_at">charAt()</a> (Zeichen an einer Position ermitteln)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#char_code_at">charCodeAt()</a> (Unicode-Zeichennummer an einer Position)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#concat">concat()</a> (Zeichenketten zusammenfügen)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#fixed">fixed()</a> (Teletyper-Text erzeugen)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#fontcolor">fontcolor()</a> (Schriftfarbe erzeugen)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#fontsize">fontsize()</a> (Schriftgröße erzeugen)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#from_char_code">fromCharCode()</a> (Unicode-Zeichen erzeugen)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#index_of">indexOf()</a> (Position eines Zeichens ermitteln)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#italics">italics()</a> (kursiven Text erzeugen)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#last_index_of">lastIndexOf()</a> (letzte Position eines Zeichens ermitteln)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#link">link()</a> (Verweis erzeugen)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#match">match()</a> (Regulären Ausdruck anwenden)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#replace">replace()</a> (Regulären Ausdruck anwenden und ersetzen)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#search">search()</a> (Suchen mit Regulärem Ausdruck)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#slice">slice()</a> (Teil aus Zeichenkette extrahieren)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#small">small()</a> (kleinen Text erzeugen)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#split">split()</a> (Zeichenkette aufsplitten)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#strike">strike()</a> (durchgestrichenen Text erzeugen)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#sub">sub()</a> (tiefgestellten Text erzeugen)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#substr">substr()</a> (Teilzeichenkette ab Position ermitteln)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#substring">substring()</a> (Teilzeichenkette ermitteln)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#sup">sup()</a> (hochgestellten Text erzeugen)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#to_lower_case">toLowerCase()</a> (alles klein schreiben)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#to_upper_case">toUpperCase()</a> (alles groß schreiben)
+</p>
+
+
+</td>
+</tr><tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><a class="an" name="allgemeines">Allgemeines zur Verwendung</a></h2>
+
+<p>Die Eigenschaften und Methoden des Objektes <code>String</code> können Sie auf alle Zeichenketten anwenden. So können Sie in einer Zeichenkette z.B. alle darin enthaltenen Kleinbuchstaben in Großbuchstaben umwandeln, oder  HTML-Formatierungen auf die Zeichenkette anwenden.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/string_allgemeines.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;script type="text/javascript"&gt;
+var Ort = "Friedrichshafen";
+alert(Ort + " hat " + Ort.length + " Buchstaben");
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+<p>Im Beispiel wird eine Variable <code>Ort</code> definiert, der ein Wert zugewiesen wird, nämlich der Wert <code>Friedrichshafen</code>. Anschließend wird in einem Meldungsfenster ausgegeben: <code>Friedrichshafen hat 15 Buchstaben</code>. Dies geschieht durch einen Aufruf der Objekteigenschaft <code>length</code>. Vor dem Punkt kann also eine Variable oder auch irgendeine andere JavaScript-Objekteigenschaft stehen, in der eine Zeichenkette gespeichert ist. Hinter dem Punkt folgt die gewünschte Eigenschaft oder Methode des String-Objekts.</p>
+
+<p>Zeichenketten in JavaScript werden als eine Kette von Einzelzeichen betrachtet. Jedes Einzelzeichen hat seine Position in der Zeichenkette:</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/string_allgemeines_kette.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;script type="text/javascript"&gt;
+var Name = "Hans";
+alert(Name[0] + Name[1] + Name[2] + Name[3]);
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+<p>Das Beispiel, das in dieser Form allerdings nur mit Netscape, nicht mit dem Internet Explorer und Opera funktioniert, definiert eine Variable mit den Namen <code>Name</code>. Diese Variable erhält den Wert <code>"Hans"</code>. In einem Meldungsfenster wird anschließend zeichenweise dieser Wert der Variablen <code>Name</code> ausgegeben. Das Ergebnis ist das gleiche, wie wenn einfach <code>alert(Name)</code> notiert würde. Aber an dieser Notationsform können Sie erkennen, wie Zeichenketten funktionieren: <code>Name[0]</code> ist das H, <code>Name[1]</code> das a, <code>Name[2]</code> das n und <code>Name[3]</code> das s. Es wird also immer bei 0 zu zählen begonnen.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/js10.gif" width="30" height="30" alt="JavaScript 1.0" title="JavaScript 1.0"><img src="../../src/netsc2.gif" width="30" height="30" alt="Netscape 2.0" title="Netscape 2.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0"><img src="../../src/jsread.gif" width="60" height="30" alt="Lesen">&nbsp;<a class="an" name="length">length</a></h2>
+
+<p>Speichert die Anzahl Zeichen einer Zeichenkette, bei der Zeichenkette "Guten Abend" beispielsweise 11.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/string_length.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;&lt;/head&gt;&lt;body&gt;
+&lt;script type="text/javascript"&gt;
+var Eingabe = window.prompt("Irgendetwas eingeben", "");
+alert("Eingegebene Zeichen: " + Eingabe.length);
+&lt;/script&gt;&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+<p>Das Beispiel blendet ein Dialogfenster ein, in dem der Anwender irgendetwas eingeben kann. Der eingegebene Wert wird in der Variablen <code>Eingabe</code> gespeichert. Nach Beenden des Dialogfensters wird ein Meldungsfenster ausgegeben, das mit <code>Eingabe.length</code> ausgibt, wie viele Zeichen eingegeben wurden.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/js10.gif" width="30" height="30" alt="JavaScript 1.0" title="JavaScript 1.0"><img src="../../src/netsc2.gif" width="30" height="30" alt="Netscape 2.0" title="Netscape 2.0"><img src="../../src/msie4.gif" width="30" height="30" alt="MS IE 4.0" title="MS IE 4.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="anchor">anchor()</a></h2>
+
+<p>Formatiert eine Zeichenkette als Verweisanker, der mit Hilfe eines HTML-Verweises angesprungen werden kann. Hat also die gleiche Wirkung wie der HTML-Konstrukt <code>&lt;a name=&gt;</code>...<code>&lt;/a&gt;</code>. Als Parameter erwartet die Methode den gewünschten Ankernamen.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/string_anchor.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;&lt;/head&gt;&lt;body&gt;
+&lt;script type="text/javascript"&gt;
+var Anker = "Inhaltsverzeichnis";
+document.write(Anker.anchor("a1"));
+for (var i = 1; i &lt; 100; ++i)
+  document.write("&lt;br&gt;Zeile " + i);
+document.write('&lt;br&gt;&lt;a href="#a1"&gt;Testverweis&lt;\/a&gt;');
+&lt;/script&gt;&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+<p>Das Beispiel definiert eine Variable <code>Anker</code> mit dem Wert <code>Inhaltsverzeichnis</code>. Mit Hilfe von <code>document.write()</code> wird daraus ein Verweisanker geschrieben. Die Konstruktion <code>Anker.anchor("a1")</code> bewirkt dabei das gleiche wie der HTML-Konstrukt <code>&lt;a name="a1"&gt;Inhaltsverzeichnis&lt;/a&gt;</code>. Zu Testzwecken werden im Beispiel anschließend 100 Zeilen in die Datei geschrieben und dahinter ein Verweis. Beim Klicken auf den Verweis wird der mit JavaScript erzeugte Verweisanker angesprungen.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/js10.gif" width="30" height="30" alt="JavaScript 1.0" title="JavaScript 1.0"><img src="../../src/netsc2.gif" width="30" height="30" alt="Netscape 2.0" title="Netscape 2.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="big">big()</a></h2>
+
+<p>Formatiert eine Zeichenkette mit größerer Schrift, genau wie die HTML-Formatierung <code>&lt;big&gt;</code>...<code>&lt;/big&gt;</code>. Erwartet als Parameter eine Zeichenkette.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/string_big.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;&lt;/head&gt;&lt;body&gt;
+&lt;script type="text/javascript"&gt;
+var update = document.lastModified;
+document.write(update.big());
+&lt;/script&gt;&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+<p>Im Beispiel ermittelt ein JavaScript mit Hilfe von <code>document.lastModified</code>, wann die Datei zuletzt geändert wurde. In der Variablen <code>update</code> steht dann eine entsprechende Zeichenkette. Mit Hilfe von <code>document.write()</code> wird der Wert von <code>update</code> in die Datei geschrieben. Die Formatierung dabei entspricht der HTML-Formatierung <code>&lt;big&gt;</code>...<code>&lt;/big&gt;</code>.</p>
+
+<h3>Beachten Sie:</h3>
+
+<p>Konqueror und Safari interpretieren zwar <code>big</code>, können jedoch das Anzeigebeispiel nicht darstellen, da diese Browser <code>lastModified</code> nicht interpretieren.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/js10.gif" width="30" height="30" alt="JavaScript 1.0" title="JavaScript 1.0"><img src="../../src/netsc2.gif" width="30" height="30" alt="Netscape 2.0" title="Netscape 2.0"><img src="../../src/op72.gif" width="30" height="30" alt="Opera 7.20" title="Opera 7.20"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1">&nbsp;<a class="an" name="blink">blink()</a></h2>
+
+<p>Formatiert eine Zeichenkette als blinkenden Text, genau wie die HTML-Formatierung <code>&lt;blink&gt;</code>...<code>&lt;/blink&gt;</code>.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/string_blink.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;&lt;/head&gt;&lt;body&gt;
+&lt;script type="text/javascript"&gt;
+var Ausgabe = "Best viewed only with your " + navigator.appName;
+document.write(Ausgabe.blink());
+&lt;/script&gt;&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+<p>Im Beispiel wird eine Variable namens <code>Ausgabe</code> mit einem Wert belegt. Mit Hilfe von <code>document.write()</code> wird der Wert von <code>Ausgabe</code> in die Datei geschrieben. Die Formatierung dabei entspricht der HTML-Formatierung <code>&lt;blink&gt;</code>...<code>&lt;/blink&gt;</code>.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Obwohl weder Opera 5.12 und 6, Netscape 6, Internet Explorer, Konqueror noch Safari die HTML-Notation <code>&lt;blink&gt;</code>...<code>&lt;/blink&gt;</code> unterstützen, interpretieren diese Browser die Methode und erzeugen den entsprechenden HTML-Code; allerdings blinkt er nicht.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/js10.gif" width="30" height="30" alt="JavaScript 1.0" title="JavaScript 1.0"><img src="../../src/netsc2.gif" width="30" height="30" alt="Netscape 2.0" title="Netscape 2.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="bold">bold()</a></h2>
+
+<p>Formatiert eine Zeichenkette als fetten Text, genau wie die HTML-Formatierung <code>&lt;b&gt;</code>...<code>&lt;/b&gt;</code>.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/string_bold.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;&lt;/head&gt;&lt;body&gt;
+&lt;script type="text/javascript"&gt;
+var DieseSeite = window.location.href;
+document.write("Adresse: " + DieseSeite.bold());
+&lt;/script&gt;&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Im Beispiel ermittelt ein JavaScript mit Hilfe von <code>window.location.href</code> den URI der aktuellen Datei. In der Variablen <code>DieseSeite</code> steht dann eine entsprechende Zeichenkette. Mit Hilfe von <code>document.write()</code> wird der Wert von <code>update</code> in die Datei geschrieben. Die Formatierung dabei entspricht der HTML-Formatierung <code>&lt;b&gt;</code>...<code>&lt;/b&gt;</code>.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/js10.gif" width="30" height="30" alt="JavaScript 1.0" title="JavaScript 1.0"><img src="../../src/netsc2.gif" width="30" height="30" alt="Netscape 2.0" title="Netscape 2.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="char_at">charAt()</a></h2>
+
+<p>Liefert dasjenige Zeichen zurück, das in einer Zeichenkette an einer bestimmten Position steht. Erwartet als Parameter die gewünschte Position.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/string_char_at.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;&lt;/head&gt;&lt;body&gt;
+&lt;script type="text/javascript"&gt;
+var Vollversion = navigator.appVersion.charAt(0);
+alert(Vollversion);
+&lt;/script&gt;&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+<p>Im Beispiel ermittelt ein JavaScript mit Hilfe von <code>navigator.appVersion</code>, welche Version seines Browsers der Anwender benutzt. Auf <code>navigator.appVersion</code> wird jedoch zusätzlich die Methode <code>charAt()</code> angewendet. Als Parameter wird 0 übergeben, denn es soll das erste Zeichen des Wertes ermittelt werden, der in <code>navigator.appVersion</code> steht (dies ist immer die Nummer der Vollversion, also bei Netscape 4.01 etwa die 4). Das Ergebnis der Konstruktion wird in der Variablen <code>Vollversion</code> gespeichert. Zur Kontrolle wird der Wert dieser Variablen anschließend in einem Meldungsfenster ausgegeben.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/js12.gif" width="30" height="30" alt="JavaScript 1.2" title="JavaScript 1.2"><img src="../../src/netsc4.gif" width="30" height="30" alt="Netscape 4.0" title="Netscape 4.0"><img src="../../src/msie4.gif" width="30" height="30" alt="MS IE 4.0" title="MS IE 4.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="char_code_at">charCodeAt()</a></h2>
+
+<p>Liefert die Nummer eines Zeichens in der <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../inter/unicode.htm">Unicode-Codetabelle</a> zurück, das in einer Zeichenkette an einer bestimmten Position steht. Erwartet als Parameter die gewünschte Position.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/string_char_code_at.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;&lt;/head&gt;&lt;body&gt;
+&lt;script type="text/javascript"&gt;
+var Name = "Hans";
+alert(Name.charCodeAt(1));
+&lt;/script&gt;&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+<p>Im Beispiel wird eine Variable <code>Name</code> mit dem Wert <code>Hans</code> belegt. In einem Meldungsfenster wird anschließend ausgegeben, welche Zeichennummer das zweite Zeichen dieser Variablen hat, also das "a" in "Hans". Dazu wird <code>charCodeAt</code> als Parameter 1 übergeben, denn in JavaScript hat das erste Zeichen einer Zeichenkette immer die Position 0, das zweite die Position 1 usw.<br>
+Als Ergebnis wird 97 angezeigt. Dies ist die Zeichennummer des kleinen "a" in der Unicode-Codetabelle.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/js12.gif" width="30" height="30" alt="JavaScript 1.2" title="JavaScript 1.2"><img src="../../src/netsc4.gif" width="30" height="30" alt="Netscape 4.0" title="Netscape 4.0"><img src="../../src/msie4.gif" width="30" height="30" alt="MS IE 4.0" title="MS IE 4.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="concat">concat()</a></h2>
+
+<p>Hängt eine Zeichenkette an eine andere Zeichenkette an. Erwartet als Parameter die Zeichenkette, die an die erste angehängt werden soll.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/string_concat.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;&lt;/head&gt;&lt;body&gt;
+&lt;script type="text/javascript"&gt;
+var Vorname = "Hans ";
+var Zuname = "Hansen";
+var Name = Vorname.concat(Zuname);
+alert(Name);
+&lt;/script&gt;&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+<p>Im Beispiel werden zwei Variablen <code>Vorname</code> und <code>Zuname</code> mit entsprechenden Werten belegt. Dann wird die Methode <code>concat()</code> auf die Variable <code>Vorname</code> angewendet. Als Parameter wird der Methode die Variable <code>Zuname</code> übergeben. Auf diese Weise wird <code>Zuname</code> an <code>Vorname</code> angehängt. Die Methode <code>concat()</code> gibt die  zusammengefügte Zeichenkette zurück. Im Beispiel wird dieser Rückgabewert in der Variablen <code>Name</code> gespeichert. Zur Kontrolle wird diese Variable anschließend in einem Meldungsfenster ausgegeben.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/js10.gif" width="30" height="30" alt="JavaScript 1.0" title="JavaScript 1.0"><img src="../../src/netsc2.gif" width="30" height="30" alt="Netscape 2.0" title="Netscape 2.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="fixed">fixed()</a></h2>
+
+<p>Formatiert eine Zeichenkette als Teletyper-Text, genau wie die HTML-Formatierung <code>&lt;tt&gt;</code>...<code>&lt;/tt&gt;</code>.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/string_fixed.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;&lt;/head&gt;&lt;body&gt;
+&lt;script type="text/javascript"&gt;
+var update = document.lastModified;
+document.write("zuletzt aktualisiert: " + update.fixed());
+&lt;/script&gt;&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+<p>Im Beispiel ermittelt ein JavaScript mit Hilfe von <code>document.lastModified</code>, wann die Datei zuletzt geändert wurde. In der Variablen <code>update</code> steht dann eine entsprechende Zeichenkette. Mit Hilfe von <code>document.write()</code> wird der Wert von <code>update</code> in die Datei geschrieben. Die Formatierung dabei entspricht der HTML-Formatierung <code>&lt;tt&gt;</code>...<code>&lt;/tt&gt;</code>.</p>
+
+<h3>Beachten Sie:</h3>
+
+<p>Konqueror und Safari interpretieren zwar <code>fixed</code>, können jedoch das Anzeigebeispiel nicht darstellen, da diese Browser <code>lastModified</code> nicht interpretieren.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/js10.gif" width="30" height="30" alt="JavaScript 1.0" title="JavaScript 1.0"><img src="../../src/netsc2.gif" width="30" height="30" alt="Netscape 2.0" title="Netscape 2.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="fontcolor">fontcolor()</a></h2>
+
+<p>Formatiert eine Zeichenkette in farbiger Schrift, genau wie die HTML-Formatierung <code>&lt;font color=&gt;</code>...<code>&lt;/font&gt;</code>. Erwartet als Parameter die gewünschte Farbe.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/string_fontcolor.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;&lt;/head&gt;&lt;body&gt;
+&lt;script type="text/javascript"&gt;
+var Zeit = new Date;
+var Datum = Zeit.getDate() + "." + (Zeit.getMonth() + 1) + "." + Zeit.getFullYear();
+document.write(Datum.fontcolor("#FF0000"));
+&lt;/script&gt;&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+<p>Im Beispiel erzeugt mit Hilfe des <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="date.htm">Date</a>-Objekts das aktuelle Tagesdatum und speichert dieses in der Variablen <code>Datum</code>. Mit Hilfe von <code>document.write()</code> wird der Wert von <code>Datum</code> in die Datei geschrieben. Die Formatierung dabei entspricht der HTML-Formatierung <code>&lt;font color="#FF0000"&gt;</code>...<code>&lt;/font&gt;</code>. Als Werte sind hexadezimale Werte oder Farbnamen erlaubt (siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/allgemein/farben.htm">Farben definieren in HTML</a>).</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/js10.gif" width="30" height="30" alt="JavaScript 1.0" title="JavaScript 1.0"><img src="../../src/netsc2.gif" width="30" height="30" alt="Netscape 2.0" title="Netscape 2.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="fontsize">fontsize()</a></h2>
+
+<p>Formatiert eine Zeichenkette in einer relativen Schriftgröße zwischen 1 und 7, wobei 3 die Normalschriftgröße ist. Hat die gleiche Wirkung wie die HTML-Formatierung <code>&lt;font size=&gt;</code>...<code>&lt;/font&gt;</code>. Erwartet als Parameter die gewünschte Größe der Schrift.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/string_fontsize.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;&lt;/head&gt;&lt;body&gt;
+&lt;script type="text/javascript"&gt;
+var Ausgabe = "Meine Homepage";
+document.write(Ausgabe.fontsize(7));
+&lt;/script&gt;&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+<p>Im Beispiel wird eine Variable namens <code>Ausgabe</code> mit einem Wert belegt. Mit Hilfe von <code>document.write()</code> wird der Wert von <code>Ausgabe</code> in die Datei geschrieben. Die Formatierung dabei entspricht der HTML-Formatierung <code>&lt;font size="7"&gt;</code>...<code>&lt;/font&gt;</code>.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/js12.gif" width="30" height="30" alt="JavaScript 1.2" title="JavaScript 1.2"><img src="../../src/netsc4.gif" width="30" height="30" alt="Netscape 4.0" title="Netscape 4.0"><img src="../../src/msie4.gif" width="30" height="30" alt="MS IE 4.0" title="MS IE 4.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="from_char_code">fromCharCode()</a></h2>
+
+<p>Interpretiert eine Reihe von numerischen Parametern als Unicode-Zeichennummern. Erzeugt eine entsprechende Zeichenkette daraus.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/string_from_char_code.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;&lt;/head&gt;&lt;body&gt;
+&lt;script type="text/javascript"&gt;
+var Test = String.fromCharCode(65, 66, 67);
+alert(Test);
+&lt;/script&gt;&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+<p>Im Beispiel wird mit <code>String.fromCharCode()</code> die Zeichenkette "ABC" erzeugt und in der Variablen <code>Test</code> gespeichert. Die Zeichenkette kommt dadurch zustande, dass 65 die dezimale Zeichennummer für A in der <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../inter/unicode.htm">Unicode-Codetabelle</a> ist, 66 derjenige für B und 67 der für C. Im Beispiel wird das Ergebnis zur Kontrolle in einem Meldungsfenster ausgegeben.<br>
+Wichtig ist, vor der Methode <code>fromCharCode()</code> immer das feste Schlüsselwort <code>String</code> (großgeschrieben) zu notieren.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/js10.gif" width="30" height="30" alt="JavaScript 1.0" title="JavaScript 1.0"><img src="../../src/netsc2.gif" width="30" height="30" alt="Netscape 2.0" title="Netscape 2.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="index_of">indexOf()</a></h2>
+
+<p>Ermittelt das erste Vorkommen eines Zeichens oder einer Zeichenkette innerhalb einer Zeichenkette und gibt zurück, an wie vielter Stelle das Zeichen in der Zeichenkette steht. Die Zählung beginnt bei 0. Wenn die Suche erfolglos ist, wird <code>-1</code> zurückgegeben.<br>
+Optional ist es möglich, die Funktion in einem zweiten Parameter anzuweisen, ab der wie vielten Stelle in der Zeichenkette sie mit der Suche beginnen soll.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/string_index_of.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;&lt;/head&gt;&lt;body&gt;
+&lt;script type="text/javascript"&gt;
+var Aussage = "Der Mensch ist dem Mensch sein Feind";
+var Suche = Aussage.indexOf("Mensch");
+alert("gefunden bei Position: " + Suche);
+&lt;/script&gt;&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+<p>Im Beispiel belegt eine Variable <code>Aussage</code> mit einem Wert. Anschließend wird der Wert dieser Variablen mit <code>indexOf()</code> nach dem ersten Vorkommen von <code>Mensch</code> innerhalb der Zeichenkette gesucht. In der Variablen <code>Suche</code> wird der Rückgabewert von <code>indexOf()</code> gespeichert. Im Beispiel wird 4 zurückgegeben, da die Zeichenfolge <code>Mensch</code> in der durchsuchten Zeichenkette zum ersten Mal an 5. Stelle der Zeichenkette beginnt.</p>
+
+<p>Vergleiche auch: <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#last_index_of">lastIndexOf()</a>.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/js10.gif" width="30" height="30" alt="JavaScript 1.0" title="JavaScript 1.0"><img src="../../src/netsc2.gif" width="30" height="30" alt="Netscape 2.0" title="Netscape 2.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="italics">italics()</a></h2>
+
+<p>Formatiert eine Zeichenkette kursiv, genau wie die HTML-Formatierung <code>&lt;i&gt;</code>...<code>&lt;/i&gt;</code>.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/string_italics.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;&lt;/head&gt;&lt;body&gt;
+&lt;script type="text/javascript"&gt;
+var Zeit = new Date;
+var Uhrzeit = Zeit.getHours() + ":" + Zeit.getMinutes();
+document.write(Uhrzeit.italics());
+&lt;/script&gt;&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+<p>Im Beispiel erzeugt mit Hilfe des <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="date.htm">Date</a>-Objekts die aktuelle Uhrzeit und speichert diese in der Variablen <code>Uhrzeit</code>. Mit Hilfe von <code>document.write()</code> wird der Wert von <code>Uhrzeit</code> in die Datei geschrieben. Die Formatierung dabei entspricht der HTML-Formatierung <code>&lt;i&gt;</code>...<code>&lt;/i&gt;</code>.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/js10.gif" width="30" height="30" alt="JavaScript 1.0" title="JavaScript 1.0"><img src="../../src/netsc2.gif" width="30" height="30" alt="Netscape 2.0" title="Netscape 2.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="last_index_of">lastIndexOf()</a></h2>
+
+<p>Ermittelt das letzte Vorkommen eines Zeichens oder einer Zeichenkette innerhalb einer Zeichenkette und gibt zurück, an wie vielter Stelle das Zeichen in der Zeichenkette steht. Die Zählung beginnt bei 0. Wenn die Suche erfolglos ist, wird <code>-1</code> zurückgegeben.<br>
+Optional ist es möglich, die Funktion in einem zweiten Parameter anzuweisen, ab der wie vielten Stelle in der Zeichenkette sie mit der Suche beginnen soll.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/string_last_index_of.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;&lt;/head&gt;&lt;body&gt;
+&lt;script type="text/javascript"&gt;
+var Aussage = "Der Mensch ist dem Mensch sein Feind";
+var Suche = Aussage.lastIndexOf("Mensch");
+alert("gefunden bei Position: " + Suche);
+&lt;/script&gt;&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+<p>Im Beispiel belegt eine Variable <code>Aussage</code> mit einem Wert. Anschließend wird der Wert dieser Variablen mit <code>lastIndexOf()</code> nach dem letzten Vorkommen von <code>Mensch</code> innerhalb der Zeichenkette gesucht. In der Variablen <code>Suche</code> wird der Rückgabewert von <code>lastIndexOf()</code> gespeichert. Im Beispiel wird 19 zurückgegeben, da die Zeichenfolge <code>Mensch</code> in der durchsuchten Zeichenkette zum letzten Mal an 20. Stelle der Zeichenkette beginnt.</p>
+
+<p>Vergleiche auch: <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#index_of">indexOf()</a>.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/js10.gif" width="30" height="30" alt="JavaScript 1.0" title="JavaScript 1.0"><img src="../../src/netsc2.gif" width="30" height="30" alt="Netscape 2.0" title="Netscape 2.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="link">link()</a></h2>
+
+<p>Formatiert eine Zeichenkette als Verweis. Hat den gleichen Effekt wie die HTML-Formatierung <code>&lt;a href=&gt;</code>...<code>&lt;/a&gt;</code>. Erwartet als Parameter einen URI für das Verweisziel.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/string_link.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;&lt;/head&gt;&lt;body&gt;
+&lt;p&gt;&lt;script type="text/javascript"&gt;
+var Homepage = "zu meiner Homepage";
+document.write(Homepage.link("home.htm"))
+&lt;/script&gt;&lt;/p&gt;
+&lt;p&gt;&lt;script type="text/javascript"&gt;
+document.write(document.referrer.link(document.referrer));
+&lt;/script&gt;&lt;/p&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+<p>Das Beispiel im ersten Script belegt zunächst eine Variable <code>Homepage</code> mit einem Wert. Daran anschließend wird mit <code>document.write()</code> ein Verweis geschrieben. Dazu wird die Methode <code>link()</code> auf die Variable <code>Homepage</code> angewendet. Der Wert von <code>Homepage</code> wird dabei der Verweistext. Als Parameter wird das gewünschte Verweisziel übergeben, im Beispiel die Datei <code>home.htm</code>.</p>
+
+<p>Das Beispiels im zweiten Script erzeugt dynamisch einen Verweis zu der Adresse, von wo aus der Anwender die aktuelle Seite aufgerufen hat. Dabei liefert die Eigenschaft <code>document.referrer</code> die Adresse der Herkunftsseite. Das Beispiel ist so konstruiert, dass hinterher die Adresse von <code>document.referrer</code> sowohl das Verweisziel als auch der Verweistext ist.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/js12.gif" width="30" height="30" alt="JavaScript 1.2" title="JavaScript 1.2"><img src="../../src/netsc4.gif" width="30" height="30" alt="Netscape 4.0" title="Netscape 4.0"><img src="../../src/msie4.gif" width="30" height="30" alt="MS IE 4.0" title="MS IE 4.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="match">match()</a></h2>
+
+<p>Durchsucht eine Zeichenkette mit Hilfe eines regulären Ausdrucks. Liefert Zeichenfolgen, auf die der reguläre Ausdruck passt, zurück. Erwartet als Parameter den regulären Ausdruck.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/string_match.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;&lt;/head&gt;&lt;body&gt;
+&lt;script type="text/javascript"&gt;
+var Aussage = "Der Mensch ist des Menschen sein Feind";
+var Ergebnis = Aussage.match(/Mensch\S{2}/);
+alert("Test 1: " + Ergebnis);
+&lt;/script&gt;
+&lt;script type="text/javascript"&gt;
+Aussage = "Der Mensch ist des Menschen sein Feind";
+Ergebnis = Aussage.match(/\bMensch\b|\bMenschen\b/g);
+if (Ergebnis)
+  for (var i = 0; i &lt; Ergebnis.length; ++i)
+    alert("Test 2: Fund " + i + " - " + Ergebnis[i]);
+&lt;/script&gt;
+&lt;script type="text/javascript"&gt;
+Aussage = "Wir wollen weisse Waesche waschen";
+Ergebnis = Aussage.match(/w/gi);
+if (Ergebnis)
+  alert("Test 3: " + Ergebnis.length + " gefunden");
+&lt;/script&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+<p>Das erste Script (Test 1) im Beispiel belegt eine Variable <code>Aussage</code> mit einem Wert. Auf den gespeicherten Wert dieser Variablen wird mit <code>match()</code> ein regulärer Ausdruck angewendet. Dieser findet die Zeichenfolge "Mensch", wenn noch zwei weitere Zeichen folgen, aber nicht, wenn ein Leerzeichen dabei ist. Auf diese Weise wird nur das hintere Wort "Menschen" gefunden. Das Ergebnis wird in einem Meldungsfenster ausgegeben.</p>
+
+<p>Das zweite Script (Test 2) im Beispiel wendet auf den gespeicherten Wert der Variablen <code>Aussage</code> mit <code>match()</code> ein anderen regulären Ausdruck an. Dieser findet die Zeichenfolge "Mensch" oder die Zeichenfolge "Menschen". Hinter dem Ausdruck ist außerdem mit <code>g</code> markiert, dass global gesucht werden soll. Dadurch werden alle Fundstellen zurückgegeben. Da es sich um mehrere Fundstellen handeln kann, ist der zurückgegebene Wert kein einfacher Wert, sondern ein Array aus Werten. Die Variable <code>Ergebnis</code>, in der der Rückgabewert im Beispiel gespeichert wird, muss deshalb anschließend als Array behandelt werden. Das Array-Objekt wird jedoch nur erzeugt, wenn es  Suchtreffer gibt. Deshalb ist es sicherer, folgende Anweisungen von der Abfrage abhängig zu machen, ob das Objekt existiert. Mit <code>if (Ergebnis)</code> ist eine solche Abfrage möglich. Im Beispiel werden dann in einer for-Schleife alle Suchtreffer ausgegeben.</p>
+
+<p>Das dritte Script (Test 3) im Beispiel belegt die Variable <code>Aussage</code> mit einem neuen Wert, in dem der Buchstabe w oft vorkommt, mal klein- und mal großgeschrieben. Auf den gespeicherten Wert dieser Variablen wird mit <code>match()</code> ein regulärer Ausdruck angewendet. Dieser sucht nach dem Vorkommen von w, und zwar wieder, wie im zweiten Script, global. Es werden also alle Fundstellen als Array zurückgegeben. Im Beispiel sollen jedoch sowohl klein- als auch großgeschriebene w gefunden werden. Deshalb wird hinter dem regulären Ausdruck noch zusätzlich ein kleines <code>i</code> notiert. Dies bewirkt, dass Groß-/Kleinschreibung nicht beachtet wird. Zur Kontrolle wird im Beispiel die Anzahl der Fundstellen ausgegeben.</p>
+
+<p>Näheres über reguläre Ausdrücke finden Sie beim <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="regexp.htm">RegExp</a>-Objekt.</p>
+
+<p>Näheres über Arrays wird beim <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="array.htm">Array</a>-Objekt beschrieben.</p>
+
+<p>Um nicht gefundene Zeichenfolgen, sondern nur Positionen gefundener Ausdrücke zu ermitteln, können Sie die Methode <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#search">search()</a> verwenden.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/js12.gif" width="30" height="30" alt="JavaScript 1.2" title="JavaScript 1.2"><img src="../../src/netsc4.gif" width="30" height="30" alt="Netscape 4.0" title="Netscape 4.0"><img src="../../src/msie4.gif" width="30" height="30" alt="MS IE 4.0" title="MS IE 4.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="replace">replace()</a></h2>
+
+<p>Durchsucht eine Zeichenkette mit Hilfe eines regulären Ausdrucks. Ersetzt Zeichenfolgen, auf die der reguläre Ausdruck passt. Erwartet folgende Parameter:<br>
+<b>1.</b> <i>regulärer Ausdruck</i> = Ein regulärer Ausdruck, der Suchtreffer liefern kann.<br>
+<b>2.</b> <i>Ersetzen durch</i> = eine Zeichenkette, durch die gefundene Stellen ersetzt werden sollen.</p>
+
+<p>Standardmäßig wird nur die erste gefundene Zeichenfolge ersetzt. Um mit einem Aufruf von <code>replace()</code> alle Vorkommen zu ersetzen, müssen Sie den regulären Ausdruck mit dem <code>g</code>-Parameter notieren, z.B. <code>/Zeichenfolge/g</code>.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/string_replace.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;&lt;/head&gt;&lt;body&gt;
+&lt;script type="text/javascript"&gt;
+var vormals = "Elke Hinz";
+var jetzt = vormals.replace(/Hinz/g, "Kunz, geb. Hinz");
+document.write(jetzt);
+&lt;/script&gt;&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+<p>Das Script im Beispiel belegt eine Variable <code>vormals</code> mit einem Namen. Auf den gespeicherten Namen wird mit <code>replace()</code> ein Suchen-Ersetzen-Vorgang angewendet. Der erste Parameter, der <code>replace()</code> übergeben wird, ist ein regulärer Ausdruck. Dieser passt durch den <code>g</code>-Zusatz auf alle Vorkommen der Zeichenfolge "Hinz" in der Variable <code>vormals</code>. Der Suchtreffer des regulären Ausdrucks wird durch "Kunz, geb. Hinz" ersetzt. Das Ergebnis wird zur Kontrolle ausgegeben.</p>
+
+<p>Näheres über reguläre Ausdrücke und weitere Beispiele für diese Methode finden Sie beim <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="regexp.htm">RegExp</a>-Objekt</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/js12.gif" width="30" height="30" alt="JavaScript 1.2" title="JavaScript 1.2"><img src="../../src/netsc4.gif" width="30" height="30" alt="Netscape 4.0" title="Netscape 4.0"><img src="../../src/msie4.gif" width="30" height="30" alt="MS IE 4.0" title="MS IE 4.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="search">search()</a></h2>
+
+<p>Durchsucht eine Zeichenkette mit Hilfe eines regulären Ausdrucks. Liefert -1 zurück, wenn der reguläre Ausdruck nicht passt. Wenn er passt, wird die Position des ersten Treffers zurück geliefert. Erwartet als Parameter den regulären Ausdruck.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/string_search.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;script type="text/javascript"&gt;
+var Aussage = "Wir wollen weisse Waesche waschen";
+var Ergebnis = Aussage.search(/weiss.+/);
+if (Ergebnis != -1)
+  alert("gefunden");
+&lt;/script&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+<p>Das Beispiel belegt die Variable <code>Aussage</code> mit einem Wert. Auf den gespeicherten Wert dieser Variablen wird mit <code>search()</code> ein regulärer Ausdruck angewendet. Dieser sucht nach dem Vorkommen von "weiss", gefolgt von einem beliebigen Inhalt. Der Rückgabewert von <code>search()</code> wird in der Variablen <code>Ergebnis</code> gespeichert. Wenn diese am Ende ungleich -1 ist, gab es zu dem regulären Ausdruck Suchtreffer. Im Beispiel wird in diesem Fall einfach eine entsprechende Meldung ausgegeben.</p>
+
+<p>Näheres über reguläre Ausdrücke finden Sie beim <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="regexp.htm">RegExp</a>-Objekt.</p>
+
+<p>Um nicht Positionen gefundener Ausdrücke als Rückgabewerte zu erhalten, sondern die Ausdrücke selbst, können Sie die Methode <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#match">match()</a> verwenden.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/js12.gif" width="30" height="30" alt="JavaScript 1.2" title="JavaScript 1.2"><img src="../../src/netsc4.gif" width="30" height="30" alt="Netscape 4.0" title="Netscape 4.0"><img src="../../src/msie4.gif" width="30" height="30" alt="MS IE 4.0" title="MS IE 4.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="slice">slice()</a></h2>
+
+<p>Extrahiert aus einer Zeichenkette eine Teilzeichenkette. Gibt die extrahierte Zeichenkette zurück. Erwartet folgende Parameter:<br>
+<b>1.</b> <i>Index Anfang</i> = Position des ersten zu extrahierenden Zeichens in der Zeichenkette, wobei bei 0 zu zählen begonnen wird.<br>
+<b>2.</b> <i>Index Ende</i> = Position des ersten nicht mehr zu extrahierenden Zeichens in der Zeichenkette, wobei bei 0 zu zählen begonnen wird.</p>
+
+<p>Sie können den zweiten Parameter auch weglassen. Dann wird bis zum Ende der Zeichenkette extrahiert.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/string_slice.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;&lt;/head&gt;&lt;body&gt;
+&lt;script type="text/javascript"&gt;
+var Begriff = "Garnele";
+var Extrakt = Begriff.slice(0, 4);
+alert(Extrakt);
+&lt;/script&gt;&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+<p>Das Beispiel belegt die Variable <code>Begriff</code> mit einem Wert. Aus dem Wert dieser Variablen werden mit <code>slice()</code> die ersten vier Zeichen, also die Zeichen mit den Positionswerten 0, 1, 2 und 3, extrahiert. Der Rückgabewert der Funktion, die extrahierte Zeichenkette, wird im Beispiel in der Variablen <code>Extrakt</code> gespeichert. Diese wird zur Kontrolle als Meldung ausgegeben.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/js10.gif" width="30" height="30" alt="JavaScript 1.0" title="JavaScript 1.0"><img src="../../src/netsc2.gif" width="30" height="30" alt="Netscape 2.0" title="Netscape 2.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="small">small()</a></h2>
+
+<p>Formatiert eine Zeichenkette als kleingeschriebenen Text, genau wie die HTML-Formatierung <code>&lt;small&gt;</code>...<code>&lt;/small&gt;</code>.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/string_small.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;&lt;/head&gt;&lt;body&gt;
+&lt;script type="text/javascript"&gt;
+var update = document.lastModified;
+document.write(update.small());
+&lt;/script&gt;&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+<p>Im Beispiel ermittelt ein JavaScript mit Hilfe von <code>document.lastModified</code>, wann die Datei zuletzt geändert wurde. In der Variablen <code>update</code> steht dann eine entsprechende Zeichenkette. Mit Hilfe von <code>document.write()</code> wird der Wert von <code>update</code> in die Datei geschrieben. Die Formatierung dabei entspricht der HTML-Formatierung <code>&lt;small&gt;</code>...<code>&lt;/small&gt;</code>.</p>
+
+<h3>Beachten Sie:</h3>
+
+<p>Konqueror und Safari interpretieren zwar <code>small</code>, können jedoch das Anzeigebeispiel nicht darstellen, da diese Browser <code>lastModified</code> nicht interpretieren.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/js11.gif" width="30" height="30" alt="JavaScript 1.1" title="JavaScript 1.1"><img src="../../src/netsc3.gif" width="30" height="30" alt="Netscape 3.0" title="Netscape 3.0"><img src="../../src/msie4.gif" width="30" height="30" alt="MS IE 4.0" title="MS IE 4.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="split">split()</a></h2>
+
+<p>Zerlegt Zeichenketten in mehrere Teilzeichenketten. Die erzeugten Teilzeichenketten werden in einem Array gespeichert. Erwartet als Parameter ein Begrenzerzeichen oder eine Begrenzerzeichenfolge, die als Trennmerkmal für die Teilzeichenketten verwendet werden soll. Optional kann als zweiter Parameter noch übergeben werden, wie viele Split-Vorgänge maximal erzeugt werden sollen.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/string_split.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;&lt;/head&gt;&lt;body&gt;
+&lt;script type="text/javascript"&gt;
+var Satz = "Wer nicht vom rechten Weg abkommt bleibt auf der Strecke";
+var Woerter = Satz.split(" ");
+document.write("Ein Satz mit " + Woerter.length + " W&amp;ouml;rtern.&lt;br&gt;");
+document.write("Das 5. Wort ist " + Woerter[4]);
+&lt;/script&gt;&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+<p>Das Beispiel belegt die Variable <code>Satz</code> mit einem Wert. Aus dem Wert dieser Variablen werden mit <code>split()</code> die einzelnen Wörter extrahiert. Dazu wird der Methode als Parameter ein Leerzeichen übergeben. Bei jedem Leerzeichen im Satz wird dadurch eine neue Teilzeichenkette erzeugt.<br>
+Der Rückgabewert der Funktion, die extrahierte Zeichenkette, wird im Beispiel in der Variablen <code>Woerter</code> gespeichert. Dies ist keine gewöhnliche Variable, sondern ein Array. Zu Testzwecken schreibt das Beispiel in die Datei, wie viele Elemente der Array hat (<code>Woerter.length</code>), und welches das 5. Wort ist. Dies ist das Wort mit dem Array-Index 4, da auch in diesem Fall bei 0 zu zählen begonnen wird.</p>
+
+<p>Näheres über Arrays finden Sie beim <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="array.htm">Array</a>-Objekt.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/js10.gif" width="30" height="30" alt="JavaScript 1.0" title="JavaScript 1.0"><img src="../../src/netsc2.gif" width="30" height="30" alt="Netscape 2.0" title="Netscape 2.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="strike">strike()</a></h2>
+
+<p>Formatiert eine Zeichenkette als durchgestrichenen Text, genau wie die HTML-Formatierung <code>&lt;strike&gt;</code>...<code>&lt;/strike&gt;</code>.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/string_strike.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;&lt;/head&gt;&lt;body&gt;
+&lt;script type="text/javascript"&gt;
+document.write(window.location.href.strike());
+&lt;/script&gt;&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+<p>Im Beispiel schreibt ein JavaScript mit <code>document.write()</code> den URI der aktuellen Datei. Die Formatierung dabei entspricht der HTML-Formatierung <code>&lt;strike&gt;</code>...<code>&lt;/strike&gt;</code>.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/js10.gif" width="30" height="30" alt="JavaScript 1.0" title="JavaScript 1.0"><img src="../../src/netsc2.gif" width="30" height="30" alt="Netscape 2.0" title="Netscape 2.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="sub">sub()</a></h2>
+
+<p>Formatiert eine Zeichenkette als tiefgestellten Text, genau wie die HTML-Formatierung <code>&lt;sub&gt;</code>...<code>&lt;/sub&gt;</code>.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/string_sub.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;&lt;/head&gt;&lt;body&gt;
+&lt;script type="text/javascript"&gt;
+var Tief0 = "0";
+document.write("ISDN und S" + Tief0.sub() + "-Bus");
+&lt;/script&gt;&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+<p>Im Beispiel wird eine Variable <code>Tief0</code> definiert, die das Zeichen 0 speichert. Mit Hilfe von <code>document.write()</code> wird dann ein Text in die Datei geschrieben. Die Formatierung der 0 entspricht dabei der HTML-Formatierung <code>&lt;sub&gt;</code>...<code>&lt;/sub&gt;</code>.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/js12.gif" width="30" height="30" alt="JavaScript 1.2" title="JavaScript 1.2"><img src="../../src/netsc2.gif" width="30" height="30" alt="Netscape 2.0" title="Netscape 2.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="substr">substr()</a></h2>
+
+<p>Extrahiert aus einer Zeichenkette eine Teilzeichenkette ab einer bestimmten Zeichenposition und mit einer bestimmten Länge.  Gibt die extrahierte Zeichenkette zurück. Erwartet folgende Parameter:<br>
+<b>1.</b> <i>Index Anfang</i> = Position des ersten zu extrahierenden Zeichens in der Zeichenkette, wobei bei 0 zu zählen begonnen wird.<br>
+<b>2.</b> <i>Anzahl Zeichen</i> = Anzahl Zeichen, die extrahiert werden sollen.<br>
+Der zweite Parameter ist optional. Wenn Sie ihn weglassen, werden alle Zeichen von der angegebenen Position bis zum Ende der Zeichenkette extrahiert.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/string_substr.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;&lt;/head&gt;&lt;body&gt;
+&lt;script type="text/javascript"&gt;
+var Begriff = "Donaudampfschifffahrt";
+var Teil = Begriff.substr(5, 11);
+alert(Teil);
+&lt;/script&gt;&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+<p>Das Beispiel belegt die Variable <code>Begriff</code> mit einem Wert. Aus dem Wert dieser Variablen werden mit <code>substr()</code> ein Teil extrahiert, nämlich ab Zeichen 6 (Index 5), und dann die folgenden 11 Zeichen.<br>
+Der Rückgabewert der Funktion, die extrahierte Zeichenkette, wird im Beispiel in der Variablen <code>Teil</code> gespeichert. Zur Kontrolle wird diese Variable als Meldungsfenster ausgegeben. Sie enthält den Wert "dampfschiff".</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/js10.gif" width="30" height="30" alt="JavaScript 1.0" title="JavaScript 1.0"><img src="../../src/netsc2.gif" width="30" height="30" alt="Netscape 2.0" title="Netscape 2.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="substring">substring()</a></h2>
+
+<p>Extrahiert aus einer Zeichenkette eine Teilzeichenkette ab einer bestimmten Zeichenposition und bis zu einer bestimmten Zeichenposition. Gibt die extrahierte Zeichenkette zurück. Erwartet folgende Parameter:<br>
+<b>1.</b> <i>Index Anfang</i> = Position des ersten zu extrahierenden Zeichens in der Zeichenkette, wobei bei 0 zu zählen begonnen wird.<br>
+<b>2.</b> <i>Index Ende</i> = Position des ersten nicht mehr zu extrahierenden Zeichens in der Zeichenkette, wobei bei 0 zu zählen begonnen wird.<br>
+Der zweite Parameter ist optional. Wenn Sie ihn weglassen, werden alle Zeichen von der angegebenen Position bis zum Ende der Zeichenkette extrahiert.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/string_substring.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;&lt;/head&gt;&lt;body&gt;
+&lt;script type="text/javascript"&gt;
+var Begriff = "Donaudampfschifffahrt";
+var Teil = Begriff.substring(5, 16);
+alert(Teil);
+&lt;/script&gt;&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+<p>Das Beispiel belegt die Variable <code>Begriff</code> mit einem Wert. Aus dem Wert dieser Variablen werden mit <code>substring()</code> ein Teil extrahiert, nämlich ab Zeichen 6 (Index 5), und bis vor Zeichen 17 (Index 16).<br>
+Der Rückgabewert der Funktion, die extrahierte Zeichenkette, wird im Beispiel in der Variablen <code>Teil</code> gespeichert. Zur Kontrolle wird diese Variable als Meldungsfenster ausgegeben. Sie enthält den Wert "dampfschiff".</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/js10.gif" width="30" height="30" alt="JavaScript 1.0" title="JavaScript 1.0"><img src="../../src/netsc2.gif" width="30" height="30" alt="Netscape 2.0" title="Netscape 2.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="sup">sup()</a></h2>
+
+<p>Formatiert eine Zeichenkette als hochgestellten Text, genau wie die HTML-Formatierung <code>&lt;sup&gt;</code>...<code>&lt;/sup&gt;</code>.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/string_sup.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;&lt;/head&gt;&lt;body&gt;
+&lt;script type="text/javascript"&gt;
+var Hoch2 = "2";
+document.write("10" + Hoch2.sup() + " = " + Math.pow(10, 2));
+&lt;/script&gt;&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+<p>Im Beispiel wird eine Variable <code>Hoch2</code> definiert, die das Zeichen 2 speichert. Mit Hilfe von <code>document.write()</code> wird dann ein Text in die Datei geschrieben. Die Formatierung der 2 entspricht dabei der HTML-Formatierung <code>&lt;sup&gt;</code>...<code>&lt;/sup&gt;</code>.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/js10.gif" width="30" height="30" alt="JavaScript 1.0" title="JavaScript 1.0"><img src="../../src/netsc2.gif" width="30" height="30" alt="Netscape 2.0" title="Netscape 2.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="to_lower_case">toLowerCase()</a></h2>
+
+<p>Diese Methode wandelt die Zeichenkette in Kleinbuchstaben um und gibt diese zurück. Die Orginalzeichenkette bleibt dabei unverändert.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/string_to_lower_case.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;script type="text/javascript"&gt;
+function MachKlein () {
+  var neu = document.Test.Eingabe.value.toLowerCase();
+  document.Test.Eingabe.value = neu;
+}
+&lt;/script&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;form name="Test" action=""&gt;
+&lt;input type="text" name="Eingabe"&gt;
+&lt;input type="button" value="klein machen" onclick="MachKlein()"&gt;
+&lt;/form&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+<p>Im Beispiel wird ein Formular mit einem Eingabefeld und einem Button definiert. Wenn der Anwender auf den Button klickt, wird die Funktion <code>MachKlein()</code> aufgerufen. Diese Funktion wendet die Methode <code>toLowerCase()</code> auf das Eingabefeld des Formulars an. Das Ergebnis wird in der Variablen <code>neu</code> gespeichert. Anschließend wird dem Formulareingabefeld der Wert von <code>neu</code> zugewiesen. Dadurch werden alle eventuell eingegebenen Großbuchstaben in dem Eingabefeld zu Kleinbuchstaben.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/js10.gif" width="30" height="30" alt="JavaScript 1.0" title="JavaScript 1.0"><img src="../../src/netsc2.gif" width="30" height="30" alt="Netscape 2.0" title="Netscape 2.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="to_upper_case">toUpperCase()</a></h2>
+
+<p>Diese Methode wandelt die Zeichenkette in Großbuchstaben um und gibt diese zurück. Die Orginalzeichenkette bleibt dabei unverändert.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/string_to_upper_case.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;script type="text/javascript"&gt;
+function MachGross () {
+  neu = document.Test.Eingabe.value.toUpperCase();
+  document.Test.Eingabe.value = neu;
+}
+&lt;/script&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;form name="Test" action=""&gt;
+&lt;input type="text" name="Eingabe"&gt;
+&lt;input type="button" value="gross machen" onclick="MachGross()"&gt;
+&lt;/form&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+<p>Im Beispiel wird ein Formular mit einem Eingabefeld und einem Button definiert. Wenn der Anwender auf den Button klickt, wird die Funktion <code>MachGross()</code> aufgerufen. Diese Funktion wendet die Methode <code>toUpperCase()</code> auf das Eingabefeld des Formulars an. Das Ergebnis wird in der Variablen <code>neu</code> gespeichert. Anschließend wird dem Formulareingabefeld der Wert von <code>neu</code> zugewiesen. Dadurch werden alle eventuell eingegebenen Kleinbuchstaben in dem Eingabefeld zu Großbuchstaben.</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="unabhaengig.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="unabhaengig.htm">Objektunabhängige Funktionen</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="screen.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="screen.htm">screen</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">JavaScript/DOM</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Objektreferenz</a></td>
+</tr>
+</table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

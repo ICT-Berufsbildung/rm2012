@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>Test</title>
+<script language="JScript" type="text/jscript">
+<!--
+var Bild1 = new Image();
+Bild1.src = "madrid1.jpg";
+var Bild2 = new Image();
+Bild2.src = "madrid2.jpg";
+var Bild = 1;
+function Bildwechsel () {
+  if (Bild == 1) {
+    Bild = 2;
+    document.all.Madrid.filters.blendTrans.Apply();
+    document.all.Madrid.src = Bild2.src;
+    document.all.Madrid.filters.blendTrans.Play();
+  } else {
+    Bild = 1;
+    document.all.Madrid.filters.blendTrans.Apply();
+    document.all.Madrid.src = Bild1.src;
+    document.all.Madrid.filters.blendTrans.Play();
+  }
+}
+//-->
+</script>
+</head><body>
+<p>Klicken Sie auf das Bild, nachdem es vollst&auml;ndig angezeigt ist.</p>
+<img id="Madrid" src="madrid1.jpg" style="cursor:hand; filter:blendTrans(Duration=4, Transition=16)" onclick="Bildwechsel()" width="433" height="278" border="0" alt="Das ist Madrid">
+
+<p><a href="../dynamische_filter.htm#blend_trans">zur&uuml;ck</a></p>
+</body>
+</html>

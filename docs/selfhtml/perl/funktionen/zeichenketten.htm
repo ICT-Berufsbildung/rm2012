@@ -1,0 +1,1063 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: Perl / Funktionsreferenz / Funktionen für Zeichenketten</title>
+<meta name="description"    content="Welche Funktionen es in Perl gibt, um Zeichenketten zu manipulieren, z.B. Teile extrahieren, Groß-/Kleinschreibung umkehren, Zerlegen in mehrere Teile usw.">
+<meta name="keywords"       content="SELFHTML, Perl, Funktionen, Perl-Funktionen, Zeichenketten, Strings, chomp, chop, chr, crypt, index, lc, lcfirst, length, ord, pack, pos, reverse, split, sprintf, substr, uc, ucfirst, unpack">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-11-09T00:29:27+01:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/perl/funktionen/zeichenketten.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="Perl-Funktionen" href="index.htm">
+<link rel="next" title="Funktionen für Listen bzw. Arrays und Hashes" href="listenhashes.htm">
+<link rel="prev" title="CGI-typische Aufgaben in Perl" href="../sprache/cgitypisch.htm">
+<link rel="last" title="Funktionen für Module und Packages" href="module.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">Perl</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Perl-Funktionen</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Funktionen für Zeichenketten</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#allgemeines">Allgemeines zu diesen Funktionen</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#chomp">chomp</a> - letztes Zeichen entfernen, sofern Separator<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#chop">chop</a> - letztes Zeichen entfernen<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#chr">chr</a> - Zeichen eines Zeichenwerts ermitteln<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#crypt">crypt</a> - Zeichenkette verschlüsseln<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#index">index</a> - erstes Vorkommen einer Teilzeichenkette in Zeichenkette suchen<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#lc">lc</a> - alle Zeichen einer Zeichenkette in Kleinbuchstaben umwandeln<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#lcfirst">lcfirst</a> - erstes Zeichen einer Zeichenkette in Kleinbuchstabe umwandeln<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#length">length</a> - Anzahl Zeichen einer Zeichenkette ermitteln<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#ord">ord</a> - Zeichenwert eines Zeichens ermitteln<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#pack">pack</a> - Binärdaten erzeugen<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#pos">pos</a> - Position der Anwendung von <code>m/[regexp]/g</code> auf Zeichenkette ermitteln<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#reverse">reverse</a> - Zeichenkette von hinten nach vorn umwandeln<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#split">split</a> - Zeichenkette in mehrere Zeichenketten aufsplitten<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#sprintf">sprintf</a> - Zeichenkette formatieren<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#substr">substr</a> - Teilzeichenkette aus Zeichenkette extrahieren<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#uc">uc</a> - alle Zeichen einer Zeichenkette in Großbuchstaben umwandeln<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#ucfirst">ucfirst</a> - erstes Zeichen einer Zeichenkette in Großbuchstabe umwandeln<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#unpack">unpack</a> - Binärdaten auflösen<br>
+</p>
+</td>
+</tr><tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><a class="an" name="allgemeines">Allgemeines zu diesen Funktionen</a></h2>
+
+<p>Um die hier versammelten Funktionen zu verstehen, sollten Sie die allgemeinen Bemerkungen zu <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../sprache/zeichenketten.htm">Zeichenketten</a> in Perl kennen.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="chomp">chomp - letztes Zeichen entfernen, sofern Separator</a></h2>
+
+<p>Entfernt das letzte Zeichen aus einer Zeichenkette. Das kann vor allem bei der Weiterverarbeitung von Zeichenketten interessant sein, die ein Endekennzeichen haben, in der Regel ein Newline-Zeichen <code>\n</code>. Im Gegensatz zu der Funktion <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#chop">chop</a>, die in jedem Fall das letzte Zeichen entfernt, egal um was es sich handelt, entfernt die Funktion <code>chomp</code> nur solche Zeichen, die in der <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../sprache/vordefiniert.htm">vordefinierten Variablen</a> <code>$/</code> enthalten sind. Per Voreinstellung ist in dieser Variablen nur das Newline-Zeichen <code>\n</code> gespeichert. Sollte eine Zeichenkette also nicht mit diesem Sonderzeichen enden, passiert bei Anwendung von <code>chomp</code> im Gegensatz zu <code>chop</code> gar nichts.</p>
+
+<p>Erwartet als Parameter:<br>
+<strong>1.</strong> die Liste von Zeichenketten, auf welche die Funktion angewendet werden soll. Statt einer Liste kann auch eine einzelne Zeichenkette bzw. ein Skalar mit einer Zeichenkette übergeben werden.</p>
+
+<p>Gibt die Anzahl der Zeichen zurück, die insgesamt entfernt wurden.</p>
+
+<h3 class="xmp">Beispiel - Teil 1 (Datei <var>boot.ini</var>):</h3>
+<pre>
+[boot loader]
+timeout=30
+default=multi(0)disk(0)rdisk(0)partition(1)\WINNT
+[operating systems]
+multi(0)disk(0)rdisk(0)partition(1)\WINNT="Microsoft Windows XP Professional" /fastdetect
+</pre>
+<h3 class="xmp">Beispiel - Teil 2 (vollständiges CGI-Script in Perl):</h3>
+<pre>
+#!C:/Programme/Perl/bin/perl.exe -w
+
+use strict;
+use CGI::Carp qw(fatalsToBrowser);
+
+open(BOOTINI, "&lt;c:/boot.ini") || die "Fehler aufgetreten: $!";
+my @Zeilen = &lt;BOOTINI&gt;;
+close(BOOTINI);
+chomp(@Zeilen);
+
+print "Content-type: text/html\n\n";
+print '&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"&gt;', "\n";
+print "&lt;html&gt;&lt;head&gt;&lt;title&gt;Test-Ausgabe&lt;/title&gt;&lt;/head&gt;&lt;body&gt;\n";
+print "&lt;pre&gt;\n";
+print "@Zeilen";
+print "&lt;/pre&gt;\n";
+print "&lt;/body&gt;&lt;/html&gt;\n";
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel zeigt im ersten Teil eine typische zeilenweise Textdatei, hier eine boot.ini, wie man sie auf NT-basierten Windows-Systemen (von Windows NT bis Windows XP) vorfindet. Im CGI-Script des Beispiels wird die Datei in den <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../sprache/listen.htm">Array</a> <code>@Zeilen</code> eingelesen. Anschließend wird die Funktion <code>chomp</code> auf den Array <code>@Zeilen</code> angewendet. Dadurch wird von jeder Zeile das beendende Newline-Zeichen entfernt. Zur Kontrolle gibt das Script am Ende HTML-Code aus. Innerhalb eines <code>&lt;pre&gt;</code>-Bereichs, in dem alles so ausgegeben wird, wie es notiert ist, wird die Liste <code>@Zeilen</code> ausgegeben. Da alle Newline-Zeichen entfernt wurden, erscheinen die Einträge der Liste nicht mehr als separate Zeilen, sondern in einer druchgehenden Zeichenfolge.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>In diesem Beispiel wird davon ausgegangen, dass Sie das Script auf einem Windows-Rechner einsetzen wollen. Aus diesem Grund muss auch die <img src="../../src/dok.gif" width="14" height="10" alt="Seite">&nbsp;<a href="../intro.htm#erstezeile">erste Zeile des Perl-Scripts</a> einen Pfad zum Perl-Interpreter aufweisen, der auf einem Windows-System gütig ist.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="chop">chop - letztes Zeichen entfernen</a></h2>
+
+<p>Entfernt das letzte Zeichen aus einer Zeichenkette. Im Gegensatz zu <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#chomp">chomp</a> entfernt <code>chop</code> in jedem Fall das letzte Zeichen, egal, worum es sich handelt.</p>
+
+<p>Erwartet als Parameter:<br>
+<strong>1.</strong> eine Variable, auf die die Funktion angewendet werden soll. Alternativ kann auch eine Liste übergeben werden. Wird eine Liste übergeben, gibt <code>chop</code> das abgeschnittene Zeichen des letzen Listenelementes zurück.</p>
+
+<p>Gibt das abgeschnittene Zeichen zurück.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="chr">chr - Zeichen eines Zeichenwerts ermitteln</a></h2>
+
+<p>Ermittelt zu einem numerischen Wert das zugehörige Zeichen. Darstellbar sind größtenteils allerdings nur die Zeichen mit Zeichenwerten höher als 32, da die darunterliegenden Zeichen so genannte Steuerzeichen sind, die in der Regel nicht am Bildschirm darstellbar sind.<br>
+Die Gegenfunktion ist <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#ord">ord</a>.</p>
+
+<p>Erwartet als Parameter:<br>
+<strong>1.</strong> den gewünschten Zeichenwert als Zahl.</p>
+
+<p>Gibt das zugehörige Zeichen zurück.</p>
+
+<h3 class="xmp"><a class="an" name="beispiel4">Beispiel eines vollständigen CGI-Scripts in Perl:</a></h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="http://de.selfhtml.org/cgi-bin/812/zeichenketten4.pl">Anzeigebeispiel: So sieht's aus</a> (Zum Aufruf des Scripts ist eine Internet-Verbindung erforderlich)</p>
+
+<pre>
+#!/usr/bin/perl -w
+
+use strict;
+use CGI::Carp qw(fatalsToBrowser);
+
+print "Content-type: text/html\n\n";
+print '&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"&gt;', "\n";
+print "&lt;html&gt;&lt;head&gt;&lt;title&gt;Test-Ausgabe&lt;/title&gt;&lt;/head&gt;&lt;body&gt;\n";
+print "&lt;table border=\"1\" bgcolor=\"#FFFFE0\"&gt;\n";
+my $Zeichenwert = 0;
+my $ASCII_Zeichen = "";
+for(my $i=0;$i&lt;16;$i++) {
+   print "&lt;tr&gt;\n";
+   for(my $j=0;$j&lt;8;$j++) {
+      $ASCII_Zeichen = chr($Zeichenwert);
+      print "&lt;td&gt;$Zeichenwert = $ASCII_Zeichen&lt;/td&gt;\n";
+      $Zeichenwert++;
+   }
+   print "&lt;/tr&gt;\n";
+}
+print "&lt;/table&gt;\n";
+print "&lt;/body&gt;&lt;/html&gt;\n";
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel erstellt in zwei ineinander verschachtelten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../sprache/schleifen.htm#for">for-Schleifen</a> eine HTML-Tabelle mit 16 Zeilen zu je 8 Spalten. In jeder der dadurch entstehenden 128 Zellen wird ein ASCII-Zeichen und dessen Zeichenwert ausgegeben. Dazu wird jeweils vor dem Schreiben der aktuellen Tabellenzelle die Funktion <code>chr</code> auf den aktuellen Stand des Skalars <code>$Zeichenwert</code> angewendet, der bei jedem inneren Schleifendurchgang um 1 erhöht wird und durch die beiden Schleifen der Reihe nach alle Zahlen zwischen 0 und 127 annimmt. Der Rückgabewert, also das ASCII-Zeichen, wird jeweils in dem Skalar <code>$ASCII_Zeichen</code> gespeichert. Beide Skalare werden in jeder Tabellenzelle ausgegeben, sodass die Zuordnung zwischen Zeichenwert und ASCII-Codetabelle deutlich wird.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="crypt">crypt - Zeichenkette verschlüsseln</a></h2>
+
+<p>Mit dieser Funktion können Sie eine Zeichenkette verschlüsseln. Dazu wird die Zeichenkette selbst sowie eine zweite Zeichenkette benötigt, die als "Salz in der Suppe" (engl. <i>salt</i>) dient.<br>
+Die Funktion <code>crypt</code> leistet nur eine einseitige Verschlüsselung. Eine entsprechende Entschlüsselungsmethode ist nicht bekannt. <code>crypt</code> ist daher nicht geeignet, um Kodier- und Dekodierverfahren zu realisieren.<br>
+<code>crypt</code> entspricht dem gleichnamigen Systemprogramm unter Unix und der gleichnamigen Funktion in C. Im Zusammenhang mit Web-Seiten wird <code>crypt</code> beispielsweise beim <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../servercgi/server/htaccess.htm">Verzeichnisschutz mit .htaccess</a> verwendet, um die Passwörter berechtigter Zugänge verschlüsselt zu speichern.</p>
+
+<p>Erwartet als Parameter:<br>
+<strong>1.</strong> die Zeichenkette, die verschlüsselt werden soll.<br>
+<strong>2.</strong> das "Salz in der Suppe", eine Zeichenkette, die aus zwei frei wählbaren Zeichen bestehen sollte.</p>
+
+<p>Gibt die verschlüsselte Zeichenkette zurück.</p>
+
+<h3 class="xmp"><a class="an" name="beispiel5">Beispiel eines vollständigen CGI-Scripts in Perl:</a></h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-script">&nbsp;<a href="http://de.selfhtml.org/cgi-bin/812/zeichenketten5.pl?Stefan+kn">Anzeigebeispiel: So sieht's aus</a> - mit dem string "Stefan+kn" als Übergabeparameter<br>(Zum Aufruf des Scripts ist eine Internet-Verbindung erforderlich)</p>
+
+<pre>
+#!/usr/bin/perl -w
+
+use strict;
+use CGI::Carp qw(fatalsToBrowser);
+
+my $Input = $ENV{'QUERY_STRING'};
+my ($String, $Salt) = split(/\+/,$Input);
+my $CryptString = crypt($String,$Salt);
+
+print "Content-type: text/html\n\n";
+print '&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"&gt;', "\n";
+print "&lt;html&gt;&lt;head&gt;&lt;title&gt;Test-Ausgabe&lt;/title&gt;&lt;/head&gt;&lt;body&gt;\n";
+print "die Zeichenkette &lt;b&gt;$String&lt;/b&gt; lautet verschl&amp;uuml;sselt: &lt;b&gt;$CryptString&lt;/b&gt;\n";
+print "&lt;/body&gt;&lt;/html&gt;\n";
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel-CGI-Script erwartet einen Übergabeparameter, der beim Aufruf über URI hinter einem Fragezeichen notiert wird. Der Übergabeparameter besteht aus der zu verschlüsselnden Zeichenkette und dem "Salz in der Suppe", getrennt durch ein Pluszeichen. Beispiel:<br>
+<var>http://localhost/cgi-bin/test.pl?Stefan+kn</var>.</p>
+
+<p>Das Beispiel-Script ermittelt den übergebenen Parameter aus der <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../servercgi/cgi/umgebungsvariablen.htm">CGI-Umgebungsvariablen</a> <code>QUERY_STRING</code> und speichert den Wert im Skalar <code>$input</code>. Um den Übergabeparameter am Pluszeichen aufzusplitten (hier also die zu verschlüsselnde Zeichenkette und das "Salz in der Suppe" voneinander zu trennen), wird die Funktion <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#split">split</a> eingesetzt, die das Ergebnis in einer aus den beiden Skalaren <code>$String</code> und <code>$Salt</code> bestehenden Liste speichert. Anschließend wird die Funktion <code>crypt</code> angewendet, der die beiden Skalare als Parameter übergeben werden. Der Rückgabewert, also die verschlüsselte Zeichenkette, wird in dem Skalar <code>$CryptString</code> gespeichert. Zur Kontrolle gibt das Script die zu verschlüsselnde Zeichenkette und das Ergebnis der Verschlüsselung aus.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p><code>crypt</code> kann nur Zeichenketten mit maximal 8 Zeichen Länge verschlüsseln. Sollte die Zeichenkette länger sein, werden nur die ersten 8 Zeichen verschlüsselt.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="index">index - erstes Vorkommen einer Teilzeichenkette in Zeichenkette suchen</a></h2>
+
+<p>Diese Funktion sucht in einer Zeichenkette nach einer beliebigen Teilzeichenkette, jedoch ohne reguläre Ausdrücke. Sie können also beispielsweise in einer Textzeile nach <code>Sex-Appeal</code> suchen, aber nicht nach <code>Sex.*</code>.</p>
+
+<p>Erwartet als Parameter:<br>
+<strong>1.</strong> die Zeichenkette, in der gesucht werden soll,<br>
+<strong>2.</strong> die Zeichenkette, nach der gesucht werden soll,<br>
+<strong>3.</strong> (optional) die Zeichenposition, ab der gesucht werden soll, z.b. 8 für "ab dem 9. Zeichen". Wenn Sie den 3. Parameter weglassen, wird ab dem Beginn der Zeichenkette gesucht.</p>
+
+<p>Gibt die Position des Zeichens zurück, an dem die gewünschte Teilzeichenkette gefunden wurde. Wenn sie nicht gefunden wurde, wird <code>-1</code> zurückgegeben.</p>
+
+<h3 class="xmp"><a class="an" name="beispiel6">Beispiel eines vollständigen CGI-Scripts in Perl:</a></h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="http://de.selfhtml.org/cgi-bin/812/zeichenketten6.pl">Anzeigebeispiel: So sieht's aus</a> (Zum Aufruf des Scripts ist eine Internet-Verbindung erforderlich)</p>
+
+<pre>
+#!/usr/bin/perl -w
+
+use strict;
+use CGI::Carp qw(fatalsToBrowser);
+
+my $Satz = "in diesem Satz ist von Liebe die Rede.";
+
+print "Content-type: text/html\n\n";
+print '&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"&gt;', "\n";
+print "&lt;html&gt;&lt;head&gt;&lt;title&gt;Test-Ausgabe&lt;/title&gt;&lt;/head&gt;&lt;body&gt;\n";
+if(index($Satz,"Liebe") &gt;= 0) {
+  print "in diesem Satz ist von Liebe die Rede\n";
+}
+else {
+  print "in diesem Satz ist leider nicht von Liebe die Rede\n";
+}
+print "&lt;/body&gt;&lt;/html&gt;\n";
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel definiert einen Skalar namens <code>$Satz</code> und weist ihm einen Wert zu. Das Script gibt HTML-Code aus. Mit der <code>index</code>-Funktion ermittelt es, ob in dem Skalar <code>$Satz</code> von Liebe die Rede ist. Dies ist der Fall, wenn der Rückgabewert der Funktion größer/gleich 0 ist. Im obigen Beispiel gelangt das Script in den if-Zweig, weil in dem durchsuchten Satz von Liebe die Rede ist.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="lc">lc - alle Zeichen einer Zeichenkette in Kleinbuchstaben umwandeln</a></h2>
+
+<p>Wandelt Großbuchstaben in Kleinbuchstaben um und lässt Kleinbuchstaben und alle anderen Zeichen unberührt. Die entsprechende Gegenfunktion für Großbuchstaben ist <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#uc">uc</a>.</p>
+
+<p>Erwartet als Parameter:<br>
+<strong>1.</strong> die Zeichenkette, die bearbeitet werden soll.</p>
+
+<p>Gibt die bearbeitete Zeichenkette zurück.</p>
+
+<h3 class="xmp">Beispiel eines vollständigen CGI-Scripts in Perl:</h3>
+
+<pre>
+#!C:/Programme/Perl/bin/perl.exe -w
+
+use strict;
+use CGI::Carp qw(fatalsToBrowser);
+
+opendir(DIR, "C:/WINNT");
+my @Eintraege = readdir(DIR);
+closedir(DIR);
+foreach my $Eintrag (@Eintraege) {
+  $Eintrag = lc($Eintrag);
+  $Eintrag = $Eintrag."\n";
+}
+
+print "Content-type: text/html\n\n";
+print '&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"&gt;', "\n";
+print "&lt;html&gt;&lt;head&gt;&lt;title&gt;Test-Ausgabe&lt;/title&gt;&lt;/head&gt;&lt;body&gt;\n";
+print "&lt;pre&gt;\n";
+print "@Eintraege";
+print "&lt;/pre&gt;\n";
+print "&lt;/body&gt;&lt;/html&gt;\n";
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel liest das auf PCs mit Betriebssystem Windows übliche Windows-Verzeichnis ein (Die entsprechenden Befehle dazu sind <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="einausgabe.htm#opendir">opendir</a>, <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="einausgabe.htm#readdir">readdir</a>) und <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="einausgabe.htm#closedir">closedir</a>. In diesem Verzeichnis befinden sich normalerweise jede Menge Dateien und Unterverzeichnisse, die achtlos Groß- und Kleinschreibung enthalten, zum Teil auch, weil sie zu alten 16-Bit-Programmen gehören. Auf jedes Element des Arrays <code>@Eintraege</code>, in den der Inhalt des Verzeichnisses eingelesen wurde, wird anschließend in einer <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../sprache/schleifen.htm#for">for-Schleife</a> die Funktion <code>lc</code> angewendet. Der Rückgabewert wird in der gleichen aktuellen Schleifenvariable <code>$Eintrag</code> gespeichert, die auch als zu bearbeitende Zeichenkette übergeben wird.<br>
+Das Anhängen eines Newline-Zeichens innerhalb der gleichen <code>for</code>-Schleife ist nur für die folgende Ausgabe gedacht. Die Ausgabe erzeugt die gesamte eingelesene und bearbeitete Liste der Verzeichniseinträge. Alle Einträge enthalten nur noch Kleinbuchstaben.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>In diesem Beispiel wird davon ausgegangen, dass Sie das Script auf einem Windows-Rechner einsetzen wollen. Aus diesem Grund muss auch die <img src="../../src/dok.gif" width="14" height="10" alt="Seite">&nbsp;<a href="../intro.htm#erstezeile">erste Zeile des Perl-Scripts</a> einen Pfad zum Perl-Interpreter aufweisen, der auf einem Windows-System gütig ist.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="lcfirst">lcfirst - erstes Zeichen einer Zeichenkette in Kleinbuchstabe umwandeln</a></h2>
+
+<p>Wandelt das erste Zeichen einer Zeichenkette in Kleinbuchstaben um, sofern es ein entsprechender Großbuchstabe ist. Die entsprechende Gegenfunktion für Großbuchstaben ist <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#ucfirst">ucfirst</a>.</p>
+
+<p>Erwartet als Parameter:<br>
+<strong>1.</strong> die Zeichenkette, die bearbeitet werden soll.</p>
+
+<p>Gibt die bearbeitete Zeichenkette zurück.</p>
+
+<h3 class="xmp"><a class="an" name="beispiel7">Beispiel eines vollständigen CGI-Scripts in Perl:</a></h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="http://de.selfhtml.org/cgi-bin/812/zeichenketten7.pl">Anzeigebeispiel: So sieht's aus</a> (Zum Aufruf des Scripts ist eine Internet-Verbindung erforderlich)</p>
+
+<pre>
+#!/usr/bin/perl -w
+
+use strict;
+use CGI::Carp qw(fatalsToBrowser);
+
+print "Content-type: text/html\n\n";
+print '&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"&gt;', "\n";
+print "&lt;html&gt;&lt;head&gt;&lt;title&gt;Test-Ausgabe&lt;/title&gt;&lt;/head&gt;&lt;body&gt;\n";
+my $Wort = "Textart";
+print lcfirst($Wort);
+print "&lt;/body&gt;&lt;/html&gt;\n";
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel gibt nur ein Wort aus. Bevor das Wort ausgegeben wird, wird allerdings die Funktion <code>lcfirst</code> darauf angewendet. Der führende Großbuchstabe wird dabei in einen Kleinbuchstaben verwandelt.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="length">length - Anzahl Zeichen einer Zeichenkette ermitteln</a></h2>
+
+<p>Erwartet als Parameter:<br>
+<strong>1.</strong> die gewünschte Zeichenkette.</p>
+
+<p>Gibt die Anzahl Zeichen in der Zeichenkette zurück.</p>
+
+<h3 class="xmp"><a class="an" name="beispiel8">Beispiel eines vollständigen CGI-Scripts in Perl:</a></h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="http://de.selfhtml.org/cgi-bin/812/zeichenketten8.pl">Anzeigebeispiel: So sieht's aus</a> - ohne Übergabeparameter<br>
+<img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="http://de.selfhtml.org/cgi-bin/812/zeichenketten8.pl?http://www.selfhtml.org">Anzeigebeispiel: So sieht's aus</a> - mit dem String "http://www.selfhtml.org" als Übergabeparameter<br>
+(Zum Aufruf des Scripts ist eine Internet-Verbindung erforderlich)</p>
+
+<pre>
+#!/usr/bin/perl -w
+
+use strict;
+use CGI::Carp qw(fatalsToBrowser);
+
+my $URI = $ENV{'QUERY_STRING'};
+my $Laenge = length($URI);
+
+print "Content-type: text/html\n\n";
+print '&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"&gt;', "\n";
+print "&lt;html&gt;&lt;head&gt;&lt;title&gt;Test-Ausgabe&lt;/title&gt;&lt;/head&gt;&lt;body&gt;\n";
+print "&lt;a href=\"$URI\"&gt;$URI&lt;/a&gt; hat eine Länge von $Laenge Zeichen!\n";
+print "&lt;/body&gt;&lt;/html&gt;\n";
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel-CGI-Script erwartet einen Übergabeparameter, der beim Aufruf über URI hinter einem Fragezeichen notiert wird. Der Übergabeparameter sollte selber einen URI enthalten. Beispiel:<br>
+<var>http://localhost/cgi-bin/test.pl?http://www.selfhtml.org/</var>.</p>
+
+<p>Das Beispiel ermittelt mit <code>length</code> die Länge der übergebenen Adresse und gibt HTML-Code mit einem Link auf die Adresse mit Angabe der Zeichenzahl aus.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="ord">ord - Zeichenwert eines Zeichens ermitteln</a></h2>
+
+<p>Ermittelt zu einem Zeichen den zugehörigen Wert zwischen 0 und 127.
+Die Gegenfunktion ist <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#chr">chr</a>.</p>
+
+<p>Erwartet als Parameter:<br>
+<strong>1.</strong> das gewünschte Zeichen.</p>
+
+<p>Gibt den zugehörigen Zeichenwert zurück.</p>
+
+<h3 class="xmp"><a class="an" name="beispiel9">Beispiel eines vollständigen CGI-Scripts in Perl:</a></h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="http://de.selfhtml.org/cgi-bin/812/zeichenketten9.pl">Anzeigebeispiel: So sieht's aus</a> (Zum Aufruf des Scripts ist eine Internet-Verbindung erforderlich)</p>
+
+<pre>
+#!/usr/bin/perl -w
+
+use strict;
+use CGI::Carp qw(fatalsToBrowser);
+
+my $MagischeZahl = "155";
+my $Laenge = length($MagischeZahl);
+my $Quersumme = 0;
+for(my $i=0; $i&lt;$Laenge; $i++) {
+   my $Zeichen = substr($MagischeZahl, $i, 1);
+   $Quersumme = $Quersumme + int(ord($Zeichen));
+}
+
+print "Content-type: text/html\n\n";
+print '&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"&gt;', "\n";
+print "&lt;html&gt;&lt;head&gt;&lt;title&gt;Test-Ausgabe&lt;/title&gt;&lt;/head&gt;&lt;body&gt;\n";
+print "Die Quersumme der ASCII-Werte der Zeichen der Zahl $MagischeZahl beträgt $Quersumme\n";
+print "&lt;/body&gt;&lt;/html&gt;\n";
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel definiert eine "magische Zahl" 155. "Magisch" ist diese Zahl deshalb, weil sie aus den Zeichen "1", "5" und nochmal "5" besteht, und weil die Summe der Zeichenwerte dieser drei Zeichen 155 ergibt. Denn die 1 hat den Zeichenwert 49, und die 5 hat den Zeichenwert 53, und 49+53+53 ergibt 155. In einer <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../sprache/schleifen.htm#for">for-Schleife</a> wird die Zahl Ziffer für Ziffer eingelesen. Das geht in Perl mit Hilfe der Funktion <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#substr">substr</a>. Auf das jeweils eingelesene Zeichen wird die Funktion <code>ord</code> angewendet. Ihr Rückgabewert, also der Zeichenwert des verarbeiteten Zeichens, wird bei jedem Schleifendurchgang zu dem bisherigen Wert des Skalars <code>$Quersumme</code> hinzuaddiert. Das Script gibt zur Kontrolle ein entsprechendes Ergebnis als HTML-Code aus.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="pack">pack - Binärdaten erzeugen</a></h2>
+
+<p>Erzeugt eine binäre Datenstruktur aus einem oder mehreren Werten. Der Daten-Input kann selbst eine Zeichenkette, aber etwa auch eine Liste sein. Eine zusätzliche Formatierungsangabe dient dazu, das binäre Datenformat des zu erzeugenden Ergebnisses der Konvertierung genau zu steuern. Für die Formatierungsangabe steht eine spezielle Syntax zur Verfügung.<br>
+Die Funktion <code>pack</code> wird beispielsweise verwendet, um einer Datenbank Zeichenketten zu übergeben, innerhalb deren die Datenbank feste Feldlängen erwartet. Aber auch andere mächtige Konvertierarbeiten sind möglich. So lassen sich Daten mit Hilfe von <code>pack</code> etwa sehr einfach nach dem UUencode-Verfahren kodieren.</p>
+
+<p>Erwartet als Parameter:<br>
+<strong>1.</strong> die Formatierungsangabe,<br>
+<strong>2.</strong> den Daten-Input - eine Zeichenkette oder eine Liste.</p>
+
+<p>Gibt den erzeugten Wert zurück.</p>
+
+<h3 class="xmp"><a class="an" name="beispiel10">Beispiel 1 eines vollständigen CGI-Scripts in Perl:</a></h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="http://de.selfhtml.org/cgi-bin/812/zeichenketten10.pl">Anzeigebeispiel: So sieht's aus</a> (Zum Aufruf des Scripts ist eine Internet-Verbindung erforderlich)</p>
+
+<pre>
+#!/usr/bin/perl -w
+
+use strict;
+use CGI::Carp qw(fatalsToBrowser);
+
+my @Datensatz_1 = ("Anna","Lyse","07.07.1977","w","Bau 21", "Zi 280","seit 03/1999 Team-Assistenz Marketing");
+my @Datensatz_2 = ("Rainer","Zufall","29.02.1960","m","Bau 113", "Zi 11","Bereichsleiter Entwicklung");
+my $Format = "A10 A14 A10 A1 A7 A7 A*";
+my $Ausgabe_1 = pack($Format, @Datensatz_1);
+my $Ausgabe_2 = pack($Format, @Datensatz_2);
+
+print "Content-type: text/html\n\n";
+print '&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"&gt;', "\n";
+print "&lt;html&gt;&lt;head&gt;&lt;title&gt;Test-Ausgabe&lt;/title&gt;&lt;/head&gt;&lt;body&gt;\n";
+print "&lt;pre&gt;\n";
+print "$Ausgabe_1\n";
+print "$Ausgabe_2\n";
+print "&lt;/pre&gt;\n";
+print "&lt;/body&gt;&lt;/html&gt;\n";
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>In dem Beispiel werden zunächst zwei Listen <code>@Datensatz_1</code> und <code>@Datensatz_2</code> mit gleichartigen Mitarbeiterdaten definiert. Die Felder eines Datensatzes sollen jeweils zu einer Zeichenkette verbunden werden, sodass sich diese beispielsweise als Zeile am Bildschirm ausgeben oder in eine Datei schreiben lässt. Dabei sollen jedoch die Felder immer an der gleichen Spaltenposition beginnen, so wie in der Ergebnisausgabe dargestellt. Um das zu erreichen, wird eine Zeichenkette namens <code>$Format</code> definiert. Sie definiert die Feldbreiten der einzelnen Datenfelder. Dazu benutzt sie die spezielle Syntax für <code>pack</code>-Formatierangaben. Weiter unten finden Sie eine <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#pack_1">Tabelle der Formatierangaben</a>. Im Beispiel wird für das erste Feld (Vorname) mit <code>A10</code> eine Breite von 10 Zeichen definiert, für das zweite Feld (Nachname) mit <code>A14</code> eine Breite von 14 Zeichen, und so weiter für die übrigen Datenfelder. Das letzte Feld, die beschreibende Angabe, wird durch das Sternchen bei <code>A*</code> als "so breit wie der Inhalt des Feldes ist" definiert.<br>
+Anschließend wird zweimal die Funktion <code>pack</code> angewendet, einmal auf <code>@Datensatz_1</code> und dann auf <code>@Datensatz_2</code>. In beiden Fällen wird die gleiche Formatierangabe, also <code>$Format</code>, benutzt. Der Räckgabewert wird in den Zeichenketten <code>$Ausgabe_1</code> bzw. <code>$Ausgabe_2</code> gespeichert. Diese beiden Zeichenketten werden zur Kontrolle als HTML-Ausgabe zum Browser gesendet. Wichtig ist dabei, die Ausgabe in einen <code>&lt;pre&gt;</code>-Bereich zu setzen, da nur dort die Spaltendarstellung sichtbar wird.</p>
+
+<h3 class="xmp"><a class="an" name="beispiel11">Beispiel 2 eines vollständigen CGI-Scripts in Perl:</a></h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="http://de.selfhtml.org/cgi-bin/812/zeichenketten11.pl">Anzeigebeispiel: So sieht's aus</a> (Zum Aufruf des Scripts ist eine Internet-Verbindung erforderlich)</p>
+
+<pre>
+#!/usr/bin/perl -w
+
+use strict;
+use CGI::Carp qw(fatalsToBrowser);
+
+my $Satz = "In Münchner Biergärten gibt es Bier nur aus Maßkrügen";
+my $UUE_Satz = pack("u", $Satz);
+
+print "Content-type: text/plain\n\n";
+print "Der Satz '$Satz' lautet UU-kodiert:\n$UUE_Satz";
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel definiert einen Satz in dem Skalar <code>$Satz</code>. Auf diesen Skalar wird die Funktion <code>pack</code> angewendet. Als Formatierangabe wird dabei <code>u</code> übergeben. Dies bewirkt eine Kodierung nach dem UUencode-Verfahren. Das Ergebnis wird in dem neuen Skalar <code>$UUE_Satz</code> gespeichert. Zur Kontrolle wird ein entsprechender Text an den Browser gesendet. Der Beispielsatz erscheint in der UUencode-Kodierung als <code>M26X@3?QN8VAN97(@0FEE&lt;F?D&lt;G1E ;B!G:6)T(&amp;5S($)I97(@;G5R(&amp;%U&lt;R!- (8=]K&lt;OQG96X`</code>.</p>
+
+<h3 class="inf"><a name="pack_1">Tabelle der Formatierangaben:</a></h3>
+
+<p>Durch die Formatierangabe steuern Sie die Art, wie <code>pack</code> den Daten-Input behandelt.</p>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<th>Typ:</th>
+<th>Bedeutung:</th>
+<th>Beispiel:</th>
+<th>Erläuterung:</th>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>a[n]</code></td>
+<td class="tabxpl">Erzeugt einen String aus 8-Bit-Zeichen und ist auch <strong>für binäre Daten</strong> geeignet. <code>[n]</code> ist eine Zahl für die Feldbreite. Ungenutzte Bytes werden mit <strong>Zeichenwert 0 (Hex-0)</strong> aufgefüllt. Überbreite Feldinhalte werden abgeschnitten. Anstelle einer Zahl ist auch <code>*</code> erlaubt. Dadurch richtet sich die Feldbreite nach dem Feldinhalt.</td>
+<td class="code" nowrap="nowrap"><code>@Mitarbeiter = ("03919","Hinkel");<br>$Ausgabe = pack("a5 a15", @Mitarbeiter);</code></td>
+<td class="tabxpl">Ein Mitarbeiterdatensatz, bestehend aus einer Ausweisnummer und dem Namen, wird in eine Zeichenkette verwandelt.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>A[n]</code></td>
+<td class="tabxpl">Erzeugt ASCII-Zeichen (Zeichenwerte 0-127) und ist daher <strong>für Textdaten</strong> geeignet. <code>[n]</code> ist eine Zahl für die Feldbreite. Ungenutzte Bytes werden mit <strong>Leerzeichen (Zeichenwert 32)</strong> aufgefüllt. Ansonsten wie <code>a</code>.</td>
+<td class="code" nowrap="nowrap"><code>$Ausgabe = pack("A80", "kleine Zeile");</code></td>
+<td class="tabxpl">Erzeugt wird eine Zeichenkette von 80 Zeichen Breite, auch wenn der Textinhalt deutlich kleiner ist. Die restlichen Zeichen sind Leerzeichen.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>Z[n]</code></td>
+<td class="tabxpl">Erzeugt ASCII-Zeichen (Zeichenwerte 0-127) und ist daher <strong>für Textdaten</strong> geeignet. <code>[n]</code> ist eine Zahl für die Feldbreite. Ungenutzte Bytes werden mit <strong>Zeichenwert 0 (Hex-0)</strong> aufgefüllt. Außerdem wird der String in jedem Fall nullterminiert, d.h. das letzte Zeichen hat immer den Zeichenwert 0 (Hex-0). Ansonsten wie <code>A</code>.</td>
+<td class="code" nowrap="nowrap"><code>$Ausgabe = pack("A80", "kleine Zeile");</code></td>
+<td class="tabxpl">Erzeugt wird eine Zeichenkette von 80 Zeichen Breite, auch wenn der Textinhalt deutlich kleiner ist. Die restlichen Zeichen haben den Wert hexadezimal 0.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>b[n]</code></td>
+<td class="tabxpl">Erzeugt einen Bit-String in aufsteigender Bitreihenfolge. Das letzte Bit jedes Bytes der Eingabe ergibt ein Bit der Ausgabe. Dabei wird das letzte 8-bit Tupel gegebenenfalls mit Nullen aufgefüllt.</td>
+<td class="code" nowrap="nowrap"><code>$Ausgabe = pack("b8","Beispiel")</code></td>
+<td class="tabxpl">Erzeugt eine Zeichenkette von 8 Bit, also einem Byte Länge</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>B[n]</code></td>
+<td class="tabxpl">Erzeugt einen Bit-String in absteigender Bitreihenfolge. Arbeitet genauso wie <code>b</code>, dreht aber die Reihenfolge um.</td>
+<td class="code" nowrap="nowrap"><code><code>$Ausgabe = pack("B8","Beispiel")</code></code></td>
+<td class="tabxpl">Erzeugt eine Zeichenkette von 8 Bit, also einem Byte Länge</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>c[n]</code></td>
+<td class="tabxpl">Erzeugt Zeichen aus numerischen Angaben. Das kleine c steht für <strong>signed char</strong>, verarbeitet werden 8 Bit lange Ganzzahlen zwischen -128 und 127. <code>[n]</code> ist eine Zahl für die Anzahl Zeichen. Wenn Sie mehrere Zeichen auf einmal verarbeiten wollen, geben Sie die Anzahl der Zeichen an. Anstelle einer Zahl ist auch <code>*</code> erlaubt. Benutzen Sie den Platzhalter, wenn Sie eine unbestimmte Anzahl Zeichen verarbeiten wollen.</td>
+<td class="code" nowrap="nowrap"><code>@Zeichenwerte = (65,115,116,114,105,100);<br>$Ausgabe = pack("c6", @Zeichenwerte);<br>print "$Ausgabe";</code></td>
+<td class="tabxpl">Das Beispiel erzeugt eine Liste aus 6 Zahlen. Mit <code>c6</code> werden alle 6 Zahlen in ihre Zeichenwerte (gemäß der ASCII-Codetabelle) umgewandelt und in der Zeichenkette <code>$Ausgabe</code> zusammengefügt.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>C[n]</code></td>
+<td class="tabxpl">Erzeugt Zeichen aus numerischen Angaben. Das große C steht für <strong>unsigned char</strong>, verarbeitet werden 8 Bit lange Ganzzahlen ohne Vorzeichen, also zwischen 0 und 255. Ansonsten wie <code>c</code>.</td>
+<td class="code" nowrap="nowrap"><code>@Zeichenwerte = (65,115,116,114,105,100);<br>$Ausgabe = pack("C6", @Zeichenwerte);<br>print "$Ausgabe";</code></td>
+<td class="tabxpl">siehe Erläuterung zu <code>c</code>.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>s[n]</code></td>
+<td class="tabxpl">Erzeugt Zeichen aus numerischen Angaben. Das kleine s steht für <strong>signed short</strong>. Verarbeitet werden dabei in Perl 16 Bit lange Ganzzahlen zwischen -32768 und 32767. Ansonsten wie <code>c</code>.</td>
+<td class="code" nowrap="nowrap"><code>@Werte = (-1000,1000);<br>$Ausgabe = pack("s2", @Werte);<br>print "$Ausgabe";</code></td>
+<td class="tabxpl">Das Beispiel erzeugt eine Liste aus 2 Zahlen. Mit <code>s2</code> werden die Zahlen in Zeichen oder Zeichenkombinationen umgewandelt und in der Zeichenkette <code>$Ausgabe</code> zusammengefügt.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>S[n]</code></td>
+<td class="tabxpl">Erzeugt Zeichen aus numerischen Angaben. Das große S steht für <strong>unsigned short</strong>. Verarbeitet werden dabei in Perl 16 Bit lange Ganzzahlen zwischen 0 und 65535. Ansonsten wie <code>s</code>.</td>
+<td class="code" nowrap="nowrap"><code>@Werte = (1,1000);<br>$Ausgabe = pack("S2", @Werte);<br>print "$Ausgabe";</code></td>
+<td class="tabxpl">Das Beispiel erzeugt eine Liste aus 2 Zahlen. Mit <code>S2</code> werden die Zahlen in Zeichen oder Zeichenkombinationen umgewandelt und in der Zeichenkette <code>$Ausgabe</code> zusammengefügt.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>i[n]</code></td>
+<td class="tabxpl">Erzeugt Zeichen aus numerischen Angaben. Das kleine i steht für <strong>signed integer</strong>. Verarbeitet werden dabei in Perl mindestens 32 Bit lange Ganzzahlen zwischen -2147483648 und 2147483647 (je nach Umgebung werden auch höhere Bitlängen und damit größere Zahlen verarbeitet). Ansonsten wie <code>c</code>.</td>
+<td class="code" nowrap="nowrap"><code>@Werte = (-100000,100000);<br>$Ausgabe = pack("i2", @Werte);<br>print "$Ausgabe";</code></td>
+<td class="tabxpl">Das Beispiel erzeugt eine Liste aus 2 großen Zahlen. Mit <code>i2</code> werden die Zahlen in Zeichen oder Zeichenkombinationen umgewandelt und in der Zeichenkette <code>$Ausgabe</code> zusammengefügt.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>I[n]</code></td>
+<td class="tabxpl">Erzeugt Zeichen aus numerischen Angaben. Das große I steht für <strong>unsigned integer</strong>. Verarbeitet werden dabei in Perl mindestens 32 Bit lange Ganzzahlen zwischen 0 und 429496729<del>6</del><ins>5</ins> (je nach Umgebung werden auch höhere Bitlängen und damit größere Zahlen verarbeitet). Ansonsten wie <code>i</code>.</td>
+<td class="code" nowrap="nowrap"><code>@Werte = (1,100000);<br>$Ausgabe = pack("I2", @Werte);<br>print "$Ausgabe";</code></td>
+<td class="tabxpl">Das Beispiel erzeugt eine Liste aus 2 Zahlen. Mit <code>I2</code> werden die Zahlen in Zeichen oder Zeichenkombinationen umgewandelt und in der Zeichenkette <code>$Ausgabe</code> zusammengefügt.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>l[n]</code></td>
+<td class="tabxpl">Erzeugt Zeichen aus numerischen Angaben. Das kleine l steht für <strong>signed long</strong>. Verarbeitet werden dabei in Perl genau 32 Bit lange Ganzzahlen zwischen -2147483648 und 2147483647. Ansonsten wie <code>c</code>.</td>
+<td class="code" nowrap="nowrap"><code>@Werte = (-100000,100000);<br>$Ausgabe = pack("l2", @Werte);<br>print "$Ausgabe";</code></td>
+<td class="tabxpl">Das Beispiel erzeugt eine Liste aus 2 großen Zahlen. Mit <code>l2</code> werden die Zahlen in Zeichen oder Zeichenkombinationen umgewandelt und in der Zeichenkette <code>$Ausgabe</code> zusammengefügt.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>L[n]</code></td>
+<td class="tabxpl">Erzeugt Zeichen aus numerischen Angaben. Das große L steht für <strong>unsigned long</strong>. Verarbeitet werden dabei in Perl genau 32 Bit lange Ganzzahlen zwischen 0 und 4294967295. Ansonsten wie <code>l</code>.</td>
+<td class="code" nowrap="nowrap"><code>@Werte = (1,100000);<br>$Ausgabe = pack("L2", @Werte);<br>print "$Ausgabe";</code></td>
+<td class="tabxpl">Das Beispiel erzeugt eine Liste aus 2 Zahlen. Mit <code>L2</code> werden die Zahlen in Zeichen oder Zeichenkombinationen umgewandelt und in der Zeichenkette <code>$Ausgabe</code> zusammengefügt.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>n[n]</code></td>
+<td class="tabxpl">Erzeugt aus einer Zahl eine Binärspeicherung in der so genannten <i>Network Byte Order</i> (auch: <i>Big Endian Order</i>). Verarbeitet werden dabei 16 Bit lange Ganzzahlen zwischen 0 und 65535. Wenn Sie mehrere Zahlen auf einmal verarbeiten wollen, geben Sie die Anzahl der Zahlen an. Anstelle einer Zahl ist auch <code>*</code> erlaubt. Benutzen Sie den Platzhalter, wenn Sie eine unbestimmte Anzahl Zahlen verarbeiten wollen.</td>
+<td class="code" nowrap="nowrap"><code>$IP_mit_Port = pack("Nn", 0xC19EAAC7,80);</code></td>
+<td class="tabxpl">In dem Skalar <code>$IP_mit_Port</code> wird die IP-Adresse 193.158.170.199 und die Zahl 80, die für den Port des Webservers stehen soll, gespeichert. Die IP-Adresse wird dabei als 32 Bit lange Zahl in Hexadezimalschreibweise mit <code>N</code> verarbeitet, die Zahl für den Port, die kleiner ist, mit <code>n</code>.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>N[n]</code></td>
+<td class="tabxpl">Erzeugt aus einer Zahl eine Binärspeicherung in der so genannten <i>Network Byte Order</i> (auch: <i>Big Endian Order</i>). Verarbeitet werden dabei 32 Bit lange Ganzzahlen zwischen 0 und 4294967295. Ansonsten wie <code>n</code>.</td>
+<td class="code" nowrap="nowrap"><code>$IP = pack("N", 0xC19EAAC7);</code></td>
+<td class="tabxpl">In dem Skalar <code>$IP</code> wird die IP-Adresse 193.158.170.199 gespeichert. Die IP-Adresse wird dabei als 32 Bit lange Zahl in Hexadezimalschreibweise mit <code>N</code> verarbeitet. (Dezimal=Hexadezimal: 193=C1, 158=9E, 170=AA, 199=C7).</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>v[n]</code></td>
+<td class="tabxpl">Erzeugt aus einer Zahl eine Binärspeicherung in der so genannten <i>VAX Byte Order</i> (auch: <i>Little Endian Order</i>). Verarbeitet werden dabei 16 Bit lange Ganzzahlen zwischen 0 und 65535. Ansonsten wie <code>n</code>.</td>
+<td class="code" nowrap="nowrap"><code>$Wert = pack("v", 0xFFFF);</code></td>
+<td class="tabxpl">In dem Skalar <code>$Wert</code> wird der höchstmögliche Wert gespeichert, den <code>v</code> verarbeitet, in Hexadezimalschreibweise als <code>FFFF</code> ausgedrückt.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>V[n]</code></td>
+<td class="tabxpl">Erzeugt aus einer Zahl eine Binärspeicherung in der so genannten <i>VAX Byte Order</i> (auch: <i>Little Endian Order</i>). Verarbeitet werden dabei 32 Bit lange Ganzzahlen zwischen 0 und 4294967295. Ansonsten wie <code>n</code>.</td>
+<td class="code" nowrap="nowrap"><code>$Wert = pack("V", 0xFFFFFFFF);</code></td>
+<td class="tabxpl">In dem Skalar <code>$Wert</code> wird der höchstmögliche Wert gespeichert, den <code>v</code> verarbeitet, in Hexadezimalschreibweise als <code>FFFFFFFF</code> ausgedrückt.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>f[n]</code></td>
+<td class="tabxpl">Erzeugt eine binär gespeicherte Fließkommazahl. Die genaue Art der Speicherung ist vom Computertyp abhängig. Das kleine f steht für <strong>float</strong>, und zwar mit <i>single precision</i>, also einfacher Genauigkeit. Ansonsten wie <code>n</code>.</td>
+<td class="code" nowrap="nowrap"><code>$Wert = pack("f",(1/7));</code></td>
+<td class="tabxpl">In einem Skalar <code>$Wert</code> wird das Ergebnis der Division von 1 durch 7 binär als Fließkommazahl gespeichert.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>d[n]</code></td>
+<td class="tabxpl">Erzeugt eine binär gespeicherte Fließkommazahl. Die genaue Art der Speicherung ist vom Computertyp abhängig. Das kleine d steht für <strong>double float</strong>, also mit <i>double precision</i>, doppelter Genauigkeit. Ansonsten wie <code>n</code>.</td>
+<td class="code" nowrap="nowrap"><code>$Wert = pack("d",(1/7));</code></td>
+<td class="tabxpl">In einem Skalar <code>$Wert</code> wird das Ergebnis der Division von 1 durch 7 binär als doppelt genaue Fließkommazahl gespeichert.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>p[n]</code></td>
+<td class="tabxpl">Speichert die Arbeitsspeicheradresse einer nullterminierten Zeichenkette, wie sie in C üblich ist. Wenn Sie mehrere Zeichenketten auf einmal verarbeiten wollen, geben Sie die Anzahl der Zeichenketten an. Anstelle einer Zeichenkette ist auch <code>*</code> erlaubt. Benutzen Sie den Platzhalter, wenn Sie eine unbestimmte Anzahl Zeichenketten verarbeiten wollen.</td>
+<td class="code" nowrap="nowrap"><code>@Namen = ("Hans", "Peter", "Stefan");<br>
+$Anzahl = @Namen;<br>
+$Werte = pack("p" x $Anzahl, @Namen );<br>
+irgendeineFunktion($Anzahl, $Werte);</code></td>
+<td class="tabxpl">In einem Skalar <code>$Anzahl</code> wird die Anzahl der Elemente von <code>@Namen</code> gespeichert. Dann wird die Liste <code>@Namen</code> zu einem einzelnen String von Adressen gepackt und in <code>$Werte</code> gespeichert.<code>$Anzahl</code> und <code>$Werte</code> werden dann einer Funktion übergeben.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>P[n]</code></td>
+<td class="tabxpl">Speichert die Arbeitsspeicheradresse einer Struktur (struct) mit fester Bytelänge. Ansonsten wie <code>p</code>.</td>
+<td class="code" nowrap="nowrap"><code>use C::DynaLib::Struct;<br>
+Define C::DynaLib::Struct('Adresse',<br>
+&nbsp;&nbsp;'pppi' => [qw(name ort strasse nummer)]);<br>
+$Ausgabe = pack( 'P', $struct );</code></td>
+<td class="tabxpl">Zunächst wird eine Struktur erstellt, wie sie C beispielsweise versteht. In dem Skalar <code>$Ausgabe</code> wird dann die Adresse der Struktur gespeichert.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>u[n]</code></td>
+<td class="tabxpl">Erzeugt aus binären Daten eine UU-kodierte Zeichenkette. UU-Encode ist eines der Verfahren zum Umwandeln von 8-Bit-Daten (Bytes) in ein 7-Bit-Schema. Attachments von E-Mails wurden früher beispielsweise UU-kodiert übertragen.</td>
+<td class="code" nowrap="nowrap"><code>$UUDaten = pack("u", 1234);</code></td>
+<td class="tabxpl">Die Zahl <code>1234</code>, ein binärer Wert auf 8-Bit-Basis, wird durch das UU-basierte Kodieren in Zeichen auf 7-bit-Basis umgewandelt.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>x[n]</code></td>
+<td class="tabxpl">Erzeugt ein Byte mit dem Wert 0, ohne dafür ein Argument aus der Übergabeliste zu "verbrauchen".</td>
+<td class="code" nowrap="nowrap"><code>$Kette = pack("A* x A* x","Test","beispiel");</code></td>
+<td class="tabxpl">Erzeugt aus den beiden Zeichenketten <code>Test</code> und <code>beispiel</code> eine Zeichenkette, die beide Teilstrings jeweils nullterminiert enthält.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>X[n]</code></td>
+<td class="tabxpl">Geht <code>n</code> Byte im Ergebisstring zurück und löscht diese.</td>
+<td class="code" nowrap="nowrap"><code>$Stefan = pack("A* X2", "Stefanie");</code></td>
+<td class="tabxpl">Die Anweisung erzeugt zunächst mit <code>A*</code> das Ergebnis "Stefanie" und entfernt dann die letzten beiden Bytes. Das Endergebnis ist dann "Stefan".</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>@[n]</code></td>
+<td class="tabxpl">Bringt den vorläufigen Ergebnisstring auf eine Länge von genau <code>n</code> Bytes. Ist der String zu lang, wird er einfach abgeschnitten, ist er zur kurz, wird er mit Null-Bytes aufgefüllt. Danach wird der Formatstring ganz normal weiterbearbeitet.</td>
+<td class="code" nowrap="nowrap"><code>$Walkman = pack("A* @3 A*","Walross","kman");</code></td>
+<td class="tabxpl">Die Anweisung erzeugt zunächst mit <code>A*</code> das vorläufige Ergebnis "Walross", welches dann mit <code>@3</code> auf drei Zeichen, also "Wal" gekürzt wird. Anschließend wird noch "kman" angehängt. Das Endergebnis ist "Walkman".</td>
+</tr>
+</table>
+<p>&nbsp;</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="pos">pos - Position der Anwendung von m/[regexp]/g auf Zeichenkette ermitteln</a></h2>
+
+<p><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../sprache/regexpr.htm">Reguläre Ausdrücke</a> vom Typ <code>m/[regexp]/g</code> oder einfach <code>/[regexp]/g</code> können Zeichenketten nach allen Stellen durchsuchen, auf die der angegebene Ausdruck passt. Die Funktion <code>pos</code> liefert diejenige Position innerhalb der zu durchsuchenden Zeichenkette zurück, bei der die Suche beim jeweils nächsten Aufruf des regulären Ausdrucks fortfahren würde. Durch geschickte Verarbeitung innerhalb einer Schleife können mit Hilfe dieser Funktion alle Positionen innerhalb der gesamten Zeichenkette gefunden werden. Sie können diesen Wert auch ändern, um die Suche zu beeinflussen.</p>
+
+<p>Erwartet als Parameter:<br>
+<strong>1.</strong> die zu durchsuchende Zeichenkette bzw. den Skalar, in dem diese gespeichert ist.</p>
+
+<p>Gibt die nächste gefundene Position zurück, bei der die Suche fortfährt. Die Zeichen davor passen auf das Suchmuster.</p>
+
+<h3 class="xmp"><a class="an" name="beispiel12">Beispiel eines vollständigen CGI-Scripts in Perl:</a></h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="http://de.selfhtml.org/cgi-bin/812/zeichenketten12.pl">Anzeigebeispiel: So sieht's aus</a> (Zum Aufruf des Scripts ist eine Internet-Verbindung erforderlich)</p>
+
+<pre>
+#!/usr/bin/perl -w
+
+use strict;
+use CGI::Carp qw(fatalsToBrowser);
+
+print "Content-type: text/html\n\n";
+print '&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"&gt;', "\n";
+print "&lt;html&gt;&lt;head&gt;&lt;title&gt;Test-Ausgabe&lt;/title&gt;&lt;/head&gt;&lt;body&gt;\n";
+
+my $Satz = "es ist was es ist";
+my $Suchwort = "ist";
+while($Satz =~ /$Suchwort/g) {
+  my $Treffer = pos($Satz) - 3;
+  print "Suchwort &lt;b&gt;$Suchwort&lt;/b&gt; gefunden bei Position $Treffer&lt;br&gt;\n";
+}
+print "&lt;/body&gt;&lt;/html&gt;\n";
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel-Script zeigt, wie Sie innerhalb einer Zeichenkette alle Vorkommnisse eines bestimmten gesuchten Musters auffinden und sammeln können. In dem Beispiel wird eine zu durchsuchende Zeichenkette <code>$Satz</code> definiert und mit einem Wert vorbelegt. Das Muster, nach dem innerhalb dieses Satzes gesucht werden soll, wird im Skalar <code>$Suchwort</code> definiert. In einer <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../sprache/schleifen.htm#while">while-Schleife</a> wird der Satz nach dem Suchwort durchsucht. Wichtig ist dabei hinter dem regulären Ausdruck die Option <code>g</code> für "global". Das Beispiel sendet HTML-Code an den Browser. Innerhalb der Schleife wird die Position jedes Vorkommens des gesuchten Musters ausgegeben. Dabei wird die Funktion <code>pos</code> auf die zu durchsuchende Zeichenkette <code>$Satz</code> angewendet. Der Rückgabewert ist die erste Position hinter dem gefundenen Suchmuster. Da das Beispiel nach einem bestimmten Wort "ist" sucht, das 3 Buchstaben hat, wird durch Subtrahieren von 3 die Anfangsposition ermittelt, an der das gesuchte Wort beginnt. Das Ergebnis wird jeweils in dem Skalar <code>$Treffer</code> gespeichert. Im Beispiel werden insgesamt zwei Zeilen ausgegeben, nämlich Gefunden-Hinweise für die Positionen 3 und 14. Der Grund: das Wort kommt zwei mal vor in dem Satz, und die Suche landet zweimal auf den Positionen dahinter, also bei den Positionen 6 und 17.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="reverse">reverse - Zeichenkette von hinten nach vorn umwandeln</a></h2>
+
+<p>Dreht eine Zeichenkette Zeichen für Zeichen um. Statt einer Zeichenkette können Sie auch eine Liste übergeben, deren Elemente vor der Umwandlung zu einer Zeichenkette verknüpft werden.</p>
+
+<p>Erwartet als Parameter:<br>
+<strong>1.</strong> die Zeichenkette oder Liste, die bearbeitet werden soll.</p>
+
+<p>Gibt eine bearbeitete Zeichenkette zurück.</p>
+
+<h3 class="xmp"><a class="an" name="beispiel13">Beispiel eines vollständigen CGI-Scripts in Perl:</a></h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="http://de.selfhtml.org/cgi-bin/812/zeichenketten13.pl">Anzeigebeispiel: So sieht's aus</a> (Zum Aufruf des Scripts ist eine Internet-Verbindung erforderlich)</p>
+
+<pre>
+#!/usr/bin/perl -w
+
+use strict;
+use CGI::Carp qw(fatalsToBrowser);
+
+my $Palindrom = reverse("EIN NEGER MIT GAZELLE ZAGT IM REGEN NIE");
+
+print "Content-type: text/html\n\n";
+print '&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"&gt;', "\n";
+print "&lt;html&gt;&lt;head&gt;&lt;title&gt;Test-Ausgabe&lt;/title&gt;&lt;/head&gt;&lt;body&gt;\n";
+print "$Palindrom\n";
+print "&lt;/body&gt;&lt;/html&gt;\n";
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>In dem Beispiel wird der klassische Satz "EIN NEGER MIT GAZELLE ZAGT IM REGEN NIE", den man rückwärts genauso lesen kann wie vorwärts (Palindrom-Effekt), zur Verdeutlichung verwendet. Die Funktion <code>reverse</code> wird auf diesen Satz angewendet, und der Rückgabewert wird in dem Skalar <code>$Palindrom</code> gespeichert. Zur Kontrolle wird HTML-Code ausgegeben.</p>
+
+<p><strong>Hinweis:</strong> Manche Leute regen sich ja über jeden Ausdruck auf, der nicht der gegenwärtigen "political correctness" entspricht. Aber mit einem Wort wie "Dunkelhäutiger" würde das Palindrom nun mal nicht funktionieren. Sie dürfen dieses Wort jedoch gerne probieren, wenn Ihnen nicht klar geworden sein sollte, dass <code>reverse</code> tatsächlich das tut, was soeben beschrieben wurde.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="split">split - Zeichenkette in mehrere Zeichenketten aufsplitten</a></h2>
+
+<p>Erzeugt aus einer Zeichenkette eine Liste von Teilzeichenketten, und zwar aufgrund eines regulären Ausdrucks, der das Trennsymbol definiert, das die einzelnen Teile trennt. Trennsymbole können eine beliebige Länge besitzen und müssen nicht bei jeder Fundstelle identisch sein.</p>
+
+<p>Erwartet als Parameter:<br>
+<strong>1.</strong> einen <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../sprache/regexpr.htm">regulären Ausdruck</a>, der definiert, wie die Zeichenkette in einzelne Teile aufgespalten werden soll,<br>
+<strong>2.</strong> die Zeichenkette, die bearbeitet werden soll.</p>
+
+<p>Gibt eine Liste mit den extrahierten Teilen der Zeichenkette zurück.</p>
+
+<h3 class="xmp"><a class="an" name="beispiel14">Beispiel eines vollständigen CGI-Scripts in Perl:</a></h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="http://de.selfhtml.org/cgi-bin/812/zeichenketten14.pl">Anzeigebeispiel: So sieht's aus</a> (Zum Aufruf des Scripts ist eine Internet-Verbindung erforderlich)</p>
+
+<pre>
+#!/usr/bin/perl -w
+
+use strict;
+use CGI::Carp qw(fatalsToBrowser);
+
+my $Satz = "Sage jeden Morgen guten Morgen zu dir selbst";
+my @Woerter = split(/ /,$Satz);
+my $Anzahl = @Woerter;
+
+print "Content-type: text/html\n\n";
+print '&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"&gt;', "\n";
+print "&lt;html&gt;&lt;head&gt;&lt;title&gt;Test-Ausgabe&lt;/title&gt;&lt;/head&gt;&lt;body&gt;\n";
+print "Der Satz &lt;b&gt;$Satz&lt;/b&gt; hat $Anzahl Wörter\n";
+print "&lt;/body&gt;&lt;/html&gt;\n";
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel definiert einen Satz. Auf den Satz wird die Funktion <code>split</code> angewendet. Dabei wird ein regulärer Ausdruck als erster Parameter übergeben, der nur auf Leerzeichen passt. Als zweiter Parameter wird der Skalar <code>$Satz</code> übergeben, in dem der Satz gespeichert ist. Die Funktion teilt den übergebenen Satz in Einzelelemente auf, die durch Leerzeichen voneinander getrennt sind - im Beispiel also in die einzelnen Wörter. Diese werden im Array <code>@Woerter</code> gespeichert. Im Beispiel soll zur Kontrolle nur die Anzahl der Wörter ermittelt werden, was durch die Anweisung <code>$Anzahl = @Woerter;</code> geschieht. Das Beispiel sendet danach HTML-Code an den Browser, der die ermittelte Anzahl der Wörter im Satz ausgibt.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="sprintf">sprintf - Zeichenkette formatieren</a></h2>
+
+<p>Diese Funktion dient dazu, einzelne Datenelemente zu formatieren. So lassen sich Dezimalzahlen beispielsweise ohne viel Aufwand hexadezimal umrechnen, oder  Gleitkommazahlen mit vielen Nachkommastellen auf eine bestimmte Anzahl Nachkommastellen trimmen.<br>
+Die <code>sprintf</code>-Funktion in Perl entspricht im wesentlichen der <code>sprintf</code>-Funktion in C.</p>
+
+<p>Erwartet als Parameter:<br>
+<strong>1.</strong> <i>Formatstring</i> = eine Zeichenkette, die für bestimmte auszugebende Elemente Formatbezeichner enthalten kann. Die Syntax ist identisch mit der der <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="einausgabe.htm#printf">printf</a>-Funktion.<br>
+<strong>2.</strong> <i>Ausgabeliste</i> = ein oder mehrere Elemente, auf die sich die speziellen Formatbezeichner im Formatstring beziehen.</p>
+
+<p>Gibt die formatierte Zeichenkette zurück.</p>
+
+<h3 class="xmp"><a class="an" name="beispiel15">Beispiel eines vollständigen CGI-Scripts in Perl:</a></h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="http://de.selfhtml.org/cgi-bin/812/zeichenketten15.pl">Anzeigebeispiel: So sieht's aus</a> (Zum Aufruf des Scripts ist eine Internet-Verbindung erforderlich)</p>
+
+<pre>
+#!/usr/bin/perl -w
+
+use strict;
+use CGI::Carp qw(fatalsToBrowser);
+
+my $BruttoBetrag = 27.95;
+my $NettoBetrag = $BruttoBetrag / 1.16;
+my $Formatiert = sprintf("Das im Bruttobetrag %s enthaltene Netto beträgt ungerundet %.2f", $BruttoBetrag, $NettoBetrag);
+
+print "Content-type: text/html\n\n";
+print '&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"&gt;', "\n";
+print "&lt;html&gt;&lt;head&gt;&lt;title&gt;Testausgabe&lt;/title&gt;&lt;/head&gt;&lt;body&gt;\n";
+print $Formatiert;
+print "&lt;/body&gt;&lt;/html&gt;\n";
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel formatiert Hilfe der <code>sprintf</code>-Funktion die beiden Variablen <code>$BruttoBetrag</code> und <code>$NettoBetrag</code> in der Zeichenkette <code>$Formatiert</code>. Der Wert von <code>$NettoBetrag</code> wird rechnerisch gewonnen und stellt eine Bruchzahl mit vielen Nachkommastellen dar. In der mit Hilfe von <code>sprintf</code> formatierten Zeichenkette wird diese Zahl jedoch auf zwei Nachkommastellen reduziert.</p>
+
+<p>Eine Auflistung der möglichen Formatbezeichner für diese Funktion finden Sie bei der Beschreibung der <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="einausgabe.htm#printf">printf</a>-Funktion.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="substr">substr - Teilzeichenkette aus Zeichenkette extrahieren</a></h2>
+
+<p>Ermittelt aus einer Zeichenkette eine Teilzeichenkette an einer bestimmten Position und ersetzt sie gegebenenfalls durch eine andere.</p>
+
+<p>Erwartet als Parameter:<br>
+<strong>1.</strong> die Zeichenkette, aus der extrahiert werden soll,<br>
+<strong>2.</strong> die Zeichenposition des ersten Zeichens der gewünschten Teilzeichenkette (erste Zeichenposition in einer Zeichenkette ist 0, zweite 1 usw.),<br>
+<strong>3.</strong> (optional) die Anzahl Zeichen, wie lang die gewünschte Teilzeichenkette sein soll,<br>
+<strong>4.</strong> (optional) eine Ersetzungszeichenkette</p>
+
+<p>Gibt die bearbeitete Zeichenkette zurück.</p>
+
+<h3 class="xmp"><a class="an" name="beispiel16">Beispiel eines vollständigen CGI-Scripts in Perl:</a></h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="http://de.selfhtml.org/cgi-bin/812/zeichenketten16.pl">Anzeigebeispiel: So sieht's aus</a> (Zum Aufruf des Scripts ist eine Internet-Verbindung erforderlich)</p>
+
+<pre>
+#!/usr/bin/perl -w
+
+use strict;
+use CGI::Carp qw(fatalsToBrowser);
+
+my $Satz = "nutze den Tag!";
+my $Satzlaenge = length($Satz);
+my @Zeichen;
+for(my $i=0; $i&lt;$Satzlaenge; $i++) {
+  $Zeichen[$i] = substr($Satz,$i,1);
+}
+
+print "Content-type: text/html\n\n";
+print '&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"&gt;', "\n";
+print "&lt;html&gt;&lt;head&gt;&lt;title&gt;Test-Ausgabe&lt;/title&gt;&lt;/head&gt;&lt;body&gt;\n";
+for(my $i=0; $i&lt;$Satzlaenge; $i++) {
+  print "Zeichen $i lautet: $Zeichen[$i]&lt;br&gt;\n";
+}
+print "&lt;/body&gt;&lt;/html&gt;\n";
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>In dem Beispiel wird die Funktion <code>substr</code> verwendet, um die einzelnen Zeichen einer Zeichenkette in einer Liste zu speichern. Denn in Perl fehlt die für C typische Behandlung von Zeichenketten als Zeichen-Array. Anders als in C, das Zeichenketten nur als Array speichert, sind einzelne Zeichen einer Zeichenkette in Perl nicht direkt ansprechbar. Das Beispiel zeigt eine - wenn auch etwas umständliche - Methode, durch die einzelnen Zeichen der Zeichenkette zu iterieren (also die Zeichenkette Zeichen für Zeichen abzuarbeiten).<br>
+In dem Beispiel wird ein Skalar <code>$Satz</code> mit einem Wert definiert. Die Länge des Satzes wird in dem Skalar <code>$Satzlaenge</code> gespeichert (durch Anwendung von <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#length">length</a>). Anschließend wird der Satz Zeichen für Zeichen in einer <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../sprache/schleifen.htm#for">for-Schleife</a> in die Liste <code>@Zeichen</code> eingelesen. Dazu wird die Funktion <code>substr</code> so angewendet, dass sie jeweils ein Zeichen aus dem Satz "extrahiert". Zur Kontrolle gibt das Script HTML-Code aus, in dem die einzelnen Zeichen des Satzes untereinander aufgelistet werden.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="uc">uc - alle Zeichen einer Zeichenkette in Großbuchstaben umwandeln</a></h2>
+
+<p>Wandelt Kleinbuchstaben in Großbuchstaben um und lässt Großbuchstaben und alle anderen Zeichen unberührt. Die entsprechende Gegenfunktion für Kleinbuchstaben ist <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#lc">lc</a>.</p>
+
+<p>Erwartet als Parameter:<br>
+<strong>1.</strong> die Zeichenkette, die bearbeitet werden soll.</p>
+
+<p>Gibt die bearbeitete Zeichenkette zurück.</p>
+
+<h3 class="xmp"><a class="an" name="beispiel17">Beispiel eines vollständigen CGI-Scripts in Perl:</a></h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="http://de.selfhtml.org/cgi-bin/812/zeichenketten17.pl">Anzeigebeispiel: So sieht's aus</a> (Zum Aufruf des Scripts ist eine Internet-Verbindung erforderlich)</p>
+
+<pre>
+#!/usr/bin/perl -w
+
+use strict;
+use CGI::Carp qw(fatalsToBrowser);
+
+my $Satz = "mir ist nach Schreien zumute!";
+$Satz = uc($Satz);
+
+print "Content-type: text/html\n\n";
+print '&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"&gt;', "\n";
+print "&lt;html&gt;&lt;head&gt;&lt;title&gt;Test-Ausgabe&lt;/title&gt;&lt;/head&gt;&lt;body&gt;\n";
+print "$Satz\n";
+print "&lt;/body&gt;&lt;/html&gt;\n";
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel definiert einen Satz in normaler Schreibweise. Aber jeder Internet-Freak weiß, dass man Großbuchstaben nur dann benutzen sollte, wenn einem nach Schreien zumute ist. Deshalb wird die Funktion <code>uc</code> auf den Satz angewendet und speichert ihren Rückgabewert in dem gleichen Skalar, der ihr als Parameter übergeben wird. Zur Kontrolle wird HTML-Code mit dem bearbeiteten Satz ausgegeben.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="ucfirst">ucfirst - erstes Zeichen einer Zeichenkette in Großbuchstabe umwandeln</a></h2>
+
+<p>Wandelt das erste Zeichen einer Zeichenkette in Großbuchstaben um, sofern es ein entsprechender Kleinbuchstabe ist. Die entsprechende Gegenfunktion für Kleinbuchstaben ist <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#lcfirst">lcfirst</a>.</p>
+
+<p>Erwartet als Parameter:<br>
+<strong>1.</strong> die Zeichenkette, die bearbeitet werden soll.</p>
+
+<p>Gibt die bearbeitete Zeichenkette zurück.</p>
+
+<h3 class="xmp"><a class="an" name="beispiel18">Beispiel eines vollständigen CGI-Scripts in Perl:</a></h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="http://de.selfhtml.org/cgi-bin/812/zeichenketten18.pl">Anzeigebeispiel: So sieht's aus</a> (Zum Aufruf des Scripts ist eine Internet-Verbindung erforderlich)</p>
+
+<pre>
+#!/usr/bin/perl -w
+
+use strict;
+use CGI::Carp qw(fatalsToBrowser);
+
+print "Content-type: text/html\n\n";
+print '&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"&gt;', "\n";
+print "&lt;html&gt;&lt;head&gt;&lt;title&gt;Test-Ausgabe&lt;/title&gt;&lt;/head&gt;&lt;body&gt;\n";
+my $Wort = "fallen";
+print ucfirst($Wort);
+print "&lt;/body&gt;&lt;/html&gt;\n";
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel gibt nur ein Wort aus. Bevor das Wort ausgegeben wird, wird allerdings die Funktion <code>ucfirst</code> darauf angewendet. Der führende Kleinbuchstabe wird dabei in einen Großbuchstaben verwandelt und ändert dadurch die Bedeutung des Wortes.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="unpack">unpack - Binärdaten auflösen</a></h2>
+
+<p>Macht (fast) alles rückgängig, was mit Hilfe der Funktion <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#pack">pack</a> zu Binärdaten verwandelt wurde, oder anderweitig erzeugte Daten, die in eines der entsprechenden Binärformate passen.</p>
+
+<p>Erwartet als Parameter:<br>
+<strong>1.</strong> die Formatierungsangabe, siehe <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#pack_1">Tabelle</a>,<br>
+<strong>2.</strong> den Daten-Input.</p>
+
+<p>Gibt die entsprechende Werteliste zurück.</p>
+
+<h3 class="xmp"><a class="an" name="beispiel19">Beispiel eines vollständigen CGI-Scripts in Perl:</a></h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="http://de.selfhtml.org/cgi-bin/812/zeichenketten19.pl">Anzeigebeispiel: So sieht's aus</a> (Zum Aufruf des Scripts ist eine Internet-Verbindung erforderlich)</p>
+
+<pre>
+#!/usr/bin/perl -w
+
+use strict;
+use CGI::Carp qw(fatalsToBrowser);
+
+my $Satz = "Beam me up, Scotty";
+my @Zeichen = unpack("C*", $Satz);
+my $Quersumme = 0;
+foreach(@Zeichen) {
+   $Quersumme += int($_);
+}
+
+print "Content-type: text/html\n\n";
+print '&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"&gt;', "\n";
+print "&lt;html&gt;&lt;head&gt;&lt;title&gt;Test-Ausgabe&lt;/title&gt;&lt;/head&gt;&lt;body&gt;\n";
+print "Die Zeichenwert-Quersumme des Satzes &lt;b&gt;$Satz&lt;/b&gt; lautet &lt;b&gt;$Quersumme&lt;/b&gt;\n";
+print "&lt;/body&gt;&lt;/html&gt;\n";
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Die Formatierangabe <code>C</code> erzeugt bei der Funktion <code>pack</code> aus numerischen Angaben entsprechende Zeichenwerte. Bei <code>unpack</code> ist es umgekehrt. Da erzeugt die Funktion aus der Bytefolge, die der Zeichenkette der bei der Eingabe verwendeten Zeichenkodierung entspricht, eine Liste der numerischen Werte. Im Beispiel wird dies genutzt, um die Quersumme aller Zeichenwerte des Satzes zu ermitteln. Das Beispiel sendet HTML-Code an den Browser und gibt dabei das Ergebnis aus.<br>
+Alles weitere zu den komplexen Möglichkeiten dieser Funktion siehe <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#pack">pack</a>.</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="listenhashes.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="listenhashes.htm">Funktionen für Listen bzw. Arrays und Hashes</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="../sprache/cgitypisch.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../sprache/cgitypisch.htm">CGI-typische Aufgaben in Perl</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">Perl</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Perl-Funktionen</a></td>
+</tr>
+</table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

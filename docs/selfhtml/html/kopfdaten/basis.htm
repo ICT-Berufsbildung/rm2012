@@ -1,0 +1,142 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: HTML/XHTML / HTML-Kopfdaten / Adressbasis und Zielfensterbasis</title>
+<meta name="description"    content="Wie Sie eine Adressbasis für Verweise und Referenzen in einer HTML-Datei definieren können, und wie Sie bei Verwendung von Frames ein einheitliches Zielfenster für Verweise angeben können.">
+<meta name="keywords"       content="SELFHTML, HTML, XHTML, Adressbasis, Adresse, Frames, Zielfensterbasis, &lt;base&gt;">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-10-31T14:21:30+01:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/html/kopfdaten/basis.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="HTML-Kopfdaten" href="index.htm">
+<link rel="next" title="Logische Beziehungen" href="beziehungen.htm">
+<link rel="prev" title="Meta-Angaben zum Inhalt" href="meta.htm">
+<link rel="first" title="Titel einer HTML-Datei" href="titel.htm">
+<link rel="last" title="Durchsuchbarkeit mit Server-Kommunikation" href="durchsuchbarkeit.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">HTML/XHTML</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">HTML-Kopfdaten</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Adressbasis und Zielfensterbasis</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#adresse">Adressbasis</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#zielfenster">Zielfensterbasis</a><br>
+</p>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><img src="../../src/html32.gif" width="30" height="30" alt="HTML 3.2" title="HTML 3.2"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/netsc3.gif" width="30" height="30" alt="Netscape 3.0" title="Netscape 3.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="adresse">Adressbasis</a></h2>
+
+<p>Sie können innerhalb einer HTML-Datei, die Sie auf einem WWW-Server ablegen, nochmals deren internet-weit eindeutigen, genauen URI notieren. Ein Web-Browser, der diese Information ausliest, kann in Fehlersituationen besser auf verknüpfte oder referenzierte Dateien zugreifen. Bei <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../verweise/projektintern.htm#dateien">Projektverweisen zu anderen HTML-Dateien</a> und bei Referenzen von <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../grafiken/index.htm">Grafiken</a> oder <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../multimedia/index.htm">Multimedia</a> gilt die hier definierbare Basis als Bezug.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<pre>
+&lt;head&gt;
+&lt;base href="http://aktuell.de.selfhtml.org"&gt;
+  &lt;!-- ... andere Angaben im Dateikopf ... --&gt;
+&lt;/head&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Die Angabe der Dateibasis erfolgt im Dateikopf mit <code>&lt;base href= ... &gt;</code> und dem genauen URI der Datei (<i>base = Basis, href = hyper reference = Hyper(text)-Referenz</i>).</p>
+
+<p>Wenn nun in der Datei beispielsweise folgende Grafikreferenz steht:<br>
+<code>&lt;img src="/src/logo.gif"&gt;</code><br>
+... so ermittelt der WWW-Browser diese Grafik mit dem absoluten URI:<br>
+<code>&lt;img src="http://aktuell.de.selfhtml.org/src/logo.gif"&gt;</code>.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Wenn es wichtig für Sie ist, dass Ihre Projekte leicht auf andere Server-Rechner, in andere Verzeichnisstrukturen usw. übertragbar bleiben, sollten Sie auf die Definition einer Adressbasis verzichten. Denn mit der Angabe einer absoluten Adressbasis wird der WWW-Browser stets versuchen, Verweisziele und referenzierte Dateien von der hier angegebenen Adresse zu laden. Dies macht das Austesten der Dateien auf einem lokalen PC unmöglich!</p>
+
+<p>Die Angabe der Adressbasis ist dagegen ein gewisser Schutz vor HTML-unkundigen Anwendern, die sich eine HTML-Datei lokal abspeichern oder das Cache-Verzeichnis ihres WWW-Browsers durchsuchen. Beim lokalen Aufruf der HTML-Datei wird der WWW-Browser stets eine Online-Verbindung verlangen und die Datei von der angegebenen Adresse laden wollen.</p>
+
+<p>Wenn Sie <b>XHTML-Standard-konform</b> arbeiten, müssen Sie das <code>base</code>-Element als inhaltsleer kennzeichnen. Dazu notieren Sie das alleinstehende Tag in der Form <code>&lt;base&nbsp;...&nbsp;/&gt;</code>. Weitere Informationen finden Sie im Kapitel <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../xhtml/index.htm">XHTML und HTML</a>.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/html32.gif" width="30" height="30" alt="HTML 3.2" title="HTML 3.2"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/netsc3.gif" width="30" height="30" alt="Netscape 3.0" title="Netscape 3.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="zielfenster">Zielfensterbasis</a></h2>
+
+<p>Diese Angabe ist z.B. in Verbindung mit <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../frames/index.htm">Frames</a> sinnvoll. Sie können für eine HTML-Datei, die innerhalb eines Framesets in einem Frame-Fenster angezeigt wird, festlegen, dass alle <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../verweise/index.htm">Verweise</a> dieser Datei in einem bestimmten anderen Frame-Fenster angezeigt werden, solange bei einem Verweis kein anderes Frame-Fenster angegeben wird. Da häufig alle Verweisziele einer Datei, die in einem Frame-Fenster angezeigt wird, in einem bestimmten anderen Frame-Fenster angezeigt werden sollen, spart diese einmalige Angabe im Dateikopf viel Tipparbeit und hilft, den Dateiumfang zu verkleinern.<br>
+Siehe auch <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../frames/verweise.htm">Verweise bei Frames</a>.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<pre>
+&lt;head&gt;
+&lt;base target="RechtesFenster"&gt;
+  &lt;!-- ... andere Angaben im Dateikopf ... --&gt;
+&lt;/head&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Mit <code>&lt;base target= ... &gt;</code> legen Sie das Default-Fenster fest, in dem Verweisziele angezeigt werden sollen. Voraussetzung ist in dem obigen Beispiel, dass Sie ein Frameset mit Frame-Fenstern definiert haben. Bei dem gewünschten Frame-Fenster müssen Sie mit dem Attribut <code>name</code> den Fensternamen vergeben haben, den Sie hier bei <code>&lt;base target= ... &gt;</code> angeben.</p>
+
+<p>Anstelle eines selbst vergebenen Frame-Fensternamens können Sie aber auch eine der folgenden festen Angaben notieren, die auch für HTML-Dateien außerhalb von Framesets interessant sind:<br>
+<code>&lt;base target="_blank"&gt;</code> öffnet jeden Verweis der Datei in einem neuen Browser-Fenster.<br>
+<code>&lt;base target="_top"&gt;</code> öffnet jeden Verweis der Datei im gesamten Browser-Fenster und befreit die Anzeige aus allen eventuell angezeigten Framesets (z.B. auch aus fremden, feindlichen Framesets - siehe Abschnitt über <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../frames/layouts.htm#schaufenster">Schaufenster-Effekte</a>).<br>
+<code>&lt;base target="_parent"&gt;</code> öffnet jeden Verweis der Datei im übergeordneten Frameset und befreit die Anzeige aus dem inneren Frameset. <code>_parent</code> und <code>_top</code> sind dann verschieden, wenn ein Frame-Fenster nochmals ein komplettes Frameset enthält, also eher etwas für Mikro-Freaks.</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="beziehungen.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="beziehungen.htm">Logische Beziehungen</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="meta.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="meta.htm">Meta-Angaben zum Inhalt</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">HTML/XHTML</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">HTML-Kopfdaten</a></td>
+</tr></table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

@@ -1,0 +1,874 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: JavaScript / Objektreferenz / elements</title>
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<meta name="description"    content="Welche Aufgaben, Eigenschaften und Methoden das window-Objekt in JavaScript hat.">
+<meta name="keywords"       content="SELFHTML, JavaScript, Objekte, elements, checked, defaultChecked, defaultValue, disabled, form, length, name, type, value, blur, click, focus, handleEvent, select">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-11-16T01:48:05+01:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/javascript/objekte/elements.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="Objektreferenz" href="index.htm">
+<link rel="next" title="options" href="options.htm">
+<link rel="prev" title="forms" href="forms.htm">
+<link rel="first" title="Hinweise zur JavaScript-Objektreferenz" href="hinweise.htm">
+<link rel="last" title="Objektunabhängige Funktionen" href="unabhaengig.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">JavaScript/DOM</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Objektreferenz</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">elements</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p><img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#allgemeines">elements: Allgemeines zur Verwendung</a></p>
+
+<h3>Eigenschaften:</h3>
+
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#checked">checked</a> (Angekreuzt)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#default_checked">defaultChecked</a> (vorangekreuzt)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#default_value">defaultValue</a> (voreingegebener Wert)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#disabled">disabled</a> (Element ausgrauen)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#form">form</a> (Verweis auf das zugehörigen Formulars)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#length">length</a> (Anzahl der Elemente eines Formulares)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#name">name</a> (Elementname)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#readonly">readOnly</a> (Element nur lesen)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#type">type</a> (Elementtyp)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#value">value</a> (Elementwert/-inhalt)<br>
+</p>
+
+<h3>Methoden:</h3>
+
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#blur">blur()</a> (Element verlassen)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#click">click()</a> (Element anklicken)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#focus">focus()</a> (auf Element positionieren)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#handle_event">handleEvent()</a> (Ereignis verarbeiten)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#select">select()</a> (Text selektieren)<br>
+</p>
+
+<h3>Unterobjekte:</h3>
+
+<p>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="options.htm">options</a><br>
+</p>
+</td>
+</tr><tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><a class="an" name="allgemeines">elements: Allgemeines zur Verwendung</a></h2>
+
+<p>Mit dem Objekt <code>elements</code>, das in der JavaScript-Objekthierarchie unterhalb des <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="forms.htm">forms</a>-Objekts liegt, haben Sie Zugriff auf Elemente eines Formulars.</p>
+
+<p>Es stehen folgende Arten zur Verfügung, mit JavaScript ein bestimmtes Formularelement anzusprechen:</p>
+
+<h3 class="xmp">Schema 1 / Beispiel 1:</h3>
+
+<pre>
+document.forms[#].elements[#].Eigenschaft
+document.forms[#].elements[#].Methode()
+
+document.forms[0].elements[0].value = "Unsinn";
+document.forms[0].elements[0].blur();
+</pre>
+
+<h3 class="xmp">Schema 2 / Beispiel 2:</h3>
+
+<pre>
+document.Formularname.Elementname.Eigenschaft
+document.Formularname.Elementname.Methode()
+
+document.Testformular.Eingabe.value = "Unsinn";
+document.Testformular.Eingabe.blur();
+</pre>
+
+<h3 class="xmp">Schema 3 / Beispiel 3:</h3>
+
+<pre>
+document.forms.Formularname.elements.Elementname.Eigenschaft
+document.forms.Formularname.elements.Elementname.Methode()
+
+document.forms.Testformular.elements.Eingabe.value = "Unsinn";
+document.forms.Testformular.elements.Eingabe.blur();
+</pre>
+
+<h3 class="xmp">Schema 4 / Beispiel 4:</h3>
+
+<pre>
+document.forms["Formularname"].elements["Elementname"].Eigenschaft
+document.forms["Formularname"].elements["Elementname"].Methode()
+
+document.forms["Testformular"].elements["Eingabe"].value = "Unsinn";
+document.forms["Testformular"].elements["Eingabe"].blur();
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Formularelemente können Sie auf folgende Arten ansprechen:</p>
+
+<ol>
+
+<li>mit einer <b>Indexnummer des Formulars und des Elements</b> (wie in Schema 1 / Beispiel 1)<br>
+Bei Verwendung von Indexnummern geben Sie <code>document.forms</code> an und dahinter in eckigen Klammern, das wievielte Formular in der Datei Sie meinen. Beachten Sie, dass der Zähler bei 0 beginnt, d.h. das erste Formular sprechen Sie mit <code>document.forms[0]</code> an, das zweite Formular mit <code>document.forms[1]</code> usw. Beim Zählen gilt die Reihenfolge, in der die <code>&lt;form&gt;</code>-Tags in der Datei notiert sind. Dann folgt die Angabe <code>.elements</code> zum Zugriff auf das zugehörige <code>elements</code>-Unterobjekt. Auch dahinter notieren Sie wieder eine Indexnummer in eckigen Klammern. Erneut wird bei 0 zu zählen begonnen, d.h. das erste Element innerhalb eines Formulars hat die Indexnummer 0, das zweite die Indexnummer 1 usw. Sie können zwischen den eckigen Klammern auch eine Zahl-Variable notieren, die die Indexnummer des Formulars bzw. des Formularelements enthält.</li>
+
+<li>mit dem <b>Namen des Formulars und des Elements</b> direkt über das <code>document</code>-Objekt (wie in Schema 2 / Beispiel 2)<br>
+Wie auch verschiedene andere Elemente mit <code>name</code>-Attributen können Sie Formulare mit Namen als Objekte direkt unterhalb des <code>document</code>-Objekts ansprechen. Dabei geben Sie mit <code>document.Formularname.Elementname</code> den Namen des Formulars und des Elements an, den Sie bei der Definition des Formulars und des Elements in den entsprechenden HTML-Tags im Attribut <code>name</code> angegeben haben.</li>
+
+<li>mit dem <b>Namen des Formulars und dem Namen des Elements</b> über das <code>document.forms</code>-Objekt und das zugehörige <code>elements</code>-Objekt (wie in Schema 3 / Beispiel 3)<br>
+Mit <code>document.forms.Formularname</code> wird dabei das Formular angesprochen und über das Unterobjekt <code>.elements.Elementname</code> das fragliche Formularelement. <code>Formularname</code> und <code>Elementname</code> entsprechen jeweils dem <code>name</code>-Attribut des <code>form</code>- bzw. Formularfeld-Elements, das Sie ansprechen möchten. Diese lange Schreibweise erlaubt verständlicheren Code, denn es ist sofort ersichtlich, dass ein Formularelement angesprochen wird.</li>
+
+<li>mit dem <b>Namen des Formulars und des Elements als Indexnamen</b> (wie in Schema 4 / Beispiel 4)<br>
+Diese Art ist eine zu Schema 3 äquivalente Schreibweise, denn in JavaScript ist das Ansprechen von Unterobjekten über <code>objekt.unterobjekt</code> gleichwertig zu <code>objekt["unterobjekt"]</code>. Geben Sie mit <code>document.forms["Formularname"].elements["Elementname"]</code> den Namen des Formulars und des Elements als String an. Diese Schreibweise wird insbesondere für den Zugriff auf Formularelemente benötigt, deren Namen Sonderzeichen enthalten, welche den Zugriff nach Schema 2 und 3 unmöglich machen. Sie können zwischen den eckigen Klammern auch eine String-Variable notieren, die den Formularnamen bzw. den Elementnamen enthält.</li>
+
+</ol>
+
+<p>Ein Mischen der genannten Zugriffsvarianten für die Adressierung des Formulars und seiner Elemente ist möglich. Beispiele: <code>document.forms.Formularname.elements["Elementname"]</code> und <code>document.forms[1].Elementname</code>. Sie sollten allerdings abwägen, welche Variante Sie auswählen und diese möglichst konsequent verwenden. Beispielsweise das Ansprechen von Formularen und Formularelementen über die Indexnummer hat einige Tücken. Sobald Sie auf der HTML-Seite die Reihenfolge ändern oder ein weiteres Formular hinzufügen, funktionieren ihre Scripte nicht mehr zuverlässig.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Hinter dem, was hier als <code>elements</code>-Objekt bezeichnet wird, verbergen sich in Wirklichkeit mehrere, allerdings sehr ähnliche JavaScript-Objekte. So gibt es Objekte jeweils für die verschiedenen Formularelementypen: Eingabefelder, Auswahllisten und diverse Arten von Buttons. All diese Objekte werden auf die gleiche Art und Weise angesprochen, Sie unterscheiden sich jedoch in ihren Eigenschaften und Methoden. Bei den Eigenschaften und Methoden in diesem Abschnitt ist daher immer vermerkt, auf welche Elementtypen die jeweilige Eigenschaft bzw. Methode anwendbar ist.</p>
+
+<p>Folgende Elementtypen werden dabei unterschieden (die Verweise führen zu den entsprechenden Beschreibungen in der HTML-Dokumentation):</p>
+
+<ul>
+<li><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/klickbuttons.htm">Klick-Buttons</a></li>
+<li><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/auswahl.htm#checkboxen">Checkboxen</a></li>
+<li><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/datei_upload.htm">Felder für Datei-Upload</a></li>
+<li><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/versteckte.htm">Versteckte Elemente</a></li>
+<li><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/eingabe.htm#felder_passwort">Passwortfelder</a></li>
+<li><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/auswahl.htm#radiobuttons">Radio-Buttons</a></li>
+<li><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/formularbuttons.htm">Abbrechen-Buttons</a></li>
+<li><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/formularbuttons.htm">Absendebuttons</a></li>
+<li><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/eingabe.htm#felder">einzeilige Eingabefelder</a></li>
+<li><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/eingabe.htm#bereiche">mehrzeilige Eingabefelder</a></li>
+<li><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/auswahl.htm#listen">Auswahllisten</a></li>
+</ul>
+
+<h3 class="inf"><a class="an" name="gruppenelemente">Gruppenelemente:</a></h3>
+
+<p>Checkboxen und Radio-Buttons bilden normalerweise Gruppen mehrerer zusammengehöriger Elemente, die einen gleichen Wert im <code>name</code>-Attribut haben und sich nur das <code>value</code>-Attribut unterscheiden. Solche Gruppen mit gleichen Namen bilden in JavaScript wiederum einen Array.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/elements_allgemeines.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;form name="Formular" action="" method="get"&gt;
+&lt;input type="radio" name="Favoriten" value="Heino"&gt;
+&lt;input type="radio" name="Favoriten" value="Gildo"&gt;
+&lt;input type="radio" name="Favoriten" value="Marianne"&gt;
+&lt;/form&gt;
+&lt;script type="text/javascript"&gt;
+document.Formular.Favoriten[2].checked = true;
+&lt;/script&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Im Beispiel ist ein Formular mit mehreren Radio-Buttons definiert. Die Gruppe zusammengehöriger Radio-Buttons hat den gleichen Namen. In JavaScript können Sie einzelne solcher Buttons ansprechen, indem Sie das Element (als Gruppe) ansprechen. Hinter dem Elementnamen notieren Sie dann in eckigen Klammern die Indexnummer des gewünschten Elements. Im Beispiel wird <code>Favoriten[2]</code> angesprochen. Das ist das dritte Element der Gruppe.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Der Zugriff auf die Auswahlmöglichkeiten einer <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/auswahl.htm#listen">Auswahlliste</a> wird hier nicht beschrieben. Dazu steht das Unterobjekt <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="options.htm">options</a> zur Verfügung.</p>
+
+<p>Über das <code>elements</code>-Objekt werden gemäß dem HTML-spezifischen DOM die <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="htmlelemente.htm">Elementobjekte</a> von Formularelementen angesprochen. Das heißt, Sie haben neben den auf dieser Seite aufgelisteten Zugriff auf weitere Eigenschaften und Methoden, je nachdem, um welchen Elementtyp es sich handelt. Beachten Sie daher die Referenz zu den jeweiligen benutzten HTML-Elementen:</p>
+
+<dl>
+<dt>Klick-Buttons:</dt>
+<dd><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="htmlelemente.htm#input">input</a> oder <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="htmlelemente.htm#button">button</a></dd>
+<dt>Checkboxen, Felder f&uuml;r Datei-Upload, Versteckte Elemente, Passwortfelder, Radio-Buttons, Abbrechen-Buttons, Absendebuttons und einzeilige Eingabefelder:</dt>
+<dd><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="htmlelemente.htm#input">input</a></dd>
+<dt>mehrzeilige Eingabefelder:</dt>
+<dd><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="htmlelemente.htm#textarea">textarea</a></dd>
+<dt>Auswahllisten:</dt>
+<dd><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="htmlelemente.htm#select">select</a>, <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="htmlelemente.htm#optgroup">optgroup</a> und <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="htmlelemente.htm#option">option</a></dd>
+</dl>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/dom10.gif" width="30" height="30" alt="DOM 1.0" title="DOM 1.0"><img src="../../src/js10.gif" width="30" height="30" alt="JavaScript 1.0" title="JavaScript 1.0"><img src="../../src/netsc2.gif" width="30" height="30" alt="Netscape 2.0" title="Netscape 2.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0"><img src="../../src/jswrite.gif" width="60" height="30" alt="Lesen/Ändern">&nbsp;<a class="an" name="checked">checked</a></h2>
+
+<p>Speichert, ob bzw. dass ein Radio- oder Checkbutton aktiviert ist oder nicht. Mögliche Werte sind <code>true</code> oder <code>false</code>.</p>
+
+<p>Anwendbar auf:
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/klickbuttons.htm">Klick-Buttons</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/auswahl.htm#checkboxen">Checkboxen</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/auswahl.htm#radiobuttons">Radio-Buttons</a>
+</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/elements_checked.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;script type="text/javascript"&gt;
+function Weiter () {
+  if (document.Testform.Art[0].checked == true) {
+    window.location.href = "frmdatei.htm";
+  } else if (document.Testform.Art[1].checked == true) {
+    window.location.href = "datei.htm";
+  } else {
+    alert("Bitte eine Auswahl treffen");
+  }
+}
+&lt;/script&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;form name="Testform" action=""&gt;
+&lt;input type="radio" name="Art" value="mit"&gt; mit Frames
+&lt;input type="radio" name="Art" value="ohne"&gt; ohne Frames
+&lt;br&gt;&lt;input type="button" value="Starten" onclick="Weiter()"&gt;
+&lt;/form&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+<p>Das Beispiel enthält ein Formular mit zwei Radio-Buttons. Der Anwender kann dabei auswählen, ob er die folgenden Seiten des Projekts mit Frames oder ohne Frames sehen will. Beim Klick auf den Button <code>Starten</code> wird die Funktion <code>Weiter()</code> aufgerufen. Diese Funktion prüft, ob einer der beiden Radio-Buttons aktiviert ist. Je nachdem, welcher von beiden aktiviert ist, wird eine unterschiedliche Datei aufgerufen (<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="location.htm">location</a>.<a href="location.htm#href">href</a>). Wenn keiner der beiden Radio-Buttons aktiviert ist, wird eine Fehlermeldung ausgegeben.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Sie können in Opera 5.12 unter Windows die Eigenschaft <code>checked</code> für Radioboxen erst dann ändern, wenn der Aufbau der Seite abgeschlossen ist.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/dom10.gif" width="30" height="30" alt="DOM 1.0" title="DOM 1.0"><img src="../../src/js10.gif" width="30" height="30" alt="JavaScript 1.0" title="JavaScript 1.0"><img src="../../src/netsc2.gif" width="30" height="30" alt="Netscape 2.0" title="Netscape 2.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0"><img src="../../src/jswrite.gif" width="60" height="30" alt="Lesen/Ändern">&nbsp;<a class="an" name="default_checked">defaultChecked</a></h2>
+
+<p>Speichert, ob bzw. dass ein Radio- oder Checkbutton per Voreinstellung aktiviert ist oder nicht. Mögliche Werte sind <code>true</code> oder <code>false</code>.</p>
+
+<p>Anwendbar auf:
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/auswahl.htm#checkboxen">Checkboxen</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/auswahl.htm#radiobuttons">Radio-Buttons</a>
+</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/elements_default_checked.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;script type="text/javascript"&gt;
+function Weiter () {
+  if (document.Testform.Art[0].checked == true) {
+    window.location.href = "frminhalt.htm";
+  } else {
+    window.location.href = "inhalt.htm";
+  }
+}
+&lt;/script&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;form name="Testform" action=""&gt;
+&lt;input type="radio" name="Art" value="mit"&gt; mit DHTML
+&lt;input type="radio" name="Art" value="ohne"&gt; ohne DHTML
+&lt;br&gt;&lt;input type="button" value="Starten" onclick="Weiter()"&gt;
+&lt;/form&gt;
+&lt;script type="text/javascript"&gt;
+dhtml = false;
+if (document.layers || document.all || document.getElementById)
+  dhtml = true;
+if (dhtml == true &amp;&amp; document.Testform.Art[0].defaultChecked == false)
+  document.Testform.Art[0].checked = true;
+&lt;/script&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+<p>Das Beispiel enthält ein Formular mit zwei Radio-Buttons. Der Anwender kann dabei auswählen, ob er die folgenden Seiten des Projekts mit Dynamischem HTML oder ohne sehen will. Beim Klick auf den Button <code>Starten</code> wird die Funktion <code>Weiter()</code> aufgerufen. Diese Funktion prüft, ob einer der beiden Radio-Buttons aktiviert ist. Je nachdem, welcher von beiden aktiviert ist, wird eine unterschiedliche Datei aufgerufen (<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="location.htm">location</a>.<a href="location.htm#href">href</a>).<br>
+Unterhalb des Formulars ist jedoch noch ein weiterer Script-Bereich notiert. Der Script-Bereich steht unterhalb, weil der darin enthaltene Code sofort ausgeführt und die Existenz des Formulars aber bereits voraussetzt. Es wird abgefragt, ob eines der für Dynamisches HTML typischen Objekte <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="document.htm">document</a>.<a href="layers.htm">layers</a> oder <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="document.htm">document</a>.<a href="all.htm">all</a> bzw. die typische Methode <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="document.htm#get_element_by_id">document.getElementById</a> verfügbar sind. Wenn ja, wird eine Variable <code>dhtml</code> auf <code>true</code> gesetzt. In einer weiteren Abfrage wird mit <code>defaultChecked</code> überprüft, ob die Auswahlmöglichkeit, DHTML zu nutzen, im Formular als Vorauswahl aktiviert ist oder nicht. Wenn nicht, und wenn DHTML aber verfügbar ist (also wenn <code>dhtml</code> auf <code>true</code>gesetzt ist), wird die Auswahlmöglichkeit für DHTML nachträglich angekreuzt.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Opera 5.12 unter Windows interpretiert zwar die Eigenschaft <code>defaultChecked</code>, führt das obige Beispiel jedoch nicht aus, da die Änderung des Zustandes der Radiobox vor dem Abschluss des Ladens der Seite erfolgt. Opera 5.02 kennt die Eigenschaft <code>defaultChecked</code> noch nicht.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/dom10.gif" width="30" height="30" alt="DOM 1.0" title="DOM 1.0"><img src="../../src/js10.gif" width="30" height="30" alt="JavaScript 1.0" title="JavaScript 1.0"><img src="../../src/netsc2.gif" width="30" height="30" alt="Netscape 2.0" title="Netscape 2.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0"><img src="../../src/jswrite.gif" width="60" height="30" alt="Lesen/Ändern">&nbsp;<a class="an" name="default_value">defaultValue</a></h2>
+
+<p>Speichert den voreingestellten Text eines Eingabefeldes.</p>
+
+<p>Anwendbar auf:
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/eingabe.htm#felder">einzeilige Eingabefelder</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/eingabe.htm#bereiche">mehrzeilige Eingabefelder</a>
+</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/elements_default_value.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;form name="Testform" action=""&gt;
+URI: &lt;input type="text" size="40" name="uri" value="http://www.example.org/en/"&gt;
+&lt;input type="button" value="Gehe zu"
+onclick="window.location.href = document.Testform.uri.value"&gt;
+&lt;/form&gt;
+&lt;script type="text/javascript"&gt;
+if (navigator.language.indexOf("de") &gt; -1) {
+  document.Testform.url.defaultValue = "http://www.example.org/de/";
+  document.Testform.url.value = document.Testform.url.defaultValue;
+}
+&lt;/script&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+<p>Das Beispiel enthält ein Formular mit einem Eingabefeld und einem Button. Das Eingabefeld wird mit <code>http://www.example.org/en/</code> vorbelegt. Beim Klick auf den Button wird der Wert aus dem Eingabefeld an <code>window.</code><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="location.htm">location</a>.<a href="location.htm#href">href</a> zugewiesen. Dadurch wird die entsprechende Adresse aufgerufen.<br>
+Bevor der Anwender jedoch überhaupt das Feld editieren kann, wird gleich beim Einlesen der Datei unterhalb des Formulars ein Script-Bereich notiert. Der Script-Bereich steht unterhalb, weil der darin enthaltene Code sofort ausgeführt und die Existenz des Formulars aber bereits voraussetzt. Es wird abgefragt, ob in der Ausweisung des Browsers (<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="navigator.htm">navigator</a>.<a href="navigator.htm#language">language</a>) der Bestandteil <code>de</code> vorkommt (<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="string.htm#index_of">indexOf()</a>). Wenn ja, ist es ein deutschsprachiger Browser. In diesem Fall wird der <code>defaultValue</code> des Eingabefeldes auf <code>http://www.example.org/de/</code> geändert. Der geänderte Wert wird jedoch erst sichtbar, wenn er der Eigenschaft <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#value">value</a> zugewiesen wird. Dies geschieht in der zweiten Anweisung. Das Eingabefeld des Formulars ist dann abhängig von der Sprache des Browsers mit <code>http://www.example.org/en/</code> oder <code>http://www.example.org/de/</code> vorbelegt.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Opera 5.02 kennt die Eigenschaft <code>defaultValue</code> noch nicht. Trotzdem interpretiert auch dieser Browser das Beispiel. Das liegt daran, dass mit der Zuweisung <code>defaultValue = "http://www.example.org/de/"</code> der Wert des Eigenschaft manuell eingegeben wird. Sobald Sie jedoch ein JavaScript vom Originalwert abhängig machen möchten, müssen Sie berücksichtigen, dass diese Eigenschaft nicht existiert.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2>
+<img src="../../src/dom10.gif" width="30" height="30" alt="DOM 1.0" title="DOM 1.0"><img src="../../src/netsc6.gif" width="30" height="30" alt="Netscape 6.0" title="Netscape 6.0"><img src="../../src/msie4.gif" width="30" height="30" alt="MS IE 4.0" title="MS IE 4.0"><img src="../../src/op6.gif" width="30" height="30" alt="Opera 6" title="Opera 6"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf13.gif" width="30" height="30" alt="Safari 1.3" title="Safari 1.3"><img src="../../src/jswrite.gif" width="60" height="30" alt="Lesen/Ändern">&nbsp;<a class="an" name="disabled">disabled</a></h2>
+
+<p>Speichert, ob das Formularelement verfügbar oder ausgegraut ist. Entspricht dem <code>disabled</code>-Attribut, siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/tastatur.htm#elemente_ausgrauen">Element ausgrauen</a>. Mögliche Werte sind <code>true</code> oder <code>false</code>.</p>
+
+<p>Anwendbar auf:
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/klickbuttons.htm">Klick-Buttons</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/auswahl.htm#checkboxen">Checkboxen</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/datei_upload.htm">Felder für Datei-Upload</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/versteckte.htm">Versteckte Elemente</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/eingabe.htm#felder_passwort">Passwortfelder</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/auswahl.htm#radiobuttons">Radio-Buttons</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/formularbuttons.htm">Abbrechen-Buttons</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/formularbuttons.htm">Absendebuttons</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/eingabe.htm#felder">einzeilige Eingabefelder</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/eingabe.htm#bereiche">mehrzeilige Eingabefelder</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/auswahl.htm#listen">Auswahllisten</a>
+</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/elements_disabled.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;script type="text/javascript"&gt;
+function wechsle_art () {
+  if (document.Testform.auto[0].checked == true) {
+    var deaktiviert = false;
+  } else {
+    var deaktiviert = true;
+  }
+  for (var i = 0; i &lt; document.Testform.autoart.length; i++) {
+    document.Testform.autoart[i].disabled = deaktiviert;
+  }
+}
+&lt;/script&gt;
+&lt;/head&gt;&lt;body&gt;
+
+&lt;form action="" name="Testform"&gt;
+
+&lt;p&gt;Besitzen Sie ein Auto?&lt;/p&gt;
+
+&lt;p&gt;&lt;input type="radio" name="auto" value="ja" onclick="wechsle_art();"&gt; ja&lt;br&gt;
+&lt;input type="radio" name="auto" value="nein" onclick="wechsle_art();"&gt; nein&lt;/p&gt;
+
+&lt;p&gt;Falls ja, was für ein Auto?&lt;/p&gt;
+
+&lt;p&gt;&lt;input type="radio" name="autoart"&gt; Kleinwagen&lt;br&gt;
+&lt;input type="radio" name="autoart" value="kombi"&gt; Kombi&lt;br&gt;
+&lt;input type="radio" name="autoart" value="limousine"&gt; Limousine&lt;br&gt;
+&lt;input type="radio" name="autoart" value="sportwagen"&gt; Sportwagen&lt;br&gt;
+&lt;input type="radio" name="autoart" value="kleinbus"&gt; Kleinbus&lt;br&gt;
+&lt;input type="radio" name="autoart" value="andere"&gt; andere Art&lt;/p&gt;
+
+&lt;/form&gt;
+
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel enthält ein Formular mit zwei Gruppen von Radio-Buttons. In der ersten Gruppe kann der Anwender auswählen, ob er ein Auto besitzt oder nicht. In der zweiten Gruppe kann er, falls er ein Auto besitzt, den Typ angeben. Da die zweite Gruppe nur interessant ist, wenn der Anwender die Frage "Haben Sie ein Auto?" mit "ja" beantwortet hat, werden die Radio-Buttons der zweiten Gruppe ausgegraut, wenn der Anwender "nein" wählt. Dazu haben die Radio-Buttons der ersten Gruppe einen Event-Handler <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../sprache/eventhandler.htm#onclick">onclick</a>. Beim Klicken auf einen der beiden Radio-Buttons wird die Funktion <code>wechsle_art()</code> ausgeführt, die in einem Script-Bereich im Seitenkopf definiert ist. Sie fragt zunächst mit einer bedingten Anweisung ab, ob die Eigenschaft <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#checked">checked</a> des ersten Radio-Buttons einen positiven Wert hat. Dementsprechend wird eine Variable namens <code>deaktiviert</code> auf <code>true</code> oder <code>false</code> gesetzt. Anschließend werden mit einer for-Schleife alle Radio-Buttons durchlaufen, die zur Gruppe mit dem Namen <code>autoart</code> gehören. Die <code>disabled</code>-Eigenschaft jedes dieser Radio-Buttons erhält den Wert, der in der Variable <code>deaktiviert</code> gespeichert ist.
+Die dazu verwendete Zugriffsmethode wird im Abschnitt <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#gruppenelemente">Gruppenelemente</a> erklärt. Auf diese Weise werden nacheinander alle fraglichen Radio-Buttons aktiviert, wenn der Anwender "ja" wählt, und sie werden deaktiviert, wenn der Anwender die erste Frage mit "nein" beantwortet.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Sie werden sich wundern, warum im Beispiel die Wahl des Event-Handlers auf <code>onclick</code> und nicht auf <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../sprache/eventhandler.htm#onchange">onchange</a> fiel. In der Tat ist <code>onchange</code> im Allgemeinen passender, um JavaScript auszuführen, wenn sich der Wert eines Formularelements ändert. Bei Radio-Buttons haben die Browser allerdings einige Fehler in Bezug auf den Event-Handler <code>onchange</code>. Der Internet Explorer 6 löst zwar ein solches Ereignis aus, sobald einer der Radio-Buttons z.B. durch einen Mausklick aktiviert wird. Das Ereignis wird jedoch bereits vor der tatsächlichen Aktivierung des gewählten Radio-Buttons ausgelöst. Somit liefert die Abfrage der <code>checked</code>-Eigenschaft unbrauchbare bzw. genau umgekehrte Werte. Wegen diesem Browserfehler wurde im Beispiel <code>onclick</code> statt <code>onchange</code> gewählt. Glücklicherweise starten die gängigen Browser auch dann ein Klick-Ereignis, wenn nicht die Maus, sondern die Tastatur zum Ändern des Radio-Buttons verwendet wurde. Somit funktioniert das Beispiel auch bei der Bedienung des Formulars ausschließlich über die Tastatur.</p>
+
+<p>Netscape versteht <code>disabled</code> ab Version 6.0. Diese Version liefert allerdings falsche Werte für die <code>checked</code>-Eigenschaft der Radio-Buttons, wenn sie beim Verarbeiten des Klick-Ereignisses abgefragt werden. Das Beispiel funktioniert daher erst ab Netscape 6.1.</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td class="doc">&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td>
+</tr>
+</table>
+
+
+
+<h2><img src="../../src/dom10.gif" width="30" height="30" alt="DOM 1.0" title="DOM 1.0"><img src="../../src/js10.gif" width="30" height="30" alt="JavaScript 1.0" title="JavaScript 1.0"><img src="../../src/netsc2.gif" width="30" height="30" alt="Netscape 2.0" title="Netscape 2.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0"><img src="../../src/jsread.gif" width="60" height="30" alt="Lesen">&nbsp;<a class="an" name="form">form</a></h2>
+
+<p>Speichert das Formular, innerhalb dessen sich das Element befindet. Hinter der Eigenschaft <code>form</code> können Sie nochmals alle Eigenschaften und Methoden des <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="forms.htm">forms</a>-Objekts notieren.</p>
+
+<p>Anwendbar auf:
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/klickbuttons.htm">Klick-Buttons</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/auswahl.htm#checkboxen">Checkboxen</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/datei_upload.htm">Felder für Datei-Upload</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/versteckte.htm">Versteckte Elemente</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/eingabe.htm#felder_passwort">Passwortfelder</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/auswahl.htm#radiobuttons">Radio-Buttons</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/formularbuttons.htm">Abbrechen-Buttons</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/formularbuttons.htm">Absendebuttons</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/eingabe.htm#felder">einzeilige Eingabefelder</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/eingabe.htm#bereiche">mehrzeilige Eingabefelder</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/auswahl.htm#listen">Auswahllisten</a>
+</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/elements_form.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;form name="Testform" action=""&gt;
+&lt;input type="button" name="derButton" value="Test"
+onclick="alert(document.Testform.derButton.form.name)"&gt;
+&lt;/form&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel enthält ein Formular mit einem Button. Beim Anklicken des Buttons wird der Name des Formulars ausgegeben.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/dom10.gif" width="30" height="30" alt="DOM 1.0" title="DOM 1.0"><img src="../../src/js10.gif" width="30" height="30" alt="JavaScript 1.0" title="JavaScript 1.0"><img src="../../src/netsc2.gif" width="30" height="30" alt="Netscape 2.0" title="Netscape 2.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0"><img src="../../src/jsread.gif" width="60" height="30" alt="Lesen">&nbsp;<a class="an" name="length">length</a></h2>
+
+<p>Gibt man mehreren Formularelementen den gleichen Namen, wird automatisch in JavaScript ein Array angelegt, um jedes einzelne Element ansprechen zu können. In der Eigenschaft <code>length</code> des Elementobjekts wird dann die Anzahl der Elemente gespeichert.</p>
+
+<p>Ein Beispiel für die Anwendung ist im <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="#disabled">Beispiel zu <code>disabled</code></a> zu sehen. Dort wird eine <code>for</code>-Schleife für alle Elemente des Namens <var>autoart</var> durchlaufen. <code>document.Testform.autoart</code> ist dabei das Array aller Radiobuttons, in <code>document.Testform.autoart.length</code> steht die Anzahl der Buttons, und mit <code>document.Testform.autoart[i]</code> wird auf einen einzelnen Button zugegriffen (und im Beispiel dann die Eigenschaft <code>disabled</code> gesetzt).</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/dom10.gif" width="30" height="30" alt="DOM 1.0" title="DOM 1.0"><img src="../../src/js10.gif" width="30" height="30" alt="JavaScript 1.0" title="JavaScript 1.0"><img src="../../src/netsc2.gif" width="30" height="30" alt="Netscape 2.0" title="Netscape 2.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0"><img src="../../src/jswrite.gif" width="60" height="30" alt="Lesen/Ändern">&nbsp;<a class="an" name="name">name</a></h2>
+
+<p>Speichert den Namen des Formularelements, wie er in HTML bei der Definition des Elements mit dem Attribut <code>name</code> zugewiesen wurde.</p>
+
+<p>Anwendbar auf:
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/klickbuttons.htm">Klick-Buttons</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/auswahl.htm#checkboxen">Checkboxen</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/datei_upload.htm">Felder für Datei-Upload</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/versteckte.htm">Versteckte Elemente</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/eingabe.htm#felder_passwort">Passwortfelder</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/auswahl.htm#radiobuttons">Radio-Buttons</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/formularbuttons.htm">Abbrechen-Buttons</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/formularbuttons.htm">Absendebuttons</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/eingabe.htm#felder">einzeilige Eingabefelder</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/eingabe.htm#bereiche">mehrzeilige Eingabefelder</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/auswahl.htm#listen">Auswahllisten</a>
+</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/elements_name.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;form name="Testform" action=""&gt;
+&lt;input type="button" name="derButton" value="Test"
+onclick="alert(document.Testform.derButton.name)"&gt;
+&lt;/form&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel enthält ein Formular mit einem Button. Beim Anklicken des Buttons wird der Name des Buttons ausgegeben.</p>
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/dom10.gif" width="30" height="30" alt="DOM 1.0" title="DOM 1.0"><img src="../../src/netsc6.gif" width="30" height="30" alt="Netscape 6.0" title="Netscape 6.0"><img src="../../src/msie4.gif" width="30" height="30" alt="MS IE 4.0" title="MS IE 4.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0"><img src="../../src/jswrite.gif" width="60" height="30" alt="Lesen/Ändern">&nbsp;<a class="an" name="readonly">readOnly</a></h2>
+
+<p>Speichert, ob das Formularelement unveränderbar (nur lesen) ist. Entspricht dem <code>readonly</code>-Attribut, siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/tastatur.htm#elemente_ausgrauen">Element ausgrauen</a>. Mögliche Werte sind <code>true</code> oder <code>false</code>.</p>
+
+<p>Beachten Sie die im Vergleich zum HTML-Attribut abweichende Schreibweise. Diese Eigenschaft muss zwingend mit großem O geschrieben werden!</p>
+
+<p>Die Anwendung ist sehr ähnlich zu der Eigenschaft <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#disabled">disabled</a>.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Opera unterstützt das Auslesen der <code>readOnly</code>-Eigenschaft bereits in Version 5.12, das Ändern des Wertes wird allerdings erst in Version 7 korrekt umgesetzt.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/dom10.gif" width="30" height="30" alt="DOM 1.0" title="DOM 1.0"><img src="../../src/js10.gif" width="30" height="30" alt="JavaScript 1.0" title="JavaScript 1.0"><img src="../../src/netsc2.gif" width="30" height="30" alt="Netscape 2.0" title="Netscape 2.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0"><img src="../../src/jsread.gif" width="60" height="30" alt="Lesen">&nbsp;<a class="an" name="type">type</a></h2>
+
+<p>Speichert den Elementtyp eines Formularelements.</p>
+
+<p>Anwendbar auf:
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/klickbuttons.htm">Klick-Buttons</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/auswahl.htm#checkboxen">Checkboxen</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/datei_upload.htm">Felder für Datei-Upload</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/versteckte.htm">Versteckte Elemente</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/eingabe.htm#felder_passwort">Passwortfelder</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/auswahl.htm#radiobuttons">Radio-Buttons</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/formularbuttons.htm">Abbrechen-Buttons</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/formularbuttons.htm">Absendebuttons</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/eingabe.htm#felder">einzeilige Eingabefelder</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/eingabe.htm#bereiche">mehrzeilige Eingabefelder</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/auswahl.htm#listen">Auswahllisten</a>
+</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/elements_type.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;form name="Testform" action=""&gt;
+&lt;input type="radio" name="Auto" value="Porsche"&gt; Porsche&lt;br&gt;
+&lt;input type="radio" name="Auto" value="Mercedes"&gt; Mercedes&lt;br&gt;
+Name: &lt;input type="text" name="Name" size="30"&gt;&lt;br&gt;
+&lt;input type="submit" name="Absendebutton" value="Absenden"&gt;
+&lt;/form&gt;
+&lt;script type="text/javascript"&gt;
+for (var i = 0; i &lt; document.Testform.length; ++i) {
+  document.write("&lt;br&gt;Elementname: " + document.forms[0].elements[i].name);
+  document.write(", Elementtyp: " + document.forms[0].elements[i].type);
+}
+&lt;/script&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+<p>Das Beispiel enthält ein Formular mit verschiedenen Elementen. Zu Testzwecken ist unterhalb des Formulars ein Script-Bereich notiert. Der Script-Bereich steht unterhalb, weil der darin enthaltene Code sofort ausgeführt und die Existenz des Formulars aber bereits voraussetzt. In dem Script wird für alle Elemente des Formulars mit <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="document.htm">document</a>.<a href="document.htm#write">write()</a> der Elementname und der Elementtyp in die Datei geschrieben.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/dom10.gif" width="30" height="30" alt="DOM 1.0" title="DOM 1.0"><img src="../../src/js10.gif" width="30" height="30" alt="JavaScript 1.0" title="JavaScript 1.0"><img src="../../src/netsc2.gif" width="30" height="30" alt="Netscape 2.0" title="Netscape 2.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0"><img src="../../src/jswrite.gif" width="60" height="30" alt="Lesen/Ändern">&nbsp;<a class="an" name="value">value</a></h2>
+
+<p>Speichert den Wert, der in einem Formularelement eingegeben wurde bzw. diesem zugewiesen ist.</p>
+
+<p>Anwendbar auf:
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/klickbuttons.htm">Klick-Buttons</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/auswahl.htm#checkboxen">Checkboxen</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/datei_upload.htm">Felder für Datei-Upload</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/versteckte.htm">Versteckte Elemente</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/eingabe.htm#felder_passwort">Passwortfelder</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/auswahl.htm#radiobuttons">Radio-Buttons</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/formularbuttons.htm">Abbrechen-Buttons</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/formularbuttons.htm">Absendebuttons</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/eingabe.htm#felder">einzeilige Eingabefelder</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/eingabe.htm#bereiche">mehrzeilige Eingabefelder</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/auswahl.htm#listen">Auswahllisten</a>
+</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/elements_value.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;form name="Testform" action=""&gt;
+Name: &lt;input type="text" size="30" name="Name"&gt;
+&lt;input type="submit" name="Absendebutton" value="Absenden"&gt;
+&lt;input type="hidden" name="Browser" value=""&gt;
+&lt;/form&gt;
+&lt;script type="text/javascript"&gt;
+document.Testform.Browser.value = navigator.userAgent;
+document.write(document.Testform.Browser.value);
+&lt;/script&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+<p>Das Beispiel enthält ein Formular, unter anderem mit einem versteckten Feld (<code>&lt;input type="hidden"&gt;</code>). Unterhalb des Formulars ist ein Script-Bereich notiert. Der Script-Bereich steht unterhalb, weil der darin enthaltene Code sofort ausgeführt und die Existenz des Formulars aber bereits voraussetzt. In dem Script wird dem Wert des versteckten Formularfeldes (<code>document.Testform.Browser.value</code>) der Browser-Typ des Anwenders (<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="navigator.htm">navigator</a>.<a href="navigator.htm#user_agent">userAgent</a>) zugewiesen. Dieser dynamisch erzeugte Formularinhalt wird mit übertragen, wenn der Anwender das Formular abschickt. In obigen Beispiel wird zur Demonstration der Wert des versteckten Feldes mit der Methode <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="document.htm#write">document.write()</a> in das Dokument geschrieben.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/dom10.gif" width="30" height="30" alt="DOM 1.0" title="DOM 1.0"><img src="../../src/js10.gif" width="30" height="30" alt="JavaScript 1.0" title="JavaScript 1.0"><img src="../../src/netsc2.gif" width="30" height="30" alt="Netscape 2.0" title="Netscape 2.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/op7.gif" width="30" height="30" alt="Opera 7" title="Opera 7"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="blur">blur()</a></h2>
+
+<p>Entfernt den Cursor bzw. den Focus von dem betreffenden Element. Erwartet keine Parameter.</p>
+
+<p>Anwendbar auf:
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/klickbuttons.htm">Klick-Buttons</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/auswahl.htm#checkboxen">Checkboxen</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/datei_upload.htm">Felder für Datei-Upload</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/versteckte.htm">Versteckte Elemente</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/eingabe.htm#felder_passwort">Passwortfelder</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/auswahl.htm#radiobuttons">Radio-Buttons</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/formularbuttons.htm">Abbrechen-Buttons</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/formularbuttons.htm">Absendebuttons</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/eingabe.htm#felder">einzeilige Eingabefelder</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/eingabe.htm#bereiche">mehrzeilige Eingabefelder</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/auswahl.htm#listen">Auswahllisten</a>
+</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/elements_blur.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;form name="Testform" action=""&gt;
+&lt;input type="text" name="Feld" size="30" onfocus="this.blur()"&gt;
+&lt;/form&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel enthält ein Formular mit einem Feld. Wenn der Anwender den Cursor in das Feld setzen will, wird der Cursor mit <code>this.blur()</code> sofort wieder aus dem Feld entfernt. Durch das Schlüsselwort <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../sprache/objekte.htm#this">this</a> wird der Bezug zum aktuellen Objekt hergestellt, in diesem Fall das Element <code>Feld</code>, und die Methode auf das dieses Objekt angewendet. Eine solche Maßnahme kann beispielsweise sinnvoll sein, wenn Sie ein Feld ausschließlich als Ausgabefeld nutzen wollen, in dem der Anwender nichts editieren können soll.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Nicht immer wird der Cursor aus dem Eingabefeld entfernt. Eine Eingabe von Inhalt wird jedoch unterbunden.</p>
+
+<p>Im Opera bis Version 6 exitiert zwar die Methode <code>blur()</code>, jedoch bleibt diese ohne Wirkung. Unter Opera 5.02 erzeugt die Anwendung der Methode einen JavaScript-Fehler.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/dom10.gif" width="30" height="30" alt="DOM 1.0" title="DOM 1.0"><img src="../../src/js10.gif" width="30" height="30" alt="JavaScript 1.0" title="JavaScript 1.0"><img src="../../src/netsc2.gif" width="30" height="30" alt="Netscape 2.0" title="Netscape 2.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="click">click()</a></h2>
+
+<p>Erzeugt einen automatischen Klick auf den betreffenden Button. Erwartet keine Parameter.</p>
+
+<p>Anwendbar auf:
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/klickbuttons.htm">Klick-Buttons</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/auswahl.htm#checkboxen">Checkboxen</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/datei_upload.htm">Felder für Datei-Upload</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/formularbuttons.htm">Abbrechen-Buttons</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/formularbuttons.htm">Absendebuttons</a>
+</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/elements_click.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;form name="Testform" action=""&gt;
+In welchem Jahr starb Goethe?&lt;br&gt;
+&lt;input type="text" size="6" name="Todesjahr"&gt;
+&lt;input type="button" name="derButton" value="Weiter" onclick="Check()"&gt;
+&lt;/form&gt;
+&lt;script type="text/javascript"&gt;
+function Check () {
+  if (document.Testform.Todesjahr.value != "1832") {
+    window.location.href = "fehler.htm";
+  } else {
+    window.location.href = "erfolg.htm";
+  }
+}
+
+window.setTimeout("document.Testform.derButton.click()", 10000);
+&lt;/script&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+<p>Das Beispiel enthält ein Formular, in dem der Anwender das Todesjahr von Goethe eingeben soll. Wenn der Anwender nicht innerhalb von 10 Sekunden auf den Button <code>Weiter</code> klickt, geschieht dies von alleine. Dafür sorgt die letzte Anweisung in dem Script, das unterhalb des Formulars notiert ist. Unterhalb des Formulars ist ein Script-Bereich notiert. Der Script-Bereich steht unterhalb, weil der darin enthaltene Code sofort ausgeführt und die Existenz des Formulars aber bereits voraussetzt. Mit <code>document.Testform.derButton.click()</code> wird dort das Klicken das Buttons ohne Anwendereinwirkung bewerkstelligt. Der Aufruf der Methode ist in <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="window.htm">window</a>.<a href="window.htm#set_timeout">setTimeout()</a> mit einer Verzögerungszeit von 10000 Millisekunden, also 10 Sekunden, eingebettet.<br>
+Beim Klick auf den Button, egal ob durch den Anwender oder automatisch, wird die Funktion <code>Check()</code> aufgerufen. Diese Funktion überprüft, ob in dem Eingabefeld für das Todesjahr der korrekte Wert steht. Abhängig davon wird eine andere Seite aufgerufen (<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="location.htm">location</a>.<a href="location.htm#href">href</a>).</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/dom10.gif" width="30" height="30" alt="DOM 1.0" title="DOM 1.0"><img src="../../src/js10.gif" width="30" height="30" alt="JavaScript 1.0" title="JavaScript 1.0"><img src="../../src/netsc2.gif" width="30" height="30" alt="Netscape 2.0" title="Netscape 2.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="focus">focus()</a></h2>
+
+<p>Setzt den Cursor bzw. den Focus auf das betreffende Element. Erwartet keine Parameter.</p>
+
+<p>Anwendbar auf:
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/klickbuttons.htm">Klick-Buttons</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/auswahl.htm#checkboxen">Checkboxen</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/datei_upload.htm">Felder für Datei-Upload</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/versteckte.htm">Versteckte Elemente</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/eingabe.htm#felder_passwort">Passwortfelder</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/auswahl.htm#radiobuttons">Radio-Buttons</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/formularbuttons.htm">Abbrechen-Buttons</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/formularbuttons.htm">Absendebuttons</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/eingabe.htm#felder">einzeilige Eingabefelder</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/eingabe.htm#bereiche">mehrzeilige Eingabefelder</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/auswahl.htm#listen">Auswahllisten</a>
+</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/elements_focus.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;script type="text/javascript"&gt;
+function Check () {
+  if (document.Testform.Todesjahr.value != "1832") {
+    alert("Sie wissen es einfach nicht!");
+    document.Testform.Todesjahr.focus();
+  } else {
+    alert("Bravo!");
+    window.location.href = "erfolg.htm";
+  }
+}
+&lt;/script&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;form name="Testform" action=""&gt;
+In welchem Jahr starb Goethe?&lt;br&gt;
+&lt;input type="text" size="6" name="Todesjahr"&gt;
+&lt;input type="button" value="Weiter" onclick="Check()"&gt;
+&lt;/form&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+<p>Das Beispiel enthält ein Formular, in dem der Anwender das Todesjahr von Goethe eingeben soll. Wenn der Anwender auf den Button <code>Weiter</code> klickt, wird die Funktion <code>Check()</code> aufgerufen. Diese Funktion überprüft, ob in dem Eingabefeld für das Todesjahr der korrekte Wert steht. Abhängig davon wird entweder mit <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="window.htm#alert">alert()</a> eine bissige Meldung ausgegeben, oder es wird "Bravo" ausgegeben und eine andere Seite aufgerufen (<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="location.htm">location</a>.<a href="location.htm#href">href</a>). Wenn der Anwender auf der Seite bleibt, weil die Eingabe fehlte oder falsch war, wird mit <code>document.Testform.Todesjahr.focus()</code> auf das Eingabefeld für das Todesjahr positioniert.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/js12.gif" width="30" height="30" alt="JavaScript 1.2" title="JavaScript 1.2"><img src="../../src/netsc4.gif" width="30" height="30" alt="Netscape 4.0" title="Netscape 4.0">&nbsp;<a class="an" name="handle_event">handleEvent()</a></h2>
+
+<p>Übergibt ein Ereignis an ein Element, das in der Lage ist, auf das Ereignis zu reagieren. Funktioniert genau so wie <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="window.htm#handle_event">handleEvent() beim window-Objekt</a> (nähere Informationen siehe dort).</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/dom10.gif" width="30" height="30" alt="DOM 1.0" title="DOM 1.0"><img src="../../src/js10.gif" width="30" height="30" alt="JavaScript 1.0" title="JavaScript 1.0"><img src="../../src/netsc2.gif" width="30" height="30" alt="Netscape 2.0" title="Netscape 2.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="select">select()</a></h2>
+
+<p>Selektiert den gesamten in dem Feld enthaltenen Text. Erwartet keine Parameter.</p>
+
+<p>Anwendbar auf:
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/eingabe.htm#felder_passwort">Passwortfelder</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/eingabe.htm#felder">einzeilige Eingabefelder</a>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/formulare/eingabe.htm#bereiche">mehrzeilige Eingabefelder</a>
+</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/elements_select.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;form name="Testform" action=""&gt;
+Kopieren Sie den folgenden Code in die Adresszeile Ihres Browsers:&lt;br&gt;
+&lt;input type="text" size="40" name="Code" value="javascript:top.close()"&gt;
+&lt;/form&gt;
+&lt;script type="text/javascript"&gt;
+document.Testform.Code.focus();
+document.Testform.Code.select();
+&lt;/script&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+<p>Das Beispiel enthält ein Formular mit einem einzigen Feld. Das Feld wird mit dem Wert "javascript:top.close()" vorbelegt (wohlgemerkt: das ist keine JavaScript-Anweisung, sondern nur ein Feldinhalt). Unterhalb des Formulars ist ein Script-Bereich notiert. Der Script-Bereich steht unterhalb, weil der darin enthaltene Code sofort ausgeführt und die Existenz des Formulars aber bereits voraussetzt. Dort wird zunächst mit <code>document.Testform.Code.focus()</code> auf das Formularfeld positioniert. Denn das Selektieren von Text ist nur möglich, wenn das Feld den Focus hat. Der vorbelegte Text des Formularfeldes wird dann mit <code>document.Testform.Code.select()</code> selektiert.</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="options.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="options.htm">options</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="forms.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="forms.htm">forms</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">JavaScript/DOM</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Objektreferenz</a></td>
+</tr>
+</table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

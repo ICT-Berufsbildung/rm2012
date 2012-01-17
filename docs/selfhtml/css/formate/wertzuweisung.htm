@@ -1,0 +1,351 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: Stylesheets / CSS-Formate definieren / Maßeinheiten, Farbangaben und Wertzuweisung</title>
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<meta name="description"    content="Welche Regeln es bei der Wertzuweisung an CSS-Eigenschaften gibt.">
+<meta name="keywords"       content="SELFHTML, CSS, Stylesheets, Cascading Stylesheets, CSS-Eigenschaften, Wertzuweisung, Werte, Einheiten, Pica, Punkt, Prozent, pt, pc, em, px, %, rgb, rrggbb, deg, grad, rad, ms, s, Hz, kHz, Maße, Maßangaben, relative Maßangaben, absolute Maßangaben, relative Einheiten, absolute Einheiten">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-10-03T08:55:27+02:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/css/formate/wertzuweisung.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="CSS-Formate definieren" href="index.htm">
+<link rel="next" title="Das Box-Modell" href="box_modell.htm">
+<link rel="prev" title="Kaskade - Anwendung von Stylesheets auf Dokumente" href="kaskade.htm">
+<link rel="first" title="Stylesheets in HTML einbinden" href="einbinden.htm">
+<link rel="last" title="Das Box-Modell" href="box_modell.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">Stylesheets</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">CSS-Formate definieren</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Maßeinheiten, Farbangaben und Wertzuweisung</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#numerische">Numerische Angaben</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#farben">Farbangaben</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#erlaubte">Erlaubte feste Werte und Zeichenkettenangaben</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#sprachausgabe">Numerische Angaben für Sprachausgabe</a><br>
+</p>
+</td>
+</tr><tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><img src="../../src/css10.gif" width="30" height="30" alt="CSS 1.0" title="CSS 1.0"><img src="../../src/netsc4.gif" width="30" height="30" alt="Netscape 4.0" title="Netscape 4.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="numerische">Numerische Angaben</a></h2>
+
+<p>Bei numerischen Angaben zu CSS-Eigenschaften, also etwa bei Schriftgrößen, Absatzabständen oder Rändern, stehen Ihnen die weit verbreiteten Maßeinheiten zur Verfügung. Dabei sind absolute Angaben (z.B. Millimeter) und relative Angaben (z.B. Prozent gegenüber "normal") möglich. Benutzen Sie für Ihre Angaben die folgenden Abkürzungen:</p>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<th>Abkürzung</th>
+<th>Angabetyp</th>
+<th>Bedeutung</th>
+<th>Beispiele</th>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>pt</code></td>
+<td class="tabxpl">absolut</td>
+<td class="tabxpl">Steht für <b>Punkt</b>. Typografische Maßeinheit. 1 Punkt entspricht 1/72 Inches.</td>
+<td class="code" nowrap="nowrap"><code>font-size:12pt;<br>line-height:14pt;</code></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>pc</code></td>
+<td class="tabxpl">absolut</td>
+<td class="tabxpl">Steht für <b>Pica</b>. Typografische Maßeinheit. 1 Pica entspricht 12 Punkt.</td>
+<td class="code" nowrap="nowrap"><code>font-size:1pc;<br>line-height:1.2pc;</code></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>in</code></td>
+<td class="tabxpl">absolut</td>
+<td class="tabxpl">Steht für <b>Inch</b>. Allgemeines Längenmaß im angelsächsischen Raum. 1 Inch entspricht 2.54 Zentimetern.</td>
+<td class="code" nowrap="nowrap"><code>border-width:0.1in;<br>margin-left:1in;</code></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>mm</code></td>
+<td class="tabxpl">absolut</td>
+<td class="tabxpl">Steht für <b>Millimeter</b>. Allgemeines Längenmaß. 1000. Teil des Urmeters.</td>
+<td class="code" nowrap="nowrap"><code>margin-bottom:10mm;<br>width:70mm;</code></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>cm</code></td>
+<td class="tabxpl">absolut</td>
+<td class="tabxpl">Steht für <b>Zentimeter</b>. Allgemeines Längenmaß. 100. Teil des Urmeters.</td>
+<td class="code" nowrap="nowrap"><code>font-size:1cm;<br>top:2.54cm;</code></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>px</code></td>
+<td class="tabxpl">absolut/relativ</td>
+<td class="tabxpl">Steht für <b>Pixel</b>. Abhängig von der Pixeldichte des Ausgabegeräts, relativ also von Ausgabegerät zu Ausgabegerät, absolut dagegen auf ein und das selbe Ausgabegerät bezogen.</td>
+<td class="code" nowrap="nowrap"><code>border-width:3px;<br>margin-right:60px;</code></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>em</code></td>
+<td class="tabxpl">relativ</td>
+<td class="tabxpl">Steht für <b>bezogen auf die Schriftgröße des Elements</b>. Ausnahme: wenn die <code>font-size</code>-Eigenschaft (also die Schriftgröße) selbst mit dieser Maßangabe gesetzt wird, steht diese für <b>bezogen auf die Schriftgröße des Elternelements</b>.</td>
+<td class="code" nowrap="nowrap"><code>font-size:1.2em;<br>line-height:1.5em;</code></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>ex</code></td>
+<td class="tabxpl">relativ</td>
+<td class="tabxpl">Steht für <b>bezogen auf die Höhe des Kleinbuchstaben x in diesem Element</b>. Ausnahme: wenn die <code>font-size</code>-Eigenschaft (also die Schriftgröße) selbst mit dieser Maßangabe gesetzt wird, steht diese für <b>bezogen auf die Höhe des Kleinbuchstaben x im Elternelement</b>.</td>
+<td class="code" nowrap="nowrap"><code>text-transform:uppercase;<br>font-size:1.3ex;</code></td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>%</code></td>
+<td class="tabxpl">relativ</td>
+<td class="tabxpl">Steht für <b>Prozent</b>. Je nach CSS-Eigenschaft relativ zur elementeigenen Größe, oder zu der des Elternelements, oder zu einem allgemeineren Kontext. Bei nebenstehendem Beispiel ist die Angabe zur Zeilenhöhe (<code>line-height</code>) relativ zur Schriftgröße (<code>font-size</code>) zu interpretieren.</td>
+<td class="code" nowrap="nowrap"><code>font-size:10pt;<br>line-height:120%;</code></td>
+</tr>
+</table>
+
+<p>Benutzen Sie bei numerischen Bruchzahlen stets den Punkt als Dezimalzeichen, nicht das deutsche Komma, also etwa 0.2cm und nicht 0,2cm. Auch Minuswerte sind bei einigen Wertzuweisungen möglich, markiert wie üblich durch das Minuszeichen.</p>
+
+<p>Sie können also sehr exakte Angaben notieren, doch Web-Seiten werden in der Regel auf Bildschirmen ausgegeben, und Bildschirme bestehen heutzutage aus Pixeln, wobei die Pixeldichte der einzelnen Bildschirme sehr unterschiedlich sein kann. Der Computer muss Ihre Angaben für die Ausgabe am Bildschirm letztlich in Pixel umrechnen. Dabei kann es zu enttäuschenden Ergebnissen kommen. So erscheinen Schriftgrößen, die an einem Bildschirm gut lesbar sind, in einer anderen Umgebung eventuell als zu klein. Leider sind daran auch die unterschiedlichen Basiseinstellungen der Betriebssysteme mit schuld. So wird unter Windows-Systemen eine Berechnungsgrundlage von 96dpi (<i>Dots per Inch</i>) für die Darstellung von Schriftarten verwendet (bei der Einstellung "große Schriftarten" gar 120dpi), unter Systemen wie Linux und Macintosh sind es dagegen 72dpi. Deshalb erscheinen Schriftgrößen, die unter Windows sauber aussehen, unter den anderen genannten Systemen oft mickrig, während Schriftgrößen, die dort angenehm aussehen, unter Windows wiederum klobig wirken. Aber auch direkte Angaben in Pixeln lösen das Problem nicht unbedingt. Ein Pixel auf einem 13-Zoll-Notebook-Bildschirm mit 1024&#215;768 Pixeln Bildschirmauflösung wirkt ganz anders als ein Pixel auf einem 19-Zoll-Desktop-Bildschirm mit der gleichen Bildschirmauflösung. Andere Angaben wie <code>em</code> oder Prozentwerte umgehen zwar das Problem der unterschiedlichen Bildschirmdarstellungen - aber erstens kann man bei einer Angabe wie <code>1.2em</code> kaum von "Formatierung" reden, und zweitens bereiten solche Angaben auch andere Probleme. So kann es beispielsweise durch das Prinzip der natürlichen Vererbung passieren, dass Schriftarten bei mehrfach verschachtelten Elementen (etwa bei Listen oder Tabellen) immer kleiner oder größer werden. CSS2 bietet zwar mit den erweiterten Möglichkeiten, <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="zentrale.htm#verschachtelte_elemente">Formate für verschachtelte Elemente</a> zu definieren, Maßnahmen zur Abhilfe an, doch das nutzt vorläufig auch nichts, solange es in vielen noch verbreiteten Browsern nicht funktioniert.</p>
+
+<p>Um die "richtigen" und "falschen" Maßangaben ist angesichts all dieser Probleme in einigen Kreisen schon ein richtiger Glaubenskrieg ausgebrochen. Die einen behaupten, man solle sich an Angaben wie <code>pt</code> halten, weil ein Punkt immer gleich groß zu sein hat, die anderen beschwören die <code>em</code>-Angabe wie einen Erlösergott. Fakt ist in jedem Fall, dass Sie niemals darauf vertrauen sollten, dass Größen, die auf Ihrem Bildschirm wunderbar aussehen, woanders genauso wunderbar wirken. Vermeiden Sie deshalb vor allem bei Angaben, die für die Leserlichkeit von Text relevant sind, "extreme" Werte, und reagieren Sie, wenn Sie von mehreren Stellen zu hören bekommen, Ihre Seiten seien schwer lesbar.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Wenn Sie zwischen einzelnen Maßen umrechnen wollen, können Sie den <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../helferlein/ptinchmm.htm">Punkt/Inch/Millimeter-Umrechner</a> benutzen.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/css10.gif" width="30" height="30" alt="CSS 1.0" title="CSS 1.0"><img src="../../src/netsc4.gif" width="30" height="30" alt="Netscape 4.0" title="Netscape 4.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="farben">Farbangaben</a></h2>
+
+<p>Farbangaben in Stylesheets nach CSS-Syntax sind nach den Regeln zum <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/allgemein/farben.htm">Definieren von Farben in HTML</a> möglich. CSS1 und CSS2 nennen die <img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="../../diverses/anzeige/farbnamen_16.htm">16 Farbnamen der VGA-Palette</a>, CSS 2.1 ergänzt diese um den Wert <code>orange</code>, hexadezimal <code>#ffa500</code>.</p>
+
+<p>Sie können Farbwerte also hexadezimal nach dem Schema <code>#RRGGBB</code> angeben; <code>R</code> ist der Rotwert, <code>G</code> der Grünwert und <code>B</code> der Blauwert der Farbe. Anders als in HTML existiert auch eine Kurzschreibweise der Form <code>#RGB</code>. Hier werden die einzelnen Farbangaben intern verdoppelt, <code>#08a</code> steht demnach für <code>#0088aa</code>. Die hexadezimale Schreibweise erlaubt Groß- und Kleinschreibung.</p>
+
+<p>Eine weitere Möglichkeit, Farben zu definieren, stellt die Stylesheet-Sprache CSS jedoch auch noch zur Verfügung. Das Schema dazu lautet <code>rgb(rrr,ggg,bbb)</code>. Der Ausdruck <code>rgb(...)</code> ist dabei immer gleich. Innerhalb der Klammern müssen drei Dezimalwerte oder drei Prozentwerte stehen, durch Kommata voneinander getrennt. Für alle drei Werte sind entweder absolute Zahlen zwischen <code>0</code> (kein Anteil der entsprechenden Farbe) und <code>255</code> (maximaler Anteil der entsprechenden Farbe) oder Prozentwerte von <code>0%</code> (kein Anteil an der entsprechenden Farbe) bis <code>100%</code> (maximaler Anteil der entsprechenden Farbe) erlaubt.</p>
+
+<h3 class="xmp">Beispiele:</h3>
+
+<pre>
+&lt;style type="text/css"&gt;
+h1 { color:#FFCCDD; background-color:black }
+body  { background-color:rgb(51,0,102) }
+p { color:#223; background-color:#ddf }
+blockquote  { background-color:rgb(60%,90%,75%) }
+&lt;/style&gt;
+</pre>
+
+<h3 class="xpl" id="anwender-relativ"><img src="../../src/css20.gif" width="30" height="30" alt="CSS 2.0" title="CSS 2.0"><img src="../../src/netsc6.gif" width="30" height="30" alt="Netscape 6.0" title="Netscape 6.0"><img src="../../src/msie4.gif" width="30" height="30" alt="MS IE 4.0" title="MS IE 4.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;Anwender-relative Farbwörter (Systemfarben)</h3>
+
+<p>Ab der CSS-Version 2.0 gibt es ferner die Möglichkeit, anwender-relative Farbwörter zu verwenden, hinter denen sich Farben verbergen, die der Anwender an seinem Rechner als Arbeitsumgebung eingestellt hat. Auf diese Weise können Sie zur Gestaltung Ihrer Inhalte Farben verwenden, die auf die Bildschirmumgebungsfarben des Anwenderrechners abgestimmt sind, ohne dass Sie diese Farben kennen. Die erlaubten anwender-relativen Farbwörter werden im Folgenden erläutert.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/farbwoerter.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<th>Abkürzung</th>
+<th>Bedeutung</th>
+</tr><tr>
+<td class="code" nowrap="nowrap"><code>ActiveBorder</code></td>
+<td class="tabxpl">Rahmenfarbe des aktiven Fensters.</td>
+</tr><tr>
+<td class="code" nowrap="nowrap"><code>ActiveCaption</code></td>
+<td class="tabxpl">Hintergrundfarbe der aktiven Fenstertitelzeile.</td>
+</tr><tr>
+<td class="code" nowrap="nowrap"><code>AppWorkspace</code></td>
+<td class="tabxpl">Farbe des Hintergrunds der aktiven Anwendung.</td>
+</tr><tr>
+<td class="code" nowrap="nowrap"><code>Background</code></td>
+<td class="tabxpl">Farbe des Desktop-Hintergrunds.</td>
+</tr><tr>
+<td class="code" nowrap="nowrap"><code>ButtonFace</code></td>
+<td class="tabxpl">Farbe von Buttons in Dialogfenstern.</td>
+</tr><tr>
+<td class="code" nowrap="nowrap"><code>ButtonHighlight</code></td>
+<td class="tabxpl">Farbe für 3D-Lichteffekt von Buttons in Dialogfenstern.</td>
+</tr><tr>
+<td class="code" nowrap="nowrap"><code>ButtonShadow</code></td>
+<td class="tabxpl">Farbe für 3D-Schatten von Buttons in Dialogfenstern.</td>
+</tr><tr>
+<td class="code" nowrap="nowrap"><code>ButtonText</code></td>
+<td class="tabxpl">Farbe von Texten beschrifteter Buttons in Dialogfenstern.</td>
+</tr><tr>
+<td class="code" nowrap="nowrap"><code>CaptionText</code></td>
+<td class="tabxpl">Farbe von Überschriften in Dialogfenstern.</td>
+</tr><tr>
+<td class="code" nowrap="nowrap"><code>GrayText</code></td>
+<td class="tabxpl">Farbe von deaktiviertem Text in Dialogfenstern.</td>
+</tr><tr>
+<td class="code" nowrap="nowrap"><code>Highlight</code></td>
+<td class="tabxpl">Farbe von ausgewählten Einträgen in Auswahllisten.</td>
+</tr><tr>
+<td class="code" nowrap="nowrap"><code>HighlightText</code></td>
+<td class="tabxpl">Farbe von selektiertem Text.</td>
+</tr><tr>
+<td class="code" nowrap="nowrap"><code>InactiveBorder</code></td>
+<td class="tabxpl">Rahmenfarbe eines nicht aktiven Fensters.</td>
+</tr><tr>
+<td class="code" nowrap="nowrap"><code>InactiveCaption</code></td>
+<td class="tabxpl">Hintergrundfarbe einer nicht aktiven Fenstertitelzeile.</td>
+</tr><tr>
+<td class="code" nowrap="nowrap"><code>InactiveCaptionText</code></td>
+<td class="tabxpl">Farbe der Überschrift in einer nicht aktiven Fenstertitelzeile.</td>
+</tr><tr>
+<td class="code" nowrap="nowrap"><code>InfoBackground</code></td>
+<td class="tabxpl">Farbe für Tooltips und Hints (kleine Popup-Hilfen).</td>
+</tr><tr>
+<td class="code" nowrap="nowrap"><code>InfoText</code></td>
+<td class="tabxpl">Textfarbe für Tooltips und Hints (kleine Popup-Hilfen).</td>
+</tr><tr>
+<td class="code" nowrap="nowrap"><code>Menu</code></td>
+<td class="tabxpl">Farbe für Menüleisten.</td>
+</tr><tr>
+<td class="code" nowrap="nowrap"><code>MenuText</code></td>
+<td class="tabxpl">Farbe für Menüeinträge.</td>
+</tr><tr>
+<td class="code" nowrap="nowrap"><code>Scrollbar</code></td>
+<td class="tabxpl">Farbe der Scroll-Leiste in Fenstern.</td>
+</tr><tr>
+<td class="code" nowrap="nowrap"><code>ThreeDDarkShadow</code></td>
+<td class="tabxpl">Dunkle Farbe bei Schatten von 3D-Elementen.</td>
+</tr><tr>
+<td class="code" nowrap="nowrap"><code>ThreeDFace</code></td>
+<td class="tabxpl">Farbe von 3D-Elementen.</td>
+</tr><tr>
+<td class="code" nowrap="nowrap"><code>ThreeDHighlight</code></td>
+<td class="tabxpl">Farbe von gerade angeklickten 3D-Elementen.</td>
+</tr><tr>
+<td class="code" nowrap="nowrap"><code>ThreeDLightShadow</code></td>
+<td class="tabxpl">Helle Farbe bei Schatten von 3D-Elementen.</td>
+</tr><tr>
+<td class="code" nowrap="nowrap"><code>ThreeDShadow</code></td>
+<td class="tabxpl">Dunkle Farbe bei Schatten von 3D-Elementen.</td>
+</tr><tr>
+<td class="code" nowrap="nowrap"><code>Window</code></td>
+<td class="tabxpl">Hintergrundfarbe von Dokumentfenstern.</td>
+</tr><tr>
+<td class="code" nowrap="nowrap"><code>WindowFrame</code></td>
+<td class="tabxpl">Farbe von Fensterrahmen.</td>
+</tr><tr>
+<td class="code" nowrap="nowrap"><code>WindowText</code></td>
+<td class="tabxpl">Farbe von normalem Text in Dokumentfenstern.</td>
+</tr>
+</table>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/css10.gif" width="30" height="30" alt="CSS 1.0" title="CSS 1.0"><img src="../../src/netsc4.gif" width="30" height="30" alt="Netscape 4.0" title="Netscape 4.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="erlaubte">Erlaubte feste Werte und Zeichenkettenangaben</a></h2>
+
+<p>Bei vielen CSS-Eigenschaften steht eine Auswahl erlaubter Werte zur Verfügung. Das ist nicht anders als bei vielen HTML-Attributen. Genau so, wie Sie etwa eine Überschrift oder einen Textabsatz in HTML mit den Angaben <code>align="left"</code>, <code>align="center"</code> oder <code>align="right"</code> ausrichten können, gibt es CSS-Eigenschaften, die bestimmte Schlüsselwörter erwarten. So gibt es etwa die Stylesheet-Angabe <code>text-align</code> zur Ausrichtung von Text, die die gleichen Angaben erwartet, also <code>left</code>, <code>center</code> oder <code>right</code>.</p>
+
+<p>Manche Stylesheet-Angaben erwarten die Zuordnung eines Namens oder auch mehrerer Schlüsselwörter. So können Sie hinter der Stylesheet-Angabe <code>font-family</code> Namen von einer oder mehreren Schriftarten notieren, die Sie für die Formatierung verwenden möchten. Andere CSS-Eigenschaften sind Zusammenfassungen von Einzeleigenschaften. So gibt es beispielsweise die Angabe <code>border</code> (Rahmen), hinter der Sie eine Angabe wie <code>thin solid red</code> notieren können. Trennen Sie solche Angaben zu einer Sammeleigenschaft durch Leerzeichen. Wenn die Angaben selbst Leerzeichen enthalten können, wie etwa bei Namen von Schriftarten, können Sie Kommata zum Trennen verwenden. Für solche Fällen können auch Anführungszeichen empfohlen sein.</p>
+
+<p>Bei Namen wie Schriftartangaben oder Angaben wie <code>left</code>, <code>center</code> usw. ist es zumindest bei der CSS-Anwendung auf HTML-Elemente egal, ob Sie die Angaben groß oder klein schreiben. Das gilt auch für die Stylesheet-Eigenschaften selbst. Wenn Sie CSS allerdings auf XHTML oder gültige XML-Dokumente anwenden, müssen Elementnamen, Attributnamen und Attributzuweisungen so geschrieben werden, wie es in der XML-DTD festgelegt ist. Bei XHTML muss alles klein geschrieben werden.</p>
+
+<h3 class="xmp">Beispiele:</h3>
+
+<pre>
+&lt;style type="text/css"&gt;
+p { font-family:"Comic Sans MS",Arial; text-align:center; }
+body  { border:thin dashed silver; background-color:black; }
+DIV.SPEZIAL { BORDER:THICK DOUBLE RGB(0,64,128); }
+blockquote[title="Zitat von Goethe"] { color:#000080; }
+&lt;/style&gt;
+</pre>
+
+<br>&nbsp;
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/css20.gif" width="30" height="30" alt="CSS 2.0" title="CSS 2.0">&nbsp;<a class="an" name="sprachausgabe">Numerische Angaben für Sprachausgabe</a></h2>
+
+<p>Für CSS-Eigenschaften der <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../eigenschaften/sprachausgabe.htm">Sound-Kontrolle für Sprachausgabe</a>, die von den Browsern jedoch bislang nicht unterstützt wird, werden die folgenden Maßangaben aus dem Bereich der Akustik und Zeitmessung verwendet:</p>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<th>Abkürzung</th>
+<th>Bedeutung</th>
+</tr><tr>
+<td class="code" nowrap="nowrap"><code>deg</code></td>
+<td class="tabxpl">Kreisgrad, wobei der Kreis in 360 Grad aufgeteilt ist Ein rechter Winkel hat z.B. <code>90deg</code></td>
+</tr><tr>
+<td class="code" nowrap="nowrap"><code>grad</code></td>
+<td class="tabxpl">Gradient, Maßangabe für Steigungen und Gefälle</td>
+</tr><tr>
+<td class="code" nowrap="nowrap"><code>rad</code></td>
+<td class="tabxpl">Radiant, geometrische Maßangabe</td>
+</tr><tr>
+<td class="code" nowrap="nowrap"><code>ms</code></td>
+<td class="tabxpl">Millisekunden, Maßangabe für Zeiteinheit</td>
+</tr><tr>
+<td class="code" nowrap="nowrap"><code>s</code></td>
+<td class="tabxpl">Sekunden, Maßangabe für Zeiteinheit</td>
+</tr><tr>
+<td class="code" nowrap="nowrap"><code>Hz</code></td>
+<td class="tabxpl">Hertz, Maßangabe für Frequenzen</td>
+</tr><tr>
+<td class="code" nowrap="nowrap"><code>kHz</code></td>
+<td class="tabxpl">kiloHertz, Maßangabe für Frequenzen</td>
+</tr></table>
+<br>&nbsp;
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="box_modell.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="box_modell.htm">Das Box-Modell</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="kaskade.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="kaskade.htm">Kaskade - Anwendung von Stylesheets auf Dokumente</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">Stylesheets</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">CSS-Formate definieren</a></td>
+</tr>
+</table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

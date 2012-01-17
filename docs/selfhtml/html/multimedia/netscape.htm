@@ -1,0 +1,178 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: HTML/XHTML / Multimedia / Multimedia einbinden (Netscape herkömmlich)</title>
+<meta name="description"    content="Wie Sie Video, Sound, 3D-Welten usw. nach herkömmlicher Netscape-Syntax in HTML einbinden können.">
+<meta name="keywords"       content="SELFHTML, HTML, XHTML, Multimedia, Video, Sound, virtuelle Welten, Plugins, Flash, Netscape, embed, noembed, src, width, height, pluginspage, pluginurl, hspace, vspace, align">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-10-31T12:25:34+01:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/html/multimedia/netscape.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="Multimedia" href="index.htm">
+<link rel="next" title="Layer definieren und positionieren" href="../layer/definieren.htm">
+<link rel="prev" title="Java-Applets einbinden (herkömmlich)" href="java_applets.htm">
+<link rel="first" title="Objekte einbinden" href="objekte.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">HTML/XHTML</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Multimedia</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Multimedia einbinden (Netscape herkömmlich)</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#definieren">Multimedia-Bereich definieren</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#ausrichten">Multimedia-Bereich ausrichten</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#alternativer_inhalt">Alternativer Inhalt für Browser</a><br>
+</p>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/netsc2.gif" width="30" height="30" alt="Netscape 2.0" title="Netscape 2.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="definieren">Multimedia-Bereich definieren</a></h2>
+
+<p>In seiner damals Furore machenden Produktversion 2.0 führte Netscape neben anderen bahnbrechenden Neuerungen wie dem <code>font</code>-Element, den Frames und der Möglichkeit, Java-Applets einzubinden, auch ein Element namens <code>embed</code> ein, um andere Multimedia-Inhalte in HTML zu referenzieren. Damit einhergehend implementierte Netscape die so genannte Plugin-Schnittstelle in seinem Browser. Schnell entstand ein Wildwuchs an Plugin-Software, mit deren Hilfe und dem hier beschriebenen Element sich beliebige multimediale oder proprietäre Binärformate in HTML einbinden ließen.</p>
+
+<p>Aus heutiger Sicht gilt für dieses Element jedoch noch stärker als für das Element zum Einbinden von Java-Applets: Es ist ein Relikt und sollte allmählich fallengelassen werden. Denn im Unterschied zum <code>applet</code>-Element hat das <code>embed</code>-Element nie zum HTML-Standard gehört. Es wird hier noch beschrieben, weil es heute leider immer noch sehr verbreitet ist und beispielsweise bei Netscape 4.x die einzig sinnvolle und halbwegs funktionierende Möglichkeit ist, Multimedia einzubinden.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/embed.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Multimedia-Bereich definieren&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h1&gt;Da kommt Freude auf!&lt;/h1&gt;
+
+&lt;embed src="yippee.wav" width="140" height="60"&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Mit <code>&lt;embed src=&gt;</code> definieren Sie eine Plugin-Referenz (<i>embed = einbetten, src = source = Quelle</i>). Beim <code>src</code>-Attribut notieren Sie die gewünschte Datei. Dabei gelten die <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../allgemein/referenzieren.htm">Regeln zum Referenzieren in HTML</a>.</p>
+
+<p>Mit den Attributen <code>width</code> und <code>height</code> sollten Sie stets die Größe des eingebundenen Bereichs bestimmen, damit der Browser die Seite schneller aufbauen kann. Beide Attribute erlauben als Wertzuweisung Pixel (absolut) oder Prozentangaben (relativ in Bezug auf die zur Verfügung stehende Fläche). Wenn Sie beide Werte auf 0 setzen, können Sie die sichtbare Anzeige des Bereichs unterdrücken - z.B. für Sound-Dateien, die automatisch abspielen.</p>
+
+<p>Das <code>embed</code>-Element kann mit oder ohne End-Tag notiert werden.</p>
+
+<p>Ob und wie die Datei letztendlich beim Anwender "angezeigt" wird, hängt von vielen Faktoren ab, zum Beispiel von der Art der Datei, von den Hardware-Voraussetzungen des Anwenders, von den installierten Plugins und von vorhandenen, dem Browser bekannten Fremdprogrammen. Bei Dateitypen, zu denen der Netscape-Browser ein Plugin kennt, fragt er den Anwender, falls dieser das Plugin nicht hat, ob er das Plugin haben möchte, und erlaubt das Downloaden des erforderlichen Plugins. Wenn der Web-Browser die Datei nicht verarbeiten kann, sollte er eine Fehlermeldung ausgeben und anstelle der Datei ein Symbol für nicht darstellbare Daten anzeigen.</p>
+
+<p>Mit dem Attribut <code>pluginurl</code> können Sie aber auch einen URI im Internet bestimmen, wo ein Plugin zum Anzeigen oder Abspielen der eingebundenen Datei bereitsteht. Es muss sich nach dem Plugin-Konzept von Netscape um eine Java-Archivdatei (Dateien *.jar) handeln. Diese Angabe startet den in Netscape 4.x integrierten JAR-Installationsmanager (JIM). Der Anwender kann das Plugin online von der angegebenen Adresse installieren. Netscape führt die Installation durch und kann anschließend sofort die eingebundene Multimedia-Datei anzeigen. Das Attribut <code>pluginurl</code> ist erst seit Netscape 4.x verfügbar.<br>
+Mit <code>pluginspage</code> können Sie einen URI bestimmen, wo Installationshinweise für ein Plugin hinterlegt sind, das die eingebundene Multimedia-Datei anzeigen bzw. abspielen kann. Dies ist nicht ganz so elegant wie die Technik, die hinter <code>pluginurl</code> steckt. Aber wenn das Plugin in einem anderen Format als dem Java-Archivformat vorliegt, sollten Sie die Angabe <code>pluginspage</code> wählen, sofern Ihnen eine Internet-Adresse mit einem geeigneten Plugin bekannt ist.</p>
+
+<p>Es gibt einen phantastischen Wildwuchs an weiteren Attributen für das <code>embed</code>-Element. Dies stammt alles aus einer Zeit, wo keinerlei Bewusstsein für die Notwendigkeit einer Standardisierung von HTML herrschte. Es liegt aber auch am schlecht durchdachten Konzept des <code>embed</code>-Elements. Um eingebundene Multimedia-Elemente zu steuern, bleibt eigentlich nur der Weg, dies über proprietäre Attribute zu tun. Eine kleine Auswahl:<br>
+Mit <code>hidden="true"</code> können Sie die sichtbare Anzeige des eingebundenen Objekts verhindern. Das kann zum Beispiel sinnvoll sein, wenn Sie einen Sound abspielen wollen, aber keinen Sound-Player anzeigen wollen.<br>
+Mit <code>autostart="true"</code> können Sie erzwingen, dass eine abspielbare Datei, also etwa ein Sound oder ein Video, sofort abgespielt werden, ohne dass der Anwender in der Abspiel-Software eine Funktion zum Start der Wiedergabe wählen muss.<br>
+Mit <code>loop="true"</code> können Sie erzwingen, dass eine abspielbare Datei endlos wiederholt wird.<br>
+Mit <code>palette="foreground"</code> können Sie erzwingen, dass das Plugin bei der Anzeige die Vordergrundfarben des Anwenderrechners benutzt, mit <code>palette="background"</code> erzwingen Sie, dass das Plugin die eingestellte Hintergrundfarbe benutzt.<br>
+All diese Attribute sind jedoch produktspezifisch und verschwinden genauso schnell wieder, wie sie entstanden sind.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/netsc2.gif" width="30" height="30" alt="Netscape 2.0" title="Netscape 2.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="ausrichten">Multimedia-Bereiche ausrichten</a></h2>
+
+<p>Zum Ausrichten von Multimedia-Bereichen können Sie im <code>&lt;embed&gt;</code>-Tag die Attribute <code>align</code>, <code>hspace</code> und <code>vspace</code> notieren. Die Wirkungsweise ist die gleiche wie bei <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="objekteigenschaften.htm#ausrichten_zum_text">Objekt zum umgebenden Text ausrichten</a> und bei <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="objekteigenschaften.htm#textumfluss">Text um Objekt fließen lassen</a> beschrieben.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/netsc2.gif" width="30" height="30" alt="Netscape 2.0" title="Netscape 2.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="alternativer_inhalt">Alternativer Inhalt für Browser</a></h2>
+
+<p>Sie können einen Bereich definieren, der nur von Browsern angezeigt wird, die das <code>&lt;embed&gt;</code>-Tag nicht kennen. Netscape, der das <code>&lt;embed&gt;</code>-Tag interpretiert, ignoriert einen solchen Bereich.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/noembed.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Alternativer Inhalt f&uuml;r Browser&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h1&gt;Einfach noch mal 'ne Runde &amp;quot;nibbeln&amp;quot; mit Flash!&lt;/h1&gt;
+
+&lt;noembed&gt;
+  &lt;p&gt;Sie verpassen was!&lt;/p&gt;
+&lt;/noembed&gt;
+
+&lt;embed src="nibbles.swf" quality="high" scale="exactfit" menu="false"
+  bgcolor="#000080" width="600" height="400" swLiveConnect="false"
+  type="application/x-shockwave-flash"
+  pluginspage="http://www.macromedia.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash"&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Mit <code>&lt;noembed&gt;</code>...<code>&lt;/noembed&gt;</code> definieren Sie einen Bereich, der von Netscape ab Version 2.0 nicht angezeigt wird, wohl aber von Browsern, die das <code>&lt;embed&gt;</code>-Tag nicht kennen. Diese Browser kennen zwar auch das <code>&lt;noembed&gt;</code>-Tag nicht, aber sie stellen einfach alles dar, was dazwischen notiert ist. Es kann sich um Text, Grafik, Tabellen usw. handeln.</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="../layer/definieren.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../layer/definieren.htm">Layer definieren und positionieren</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="java_applets.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="java_applets.htm">Java-Applets einbinden (herkömmlich)</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">HTML/XHTML</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Multimedia</a></td>
+</tr></table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

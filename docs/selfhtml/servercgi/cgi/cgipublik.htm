@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: Webserver/CGI / CGI / CGI-Scripts auf öffentlichem Webserver installieren</title>
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<meta name="description"    content="Wie Sie CGI-Scripts im WWW installieren und worauf Sie dabei achten sollten.">
+<meta name="keywords"       content="SELFHTML, CGI, CGI-Scripts">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-11-10T19:31:11+01:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/servercgi/cgi/cgipublik.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="CGI" href="index.htm">
+<link rel="next" title="CGI-Umgebungsvariablen" href="umgebungsvariablen.htm">
+<link rel="prev" title="CGI und HTML" href="cgihtml.htm">
+<link rel="first" title="CGI und HTML" href="cgihtml.htm">
+<link rel="last" title="HTML-Formulare und CGI" href="formularverarbeitung.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">Webserver/CGI</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">CGI</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">CGI-Scripts auf öffentlichem Webserver installieren</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#ftpverwaltung">CGI-Verzeichnis mit FTP-Zugriff verwalten</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#praxistipps">Tipps für die Praxis</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#probleme">Probleme bei der Ausführung von CGI-Scripts auf dem Server</a><br>
+</p>
+</td>
+</tr><tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><a class="an" name="ftpverwaltung">CGI-Verzeichnis mit FTP-Zugriff verwalten</a></h2>
+
+<p>Wenn Sie nicht gerade einen eigenen öffentlichen Webserver betreiben, den Sie direkt an der Konsole bedienen können, sind Sie darauf angewiesen, Ihre Daten auf dem Server-Rechner "per Fernbedienung" zu verwalten. Normalerweise geschieht das heutzutage mit Hilfe des FTP-Protokolls. Für die FTP-Verwaltung von eigenen Daten auf einem Server-Rechner sollten Sie ein gutes FTP-Programm besitzen. Im Link-Verzeichnis des Online-Angebots von SELFHTML aktuell finden Sie eine Produktübersicht mit Links zu FTP-Programmen:</p>
+
+<p><img src="../../src/serverdok.gif" width="15" height="10" alt="Online-Seite">&nbsp;<a target="_top" href="http://aktuell.de.selfhtml.org/links/ftp-programme.htm">SELFHTML-Linkverzeichnis: FTP-Programme</a></p>
+
+<p>CGI-Scripts können Sie mit Hilfe eines FTP-Programms in das dafür vorgesehene CGI-Verzeichnis hochladen. Meistens hat dieses Verzeichnis einen entsprechenden Namen, z.B. <var>cgi-bin</var>. Die Server-Administration oder der Provider muss Ihnen ein solches Verzeichnis eingerichtet haben. Das bedeutet, auf dem öffentlichen Server-Rechner muss in den <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../server/allgemein.htm#grundeinstellungen">Einstellungen des Webservers</a> ein solches Verzeichnis angegeben sein, und Ihnen muss der Zugriff darauf erlaubt sein. Fragen Sie im Zweifelsfall die Server-Administration oder den Provider danach! (Allgemeines zu diesem Thema finden Sie auch im Abschnitt
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../projekt/publizieren.htm">Web-Projekte publizieren</a>).</p>
+
+<p>Beim Hochladen von CGI-Scripts oder CGI-Programmen in das CGI-Verzeichnis müssen Sie folgendes beachten:</p>
+
+<ul>
+<li>Perl-Scripts müssen immer im ASCII-Modus übertragen werden. Achten Sie vor dem Hochladen von Perl-Dateien darauf, dass in Ihrem FTP-Programm der ASCII-Modus als Übertragungsmodus eingestellt ist.</li>
+<li>Kompilierte und gelinkte Programme müssen dagegen immer im Binärmodus übertragen werden. Achten Sie im FTP-Programm darauf, dass der Binärmodus eingestellt ist. Beachten Sie bei kompilierten und gelinkten Programmen auch, dass diese auf dem Server-Rechner nur ausführbar sind, wenn sie für das Betriebssystem des Server-Rechners kompiliert und gelinkt wurden. So hat es keinen Sinn, wenn Sie ein unter DOS/Windows zu einer EXE-Datei kompiliertes C-Programm in das CGI-Verzeichnis eines Unix-Rechners hochladen.</li>
+<li>Einige Webserver sind so eingerichtet, dass CGI-Scripts die Dateinamenendung <var>.cgi</var> erhalten müssen. Fragen Sie gegebenenfalls Ihren Provider danach! Wenn dies bei Ihnen der Fall ist, benennen Sie beispielsweise ein Perl-Script namens <var>counter.pl</var> einfach in <var>counter.cgi</var> um.</li>
+<li>Wenn der Server-Rechner unter Unix (z.B. Linux) läuft, müssen Sie außerdem noch angeben, von wem die Programmdatei bzw. die Scriptdatei ausgeführt werden darf. Damit alle Besucher Ihrer Web-Seiten Ihr CGI-Script oder CGI-Programm ausführen können, müssen Sie das Lese- und Ausführrecht "für alle" einstellen. Dies geschieht mit dem Unix-Befehl <kbd>chmod 755 datei.ext</kbd>. Wenn Sie beispielsweise ein Perl-Script namens <var>counter.pl</var> hochladen, müssen Sie es mit <kbd>chmod 755 counter.pl</kbd> allgemein ausführbar machen. Lesen Sie im Zweifelsfall in der Dokumentation Ihres FTP-Programms nach, wie Sie damit die Zugriffsrechte für Dateien auf dem fernen Rechner einstellen können.</li>
+</ul>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="praxistipps">Tipps für die Praxis</a></h2>
+
+<p>Die folgenden Hinweise und organisatorischen Überlegungen sollten Sie beachten:</p>
+<ul>
+<li>Testen Sie Ihre CGI-Scripts bzw. CGI-Programme vor dem öffentlichen Einsatz im WWW. Am besten tun Sie das offline und in aller Ruhe an Ihrem lokalen Rechner. Dazu müssen Sie sich einen eigenen <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../server/allgemein.htm">lokalen Webserver installieren</a>. Wenn Sie Perl-Scripts einsetzen wollen, müssen Sie außerdem Perl lokal installieren.</li>
+<li>Rufen Sie neu ins WWW hochgeladene CGI-Scripts/CGI-Programme nicht gleich von einer viel besuchten Web-Seite aus auf, sondern laden Sie erst eine Test-HTML-Datei mit einem Aufruf des CGI-Programms hoch. So können Sie auch online erst einmal testen, ob alles einwandfrei funktioniert. Wenn es sich um wichtige Anwendungen wie elektronische Einkaufskörbe usw. handelt, sollten Sie das Script in so einer Testumgebung von verschiedenen Personen testen lassen, bevor Sie es öffentlich zur Verfügung stellen.</li>
+<li>Die meisten CGI-Scripts speichern Daten in Dateien und/oder lesen diese Dateien aus. Wenn es sich um eine einzige Datendatei handelt, spricht nichts dagegen, diese im CGI-Verzeichnis abzulegen. Bei einem einfachem Seitenzugriffszähler, der mit Hilfe eines Perl-Scripts namens <var>counter.pl</var> realisiert wird, ist es beispielsweise sinnvoll, den Zählerstand in einer Datei <var>counter.dat</var> zu speichern und diese ebenso wie die Perl-Datei direkt im CGI-Verzeichnis abzulegen. Wenn ein CGI-Script/CGI-Programm jedoch mehrere Dateien verwaltet, ist es sinnvoll, diese in einem eigenen Verzeichnis abzulegen. Dazu können Sie z.B. unterhalb des CGI-Verzeichnisses Unterverzeichnisse anlegen. So könnte etwa ein CGI-basiertes Nachrichtenforum (Bulletin-Board) namens <var>bulletin.pl</var> seine verschiedenen Konfigurations- und aktuellen Datendateien in einem entsprechenden Unterverzeichnis <var>bulletin</var> haben.</li>
+</ul>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="probleme">Probleme bei der Ausführung von CGI-Scripts auf dem Server</a></h2>
+
+<p>Es gibt viele Gründe, warum CGI-Scripts auf öffentlichen Webservern manchmal nicht oder nicht sofort funktionieren. Die folgende Checkliste kann helfen, einige typische Fehler zu vermeiden:</p>
+
+<ul>
+<li>Falls Sie beim Aufruf des CGI-Scripts einen <b>Fehler mit der Nummer 500</b> (<i>Internal Server Error</i>) erhalten, kann dies auf einen Syntaxfehler im Perl-Script hinweisen. Notieren Sie dazu im Perl-Script vor anderen konkreten Anweisungen zunächst folgendes :<br>
+<code>use CGI::Carp qw(fatalsToBrowser);</code><br>
+Dadurch erreichen Sie, dass Fehlermeldungen des Perl-Interpreters direkt im Browser-Fenster erscheinen. Falls es noch Fehler im Perl-Script gibt, haben Sie es damit leichter, die Fehlerursache zu finden. Der Fehler mit der Nummer 500 kann aber auch andere Ursachen haben. Kontrollieren Sie z.B., ob das Perl-Script auch wirklich im ASCII-Modus mit FTP zum Server übertragen wurde. Stellen Sie sicher, dass Sie in dem Perl-Script keine Anweisungen stehen haben, die auf dem Server-Rechner nicht funktionieren (z.B. Aufruf betriebssystemspezifischer Funktionen, Verwendung spezieller Perl-Module, die nicht zum Standard gehören und auf dem Server nicht installiert sind usw.). Überprüfen Sie, ob in der ersten Zeile des Perl-Scripts der richtige Pfad zum Perl-Interpreter angegeben ist.<br>
+Wenn Sie Zugriff auf die Error-Log-Datei Ihres Webservers haben, ist es auf jeden Fall empfehlenswert, dort nachzuschauen. Im Error-Log werden alle Fehler, die während des Server-Betriebs aufgetreten sind, mitgeschrieben. So haben Sie die Möglichkeit, im Zweifelsfall die genaue Fehlerursache zu lokalisieren.</li>
+<li>Falls Sie beim Aufruf des CGI-Scripts einen <b>Fehler mit der Nummer 404</b> (<i>Document not found</i>) erhalten, überprüfen Sie Groß- und Kleinschreibung von Dateinamen auf dem Server, wenn der Server-Rechner unter einem Unix-Betriebssystem läuft. Wenn Sie in einem HTML-Formular beispielsweise notiert haben:<br> <code>&lt;form action="/cgi-bin/auswert.cgi"&gt;</code>,<br>
+dann muss die Datei im CGI-Verzeichnis auch tatsächlich <var>auswert.cgi</var> heißen und nicht etwa <var>Auswert.cgi</var>.</li>
+<li>Falls Sie beim Aufruf des CGI-Scripts einen <b>Fehler mit der Nummer 403</b> (<i>Forbidden</i>) erhalten, überprüfen Sie, ob das Script, falls der Webserver unter einem Unix-Betriebssystem läuft, mindestens die Rechte <kbd>755</kbd> hat. Ändern Sie die Rechte gegebenenfalls mit dem <kbd>chmod</kbd>-Befehl im FTP-Programm.</li>
+<li>Falls Sie beim Aufruf des CGI-Scripts eine <b>Fehlermeldung</b> <i>Premature end of script headers</i> erhalten, überprüfen Sie im Quellcode des Perl-Scripts die Ausgaben, die das Script senden soll. Es muss irgendetwas ausgeben, und zu Beginn dieser Ausgaben muss ein gültiger HTTP-Header notiert sein. Typischerweise geschieht das bei HTML-Ausgaben durch einen Befehl wie:<br>
+<code>print "Content-type: text/html\n\n";</code>.</li>
+</ul>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="umgebungsvariablen.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="umgebungsvariablen.htm">CGI-Umgebungsvariablen</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="cgihtml.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="cgihtml.htm">CGI und HTML</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">Webserver/CGI</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">CGI</a></td>
+</tr>
+</table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

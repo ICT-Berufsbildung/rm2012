@@ -1,0 +1,252 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: JavaScript / Anwendungsbeispiele / Monatskalender</title>
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<meta name="description"    content="Wie Sie mit Hilfe von JavaScript einen Monatskalender simulieren können, bei dem das aktuelle Tagesdatum hervorgehoben ist.">
+<meta name="keywords"       content="SELFHTML, JavaScript, Monatskalender, Kalender, Date-Objekt">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-08-22T21:21:39+02:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/javascript/beispiele/monatskalender.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="Anwendungsbeispiele" href="index.htm">
+<link rel="next" title="Persönliche Seitenbesuche zählen mit Cookies" href="seitenbesuche.htm">
+<link rel="prev" title="Taschenrechner" href="taschenrechner.htm">
+<link rel="first" title="Zwei Frames gleichzeitig ändern" href="zweiframes.htm">
+<link rel="last" title="Änderungen der Fenstergröße überwachen" href="fensterueberwachen.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">JavaScript/DOM</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Anwendungsbeispiele</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Monatskalender</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#hinweise">Hinweise zu diesem Beispiel</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#quelltext">Quelltext mit Erläuterungen</a><br>
+</p>
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/monatskalender.htm">Anzeigebeispiel: So sieht's aus</a></p>
+</td>
+</tr><tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><a class="an" name="hinweise">Hinweise zu diesem Beispiel</a></h2>
+
+<p>Das Beispiel schreibt in eine HTML-Datei an einer gewünschten Stelle einen frei formatierbaren Kalender des aktuellen Monats. Der aktuelle Tag wird darin hervorgehoben dargestellt. Ein kleines Schmuckstück für Web-Seiten.</p>
+
+<p>Anhand des Beispiels können Sie den praktischen Umgang mit dem <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../objekte/date.htm">Date</a>-Objekt von JavaScript studieren, aber ebenso, wie sich durch kontrollierte <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../objekte/document.htm#write">document.write</a>-Ausgaben komplexer HTML-Code erzeugen lässt.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/netsc2.gif" width="30" height="30" alt="Netscape 2.0" title="Netscape 2.0"><img src="../../src/msie3.gif" width="30" height="30" alt="MS IE 3.0" title="MS IE 3.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="quelltext">Quelltext mit Erläuterungen</a></h2>
+
+<p>Das Beispiel zeigt eine vollständige HTML-Datei, in der das JavaScript für den Monatskalender eingebunden ist.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/monatskalender.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Monatskalender&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h1 style="font-family:Verdana,Arial; font-weight:normal"&gt;Monatskalender&lt;/h1&gt;
+
+&lt;script type="text/javascript"&gt;
+var d = new Date();
+var dm = d.getMonth() + 1;
+var dj = d.getYear();
+if (dj &lt; 999)
+  dj += 1900;
+Kalender(dm, dj);
+
+function Kalender (Monat, Jahr) {
+  Monatsname = new Array("Januar", "Februar", "M&amp;auml;rz", "April", "Mai", "Juni", "Juli",
+                          "August", "September", "Oktober", "November", "Dezember");
+  Tag = new Array("Mo", "Di", "Mi", "Do", "Fr", "Sa", "So");
+
+  var KSchrArt = "Verdana,Arial"; /* Schriftart Kalenderkopf */
+  var KSchrGroesse = 3;           /* Schriftgroesse 1-7 Kalenderkopf */
+  var KSchrFarbe = "#FFFF00";     /* Schriftfarbe Kalenderkopf */
+  var Khgrund = "#000066";        /* Hintergrundfarbe Kalenderkopf */
+  var TSchrArt = "Verdana,Arial"; /* Schriftart Tagesanzeige */
+  var TSchrGroesse = 3;           /* Schriftgroesse 1-7 Tagesanzeige */
+  var TSchrFarbe = "#000000";     /* Schriftfarbe Tagesanzeige */
+  var Thgrund = "#D0F0F0";        /* Hintergrundfarbe Tagesanzeige */
+  var SoFarbe = "#E00000";        /* Schriftfarbe f. Sonntage */
+  var Ahgrund = "#FFFF00";        /* Hintergrundfarbe f. heutigen Tag */
+
+  var jetzt = new Date();
+  var DieserMonat = jetzt.getMonth() + 1;
+  var DiesesJahr = jetzt.getYear();
+  if (DiesesJahr &lt; 999)
+    DiesesJahr += 1900;
+  var DieserTag = jetzt.getDate();
+  var Zeit = new Date(Jahr, Monat - 1, 1);
+  var Start = Zeit.getDay();
+  if (Start &gt; 0) {
+    Start--;
+  } else {
+    Start = 6;
+  }
+  var Stop = 31;
+  if (Monat == 4 || Monat == 6 || Monat == 9 || Monat == 11)
+    --Stop;
+  if (Monat == 2) {
+    Stop = Stop - 3;
+    if (Jahr % 4 == 0)
+      Stop++;
+    if (Jahr % 100 == 0)
+      Stop--;
+    if (Jahr % 400 == 0)
+      Stop++;
+  }
+  document.write('&lt;table border="3" cellpadding="1" cellspacing="1"&gt;');
+  var Monatskopf = Monatsname[Monat - 1] + " " + Jahr;
+  SchreibeKopf(Monatskopf, Khgrund, KSchrFarbe, KSchrGroesse, KSchrArt);
+  var Tageszahl = 1;
+  for (var i = 0; i &lt;= 5; i++) {
+    document.write("&lt;tr&gt;");
+    for (var j = 0; j &lt;= 5; j++) {
+      if ((i == 0) &amp;&amp; (j &lt; Start)) {
+        SchreibeZelle("&amp;#160;", Thgrund, TSchrFarbe, TSchrGroesse, TSchrArt);
+      } else {
+        if (Tageszahl &gt; Stop) {
+          SchreibeZelle("&amp;#160;", Thgrund, TSchrFarbe, TSchrGroesse, TSchrArt);
+        } else {
+          if ((Jahr == DiesesJahr) &amp;&amp; (Monat == DieserMonat) &amp;&amp; (Tageszahl == DieserTag)) {
+            SchreibeZelle(Tageszahl, Ahgrund, TSchrFarbe, TSchrGroesse, TSchrArt);
+          } else {
+            SchreibeZelle(Tageszahl, Thgrund, TSchrFarbe, TSchrGroesse, TSchrArt);
+          }
+          Tageszahl++;
+        }
+      }
+    }
+    if (Tageszahl &gt; Stop) {
+      SchreibeZelle("&amp;#160;", Thgrund, SoFarbe, TSchrGroesse, TSchrArt);
+    } else {
+      if ((Jahr == DiesesJahr) &amp;&amp; (Monat == DieserMonat) &amp;&amp; (Tageszahl == DieserTag)) {
+        SchreibeZelle(Tageszahl, Ahgrund, SoFarbe, TSchrGroesse, TSchrArt);
+      } else {
+        SchreibeZelle(Tageszahl, Thgrund, SoFarbe, TSchrGroesse, TSchrArt);
+      }
+      Tageszahl++;
+    }
+    document.write("&lt;\/tr&gt;");
+  }
+  document.write("&lt;\/table&gt;");
+}
+
+function SchreibeKopf (Monatstitel, HgFarbe, SchrFarbe, SchrGroesse, SchrArt) {
+  document.write("&lt;tr&gt;");
+  document.write('&lt;td align="center" colspan="7" valign="middle" bgcolor="' + HgFarbe + '"&gt;');
+  document.write('&lt;font size="' + SchrGroesse + '" color="' + SchrFarbe + '" face="' + SchrArt + '"&gt;&lt;b&gt;');
+  document.write(Monatstitel);
+  document.write("&lt;\/b&gt;&lt;\/font&gt;&lt;\/td&gt;&lt;\/tr&gt;");
+  document.write("&lt;tr&gt;");
+  for (var i = 0; i &lt;= 6; i++)
+    SchreibeZelle(Tag[i], HgFarbe, SchrFarbe, SchrGroesse, SchrArt);
+  document.write("&lt;\/tr&gt;");
+}
+
+function SchreibeZelle (Inhalt, HgFarbe, SchrFarbe, SchrGroesse, SchrArt) {
+  document.write('&lt;td align="center" valign="middle" bgcolor="' + HgFarbe + '"&gt;');
+  document.write('&lt;font size="' + SchrGroesse + '" color="' + SchrFarbe + '" face="' + SchrArt + '"&gt;&lt;b&gt;');
+  document.write(Inhalt);
+  document.write("&lt;\/b&gt;&lt;\/font&gt;&lt;\/td&gt;");
+}
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<h4>Aktuelles Datum ermitteln:</h4>
+
+<p>Im Script-Bereich wird zunächst mit <code>d = new Date()</code> ein neues Datumsobjekt mit dem aktuellen Zeitpunkt erzeugt. In den Variablen <code>dm</code> und <code>dj</code> werden anschließend aus dem neuen Datumsobjekt <code>d</code> der Monat und das Jahr ermittelt. Mit diesen beiden Variablen wird die Funktion <code>Kalender()</code> aufgerufen.<br>
+Die Anweisung <code>if(dj &lt; 999) dj+=1900;</code> ist dabei nötig, um einigen älteren Browsern, die bei dem Aufruf der <code>getYear</code>-Methode nicht Jahr-2000-kompatibel reagieren, zum Ermitteln des gewünschten Jahres zu verhelfen.</p>
+
+<h4>Funktion "Kalender()":</h4>
+
+<p>Die Funktion <code>Kalender()</code> ist als in sich abgeschlossenes Unterprogramm realisiert, das einen Monat und ein Jahr als Parameter erwartet, das als Monatskalender angezeigt werden soll. Auf diese Weise lässt sich die Funktion auch noch anderweitig nutzen als zur einmaligen Ausgabe des aktuellen Kalendermonats.</p>
+
+<p>Zu Beginn der Funktion <code>Kalender()</code> werden erst einmal verschiedene Variablen definiert. Dazu gehören die gewünschten Monatsnamen und die Wochentage, die jeweils als Array-Objekte angelegt werden. Wenn Sie andere, zum Beispiel landesspezifische Namen wie "Jänner" wünschen, ändern Sie den entsprechenden Namen einfach.<br>
+Zu den Variablen, die am Beginn von <code>Kalender()</code> definiert werden, gehören auch die Angaben zu Farben, Schriftarten und Schriftgrößen für Kalenderhintergrund und Anzeige der Tage. Die Variablendefinitionen sind im Beispiel zum besseren Verständnis auskommentiert. Ändern Sie diese Werte, wenn Sie den Kalender verwenden möchten, nach Ihren Wünschen.</p>
+
+<h4>Ermitteln, ob aktiver Tag im anzuzeigenden Monat liegt:</h4>
+
+<p>Da die Funktion <code>Kalender()</code> ja als Parameter übergeben bekommt, welchen Monat in welchem Jahr sie ausgeben soll, kann es sich durchaus um einen anderen als den aktuellen Monat handeln (nur im obigen Beispiel wird die Funktion mit dem aktuellen Monat/Jahr aufgerufen). Die Funktion ermittelt deshalb noch einmal separat die Daten des aktuellen Tages (<code>DieserTag</code>), des aktuellen Monats (<code>DieserMonat</code>) und des aktuellen Jahres (<code>DiesesJahr</code>). Die entsprechenden Daten werden später benötigt, um den aktuellen Tag farblich hervorzuheben, sofern er in dem auszugebenden Monat vorkommt. Auch dabei wird wieder die Anpassung für das Jahr 2000 durchgeführt.</p>
+
+<h4>Anzeige in Tabelle vorbereiten:</h4>
+
+<p>Der Monatskalender soll mit Hilfe von <code>document.write()</code>-Anweisungen in eine HTML-Tabelle geschrieben werden. Zunächst muss jedoch ermittelt werden, wie viele Tage der auszugebende Monat hat, und an welchem Wochentag er beginnt. Davon hängt ab, wie die Tage in die Tabelle geschrieben werden.<br>
+In der Variablen <code>Start</code> wird der Wochentag gespeichert, auf den der erste Tag des auszugebenden Monats fällt. Dazu wird in einer Variablen <code>Zeit</code> ein Datumsobjekt erzeugt, das sich mit <code>Date(Jahr,Monat-1,1)</code> auf den ersten Tag des auszugebenden Monats bezieht. Mit <code>Zeit.getDay()</code> wird der Wochentag dieses Tages ermittelt (0 für Montag bis 6 für Sonntag).<br>
+In der Variablen <code>Stop</code> wird die Anzahl der Tage ermittelt, die der Monat hat. Wenn es einer der Monate 4, 6, 9 oder 11 ist, hat der Monat 30 Tage. Wenn es der Monat 2 ist, ist etwas Kalenderakrobatik erforderlich. Denn dieser Monat kann 28 oder 29 Tage haben, abhängig einmal davon, ob es ein Schaltjahr ist (durch 4 teilbar), ob es trotzdem kein Schaltjahr ist (durch 100 teilbar), oder ob es doch wieder ein Schaltjahr ist (durch 400 teilbar).</p>
+
+<h4>Tabelle erzeugen:</h4>
+
+<p>Nachdem alle Vorbereitungen getroffen sind, kann die Tabelle mit dem Kalendermonat geschrieben werden. Dies geschieht mit Hilfe von <code>document.write()</code>-Befehlen, die dynamisch die entsprechenden HTML-Konstrukte in die Datei schreiben. Die Funktion <code>Kalender()</code> selbst schreibt jedoch nur den Anfang und das Ende der Tabelle. Ansonsten übernimmt sie nur die Kontrolle, was genau in welcher Reihenfolge geschrieben werden soll. Um den Tabellenkopf mit Monats- und Jahresangabe sowie den Wochentagnamen zu schreiben, ruft sie die Unterfunktion <code>SchreibeKopf()</code> auf. Um die einzelnen Datenzellen zu schreiben, wird jeweils die Unterfunktion <code>SchreibeZelle()</code> aufgerufen. Um letztere mit den richtigen Daten zu versorgen, muss die <code>Kalender()</code>-Funktion die zuvor ermittelten Angaben zum Wochentag des ersten Tages im Monat sowie das aktuelle Tagesdatum berücksichtigen und die entsprechenden Parameter korrekt übergeben. Falls eine Zelle leer bleiben soll, wird das erzwungene Leerzeichen <code>&amp;#160;</code> übergeben, denn nur so wird die Tabellenzelle nachher sichtbar dargestellt, auch wenn sie keinen Inhalt hat. Wenn die Zelle eine Tageszahl anzeigen soll, wird eine entsprechende Variable übergeben.<br>
+Die Funktionen <code>SchreibeKopf()</code> und <code>SchreibeZelle()</code> schreiben die einzelnen Datenzellen und setzen dabei die Variablen zur Gestaltung des Kalenders ein.</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="seitenbesuche.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="seitenbesuche.htm">Persönliche Seitenbesuche zählen mit Cookies</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="taschenrechner.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="taschenrechner.htm">Taschenrechner</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">JavaScript/DOM</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Anwendungsbeispiele</a></td>
+</tr>
+</table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: HTML/XHTML / Allgemeine Regeln für HTML / Referenzieren in HTML</title>
+<meta name="description"    content="Wie Sie in HTML andere Dateien angeben, z.B. für Verweise dorthin, Bezug dazu oder um sie als externe Quellen einzubinden.">
+<meta name="keywords"       content="SELFHTML, HTML, Referenzen, Pfade, URIs, relative Pfade, absolute Pfade">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-08-22T21:21:39+02:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/html/allgemein/referenzieren.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="Allgemeine Regeln für HTML" href="index.htm">
+<link rel="next" title="Kommentare und Credits" href="kommentare.htm">
+<link rel="prev" title="Farben definieren in HTML" href="farben.htm">
+<link rel="first" title="Textauszeichnung" href="textauszeichnung.htm">
+<link rel="last" title="Guter HTML-Stil" href="stil.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">HTML/XHTML</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Allgemeine Regeln für HTML</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Referenzieren in HTML</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#allgemeines">Allgemeines zum Referenzieren in HTML</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#uri">Mit vollständigen URIs referenzieren</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#absolut">Mit absoluten Pfadangaben relativ zum Basis-URI referenzieren</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#relativ">Mit relativen Pfadangaben relativ zum Basis-URI referenzieren</a><br>
+</p>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><a class="an" name="allgemeines">Allgemeines zum Referenzieren in HTML</a></h2>
+
+<p>HTML-Dateien bestehen bekanntlich nur aus Text. Dennoch enthalten viele Web-Seiten Grafiken, Hintergrundgrafiken, Multimedia-Elemente, Java-Applets, Flash-Animationen und dergleichen. Solche Elemente werden in HTML in Form einer Referenz auf eine entsprechende Datenquelle notiert. Auch ein ausführbarer Verweis zu einer anderen eigenen oder fremden Web-Seite ist nur ausführbar, wenn er sein Verweisziel benennt. Für all diese Zwecke wird das Referenzieren in HTML benötigt.</p>
+
+<p>Ebenso gibt es in Ergänzungssprachen wie <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../../css/index.htm">Stylesheets</a> oder <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../../javascript/index.htm">JavaScript</a> Stellen, an denen Sie andere Datenquellen referenzieren müssen.</p>
+
+<p>Die Regeln zum Referenzieren sind dabei immer die gleichen. Der Grund ist das zentrale und einheitliche Adressierungsschema im Web, das unabhängig von der Syntax einzelner Betriebssysteme gilt und die genaue Adressierung beliebiger Quellen im Web erlaubt.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="uri">Mit vollständigen URIs referenzieren</a></h2>
+
+<p>Mit vollständigen URIs müssen Sie dann referenzieren, wenn sich die gewünschte Datenquelle grob gesagt nicht im aktuellen eigenen Web-Angebot befindet.</p>
+
+<p>Ein <b>URI</b> (<i>Universal Resource Identifier - universelle Quellenbezeichnung</i>) ist beispielsweise so etwas wie <var>http://www.selfhtml.org/</var> oder <var>http://de.selfhtml.org/html/allgemein/referenzieren.htm</var>. Beide Beispieladressen sind aber gleichzeitig auch so genannte <b>URL</b>s (<i>Uniform Resource Locators - einheitliche Quellenorter</i>). Und dann gibt es - um die Verwirrung komplett zu machen - auch noch so genannte <b>URN</b>s (<i>Uniform Resource Names - einheitlichen Quellennamen</i>). Letztere sind dazu gedacht, um nicht wirklich existierende Datenquellen oder Quellen, die zwar existieren, aber durch kein bekanntes Internet-Protokoll im Netz abrufbar sind, dennoch eindeutig zu benennen. Ein URI ist also der Oberbegriff für URL und URN, wobei URI und URL bei typischen Adressen, hinter denen sich konkrete Dateien oder Datenquellen verbergen, und um die es hier geht, faktisch das Gleiche sind. Im HTML-Standard wird aber von URIs geredet.</p>
+
+<h3 class="xmp">Beispiele für URIs:</h3>
+
+<pre>
+http://www.example.org/
+http://www.example.org/index.htm
+http://www.example.org/index.htm#impressum
+http://www.example.org/hintergrund.gif
+http://www.example.org/praesentation.pdf
+http://www.example.org/cgi-bin/suche.cgi?ausdruck=Hasenjagd
+http://www.google.com/search?hl=de&amp;safe=off&amp;q=Stefan+M%FCnz&amp;lr=
+ftp://www.example.org/praesentation.pdf
+http://192.168.78.10/
+http://www.example.org:8082/geheim.htm
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Ein vollständiger URI besteht aus der Angabe eines Internet-Protokolls, z.B. <code>http</code> oder <code>ftp</code>, gefolgt von einem Doppelpunkt. Dahinter kann - das ist von Protokoll zu Protokoll verschieden - eine Zusatzangabe zu einem lokalen Netzwerknamen möglich sein. Diese Angabe wird in zwei Schrägstriche <code>//</code> eingeschlossen. Bei den meisten Adressen gibt es keine solche Angabe, weshalb die beiden Schrägstriche dort einfach ohne Inhalt nebeneinanderstehen.</p>
+
+<p>Hinter diesen Angaben folgt die Adresse des Host-Rechners im Netz, auf dem sich die Datenquelle befindet. Das kann ein Domain-Name oder eine numerische IP-Adresse sein. Der Domain-Name ist übrigens in den obigen Beispielen <code>example.org</code>. Das <code>www</code> davor ist eine im Web typische und bei Web-Servern einstellbare Voreinstellung für Sub-Domains.</p>
+
+<p>Hinter der Adressierung des Host-Rechners kann - durch einen Doppelpunkt abgetrennt, eine so genannte Portnummer folgen, wie im letzten der obigen Beispiele bei <code>:8082</code>. Das ist immer dann erforderlich, wenn die Datenquelle nicht über den Standard-Port des angegebenen Protokolls wie etwa <code>http</code> erreichbar ist, sondern über einen anderen Port. In der Praxis benötigen Sie die Portangabe eher selten, aber kennen sollten Sie sie.</p>
+
+<p>Dahinter folgt schließlich die lokale Pfadangabe zur gewünschten Datenquelle. Egal um welches Betriebssystem es sich dabei handelt - Verzeichnispfade werden stets durch einfache Schrägstriche getrennt. Es ist Aufgabe der Server-Software auf dem Rechner, die Pfadangaben korrekt aufzulösen. Auf diese Weise brauchen Sie sich keine Gedanken zu machen, welches System der angesprochene Rechner benutzt.</p>
+
+<p>Auf dem Rechner können beliebige Dateien und Datenquellen angesprochen werden. Voraussetzung ist, dass sie über das angegebene Protokoll wie z.B. <code>http</code> unter der Adressierung erreichbar sind. Es muss sich nicht unbedingt um Dateien handeln. So kann mit <code>#</code> und einem Namen dahinter etwa ein bestimmter Zielanker in einer HTML-Datei angesprochen werden. Wie solche Zielanker definiert werden, ist im Abschnitt <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../verweise/projektintern.htm#anker">Anker definieren und Verweise zu Ankern</a> beschrieben. Auch Aufrufe von CGI-Scripts mit Parametern sind URIs, wie im obigen Beispiel <code>suche.cgi?ausdruck=Hasenjagd</code>.</p>
+
+<p>Zeichen, die nicht in der <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../inter/zeichenkodierungen.htm">ASCII-Codetabelle</a> vorkommen oder in URIs Bedeutung haben (z.B. der Schrägstrich, der Doppelpunkt oder das Prozentzeichen) müssen Sie innerhalb von URIs maskieren. Das geschieht durch Angabe eines Prozentzeichens <code>%</code> mit anschließendem Hexadezimalwert für das Zeichen. Im obigen Beispiel sehen Sie das z.B. bei <code>M%FCnz</code>, wobei <code>FC</code> die hexadezimale Angabe der Zahl 252 ist. Die Zahl 252 ist wiederum in der Codetabelle von <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../inter/zeichenkodierungen.htm#iso8859_1">ISO 8859-1</a> die Nummer für den Buchstaben "ü".</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Die voranstehenden Beschreibungen richten sich an Praktiker und erheben keinen Anspruch auf Vollständigkeit. Das Konzept der URIs ist noch wesentlich differenzierter als hier dargestellt. Bei Interesse können Sie es nachlesen: im <img src="../../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://tools.ietf.org/html/rfc1630">RFC 1630</a>, welcher sich mit URIs im WWW-Kontext befasst, und im <img src="../../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://tools.ietf.org/html/rfc3986">RFC 3986</a>, welcher sich mit der allgemeinen Syntax von URIs befasst.</p>
+
+<p>Datenquellen im eigenen Web-Angebot können Sie natürlich auch mit vollständigen URIs referenzieren. Damit schränken Sie sich jedoch ein (siehe die einleitenden Bemerkungen des nächsten Abschnitts).</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="absolut">Mit absoluten Pfadangaben relativ zum Basis-URI referenzieren</a></h2>
+
+<p>Diese Variante der Referenzierung können Sie wählen, wenn die gewünschte Datenquelle auf dem gleichen Host-Rechner liegt und über das aktuelle Protokoll und den Standard-Port erreichbar ist. Das klingt komplizierter als es ist. In dem vollständigen URI <var>http://de.selfhtml.org/html/allgemein/referenzieren.htm</var> ist der Teil <var>/html/allgemein/referenzieren.htm</var> eine absolute Pfadangabe relativ zur Basis-URI <var>http://de.selfhtml.org</var>. Innerhalb des eigenen Web-Angebots und der eigenen Domain oder Sub-Domain können Sie also mit solchen Pfadangaben arbeiten.</p>
+
+<h3 class="xmp">Beispiele:</h3>
+
+<pre>
+/
+/index.htm
+/index.htm#impressum
+/hintergrund.gif
+/praesentation.pdf
+/cgi-bin/suche.cgi?ausdruck=Hasenjagd
+/search?hl=de&amp;safe=off&amp;q=Stefan+M%FCnz&amp;lr=
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Der erste Schrägstrich hinter dem Basis-URI steht für das Wurzelverzeichnis des jeweiligen Internet-Services. Es handelt sich meistens nicht um das tatsächliche Wurzelverzeichnis des Rechners oder der Festplatte, auf die Sie da zugreifen. Bei Web-Servern ist beispielsweise einstellbar, welches tatsächliche Verzeichnis dem Web-Wurzelverzeichnis entsprechen soll.</p>
+
+<p>Hinter dem Basis-URI kann alles folgen, was schon im Abschnitt <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#uri">Mit
+vollständigen URIs referenzieren</a> angesprochen wurde.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="relativ">Mit relativen Pfadangaben relativ zum Basis-URI referenzieren</a></h2>
+
+<p>Diese Variante können Sie wählen, wenn Sie den jeweils aktuellen
+URI als Bezugs-URI wählen. Dann können Sie von hieraus relativ adressieren.
+Die HTML-Datei mit dem URI <var>http://de.selfhtml.org/html/allgemein/referenzieren.htm</var>
+enthält beispielsweise zum Referenzieren einer Grafik folgende Angabe: <var>../../src/logo.gif</var>.
+Das bedeutet: gehe zwei Verzeichnisse nach oben, von dort aus ins Unterverzeichnis
+<var>src</var> und dort findest du die Datei <var>logo.gif</var>. Absolut gesehen
+hat diese Datei also den URI <var>http://de.selfhtml.org/src/logo.gif</var>.</p>
+
+<p>Diese Form der relativen Adressierung ist innerhalb von Web-Projekten sehr zu empfehlen. Der Grund ist, dass Sie das Web-Projekt auf diese Weise problemlos an eine andere Adresse verschieben können, und trotzdem funktionieren noch alle projektinternen Verweise und Grafikreferenzen. Gerade wenn Sie Ihr Projekt auch mal auf CD-ROM oder anderen Medien veröffentlichen wollen, ist die relative Adressierung ein Muss.</p>
+
+<h3 class="xmp">Beispiele:</h3>
+
+<pre>
+./
+farben.htm
+./farben.htm
+bilder/grafik.gif
+./bilder/grafik.gif
+../
+../../../../woanders/datei.htm
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Eine Datei im gleichen Verzeichnis wie dem aktuellen können Sie einfach durch Angabe des Dateinamens referenzieren - im obigen Beispiel etwa die Datei <code>farben.htm</code>. Das aktuelle Verzeichnis referenzieren Sie durch <code>./</code> - also einem Punkt, gefolgt von einem Schrägstrich. Die Adressierung von <code>farben.htm</code> und <code>./farben.htm</code> im obigen Beispiel hat also den gleichen Effekt.</p>
+
+<p>Eine Angabe wie <code>bilder/grafik.gif</code> referenziert eine Datei namens <code>grafik.gif</code> im Verzeichnis <code>bilder</code>, das ein Unterverzeichnis des aktuellen Verzeichnisses ist. Die Notation <code>./bilder/grafik.gif</code> hat wieder den gleichen Effekt wie <code>bilder/grafik.gif</code>.</p>
+
+<p>Mit <code>../</code> referenzieren Sie das Verzeichnis über dem aktuellen Verzeichnis, egal wie es heißt. Mit <code>../../</code> referenzieren Sie das Verzeichnis über dem Verzeichnis über dem aktuellen Verzeichnis usw. Von jedem der so adressierten Verzeichnisse können Sie wieder auf deren Unterverzeichnisse zugreifen, wie im letzten der obigen Beispiele gezeigt.</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="kommentare.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="kommentare.htm">Kommentare und Credits</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="farben.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="farben.htm">Farben definieren in HTML</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">HTML/XHTML</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Allgemeine Regeln für HTML</a></td>
+</tr></table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

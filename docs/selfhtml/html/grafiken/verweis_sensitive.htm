@@ -1,0 +1,230 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: HTML/XHTML / Grafiken / Verweis-sensitive Grafiken (Image Maps)</title>
+<meta name="description"    content="Wie Sie Grafiken mit verweis-sensitiven Flächen definieren können, sodass Teile der Grafik als Verweise fungieren.">
+<meta name="keywords"       content="SELFHTML, HTML, XHTML, Grafiken, Bilder, Verweise, Links, Hyperlinks, Image Maps, verweis-sensitiv, img, area, map, usemap, shape, coords, ismap">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-10-31T14:21:30+01:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/html/grafiken/verweis_sensitive.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="Grafiken" href="index.htm">
+<link rel="next" title="Formulare definieren" href="../formulare/definieren.htm">
+<link rel="prev" title="Grafiken als Verweise" href="verweise.htm">
+<link rel="first" title="Grafiken einbinden" href="einbinden.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">HTML/XHTML</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Grafiken</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Verweis-sensitive Grafiken (Image Maps)</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#definieren">Verweis-sensitive Grafiken definieren</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#server_seitig">Server-seitige verweis-sensitive Grafiken</a><br>
+</p>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><img src="../../src/html32.gif" width="30" height="30" alt="HTML 3.2" title="HTML 3.2"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../../src/msie2.gif" width="30" height="30" alt="MS IE 2.0" title="MS IE 2.0"><img src="../../src/netsc2.gif" width="30" height="30" alt="Netscape 2.0" title="Netscape 2.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="definieren">Verweis-sensitive Grafiken definieren</a></h2>
+
+<p>Verweis-sensitive Grafiken sind Grafiken, in denen der Anwender mit der Maus auf ein Detail klicken kann. Daraufhin wird ein Verweis ausgeführt. Auf diese Weise kann der Anwender in einigen Fällen wesentlich intuitiver und schneller zu Information gelangen als durch lange verbale Verweislisten.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/img_usemap.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+       "http://www.w3.org/TR/html4/strict.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta http-equiv="content-type" content="text/html; charset=ISO-8859-1"&gt;
+&lt;title&gt;Verweis-sensitive Grafiken definieren - map, area, usemap&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h1&gt;Schnell zur Stadt oder Region Ihrer Wahl!&lt;/h1&gt;
+
+&lt;p&gt;
+  &lt;img src="karte.png" width="345" height="312" border="0" alt="Karte" usemap="#Landkarte"&gt;
+  &lt;map name="Landkarte"&gt;
+    &lt;area shape="rect" coords="11,10,59,29"
+          href="http://www.koblenz.de/" alt="Koblenz" title="Koblenz"&gt;
+    &lt;area shape="rect" coords="42,36,96,57"
+          href="http://www.wiesbaden.de/" alt="Wiesbaden" title="Wiesbaden"&gt;
+    &lt;area shape="rect" coords="42,59,78,80"
+          href="http://www.mainz.de/" alt="Mainz" title="Mainz"&gt;
+    &lt;area shape="rect" coords="100,26,152,58"
+          href="http://www.frankfurt.de/" alt="Frankfurt" title="Frankfurt"&gt;
+    &lt;area shape="rect" coords="27,113,93,134"
+          href="http://www.mannheim.de/" alt="Mannheim" title="Mannheim"&gt;
+    &lt;area shape="rect" coords="100,138,163,159"
+          href="http://www.heidelberg.de/" alt="Heidelberg" title="Heidelberg"&gt;
+    &lt;area shape="rect" coords="207,77,266,101"
+          href="http://www.wuerzburg.de/" alt="W&amp;uuml;rzburg" title="W&amp;uuml;rzburg"&gt;
+    &lt;area shape="rect" coords="282,62,344,85"
+          href="http://www.bamberg.de/" alt="Bamberg" title="Bamberg"&gt;
+    &lt;area shape="rect" coords="255,132,316,150"
+          href="http://www.nuernberg.de/" alt="N&amp;uuml;rnberg" title="N&amp;uuml;rnberg"&gt;
+    &lt;area shape="rect" coords="78,182,132,200"
+          href="http://www.karlsruhe.de/" alt="Karlsruhe" title="Karlsruhe"&gt;
+    &lt;area shape="rect" coords="142,169,200,193"
+          href="http://www.heilbronn.de/" alt="Heilbronn" title="Heilbronn"&gt;
+    &lt;area shape="rect" coords="140,209,198,230"
+          href="http://www.stuttgart.de/" alt="Stuttgart" title="Stuttgart"&gt;
+    &lt;area shape="rect" coords="187,263,222,281"
+          href="http://www.ulm.de/" alt="Ulm" title="Ulm"&gt;
+    &lt;area shape="rect" coords="249,278,304,297"
+          href="http://www.augsburg.de/" alt="Augsburg" title="Augsburg"&gt;
+    &lt;area shape="poly" coords="48,311,105,248,96,210,75,205,38,234,8,310"
+          href="http://www.baden-aktuell.de/" alt="Baden" title="Baden"&gt;
+  &lt;/map&gt;
+&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Mit <code>&lt;map name="[Name]"&gt;</code> leiten Sie die Definition der verweis-sensitiven Flächen einer Grafik ein. Beim <code>name</code>-Attribut vergeben Sie einen Namen für die verweis-sensitive Grafik. Dieser Name muss nichts mit dem Dateinamen der Grafik zu tun haben. Es handelt sich vielmehr um einen Ankernamen, der die gleiche Bedeutung hat wie der Name in einem <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../verweise/projektintern.htm#anker">Anker innerhalb einer HTML-Datei</a>. Vergeben Sie keine zu langen Namen. Namen dürfen keine Leerzeichen und keine deutschen Umlaute enthalten. Das erste Zeichen muss ein Buchstabe sein. Danach sind auch Ziffern erlaubt. Benutzen Sie als Sonderzeichen im Namen höchstens den Unterstrich (<code>_</code>), den Bindestrich (<code>-</code>), den Doppelpunkt (<code>:</code>) oder den Punkt (<code>.</code>).</p>
+
+<p>Das <code>map</code>-Element kann an einer beliebigen Stelle innerhalb des Körpers einer HTML-Datei und erzeugt selbst keine
+Bildschirmausgabe. Es empfiehlt sich jedoch, das Element an einer markanten,
+gesonderten Stelle innerhalb der Datei zu notieren, z.B. am Anfang oder am Ende
+des Dateikörpers.</p>
+
+<p>Zwischen dem einleitenden <code>&lt;map...&gt;</code> und dem abschließenden <code>&lt;/map&gt;</code> definieren Sie die verweis-sensitiven Flächen. Mit <code>&lt;area...&gt;</code> definieren Sie einzelne verweis-sensitive Flächen einer bestimmten Grafik, die Sie an einer anderen Stelle einbinden.</p>
+
+<p>Mit <code>shape="rect"</code> bestimmen Sie eine viereckige
+Fläche, mit <code>shape="circle"</code> einen Kreis, und mit <code>shape="poly"</code> können Sie ein beliebiges Vieleck als verweis-sensitiv definieren.</p>
+
+<p>Bei <code>coords</code> geben Sie die Koordinaten der verweis-sensitiven Flächen an. Die Pixelangaben bedeuten absolute Werte innerhalb
+der Grafik, die verweis-sensitiv sein soll. Trennen Sie alle Pixelwerte durch Kommata.</p>
+
+<ul>
+<li>Ein <b>Viereck</b> (<code>shape="rect"</code>) definieren Sie mit den Koordinaten für x1,y1,x2,y2<br>
+wobei bedeuten:<br>
+x1 = linke obere Ecke, Pixel von links<br>
+y1 = linke obere Ecke, Pixel von oben<br>
+x2 = rechte untere Ecke, Pixel von links<br>
+y2 = rechte untere Ecke, Pixel von oben</li>
+<li>Einen <b>Kreis</b> (<code>shape="circle"</code>) definieren Sie mit den Koordinaten für x,y,r<br>
+wobei bedeuten:<br>
+x = Mittelpunkt, Pixel von links<br>
+y = Mittelpunkt, Pixel von oben<br>
+r = Radius in Pixel</li>
+<li>Ein <b>Polygon</b> (<code>shape="poly"</code>) definieren Sie mit den Koordinaten x1,y1,x2,y2 ... x<small><sub>n</sub></small>,y<small><sub>n</sub></small><br>
+wobei bedeuten:<br>
+x = Pixel einer Ecke von links<br>
+y = Pixel einer Ecke von oben<br>
+Sie können so viele Ecken definieren wie Sie wollen. Von der letzten definierten Ecke müssen Sie sich eine Linie zur ersten definierten Ecke hinzudenken. Diese schließt das Polygon.</li>
+</ul>
+
+<p>Mit dem Attribut <code>href</code> bestimmen Sie das Verweisziel, das aufgerufen werden soll, wenn der Anwender die verweis-sensitive Fläche anklickt. Dabei gelten die Regeln zum <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../allgemein/referenzieren.htm">Referenzieren in HTML</a> - es kann sich also um beliebige Verweisziele innerhalb oder außerhalb des eigenen Web-Projekts handeln. Wenn Sie eine Fläche explizit als nicht anklickbar ausweisen wollen, können Sie dies mit dem Attribut <code>nohref</code> tun (ohne Wertzuweisung). Nötig ist dies allerdings nicht, denn Flächen, die nicht durch <code>href</code> abgedeckt sind, sind automatisch nicht anklickbar.</p>
+
+<p>Mit dem <code>alt</code>-Attribut notieren Sie Alternativtext für den Fall, dass die verweis-sensitive Fläche nicht angezeigt werden kann. Dieses Attribut ist ein <b>Pflichtattribut</b>, d.h. Sie müssen es notieren, um gültiges HTML zu erzeugen.</p>
+
+<p>Damit beim Überfahren einer verweis-sensitiven Fläche mit der Maus ein kleines Info-Fenster ("Tooltip") erscheint, können Sie in jeweils das <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../attribute/allgemeine.htm#uebersicht">Universalattribut</a> <code>title="angezeigter Text"</code> verwenden. Im Beispiel haben die <code>title</code>-Attribute jeweils dieselben Werte wie die <code>alt</code>-Attribute.</p>
+
+<p>Die Grafik, die verweis-sensitive Flächen haben soll, referenzieren Sie auf herkömmliche Weise mit Hilfe des <code>&lt;img&gt;</code>-Tags. Um die Grafik als verweis-sensitiv zu kennzeichnen, müssen Sie das Attribut <code>usemap</code> notieren. Dieses Attribut erwartet als Wertzuweisung einen URI, der zu der Stelle führt, an der das zugehörige <code>map</code>-Element notiert ist. Normalerweise ist dieses Element in der gleichen Datei notiert. Deshalb besteht die Zuweisung einfach in einem Gatterzeichen <code>#</code> und dem Namen des Ankers, der bei <code>&lt;map&nbsp;name=&gt;</code> definiert wurde.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Um die gewünschten Pixelkoordinaten für verweis-sensitive Flächen einer Grafik zu erhalten, können Sie beispielsweise ein Grafikprogramm benutzen, bei dem Sie mit der Maus in der angezeigten Grafik herumfahren können und dabei die genauen Pixelkoordinaten des Mauszeigers angezeigt bekommen.</p>
+
+<p>Innerhalb eines jeden <code>&lt;area&gt;</code>-Tags ist auch das Attribut <code>tabindex</code> erlaubt. Die Wirkung ist die gleiche wie bei der <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../verweise/tastatur.htm#tabreihenfolge">Tabulator-Reihenfolge bei Verweisen</a> und wird dort näher beschrieben. Ebenfalls erlaubt ist das Attribut <code>accesskey</code>. Dies funktioniert genau wie bei <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../verweise/tastatur.htm#kuerzel">Tastaturkürzeln für Verweise</a> und wird dort näher beschrieben.</p>
+
+<p>Im <code>&lt;area&gt;</code>-Tag kommen häufig auch JavaScript-<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../javascript/sprache/eventhandler.htm">Event-Handler</a> zum Einsatz. Beim Aufruf von JavaScript-Funktionen mit Event-Handlern darf jedoch im <code>&lt;area&gt;</code>-Tag das <code>href</code>-Attribut nicht fehlen, sonst streikt der Netscape Navigator. Um das Problem zu lösen, können Sie eine Angabe notieren wie:<br>
+<code>&lt;area shape="rect" coords="1,1,249,49" href="#" onclick="IhreFunktion()" alt="Kurze Beschreibung"&gt;</code><br>
+Durch die Wertzuweisung <code>"#"</code> an das <code>href</code>-Attribut wird ein "leerer" Verweis erzeugt, und Netscape führt dann auch den Event-Handler (hier: <code>onclick</code>) aus.</p>
+
+<p>Wenn Sie <b>XHTML-Standard-konform</b> arbeiten, müssen Sie das <code>area</code>-Element als inhaltsleer kennzeichnen. Dazu notieren Sie das alleinstehende Tag in der Form <code>&lt;area&nbsp; ...&nbsp;/&gt;</code>. Weitere Informationen finden Sie im Kapitel <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../xhtml/index.htm">XHTML und HTML</a>.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/html20.gif" width="30" height="30" alt="HTML 2.0" title="HTML 2.0"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../../src/msie2.gif" width="30" height="30" alt="MS IE 2.0" title="MS IE 2.0"><img src="../../src/netsc11.gif" width="30" height="30" alt="Netscape 1.1" title="Netscape 1.1"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="server_seitig">Server-seitige verweis-sensitive Grafiken</a></h2>
+
+<p>Bei dieser Methode übermittelt der Browser lediglich die Klickposition der Maus in Pixeln an den Server, indem diese Information als normaler GET-Parameter an die URL angehängt wird, welche in dem Link definiert ist. Welche Aktion der Server daraufhin startet, hängt komplett von ihm ab.</p>
+
+<p>Im Gegensatz zu dem Anschein, den die früher für diese Technik enthaltene Beschreibung von SELFHTML erweckt hat, ist für die Nutzung keinerlei Spezialprogramm erforderlich. Jede serverseitige Programmiersprache kann genutzt werden, um den URL-Parameter auszuwerten und entsprechend zu reagieren.</p>
+
+<p>Die tatsächlich schlechteste Nutzung wäre in der Tat, die oben beschriebenen verweis-sensitiven Grafiken serverseitig zu realisieren. Als Nutzung denkbar wäre alles, was serverseitig einen pixelgenauen Klick auf einer Grafik erfassen muss, beispielsweise um auf einer Landkarte eine Position zu erfassen (mit zwei Klicks die Entfernung zwischen den beiden Punkten berechnen).</p>
+
+<p>Die Klickkoordinaten werden in der Form <code>?xzahlwert,yzahlwert</code> an die im Link aufgeführte URL angehängt (beispielsweise <code>?23,16</code>. Beachten Sie bei der serverseitigen Auswertung, dass diese Form von der üblichen Methode <code>?x=23&amp;y=16</code> abweicht und sich deshalb den üblichen Zugriffsmethoden (z.B. in PHP über das Array $_GET) entziehen kann.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<pre>
+&lt;a href="skriptname.ext"&gt;&lt;img src="datei.gif" ismap alt="Grafik"&gt;&lt;/a&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Es handelt sich also um eine schlichte <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="verweise.htm">Grafik als Verweis</a>. Im Beispiel wird die Datei <code>datei.gif</code> auf diese Weise notiert. Das <code>&lt;img&gt;</code>-Tag muss das zusätzliche Attribut <code>ismap</code> enthalten. Hierdurch wird dem Server-Rechner mitgeteilt, dass es sich um eine verweis-sensitive Grafik handelt.</p>
+
+<p>Das Ziel des Verweises bei <code>href</code> ist ein auswertendes Serverprogramm, welches in der Lage ist, auf die übermittelten Klickkoordinaten zu reagieren.</p>
+
+<p>Da serverseitige verweissensitive Grafiken historisch gesehen die zuerst entwickelte Form verweissensitiver Grafiken waren, gab es früher diverse Programme, denen man durch Einbindung einer passenden Definitionsdatei sagen konnte, welche Klickbereiche auf welche URL verlinken sollten. Derartige Programme sind heute ausgestorben.</p>
+
+<p>Eine Alternative zur serverseitigen verweissensitiven Grafik zur Übermittlung der Klickposition ist die Verwendung von <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../formulare/formularbuttons.htm#grafische">Grafischen Formularbuttons</a> (<code>&lt;input type="image"&gt;</code>). Die Klickposition auf so einen Grafikbutton wird im Formular übermittelt, überdies auch etwas mundgerechter in klassischer Formularform.</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="../formulare/definieren.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../formulare/definieren.htm">Formulare definieren</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="verweise.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="verweise.htm">Grafiken als Verweise</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">HTML/XHTML</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Grafiken</a></td>
+</tr></table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

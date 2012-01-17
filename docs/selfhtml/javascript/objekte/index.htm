@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: JavaScript / Objektreferenz</title>
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<meta name="description"    content="SELFHTML, Kapitel &quot;JavaScript&quot;, Unterkapitel &quot;Objektreferenz&quot;, Inhalt.">
+<meta name="keywords"       content="SELFHTML, JavaScript, Objekte">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-08-18T05:08:52+02:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/javascript/objekte/index.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="chapter">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="JavaScript/DOM" href="../index.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">JavaScript/DOM</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Objektreferenz</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/kapx.gif" width="30" height="26" alt="Kapitelseite">
+</td>
+<td valign="top">
+<p>Sinnvolle Vorkenntnisse zum Verständnis: <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../../html/index.htm">HTML</a> und die <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../sprache/index.htm">JavaScript-Sprachelemente</a>, besonders der Abschnitt über <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../sprache/objekte.htm">Objekte, Eigenschaften und Methoden</a>.<br>
+Dieser Abschnitt behandelt die vordefinierten Objekte von JavaScript und stellt ihre Eigenschaften und Methoden jeweils kurz vor. Die Nummerierung vor den Verweisen symbolisiert die JavaScript-Objekthierarchie und hat sonst keine weitere Bedeutung.<br>
+Der Abschnitt besteht aus folgenden Seiten:</p>
+
+
+<table cellpadding="0" cellspacing="0" border="0"><tr><td nowrap="nowrap">
+
+
+<p><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="hinweise.htm">Hinweise zur JavaScript-Objektreferenz</a></p>
+
+<table border="0" cellpadding="2" cellspacing="0">
+<tr><th align="right">1</th><td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="window.htm">window</a> (Anzeigefenster)</td></tr>
+<tr><th align="right">1.1</th><td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="frames.htm">frames</a> (Frame-Fenster)</td></tr>
+<tr><th align="right">1.2</th><td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="document.htm">document</a> (Dokument im Anzeigefenster)</td></tr>
+<tr><th align="right">1.2.1</th><td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="htmlelemente.htm">HTML-Elementobjekte</a> (Alle HTML-Elemente des Dokuments)</td></tr>
+<tr><th align="right">1.2.2</th><td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="node.htm">node</a> (Alle Knoten des Elementenbaums)</td></tr>
+<tr><th align="right">1.2.3</th><td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="all.htm">all</a> (Alle HTML-Elemente des Dokuments - Microsoft)</td></tr>
+<tr><th align="right">1.2.3.1</th><td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="style.htm">style</a> (CSS-Attribute von HTML-Elementen)</td></tr>
+<tr><th align="right">1.2.4</th><td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="anchors.htm">anchors</a> (Verweisanker im Dokument)</td></tr>
+<tr><th align="right">1.2.5</th><td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="applets.htm">applets</a> (Java-Applets im Dokument)</td></tr>
+<tr><th align="right">1.2.6</th><td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="forms.htm">forms</a> (Formulare im Dokument)</td></tr>
+<tr><th align="right">1.2.6.1</th><td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="elements.htm">elements</a> (Formularelemente eines Formulars)</td></tr>
+<tr><th align="right">1.2.6.1.1</th><td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="options.htm">options</a> (Optionen einer Auswahlliste eines Formulars)</td></tr>
+<tr><th align="right">1.2.7</th><td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="images.htm">images</a> (Grafikreferenzen im Dokument)</td></tr>
+<tr><th align="right">1.2.8</th><td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="embeds.htm">embeds</a> (Multimedia-Referenzen im Dokument)</td></tr>
+<tr><th align="right">1.2.9</th><td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="layers.htm">layers</a> (Layer im Dokument - Netscape)</td></tr>
+<tr><th align="right">1.2.10</th><td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="links.htm">links</a> (Verweise im Dokument)</td></tr>
+<tr><th align="right">1.3</th><td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="event.htm">event</a> (Anwenderereignisse)</td></tr>
+<tr><th align="right">1.4</th><td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="history.htm">history</a> (besuchte Seiten)</td></tr>
+<tr><th align="right">1.5</th><td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="location.htm">location</a> (URIs)</td></tr>
+<tr><th align="right">2</th><td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="array.htm">Array</a> (Ketten von Variablen)</td></tr>
+<tr><th align="right">3</th><td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="boolean.htm">Boolean</a> (Ja/Nein-Variablen)</td></tr>
+<tr><th align="right">4</th><td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="date.htm">Date</a> (Datum und Uhrzeit)</td></tr>
+<tr><th align="right">5</th><td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="function.htm">Function</a> (JavaScript-Funktionen)</td></tr>
+<tr><th align="right">6</th><td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="math.htm">Math</a> (Berechnungen)</td></tr>
+<tr><th align="right">7</th><td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="navigator.htm">navigator</a> (Browser-Informationen)</td></tr>
+<tr><th align="right">7.1</th><td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="mimetypes.htm">mimeTypes</a> (MIME-Typ-Informationen)</td></tr>
+<tr><th align="right">7.2</th><td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="plugins.htm">plugins</a> (installierte Plugins)</td></tr>
+<tr><th align="right">8</th><td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="number.htm">Number</a> (numerische Werte)</td></tr>
+<tr><th align="right">9</th><td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="regexp.htm">RegExp</a> (reguläre Ausdrücke)</td></tr>
+<tr><th align="right">10</th><td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="screen.htm">screen</a> (Bildschirm-Informationen)</td></tr>
+<tr><th align="right">11</th><td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="string.htm">String</a> (Zeichenketten)</td></tr>
+<tr><td valign="top" colspan="2"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="unabhaengig.htm">Objektunabhängige Funktionen</a></td></tr>
+</table>
+
+
+
+<p>&nbsp;</p></td></tr></table></td></tr>
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>&nbsp;
+</td></tr></table>
+
+
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+
+</body>
+</html>

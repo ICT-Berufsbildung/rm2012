@@ -1,0 +1,18 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>Test</title>
+<script type="text/javascript">
+function Hinweis () {
+  var x = confirm("Sie sind jetzt schon 10 Sekunden auf dieser Seite. Fortfahren?");
+  if (x == false)
+    top.close();
+}
+
+window.setTimeout("Hinweis()", 10000);
+</script>
+</head><body>
+
+<p><a href="../window.htm#set_timeout">zur&uuml;ck</a></p>
+</body>
+</html>

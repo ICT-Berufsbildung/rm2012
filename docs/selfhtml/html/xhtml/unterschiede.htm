@@ -1,0 +1,678 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: HTML/XHTML / XHTML und HTML / Unterschiede zwischen XHTML und HTML</title>
+<meta name="description"    content="Welche Unterschiede zwischen XHTML 1.0 und HTML 4.01 zu beachten sind.">
+<meta name="keywords"       content="SELFHTML, HTML, XHTML, Unterschiede ">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-10-31T12:25:34+01:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/html/xhtml/unterschiede.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="XHTML und HTML" href="index.htm">
+<link rel="next" title="Modularisierung von XHTML und XHTML 1.1" href="modularisierung.htm">
+<link rel="prev" title="Event-Handler für Scripts" href="../attribute/eventhandler.htm">
+<link rel="last" title="Modularisierung von XHTML und XHTML 1.1" href="modularisierung.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">HTML/XHTML</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">XHTML und HTML</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Unterschiede zwischen XHTML und HTML</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#allgemeines">Allgemeines zu XHTML</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#mimetypen">Unterschied: MIME-Typen</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#dateinamen">Unterschied: Dateinamen</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#xml_deklaration">Unterschied: Die XML-Deklaration und die Zeichenkodierung</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#dokumenttyp">Unterschied: Dokumenttyp-Deklaration</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#wurzelelement">Unterschied: HTML-Wurzelelement mit Namensraumangabe</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#grundgeruest">Unterschied: Strengeres Einhalten des HTML-Grundgerüsts</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#kleinschreibung">Unterschied: Kleinschreibung</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#leere_elemente">Unterschied: Leere Elemente</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#anfuehrungszeichen">Unterschied: Attributwerte in Anführungszeichen</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#optionales_abschlusstag">Unterschied: Elemente mit optionalem Abschluss-Tag</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#leere_attribute">Unterschied: Alleinstehende (leere) Attribute</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#leerraum_werte">Unterschied: Leerraum in Wertzuweisungen</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#verweise_anker">Unterschied: Verweise zu Ankern</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#lang">Unterschied: Das Universalattribut lang</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#script_style">Unterschied: Inhalt von Script- und Style-Bereichen</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#verschachtelung">Unterschied: Ausnahmen von Verschachtelungsregeln</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#beispiel">Beispiel eines XHTML-Dokuments</a><br>
+</p>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><a class="an" name="allgemeines">Allgemeines zu XHTML</a></h2>
+
+<p>Während HTML eine relativ neue Erfindung ist, existiert das zugrunde liegende Konzept der Auszeichnungssprachen schon viel länger. HTML ist lediglich eine Auszeichnungssprache unter vielen, allerdings die bislang weltweit erfolgreichste und bekannteste. Ein Merkmal des Konzepts solcher Auszeichnungssprachen ist, dass ihre Bestandteile nicht einfach "frei erfunden" sind, sondern dass es Meta-Sprachen gibt, mit deren Hilfe die Regeln und Bestandteile solcher Auszeichnungssprachen definiert werden.</p>
+
+<p>Bereits seit 1986 gibt es die als ISO 8879 standardisierte Meta-Sprache <b>SGML</b> (<i>Standard Generalized Markup Language = standardisierte verallgemeinerte Auszeichnungssprache</i>). Diese Meta-Sprache erlaubt das Definieren von Auszeichnungssprachen mit Hilfe so genannter <b>DTDs</b> (<i>Document Type Definitions = Dokumenttyp-Definitionen</i>). In den DTDs wird festgelegt, welche Elemente eine Auszeichnungssprache hat, welche zugehörigen Attribute, sowie Regeln, welche Elemente innerhalb welcher anderen Elemente vorkommen können usw. Nun ist SGML sehr ausgereift, gilt aber gemeinhin als ziemlich "sophisticated". So entschloss man sich dazu, eine reduziertere Variante von SGML zu etablieren, und zwar unter dem Namen <b>XML</b> (<i>Extensible Markup Language = erweiterbare Auszeichnungssprache</i>). XML erlaubt ebenso wie SGML das Definieren von Auszeichnungssprachen mit Hilfe von DTDs.</p>
+
+<p>HTML, das Anfang der 90er-Jahre entstand, wurde mit Hilfe von SGML definiert. Bis einschließlich HTML 4.x ist das auch heute noch der Fall. Im Zuge von XML und seiner wachsenden Bedeutung für immer mehr Dateiformate, die auch im Web ihren Einsatz finden, entstand der Wunsch, auch HTML mit Hilfe von XML zu definieren anstatt wie bisher mit SGML. Damit kein Versionenwirrwarr entsteht, entschloss man sich dazu, dieses neue, XML-basierte HTML mit einem neuen Namen und eigener Versionenkontrolle auszustatten. Heraus kam dabei <b>XHTML</b> (<i>Extensible HyperText Markup Language = erweiterbare Hypertext-Auszeichnungssprache</i>).</p>
+
+<p>Seit Januar 2000 liegt XHTML 1.0 als Empfehlung des W3-Konsortiums vor und hat damit den gleichen verbindlichen Stellenwert wie etwa HTML 4.0. XHTML 1.0 ist nichts anderes als der Versuch, das SGML-basierte HTML 4.0 mit Hilfe von XML "nachzubauen". Dahinter steckt keine Spielerei von Designern künstlicher Sprachen, sondern es gibt gute Gründe dafür:</p>
+
+<ul>
+<li>XHTML ist syntaktisch hundertprozentig kompatibel zu <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../xml/intro.htm#standardsprachen">wichtigen XML-Standardsprachen</a> wie SVG, WML, SMIL usw.</li>
+<li>XHTML kann dadurch als <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../xml/regeln/namensraeume.htm#dateninseln">Dateninsel</a> innerhalb anderer Sprachen eingebunden werden, und ebenso ist es möglich, diese anderen Sprachen wieder als Dateninsel innerhalb von XHTML einzubinden. So ist es beispielsweise problemlos möglich, eine SVG-Grafik als Dateninsel in eine XHTML-Datei einzubetten. Die SVG-Grafik muss dadurch nicht mehr referenziert werden, sondern ist Bestandteil der XHTML-Datei.</li>
+<li>Durch die gemeinsame syntaktische Grundlage auf der Basis von XML ist es auch möglich, das Auslesen und Verarbeiten über Programmiersprachen zu vereinheitlichen. Genau das geschieht beim <b>DOM</b> (<i>Document Object Model = Dokument-Objektmodell</i>). Das DOM definiert Objekte, Eigenschaften und Methoden für den Zugriff auf Dokumente, die in einer XML-basierten Sprache abgefasst sind. Möglich ist eine solche Anwendung aber nur, weil alle diese Sprachen denselben, XML-bedingten syntaktischen Grundmustern folgen. Da die syntaktischen Grundmuster von HTML denen von XHTML sehr ähnlich sind, ist das DOM in der Praxis auch auf HTML anwendbar. Doch der Wunsch ist verständlich, ein HTML zu haben, das sich exakt an die Syntax von XML hält.</li>
+<li>Was für Script-Sprachen gilt, gilt ebenso auch für Stylesheet-Sprachen. Die selbst XML-basierte allgemeine Stylesheet-Sprache <b>XSL</b> (<i>Extensible Stylesheet Language = erweiterbare Formatsprache</i>) ist genau für diese Zwecke entworfen worden. Sie stellt eine einheitliche Grundlage für alle XML-basierten Sprachen zur Verfügung.</li>
+</ul>
+
+<p>XHTML ist also XML-gerechtes HTML. Der "Nachbau" von HTML 4.0 in XHTML 1.0 ist so weit gelungen, dass es in XHTML die gleichen Elemente, Attribute und Verschachtelungsregeln gibt wie in HTML. Systembedingt durch die Syntax von XML gibt es jedoch diverse Unterschiede im Detail, die Sie kennen müssen, wenn Sie Ihre Web-Seiten in XHTML statt in HTML schreiben wollen.</p>
+
+<p>XHTML hat einen zwiespältigen Charakter, denn einerseits soll es alle Vorteile einer XML-Sprache bieten. Andererseits soll XHTML eine praktische anwendbare Sprache für Webseiten sein. XHTML wurde deshalb so angelegt, dass eine Kompatibilität mit Browsern, die lediglich auf HTML-Syntax ausgelegt sind oder nicht über die nötigen XML-Fähigkeiten verfügen, möglich ist. Tatsächlich verarbeiten die verbreiteten Browser XHTML-Dokumente und stellen sie genauso wie HTML-Dokumente am Bildschirm dar. Die Voraussetzung ist, dass Sie einige Unterschiede beim Schreiben des Codes beachten, die auf dieser Seite aufgelistet sind. Einzelne Probleme, besonders mit älteren Browsern, sind dennoch nicht auszuschließen.</p>
+
+<p>Durch diese Kompatibilität zu HTML-Browsern ergeben sich zwei Arten der Verarbeitung von XHTML. Bei der Verarbeitung als HTML machen sich die Besonderheiten von XHTML beim Betrachten Ihrer Webseite nicht bemerkbar. Viele der Unterschiede zwischen HTML und XHTML kommen nämlich erst dann zum tragen, wenn das XHTML-Dokument nach den Regeln von XML verarbeitet wird. Ebenso entfalten sich die Vorteile von XHTML erst dann, wenn beim Erstellen, Ändern oder Lesen tatsächlich XML-Techniken genutzt werden. Neuere Browser, die XHTML korrekt verarbeiten und darstellen können, sollten ein XHTML-Dokument daher sinnvollerweise als XML verarbeiten. Der Abschnitt <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#mimetypen">MIME-Typen</a> erläutert, wie sich der Verarbeitungsmodus unter Berücksichtigung der Browserfähigkeiten bestimmen lässt.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="mimetypen">Unterschied: MIME-Typen</a></h2>
+
+<p>Der <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../diverses/mimetypen.htm">MIME-Typ</a> für gewöhnliche HTML-Dokumente lautet stets <code>text/html</code>. XHTML-Dokumente können diesen MIME-Typ ebenfalls haben, wenn sie die Empfehlungen des W3-Konsortiums zur Abwärtskompatibilität beachten. Gleichzeitig sind jedoch auch die allgemeinen MIME-Typen <code>text/xml</code> und <code>application/xml</code> erlaubt, die für alle von XML abgeleiteten Sprachen gedacht sind. Das W3-Konsortium hat zusätzlich den MIME-Typ <code>application/xhtml+xml</code> speziell für XHTML etabliert und empfiehlt, diesen neben <code>text/html</code> zu benutzen. Für das Erstellen von XHTML-Dokumenten hat dies direkt zunächst keine Bedeutung. Wohl aber für die Kommunikation zwischen Web-Browser und Web-Server. Wenn der Server dem Browser die angeforderte XHTML-Datei mit dem Typ <code>application/xhtml+xml</code> sendet, muss der Browser in der Lage sein, diesen MIME-Typ zu verarbeiten und Dateien dieses Typs am Bildschirm anzuzeigen. Anderenfalls kann es beispielsweise passieren, dass der Browser dem Anwender die Datei zum Download anbietet, statt sie ins Anzeigefenster zu laden. Das W3-Konsortium hat eine <img src="../../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://www.w3.org/People/mimasa/test/xhtml/media-types/results">Übersicht über die Browserunterstützung der verschiedenen MIME-Typen</a> zusammengestellt.</p>
+
+<p>In der Praxis hat es sich durchgesetzt, XHTML-Dokumente mit dem MIME-Typ <code>text/html</code> auszuliefern. Nur in den Fällen, in denen der Browser dem Server bei der HTTP-Anfrage über die <code>Accept</code>-Angabe ausdrücklich mitteilt, dass er <code>application/xhtml+xml</code> verarbeiten kann, sollte die Datei mit diesem MIME-Typ gesendet werden. Auf der Seite <img src="../../src/de.gif" width="16" height="10" alt="deutschsprachige Seite">&nbsp;<a target="_top" href="http://schneegans.de/tips/apache-xhtml/">Mit dem Apache XHTML-Seiten ausliefern</a> werden Möglichkeiten vorgestellt, wie Sie XHTML-Dateien je nach Fähigkeiten des verwendeten Browsern entweder mit <code>text/html</code> oder <code>application/xhtml+xml</code> ausliefern können.</p>
+
+<p>Der Unterschied der MIME-Typen ist kein rein theoretischer, denn der MIME-Typ bestimmt die Art der Verarbeitung des XHTML-Dokuments. Bei <code>text/html</code> nutzen die Browser den herkömmlichen <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../allgemein/textauszeichnung.htm#html_parser">HTML-Parser</a> bei der Verarbeitung des Quellcodes. Die heute üblichen HTML-Parser der Browser lassen syntaktische Fehler im Dokument einfach durchgehen und versuchen das Dokument "irgendwie" anzuzeigen. Bei <code>application/xhtml+xml</code> behandelt ein Browser, der den MIME-Typ korrekt verarbeitet, die XHTML-Datei als echtes XML-Dokument und benutzt daher seinen <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../xml/intro.htm#parser">XML-Parser</a>. Der XML-Parser arbeitet im Gegensatz zum HTML-Parser nach festen, vorgegebenen Regeln. Er erwartet, dass das Dokument die strengen Syntaxregeln von XML einhält. Wenn er auf einen syntaktischen Fehler stößt, muss er die Verarbeitung abbrechen. Im Anzeigefenster des Browsers erscheint dann entweder nur eine Fehlermeldung anstelle des Dokuments, oder, wie bei vielen aktuellen Browsern, das Dokument nur bis zur Stelle des Fehlers. Wenn Sie also den MIME-Typ <code>application/xhtml+xml</code> verwenden, müssen Sie peinlichst darauf achten, dass Ihre XHTML-Dateien <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../xml/regeln/begriffe.htm#wohlgeformt">wohlgeformt</a> sind. Dies können Sie beispielsweise mit dem
+<img src="../../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://validator.w3.org/">Validator</a> des W3-Konsortiums prüfen.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="dateinamen">Unterschied: Dateinamen</a></h2>
+
+<p>Neuere, XML-fähige Browser (Internet Explorer ab Version 5.x, Netscape ab Version 6.x) behandeln Dateien je nach Systemkonfiguration abhängig von der Dateinamenerweiterung unterschiedlich, wenn sie sonst keine Hinweise (MIME-Typ) darauf haben, wie die Datei zu behandeln ist. Wenn Sie in einer Datei zwar alle Regeln von XHTML einhalten, die Datei aber mit den typischen Endungen <var>.htm</var> oder <var>.html</var> abspeichern, benutzen diese Browser ihre HTML-Parser. Speichern Sie die Datei dagegen mit einer anderen Endung ab, z.B. <var>.xhtml</var>, dann benutzen die Browser unter Umständen ihre XML-Parser. Dies wirkt sich genauso aus wie bei den <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#mimetypen">verschiedenen MIME-Typen</a>.</p>
+
+<p>Bei der Darstellung XML-geparster, fehlerfreier XHTML-Dokumente ohne CSS oder andere Stylesheets reagieren die Browser unterschiedlich. Netscape 6 zeigt das Dokument wie ein HTML-Dokument an, also mit den voreingestellten Darstellungen etwa für Überschriften, Textabsätze, Listen, Tabellen usw. Der Internet Explorer stellt solche Dokumente dagegen als reine Element-Baumstruktur dar. Erst wenn Sie die verwendeten Elemente mit Stylesheets formatieren, zeigt der Internet Explorer das Dokument in nicht-schematischer Form an.</p>
+
+<p>Solange Sie also XHTML-Standard-konforme Dateien mit den HTML-typischen Endungen <var>.htm</var> oder <var>.html</var> abspeichern, erreichen Sie eine "normale" Darstellung im Browser, verhindern aber auch, dass die Dateien im Browser auf XML-Basis verarbeitet werden. Speichern Sie die Dateien dagegen unter einer anderen, dem Browser unbekannten oder mit dem MIME-Typ <code>application/xml</code> verknüpften Dateiendung ab, werden die Dateien auf XML-Basis verarbeitet - in diesem Fall dürfen sie jedoch keine syntaktischen Fehler enthalten. Wenn im Anzeigefenster des Internet Explorers etwas anderes als ein Strukturbaum erscheinen soll, müssen Sie außerdem Stylesheets verwenden, um die Elemente zu formatieren.</p>
+
+<p>Der Unterschied hinsichtlich der Dateinamen ist mit dem der MIME-Typen verknüpft. Ein Web-Server unterscheidet eine HTML-Datei für gewöhnlich über dessen Dateinamenerweiterung von einer XHTML-Datei. Dementsprechend wählt er einen geeigneten MIME-Typ, also etwa <code>text/html</code>, <code>application/xml</code> oder <code>application/xhtml+xml</code>. Beim verbreiteten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../servercgi/server/apache.htm">Web-Server Apache</a> können Sie unter der Voraussetzung, dass der Server eine aktuelle Konfiguration besitzt, mit der Dateinamenerweiterung <code>.html</code> für MIME-Typ <code>text/html</code> arbeiten. Für <code>application/xhtml+xml</code> können Sie die Erweiterung <code>.xhtml</code> verwenden. Bei veralteten Konfigurationen müssen Sie hingegen damit rechnen, dass der Web-Server die Erweiterung <code>.xhtml</code> nicht erkennt und die Datei stattdessen als Nur-Text sendet.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="xml_deklaration">Unterschied: Die XML-Deklaration und die Zeichenkodierung</a></h2>
+
+<p>Das allererste, was am Anfang einer XHTML-Datei notiert werden sollte, ist eine so genannte <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../xml/regeln/xmldeklaration.htm">XML-Deklaration</a>. Damit geben Sie an, dass die folgende Datei XML-gerechte Daten enthält und welche <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../xml/regeln/xmldeklaration.htm#zusatzangaben">Zeichenkodierung</a> die Datei verwendet (siehe auch <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../inter/sprache.htm">Computer und geschriebene Sprache</a>). Eine solche Deklaration gibt es in HTML 4.0 nicht, sie ist also XHTML-spezifisch.</p>
+
+<h3 class="xmp">Beispiel für XHTML 1.0:</h3>
+
+<pre>
+&lt;?xml version="1.0" encoding="ISO-8859-1" ?&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Notieren Sie diese Angabe so wie in dem Beispiel gezeigt in der ersten Zeile einer XHTML-Datei. Derzeit ist beim Attribut <code>version</code> der Wert <code>1.0</code> sinnvoll. Zwar gibt es bereits Version 1.1 des XML-Standards, Sie sollten jedoch <code>1.0</code> angeben, sofern Sie nicht aus bestimmten Gründen XML 1.1 verwenden wollen.</p>
+
+<p>Beim Attribut <code>encoding</code> können Sie die Zeichenkodierung angeben, nach der die die XHTML-Datei zu verarbeiten ist.<br>
+<code>encoding="ISO-8859-1"</code> steht für die <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../inter/zeichenkodierungen.htm#iso8859">Kodierung ISO-8859-1 (Latin-1)</a> für westeuropäische Sprachen. Ein Zeichen belegt in der Datei immer ein Byte.<br>
+<code>encoding="UTF-8"</code> steht für eine internationale Kodierung auf Basis der ISO/IEC-10646-Norm (<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../inter/unicode.htm">Unicode</a>). Ein Zeichen belegt in der Datei eine variable Breite, z.B. ein Byte, aber auch zwei, drei oder vier Bytes.<br>
+<code>encoding="UTF-16"</code> steht ebenfalls für eine internationale Kodierung auf Basis der ISO/IEC-10646-Norm (Unicode). Ein Zeichen belegt in der Datei je nach Unicode-Position entweder zwei oder vier Bytes.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Die Angabe einer XML-Deklaration ist nicht grundsätzlich notwendig, aber in Fällen äußerst ratsam. Denn bei der Verarbeitung als XML kommt der Angabe zur Zeichenkodierung eine besondere Wichtigkeit zu. Wenn Sie nämlich keine solche Angabe machen, nehmen XML-Parser per Voreinstellung die Unicode-Kodierung UTF-8 an (siehe dazu <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../xml/regeln/zeichen.htm#zeichenkodierung">Standard-Zeichenkodierung und Unicode-Unterstützung</a>). Wenn die Kodierung Ihres Dokuments von UTF-8 abweicht, sollten Sie unbedingt eine XML-Deklaration verwenden, um die verwendete Kodierung anzugeben. Ansonsten bricht ein XML-Parser die Verarbeitung mit einer Fehlermeldung ab. Es ist zwar möglich, die Kodierung der XHTML-Datei dem Web-Browser über die Kopfzeilen der HTTP-Antwort mitzuteilen. Dies erfordert allerdings eine spezielle Konfiguration des Web-Servers. Außerdem ist eine solche Angabe in der Regel nutzlos, wenn der Anwender das Dokument auf seiner Festplatte speichert und ansieht.</p>
+
+<p>Wenn das Dokument hingegen als HTML verarbeitet wird, kann die XML-Deklaration die <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/formate/box_modell.htm#doctype_switch">Dokumenttyp-Weiche</a> des Internet Explorers negativ beeinflussen, sodass Sie sie gegebenenfalls weglassen sollten. In jedem Fall sollten Sie eine <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../kopfdaten/meta.htm#zeichenkodierung">Kodierungsangabe in einem Meta-Element</a> im Kopf des Dokuments einfügen, damit das Dokument von HTML-Parsern korrekt verarbeitet werden kann.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="dokumenttyp">Unterschied: Dokumenttyp-Deklaration</a></h2>
+
+<p>XHTML 1.0 und HTML 4.0 haben unterschiedliche <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../allgemein/grundgeruest.htm#dokumenttyp">Dokumenttyp-Deklarationen</a>. Die Dokumenttyp-Deklaration ("Doctype") nimmt Bezug auf die DTD (Dokumenttyp-Definition) und Sprachversion, die Sie in der Datei verwenden und an die Sie sich halten wollen. Ein strenger <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../xml/intro.htm#parser">Parser</a> kann die Anzeige der Datei z.B. im Browser verhindern, wenn die Datei syntaktische Fehler enthält. Maßgeblich dafür, was ein syntaktischer Fehler ist, ist die DTD, auf die Sie mit der Dokumenttyp-Deklaration Bezug nehmen.</p>
+
+<h3 class="xmp">Beispiel für HTML 4.01:</h3>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+       "http://www.w3.org/TR/html4/strict.dtd"&gt;
+</pre>
+
+<h3 class="xmp">Entsprechendes Beispiel für XHTML 1.0:</h3>
+
+<pre>
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Die Beispiele zeigen, wie Dokumenttypen für HTML 4.01 und XHTML 1.0 für die <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../referenz/varianten.htm">HTML-Variante</a> Strict notiert werden. Auch in XHTML 1.0 gibt es die drei Varianten Strict, Transitional und Frameset, genau wie in HTML 4.0. Die beiden anderen Varianten für XHTML lauten:</p>
+
+<pre>
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
+</pre>
+
+<pre>
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd"&gt;
+</pre>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>So wie oben notiert, kann ein strenger XML-Parser eine bestehende Internet-Verbindung erfordern und sich die DTD von der angegebenen Web-Adresse laden, um das Dokument gegen die darin formulierten Regeln zu prüfen. Sie können die DTDs in Ihr eigenes Web-Projekt integrieren. Angenommen, Sie haben eine Startdatei namens <var>index.htm</var> und die <var>xhtml1-strict.dtd</var> in einem eigenen Unterverzeichnis namens <var>html-dtd</var> abgelegt, dann können Sie in der <var>index.htm</var> notieren:</p>
+
+<pre>
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+       "html-dtd/xhtml1-strict.dtd"&gt;
+</pre>
+
+<p>Sie können die <img src="../../src/zip.gif" width="12" height="10" alt="ZIP-Datei">&nbsp;<a href="anzeige/xhtml_dtds.zip">erforderlichen DTDs für XHTML downloaden</a>. Die Zip-Datei (31 KByte) enthält die DTDs für alle drei Varianten Strict, Transitional und Frameset sowie drei zusätzliche Dateien mit Definitionen für benannte Zeichen.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="wurzelelement">Unterschied: HTML-Wurzelelement mit Namensraumangabe</a></h2>
+
+<p>Das einleitende <code>&lt;html&gt;</code>-Tag hat in HTML meistens keine Attribute. In XHTML müssen Sie jedoch den <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../xml/regeln/namensraeume.htm">Namensraum</a> für XHTML explizit angeben.</p>
+
+<h3 class="xmp">Beispiel für HTML 4.01:</h3>
+
+<pre>
+&lt;html&gt;
+&lt;!-- Inhalt der Datei --&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xmp">Entsprechendes Beispiel für XHTML 1.0:</h3>
+
+<pre>
+&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
+&lt;!-- Inhalt der Datei --&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Notieren Sie in XHTML im einleitenden <code>&lt;html&gt;</code>-Tag immer das Attribut <code>xmlns</code>, das einen XML-Namensraum bezeichnet, und weisen Sie ihm den Wert <code>http://www.w3.org/1999/xhtml</code> zu. Dies ist ein spezieller URI, der nicht dazu gedacht ist, eine aufrufbare Web-Adresse anzugeben, sondern lediglich das Schema der Web-Adressierung nutzt, um einen weltweit eindeutigen Namen für den Namensraum zu vergeben. Die Web-Adresse existiert zwar, weil das W3-Konsortium so freundlich war, damit die Häufung unnötiger Aufruffehler auf ihrem Server zu vermeiden - doch die Adresse bedeutet nichts anderes als ein beliebiger eindeutiger Name.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="grundgeruest">Unterschied: Strengeres Einhalten des HTML-Grundgerüsts</a></h2>
+
+<p>Wenn Sie in HTML die Elemente <code>html</code>, <code>head</code> und <code>body</code> weglassen, jedoch das Element <code>title</code> und ansonsten gültiges HTML notieren, dann ist es aus Sicht von HTML ein fehlerfreies und vollständiges Dokument. In XHTML besteht diese Freiheit nicht. Hier muss eine HTML-Datei zwingend das übliche Grundgerüst einhalten und ein <code>head</code>- und ein <code>body</code>-Element enthalten.</p>
+
+<h3 class="xmp">Beispiel für HTML 4.01:</h3>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"&gt;
+&lt;title&gt;Titel&lt;/title&gt;
+&lt;h1&gt;Text&lt;/h1&gt;
+</pre>
+
+<h3 class="xmp">Entsprechendes Beispiel für XHTML 1.0:</h3>
+
+<pre>
+&lt;?xml version="1.0" encoding="ISO-8859-1" ?&gt;
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
+&lt;head&gt;
+&lt;title&gt;Text&lt;/title&gt;
+&lt;!-- gegebenenfalls andere Elemente im Kopfbereich --&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;Text&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Zwar ist die gezeigte Form, ein HTML-4.0-Dokument zu notieren, für die Praxis alles andere als empfehlenswert, aber zumindest ist sie nicht verkehrt. Bei einem XHTML-Dokument muss dagegen immer das vollständige Grundgerüst notiert werden.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="kleinschreibung">Unterschied: Kleinschreibung</a></h2>
+
+<p>In HTML 4.0 ist es egal, ob Sie <code>&lt;TABLE BORDER="0"&gt;</code>, <code>&lt;TABLE border="0"&gt;</code> oder <code>&lt;Table Border="0"&gt;</code> notieren. HTML unterscheidet bei Namen von HTML-Elementen und Attributnamen nicht zwischen Groß- und Kleinschreibung. Nur bei der Wertzuweisung an manche Attribute wird Groß-/Kleinschreibung unterschieden - aber auch nur im Hinblick etwa auf Script-Sprachen. Bei Attributen mit festen erlaubten Werten, wie etwa <code>align</code>, ist es egal, ob Sie <code>CENTER</code> oder <code>center</code> notieren. Nicht so bei XHTML. XML unterscheidet nämlich strikt zwischen Groß- und Kleinschreibung. Das bedeutet, <code>&lt;TABLE&gt;</code> ist etwas anderes als <code>&lt;table&gt;</code>. Für XHTML wurde festgelegt, dass <b>alle Elementnamen und Attributnamen klein geschrieben</b> werden. Das Gleiche gilt auch für die festen Wertzuweisungen wie <code>center</code>.</p>
+
+<h3 class="xmp">Beispiel für HTML 4.01:</h3>
+
+<pre>
+&lt;OBJECT DATA="Video.mpg" TYPE="video/mpeg" ALIGN="LEFT"&gt;&lt;/OBJECT&gt;
+</pre>
+
+<h3 class="xmp">Entsprechendes Beispiel für XHTML 1.0:</h3>
+
+<pre>
+&lt;object data="Video.mpg" type="video/mpeg" align="left"&gt;&lt;/object&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Schreiben Sie in XHTML immer alle Elementnamen wie <code>object</code> oder Attributnamen wie <code>data</code> oder <code>type</code> klein. Schreiben Sie Wertzuweisungen im Zweifelsfall ebenfalls immer klein, also beispielsweise bei <code>align="left"</code>. Nur dort, wo in einer Wertzuweisung die Großschreibung von bestimmten Buchstaben erforderlich ist, wie im Beispiel beim Dateinamen <code>Video.mpg</code>, können Sie den Wert so schreiben wie es erforderlich ist.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="leere_elemente">Unterschied: Leere Elemente</a></h2>
+
+<p>In HTML 4.0 gibt es diverse leere Elemente. Das sind Elemente ohne Inhalt. Das Abschluss-Tag ist deshalb verboten, weil die Elemente als inhaltsleer definiert sind. Beispiele:<br>
+<code>&lt;img&gt;</code>, <code>&lt;br&gt;</code>, <code>&lt;input&gt;</code>, <code>&lt;hr&gt;</code>.<br>
+In XML-basierten Sprachen, also auch in XHTML, müssen solche leeren Elemente gesondert gekennzeichnet werden.</p>
+
+<h3 class="xmp">Beispiel für HTML 4.01:</h3>
+
+<pre>
+&lt;p&gt;Text mit&lt;br&gt;Zeilenumbruch&lt;/p&gt;
+&lt;p&gt;&lt;img src="bild.png" alt="ein Bild"&gt;&lt;/p&gt;
+</pre>
+
+<h3 class="xmp">Entsprechendes Beispiel für XHTML 1.0:</h3>
+
+<pre>
+&lt;p&gt;Text mit&lt;br /&gt;Zeilenumbruch&lt;/p&gt;
+&lt;p&gt;&lt;img src="bild.png" alt="ein Bild" /&gt;&lt;/p&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Notieren Sie unmittelbar vor der schließenden spitzen Klammer des alleinstehenden Tags einen Schrägstrich, sodass am Ende die Zeichenfolge <code>/&gt;</code> steht. Vor dem Schrägstrich sollte ein Leerzeichen stehen, um die Funktionalität in alten Browsern zu gewährleisten. Alternativ dazu können Sie auch ein Element mit Anfangs- und End-Tag notieren, z.B. <code>&lt;br&gt;&lt;/br&gt;</code>. Dabei darf jedoch nichts, auch kein Leerzeichen und kein Zeilenumbruch, zwischen dem Anfangs- und dem End-Tag stehen, ansonsten ist es ungültiges XHTML.</p>
+
+<p>Wenn Sie Elemente, die Inhalt haben können, ohne Inhalt verwenden, z.B. <code>&lt;p&gt;&lt;/p&gt;</code>, dann notieren Sie sie in XHTML jedoch besser in dieser Form und nicht in der Form <code>&lt;p&nbsp;/&gt;</code>. Denn die verbreiteten HTML-Parser behandeln <code>&lt;p&nbsp;/&gt;</code> wie <code>&lt;p&gt;</code>.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="optionales_abschlusstag">Unterschied: Elemente mit optionalem Abschluss-Tag</a></h2>
+
+<p>In HTML 4.0 gibt es diverse Elemente mit optionalem Abschluss-Tag. Beispiele:<br>
+<code>&lt;body&gt;</code>, <code>&lt;td&gt;</code>, <code>&lt;dd&gt;</code>, <code>&lt;dt&gt;</code>, <code>&lt;option&gt;</code>.<br>
+Notieren Sie solche Elemente in XHTML immer mit Anfangs- und Abschluss-Tag.</p>
+
+<h3 class="xmp">Beispiel für HTML 4.01:</h3>
+
+<pre>
+&lt;select name="Auswahl" size="1"&gt;
+  &lt;option&gt;1. Eintrag
+  &lt;option&gt;2. Eintrag
+  &lt;option&gt;3. Eintrag
+&lt;/select&gt;
+</pre>
+
+<h3 class="xmp">Entsprechendes Beispiel für XHTML 1.0:</h3>
+
+<pre>
+&lt;select name="Auswahl" size="1"&gt;
+  &lt;option&gt;1. Eintrag&lt;/option&gt;
+  &lt;option&gt;2. Eintrag&lt;/option&gt;
+  &lt;option&gt;3. Eintrag&lt;/option&gt;
+&lt;/select&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Alle Elemente, die Inhalt haben können, müssen in XHTML mit Anfangs- und Abschluss-Tag gekennzeichnet werden.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="anfuehrungszeichen">Unterschied: Attributwerte in Anführungszeichen</a></h2>
+
+<p>In HTML dürfen Sie Attributen Werte zuweisen, ohne diese mit Hochkommata zu umschließen. In XHTML ist dies zwingend erforderlich.</p>
+
+<h3 class="xmp">Beispiel für HTML 4.01:</h3>
+
+<pre>
+&lt;a name=anker&gt;Anker&lt;/a&gt;
+</pre>
+
+<h3 class="xmp">Entsprechendes Beispiel für XHTML 1.0:</h3>
+
+<pre>
+&lt;a name="anker"&gt;Anker&lt;/a&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Alle Attributwerte müssen in XHTML innerhalb von Anführungszeichen notiert werden.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="leere_attribute">Unterschied: Alleinstehende (leere) Attribute</a></h2>
+
+<p>In HTML 4.0 gibt es diverse Attribute, die keine Wertzuweisung erhalten. Beispiele:<br>
+<code>&lt;input checked&gt;</code>, <code>&lt;textarea readonly&gt;</code>, <code>&lt;input disabled&gt;</code>, <code>&lt;select multiple&gt;</code>, <code>&lt;hr noshade&gt;</code>, <code>&lt;td nowrap&gt;</code>, <code>&lt;script defer&gt;</code>.<br>
+In XML-basierten Sprachen dagegen muss allen Attributen ausdrücklich ein Wert zugewiesen werden. Da diese Attribute nur einen möglichen Wert annehmen können, hat man sich darauf verständigt, als Wert einfach den Attributnamen zu nehmen.</p>
+
+<h3 class="xmp">Beispiel für HTML 4.01:</h3>
+
+<pre>
+&lt;td nowrap&gt;Inhalt&lt;/td&gt;
+&lt;p&gt;Text mit&lt;hr noshade&gt;Trennlinie&lt;/p&gt;
+</pre>
+
+<h3 class="xmp">Entsprechendes Beispiel für XHTML 1.0:</h3>
+
+<pre>
+&lt;td nowrap="nowrap"&gt;Inhalt&lt;/td&gt;
+&lt;p&gt;Text mit&lt;hr noshade="noshade" /&gt;Trennlinie&lt;/p&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Weisen Sie leeren Attributen in XHTML einfach ihren eigenen Namen als Wert zu. Bei den meisten bekannten Browsern gibt es damit keine Probleme.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="leerraum_werte">Unterschied: Leerraum in Wertzuweisungen</a></h2>
+
+<p>Bei Wertzuweisungen an Attribute müssen Sie in XHTML besser aufpassen als in HTML. Leerzeichen sind erlaubt wo erforderlich, doch Zeilenumbrüche sollten Sie vermeiden.</p>
+
+<h3 class="xmp">Beispiel für empfohlenes XHTML 1.0:</h3>
+
+<pre>
+&lt;p title="Anfang der Geschichte"&gt;Text Text Text&lt;/p&gt;
+</pre>
+
+<h3 class="xmp">Beispiel für problematisches XHTML 1.0:</h3>
+
+<pre>
+&lt;p title="Anfang
+der
+Geschichte"&gt;Text Text Text&lt;/p&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Sie sollten sich nicht darauf verlassen, dass die Browser mit Zeilenumbrüchen in Attributwerten so umgehen, wie Sie es erwarten. Verwenden Sie möglichst keine Zeilenumbrüche.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="verweise_anker">Unterschied: Verweise zu Ankern</a></h2>
+
+<p>In HTML können Sie <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../verweise/projektintern.htm#anker">Verweise zu Ankern notieren</a>, z.B. <code>&lt;a href="#anker"&gt;Verweis&lt;/a&gt;</code>. Der entsprechende Anker ist dann notiert mit <code>&lt;a name="anker"&gt;irgendwas&lt;/a&gt;</code>. Auch andere Attribute verwenden diese Technik, wie etwa das <code>usemap</code>-Attribut beim <code>img</code>-Element zum Verweis auf ein <code>map</code>-Element, bei dem ein entsprechendes <code>name</code>-Attribut notiert ist.</p>
+
+<p>In XHTML funktionieren solche Verweise nicht. XML benötigt Namen vom Typ "ID", also dokumentweit eindeutige Bezeichner, um solche Beziehungen auflösen zu können. In XHTML können Sie das <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../attribute/index.htm">Universalattribut</a> <code>id</code> verwenden, um solche Verweise zu realisieren. Es ist zwar bereits in HTML 4 möglich, einen Anker alleine mit dem <code>id</code>-Attribut zu realisieren, z.B. <code>&lt;h2 id="anker"&gt;Überschrift&lt;/h2&gt;</code>, aber dennoch interpretieren manche alte Browser wie Netscape 4 nur <code>&lt;a name="anker"&gt;irgendwas&lt;/a&gt;</code> als Anker. Sie sollten daher beide Attribute notieren, damit sowohl ältere als auch neueren Browser den Anker verstehen und der Anker auch dannn funktioniert, wenn der Browser den XHTML-Verarbeitungsmodus einsetzt.</p>
+
+<h3 class="xmp">Beispiel für HTML 4.01:</h3>
+
+<pre>
+&lt;a href="#anker"&gt;Verweis&lt;/a&gt;
+&lt;p&gt;viel Inhalt&lt;/p&gt;
+&lt;a name="anker"&gt;irgendwas&lt;/a&gt;
+</pre>
+
+<h3 class="xmp">Entsprechendes Beispiel für XHTML 1.0:</h3>
+
+<pre>
+&lt;a href="#anker"&gt;Verweis&lt;/a&gt;
+&lt;p&gt;viel Inhalt&lt;/p&gt;
+&lt;a id="anker" name="anker"&gt;irgendwas&lt;/a&gt;
+</pre>
+
+<h3 class="xmp">Entsprechendes Beispiel für XHTML 1.1:</h3>
+
+<pre>
+&lt;a href="#anker"&gt;Verweis&lt;/a&gt;
+&lt;p&gt;viel Inhalt&lt;/p&gt;
+&lt;a id="anker"&gt;irgendwas&lt;/a&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Notieren Sie in dem <code>a</code>-Element für den Anker beide Attribute <code>id</code> und <code>name</code>. Weisen Sie beiden Attributen exakt den gleichen Namen zu. Ein Browser, der den Verweis nach XHTML-Logik ausführt, benötigt das <code>id</code>-Attribut, während ein Browser, der den Verweis nach HTML-Logik ausführt, das <code>name</code>-Attribut zur Ermittlung des Ankers verwendet. In XHTML 1.1 darf das <code>name</code>-Attribut nicht mehr verwendet werden.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="lang">Unterschied: Das Universalattribut lang</a></h2>
+
+<p>XML-basierte Sprachen benutzen normalerweise anstelle von <code>lang</code> das XML-Universalattribut <code>xml:lang</code>. Da das <code>lang</code>-Attribut in XHTML jedoch ebenfalls zur Verfügung steht, existieren also zwei Attribute für die gleiche Sache. XHTML-Parser bevorzugen im Zweifelsfall das Attribut <code>xml:lang</code>, das aber von reinen HTML-Parsern nicht erkannt wird. Notieren Sie deshalb in der Praxis stets beide Varianten, falls Sie das Attribut verwenden.</p>
+
+<h3 class="xmp">Beispiel für HTML 4.01:</h3>
+
+<pre>
+&lt;html lang="de"&gt;
+&lt;!-- Inhalt der Datei --&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xmp">Entsprechendes Beispiel für XHTML 1.0:</h3>
+
+<pre>
+&lt;html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de">
+&lt;!-- Inhalt der Datei --&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xmp">Entsprechendes Beispiel für XHTML 1.1:</h3>
+
+<pre>
+&lt;html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de"&gt;
+&lt;!-- Inhalt der Datei --&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Die Sprache des Dokuments wird durch die Angabe <code>lang="de"</code> im <code>html</code>-Element dokumentweit festgelegt. Im XHTML 1.0-Beispiel kommt, neben der <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#wurzelelement">Namensraumangabe</a>, zusätzlich das Attribut <code>xml:lang="de"</code> hinzu. Die Reihenfolge der Attribute spielt keine Rolle. In XHTML 1.1 entfällt das <code>lang</code>-Attribut zugunsten von <code>xml:lang</code>.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="script_style">Unterschied: Inhalt von Script- und Style-Bereichen</a></h2>
+
+<p>In HTML 4.0 ist der Inhalt der Elemente <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../transit/scripts.htm">script</a> und <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../transit/stylesheets.htm">style</a> als "CDATA" festgelegt, während er in XHTML als "PCDATA" behandelt wird. Im Klartext bedeutet das, dass bei HTML 4.0 innerhalb eines <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../javascript/intro.htm#javascriptbereiche">Script-Bereichs</a> oder <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/formate/einbinden.htm#zentral">Style-Bereichs</a> HTML-eigene Zeichen wie <code>&lt;</code>, <code>&gt;</code>, <code>&amp;</code> und <code>"</code> nicht <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../allgemein/zeichen.htm#html_eigene">maskiert</a> werden müssen. Nicht so in XHTML. Wenn Sie beispielsweise in einem JavaScript innerhalb einer Bedingung vergleichen, ob ein Wert kleiner oder größer als ein anderer Wert ist, müssen Sie die spitzen Klammern außerhalb einer Zeichenkette notieren und können sie daher an der Stelle auch nicht maskieren. Um das Problem zu lösen, können Sie das Script in einen <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../xml/regeln/zeichen.htm#cdata">CDATA-Abschnitt</a> anschließen. Dies ist eine XML-typische Notation.</p>
+
+<p>Da XML-Parser HTML-Kommentare (und damit auch den enthaltenen JavaScript-Code) entfernen dürfen, sollte auf die früher übliche Auskommentierung des Scripts verzichtet werden, die für die heute verwendeten Browser auch nicht mehr erforderlich ist.</p>
+
+<h3 class="xmp">Beispiel für HTML 4.01:</h3>
+
+<pre>
+&lt;script type="text/javascript"&gt;
+&lt;!--
+  /* JavaScript-Kommentar: jetzt folgt ein kleines Script */
+  if (parseInt(navigator.appVersion) &lt; 5)
+    alert("Oh, ein sehr alter Browser");
+  /* und damit ist das Script auch schon zu ende */
+//--&gt;
+&lt;/script&gt;
+</pre>
+
+<h3 class="xmp">Entsprechendes Beispiel für XHTML 1.0:</h3>
+
+<pre>
+&lt;script type="text/javascript"&gt;
+/* &lt;![CDATA[ */
+  /* JavaScript-Kommentar: jetzt folgt ein kleines Script */
+  if (parseInt(navigator.appVersion) &lt; 5)
+    alert("Oh, ein sehr alter Browser");
+  /* und damit ist das Script auch schon zu ende */
+/* ]]&gt; */
+&lt;/script&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Der "CDATA"-Abschnitt beginnt mit <code>&lt;![CDATA[</code> und endet mit <code>]]&gt;</code>. Ohne diese Umklammerung würde ein XML-Parser das <code>&lt;</code>-Zeichen innerhalb des Scripts als Fehler ankreiden. Damit der Browser die Anfang- und Endmarkierung des CDATA-Abschnitts nicht als JavaScript-Code zu interpretieren versucht, werden sie durch <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../javascript/sprache/regeln.htm#kommentare">JavaScript-Kommentare</a> vor ihm versteckt. Den Inhalt von <code>style</code>-Elementen können Sie ebenso umschließen und analog die Markierungen mit <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/formate/einbinden.htm#kommentare">CSS-Kommentaren</a> vor dem CSS-Parser verbergen.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Um Fehler bei JavaScript-Interpretern zu vermeiden, bleibt die Möglichkeit, <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../javascript/intro.htm#javascriptdateien">JavaScript in separaten Dateien</a> zu notieren. Auch bei Stylesheets besteht die Möglichkeit, <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/formate/einbinden.htm#separat">Formate zentral in einer separaten CSS-Datei</a> zu definieren.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="verschachtelung">Unterschied: Ausnahmen von Verschachtelungsregeln</a></h2>
+
+<p>In der Dokumenttyp-Definition von HTML 4.0 sind einige Ausnahmen bei Verschachtelungsregeln für Elemente definiert. Dies ist beispielsweise bei dem <code>a</code>-Element nötig, das kein anderes <code>a</code>-Element enthalten darf. Die DTD kann zwar festgelegen, dass ein <code>a</code>-Element nicht direkt ein <code>a</code>-Element enthalten darf, sodass <code>&lt;a&gt;&lt;a&gt;...&lt;/a&gt;&lt;/a&gt;</code> nicht erlaubt ist. Ein <code>a</code>-Element darf jedoch andere Elemente enhalten, die ihrerseits ein <code>a</code>-Element enthalten dürfen, z.B. <code>span</code>. In diesem Fall greifen die normalen Regeln nicht und es ist eine Ausnahmeregel nötig, um z.B. <code>&lt;a&gt;&lt;span&gt;&lt;a&gt;...&lt;/a&gt;&lt;/span&gt;&lt;/a&gt;</code> zu verbieten.</p>
+
+<p>Mit Hilfe von SGML ist die Formulierung solcher Ausnahmen möglich. So ist beispielsweise festgelegt, dass ein <code>a</code>-Element auch als indirektes Kindelement kein anderes <code>a</code>-Element enthalten darf. XML dagegen bietet keine Möglichkeit, solche Ausnahmen zu formulieren. In den XML-basierten Dokumenttyp-Definitionen von XHTML fehlen solche Verschachtelungsverbote daher. Somit ist z.B. <code>&lt;a&gt;&lt;a&gt;...&lt;/a&gt;&lt;/a&gt;</code> gemäß den Regeln der DTDs von XHTML zunächst erlaubt. Um eine möglichst hunderprozentige Kompatibilität zwischen HTML und XHTML zu erreichen, blieb dem W3-Konsortium nur der Ausweg, diese Verschachtelungsverbote verbal als "normativen Anhang" zu den DTDs zu erklären.</p>
+
+<p>Folgende Verschachtelungsregeln sind betroffen:</p>
+
+<ul>
+<li><code>a</code>-Elemente dürfen keine weiteren <code>a</code>-Elemente enthalten.</li>
+<li><code>pre</code>-Elemente dürfen keine Elemente <code>img</code>, <code>object</code>, <code>big</code>, <code>small</code>, <code>sub</code> oder <code>sup</code> enthalten.</li>
+<li><code>button</code>-Elemente dürfen keine Elemente <code>input</code>, <code>select</code>, <code>textarea</code>, <code>label</code>, <code>button</code>, <code>form</code>, <code>fieldset</code>, <code>iframe</code> oder <code>isindex</code> enthalten.</li>
+<li><code>label</code>-Elemente dürfen keine weiteren <code>label</code>-Elemente enthalten.</li>
+<li><code>form</code>-Elemente dürfen keine weiteren <code>form</code>-Elemente enthalten.</li>
+</ul>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Wenn Sie Ihr XHTML-Dokument z.B. mit dem <img src="../../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://validator.w3.org/">W3C-Validator</a> auf syntaktische Korrektheit prüfen, werden solche Verschachtelungsfehler nicht gefunden, denn dieser Validator prüft das Dokument unter Berücksichtigung der Dokumenttyp-Definition. Alternativ können Sie den <img src="../../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a target="_top" href="http://schneegans.de/sv/">XHTML 1.0 Schema-Validator</a> verwenden, der neben anderen strengeren Tests die Einhaltung der genannten Verschachtelungsregeln überprüft.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0">&nbsp;<a class="an" name="beispiel">Beispiel eines XHTML-Dokuments</a></h2>
+
+<p>Das folgende Beispiel zeigt ein vollständiges XHTML-Dokument, in dem Sie die Unterschiede zu HTML noch einmal im Zusammenhang sehen können. Sie können das zugehörige Anzeigebeispiel einmal als Datei mit der Endung <var>.htm</var>, einmal als Datei mit der Endung <var>.xhtml</var> und einmal als Datei mit der Endung <var>.xml</var> aufrufen, um selber zu testen, was in Ihrem Browser dann passiert. Es handelt sich um exakt den gleichen Inhalt, nur die Dateinamen sind unterschiedlich.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/beispiel.htm">Anzeigebeispiel: So sieht's aus</a> (<var>beispiel<b>.htm</b></var>)<br>
+<img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/beispiel.xhtml">Anzeigebeispiel: So sieht's aus</a> (<var>beispiel<b>.xhtml</b></var>)<br>
+<img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/beispiel.xml">Anzeigebeispiel: So sieht's aus</a> (<var>beispiel<b>.xml</b></var>)</p>
+
+<pre>
+&lt;?xml version="1.0" encoding="ISO-8859-1" ?&gt;
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "xhtml1-transitional.dtd"&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
+&lt;head&gt;
+&lt;meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" /&gt;
+&lt;title&gt;Wenn HTML zu XHTML wird&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h1&gt;&lt;a name="start" id="start"&gt;Wenn HTML zu XHTML wird&lt;/a&gt;&lt;/h1&gt;
+
+&lt;p&gt;Dann m&amp;uuml;ssen alle Elemente mit Inhalt ein End-Tag haben.&lt;/p&gt;
+
+&lt;p&gt;Leere Elemente&lt;br /&gt;m&amp;uuml;ssen einen Schr&amp;auml;gstrich am Ende haben.&lt;/p&gt;
+
+&lt;hr noshade="noshade" /&gt;
+&lt;p&gt;Leere Attribute erhalten ihren eigenen Namen als Wert zugewiesen.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="#start"&gt;Verweise zu Ankern&lt;/a&gt; springen zum Zielelement
+aufgrund des id-Attributs, nicht das name-Attributs.&lt;/p&gt;
+
+&lt;script type="text/javascript" src="zeitstempel.js"&gt;&lt;/script&gt;
+&lt;!-- So werden Scripts am sichersten eingebunden. --&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Bei der Dokumenttyp-Deklaration ist nur <code>xhtml1-transitional.dtd</code> als URI notiert, ohne weitere Web-Adresse oder Pfadangabe. Das liegt daran, dass die DTD mit dem Namen <var>xhtml1-transitional.dtd</var> im gleichen Verzeichnis wie das Dokument selber liegt.</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="modularisierung.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="modularisierung.htm">Modularisierung von XHTML und XHTML 1.1</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="../attribute/eventhandler.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../attribute/eventhandler.htm">Event-Handler für Scripts</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">HTML/XHTML</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">XHTML und HTML</a></td>
+</tr></table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

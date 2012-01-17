@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="value_of.xsl" ?>
+<test>
+ <liste>
+   <eintrag>mein Haus</eintrag>
+   <eintrag>mein Auto</eintrag>
+   <eintrag>mein Boot</eintrag>
+ </liste>
+</test>
+

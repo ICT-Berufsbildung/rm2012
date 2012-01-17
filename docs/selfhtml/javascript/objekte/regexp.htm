@@ -1,0 +1,415 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: JavaScript / Objektreferenz / RegExp</title>
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<meta name="description"    content="Welche Aufgaben, Eigenschaften und Methoden das RegExp-Objekt in JavaScript hat.">
+<meta name="keywords"       content="SELFHTML, JavaScript, Objekte, reguläre Ausdrücke, Suchen, Ersetzen, RegExp, $1, exec, test">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-11-16T01:48:05+01:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/javascript/objekte/RegExp.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="Objektreferenz" href="index.htm">
+<link rel="next" title="screen" href="screen.htm">
+<link rel="prev" title="Number" href="number.htm">
+<link rel="first" title="Hinweise zur JavaScript-Objektreferenz" href="hinweise.htm">
+<link rel="last" title="Objektunabhängige Funktionen" href="unabhaengig.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">JavaScript/DOM</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Objektreferenz</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">RegExp</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#allgemeines">Allgemeines zur Verwendung</a>
+</p>
+
+<h3>Eigenschaften:</h3>
+
+<p><img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#dollar_1_9">$[1..9]</a> (geklammerte Unterausdrücke)</p>
+
+<h3>Methoden:</h3>
+
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#exec">exec()</a> (Regulären Ausdruck anwenden)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#test">test()</a> (Regulären Ausdruck probehalber anwenden)
+
+</td>
+</tr><tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><a class="an" name="allgemeines">Allgemeines zur Verwendung</a></h2>
+
+<p>Reguläre Ausdrücke dienen dazu, Suchausdrücke zu formulieren, um in Zeichenketten nach Entsprechungen zu suchen und  gefundene Stellen durch andere zu ersetzen.</p>
+
+<p>Reguläre Ausdrücke können Sie in JavaScript direkt innerhalb entsprechender Methoden des <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="string.htm">String</a>-Objekts anwenden. Das trifft auf die Methoden:<br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="string.htm#match">match()</a>,<br> <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="string.htm#replace">replace()</a> und<br> <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="string.htm#search">search()</a> zu.<br>
+Dort wird beschrieben, wie und wo Sie den regulären Ausdruck genau verwenden können, um Zeichenketten zu durchsuchen und Teile darin zu ersetzen.</p>
+
+<p>Das <code>RegExp</code>-Objekt von JavaScript brauchen Sie dagegen nur, wenn Sie reguläre Ausdrücke zur Laufzeit des Scripts dynamisch erzeugen und ändern wollen. Dazu können Sie eine Instanz eines <code>RegExp</code>-Objekts definieren. Auf diese Instanz können Sie anschließend die Eigenschaften und Methoden des <code>RegExp</code>-Objekts anwenden, die hier beschrieben werden.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/regexp_allgemeines.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;script type="text/javascript"&gt;
+function Ausgabe (Wert) {
+  var Ausdruck = /(\w.+)\s(\w.+)/;
+  Ausdruck.exec(Wert);
+  alert(RegExp.$2 + ", " + RegExp.$1);
+}
+&lt;/script&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;form action=""&gt;
+&lt;input type="text" name="User" value="Vorname Zuname"&gt;
+&lt;input type="button" value="Ausgabe" onclick="Ausgabe(this.form.User.value)"&gt;
+&lt;/form&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel zeigt, wie sich ein Name nach dem Schema "Vorname Zuname" unter Verwendung eines regulären Ausdrucks in das Schema "Name, Vorname" verwandeln lässt.</p>
+
+<p>Das Beispiel enthält ein Formular mit einem Eingabefeld und einem Button. In dem Eingabefeld soll der Anwender seinen Namen in der Form "Vorname Zuname" eingeben. Deshalb ist das Feld auch schon so vorbelegt. Beim Anklicken des Buttons wird die Funktion <code>Ausgabe()</code> aufgerufen, die im Dateikopf definiert ist. Als Parameter bekommt die Funktion den Inhalt des Eingabefeldes übergeben.</p>
+
+<p>Innerhalb der Funktion wird ein regulärer Ausdruck (Suchausdruck) definiert, der in der Variablen <code>Ausdruck</code> gespeichert wird. Solche regulären Ausdrücke werden in einfache Schrägstriche <code>/.../</code> eingeschlossen. Der reguläre Ausdruck im obigen Beispiel ist so zu lesen: Suche nach einer beliebigen Anzahl von aneinandergereihten Buchstaben ohne Ziffern und Satzzeichen und merke dir das Ergebnis <code>(\w.+)</code>. Suche dann nach einem einzelnen Leerzeichen = <code>\s</code>. Suche dann noch einmal nach einer beliebigen Buchstabenreihenfolge und merke dir das Ergebnis <code>(\w.+)</code>. Auf diese Weise wird das Schema "Vorname Zuname" gefunden. Die beiden Klammern um <code>(\w.+)</code> führen dazu, dass die beiden einzelnen Buchstabenreihenfolgen als einzelne Teile intern gemerkt werden. Später sind diese einzelnen gemerkten Teile separat ansprechbar.</p>
+
+<p>Im Beispiel wird mit dem nächsten Befehl eine wichtige Methode des <code>RegExp</code>-Objekts auf den zuvor definierten regulären Ausdruck angewendet, nämlich die Methode <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#exec">exec()</a>. Dadurch wird der Ausdruck "ausgeführt" und direkt dem <code>RegExp</code>-Objekt zugewiesen. Im Beispiel wird mit <code>RegExp.$2</code> direkt auf den intern gespeicherten Treffers des zweiten geklammerten Teilausdrucks zugegriffen, und mit <code>RegExp.$1</code> auf den Treffer des ersten Teilausdrucks. Durch die Anordnung mit dem Komma dazwischen bei der Ausgabe mit <code>alert()</code> erscheint das zuvor eingegebene "Vorname Zuname" dann in dem anderen Schema "Zuname, Vorname".</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Seit der JavaScript-Version 1.5 gilt das Auslesen der Treffer geklammerten Ausdrücke über <code>RegExp.$1</code>, <code>RegExp.$2</code> und so weiter als veraltet. In der Praxis steht allerdings nur bei der im Beispiel verwendeten Methode <code>exec()</code> eine Alternative zur Verfügung. Näheres entnehmen Sie bitte der Beschreibung von <code>exec()</code>.</p>
+
+<h3 class="inf">Syntax regulärer Ausdrücke</h3>
+
+<p>Die folgende Übersicht zeigt, aus welchen Bestandteilen Sie einen regulären Ausdruck zusammensetzen können.</p>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<th nowrap="nowrap">Bestandteil</th>
+<th nowrap="nowrap">Beispiel</th>
+<th nowrap="nowrap">Beschreibung</th>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>&nbsp;</code></td>
+<td class="code" nowrap="nowrap"><code>/aus/</code></td>
+<td class="tabxpl">findet "aus", und zwar in "aus", "Haus", "auserlesen" und "Banause".</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>^</code></td>
+<td class="code" nowrap="nowrap"><code>/^aus/</code></td>
+<td class="tabxpl">findet "aus" am Anfang des zu durchsuchenden Wertes, also in "aus" und "auserlesen", sofern das die ersten Wörter im Wert sind.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>$</code></td>
+<td class="code" nowrap="nowrap"><code>/aus$/</code></td>
+<td class="tabxpl">findet "aus" am Ende des zu durchsuchenden Wertes, also in "aus" und "Haus", sofern das die letzten Wörter im Wert sind.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>*</code></td>
+<td class="code" nowrap="nowrap"><code>/aus*/</code></td>
+<td class="tabxpl">findet "au", "aus", "auss" und "aussssss", also das letzte Zeichen vor dem Stern 0 oder beliebig oft hintereinander wiederholt.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>+</code></td>
+<td class="code" nowrap="nowrap"><code>/aus+/</code></td>
+<td class="tabxpl">findet "auss" und "aussssss", also das letzte Zeichen vor dem Plus-Zeichen mindestens einmal oder beliebig oft hintereinander wiederholt.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>.</code></td>
+<td class="code" nowrap="nowrap"><code>/.aus/</code></td>
+<td class="tabxpl">findet "Haus" und "Maus", also ein beliebiges Zeichen an einer bestimmten Stelle.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>.+</code></td>
+<td class="code" nowrap="nowrap"><code>/.+aus/</code></td>
+<td class="tabxpl">findet "Haus" und "Kehraus", also eine beliebige Zeichenfolge an einer bestimmten Stelle. Zusammensetzung aus <i>beliebiges Zeichen</i> und <i>beliebig viele davon, jedoch mindestens eines</i>.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>\b</code></td>
+<td class="code" nowrap="nowrap"><code>/\baus\b/</code></td>
+<td class="tabxpl">findet "aus" als einzelnes Wort. \b bedeutet eine Wortgrenze.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>\B</code></td>
+<td class="code" nowrap="nowrap"><code>/\Baus\B/</code></td>
+<td class="tabxpl">findet "aus" nur innerhalb von Wörtern, z.B. in "hausen" oder "Totalausfall". \B bedeutet <i>keine Wortgrenze</i>.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>\d</code></td>
+<td class="code" nowrap="nowrap"><code>/\d+/</code></td>
+<td class="tabxpl">findet eine beliebige ganze Zahl. \d bedeutet eine Ziffer (0 bis 9)</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>\D</code></td>
+<td class="code" nowrap="nowrap"><code>/\D+/</code></td>
+<td class="tabxpl">findet "-fach" in "3-fach", also keine Ziffer.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>\f</code></td>
+<td class="code" nowrap="nowrap"><code>/\f/</code></td>
+<td class="tabxpl">findet ein Seitenvorschubzeichen.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>\n</code></td>
+<td class="code" nowrap="nowrap"><code>/\n/</code></td>
+<td class="tabxpl">findet ein Zeilenvorschub-Zeichen.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>\r</code></td>
+<td class="code" nowrap="nowrap"><code>/\r/</code></td>
+<td class="tabxpl">findet ein Wagenrücklaufzeichen.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>\t</code></td>
+<td class="code" nowrap="nowrap"><code>/\t/</code></td>
+<td class="tabxpl">findet ein Tabulator-Zeichen.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>\v</code></td>
+<td class="code" nowrap="nowrap"><code>/\v/</code></td>
+<td class="tabxpl">findet ein vertikales Tabulator-Zeichen.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>\s</code></td>
+<td class="code" nowrap="nowrap"><code>/\s/</code></td>
+<td class="tabxpl">findet jede Art von Weißraum-Zeichen ("Whitespace"), also \f, \n, \t, \v und das Leerzeichen.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>\S</code></td>
+<td class="code" nowrap="nowrap"><code>/\S+/</code></td>
+<td class="tabxpl">findet ein beliebiges einzelnes Zeichen, das kein "Whitespace" ist, also kein \f\n\t\v und kein Leerzeichen.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>\w</code></td>
+<td class="code" nowrap="nowrap"><code>/\w+/</code></td>
+<td class="tabxpl">findet alle alphanumerischen Zeichen und den Unterstrich (typische Bedingung etwa für programmiersprachengerechte selbstvergebene Namen).</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>\W</code></td>
+<td class="code" nowrap="nowrap"><code>/\W/</code></td>
+<td class="tabxpl">findet ein Zeichen, das nicht alphanumerisch und auch kein Unterstrich ist (typisch zum Suchen nach illegalen Zeichen bei programmiersprachengerechten selbstvergebenen Namen).</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>()</code></td>
+<td class="code" nowrap="nowrap"><code>/(aus)/</code></td>
+<td class="tabxpl">findet "aus" und merkt es sich intern. Bis zu 9 solcher Klammern (Merkplätze) sind in einem regulären Ausdruck erlaubt.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>/.../g</code></td>
+<td class="code" nowrap="nowrap"><code>/aus/g</code></td>
+<td class="tabxpl">findet "aus" so oft wie es in dem gesamten zu durchsuchenden Bereich vorkommt. Die Fundstellen werden intern in einem Array gespeichert.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>/.../i</code></td>
+<td class="code" nowrap="nowrap"><code>/aus/i</code></td>
+<td class="tabxpl">findet "aus", "Aus" und "AUS", also unabhängig von Groß-/Kleinschreibung.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>/.../gi</code></td>
+<td class="code" nowrap="nowrap"><code>/aus/gi</code></td>
+<td class="tabxpl">findet "aus", so oft wie es in dem gesamten zu durchsuchenden Bereich vorkommt (<code>g</code>) und unabhängig von Groß-/Kleinschreibung (<code>i</code>).</td>
+</tr>
+</table>
+
+<p>Umfangreichere Informationen über reguläre Ausdrücke finden Sie innerhalb dieser Dokumentation auf der Seite <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../perl/sprache/regexpr.htm">reguläre Ausdrücke in Perl</a>.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/js12.gif" width="30" height="30" alt="JavaScript 1.2" title="JavaScript 1.2"><img src="../../src/netsc4.gif" width="30" height="30" alt="Netscape 4.0" title="Netscape 4.0"><img src="../../src/msie4.gif" width="30" height="30" alt="MS IE 4.0" title="MS IE 4.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0"><img src="../../src/jsread.gif" width="60" height="30" alt="Lesen">&nbsp;<a class="an" name="dollar_1_9">$[1..9]</a></h2>
+
+<p>Speichert die umklammerten Bestandteile eines regulären Ausdrucks. Diese lassen sich benutzen, um bestimmte Teile eines Strings zu extrahieren oder unter Zuhilfenahme der Funktion <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="string.htm#replace">replace()</a> zu ersetzen.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/regexp_dollar_1_9.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;script type="text/javascript"&gt;
+var string = "Dies ist ein Verweis nach: http://de.selfhtml.org/";
+var neu = string.replace(/(http:\/\/\S*)/g, '&lt;a href="$1"&gt;$1&lt;\/a&gt;');
+alert("alter String:\n" + string + "\n\nneuer String:\n" + neu + "\n\nDer Verweis lautete: " + RegExp.$1);
+&lt;/script&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel zeigt eine typische Anwendung von <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="string.htm#replace">replace()</a>. Der Ausdruck sucht in einem String nach einer URL in der Art <code>http://domain.tld</code> und ersetzt alle gefundenen Stellen durch einen HTML-Verweis. Das geschieht, indem der Suchausdruck geklammert wird. Im zweiten Parameter, dem Ersatz-String, wird auf den Treffer dieses geklammerten Suchausdrucks mit <code>$1</code> verwiesen. An der Stelle der Nennung von <code>$1</code> wird im Beispiel also jeweils der Treffer des Suchausdrucks <code>(http:\/\/\S*)</code> eingefügt, im Beispiel <code>http://de.selfhtml.org/</code>. Falls der Suchausdruck weitere Teile in Klammern erhält, können dessen Treffer im zweiten Parameter entsprechend mit <code>$2</code>, <code>$3</code> usw. eingefügt werden.</p>
+
+<p>Das Beispiel demonstriert zudem, wie nach dem Ausführen der <code>replace()</code>-Methode auf die Teiltreffer des Suchausdrucks zugegriffen werden kann. Sie werden jeweils als Eigenschaften des globalen <code>RegExp</code>-Objektes erstellt. Mit <code>RegExp.$1</code> wird der erste Teiltreffer angesprochen, mit <code>RegExp.$2</code> der zweite und so weiter.</p>
+
+<p><code>RegExp.$1</code> und die folgenden Eigenschaften sind in den gängigen Browsern nach jeder Anwendung von regulären Ausdrücken entsprechend gefüllt, sofern Teile des Ausdrucks geklammert sind. Dies betrifft die Methoden <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="string.htm#match">match()</a>, <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="string.htm#replace">replace()</a> und <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="string.htm#search">search()</a> von String-Objekten sowie die auf dieser Seite beschriebenen Methoden <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#exec">exec()</a> und <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#test">test()</a>.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Safari und Konqueror bilden eine Ausnahme: Bei den Methoden <code>match()</code> und <code>replace()</code> werden <code>RegExp.$1</code> und folgende Eigenschaften nicht gefüllt. Im obigen Beispiel gelingt das Auslesen des Teiltreffers in diesen Browsern daher nicht. Es müsste z.B. ausdrücklich <code>exec()</code> ausgeführt werden, um an die Teiltreffer zu kommen.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/js12.gif" width="30" height="30" alt="JavaScript 1.2" title="JavaScript 1.2"><img src="../../src/netsc4.gif" width="30" height="30" alt="Netscape 4.0" title="Netscape 4.0"><img src="../../src/msie4.gif" width="30" height="30" alt="MS IE 4.0" title="MS IE 4.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="exec">exec()</a></h2>
+
+<p>Wendet einen regulären Ausdruck einmalig auf eine Zeichenkette an und gibt einen Array mit dem Treffer des Gesamtausdrucks sowie die Treffer der geklammerten Teilausdrücke zurück. Wenn der Ausdruck nicht auf die Zeichenkette passt, gibt die Methode <code>null</code> zurück.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/regexp_exec1.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;script type="text/javascript"&gt;
+var derSatz = "Auf der Mauer, auf der Lauer sitzt 'ne kleine Wanze.";
+var Suche = /der (\w*)(.*)/;
+var Ergebnis = Suche.exec(derSatz);
+document.write("&lt;p&gt;Originaltext: '&lt;i&gt;" + Ergebnis.input + "&lt;\/i&gt;'&lt;\/p&gt;");
+document.write("&lt;p&gt;Treffer des Gesamtausdrucks: '&lt;i&gt;" + Ergebnis[0] +
+  "&lt;\/i&gt;' an der Position " + Ergebnis.index + "&lt;\/p&gt;");
+document.write("&lt;p&gt;Die Treffer der Teilausdrücke im Einzelnen:&lt;\/p&gt;");
+document.write("&lt;ol&gt;");
+for (var i = 1; i &lt; Ergebnis.length; i++) {
+  document.write("&lt;li&gt;'&lt;i&gt;" + Ergebnis[i] + "&lt;\/i&gt;'&lt;\/li&gt;");
+}
+document.write("&lt;\/ol&gt;");
+&lt;/script&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel demonstriert die Anwendung eines regulären Ausdrucks auf eine Zeichenkette und den umfassenden Zugriff auf die Treffer und Teiltreffer. Zunächst wird ein regulärer Ausdruck mit dem Namen <code>Suche</code> definiert. Er besteht aus dem festen Anfang <code>der </code> gefolgt von einer beliebigen Anzahl von alphanumerischen Zeichen bzw. oder Unterstrichen (<code>\w*</code>). Danach kann eine beliebige Anzahl von beliebigen Zeichen folgen (<code>.*</code>). Um die Teilausdrücke <code>\w*</code> und <code>.*</code> sind jeweils Klammern notiert, sodass später deren Treffer ausgelesen werden können.</p>
+
+<p>Mit dem Methoden-Aufruf <code>Suche.exec()</code> wird der reguläre Ausdruck auf eine Zeichenkette angewandt. Als Parameter wird der Methode der zu durchsuchende Ausdruck übergeben. Die Methode gibt einen Array mit den Treffern zurück, der in der Variable <code>Ergebnis</code> gespeichert wird.</p>
+
+<p>Im Folgenden werden die Informationen aus dem Array mit <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="document.htm#write">document.write()</a> ausgegeben. Das erste Element des Arrays (mit dem Index 0) ist der Treffer des Gesamtausdrucks. In den nachfolgenden Array-Elementen (mit dem Index 1 und darüber) sind die Teilstrings gespeichert, auf die die eingeklammerte Ausdrucksteile gepasst haben.</p>
+
+<p>Das Beispiel durchläuft den Array mit einer for-Schleife und gibt auf diese Weise alle Teiltreffer aus. Zudem werden zwei besondere Objekteigenschaften des von <code>exec()</code> zurückgegebenen Arrays demonstriert: <code>index</code> und <code>input</code>. Diese kennt ein gewöhnlicher Array nicht. In der Eigenschaft <code>index</code> ist die Index-Position des Treffers des Gesamtausdrucks gespeichert (beginnend mit 0 für das erste Zeichen der Zeichenkette). In der Eigenschaft <code>input</code> ist die Zeichenkette gespeichert, auf die der Ausdruck mittels <code>exec()</code> angewendet wurde.</p>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/regexp_exec2.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;script type="text/javascript"&gt;
+var derSatz = "Auf der Mauer, auf der Lauer sitzt 'ne kleine Wanze.";
+var Suche = /auf der (\w*)/gi;
+var Ergebnis;
+document.write("&lt;ol&gt;");
+while (Ergebnis = Suche.exec(derSatz)) {
+  document.write("&lt;li&gt;" + Ergebnis[1] + "&lt;\/li&gt;");
+}
+document.write("&lt;\/ol&gt;");
+&lt;/script&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das obige Beispiel veranschaulicht das mehrfache Anwenden von <code>exec()</code>, um alle möglichen Treffer eines Ausdrucks in Erfahrung zu bringen. Eine ähnliche Aufgabe ist zwar mit <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="string.htm#match">match()</a> lösbar, aber <code>match()</code> erlaubt keinen Zugriff auf die jeweiligen Teiltreffer. Über <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#dollar_1_9">RegExp.$1</a> und folgende Eigenschaften können lediglich die Teiltreffer des letzten Vorkommens gelesen werden. <code>exec()</code> hat diese Einschränkung nicht.</p>
+
+<p>Zunächst wird ein regulärer Ausdruck mit dem Zusatz <code>/.../gi</code> definiert. Die Angabe <code>g</code> stellt sicher, dass <code>exec()</code> mehrmals auf einen String angewendet werden kann und dadurch alle Vorkommen gefunden werden. Die Angabe <code>i</code> stellt sicher, dass die Groß- und Kleinschreibung bei der Suche keine Rolle spielt. Der Ausdruck passt auf den festen Text <code>auf der </code> gefolgt von einem Wort beliebiger Länge (<code>\w*</code>).</p>
+
+<p>Damit <code>exec()</code> genau so oft ausgeführt wird, wie weitere Vorkommen gefunden werden, wird eine spezielle while-Schleife benutzt. Als Schleifenbedingung wird nicht wie üblich ein einfacher logischer Ausdruck (z.B. <code>i &gt; 5</code>) notiert, sondern die Wertzuweisung <code>Ergebnis = Suche.exec(derSatz)</code>. - Dies ist möglich, da eine Wertzuweisung ebenfalls ein Ausdruck ist, wie z.B. <code>window.alert(Variable = "Wert");</code> veranschaulicht. - Ihr Ergebnis gleicht dem des rechten Bestandteils <code>Suche.exec(derSatz)</code>, also dem <code>exec()</code>-Aufruf. Dies ist entweder einen Array mit den Suchergebnissen, falls ein Vorkommen gefunden wurde, oder <code>null</code>, falls keine weiteren Vorkommen existieren. Als Ergebnis des Ausdrucks an der Stelle <code>while (Ausdruck) { ... }</code> wird entweder <code>true</code> oder <code>false</code> erwartet. Daher wandelt JavaScript das Ergebnis von <code>Suche.exec(derSatz)</code> entsprechend um. Ein Array gilt als <code>true</code>, sodass die Schleife im Erfolgsfalle fortgesetzt wird. Der Wert <code>null</code> gilt als <code>false</code>, sodass die Schleife abgebrochen wird, nachdem das letzte Vorkommen gefunden wurde.</p>
+
+<p>Im Schleifenkörper wird der Array <code>Ergebnis</code> verwendet. Dieser ist bei jedem Schleifendurchlauf neu gefüllt, da vor jedem Durchlauf die Schleifenbedingung ausgeführt wird - in diesem Fall der Aufruf von <code>exec()</code> und das Speichern des Rückgabewerts in der Variable <code>Ergebnis</code>. Über <code>Ergebnis[1]</code> wird schließlich der Treffer des ersten Teilausdrucks ausgegeben.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Wie im <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#allgemeines">Eingangsbeispiel</a> illustriert, können Sie auf die Teiltreffer eines <code>exec()</code>-Aufrufs anstatt über den zurückgegebenen Array auch über <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#dollar_1_9">RegExp.$1</a> und folgende Eigenschaften zugreifen. Diese Zugriffsweise wird allerdings seit der JavaScript-Version 1.5 als veraltet eingestuft und ist zumindest im Zusammenhang mit <code>exec()</code> auch praktisch unnötig.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/js11.gif" width="30" height="30" alt="JavaScript 1.1" title="JavaScript 1.1"><img src="../../src/netsc3.gif" width="30" height="30" alt="Netscape 3.0" title="Netscape 3.0"><img src="../../src/msie4.gif" width="30" height="30" alt="MS IE 4.0" title="MS IE 4.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="test">test()</a></h2>
+
+<p>Testet vorab, ob ein regulärer Ausdruck zu Suchtreffern führt oder nicht. Gibt <code>true</code> zurück, wenn etwas gefunden wurde, und <code>false</code>, wenn nichts gefunden wurde.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/regexp_test.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Test&lt;/title&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;script type="text/javascript"&gt;
+var derSatz = "Auf der Mauer";
+var Suche = /(sonstwas)/g;
+var Ergebnis = Suche.test(derSatz);
+if (Ergebnis == false)
+  document.write("nichts gefunden");
+&lt;/script&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel definiert einen regulären Ausdruck namens <code>Suche</code> und wendet ihn mit Hilfe der Methode <code>test()</code> auf die Variable <code>derSatz</code> an. Der Rückgabewert wird in der Variablen <code>Ergebnis</code> gespeichert. Wenn nichts gefunden wird, wird ein entsprechender Hinweis geschrieben. Im Beispiel ist das der Fall.</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="string.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="screen.htm">screen</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="number.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="number.htm">Number</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">JavaScript/DOM</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Objektreferenz</a></td>
+</tr>
+</table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

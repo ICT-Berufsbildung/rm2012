@@ -28,7 +28,7 @@
 				<section class="column width2 first">
 				    <div class="column width2 first">
     				    <p>This document describes the tasks for the Regionalmeisterschaft 2012. You have 175 minutes to complete as many tasks as possible. Each task has only a short description, you’re expected to apply your knowledge and experience to implement your own solutions.</p>
-    					<p>The project is a <a href="./">web shop</a> for the region near Eiger, Mönch &amp; Jungfrau. Customers can browse on the website through the categories to different products. The products can be added to a cart and ordered in the checkout.</p>
+    					<p>The project is a <a href="webshop/">web shop</a> for the region near Eiger, Mönch &amp; Jungfrau. Customers can browse on the website through the categories to different products. The products can be added to a cart and ordered in the checkout.</p>
     					<p>Parts of the website are not finished yet and need to be implemented by you. You are free to use and extend existing parts of the project or implement your own.</p>
     
     					<h4>Rating Criteria</h4>
@@ -61,44 +61,29 @@
     					<h4>Project Layout</h4>
     					<p>Study the following project layout to get an overview of the most important folders and files. Notice the separation of controllers, models and views.</p>
     					<div class="column width1 first">
-        					<div class="column unitx1 first">
-            					<ul>
-            					    <li>./</li>
-            					    <li>webshop.sql</li>
-            					    <li>docs/</li>
-            					    <li>
-            					        includes/
-            					        <ul>
-            					            <li>database.php</li>
-            					            <li>webshop.php</li>
-            					        </ul>
-            					    </li>
-            					    <li>views/</li>
-            					    <li>
-            					        media/
-            					        <ul>
-                    					    <li>images/</li>
-                    					    <li>javascripts/</li>
-                    					    <li>stylesheets/</li>
-                    					</ul>
-            					    </li>
-            					</ul>
-        					</div>
-        					<div class="column unitx1">
-        					    <p>
-        					        <br/>PHP Controllers
-        					        <br/>SQL Database
-        					        <br/>Manuals
-        					        <br/>
-        					        <br/>Database access
-        					        <br/>PHP Models
-        					        <br/>PHP views
-        					        <br/>
-        					        <br/>Images
-        					        <br/>JavaScripts
-        					        <br/>CSS
-        					    </p>
-        					</div>
+        					<ul>
+        					    <li>webshop/ – PHP Controllers
+        					    <ul>
+        					    <li>webshop.sql – DB Setup</li>
+        					    <li>
+        					        includes/
+        					        <ul>
+        					            <li>database.php – DB Access</li>
+        					            <li>webshop.php – PHP Models</li>
+        					        </ul>
+        					    </li>
+        					    <li>views/ – PHP Views</li>
+        					    <li>
+        					        media/
+        					        <ul>
+                					    <li>images/ – Images</li>
+                					    <li>javascripts/ – JavaScripts</li>
+                					    <li>stylesheets/ – CSS</li>
+                					</ul>
+        					    </li>
+        					    </ul>
+        					    </li>
+        					</ul>
     					</div>
     				</div>
 				</section>
@@ -107,7 +92,7 @@
 					    <h4>Task I: Random Product</h4>
 					</div>
 					<div class="column unitx3">
-						<p>The product displayed on the current <a href="./">home page</a> is statically hardcoded in the template (views/home.php).</p>
+						<p>The product displayed on the current <a href="webshop/">home page</a> is statically hardcoded in the template (views/home.php).</p>
 						<p>Your task, should you decide to accept it, is to display a new random product after each page reload on the home page. All product information needs to be fetched from the database. The product image and the product title have to link to the detail page of the product.</p>
 					</div>
 					<div class="column unitx1 first">
@@ -122,7 +107,7 @@
 					    <h4>Task II: Checkout</h4>
 					</div>
 					<div class="column unitx3">
-						<p>The current <a href="checkout.php">checkout</a> displays the form but does not have any functionality to save the order.</p>
+						<p>The current <a href="webshop/checkout.php">checkout</a> displays the form but does not have any functionality to save the order.</p>
 						<p>Your task should you decide to accept it, is to implement the PHP code in the file <em>create.php</em> to save the orders to the database tables created in Task I0. Before creating an order, all values have to be validated. All fields are required, the email address has to contain @ and the phone numbers must match this regular expression:</p>
 					    <p><code>^([0-9\(\)\/\+ \-]*)$</code></p>
 					    <p>In case of a validation error inform the customer and display the checkout again. Display a success message and clear the cart if the order has been saved.</p>
@@ -131,7 +116,7 @@
 				        <h4>Task I00: Ajax Cart</h4>
 				    </div>
 				    <div class="column unitx3">
-						<p>Right now removing a product from the <a href="cart.php">cart</a> reloads the page and therefor destroys all quantity modifications of other product items.</p>
+						<p>Right now removing a product from the <a href="webshop/cart.php">cart</a> reloads the page and therefor destroys all quantity modifications of other product items.</p>
 						<p>Your task should you decide to accept it, is to write JavaScript code to execute this action with Ajax. After a successful Ajax response the product has to be removed from the cart table with JavaScript. All quantity modifications of the other products must not get lost during this operation.</p>
 					</div>
 					<div class="column unitx1 first">

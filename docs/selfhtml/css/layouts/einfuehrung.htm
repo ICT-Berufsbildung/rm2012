@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: Stylesheets / CSS-basierte Layouts / Einführung</title>
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<meta name="description"    content="Einführung in CSS-basierte Layouts">
+<meta name="keywords"       content="SELFHTML, CSS, Stylesheets, Cascading Stylesheets, CSS-basierte Layouts">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-08-22T21:21:39+02:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/css/layouts/einfuehrung.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2004-10-01T00:00+02:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="CSS-basierte Layouts" href="index.htm">
+<link rel="next" title="Mehrspaltige CSS-basierte Layouts" href="mehrspaltige.htm">
+<link rel="prev" title="Filter (nur Microsoft)" href="../eigenschaften/filter.htm">
+<link rel="last" title="CSS-Browserweichen zum Ausschließen älterer Browser" href="browserweichen.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"> <a href="../index.htm">Stylesheets</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"> <a href="index.htm">CSS-basierte Layouts</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Einführung in CSS-basierte Layouts</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#trennung">Trennung von Inhalt und Layout</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#boxmodell">Das Box-Modell als Grundlage CSS-basierter Layouts</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#huerden">Warum erst jetzt? Browserbedingte Hürden</a>
+</p>
+</td>
+</tr><tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><a class="an" name="trennung">Trennung von Inhalt und Layout</a></h2>
+
+<p>Gratulation! Wenn Sie bis hierhin vorgedrungen sind, haben Sie vermutlich ausreichend Kenntnisse der in diesem Kapitel behandelten <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../eigenschaften/index.htm">CSS-Eigenschaften</a> erworben und möchten diese nun auch konsequent für die Gestaltung Ihrer Seiten nutzen. Vielleicht haben Sie aber auch nur die Nachteile einer Fensteraufteilung in <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/frames/layouts.htm">Frames</a> erkannt oder möchten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/tabellen/layouts.htm">Tabellen</a> lediglich der Auszeichnung tabellarischer Daten vorbehalten? In jedem Fall sollten Sie zumindest über Grundlagenwissen bezüglich Stylesheets verfügen.</p>
+
+<p>Ein CSS-basiertes Layout setzt das CSS zugrunde liegende Konzept der Trennung des Inhalts und der Struktur einer Seite von deren Präsentation um. Layoutänderungen sind dadurch bereits mit nur geringer Modifikation der CSS-Definitionen zu realisieren und sofern diese in separaten Dateien notiert sind, können Sie das Layout für das gesamte Projekt hierüber einheitlich bestimmen.</p>
+
+<p>Im Gegensatz zu Tabellen-Layouts wird die Seitenaufteilung nicht mehr ausschließlich per HTML-Auszeichnung festgelegt. Sie können die Anordnung der Elemente auf einer Seite über CSS flexibel definieren und sind nicht auf eine unflexible Einteilung in Zeilen und Spalten beschränkt. CSS-basierte Layouts eröffnen Ihnen Möglichkeiten der Seitengestaltung, die mit Tabellen nicht umsetzbar sind.</p>
+
+<p>Durch eine <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/allgemein/stil.htm#zweckentfremden">sinnvolle Auswahl der Elemente</a> und schlüssige Anordnung der Inhalte mit nachfolgender Formatierung und Positionierung per CSS wird die Zugänglichkeit verbessert. Die Erstellung von barrierefreien Seiten gewinnt zunehmend an Bedeutung. Diese Entwicklung wird nicht zuletzt von der Gesetzgebung (betreffend Internetpräsenzen, die unter staatlicher Aufsicht stehen) gefördert. Darüber hinaus erleichtern CSS-Layouts die Pflege der Seiten und reduzieren den Umfang des HTML-Quelltextes und damit die Ladezeiten deutlich.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="boxmodell">Das Box-Modell als Grundlage CSS-basierter Layouts</a></h2>
+
+<p>Versuchen Sie bitte nicht, die Struktur eines Tabellen-Layouts mit ineinander verschachtelten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/text/bereiche.htm#block"><code>div</code>-Elementen</a> nachzubauen. Sie können jedem Block-Element die erforderlichen CSS-Eigenschaften <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../eigenschaften/positionierung.htm#float">float</a>, <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../eigenschaften/positionierung.htm#width">width</a> und <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../eigenschaften/randabstand.htm#margin">margin</a> zuweisen und benötigen <code>div</code>-Tags lediglich zur Gruppierung von Elementen.</p>
+
+<p>Die CSS-Eigenschaft <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../eigenschaften/positionierung.htm#position">position</a> sollten Sie für CSS-Layouts nur im Ausnahmefall verwenden und die hierdurch mögliche Überlagerung von Elementen bei Schriftvergrößerung sowie die Platzierung außerhalb des sichtbaren Bereichs in kleinen Browserfenstern berücksichtigen.</p>
+
+<p>Ein Block-Element nimmt die gesamte zur Verfügung stehende Breite ein, es sei denn, eine geringere Breite wird über <code>width</code> zugewiesen. Wenn in diesem Fall noch ausreichend Platz zur Verfügung steht, können weitere Elemente über <code>float</code> daneben platziert werden. Um dabei einen Textumfluss des Elements zu vermeiden, kann es über <code>margin</code> auf Abstand gehalten werden. Im Gegensatz zu den Zellen in einer Tabellenspalte stellt jedes Block-Element hier eine von den nebenstehenden Elementen unabhängige <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../formate/box_modell.htm">Box</a> dar, wie dieses Beispiel verdeutlicht:</p>
+
+<pre>
+&lt;div style="float:left; width:5em; border:2px solid gray;"&gt;links floatende Box&lt;/div&gt;
+&lt;div style="border:2px solid blue;"&gt;nachfolgende Box&lt;/div&gt;
+</pre>
+
+<div style="float:left; width:5em; border:2px solid gray;">links floatende Box</div>
+<div style="border:2px solid blue;">nachfolgende Box</div>
+
+<h3 class="xpl" style="clear:left; margin-top:3.5em;">Erläuterung:</h3>
+
+<p>Für die linke Box ist <code>float</code> und <code>width</code> definiert. Der Textinhalt der nachfolgenden Box steht daneben, die Box selbst nimmt in diesem Beispiel die gesamte Fensterbreite ein. Auch die Höhe einer Box richtet sich - sofern sie nicht explizit zugewiesen ist - nach ihrem Inhalt und wird nicht von der Höhe einer nebenstehend platzieren Box beeinflusst. Eine Spaltenaufteilung mit durchgängigen Hintergrundfarben, die in Tabellen-Layouts leicht zu realisieren ist, lässt sich daher in einem CSS-Layout nur umständlich optisch simulieren. Stellen Sie sich die Frage, ob eine klassische Spaltenaufteilung wirklich erforderlich ist oder geringe Anpassungen des Layouts an die begrenzten Möglichkeiten des Box-Modells sinnvoller wären.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Alle Beispiele in diesem Kapitel verwenden eine <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../formate/box_modell.htm#standardkonform">Dokumenttyp-Deklarationen für standardkonformen Modus</a> als Voraussetzung für eine korrekte Darstellung des Box-Modells und einiger nicht vermeidbarer Anpassungen für den Internet Explorer.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="huerden">Warum erst jetzt? Browserbedingte Hürden</a></h2>
+
+<p>CSS Level 1 wurde bereits 1996 als eine unmittelbare Ergänzungssprache (vorwiegend) für HTML entwickelt. CSS Level 2, der weiterentwickelte aktuelle Standard, wurde bereits 1998 veröffentlicht und ermöglicht anspruchsvolle CSS-Layouts und Seitenaufteilungen, die zuvor nur durch Verwendung von Frames oder Tabellen möglich waren. Leider können selbst manche aktuellen Browser die neu hinzugekommenen Gestaltungsmöglichkeiten von CSS Level 2 noch immer nicht 100%ig umsetzen. Besonders der Internet Explorer weist diesbezüglich große Lücken und Abweichungen vom Standard auf. So verwendet er selbst in der aktuellen Version 7 im abwärtskompatiblen <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../formate/box_modell.htm#doctype_switch">Quirks-Modus</a> ein anderes Box-Modell, das bei CSS-Layouts oft gesondert zu berücksichtigen ist.</p>
+
+<p>Noch ältere Browser wie Netscape 4 setzen nur einen Bruchteil von CSS Level 2 korrekt um. Da diese aber weitgehend nicht mehr genutzt werden, gehen inzwischen immer mehr Autoren dazu über, fortschrittliche CSS-Layouts in Verbindung mit CSS-Browserweichen zum <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="browserweichen.htm">Ausschließen&nbsp;veralteter&nbsp;Browser</a> zu verwenden. Dies ist <strong>auch in den Beispielen dieses Kapitels</strong> der Fall!</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="mehrspaltige.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="mehrspaltige.htm">Mehrspaltige CSS-basierte Layouts</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="../eigenschaften/filter.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../eigenschaften/filter.htm">Filter (nur Microsoft)</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"> <a href="../index.htm">Stylesheets</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"> <a href="index.htm">CSS-basierte Layouts</a></td>
+</tr>
+</table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

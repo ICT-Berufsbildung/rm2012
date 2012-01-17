@@ -1,0 +1,911 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: Perl / Perl-Module / Modul CGI: Funktionen für die CGI-Programmierung</title>
+<meta name="description"    content="Wie sich das Perl-Standardmodul CGI für eigene CGI-Scripts verwenden lässt.">
+<meta name="keywords"       content="SELFHTML, Perl, Module, Perlmodule, CGI, CGI-Modul">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-11-09T00:29:27+01:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/perl/module/cgi.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="Perl-Module" href="index.htm">
+<link rel="next" title="Computer und geschriebene Sprache" href="../../inter/sprache.htm">
+<link rel="prev" title="CPAN-Module" href="cpanmodule.htm">
+<link rel="first" title="Einführung in das Arbeiten mit Modulen" href="intro.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">Perl</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Perl-Module</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Modul CGI: Funktionen für die CGI-Programmierung</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#allgemeines">Allgemeines zum CGI-Modul</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#einbinden">CGI-Modul in Scripts einbinden</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#htmlausgaben">Einfache (X)HTML-Ausgaben mit dem CGI-Modul</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#header_htmlstart">Erweiterte Ausgaben mit dem CGI-Modul</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#formularverarbeitung">Formular-Verarbeitung mit dem CGI-Modul</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#umgebungsdaten">Umgebungsdaten ermitteln mit dem CGI-Modul</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#cookies">Cookies verwalten mit dem CGI-Modul</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#redirects">Automatische Umleitungen (Redirects) mit dem CGI-Modul</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#sicherheitseinstellungen">Sicherheitseinstellungen mit dem CGI-Modul</a><br>
+</p>
+</td>
+</tr><tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><a class="an" name="allgemeines">Allgemeines zum CGI-Modul</a></h2>
+
+<p>Das CGI-Modul gehört seit der Perl-Version 5.004 (Mai 1997) zu den <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="standardmodule.htm">Standardmodulen</a>. Sie finden es meist im Verzeichnis <var>/usr/lib/perl5/5.8.8</var> bzw. unter Windows in <var>C:\Programme\Perl\lib</var> unter dem Namen <var>CGI.pm</var>. Es fasst eine große Anzahl Funktionen zusammen, die typische Routine-Aufgaben von CGI-Scripts übernehmen. Eine relativ umfangreiche Erläuterung des Moduls können Sie sich auf der Konsole bzw. Eingabeaufforderung mit <kbd>perldoc CGI</kbd> ausgeben lassen. Seine Funktionen haben sich im Praxiseinsatz vielfach bewährt. Es ist deshalb sinnvoll, bei der Erstellung eigener CGI-Scripts auf die Ressourcen zurückzugreifen, die dieses Modul bereitstellt; man braucht dann nicht alles nochmals selbst zu schreiben.</p>
+
+<p>Ein Nachteil des CGI-Moduls besteht allerdings darin, dass es recht groß ist. Das liegt (unter anderem) an seinem monolithischen Aufbau. Es übersetzt viel Code erst zur Laufzeit, wenn die Funktionen benötigt werden. Da darüber hinaus auch Cachingmechanismen auf dem Server dafür sorgen, dass die etwa 250 KB große Datei nicht bei jedem Aufruf neu eingelesen wird, sollten Sie nur bei kleinen CGI-Scripts wie etwa Zugriffszählern oder Weiterleitungen auf den Einsatz des CGI-Moduls verzichten. Bei den meisten CGI-Scripts ist seine Verwendung jedoch zu empfehlen, vor allem, wenn damit Formulardaten verarbeitet und (X)HTML-Dokumente zusammengestellt werden sollen. Denn das Modul übernimmt unter anderem auch eine ganze Reihe von automatischen Anpassungen an die Laufzeitumgebung des Scripts, wodurch mögliche Fehler vermieden bzw. minimiert werden können.</p>
+
+<p>Das CGI-Modul besteht aus einem Hauptmodul und verschiedenen Untermodulen. Die Untermodule übernehmen im wesentlichen spezielle Aufgaben wie beispielsweise die Unterstützung des neueren Fast-CGI-Standards oder die Unterstützung so genannter Server-Pushs. In diesem Kapitel wird insbesondere dargestellt, wie Sie mit Hilfe des CGI-Moduls (X)HTML-Dokumente generieren und mit übermittelten Daten umgehen können. Das ist allerdings bei weitem nicht die einzige Aufgabe, die diesem Modul zugeteilt werden kann. Wenn Sie "nur" HTML ausgeben lassen möchten, könnten Sie sogar ganz auf das CGI-Modul verzichten; es gibt weitere Standardmodule, die für solche Aufgaben herangezogen werden könnten. Und schließlich ist Ihr Script auch dann, wenn es das CGI-Modul einsetzt, immer noch ein Perl-Script und kann neben dem Zusammenstellen von (X)HTML auch alle die anderen Dinge tun, für die Perl-Scripts nun einmal eingesetzt werden.</p>
+
+<p>Und wie alles, was zu den Computersprachen gehört, unterliegt auch Perl einschließlich seiner Module einer stetigen Entwicklung. Manches, was Sie noch zum Erscheinungstermin von SELFHTML 8.1 (im November 2005) als gültig erläutert bekamen, ist bereits nach zwei Jahren nicht mehr im gleichen Maß gültig. Das hängt damit zusammen, dass auch das CGI-Modul beständig weiterentwickelt wird. Dazu vergleichen Sie bitte den aktuellen Entwicklungsstand im <img src="../../src/en.gif" width="16" height="10" alt="englischsprachige Seite">&nbsp;<a href="http://search.cpan.org/~lds/CGI.pm">CPAN</a>.</p>
+
+<p>Im wesentlichen gibt es zwei Möglichkeiten, das CGI-Modul zu verwenden: eine objektorientierte und eine funktionsorientierte. Beide Konzepte haben ihre Vor- und Nachteile.</p>
+
+<h3>Der funktionsorientierte Modus</h3>
+
+<p>Wenn Sie diesen Modus nutzen möchten, müssen Sie entweder eine oder mehrere bestimmte Funktion(en) in den Namensraum Ihres Scripts importieren - oder Sie importieren eine ganze Liste, die die von Ihnen gewünschten Methoden bereitstellt. Solche Funktionslisten beginnen grundsätzlich mit einem vorangestellten Doppelpunkt. Ein Beispiel, das ein vollständiges XHTML-Dokument erzeugt, könnte dann so ausssehen:</p>
+
+<pre>#!/usr/bin/perl -w
+
+use CGI qw/:standard/;
+
+print header, start_html, p('Hallo Welt!'), end_html;
+</pre>
+
+<p>Es gibt mehrere Möglichkeiten, funktionsorientiert zu schreiben, auf die hier aber nicht näher eingegangen werden soll.</p>
+
+<h3> Der objektorientierte Modus</h3>
+
+<p>Wenn Sie diesen Modus nutzen möchten, müssen Sie mindestens ein Objekt deklarieren, mit dem Sie die Funktionen des Moduls aufrufen können. Ihr Script beginnt dann grundsätzlich mit diesen Vorgaben (das ist noch kein vollständiges Script!):</p>
+
+<pre>#!/usr/bin/perl -w
+
+use strict;
+use CGI;
+
+my $cgi = new CGI;</pre>
+
+<p>Der objektorientierte Modus gilt als eleganter und bietet mehr Möglichkeiten, wie etwa das Definieren mehrerer unabhängiger CGI-Objekte im gleichen Script. Deshalb beschränken sich die Beschreibungen und Scriptbeispiele dieses Kapitels auf die objektorientierte Verwendung des CGI-Moduls.</p>
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="einbinden">CGI-Modul in Scripts einbinden</a></h2>
+
+<p>Das folgende Beispiel zeigt, wie Sie das CGI-Modul in ein eigenes Perl-Script einbinden und im objektorientierten Stil verwenden können.</p>
+
+<h3 class="xmp"><a class="an" name="beispiel1">Beispiel eines vollständigen CGI-Scripts in Perl (1):</a></h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="http://de.selfhtml.org/cgi-bin/812/modulcgi1.pl">Anzeigebeispiel: So sieht's aus</a> (Zum Aufruf des Scripts ist eine Internet-Verbindung erforderlich)</p>
+
+<pre>
+#!/usr/bin/perl -w
+
+use CGI;
+use CGI::Carp qw(fatalsToBrowser);
+
+my $cgi = new CGI;
+
+print $cgi-&gt;header('text/plain'), "Hallo Welt";
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Mit <code>use CGI</code> binden Sie das CGI-Modul in Ihr Script ein. Im Beispiel wird zusätzlich noch ein Untermodul namens <code>CGI::Carp</code> eingebunden, genauer, eine bestimmte Funktion daraus, nämlich die Funktion <code>fatalsToBrowser</code>. Beim Entwickeln von CGI-Scripts ist es immer sinnvoll, dies mit einzubinden. Diese Funktion hat zur Folge, dass alle Fehlermeldungen, die der Perl-Interpreter erzeugt, direkt im Browser ausgegeben werden. Und solange Sie in Ihrem Script noch Fehler (bugs) vermuten, ist es überaus nützlich, solche Fehlermeldungen unmittelbar im Browser zu sehen, statt sie sich mühsam aus dem Server-log herausfischen zu müssen. Es wird Ihnen damit beinahe so etwas wie ein Debugging-Modus zur Verfügung gestellt. Hat Ihr Script am Ende der Entwicklungsphase alle Tests fehlerfrei durchlaufen, können Sie diese Zeile auch wieder auskommentieren oder ganz und gar streichen. Im produktiven Einsatz hat sie keine Bedeutung mehr.</p>
+
+<p>Nachdem das CGI-Modul eingebunden ist, wird mit <code>my $cgi = new CGI</code> eine neue Instanz des CGI-Objekts erzeugt. Mit dieser Anweisung sorgen Sie dafür, dass das CGI-Modul objektorientiert verwendet werden kann. Die Objektinstanz der CGI-Klasse ist nun über den Skalar <code>$cgi</code> ansprechbar. Im weiteren Verlauf des Scripts haben Sie über diesen Skalar Zugriff auf alle Funktionen, die das CGI-Modul bereitstellt. Bei objektorientierter Programmierung spricht man dann jedoch nicht mehr von Funktionen, sondern von Methoden.</p>
+
+<p>Der Name des Skalars, der im Beispiel <code>$cgi</code> lautet, ist frei wählbar. Da Sie den Skalar im weiteren Verlauf des Scripts vermutlich sehr oft brauchen, empfiehlt sich ein kurzer Name. Viele Programmierer arbeiten mit einbuchstabigen Namen wie z.B. <code>$q</code>.</p>
+
+<p>Das obige Beispiel gibt ein einfaches "Hallo Welt" aus. Wie immer muss zur Übergabe an einen aufrufenden Browser zuerst ein HTTP-Header erzeugt werden. Das CGI-Modul stellt dafür eine Funktion bzw. Methode namens <code>header()</code> zur Verfügung. Wenn dieser Methode kein Argument mitgegeben wird, erzeugt sie einen HTTP-Header für den <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../diverses/mimetypen.htm">MIME-Typ</a> <code>text/html</code>, also für die Ausgabe von HTML-Code. Im obigen Beispiel soll jedoch unformatierter Text gesendet werden. Deshalb wird der Header nicht leer belassen, sondern ihm wird <code>text/plain</code> übergeben.</p>
+
+<p>Am Beispiel des Aufrufs von <code>header()</code> können Sie sehen, wie der Zugriff über den zuvor definierten Skalar funktioniert. Nach dem Schema <code>$Skalar-&gt;Methode</code> "zeigen" Sie auf die Methode, und zwar mit dem Skalar, der an eine bestimmte zuvor erzeugte Instanz des CGI-Objekts gebunden wird.</p>
+
+<p>Zum Senden des HTTP-Headers und des auszugebenden "Hallo Welt" wird im Beispiel die übliche <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../funktionen/einausgabe.htm#print">print</a>-Funktion von Perl verwendet. Diese Funktion kann ja mehrere durch Komma getrennte Argumente gleichzeitig ausgeben. Im Beispiel gibt sie zuerst den Rückgabewert der Methode <code>header()</code> aus, also den gewünschten HTTP-Header, und danach den Text <code>Hallo Welt</code>.</p>
+
+<h3 class="xmp">Beispiel eines vollständigen CGI-Scripts in Perl (2):</h3>
+
+<pre>#!/usr/bin/perl -w
+
+use CGI;
+use CGI::Carp qw(fatalsToBrowser);
+
+my $cgi = new CGI;
+
+print $cgi-&gt;header(),
+      $cgi-&gt;start_html(),
+      $cgi-&gt;h1('hallo Welt!'),
+      $cgi-&gt;p('Solche sechs, wie wir fünf sind,
+               gibts keine vier mehr, wir drei sind die zwei einzigen ;-)'),
+      $cgi-&gt;end_html();</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Wenn Sie die Methode <code>header()</code> so notieren, dass sie "leer" bleibt und der Skalar <code>$cgi</code> darauf "zeigt", wird der Perl-Interpreter im CGI-Modul diejenigen Festlegungen suchen, die es dafür enthält. Das ist in den aktuellen Versionen des CGI-Moduls für Perl 5.8.8 grundsätzlich XHTML 1.0, kann sich aber künftig zu XHTML 2.0 ändern. In diesem Fall bekommen Sie also <strong>zwingend</strong> den MIME-Typ text/html. Folglich müssen Sie außer dem HTTP-Header dafür sorgen, dass eine vollständige XHTML-Datei einschließlich <code>&lt;head&gt;</code> und <code>&lt;body&gt;</code> erzeugt werden kann. Das erreichen Sie mit <code>$cgi->start_html()</code>.</p>
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="htmlausgaben">Einfache (X)HTML-Ausgaben mit dem CGI-Modul</a></h2>
+
+<p>Das CGI-Modul stellt Ihnen eigene Methoden zur Verfügung, um (X)HTML-Code zusammenzustellen. Es können (mit wenigen Ausnahmen) für alle HTML-Elemente solche Methoden bereitgestellt werden. Die von HTML her gewohnten spitzen Klammern entfallen, aber allen Elementnamen werden runde Klammern nachgestellt, in denen Sie CSS-Angaben, EventHandler, diverse Attribute bzw. Parameter und natürlich auch den Text, der zuletzt ja im Browser angezeigt werden soll, notieren können. Gibt es nichts, was Sie unbedingt in solche runde Klammern schreiben möchten, können Sie sie auch weglassen.</p>
+
+<h3 class="xmp"><a class="an" name="beispiel2">Beispiel eines vollständigen CGI-Scripts in Perl:</a></h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="http://de.selfhtml.org/cgi-bin/812/modulcgi2.pl">Anzeigebeispiel: So sieht's aus</a> (Zum Aufruf des Scripts ist eine Internet-Verbindung erforderlich)</p>
+
+<pre>
+#!/usr/bin/perl -w
+
+use strict;
+use CGI -no_xhtml;
+use CGI::Carp qw(fatalsToBrowser);
+
+my $cgi = new CGI;
+my $Autor = "der Reiseonkel";
+my $Ort = "Cap Ferret";
+
+print $cgi-&gt;header(),
+      $cgi-&gt;start_html({-dtd =&gt; '-//W3C//DTD HTML 4.01 Transitional//EN',
+                        -title =&gt; 'Reisebericht vom '.$Ort})."\n",
+      $cgi-&gt;h1('Reisebericht vom '.$Ort)."\n",
+      $cgi-&gt;p('Die größte Sanddüne Europas mit 117m
+      Höhe sieht man bei klarem Wetter, wenn man am Ufer des Beckens von
+      Arcachon steht. Das '.$Ort.' selbst ist ein kleiner Landzipfel, der
+      vor allem aus Ferienhäusern besteht. Austernzucht, Fischerei und
+      Wassersport prägen die Atmosphäre im Becken von Arcachon.')."\n",
+      $cgi-&gt;hr({-noshade =&gt; undef, -size =&gt; '1'})."\n",
+      $cgi-&gt;p({-style =&gt; 'color:red'}, "Autor: ", $cgi-&gt;em($Autor))."\n",
+      $cgi-&gt;end_html();
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Zunächst wird das CGI-Modul wie bereits bekannt mit <code>use CGI</code> eingebunden, gleichzeitig sorgt der Parameter <code>-no_xhtml</code> dafür, dass vorerst gar keine Dokumenttyp-Festlegung erfolgt. Um das im objektorientierten Stil zu verwenden, wird dann mit <code>my $cgi = new CGI</code> eine neue Instanz des CGI-Objekts erzeugt. Es gibt aus Demonstrationsgründen noch zwei Variablen, die Ihnen zeigen sollen, dass Sie selbstverständlich auch in Ausgaben, die Sie mit dem CGI-Modul generieren, Variablen nutzen können.</p>
+
+<p>Das Beispiel tut nichts anderes, als eine kleine vollständige HTML-Datei zusammenzustellen. Dazu wird zunächst mit <code>$cgi-&gt;header()</code> der HTTP-Header für HTML erzeugt. Dann folgt der HTML-Code. Der HTML-Code wird jedoch nicht wie bisher bekannt mit Hilfe der <code>print</code>-Funktion für einzelne HTML-Elemente geschrieben, sondern durch den Aufruf von Methoden, die das CGI-Modul bereitstellt, erzeugt. Grundsätzlich beginnt die HTML-Ausgabe mit der Methode <code>start_html()</code>, der Sie Parameter für diejenigen Elemente übergeben können, die Sie als Elemente des Headerbereichs kennen. Mit dem Parameter <code>dtd</code> müssen Sie beispielsweise den DTD-Bezeichner festlegen, um das ausgegebene Dokument standardkonform gestalten zu können, falls Sie oben den <code>-no_xhtml</code>-Parameter verwendet haben. Die Methode <code>start_html()</code> kann alle Elemente des Header-Bereichs einer HTML-Datei zur Verfügung stellen, sowie ein öffnendes <code>&lt;body&gt;</code>-tag.</p>
+
+<p>Für alle gängigen HTML-Elemente und HTML-Tags, die Sie innerhalb von <code>&lt;body&gt;</code> verwenden möchten, gibt es solche Methoden. Dabei können Sie entweder das komplette HTML-Element erzeugen, oder auch nur ein Start- oder End-Tag. Die Anweisung <code>$cgi-&gt;h1('Reisebericht vom '.$Ort)</code> erzeugt beispielsweise ein komplettes HTML-Element mitsamt Inhalt - und zugleich sehen Sie, dass Sie dort auch Variablen einsetzen können, wie Sie es von Perl ja gewohnt sind. Der erzeugte Code lautet <code>&lt;h1&gt;Reisebericht vom Cap Ferret&lt;/h1&gt;</code>. Auf die gleiche Weise funktioniert es mit den anderen HTML-Elementen. <code>$cgi-&gt;strong('wichtiger Text')</code> würde beispielsweise den HTML-Code <code>&lt;strong&gt;wichtiger Text&lt;/strong&gt;</code> erzeugen. Die Überschrift im Beispiel könnte aber auch folgendermaßen notiert werden:<br>
+<code>$cgi-&gt;start_h1(),'Reisebericht vom '.$Ort,$cgi-&gt;end_h1()</code>.<br>
+Neben den kompletten Element-Methoden gibt es also auch Methoden, die nur ein einleitendes oder schließendes HTML-Tag erzeugen. <code>$cgi-&gt;start_h1()</code> erzeugt nur den HTML-Code <code>&lt;h1&gt;</code>, und <code>$cgi-&gt;end_h1()</code> den Code <code>&lt;/h1&gt;</code>. Entsprechende Methoden gibt es für alle Elemente, also beispielsweise auch <code>$cgi-&gt;start_strong()</code> und <code>$cgi-&gt;end_strong()</code>.</p>
+
+<p>Die Verwendung solcher Methoden für öffnende und schließende Tags ist dann sinnvoll, wenn die Tags weit auseinanderliegen und sehr viel Inhalt haben. Vor allem bei <code>&lt;html&gt;...&lt;/html&gt;</code> ist das natürlich der Fall, dazwischen steht ja der komplette anzuzeigende Inhalt Ihrer Datei. Die Methode <code>$cgi-&gt;start_html()</code>, die auch im obigen Beispiel verwendet wird, hat jedoch eine Sonderstellung. Sie erzeugt nicht nur ein einleitendes <code>&lt;html&gt;</code>-Tag, sondern schreibt auch den Standard-Dateikopf der HTML-Datei mit den Elementen <code>head</code> und <code>title</code> sowie einem öffnenden <code>&lt;body&gt;</code>.</p>
+
+<p>Viele einleitende HTML-Tags haben Attribute. Um diese vom Inhalt des Elements zu unterscheiden, bieten die Methoden eine besondere Syntax an. Am obigen Beispiel ist das etwa an der Trennlinie erkennbar. Mit der Anweisung: <code>$cgi-&gt;hr({-noshade =&gt; undef, -size =&gt; '1'})</code> wird der HTML-Code <code>&lt;hr noshade size="1"&gt;</code> erzeugt. Das Argument, das der Methode übergeben wird, muss dazu in geschweiften Klammern <code>{</code> bzw. <code>}</code> stehen. Jedes Attribut wird durch ein Minuszeichen <code>-</code> eingeleitet. Wertzuweisungen an Attribute werden durch den Operator <code>=&gt;</code> vom Attribut getrennt. Mehrere Attribute werden wie im <code>hr</code>-Beispiel innerhalb der geschweiften Klammern durch Kommata getrennt.</p>
+
+<p>Die Methoden zum Erzeugen von HTML-Elementen können auch mehrere Argumente übergeben bekommen. Dabei müssen Sie die Argumente durch Kommata trennen. Ein komplexeres Beispiel sehen Sie an der letzten <code>$cgi-&gt;p(...)</code>-Anweisung. Dieser Methodenaufruf übergibt drei Argumente. Das erste Argument ist ein Attribut für das einleitende <code>&lt;p&gt;</code>-Tag, nämlich ein <code>style</code>-Attribut, in dem die Schriftfarbe rot bestimmt wird. Das zweite Argument ist statischer Text, und das dritte Argument zeigt gleich zwei weitere Möglichkeiten: es enthält einen weiteren Aufruf einer Element-Methode, nämlich <code>$cgi-&gt;i()</code> für kursiven Text. Und als Argument wird dieser Methode kein statischer Text übergeben, sondern ein Skalar namens <code>$Autor</code>, der weiter oben im Beispiel definiert wird.</p>
+
+<p>Die Argumente erlauben also das bequeme Verschachteln von HTML-Elementen, ebenso wie das Einfügen von variablen Inhalten, die zuvor vom Script ermittelt wurden.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Das Einbinden des CGI-Moduls zwingt Sie keinesfalls dazu, HTML-Code auf diese Weise zu erzeugen. Sie können die HTML-Ausgaben auch direkt mit der <code>print</code>-Funktion erzeugen oder zuvor eingelesene Templates ausgeben. Sie können auch Methodenaufrufe des CGI-Moduls mit herkömmlicher HTML-Code-Erzeugung mischen. Es ist also kein Problem, Mischformen wie diese zu notieren:<br>
+<code>print "&lt;hr noshade size='1'&gt;",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$cgi-&gt;p({-style =&gt; 'color:red'}, "Autor: &lt;i&gt;$Autor&lt;/i&gt;");</code></p>
+
+<p>Normalerweise werden alle HTML-Elementnamen innerhalb der Methoden klein geschrieben, also z.B. <code>start_div()</code>, <code>end_div()</code> oder <code>div()</code>. Es gibt jedoch ein paar Ausnahmen, um Kollisionen mit gleichnamigen Sprachbestandteilen von Perl zu vermeiden. Die HTML-Elemente <code>Tr</code>, <code>Select</code>, <code>Link</code> und <code>Sub</code> beginnen mit Großbuchstaben, also etwa in einer Anweisung wie <code>$cgi-&gt;Sub('tiefgestellter Text')</code>.</p>
+
+<p>HTML-Kommentare können Sie mit der Methode <code>comment()</code> setzen. So erzeugt die Anweisung <code>$cgi-&gt;comment('derzeit nicht aktuell')</code> den HTML-Code <code>&lt;!-- derzeit nicht aktuell --&gt;</code>.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="header_htmlstart">Erweiterte Ausgaben mit dem CGI-Modul</a></h2>
+
+<p>HTTP-Header können manchmal Zusatzinformationen enthalten, die für die Client-Server-Kommunikation von Bedeutung sind. Und was den HTML-Dateikopf betrifft, so kann dieser ebenfalls wichtige allgemeine Angaben zur HTML-Datei enthalten, z.B. <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/kopfdaten/meta.htm">Meta-Tags</a>, Scriptbereiche für CSS oder Javascript, logische Beziehungen oder Attribute zur Seitengestaltung im einleitenden <code>&lt;body&gt;</code>-Tag (die zwar zulässig und noch nicht einmal "deprecated" sind, trotzdem aber besser mit CSS bestimmt werden sollten).</p>
+
+<h3 class="xmp"><a class="an" name="beispiel3">Beispiel eines vollständigen CGI-Scripts in Perl:</a></h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="http://de.selfhtml.org/cgi-bin/812/modulcgi3.pl">Anzeigebeispiel: So sieht's aus</a> (Zum Aufruf des Scripts ist eine Internet-Verbindung erforderlich)</p>
+
+<pre>
+#!/usr/bin/perl -w
+
+use strict;
+use CGI;
+use CGI::Carp qw(fatalsToBrowser);
+
+my $cgi = new CGI;
+
+print $cgi-&gt;header(-type    =&gt;'text/html',
+                   -expires =&gt;'+1h'),
+      $cgi-&gt;start_html(-title  =&gt;'Testseite mit Link',
+                       -author =&gt;'beispiel@example.org',
+                       -base   =&gt;'true',
+                       -target =&gt;'_blank',
+                       -meta   =&gt;{'keywords'   =&gt;'TeamOne, Test',
+                                  'description'=&gt;'ein kleiner Test mit einem Link'},
+                       -style  =&gt;{'src'=&gt;'/styles/formate.css'},
+                       -BGCOLOR=&gt;'#FFFFCC',
+                       -TEXT   =&gt;'#000000',
+                       -LINK   =&gt;'red',
+                       -VLINK  =&gt;'blue',
+                       -ALINK  =&gt;'black'),
+      $cgi-&gt;p('ein kleiner Test mit einem ',
+              $cgi-&gt;a({-href =&gt; 'http://www.selfhtml.org/'},'Link auf selfhtml.org')),
+      $cgi-&gt;end_html();
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Script bindet mit <code>use CGI</code> das CGI-Modul ein. Da kein Parameter zur Modifizierung der Dokumenttyp-Deklaration angegeben ist, wird standardmäßig XHTML 1.0 generiert werden. Das Script erzeugt dann mit <code>my $cgi = new CGI</code> eine neue Instanz des CGI-Objekts. Bei der <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#htmlausgaben">HTML-Ausgabe</a>, die es anschließend zusammenstellt, nutzt es verschiedene Möglichkeiten, um den HTTP-Header und die Daten im Kopf der HTML-Datei zu beeinflussen.</p>
+
+<p>Sowohl der Methode <code>header()</code> zum Erzeugen des HTTP-Headers als auch der Methode <code>start_html()</code> zum Erzeugen des HTML-Dateikopfes können Sie mehrere Argumente übergeben. Beide Methoden kennen jeweils ein Standardargument: bei <code>header()</code> ist dies der MIME-Typ, und bei <code>start_html()</code> der Inhalt des <code>title</code>-Elements. Deshalb können Sie diese Argumente ohne weiteres direkt angeben, also etwa in der Form <code>header('text/plain')</code> oder <code>start_html('Text des Titels')</code>. Bei Angabe von mehreren und weiteren Argumenten sollten Sie jedoch die oben gezeigte Syntax verwenden. Dabei besteht jedes Argument aus einem Parameternamen, eingeleitet durch ein Minuszeichen <code>-</code>, einem Zeigeoperator <code>=&gt;</code> und dem gewünschten Wert.</p>
+
+<h3>Argumente beim HTTP-Header</h3>
+
+<p>Die folgende Tabelle zeigt Ihnen, welche Angaben zum HTTP-Header Sie notieren können. Die Code-Beispiele der linken Spalte stellen nur den reinen Methodenaufruf von <code>header()</code> dar.</p>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<th nowrap="nowrap">Aufrufbeispiel</th>
+<th>Erläuterung</th>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>header(-type=&gt;'image/gif');</code></td>
+<td class="tabxpl">Mit <code>-type</code> können Sie den MIME-Typ des nachfolgenden Datenstroms bestimmen. Im Beispiel können Sie anschließend die binären Daten einer GIF-Grafik ausgeben (dazu vorher gegebenenfalls die Funktion <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../funktionen/einausgabe.htm#binmode">binmode</a> aufrufen!)</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>header(-status=&gt;'204 No response');</code></td>
+<td class="tabxpl">Mit <code>-status</code> können Sie eine HTTP-Statusmeldung an den Browser senden. Mit der Beispielanweisung (HTTP-Status 204) können Sie die Ausgabe weiterer Daten an den Browser verweigern. Beim Anwender bleibt die zuletzt angezeigte Seite am Bildschirm stehen. Sinnvoll beispielsweise, wenn der Anwender durch Klick auf einen Link ein Voting-Script anstößt, das ihn aber nicht am sofortigen Weiterlesen der Seite hindern soll.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>print $cgi->header(-expires=&gt;'+120s');</code></td>
+<td class="tabxpl">Mit <code>-expires</code> können Sie bewirken, dass der Browser die HTML-Ausgabe für einen Mindestzeitraum in seinen Cache-Speicher übernimmt. Bei einem Reload der ausgegebenen Seite innerhalb des angegebenen Zeitraums ruft der Browser dann nicht mehr das Script auf, sondern holt den HTML-Code aus seinem Cache. Den Zeitraum geben Sie als Zahl mit voranstehendem Pluszeichen und einem nachgestellten Buchstaben für die Zeiteinheit an. Die Angabe <code>'+30s'</code> im Beispiel bedeutet "HTML-Code 30 Sekunden im Cache halten". Andere Zeiteinheiten sind <code>m</code> (Minuten), <code>h</code> (Stunden), <code>d</code> (Tage), <code>M</code> (Monate) und <code>y</code> (Jahr). Darüber hinaus sind absolute Zeitangaben im UTC-Format erlaubt, wie z.B. <code>Friday, 08-Jun-2001 11:29:00 GMT+0100</code>.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>print $cgi->header(-cookie=&gt;$Cookie);</code></td>
+<td class="tabxpl">Mit <code>-cookie</code> können Sie einen Cookie aktivieren. Mehr dazu im Abschnitt <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#cookies">Cookies verwalten mit dem CGI-Modul</a>.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>print $cgi->header(-nph=&gt;1);</code></td>
+<td class="tabxpl">Mit diesem Befehl können Sie so genannte NPH-Scripts schreiben. NPH steht für <i>no-parsed-header</i> und bedeutet, dass das CGI-Script die nachfolgenden Daten direkt an den aufrufenden Browser sendet, ohne dass der Webserver etwas davon mitbekommt. Dies kann zu Performance-Gewinnen führen, und in einigen Fällen, etwa beim Einsatz des Microsoft IIS-Webservers, ist es sogar vorgeschrieben, den NPH-Modus zu verwenden.</td>
+</tr>
+</table>
+
+<h3>Dokumenttyp-Deklarationen (DTD)</h3>
+
+<p>Standardmäßig verwendet das CGI-Modul, wie bereits angedeutet, XHMTL 1.0 Transitional. Das heißt, Sie finden eine Dokumenttyp-Angabe im generierten XHTML-Dokument grundsätzlich in dieser Form vor:</p>
+
+<pre>
+&lt;!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US"&gt;
+</pre>
+
+<p>Nun kann es aber durchaus Gründe geben, weshalb Sie eine andere DTD einsetzen möchten - beispielsweise möchten Sie vielleicht ein Frameset erzeugen oder müssen auf HTML 4.01 bestehen. Dann können Sie das CGI-Modul dazu zwingen, gar keine Vorgabe zu machen, indem Sie es in der Form <code>use CGI -no_xhtml;</code> in Ihr Script einbinden. Das bedeutet zugleich, dass Sie dann an anderer Stelle eine entsprechende Deklaration vornehmen müssen. Dazu stellt Ihnen das CGI-Modul für die Methode <code>$cgi-&gt;start_html()</code> den Parameter <code>-dtd</code> zur Verfügung, den Sie in dieser Form notieren können:</p>
+
+<pre>
+$cgi->start_html(-dtd &gt; '-//W3C//DTD HTML 4.01 Strict//EN');
+</pre>
+
+<p>Die folgende Liste enthält einige Documenttyp-Deklarationen, die Sie bei Bedarf wählen können:</p>
+
+<ul><li>'-//W3C//DTD HTML 4.01//EN'</li>
+<li>'-//W3C//DTD HTML 4.01 Transitional//EN'</li>
+<li>'-//W3C//DTD HTML 4.01 Frameset//EN'</li>
+<li>'-//W3C//DTD XHTML 1.0 Strict//EN'</li>
+<li>'-//W3C//DTD XHTML 1.0 Transitional//EN'</li>
+<li>'-//W3C//DTD XHTML 1.0 Frameset//EN'</li>
+<li>'-//W3C//DTD XHTML 1.1//EN'</li>
+<li>'-//W3C//DTD HTML 3.2//EN'</li>
+<li>'-//W3C//DTD HTML 2.0//EN'</li></ul>
+
+<p>Sie sehen, dass Sie nicht die gesamte (dreizeilige) Deklaration notieren müssen. Das CGI-Modul ergänzt die fehlenden Angaben, so dass in Ihrer vom Script generierten HTML-Ausgabe immer die vollständige Dokumenttyp-Deklaration zu finden sein wird. Denken Sie daran, dass von der Wahl der für Ihr Seitenprojekt zutreffenden DTD unter anderem abhängt, welche HTML-Elemente Sie überhaupt verwenden dürfen und wie sie auszusehen haben, um validen HTML-Code zu generieren.</p>
+
+<h3>Argumente beim HTML-Dateikopf</h3>
+
+<p>Die folgende Tabelle listet auf, welche Angaben Sie zum HTML-Dateikopf notieren können. Die Code-Beispiele der linken Spalte stellen nur den reinen Methodenaufruf von <code>start_html()</code> dar.</p>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<th nowrap="nowrap">Aufrufbeispiel</th>
+<th>Erläuterung</th>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>start_html(-title=&gt;'Titeltext');</code></td>
+<td class="tabxpl">Mit <code>-title</code> bestimmen Sie den <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/kopfdaten/titel.htm">Titel</a> der HTML-Ausgabe. Das Beispiel erzeugt den folgenden HTML-Code:<br>
+<code>&lt;TITLE&gt;Titeltext&lt;/TITLE&gt;</code>
+</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>start_html(-author=&gt;'beispiel@example.org');</code></td>
+<td class="tabxpl">Mit <code>-author</code> erzeugen Sie eine <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/kopfdaten/beziehungen.htm">logische Beziehung</a> zu einer E-Mail-Adresse. Das Beispiel erzeugt folgenden HTML-Code:<br>
+<code>&lt;LINK REV=MADE HREF="mailto:beispiel%40example.org"&gt;</code>
+</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>start_html(-base=&gt;'http://example.org/');</code></td>
+<td class="tabxpl">Mit <code>-base</code> bestimmen Sie die <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/kopfdaten/basis.htm#adresse">Basisadresse</a> der ausgegebenen HTML-Seite. Das Beispiel erzeugt folgenden HTML-Code:<br>
+<code>&lt;BASE HREF="http://example.org/"&gt;</code>
+</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>start_html(-target=&gt;'dataframe');</code></td>
+<td class="tabxpl">Mit <code>-target</code> bestimmen Sie den <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/kopfdaten/basis.htm#zielfenster">Basis-Fensternamen</a> für Links in der HTML-Ausgabe. Das Beispiel erzeugt folgenden HTML-Code:<br>
+<code>&lt;BASE TARGET="dataframe"&gt;</code>
+</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>start_html(-meta=&gt;{'keywords'=&gt;'HTML,CSS'});</code></td>
+<td class="tabxpl">Mit <code>-meta</code> können Sie Meta-Angaben notieren - jedoch nur solche, die in HTML vom Typ <code>name</code> sind, nicht solche, die vom Typ <code>http-equiv</code> sind. Mehrere Meta-Angaben gleichzeitig sind erlaubt. Jede einzelne Meta-Angabe muss in geschweiften Klammern stehen. Innerhalb der geschweiften Klammern folgt zunächst der Wert, der in HTML dem <code>name</code>-Attribut zugewiesen würde, gefolgt von dem Operator <code>=&gt;</code> und dem Wert, den Sie in HTML dem <code>content</code>-Attribut zuweisen würden. Das Beispiel erzeugt folgenden HTML-Code:<br>
+<code>&lt;META NAME="keywords" CONTENT="HTML,CSS"&gt;</code>
+</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>start_html(-BGCOLOR=&gt;'#000000');</code></td>
+<td class="tabxpl">Mit allen anderen Argumenten, die mit einem Minuszeichen beginnen und keinen der anderen reservierten Namen wie <code>-title</code> oder <code>-meta</code> haben, bestimmen Sie Attribute, die ins einleitende <code>&lt;body&gt;</code>-Tag eingefügt werden. Das Beispiel erzeugt folgenden HTML-Code:<br>
+<code>&lt;BODY BGCOLOR="#000000"&gt;</code>
+</td>
+</tr>
+</table>
+&nbsp;
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="formularverarbeitung">Formularverarbeitung mit dem CGI-Modul</a></h2>
+
+<p>In der Regel werden CGI-Scripts von HTML-Formularen über das <code>action</code>-Attribut innerhalb des Formulars aufgerufen (es gibt auch andere Möglichkeiten, beispielsweise über <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../servercgi/server/ssi.htm">SSI</a>). Typischerweise sieht ein HTML-Formular so ähnlich aus wie im folgenden Beispiel.</p>
+
+<h3 class="xmp">Beispiel: HTML-Datei mit CGI-Aufruf</h3>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Kommentarseite&lt;/title&gt;
+&lt;link rel="stylesheet" type="text/css" href="style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;Ihr Kommentar&lt;/h1&gt;
+&lt;form action="/cgi-bin/comments.pl" method="post"&gt;
+&lt;p&gt;Name:&lt;br&gt;&lt;input size="40" maxlength="40" name="AnwenderName"&gt;&lt;/p&gt;
+&lt;p&gt;Text:&lt;br&gt;&lt;textarea rows="5" cols="50" name="Kommentartext"&gt;&lt;/textarea&gt;&lt;/p&gt;
+&lt;p&gt;&lt;input type="submit" value="Absenden"&gt;&lt;/p&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xmp">Beispiel: vollständiges CGI-Script (comments.pl) mit HTML-Ausgabe</h3>
+
+<pre>
+#!/usr/bin/perl -w
+
+use strict;
+use CGI;
+use CGI::Carp qw(fatalsToBrowser);
+
+my $cgi = new CGI;
+my @Feldnamen = $cgi-&gt;param();
+
+print $cgi-&gt;header(),
+      $cgi-&gt;start_html('CGI-Feedback'),
+      $cgi-&gt;h1('CGI-Feedback vom Programm ',$cgi-&gt;i('comments.pl'));
+      foreach my $Feld (@Feldnamen) {
+        print $cgi-&gt;strong('Feldname: '),
+              $Feld,
+              $cgi-&gt;strong(', Inhalt: '),
+              $cgi-&gt;param($Feld), "&lt;br&gt;";
+      }
+print $cgi-&gt;end_html();
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Sobald Sie den "submit"-button dieses Formulars mit der Maus anklicken, wird Ihr Browser angewiesen, sich erneut an den Webserver mit einer Anfrage zu wenden. Die Art dieser Anfrage bestimmt das Attribut <code>method</code>, dessen Wert in den meisten Fällen <code>post</code> lauten wird. Mit dem Attribut <code>action</code> informiert das Formular den Webserver, was er tun soll - es muß ja nicht unbedingt ein Perl-Script sein, das der Server um Übernahme und Weiterverarbeitung der von Ihnen eingegebenen und vom Browser ebenfalls übermittelten Daten bitten soll. Auch ein PHP-Script, ein Shell-Script, eine ausführbare Datei (*.exe), eine Stapelverarbeitungsdatei (*.bat) oder ein anderer Programmaufruf kann von <code>action</code> initialisiert werden. In diesem Fall ist es jedoch das Perl-Script <kbd>comments.pl</kbd>, das einfach die übergebenen Daten sortiert, auswertet und als HTML wieder zurückliefert.</p>
+
+<p>Die Bezeichnung "Formularverarbeitung" ist zwar üblich, aber streng genommen nicht ganz korrekt. Es ist ja keineswegs das Formular, das verarbeitet wird, sondern es handelt sich um diejenigen Daten, die Sie in bestimmte Eingabefelder eingetragen haben: Namen, Adressen, Texte usw. Entsprechend der im Formular angegebenen Übermittlungsmethode (<code>POST</code> oder <code>GET</code>, andere HTTP-Zugriffsmethoden wie <code>PUT</code> oder <code>DELETE</code> spielen hier keine Rolle) schickt der Browser nach Aktivierung eines "submit"-buttons oder nach dem Drücken der Enter-Taste einen <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../servercgi/cgi/formularverarbeitung.htm#datenstrom">Datenstrom</a> an den Webserver. Der Webserver entscheidet, was er damit machen soll und schickt alles an den Perl-Interpreter, der wiederum das CGI-Modul fragt, wie er den ganzen Datenstrom auftrennen und in sinnvolle Einzelinformationen umwandeln soll. Das CGI-Modul stellt ihm dafür die Methode <code>param()</code> zur Verfügung. Mit dieser Methode werden, falls vorhanden, die Teile des übermittelten Datenstroms als Array gespeichert. Und diesen Array kann Ihr Script nun beliebig verwenden.</p>
+
+<h3>Die Methode <code>param()</code></h3>
+
+<p>Bei der Methode <code>param</code> kommt es darauf an, in welchem Kontext sie aufgerufen wird. Dementsprechend unterschiedlich ist ihr Rückgabewert. Sie können zum Beispiel ein Array <code>@Feldnamen = $cgi->param()</code> notieren. Es handelt sich dann also um einen Listenkontext, d.h. erwartet wird eine Liste als Rückgabewert. Bei dieser Art des Aufrufs liefert <code>param()</code> sämtliche Feldnamen eines eingelesenen Formulars zurück. Das sind jene Namen, die im HTML-Formular bei der Definition der Formularfelder jeweils mit dem Attribut <code>name</code> festgelegt wurden. Wenn <code>param()</code> ein einzelner Feldname als Parameter übergeben wird, liefert die Methode den zugehörigen Wert oder Inhalt des Feldes zurück. Der Kontext ist dann skalar.</p>
+
+<p>Die folgende Tabelle fasst die Aufrufmöglichkeiten von <code>param()</code> zusammen.</p>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<th nowrap="nowrap">Aufrufbeispiel</th>
+<th>Rückgabewert</th>
+<th>Erläuterung</th>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>if($cgi->param())</code></td>
+<td class="tabxpl">Liste, im booleschen Kontext ausgewertet (<code>true</code> oder <code>false</code>)</td>
+<td class="tabxpl">Ein solcher Aufruf in Form einer <code>if</code>-Bedingung ermittelt, ob überhaupt Daten an das Formular übergeben wurden oder nicht. Dies ist sinnvoll, wenn ein Script aus mehreren verschiedenen Kontexten heraus aufgerufen werden kann und erst einmal feststellen muss, ob es Formulardaten erhalten hat oder nicht. Im <code>if</code>-Zweig könnten die Formulardaten eingelesen werden, und im <code>else</code>-Zweig könnten Anweisungen stehen für den Fall, dass keine Formulardaten übergeben wurden.</td>
+<tr>
+<td class="code" nowrap="nowrap"><code>$Wert = $cgi->param('AnwenderName')</code></td>
+<td class="tabxpl">Skalar</td>
+<td class="tabxpl">Gibt den Wert oder Inhalt des Formularfeldes mit dem Namen <code>AnwenderName</code> zurück. Diese Form der Notation ist sinnvoll, wenn Sie als Script-Autor die Feldnamen übergebener Formulardaten kennen und direkt den Wert oder Inhalt des jeweiligen Feldes ermitteln möchten.</td>
+<tr>
+<td class="code" nowrap="nowrap"><code>@Namen = $cgi->param()</code></td>
+<td class="tabxpl">Liste</td>
+<td class="tabxpl">Gibt sämtliche Feldnamen des Formulars zurück.</td>
+<td class="tabxpl">
+<tr>
+<td class="code" nowrap="nowrap"><code>$cgi->param($Namen[2])</code></td>
+<td class="tabxpl">Skalar</td>
+<td class="tabxpl">Gibt den Wert oder Inhalt des dritten Formularfeldes zurück (<code>$Namen[0]</code> wäre das erste Formularfeld), sofern zuvor mit <code>@Namen = $cgi->param()</code> die Feldnamen als Liste gespeichert wurden.</td>
+<tr>
+<td class="code" nowrap="nowrap"><code>@Zutaten = $cgi->param('Zutat')</code></td>
+<td class="tabxpl">Liste</td>
+<td class="tabxpl">Gibt den Wert oder Inhalt einer Formularfeldgruppe mit gleichen Namen zurück zurück - vor allem bei Checkboxen in HTML-Formularen ist diese Aufrufvariante wichtig. In der Liste <code>@Zutaten</code> stehen anschließend alle Zutaten, die ein Anwender in Checkbox-Elementen mit dem Attribut <code>name="Zutat"</code> angekreuzt hat.</td>
+</tr>
+</table>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Die Darstellung der Methode <code>param()</code> ist ein hervorragend geeignetes Beispiel, um Ihnen etwas detaillierter zu zeigen, was das CGI-Modul für Sie erledigt. In vielen älteren Perl-Scripts, die Sie im Internet finden können (und auch in älteren Versionen dieser <img src="../../src/refkap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="http://aktuell.de.selfhtml.org/archiv/doku/7.0/tgcm.htm">SELFHTML-Seite</a>, die Sie sich im <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="http://aktuell.de.selfhtml.org/archiv/doku">Archiv</a> anschauen können), sehen Sie beispielsweise solche kryptisch wirkende Anweisungen:</p>
+
+<pre style="color:#880000">if($ENV{'REQUEST_METHOD'} eq 'GET') {
+  $Daten = $ENV{'QUERY_STRING'}
+}
+else {
+  read(STDIN, $Daten, $ENV{'CONTENT_LENGTH'});
+}
+sub verarbeiten {
+@Formularfelder = split(/&/, $Daten);
+foreach $Feld (@Formularfelder) {
+  ($name, $value) = split(/=/, $Feld);
+  $value =~ tr/+/ /;
+  $value =~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg;
+  $Formular[$i] = $name;
+  $i = $i + 1;
+  $Formular[$i] = $value;
+  $i = $i + 1;
+ }
+}</pre>
+
+<p>Solche Anweisungen müßten Sie, wenn Sie Formulardaten verarbeiten möchten, erneut in Ihrem Script notieren, wenn Sie auf das CGI-Modul verzichten wollten. Das CGI-Modul nimmt Ihnen nun diese Arbeit ab, da es (in geringfügig anderer Form) genau diese Anweisungen bereits enthält und dem Perl-Interpreter deren Ergebnisse in einer Form zur Verfügung stellt, die es Ihnen wiederum erlaubt, sie einfach mit der Benutzung der Methode <code>param()</code> abzurufen. Beispielsweise könnten Sie so etwas in Ihrem Script notieren:</p>
+
+<pre>print $cgi->p('Ihr Name ist: '.$cgi->param('AnwenderName'));</pre>
+
+<p>Damit würde die Methode <code>param()</code> im skalaren Kontext aufgerufen und der im oben schematisch dargestellten HTML-Formular eingetragene Name des Formularbenutzers ausgegeben. Im oben dargestellten Beispielscript <kbd>comments.pl</kbd> wird die Methode <code>param()</code> allerdings im Listenkontext verwendet, daher müssen Sie in diesem Script die Array-Bestandteile erst mit einer foreach-Schleife "individualisieren", um sie ausgeben zu können. Ein solcher Listenkontext ist dann nützlich, wenn das Script von unterschiedlichen Formularen verwendet wird, die unterschiedlich viele Eingabefelder mit unterschiedlichen Namen enthalten. In einem solchen Fall weiß das Script (bzw. wissen Sie als Programmierer) nicht von vornherein, welche Daten im Datenstrom enthalten sind und als HTML zurückgeliefert werden sollen; <code>$cgi->param('AnwenderName')</code> könnte auch leer (nicht existent) sein und es könnten andere <code>name</code>-Attribute mit Werten belegt worden sein. Wenn Sie <code>param()</code> im Listenkontext verwenden, vermeiden Sie mögliche Fehler.</p>
+
+<h3>Formularerstellung</h3>
+
+<p>Wenn Sie sich intensiver mit Perl beschäftigen und das CGI-Modul ausgiebig nutzen, werden Sie vermutlich kein statisches HTML-Dokument zum Aufruf einer Formularauswertung einsetzen, sondern dieses Formular auch gleich selbst von Ihrem Script generieren lassen. Das hat verschiedene Vorteile: Sie können beispielsweise in Abhängigkeit von <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#umgebungsdaten">Umgebungsdaten</a> Umgebungsdaten, die Sie zuvor ermitteln, Formularfelder mit Werten vorbelegen. Ausserdem füllt das CGI Modul diese Felder automatisch, wenn Sie das Formular, z.b. nach einer Fehleingabe, wieder mit den eingegebenen Werten ausgefüllt anzeigen lassen wollen (dieses Verhalten ist manchmal nicht erwünscht und kann bei Bedarf durch den Parameter <code>-override => 1</code> unterdrückt werden).</p>
+
+<h3>Beispiel eines vollständigen CGI-Scripts in Perl</h3>
+
+<pre>#!/usr/bin/perl -w
+
+use strict;
+use CGI;
+use CGI::Carp qw(fatalsToBrowser);
+
+my $cgi = new CGI;
+
+print $cgi->header();
+if ($cgi->param('absenden')) {
+   print $cgi->start_html(-title=>'Auswertung');
+   anzeige($cgi);
+} else {
+   print $cgi->start_html(-title=>'Testformular');
+   formular($cgi);
+}
+print $cgi->end_html();
+
+sub formular{
+    print $cgi->start_form().
+          $cgi->table({-border => 1},
+             $cgi->Tr([
+                $cgi->td([
+                   $cgi->strong('Name : ').
+                   $cgi->textfield(-name =>'name', -size => 40)
+                ]),
+                $cgi->td([
+                   'E-Mail : '.
+                   $cgi->textfield(-name =>'mail', -size => 40)
+                ]),
+                $cgi->td([
+                   $cgi->strong('Text : ').
+                   $cgi->textarea({-name =>'text', -columns =>50, -rows =>5})
+                ]),
+                $cgi->td([
+                   $cgi->submit(-name => 'absenden', -value =>'absenden').
+                   $cgi->reset(-value =>'verwerfen')
+                ])
+             ])
+           ).
+          $cgi->end_form();
+}
+
+sub anzeige{
+    print $cgi->h2('hier kommt die Auswertung');
+
+      if (!$cgi->param('name') && !$cgi->param('text')) {
+         print $cgi->strong(q~Sie haben nichts eingegeben.
+         Bitte wiederholen Sie Ihre Eingabe~);
+         return formular($cgi);
+      }
+      if ($cgi->param('name')) {
+         print $cgi->strong('Ihr Name ist: '.$cgi->param('name')),
+         $cgi->br;
+      }
+      if ($cgi->param('mail')) {
+         print $cgi->strong('Ihre mail ist: '.$cgi->param('mail')),
+         $cgi->br;
+      }
+      if ($cgi->param('text')) {
+         print $cgi->strong('Ihre Nachricht: ' .$cgi->param('text')),
+         $cgi->br;
+      }
+}</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Wie immer in den hier vorgestellten Beispielen wird zunächst das CGI-Modul eingebunden und danach mit <code>my $cgi = new CGI</code> eine neue Instanz des CGI-Objekts erzeugt. Es folgt jedoch nicht unmittelbar die Ausgabe von HTML-Code, sondern eine <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../sprache/bedingt.htm">bedingte Anweisung</a>. Das Script entscheidet anhand eventuell vorhandener <code>POST-Variablen</code>, welche der beiden <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../sprache/subroutinen.htm">Subroutinen</a> es abarbeiten soll. Findet es keine <code>POST-Variable</code> mit dem Wert "absenden" (auch der "submit"-button sendet einen Wert für eine <code>POST-Variable</code>), so ruft es die Subroutine "anzeige" auf, die ein vollständiges HTML-Formular zur Verfügung stellt. Wurde dieses Formular bereits ausgefüllt, existieren aber <code>POST-Variablen</code>, also befolgt das Script dann die Festlegungen der ersten Subroutine und liefert dem Webserver Angaben zur Darstellung der eingegebenen Werte zurück.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Für das Script wird der objektorientierte Modus verwendet. Bisher haben Sie an den vorgestellen Scriptbeispielen gesehen, dass HTML-Elemente in diesem Modus von Methoden eines CGI-Objekts dargestellt werden. Aber auch Subroutinen sind in diesem Modus nichts anderes als Objektmethoden. Sie erkennen es an der Art, in der die im Script enthaltene bedingte Anweisung entscheidet, welche Subroutine aufgerufen werden soll: <code>formular($cgi);</code>.</p>
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="umgebungsdaten">Umgebungsdaten ermitteln mit dem CGI-Modul</a></h2>
+
+<p>Häufig benötigt ein CGI-Script Informationen über seine Umgebung, z.B. über den Server, den aufrufenden Browser, oder über seinen eigenen Speicherort auf dem Server. Das CGI-Modul stellt zum Ermitteln solcher Daten verschiedene Methoden bereit.</p>
+
+<h3 class="xmp"><a class="an" name="beispiel4">Beispiel eines vollständigen CGI-Scripts in Perl:</a></h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="http://de.selfhtml.org/cgi-bin/812/modulcgi4.pl">Anzeigebeispiel: So sieht's aus</a> (Zum Aufruf des Scripts ist eine Internet-Verbindung erforderlich)</p>
+
+<pre>
+#!/usr/bin/perl -w
+
+use strict;
+use CGI;
+use CGI::Carp qw(fatalsToBrowser);
+
+my $cgi = new CGI;
+
+print $cgi-&gt;header(),
+      $cgi-&gt;start_html('Umgebungsdaten'),
+      $cgi-&gt;start_table({-border =&gt; '1'}),
+        $cgi-&gt;Tr($cgi-&gt;th({-align =&gt; 'right'},'Script-URI:'),
+                 $cgi-&gt;td($cgi-&gt;url(-full =&gt; 1))),
+        $cgi-&gt;Tr($cgi-&gt;th({-align =&gt; 'right'},'relative Script-URI:'),
+                 $cgi-&gt;td($cgi-&gt;url(-relative =&gt; 1))),
+        $cgi-&gt;Tr($cgi-&gt;th({-align =&gt; 'right'},'Server-Software:'),
+                 $cgi-&gt;td($cgi-&gt;server_software())),
+        $cgi-&gt;Tr($cgi-&gt;th({-align =&gt; 'right'},'Browser-Software:'),
+                 $cgi-&gt;td($cgi-&gt;user_agent())),
+      $cgi-&gt;end_table(),
+      $cgi-&gt;end_html();
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispielscript bindet zunächst mit <code>use CGI</code> das CGI-Modul ein und erzeugt mit <code>my $cgi = new CGI</code> eine neue Instanz des CGI-Objekts. Anschließend gibt es HTML-Code zur Übermittlung an den aufrufenden Browser aus, hier ist es eine Tabelle mit ein paar Umgebungsinformationen. Die <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#htmlausgaben">HTML-Ausgaben</a> werden mit Hilfe der Methoden des CGI-Moduls und deren Regeln realisiert. Die ausgegebene Tabelle listet in der linken Spalte in einem <code>th</code>-Element jeweils auf, welche Information die Zeile enthält, und in der rechten Spalte in einem <code>td</code>-Element den zugehörigen Wert. Dieser Wert wird jeweils mit Methoden des CGI-Moduls ermittelt. So wird mit <code>$cgi-&gt;url(-full =&gt; 1)</code> beispielsweise der URI des Scripts ermittelt.</p>
+
+<p>Die folgende Tabelle listet verfügbare Methoden für Umgebungsdaten auf. Die Aufrufbeispiele gehen davon aus, dass mit <code>my $cgi = new CGI</code> eine Instanz des CGI-Objekts erzeugt wurde. Die Tabelle ist nach Methodennamen alphabetisch sortiert.</p>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<th nowrap="nowrap">Methode</th>
+<th>Rückgabewert</th>
+<th>Erläuterung</th>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>$cgi-&gt;Accept()</code></td>
+<td class="tabxpl">Liste</td>
+<td class="tabxpl">Ermittelt eine Liste der <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../diverses/mimetypen.htm">MIME-Typen</a>, die der aufrufende Browser akzeptiert. Dies ist interessant abzuprüfen, bevor ein Script Daten eines nicht selbstverständlichen MIME-Typs an den Browser senden will. Es kann sein, dass die Liste nur aus einem Element mit dem Wert <code>*/*</code> besteht. Dann akzeptiert der aufrufende Browser potentiell alle MIME-Typen.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>$cgi-&gt;auth_type()</code></td>
+<td class="tabxpl">Skalar</td>
+<td class="tabxpl">Ermittelt den Typ der Benutzer-Authentifizierung, sofern das Script zugangsgeschützt und nur durch Eingabe entsprechender Zugangsdaten aufrufbar ist.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>$cgi-&gt;path_info()</code></td>
+<td class="tabxpl">Skalar</td>
+<td class="tabxpl">Ermittelt zusätzliche, wie weitere Unterverzeichnisse notierte Angaben. Wenn das Script beispielsweise die Adresse <code>http://meine.seite.net/cgi-bin/test.pl</code> hat, aber mit <code>http://meine.seite.net/cgi-bin/test.pl/querys/musicbase.sql</code> aufgerufen wird, dann ermittelt dieser Befehl den Anteil <code>/querys/musicbase.sql</code>. Beachten Sie, dass Aufrufe dieser Art nicht von allen Webservern korrekt verarbeitet werden.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>$cgi-&gt;path_translated()</code></td>
+<td class="tabxpl">Skalar</td>
+<td class="tabxpl">Ermittelt wie <code>$cgi-&gt;path_info()</code> zusätzliche, wie weitere Unterverzeichnisse notierte Angaben, jedoch mit dem Unterschied, dass nicht der Anteil aus dem URI zurückgegeben wird, sondern der vom Webserver übersetzte Datenpfad dieses Anteils. Angenommen, das Script hat die Adresse <code>http://meine.seite.net/cgi-bin/test.pl</code>, wurde aber mit <code>http://meine.seite.net/cgi-bin/test.pl/querys/musicbase.sql</code> aufgerufen. Dann könnte der zusätzliche Adressanteil <code>/querys/musicbase.sql</code> aus Sicht des Webservers beispielsweise in einen physikalischen Pfadnamen wie <code>/usr/web/seite/querys/musicbase.sql</code> aufgelöst werden. Diesen Pfadnamen würde <code>$cgi-&gt;path_translated()</code> zurückgeben.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>$cgi-&gt;referer()</code></td>
+<td class="tabxpl">Skalar</td>
+<td class="tabxpl">Ermittelt den URI der im Browser angezeigten Seite, von der aus das CGI-Script aufgerufen wurde. Ein solcher Wert lässt sich dann ermitteln, wenn das Script über ein abgesendetes Formular oder über einen Link aufgerufen wurde.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>$cgi-&gt;remote_host()</code></td>
+<td class="tabxpl">Skalar</td>
+<td class="tabxpl">Ermittelt den Internetzugangs-Domainnamen (falls verfügbar) oder die Zugangs-IP-Adresse des aufrufenden Browsers.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>$cgi-&gt;remote_user()</code></td>
+<td class="tabxpl">Skalar</td>
+<td class="tabxpl">Ermittelt den Benutzernamen, mit dem sich der aufrufende Benutzer angemeldet hat, um das CGI-Script aufzurufen. Wenn das Script beispielsweise htaccess-geschützt ist, muss sich der aufrufende Benutzer mit Benutzernamen und Passwort anmelden. Der dabei eingegebene Benutzername kann mit diesem Befehl ermittelt werden.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>$cgi-&gt;request_method()</code></td>
+<td class="tabxpl">Skalar</td>
+<td class="tabxpl">Ermittelt die HTTP-Methode, mit der das CGI-Script aufgerufen wurde, gibt also üblicherweise <code>GET</code> oder <code>POST</code> zurück.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>$cgi-&gt;script_name()</code></td>
+<td class="tabxpl">Skalar</td>
+<td class="tabxpl">Ermittelt den absoluten HTTP-Pfad des CGI-Scripts. Bei einem Script mit der Adresse <code>http://meine.seite.net/cgi-bin/test.pl</code> würde also <code>/cgi-bin/test.pl</code> ermittelt. Dieser Wert eignet sich sehr gut für weitere Selbstaufrufe des Scripts, etwa bei mehrseitigen Anwendungen wie Bestellvorgängen.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>$cgi-&gt;server_name()</code></td>
+<td class="tabxpl">Skalar</td>
+<td class="tabxpl">Ermittelt den Namen des Server-Rechners, auf dem das CGI-Script läuft. Normalerweise ist dies der eingetragene Hostname des Rechners.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>$cgi-&gt;server_software()</code></td>
+<td class="tabxpl">Skalar</td>
+<td class="tabxpl">Ermittelt den Namen und die Versionsnummer der Webserver-Software auf dem Server-Rechner.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>$cgi-&gt;url(-full =&gt; 1)</code></td>
+<td class="tabxpl">Skalar</td>
+<td class="tabxpl">Ermittelt die vollständige Adresse des CGI-Scripts, aber ohne eventuell mit übergebene Parameter.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>$cgi-&gt;url(-path =&gt; 1)</code></td>
+<td class="tabxpl">Skalar</td>
+<td class="tabxpl">Ermittelt zusätzliche, wie weitere Unterverzeichnisse notierte Angaben. Wenn das Script beispielsweise die Adresse <code>http://meine.seite.net/cgi-bin/test.pl</code> hat, aber mit <code>http://meine.seite.net/cgi-bin/test.pl/data/musicbase</code> aufgerufen wird, dann ermittelt dieser Befehl den Anteil <code>/data/musicbase</code>. Beachten Sie, dass Aufrufe dieser Art nicht von allen Webservern korrekt verarbeitet werden.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>$cgi-&gt;url(-query =&gt; 1)</code></td>
+<td class="tabxpl">Skalar</td>
+<td class="tabxpl">Ermittelt die vollständige eigene Adresse des CGI-Scripts inklusive übergebener Parameter. Bei Aufrufen wie <code>http://meine.seite.net/cgi-bin/test.pl?user=Heino&amp;wunsch=Volksmusik</code> wird also auch der Teil hinter dem Fragezeichen mit zurückgegeben.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>$cgi-&gt;url(-relative =&gt; 1)</code></td>
+<td class="tabxpl">Skalar</td>
+<td class="tabxpl">Ermittelt den relativen HTTP-Pfad des CGI-Scripts aus Sicht des aktuellen Arbeitsverzeichnisses.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>$cgi-&gt;url_param()</code></td>
+<td class="tabxpl">Liste</td>
+<td class="tabxpl">Ermittelt eine Liste aller Parameternamen, sofern Parameter übergeben wurden. Bei einem Script-Aufruf wie <code>http://meine.seite.net/cgi-bin/test.pl?user=Heino&amp;wunsch=Volksmusik</code> wird also eine Liste mit den beiden Elementen <code>user</code> und <code>wunsch</code> ermittelt</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>$cgi-&gt;url_param('wunsch')</code></td>
+<td class="tabxpl">Skalar</td>
+<td class="tabxpl">Ermittelt den Wert eines dem Script übergebenen Parameter namens <code>wunsch</code>. Bei einem Script-Aufruf wie <code>http://meine.seite.net/cgi-bin/test.pl?user=Heino&amp;wunsch=Volksmusik</code> wird also <code>Volksmusik</code> ermittelt.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>if($cgi-&gt;url_param())</code></td>
+<td class="tabxpl">Liste, im booleschen Kontext ausgewertet</td>
+<td class="tabxpl">Ermittelt, ob dem Script über den URI irgendwelche Daten übergeben wurden. Im <code>if</code>-Zweig könnten Anweisungen stehen, die auf diesen Fall reagieren, während im <code>else</code>-Zweig davon ausgegangen werden kann, dass keine Parameter übergeben wurden.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>$cgi-&gt;user_agent()</code></td>
+<td class="tabxpl">Skalar</td>
+<td class="tabxpl">Ermittelt die Bezeichnung, mit der sich der aufrufende Browser dem Server gegenüber ausgewiesen hat. Typische ermittelte Werte sind solche wie <code>Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)</code> (für den Internet Explorer 6.0).</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>$cgi-&gt;user_name()</code></td>
+<td class="tabxpl">Skalar</td>
+<td class="tabxpl">Ermittelt den Namen des aufrufenden Benutzers mit Hilfe verschiedener Abfragen. Moderne Browser verhindern allerdings ein Ausspionieren dieser Daten.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>$cgi-&gt;virtual_host()</code></td>
+<td class="tabxpl">Skalar</td>
+<td class="tabxpl">Ermittelt den Domainnamen, mit dem der Browser das CGI-Script aufgerufen hat.</td>
+</tr>
+</table>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Diese Umgebungsdaten sind <strong>nicht</strong> dasselbe, was Sie eventuell als <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../servercgi/cgi/umgebungsvariablen.htm">CGI-Umgebungsvariablen</a> kennen. Sondern es sind Variablen, die zur Laufzeitumgebung Ihres Scripts gehören. In vielem allerdings ähneln sie den Umgebungsvariablen der CGI-Schnittstelle. Aber Sie können sich natürlich auch mit Hilfe des CGI-Moduls ein kleines Script zusammenstellen, das Ihnen eine Übersicht der CGI-Umgebungsvariablen liefert.</p>
+
+<h3>Beispiel eines vollständigen CGI-Scripts in Perl:</h3>
+
+<pre>#!/usr/bin/perl -w
+
+use strict;
+use CGI;
+use CGI::Carp qw(fatalsToBrowser);
+
+my $cgi = new CGI;
+
+print $cgi-&gt;header(),
+      $cgi-&gt;start_html('Umgebungsvariablen'),
+      $cgi-&gt;h1('Umgebungsvariablen'),
+      $cgi-&gt;start_table(-border =&gt; '1').&quot;\n&quot;,
+        $cgi-&gt;Tr($cgi-&gt;th({-bgcolor =&gt; '#E0E0E0'},'Variablenname').&quot;\n&quot;,
+                 $cgi-&gt;th({-bgcolor =&gt; '#E0E0E0'},'Wert')).&quot;\n&quot;;
+foreach(keys(%ENV)) {
+  print $cgi-&gt;Tr($cgi-&gt;td($cgi-&gt;strong($_)),
+                 $cgi-&gt;td($ENV{$_})).&quot;\n&quot;;
+}
+print $cgi-&gt;Tr($cgi-&gt;th({-align =&gt; 'left', -bgcolor =&gt; '#E0E0E0', -colspan =&gt; '2'},
+                         'insgesamt '.scalar keys(%ENV).' Umgebungsvariablen')).&quot;\n&quot;,
+      $cgi-&gt;end_table(),
+      $cgi-&gt;end_html();</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Dieses zweite Beispielscript ist so ähnlich wie das erste aufgebaut. Auch hier wird eine Tabelle erzeugt. Aber es werden nicht bestimmte Umgebungsvariablen nach ihrem Wert gefragt, sondern es werden mit Hilfe einer <code>foreach</code>-Schleife alle ermittelbaren CGI-Umgebungsvariablen mitsamt der ihnen zugehörenden Werte in jeweils einer Tabellenzelle dargestellt.</p>
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="cookies">Cookies verwalten mit dem CGI-Modul</a></h2>
+
+<p>Cookies sind kleine Informationseinheiten in Form von Textdateien, die eine Webseite auf dem Rechner des aufrufenden Anwenders speichern kann. Das Speichern und Verwalten wird dabei vom Browser des Anwenders kontrolliert (Sie können festlegen, ob Ihr Browser Cookies annehmen darf oder nicht). Cookies erlauben es, anwender-individuelle Informationen wie den Zeitpunkt des letzten Besuchs, angeklickte Angebote oder auch login-Daten (das wird beispielsweise von diversen PHP-Boards gern genutzt) zu speichern und beim nächsten Aufruf wieder auszulesen. Das CGI-Modul unterstützt das Setzen und Lesen solcher Cookies.</p>
+
+<h3 class="xmp">Beispiel eines vollständigen CGI-Scripts in Perl:</h3>
+
+<pre>
+#!/usr/bin/perl -w
+
+use strict;
+use CGI;
+use CGI::Carp qw(fatalsToBrowser);
+
+my $cgi = new CGI;
+my $CTIME_String = localtime(time);
+my $altCookie = $cgi-&gt;cookie(-name=&gt;'letzter_Besuch');
+my $neuCookie = $cgi-&gt;cookie(-name=&gt;'letzter_Besuch',
+                            -value=&gt;$CTIME_String,
+                            -expires=&gt;'+3M',
+                            -path=&gt;'/');
+
+print $cgi-&gt;header(-cookie=&gt;$neuCookie),
+  $cgi-&gt;start_html("Cookie-Test"),
+  $cgi-&gt;p("&lt;b&gt;Ihr letzter Besuchszeitpunkt dieser Seite war&lt;/b&gt;: ", $altCookie || 'unbekannt'),
+  $cgi-&gt;p("&lt;b&gt;Als neuer Besuchszeitpunkt wurde gespeichert&lt;/b&gt;: ", $CTIME_String),
+  $cgi-&gt;end_html();
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispielscript verwendet einen Cookie, mit dessen Hilfe es den letzten Aufrufzeitpunkt ermitteln kann und den aktuellen Aufrufzeitpunkt als neuen letzten speichert. Zur Kontrolle erzeugt es eine <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#htmlausgaben">HTML-Ausgabe</a>, in der dem Besucher der eingelesene alte Aufrufzeitpunkt und der neu gespeicherte Aufrufzeitpunkt mitgeteilt wird. Dazu bindet das Script zunächst mit <code>use CGI</code> das CGI-Modul ein und erzeugt mit <code>my $cgi = new CGI</code> eine neue Instanz des CGI-Objekts. Mit <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../funktionen/datumzeit.htm#localtime">localtime(time)</a> ermittelt es den aktuellen Zeitpunkt und speichert den Wert im Skalar <code>$CTIME_String</code>. Das Lesen und Setzen des Cookies steuert die Methode <code>cookie()</code> des CGI-Moduls. Über den Skalar <code>$cgi</code>, der an das erzeugte CGI-Objekt gebunden ist, greift das Script mit <code>$cgi-&gt;cookie()</code> auf die Methode zu.</p>
+
+<p>Die Methode <code>cookie()</code> erwartet Argumente. Je nachdem, welche Argumente ihr übergeben werden, liest sie einen vorhandenen Cookie oder definiert einen neuen. Alle Argumente bestehen aus einem Argumentnamen und einem Wert. Der Argumentname beginnt mit einem Minuszeichen <code>-</code>. Hinter dem Argumentnamen folgt der Operator <code>=&gt;</code> und dahinter die Angabe des gewünschten Wertes.</p>
+
+<p>Zum Lesen genügt es, das Argument <code>-name</code> anzugeben. Ist ein Cookie mit diesem Namen vorhanden, dann liefert der Aufruf von <code>cookie()</code> dessen Wert zurück. Genau das geschieht im ersten Aufruf des obigen Beispiels. Der zurückgegebene Wert wird dort im Skalar <code>$altCookie</code> gespeichert. Im Beispiel hat das Cookie den Namen <code>letzer_Besuch</code>.</p>
+
+<p>Zum Setzen eines Cookies müssen Sie mindestens zwei Argumente an <code>cookie()</code> übergeben, nämlich die Argumente <code>-name</code> und <code>-value</code>. Bei <code>-value</code> geben Sie an, welcher Wert gespeichert werden soll. Im obigen Beispiel ist das der Inhalt des zuvor errechneten Skalars <code>$CTIME_String</code>. Durch die Angabe von <code>-value</code> wird das Cookie aber noch nicht gesetzt. Dies geschieht erst beim Senden eines HTTP-Headers an den aufrufenden Browser. Dazu wird zunächst der Rückgabewert des Aufrufs von <code>cookie()</code> gespeichert, und zwar im Skalar <code>$neuCookie</code>. Dieser Skalar wird dann beim HTTP-Header, den Sie mit der Methode <code>header()</code> an den Browser senden, im Argument <code>-cookie</code> als Wert gesendet, so wie im obigen Beispiel gezeigt.</p>
+
+<p>Ein weiteres wichtiges Argument der Methode <code>cookie()</code> ist <code>-expires</code>. Damit geben Sie an, wie lange der Browser das Cookie beim Anwender speichern soll. Wenn Sie <code>-expires</code> nicht angeben, behält der Browser das Cookie nur solange bis der Anwender den Browser beendet. Den gewünschten Speicherzeitraum geben Sie als Zahl mit voranstehendem Pluszeichen und einem nachgestellten Buchstaben für die Zeiteinheit an. Die Angabe <code>'+3M'</code> im Beispiel bedeutet "3 Monate". Andere Zeiteinheiten sind <code>s</code> (Sekunden), <code>m</code> (Minuten), <code>h</code> (Stunden), <code>d</code> (Tage) und <code>y</code> (Jahr). Darüber hinaus sind absolute Zeitangaben im UTC-Format erlaubt, wie z.B. <code>Friday, 08-Jun-2001 11:29:00 GMT+0100</code>.</p>
+
+<p>Die Methode <code>cookie()</code> kennt daneben noch weitere Argumente. Mit <code>-path</code> geben Sie den HTTP-Pfad auf dem Server an, für den (einschließlich seiner Unterverzeichnisse) das Cookie gelten soll. Fehlt die Angabe, dann gilt das Cookie für die gesamte Domain ab der Dokumentwurzel. Mit <code>-domain</code> können Sie angeben, für welche Sub-Domain innerhalb der Hauptdomain das Cookie gelten soll (z.B. <code>-domain =&gt; news.aufdiesemserver.de</code>). Mit <code>-secure</code>, das als Wertzuweisung dann <code>true</code>, also beispielsweise <code>1</code> erwartet, erreichen Sie, dass das Cookie nur dann gesetzt wird, wenn die Serverumgebung eine SSL-geschützte Umgebung ist. Das ist wichtig, wenn Sie sensible Daten im Cookie übertragen, etwa die Kreditkartennummer des Anwenders, um ihm diese bei seinem nächsten Besuch gleich als Vorbelegung eines Formularfeldes anzubieten.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="redirects">Automatische Umleitungen (Redirects) mit dem CGI-Modul</a></h2>
+
+<p>Manche CGI-Scripts dienen dazu, den aufrufenden Anwender zu einer anderen Adresse weiterzuleiten und vorher eventuell noch ein paar Aufgaben zu erledigen.</p>
+
+<h3 class="xmp">Beispiel eines vollständigen CGI-Scripts in Perl:</h3>
+
+<pre>
+#!/usr/bin/perl -w
+
+use strict;
+use CGI;
+use CGI::Carp qw(fatalsToBrowser);
+
+my $cgi = new CGI;
+
+open(FH,"&gt;&gt;/usr/web/data/userlog.xml");
+print FH "&lt;user-call&gt;\n &lt;remote-host&gt;",
+         $cgi-&gt;remote_host(),
+         "&lt;/remote-host&gt;\n &lt;user-agent&gt;",
+         $cgi-&gt;user_agent(),
+         "&lt;/user-agent&gt;\n &lt;goto-url&gt;",
+         $cgi-&gt;url_param('goto'),
+         "&lt;/goto-url&gt;\n &lt;time-stamp&gt;",
+         localtime(time),
+         "&lt;/time-stamp&gt;\n&lt;/user-call&gt;\n";
+close(FH);
+
+print $cgi-&gt;redirect($cgi-&gt;url_param('goto'));
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel-Script erwartet beim Aufruf im URI einen Parameter namens <code>goto</code>, dem wiederum eine gültige Adresse zugewiesen werden sollte. Angenommen, das Script hat die Adresse "http://localhost/cgi-bin/redirect.pl", dann wäre ein denkbarer Aufruf <code>http://localhost/cgi-bin/redirect.pl?goto=http%3A%2F%2Fde.selfhtml.org/</code>. Ein solcher Aufruf könnte beispielsweise als <code>href</code>-Attribut in einem Link stehen, der den Anwender eigentlich zu de.selfhtml.org führt, aber zuvor noch ein paar Daten über den Anwender sammelt.</p>
+
+<p>Das Script bindet zunächst mit <code>use CGI</code> das CGI-Modul ein und erzeugt mit <code>my $cgi = new CGI</code> eine neue Instanz des CGI-Objekts. Die Weiterleitung ist dann wie in der untersten Anweisung des Beispiels gezeigt mit <code>print $cgi-&gt;redirect()</code> möglich. Als Argument wird der Methode <code>redirect()</code> die gewünschte Adresse übergeben, zu der die Umleitung erfolgen soll. Im Beispiel wird keine statische Adresse übergeben, sondern der Wert, der aus der <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#umgebungsdaten">Umgebungsvariablen</a> <code>url_param('goto')</code> gewonnen wird. Darin ist der beim Script-Aufruf übergebene Wert von <code>goto</code> enthalten. Das Script tut also aus Anwendersicht nichts weiter, als die übergebene Adresse aufzurufen.</p>
+
+<p>Zuvor schreibt das Script jedoch einige Daten über den Anwender in eine XML-Datei. In diese Datei werden Daten wie Hostname oder IP-Adresse des Anwenders, sein Browser-Typ, die Umleitungsadresse und der aktuelle Zeitstempel, ermittelt mit <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../funktionen/datumzeit.htm#localtime">localtime(time)</a>, geschrieben. Zum Öffnen und Schließen der Datei verwendet das Script die üblichen Perl-Funktionen <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../funktionen/einausgabe.htm#open">open</a> und <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../funktionen/einausgabe.htm#close">close</a>. Die Daten werden wie üblich mit <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../funktionen/einausgabe.htm#print">print</a> und Angabe des Datei-Handles (im Beispiel <code>FH</code>) geschrieben.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="sicherheitseinstellungen">Sicherheitseinstellungen mit dem CGI-Modul</a></h2>
+
+<p>Das CGI-Modul bietet zwei wichtige Einstellmöglichkeiten an, mit denen Sie die Sicherheit eines CGI-Scripts vor böswilliger Benutzung erhöhen können. Die beiden Befehle sollten Sie zu Beginn des Scripts notieren, jedoch nach dem Einbinden des CGI-Moduls mit <code>use CGI</code>.</p>
+
+<table class="reftable" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<th nowrap="nowrap">Befehl</th>
+<th>Erläuterung</th>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>$CGI::POST_MAX = 1024 * 100;</code></td>
+<td class="tabxpl">Mit diesem Befehl legen Sie fest, wie viele Daten maximal an das CGI-Script übertragen werden können. Im Beispiel wird eine byte-gerechte Zahl errechnet, nämlich 100 Kilobyte. Wird der Wert überschritten, wird die Parameterliste gelöscht. Der entsprechende Fehlercode wird von der Methode <code>cgi_error</code> zurückgegeben.</td>
+</tr>
+<tr>
+<td class="code" nowrap="nowrap"><code>$CGI::DISABLE_UPLOADS = 1;</code></td>
+<td class="tabxpl">Mit diesem Befehl können Sie verhindern, dass Dateien, die via Formular an das Script übertragen werden, also HTML-Tags der Sorte <code>&lt;input type="file"&gt;</code>, automatisch in eine temporäre Datei gespeichert werden. Die entsprechenden Formulardaten werden dann beim Auswerten einfach übergangen. Interessant ist ein solcher Befehl beispielsweise, wenn das Script vorher nicht weiß, von wo es aufgerufen wird und welche Formulardaten es zu verarbeiten hat - etwa ein öffentlich zugänglicher Form-Mailer, der beliebige ausgefüllte HTML-Formulare an eine E-Mail-Adresse sendet.</td>
+</tr>
+</table>
+
+&nbsp;
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="../../inter/sprache.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../inter/sprache.htm">Computer und geschriebene Sprache</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="cpanmodule.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="cpanmodule.htm">CPAN-Module</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">Perl</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Perl-Module</a></td>
+</tr>
+</table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

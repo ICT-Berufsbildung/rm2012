@@ -1,0 +1,636 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: XML / Dokumenttyp-Definitionen (DTDs) / Attribute und Wertzuweisungen</title>
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<meta name="description"    content="Wie in einer XML-DTD Attribute und deren erlaubte Wertzuweisungen deklariert werden.">
+<meta name="keywords"       content="SELFHTML, XML, DTD, DTDs, Document Type Definition, Dokumenttyp-Definitionen, Attribute, Attrribut-Deklaration">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-11-08T02:11:45+01:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/xml/dtds/attribute.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="Dokumenttyp-Definitionen (DTDs)" href="index.htm">
+<link rel="next" title="Entities für Textbausteine und Umschreibungen" href="entities.htm">
+<link rel="prev" title="Elemente und Verschachtelungsregeln" href="elemente.htm">
+<link rel="first" title="Allgemeines zu DTDs" href="allgemeines.htm">
+<link rel="last" title="Notationen für referenzierte Daten" href="notations.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">XML/DTDs</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Dokumenttyp-Definitionen (DTDs)</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Attribute und Wertzuweisungen</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#allgemeines">Allgemeines zu Attributen</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#schema">Schema zum Definieren von Attributen</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#notwendige_optionale">Notwendige und optionale Attribute</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#mit_zeichenwert">Attribute mit Zeichenwert</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#mit_alternativwert">Attribute mit festen alternativen Werten</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#mit_bezeichnerwert">Attribute mit Bezeichnerwert (Token)</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#mit_identifikationswert">Attribute mit Identifikationswert</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#mit_id_referenzwert">Attribute mit Identifikationsreferenzwert</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#mit_entitywert">Attribute mit Entity-Wert (z.B. für externe Dateireferenzen)</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#mit_namenwert">Attribute mit Namenwert</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#ohne_wert">Attribute ohne Wertzuweisung</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#personenbeispiel">Zusammenhängendes Beispiel: Personenbeschreibung</a><br>
+</p>
+</td>
+</tr><tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><a class="an" name="allgemeines">Allgemeines zu Attributen</a></h2>
+
+<p>Wenn Sie in HTML so etwas notieren wie <code>&lt;p align="center"&gt;etwas Text&lt;/p&gt;</code>, dann ist <code>&lt;p&gt;</code> das Element, und <code>align</code> ist ein Attribut, das innerhalb des <code>&lt;p&gt;</code>-Elements vorkommen kann. Solche Attribute können Sie in eigenen XML-DTDs für die dort definierten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="elemente.htm#allgemeines">Elementtypen</a> bestimmen. Bei der Definition eines Attributs geben Sie an, welche Wertzuweisungen dabei möglich sein sollen.</p>
+
+<p>Beim Erstellen von DTDs müssen Sie überlegen, ob es sinnvoll ist, Daten in Attributen zu speichern oder nicht. Für viele Eigenschaften ist es durchaus sinnvoller, eigene Elementtypen zu definieren. So ist "Haarfarbe" beispielsweise eine typische natürliche Eigenschaft einer Person. Wenn nun in der Datenstruktur zur Beschreibung der Person über die Haare nichts weiter als die Haarfarbe berücksichtigt wird, dann genügt es, ein Element wie <code>&lt;haarfarbe&gt;...&lt;/haarfarbe&gt;</code> zu definieren. Wenn aber noch weitere Haareigenschaften berücksichtigt werden sollen, etwa die Haarlänge, dann bietet es sich an, die Datenstruktur so zu definieren, dass es ein Element mit verschiedenen Attributen gibt, z.B. <code>&lt;haar farbe="..." laenge="..."&gt;...&lt;/haar&gt;</code>.</p>
+
+<p>Dabei entsteht aber die Situation, dass die eigentlichen Anwendungsdaten in den Attributen stehen, sodass zwischen Anfangs- und End-Tag des Elements gar keine sinnvollen Zeichendaten mehr möglich sind. Es ist nämlich fraglich, was zwischen dem Einleitungs-Tag <code>&lt;haar farbe="..." laenge="..."&gt;</code> und dem End-Tag <code>&lt;/haar&gt;</code> eigentlich stehen könnte. Sinnvoll ist es daher, nur solche Daten in Attribute zu packen, die vor allem zur reinen <b>Datenverarbeitung</b> dienen. Sind es dagegen Daten, die <b>Inhalt</b> enthalten, der z.B. am Bildschirm ausgegeben werden soll, dann ist es sinnvoller, eigene Elemente dafür zu definieren. So ließe sich die Datenstruktur <code>&lt;haar farbe="..." laenge="..."&gt;...&lt;/haar&gt;</code> beispielsweise auch in der folgenden Form abbilden:<br> <code>&lt;haar&gt;<br>&nbsp;&lt;haarfarbe&gt;...&lt;/haarfarbe&gt;<br>&nbsp;&lt;haarlaenge&gt;...&lt;/haarlaenge&gt;<br>&lt;/haar&gt;</code></p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="schema">Schema zum Definieren von Attributen</a></h2>
+
+<p>Attribute werden innerhalb einer DTD nach folgendem Schema notiert:</p>
+
+<h3 class="xmp">Schema:</h3>
+
+<pre>
+&lt;!ELEMENT Elementname (Inhalt)&gt;
+&lt;!ATTLIST Elementname
+   Attributname_1 Inhalt [#REQUIRED|#IMPLIED|#FIXED "Wert"|Defaultwert]
+   Attributname_n Inhalt [#REQUIRED|#IMPLIED|#FIXED "Wert"|Defaultwert]
+&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Attribute werden in Abhängigkeit von Elementtypen definiert, d.h. nur für definierte Elementtypen können Sie Attribute definieren.</p>
+
+<p>Die Definition eines Attributs beginnt mit einer öffnenden spitzen Klammer <code>&lt;</code>. Dahinter folgt unmittelbar anschließend ein Ausrufezeichen <code>!</code> und dahinter, in Großbuchstaben, das Schlüsselwort <code>ATTLIST</code>. Das Wort deutet schon an, dass Sie auch eine ganze Liste von Attributen definieren können. Ein Elementtyp kann beliebig viele Attribute haben. Alle Attribute, die Sie einem Elementtyp zuordnen wollen, notieren Sie in der Attributliste zu diesem Elementtyp. Hinter <code>ATTLIST</code> folgt der Name des Elementtyps, auf den sich die Attribute beziehen. Dieser Elementtyp muss in der DTD definiert sein (siehe <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="elemente.htm">Elemente</a>).</p>
+
+<p>Innerhalb der Attributliste ist es zweckmäßig, jede Attribut-Definition in einer eigenen Zeile zu notieren. Jede Attribut-Definition der Attributliste beginnt mit dem Namen des Attributs. Den Namen können Sie frei wählen. Er muss jedoch den <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="bearbeitungsregeln.htm#namen">Regeln für Namen</a> in XML genügen. Hinter dem Namen notieren Sie Angaben zum Inhalt des Elementtyps. Diese Angaben können unterschiedlich sein und regeln, welche Werte ein Attribut haben kann. Schließlich gehört zu jedem Attribut noch eines der Schlüsselwörter <code>#REQUIRED</code>, <code>#IMPLIED</code> bzw. <code>#FIXED</code> mit einem angegebenen Wert, oder ein Defaultwert (mehr dazu im Abschnitt <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#notwendige_optionale">Notwendige und optionale Attribute</a>).</p>
+
+<p>Abgeschlossen wird die Attributlisten-Definition mit einer schließenden spitzen Klammer <code>&gt;</code>. Die einzelnen Teile jeder Definition werden durch ein oder mehrere Leerzeichen voneinander getrennt.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/xml10.gif" width="30" height="30" alt="XML 1.0" title="XML 1.0"><img src="../../src/msie5.gif" width="30" height="30" alt="MS IE 5.0" title="MS IE 5.0">&nbsp;<a class="an" name="notwendige_optionale">Notwendige und optionale Attribute</a></h2>
+
+<p>Bei Attributen, die Sie in einer DTD zu einem Elementtyp definieren, müssen Sie stets angeben, ob das Attribut in dem Element <b>vorkommen muss</b> oder <b>vorkommen kann</b>. In HTML ist z.B. das Attribut <code>src</code> im <code>&lt;img&gt;</code>-Element zwingend notwendig. Das Attribut <code>hspace</code> kann im gleichen Element ebenfalls vorkommen, muss aber nicht.</p>
+
+<h3 class="xmp">Beispiel-DTD <var>ressourcen.dtd</var>:</h3>
+
+<pre>
+&lt;!ELEMENT ressourcen (ressource)*&gt;
+&lt;!ELEMENT ressource (#PCDATA)&gt;
+&lt;!ATTLIST ressource
+   url            CDATA #REQUIRED
+   sprache        CDATA #IMPLIED
+   erfasst        CDATA #REQUIRED
+   geaendert      CDATA #IMPLIED
+&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel definiert als Inhalt für den Dokument-Elementtyp <code>ressourcen</code> einen Elementtyp namens <code>ressource</code>. Zu diesem Elementtyp werden vier Attribute definiert. Zwei dieser vier Attribute, nämlich die mit den Namen <code>url</code> und <code>erfasst</code>, <b>müssen</b> bei der Anwendung des Elementtyps notiert werden. Die beiden anderen, <code>sprache</code> und <code>geaendert</code>, <b>können</b> notiert werden. Notwendige Attribute kennzeichnen Sie durch den Schlüsselbezeichner <code>#REQUIRED</code>, und optionale Attribute durch <code>#IMPLIED</code>. Beide Angaben müssen jeweils am Ende einer Attribut-Definition stehen.</p>
+
+<p>Für alle vier Attribute im Beispiel wird festgelegt, dass der zugewiesene Wert aus Zeichendaten besteht. Dies wird durch das Schlüsselwort <code>CDATA</code> kenntlich gemacht (siehe <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#mit_zeichenwert">Attribute mit Zeichenwert</a>).</p>
+
+<h3 class="xmp">Beispiel einer gültigen Anwendung:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/ressourcen.xml">Anzeigebeispiel: So sieht's aus</a> (XML-fähiger Browser zeigt z.B. die Datenstruktur an)</p>
+
+<pre>
+&lt;?xml version="1.0" encoding="ISO-8859-1" ?&gt;
+&lt;!DOCTYPE ressourcen SYSTEM "ressourcen.dtd"&gt;
+&lt;ressourcen&gt;
+&lt;ressource url="http://alpentouren.at/" erfasst="09.11.2000"&gt;
+Hypertextuell aufbereitete Beschreibung etlicher Rad-Touren über Alpenpässe
+&lt;/ressource&gt;
+&lt;ressource url="http://www.planetbike.co.nz/" erfasst="10.12.2000"
+ geaendert="16.12.2000" sprache="en"&gt;
+Mountain Bike Touren durch Neuseeland
+&lt;/ressource&gt;
+&lt;/ressourcen&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Im Beispiel werden zwei Elemente des Typs <code>ressource</code> notiert. Beim ersten Element werden nur die beiden notwendigen Attribute <code>url</code> und <code>erfasst</code> notiert, im zweiten Element dagegen alle vier definierten Attribute.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/xml10.gif" width="30" height="30" alt="XML 1.0" title="XML 1.0"><img src="../../src/msie5.gif" width="30" height="30" alt="MS IE 5.0" title="MS IE 5.0">&nbsp;<a class="an" name="mit_zeichenwert">Attribute mit Zeichenwert</a></h2>
+
+<p>Jedes Attribut muss in XML eine Wertzuweisung erhalten. In vielen Fällen ist der zugewiesene Wert nicht auf einen bestimmten Wertebereich eingeschränkt, sondern kann eine unbestimmte Anzahl möglicher Werte haben. Das ist zum Beispiel der Fall, wenn das Attribut eine Kurzbeschreibung, einen numerischen Wert, einen prozentualen Wert oder eine Maßangabe enthält. Solche Attribute werden Attribute mit Zeichenwert genannt.</p>
+
+<h3 class="xmp">Beispiel-DTD <var>autos.dtd</var>:</h3>
+
+<pre>
+&lt;!ELEMENT autos (auto)*&gt;
+&lt;!ELEMENT auto EMPTY&gt;
+&lt;!ATTLIST auto
+   typ CDATA #REQUIRED
+   bj  CDATA #REQUIRED
+   km  CDATA #REQUIRED
+   ps  CDATA #REQUIRED
+   vb  CDATA #REQUIRED
+&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Im Beispiel wird ein <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="elemente.htm#ohne_inhalt">Elementtyp ohne Inhalt</a> namens <code>auto</code> definiert. Dem Elementtyp werden fünf <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#notwendige_optionale">notwendige</a> Attribute zugeordnet. Alle enthalten Zeichenwert. Für diesen Wert-Typ müssen Sie hinter dem Attributnamen als Attributinhalt den Schlüsselbezeichner <code>CDATA</code> angeben. Zeichenwert ist eine beliebige und beliebig lange Zeichenfolge, also Text, Zahlen, und Sonderzeichen. <code>CDATA</code> ist eine Abkürzung für <i>character data</i>, zu deutsch <i>Zeichendaten</i>).</p>
+
+<h3 class="xmp">Beispiel einer gültigen Anwendung:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/autos.xml">Anzeigebeispiel: So sieht's aus</a> (XML-fähiger Browser zeigt z.B. die Datenstruktur an)</p>
+
+<pre>
+&lt;?xml version="1.0" encoding="ISO-8859-1" ?&gt;
+&lt;!DOCTYPE autos SYSTEM "autos.dtd"&gt;
+&lt;autos&gt;
+&lt;auto typ="AUDI 80" bj="1992" km="125000" ps="90" vb="12500 DM" /&gt;
+&lt;/autos&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Dem Element <code>auto</code> werden im Anwendungsbeispiel alle definierten Attribute zugewiesen. Egal ob Zeichenketten, Zahlen oder Mischformen - alle Wertzuweisungen fallen unter das, was in XML durch <code>CDATA</code> abgedeckt ist.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Was als Wertzuweisung in den Attributen steht, ist bei <code>CDATA</code> egal. Um nur bestimmte Wertzuweisungen zu erlauben, können Sie <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#mit_alternativwert">Attribute mit festen alternativen Werten</a> definieren.</p>
+
+<p>Innerhalb von Wertzuweisungen an Attribute können Sie auch das Apostroph-Zeichen <code>'</code> und das Anführungszeichen <code>"</code> verwenden. Diese beiden Zeichen müssen Sie dann aber unbedingt maskieren, nämlich in der Form <code>&amp;apos;</code> für <code>'</code> und <code>&amp;quot;</code> für <code>"</code>.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/xml10.gif" width="30" height="30" alt="XML 1.0" title="XML 1.0"><img src="../../src/msie5.gif" width="30" height="30" alt="MS IE 5.0" title="MS IE 5.0">&nbsp;<a class="an" name="mit_alternativwert">Attribute mit festen alternativen Werten</a></h2>
+
+<p>Aus HTML sind Ihnen vermutlich viele Attribute bekannt, die nur bestimmte Werte zulassen. So lässt das Attribut <code>align</code> in den Elementen, in denen es vorkommen kann, nur Werte wie <code>left</code>, <code>center</code>, <code>right</code> und <code>justify</code> zu. Solche Attribute mit bestimmten erlaubten Wertzuweisungen können Sie auch in XML definieren.</p>
+
+<h3 class="xmp">Beispiel-DTD <var>hotels.dtd</var>:</h3>
+
+<pre>
+&lt;!ELEMENT hotels (hotel)*&gt;
+&lt;!ELEMENT hotel (#PCDATA)&gt;
+&lt;!ATTLIST hotel
+   name            CDATA               #REQUIRED
+   klasse          (I|II|III|IV|V)     #REQUIRED
+   einzelzimmer    (ja|nein)           #IMPLIED
+   doppelzimmer    (ja|nein) "ja"
+&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Im Beispiel wird ein Elementtyp <code>hotel</code> definiert. Dem Elementtyp werden vier Attribute zugeordnet. Das erste ist ein <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#notwendige_optionale">notwendiges</a> Attribut mit <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#mit_zeichenwert">Zeichenwert</a>. Die übrigen drei Attribute haben keinen Zeichenwert, sondern erwarten einen von bestimmten möglichen Wertzuweisungen. Die möglichen Werte werden in Klammern notiert und durch das logische "Oder", symbolisiert durch den Senkrechtstrich <code>|</code>, voneinander getrennt. Das Attribut <code>klasse</code> erlaubt auf diese Weise einen der möglichen Werte <code>I</code>, <code>II</code>, <code>III</code>, <code>IV</code> oder <code>V</code>. Die Attribute <code>einzelzimmer</code> und <code>doppelzimmer</code> erlauben die Wertzuweisungen <code>ja</code> oder <code>nein</code>. Zusätzlich besteht bei Attributen mit festen alternativen Werten die Möglichkeit, einen dieser Werte als Default-Wert zu definieren. Im Beispiel ist das beim Attribut <code>doppelzimmer</code> der Fall. Dabei wird hinter der Klammer mit den möglichen Wertzuweisungen, durch ein oder mehrere Leerzeichen getrennt und in Anführungszeichen gesetzt, einer der Werte als Default-Wert notiert - im Beispiel der Wert <code>ja</code>. Wenn Sie einen solchen Default-Wert notieren, ist hinterher keine Angabe mehr dazu möglich, ob das Attribut notwendig (<code>#REQUIRED</code>) oder optional (<code>#IMPLIED</code>) ist. Denn der Default-Wert bewirkt, dass das Attribut intern vom <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../intro.htm#parser">Parser</a> als notwendig interpretiert wird. Wenn das Attribut in der Anwendung weggelassen wird, wird automatisch der Default-Wert angenommen.</p>
+
+<h3 class="xmp">Beispiel einer gültigen Anwendung:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/hotels.xml">Anzeigebeispiel: So sieht's aus</a> (XML-fähiger Browser zeigt z.B. die Datenstruktur an)</p>
+
+<pre>
+&lt;?xml version="1.0" encoding="ISO-8859-1" ?&gt;
+&lt;!DOCTYPE hotels SYSTEM "hotels.dtd"&gt;
+&lt;hotels&gt;
+
+&lt;hotel name="Waldesruh" klasse="IV"&gt;
+Hotel am Waldesrand gelegen, 150 Betten, ruhig und teuer.
+&lt;/hotel&gt;
+
+&lt;hotel name="Arabesk" klasse="II" doppelzimmer="ja" einzelzimmer="ja"&gt;
+Einfaches Stadthotel, 400 Zimmer, annehmbar, ohne besonderen Komfort.
+&lt;/hotel&gt;
+
+&lt;hotel name="Fridolin" klasse="III" einzelzimmer="nein"&gt;
+Hotel in zentraler Lage, 100 Betten, angenehm, gute Verkehrsanbindung.
+&lt;/hotel&gt;
+
+&lt;/hotels&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel zeigt drei erlaubte Anwendungen des <code>hotel</code>-Elements. Im ersten Fall werden nur die beiden Attribute notiert, die in der DTD als notwendig definiert wurden. Für das Attribut <code>doppelzimmer</code> wird intern der Default-Wert <code>ja</code> interpretiert.</p>
+
+<p>Im zweiten Anwendungsfall wird das Attribut <code>doppelzimmer</code> explizit notiert, und es wird der definierte Default-Wert zugewiesen. Genaugenommen ist diese Angabe überflüssig, weil der Default-Wert die Interpretation bereits abdeckt. Die Notation entspricht etwa der Angabe <code>align="left"</code> in HTML, wo die Wertzuweisung <code>left</code> als Default-Wert definiert ist.</p>
+
+<p>Das Attribut <code>einzelzimmer</code>, das als optional (<code>#IMPLIED</code>) definiert ist, erhält im ersten Anwendungsfall gar keinen Wert. Im zweiten Anwendungsfall wird es explizit auf <code>ja</code>, im dritten Anwendungsfall auf <code>nein</code> gesetzt.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Wertzuweisungen an Attribute mit festen alternativen Werten dürfen keine Leerzeichen enthalten, also letztlich nicht aus mehr als einem Wort bestehen.</p>
+
+<p>Es gibt auch die Möglichkeit, für ein Attribut eine bestimmte Wertzuweisung zu erzwingen. Dazu notieren Sie (Beispiel):<br>
+<code>typ (hotel | motel) #FIXED "hotel"</code><br>
+Durch die Angabe <code>#FIXED</code> erreichen Sie, dass an das Attribut <code>typ</code> keine andere Wertzuweisung als <code>hotel</code> möglich ist, obwohl noch eine andere Möglichkeit definiert ist. Solche Konstrukte können sinnvoll sein, wenn ein Attribut zu einem späteren Zeitpunkt noch andere Werte aufnehmen können, aber schon mal "etabliert" werden soll.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="mit_bezeichnerwert">Attribute mit Bezeichnerwert (Token)</a></h2>
+
+<p>Neben Attributen, mit beliebigen Zeichendaten (<code>CDATA</code>) als Wert oder mit festen alternativen Werten gibt es Attribute, die als Wertzuweisung Bezeichnerwerte erwarten. Bezeichnerwerte sind identifizierende Werte wie Namen oder Nummern. Zu dieser Gruppe gehören:</p>
+
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#mit_identifikationswert">Attribute mit Identifikationswert</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#mit_id_referenzwert">Attribute mit Identifikationsreferenzwert</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#mit_entitywert">Attribute mit Entity-Wert (z.B. für externe Dateireferenzen)</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#mit_namenwert">Attribute mit nmtoken-Wert (auch für numerische Identifikationen)</a>
+</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/xml10.gif" width="30" height="30" alt="XML 1.0" title="XML 1.0">&nbsp;<a class="an" name="mit_identifikationswert">Attribute mit Identifikationswert</a></h2>
+
+<p>XML sieht eine Möglichkeit vor, dem <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../intro.htm#parser">Parser</a> mitzuteilen, dass der zugewiesene Wert eines bestimmten Attributs dokumentweit nur einmal vorkommen darf. Dies ist ein wichtiges Feature vor allem im Hinblick auf Script-Sprachen. Denn nur bei dokumentweit eindeutigen, identifizierenden Werten ist es möglich, ein Element über den Identifikationswert anzusprechen.</p>
+
+<h3 class="xmp">Beispiel-DTD <var>buecher.dtd</var>:</h3>
+
+<pre>
+&lt;!ELEMENT buecher (buch)*&gt;
+&lt;!ELEMENT buch (#PCDATA)&gt;
+&lt;!ATTLIST buch
+   isbn     ID    #REQUIRED
+   titel    CDATA #REQUIRED
+   autor    CDATA #REQUIRED
+&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Im Beispiel wird ein Elementtyp <code>buch</code> definiert. Dem Elementtyp werden drei <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#notwendige_optionale">notwendige</a> Attribute zugeordnet. Zwei davon enthalten Zeichenwert, einer Identifikationswert - nämlich das Attribut <code>isbn</code>. Um ein Attribut mit Identifikationswert zu definieren, notieren Sie bei der Definition anstelle von <code>CDATA</code> den Schlüsselbezeichner <code>ID</code>.</p>
+
+<h3 class="xmp">Beispiel einer gültigen Anwendung:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/buecher.xml">Anzeigebeispiel: So sieht's aus</a> (XML-fähiger Browser zeigt z.B. die Datenstruktur an)</p>
+
+<pre>
+&lt;?xml version="1.0" encoding="ISO-8859-1" ?&gt;
+&lt;!DOCTYPE buecher SYSTEM "buecher.dtd"&gt;
+&lt;buecher&gt;
+
+&lt;buch isbn="nr_3-90193-3949-7" titel="Anbaggern leicht gemacht" autor="Dr. Howtodo"&gt;
+Ein Anleitung zwischen Genie und Wahnsinn.
+&lt;/buch&gt;
+
+&lt;buch isbn="nr_3-90193-3950-2" titel="Anbaggern leicht gemacht II" autor="Dr. Howtodo"&gt;
+Eine weitere Anleitung zwischen Genie und Wahnsinn.
+&lt;/buch&gt;
+
+&lt;/buecher&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel zeigt, wie zwei gleichnamige Elemente, bei denen auch Attribute den gleichen Inhalt haben können, sich doch durch ein als ID definiertes Attribut unterscheiden müssen. Ein Parser, der XML korrekt interpretiert, müsste einen Fehler melden, wenn die Wertzuweisung an das Attribut <code>isbn</code> im zweiten Datensatz "buch" den gleichen Wert hätte wie im ersten.</p>
+
+<h3 class="xpl">Beachten Sie:</h3>
+
+<p>Die Wertzuweisungen an ein Attribut vom Typ <code>ID</code> müssen den <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="bearbeitungsregeln.htm#namen">Regeln für Namen</a> entsprechen! Im obigen Beispiel wird den ISBN-Nummern deshalb die Zeichenfolge <code>nr_</code> vorangestellt, da die eigentliche ISBN-Nummer mit einer Ziffer beginnt, was aber kein gültiger Name wäre.</p>
+
+<p>Der Internet Explorer mit älterem Microsoft XML-Parser akzeptiert zwar den Typ <code>ID</code>, lässt aber trotzdem mehrere gleiche ID-Werte in einem Dokument zu, was nicht dem Sinn der Sache entspricht. Neuere XML-Parser von Microsoft (ab <var>msxml3.dll</var>) verhalten sich dagegen korrekt.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/xml10.gif" width="30" height="30" alt="XML 1.0" title="XML 1.0">&nbsp;<a class="an" name="mit_id_referenzwert">Attribute mit Identifikationsreferenzwert</a></h2>
+
+<p>Wenn Sie für Elementtypen <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#mit_identifikationswert">Attribute mit Identifikationswert</a> definieren, können Sie auch Attribute definieren, deren Wert auf ein bestimmtes anderes Element verweist. Auf diese Weise können Sie durch Attribute logische Abhängigkeitsbeziehungen zwischen Elementen definieren.</p>
+
+<h3 class="xmp">Beispiel-DTD <var>liste.dtd</var>:</h3>
+
+<pre>
+&lt;!ELEMENT liste (eintrag)*&gt;
+&lt;!ELEMENT eintrag (#PCDATA)&gt;
+&lt;!ATTLIST eintrag
+   name              ID                  #REQUIRED
+   elterneintrag     IDREF               #IMPLIED
+&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Im Beispiel wird ein Elementtyp <code>eintrag</code> definiert. Dieser Elementtyp könnte zum Beispiel Einträge eines Inhaltsverzeichnisses aufnehmen, das baumartige Kapitelstrukturen definiert. Diese Abhängigkeit wird im Beispiel in der Definition der Attribute ausgedrückt. Der Elementtyp <code>eintrag</code> erhält ein Attribut <code>name</code>, das als <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#mit_identifikationswert">Attribut mit Identifikationswert</a> definiert wird. Jedes Element <code>eintrag</code> muss in der Anwendung also einen dokumentweit eindeutigen Wert für <code>name</code> zugewiesen bekommen.<br>
+Ferner wird dem Element <code>eintrag</code> ein Attribut <code>elterneintrag</code> zugeordnet. Der Wert dieses Attributs muss der Definition zufolge der Name eines Eintrags sein, auf den sich das aktuelle Element bezieht. Solche Rückbeziehungen drücken Sie durch den Schlüsselbezeichner <code>IDREF</code> aus. Durch die beiden definierten Attribute ist es nun möglich, eine beliebige Baumstruktur abzubilden.</p>
+
+<h3 class="xmp">Beispiel einer gültigen Anwendung:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/liste.xml">Anzeigebeispiel: So sieht's aus</a> (XML-fähiger Browser zeigt z.B. die Datenstruktur an)</p>
+
+<pre>
+&lt;?xml version="1.0" encoding="ISO-8859-1" ?&gt;
+&lt;!DOCTYPE liste SYSTEM "liste.dtd"&gt;
+&lt;liste&gt;
+&lt;eintrag name="wurzel"&gt;Inhalt&lt;/eintrag&gt;
+&lt;eintrag name="einleitung" elterneintrag="wurzel"&gt;eine Einleitung&lt;/eintrag&gt;
+&lt;eintrag name="geschichte" elterneintrag="einleitung"&gt;etwas zur Geschichte&lt;/eintrag&gt;
+&lt;eintrag name="heute" elterneintrag="einleitung"&gt;heutiger Zustand&lt;/eintrag&gt;
+&lt;eintrag name="schritte" elterneintrag="wurzel"&gt;Erste Schritte&lt;/eintrag&gt;
+&lt;eintrag name="beispiel" elterneintrag="schritte"&gt;Ein kleines Beispiel&lt;/eintrag&gt;
+&lt;/liste&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel zeigt, wie Sie allein mit Hilfe der beiden Attribute <code>name</code> (als <code>ID</code> definiert) und <code>elterneintrag</code> (als <code>IDREF</code> definiert) eine Baumstruktur abbilden können. Die Struktur des Beispiels lässt sich optisch so darstellen:</p>
+
+<p>
+<img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;Inhalt<br>
+&nbsp;&nbsp;<img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;eine Einleitung<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;etwas zur Geschichte<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;heutiger Zustand<br>
+&nbsp;&nbsp;<img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;Erste Schritte<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;Ein kleines Beispiel<br>
+</p>
+
+<p>Das Attribut <code>elterneintrag</code> ist im Beispiel als optional (<code>#IMPLIED</code>) definiert. Deshalb darf es z.B. im ersten Eintrag des Beispiels (dem Eintrag mit dem Namen <code>wurzel</code>) entfallen.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Neben <code>IDREF</code> gibt es beim Definieren von Attributen mit Identifikationsreferenzwert auch noch die Pluralform <code>IDREFS</code>. Dadurch erlauben Sie, dass einem solchen Attribut mehrere eindeutige Bezugswerte zugewiesen werden können. Würde man im obigen Beispiel etwa definieren:<br>
+<code>elterneintrag IDREFS #REQUIRED</code><br>
+Dann wäre in der Anwendung eine Zuweisung wie diese erlaubt:<br>
+<code>&lt;eintrag name="schritte" elterneintrag="wurzel einleitung"&gt;Erste Schritte&lt;/eintrag&gt;</code><br>
+Trennen Sie dabei mehrere Zuweisungen durch Leerzeichen.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/xml10.gif" width="30" height="30" alt="XML 1.0" title="XML 1.0">&nbsp;<a class="an" name="mit_entitywert">Attribute mit Entity-Wert (z.B. für externe Dateireferenzen)</a></h2>
+
+<p>Bei Attributen mit Entity-Wert wird in der Anwendung die Wertzuweisung an ein solches Attribut als Name einer definierten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="entities.htm">Entity</a> erkannt. Der zugewiesene Wert ist dann nicht der notierte Name, sondern die Definition, die damit verknüpft ist. Diese Möglichkeit ist vor allem deshalb interessant, weil sie in XML die Art und Weise ist, um externe Dateien zu referenzieren. Stellen Sie sich eine Notierung wie <code>&lt;bild&nbsp;quelle="netz.gif"&gt;</code> vor. Um dem Parser mitzuteilen, dass er diesen Attributinhalt nicht einfach als Zeichenfolge, sondern als Referenz einer externen Datei interpretieren soll, ist der Umweg über die als <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="entities.htm#externe">externe Entitiy</a> definierte Referenz erforderlich.</p>
+
+<h3 class="xmp">Beispiel-DTD <var>bild.dtd</var>:</h3>
+
+<pre>
+&lt;!NOTATION gif PUBLIC "+//ISBN 0-7923-9432-1::Graphic Notation//NOTATION CompuServer Graphic Interchange Format//EN"&gt;
+&lt;!ENTITY netz SYSTEM "netz.gif" NDATA gif&gt;
+&lt;!ELEMENT bild EMPTY&gt;
+&lt;!ATTLIST bild
+   quelle            ENTITY              #REQUIRED
+&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Wie Sie sehen, ist das Einbinden einer externen Referenz etwas aufwendig. In der DTD geben Sie sowohl die Quelle der zu referenzierenden Datei an, als auch die Art, wie der entsprechende Dateityp verarbeitet werden sollte. Die Quelle definieren Sie mit der <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="entities.htm#externe">externen Entity-Anweisung</a> (<code>&lt;!ENTITY...&gt;</code>), die Verarbeitung des Dateityps mit der <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="notations.htm">Notation-Anweisung</a>  (<code>&lt;!NOTATION...&gt;</code>). Im Beispiel wird dann ein Elementtyp namens <code>bild</code> und dazu ein Attribut namens <code>quelle</code> definiert. Um ein Attribut mit Entity-Wert zu definieren, notieren Sie bei der Definition anstelle von <code>CDATA</code> den Schlüsselbezeichner <code>ENTITY</code>.</p>
+
+<h3 class="xmp">Beispiel einer gültigen Anwendung:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/bild.xml">Anzeigebeispiel: So sieht's aus</a> (XML-fähiger Browser zeigt z.B. die Datenstruktur an)</p>
+
+<pre>
+&lt;?xml version="1.0" encoding="ISO-8859-1" ?&gt;
+&lt;!DOCTYPE bild SYSTEM "bild.dtd"&gt;
+&lt;bild quelle="netz" /&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Die Anwendung ist ganz einfach: dem Element <code>bild</code> wird beim Attribut <code>quelle</code> ein Name zugewiesen. Dieser Name ist in der DTD als Entity definiert. Durch die Definition als Attribut mit Entity-Wert wird dem Parser mitgeteilt, dass er den zugewiesenen Wert als Namen einer Entity zu interpretieren hat. Bei der Interpretation wird der zugewiesene Wert <code>"netz"</code> durch die damit verbundene Verknüpfung <code>"netz.gif"</code> ersetzt. Durch die Definition als externe Entity (mit <code>SYSTEM</code>) weiß der Parser außerdem, dass dieser Wert die Pfadangabe zu einer anderen Datei darstellt.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Der hier beschriebene Weg ist keine Lösung, wenn Sie erreichen möchten, dass einem Attribut eine beliebige externe Quelle zugewiesen werden kann, wie es etwa in HTML bei <code>&lt;img src="..."&gt;</code> möglich ist. So etwas kann derzeit in XML gar nicht definiert werden. In XHTML, der XML-gerechten Definition von HTML, ist das <code>src</code>-Attribut des <code>img</code>-Elements schlicht als <code>CDATA</code> definiert. Dass ein Web-Browser dieses Attribut als Aufforderung versteht, an der entsprechenden Stelle die gewünschte Grafik anzuzeigen, ist nur im Web-Browser so programmiert - es steht jedoch nicht in der XHTML-DTD! Wenn Sie also XML-Daten direkt am Bildschirm ausgeben wollen, sind beliebige externe Referenzen ein Problem. Ein möglicher Weg, dieses Problem zu lösen, stellt <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../darstellung/xslgrundlagen.htm">XSLT</a> dar, mit dessen Hilfe Sie XML-Daten vor der Datenausgabe in HTML übersetzen können.</p>
+
+<p>Neben <code>ENTITY</code> gibt es beim Definieren von Attributen auch noch die Pluralform <code>ENTITIES</code>. Dadurch erlauben Sie, dass einem solchen Attribut mehrere Entity-Namen zugewiesen werden können. Trennen Sie dabei mehrere Zuweisungen durch Leerzeichen.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/xml10.gif" width="30" height="30" alt="XML 1.0" title="XML 1.0"><img src="../../src/msie5.gif" width="30" height="30" alt="MS IE 5.0" title="MS IE 5.0">&nbsp;<a class="an" name="mit_namenwert">Attribute mit Namenwert</a></h2>
+
+<p>Solche Attribute erwarten als Wert einen Namen, der jedoch im Gegensatz zu <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#mit_identifikationswert">Attributen mit Identifikationswert</a> nicht dokumentweit eindeutig sein muss. Der Name darf keine Leerzeichen enthalten und muss mit einem Buchstaben, einer Ziffer oder einem der Zeichen <code>.</code> (Punkt), <code>-</code> (Bindestrich), <code>_</code> (Unterstrich) oder <code>:</code> (Doppelpunkt) beginnen.</p>
+
+<h3 class="xmp">Beispiel-DTD <var>feiertage.dtd</var>:</h3>
+
+<pre>
+&lt;!ELEMENT feiertage (feiertag)*&gt;
+&lt;!ELEMENT feiertag EMPTY&gt;
+&lt;!ATTLIST feiertag
+   datum            NMTOKEN              #REQUIRED
+   ereignis         CDATA                #REQUIRED
+&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Im Beispiel wird für ein Element <code>feiertag</code> eine Attributliste mit zwei Attributen <code>datum</code> und <code>ereignis</code> definiert. Das Attribut <code>datum</code> hat dabei Namenwert. Erreicht wird dies durch das Schlüsselwort <code>NMTOKEN</code>.</p>
+
+<h3 class="xmp">Beispiel einer gültigen Anwendung:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/feiertage.xml">Anzeigebeispiel: So sieht's aus</a> (XML-fähiger Browser zeigt z.B. die Datenstruktur an)</p>
+
+<pre>
+&lt;?xml version="1.0" encoding="ISO-8859-1" ?&gt;
+&lt;!DOCTYPE feiertage SYSTEM "feiertage.dtd"&gt;
+&lt;feiertage&gt;
+&lt;feiertag datum="6.1." ereignis="Hl. Drei Könige" /&gt;
+&lt;feiertag datum="1.5." ereignis="Arbeiterfeiertag" /&gt;
+&lt;feiertag datum="25.12." ereignis="1. Weihnachtstag" /&gt;
+&lt;/feiertage&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Das Beispiel definiert drei Feiertage mit Datum und Ereignis. Die Werte der Attribute <code>datum</code> entsprechen durchaus den erlaubten Regeln für den Typ <code>NMTOKEN</code>. In der Praxis wird dieser Typ auch gerne verwendet, um mit numerischen ID-Werten zu arbeiten, da Attribute mit Identifikationswert keine Ziffern am Anfang der Wertzuweisung zulassen.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Neben <code>NMTOKEN</code> gibt es beim Definieren von Attributen auch noch die Pluralform <code>NMTOKENS</code>. Dadurch erlauben Sie, dass einem solchen Attribut mehrere Namen zugewiesen werden können. Trennen Sie dabei mehrere Zuweisungen durch Leerzeichen.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="ohne_wert">Attribute ohne Wertzuweisung</a></h2>
+
+<p>Aus HTML kennen Sie vermutlich Konstrukte wie <code>&lt;hr noshade&gt;</code> oder <code>&lt;td nowrap&gt;</code>. Standalone-Attribute ohne Wertzuweisung also. Solche Attribute gibt es in der Syntax von XML nicht. XML sieht vor, dass jedem Attribut ein Wert zugewiesen wird. Jedes Attribut muss bei der Definition mindestens den unbestimmten Inhaltsyp <code>CDATA</code> erhalten. Da Attribute wie <code>noshade</code> eigentlich nichts weiter sind als eine Abkürzung für so etwas wie <code>noshade="yes"</code>, empfiehlt sich bei der Definition solcher Attribute das Arbeiten mit <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#mit_alternativwert">Attribute mit festen alternativen Werten</a>.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/xml10.gif" width="30" height="30" alt="XML 1.0" title="XML 1.0"><img src="../../src/msie5.gif" width="30" height="30" alt="MS IE 5.0" title="MS IE 5.0"><img src="../../src/netsc6.gif" width="30" height="30" alt="Netscape 6.0" title="Netscape 6.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="personenbeispiel">Zusammenhängendes Beispiel: Personenbeschreibung</a></h2>
+
+<p>Menschen haben viele Eigenschaften, daher scheint eine Personenbeschreibung ein typischer Anwendungsfall für den Einsatz von Attributen zu sein. Doch bei der Umsetzung in XML müssen Sie dabei die Überlegungen berücksichtigen, die im Abschnitt <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#allgemeines">Allgemeines zu Attributen</a> besprochen wurden.</p>
+
+<p>Das folgende Beispiel zeigt ein Daten-Design, bei dem alle Nutzdaten in Attributen gespeichert werden.</p>
+
+<h3 class="xmp">Beispiel-DTD <var>personendatenbank.dtd</var>:</h3>
+
+
+<pre>
+&lt;!ELEMENT personendatenbank          (person)*&gt;
+&lt;!ELEMENT person          (bio,sozio)&gt;
+&lt;!ATTLIST person
+   name                   CDATA #REQUIRED
+&gt;
+&lt;!ELEMENT bio             (augen,haar,haut,gewicht,blutgruppe)&gt;
+&lt;!ELEMENT augen           EMPTY&gt;
+&lt;!ATTLIST augen
+   farbe                  CDATA #REQUIRED
+&gt;
+&lt;!ELEMENT haar            EMPTY&gt;
+&lt;!ATTLIST haar
+   farbe                  CDATA #REQUIRED
+   bemerkung              CDATA #IMPLIED
+&gt;
+&lt;!ELEMENT haut            EMPTY&gt;
+&lt;!ATTLIST haut
+   farbe                  CDATA #REQUIRED
+   bemerkung              CDATA #IMPLIED
+&gt;
+&lt;!ELEMENT gewicht         EMPTY&gt;
+&lt;!ATTLIST gewicht
+   kg                     CDATA #REQUIRED
+&gt;
+&lt;!ELEMENT blutgruppe      EMPTY&gt;
+&lt;!ATTLIST blutgruppe
+   typ                    (A|B|0|AB) #REQUIRED
+&gt;
+&lt;!ELEMENT sozio           (sprache,stand,passport)&gt;
+&lt;!ELEMENT sprache         EMPTY&gt;
+&lt;!ATTLIST sprache
+   lang                   CDATA #REQUIRED
+   kurz                   (de|en|fr|es|pt|it) #IMPLIED
+&gt;
+&lt;!ELEMENT stand           EMPTY&gt;
+&lt;!ATTLIST stand
+   typ                    (ledig|verheiratet|verwitwet) #REQUIRED
+&gt;
+&lt;!ELEMENT passport        EMPTY&gt;
+&lt;!ATTLIST passport
+   nr                     NMTOKEN #REQUIRED
+&gt;
+</pre>
+
+<h3 class="xmp">Beispiel einer gültigen Anwendung</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/personendatenbank.xml">Anzeigebeispiel: So sieht's aus</a> (XML-fähiger Browser zeigt z.B. die Datenstruktur an)</p>
+
+<pre>
+&lt;?xml version="1.0" encoding="ISO-8859-1" ?&gt;
+&lt;!DOCTYPE personendatenbank SYSTEM "personendatenbank.dtd"&gt;
+&lt;personendatenbank&gt;
+&lt;person name="Bruno Buddelmann"&gt;
+  &lt;bio&gt;
+    &lt;augen farbe="graublau" /&gt;
+    &lt;haar farbe="blond" bemerkung="hin und wieder getönt" /&gt;
+    &lt;haut farbe="weiß" /&gt;
+    &lt;gewicht kg="84" /&gt;
+    &lt;blutgruppe typ="A" /&gt;
+  &lt;/bio&gt;
+  &lt;sozio&gt;
+    &lt;sprache lang="deutsch" kurz="de" /&gt;
+    &lt;stand typ="ledig" /&gt;
+    &lt;passport nr="38385409398" /&gt;
+  &lt;/sozio&gt;
+&lt;/person&gt;
+&lt;/personendatenbank&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Die Beispiel-DTD definiert einen Dokument-Elementtyp <code>personendatenbank</code> der beliebig viele Elemente des Typs <code>person</code> enthalten kann. Dieser Elementtyp besteht seinerseits aus <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="elemente.htm#mit_elementinhalt">Elementinhalt</a>. Ferner erhält der Elementtyp <code>person</code> ein immer erforderliches Attribut <code>name</code>, in dem der Name der Person notiert werden soll. Die beiden Elementtypen <code>bio</code> und <code>sozio</code>, die den Elementinhalt von <code>person</code> darstellen, sind selbst wieder Elementtypen mit Elementinhalt. Der Elementtyp <code>bio</code> besteht aus der festen Elementtypfolge <code>augen,haar,haut,gewicht,blutgruppe</code>, und der Elementtyp <code>sozio</code> aus der festen Elementtypfolge <code>sprache,stand,passport</code>. Auf diese Weise entsteht ein strukturierter Datensatz <code>person</code>.</p>
+
+<p>Die untergeordneten Elementtypen sind ausnahmslos mit dem Schlüsselwort <code>EMPTY</code> als <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="elemente.htm#ohne_inhalt">Elemente ohne Inhalt</a> definiert. Es werden jedoch für all diese Elementtypen Attribute definiert, in denen bei der Anwendung Daten gespeichert werden können. Die meisten dieser Attribute werden mit Hilfe des Schlüsselworts <code>REQUIRED</code> als notwendige Attribute definiert, einige mit <code>IMPLIED</code> als optionale Attribute (siehe <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#notwendige_optionale">notwendige und optionale Attribute</a>).</p>
+
+<p>In der Anwendung des Beispiels ist die typische Notation für Tags ohne End-Tags erkennbar (zur Notation solcher Elemente siehe auch den Abschnitt <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../regeln/tagsattrwerte.htm#tags_attribute_werte">Tags, Attribute und Wertzuweisungen</a>). Die Beispieldatei <i>person.xml</i> enthält im Beispiel genau einen Datensatz <code>person</code>. Die Datei könnte laut DTD-Definition jedoch beliebig viele solcher Datensätze enthalten, wobei jedoch alle Datensätze den gleichen Elementaufbau haben müssen.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Netscape, Opera, Safari und Firefox beachten die externe DTD nicht.</p>
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="entities.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="entities.htm">Entities für Textbausteine und Umschreibungen</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="elemente.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="elemente.htm">Elemente und Verschachtelungsregeln</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">XML/DTDs</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Dokumenttyp-Definitionen (DTDs)</a></td>
+</tr>
+</table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

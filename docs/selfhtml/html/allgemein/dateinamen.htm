@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: HTML/XHTML / Allgemeine Regeln für HTML / Konventionen für Dateinamen</title>
+<meta name="description"    content="Was Sie bei Dateinamen von HTML-Dateien beachten sollten.">
+<meta name="keywords"       content="SELFHTML, HTML, HTML-Dateinamen, Dateinamen">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-09-06T00:56:19+02:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/html/allgemein/kommentare.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="Allgemeine Regeln für HTML" href="index.htm">
+<link rel="next" title="Informationsverteilung und Dateiorganisation" href="organisation.htm">
+<link rel="prev" title="Kommentare und Credits" href="kommentare.htm">
+<link rel="first" title="Textauszeichnung" href="textauszeichnung.htm">
+<link rel="last" title="Guter HTML-Stil" href="stil.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">HTML/XHTML</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Allgemeine Regeln für HTML</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Konventionen für Dateinamen</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#server">Dateinamen im Hinblick auf Server-Rechner</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#kompatibel">Dateinamen im Hinblick auf Kompatibilität</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#endungen">Dateiendungen</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#default">Default-Dateinamen bei Web-Servern</a><br>
+</p>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><a class="an" name="server">Dateinamen im Hinblick auf Server-Rechner</a></h2>
+
+<p>Die meisten Server-Rechner im heutigen Web haben ein Unix- oder von Unix abgeleitetes Betriebssystem. Unix unterscheidet strikt zwischen Groß- und Kleinschreibung bei Dateinamen. Wer sein Web-Projekt beispielsweise in einer DOS-/Windows-Umgebung erstellt, wo dies keine Rolle spielt, kann bittere Erfahrungen machen, wenn plötzlich die lokal funktionierenden <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../verweise/index.htm">Verweise</a> und <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../grafiken/index.htm">Grafikreferenzen</a> nach dem Hochladen auf den Server-Rechner nicht mehr funktionieren. Der Grund ist in solchen Fällen, dass beispielsweise in den HTML-Dateien kleingeschriebene Verweisziele oder Grafikdateinamen notiert wurden, während das DOS-/Windows-System großgeschriebene Dateinamen an den Server übertragen hat.</p>
+
+<p>Es bleibt Ihnen in einem solchen Fall kaum eine andere Möglichkeit, als entweder die Dateien auf dem Server-Rechner mit Hilfe von FTP-Befehlen so umzubenennen, wie sie in den Verweisen und Grafikreferenzen notiert sind, oder die Verweise und Grafikreferenzen so anzupassen, dass die referenzierten Ziele korrekt gefunden werden. Wenn Sie mit einem System arbeiten, das Groß-/Kleinschreibung bei Dateinamen zwar für die Optik, aber nicht intern unterscheidet (z.B. Windows seit Version 95), ist es am sichersten, Sie erzeugen Dateinamen, die nur aus Kleinbuchstaben bestehen, und in Verweisen und Grafikreferenzen notieren Sie ebenfalls alle Dateinamen in Kleinbuchstaben.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="kompatibel">Dateinamen im Hinblick auf Kompatibilität</a></h2>
+
+<p>Wenn Sie Ihr Web-Projekt ausschließlich für den Einsatz im Web erstellen, müssen Sie nur darauf achten, dass die Dateien vom Server-Rechner akzeptiert werden. Bei modernen Unix-Systemen, wie sie die meisten Web-Server einsetzen, sind Dateinamen bis zu 256 Zeichen Länge erlaubt. Vermeiden Sie aber nach Möglichkeit deutsche Umlaute und scharfes S in den Dateinamen. Als Sonderzeichen ist in jedem Fall der Unterstrich "_" erlaubt. Andere Satzzeichen sollten Sie vermeiden. Fragezeichen "?" und Sternzeichen "*" sollten Sie auf jeden Fall vermeiden, da diese Zeichen bei fast allen Systemen eine besondere Bedeutung haben. Auch auf Leerzeichen sollten Sie unbedingt verzichten.</p>
+
+<p>Eventuell kann es im speziellen Einzelfall notwendig sein, dass Sie für die Dateibenennung die engen Grenzen von MS-DOS einhalten (maximal 1 Punkt zur Trennung von Dokumentname und Dateiendung, 8 Zeichen vor dem Punkt und 3 Zeichen dahinter). Wenn solch eine Begrenzung existiert, sollte Ihnen das aber von vornherein bekannt sein oder gemacht werden, weil es heutzutage äußerst ungewöhnlich ist. Nahezu alle Systeme beherrschen lange Dateinamen - selbst Microsoft hat 1995 mit Windows 95 nachgezogen.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="endungen">Dateiendungen</a></h2>
+
+<p>Hierbei gilt generell: halten Sie unbedingt die üblichen Dateiendungen ein. Der Webserver muss anhand der Dateiendung entscheiden, welchen <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../diverses/mimetypen.htm">MIME-Typ</a> er dem Browser sendet. Und der Browser entscheidet anhand des MIME-Typs, wie er die Datei behandelt.</p>
+<ul>
+<li>Gewöhnliche HTML-Dateien erhalten entweder die Endung <var>.html</var> oder <var>.htm</var>.</li>
+<li>HTML-Dateien mit enthaltenen <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../servercgi/server/ssi.htm">Server Side Includes</a> erhalten die Endung <var>.shtml</var> oder <var>.shtm</var>.</li>
+<li>HTML-Dateien mit enthaltenen <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../../php/index.htm">PHP</a>-Abschnitten erhalten die Endung <var>.php</var>.</li>
+<li>HTML-Dateien mit enthaltenen <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../intro/schnittstellen/andere.htm#asp">ASP</a>-Abschnitten erhalten die Endung <var>.asp</var>.</li>
+</ul>
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="default">Default-Dateinamen bei Web-Servern</a></h2>
+
+<p>Die meisten heutigen Web-Server sehen einen oder mehrere bestimmte Dateinamen als Datei für die "Einstiegsseite" vor. Meistens ist das der Name <var>index.html</var> oder <var>index.htm</var>, manchmal auch <var>welcome.html</var> bzw. <var>welcome.htm</var> oder <var>default.html</var> bzw. <var>default.htm</var>. Bei einigen Providern können Sie auch selbst einen beliebigen Dateinamen als Default-Dateinamen bestimmen. Und wenn Sie selbst Zugriff auf die Konfiguration des Web-Servers haben, können Sie die Default-Dateinamen dort einstellen.</p>
+
+<p>Default-Dateinamen haben den Vorteil, dass die Web-Adresse keinen HTML-Dateinamen mehr braucht und kürzer wird. Viele Adressen lauten ja einfach <var>http://www.example.org/</var> oder <var>http://www.example.org/verzeichnis/</var> - ohne weitere Angabe einer bestimmten HTML-Datei. Dass beim Aufruf einer solchen Adresse dennoch eine bestimmte HTML-Datei geladen wird, liegt eben daran, dass es eine Datei mit einem Namen gibt, die der Web-Server als Default-Dateiname gespeichert hat.</p>
+
+<p>Erkundigen Sie sich bei Ihrem Provider, ob er einen Default-Dateinamen für Verzeichnisse anbietet, und wenn ja, welchen. Erstellen Sie Ihr Projekt dann so, dass die Einstiegsseite diesen Dateinamen hat und untergeordnete Seiten auf diese Datei zurückverweisen.</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="organisation.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="organisation.htm">Informationsverteilung und Dateiorganisation</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="kommentare.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="kommentare.htm">Kommentare und Credits</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">HTML/XHTML</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Allgemeine Regeln für HTML</a></td>
+</tr></table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: HTML/XHTML / Formulare / Formulare formatieren mit CSS</title>
+<meta name="description"    content="Wie Sie in HTML Formulare und einzelne Formularelemente mit Hilfe von Stylesheets nach Wunsch gestalten können.">
+<meta name="keywords"       content="SELFHTML, HTML, XHTML, Formulare, CSS">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-11-08T02:11:45+01:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/html/formulare/formatieren.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="Formulare" href="index.htm">
+<link rel="next" title="Formulare verarbeiten" href="verarbeiten.htm">
+<link rel="prev" title="Buttons zum Absenden oder Abbrechen" href="formularbuttons.htm">
+<link rel="first" title="Formulare definieren" href="definieren.htm">
+<link rel="last" title="Formulare verarbeiten" href="verarbeiten.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">HTML/XHTML</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Formulare</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Formulare formatieren mit CSS</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#css">Formulare und Formularelemente gestalten mit CSS</a><br>
+</p>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><img src="../../src/html40.gif" width="30" height="30" alt="HTML 4.0" title="HTML 4.0"><img src="../../src/xhtml10.gif" width="30" height="30" alt="XHTML 1.0" title="XHTML 1.0"><img src="../../src/msie4.gif" width="30" height="30" alt="MS IE 4.0" title="MS IE 4.0"><img src="../../src/netsc6.gif" width="30" height="30" alt="Netscape 6.0" title="Netscape 6.0"><img src="../../src/op512.gif" width="30" height="30" alt="Opera 5.12" title="Opera 5.12"><img src="../../src/ffox1.gif" width="30" height="30" alt="Mozilla Firefox 1" title="Mozilla Firefox 1"><img src="../../src/konq31.gif" width="30" height="30" alt="Konqueror 3.1" title="Konqueror 3.1"><img src="../../src/saf1.gif" width="30" height="30" alt="Safari 1.0" title="Safari 1.0">&nbsp;<a class="an" name="css">Formulare und Formularelemente gestalten mit CSS</a></h2>
+
+<p>Mit <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../../css/index.htm">Stylesheets</a> können Sie Formulare und Formularelemente optisch gestalten. Welche Gestaltungsmöglichkeiten funktionieren, ist jedoch noch ein Glücksspiel. Diejenigen Browser, die das Formatieren von Formularelementen mit CSS unterstützen, unterstützen es noch nicht konsequent. Ausprobieren ist also angesagt.<br>
+Für das gesamte Formular können Sie beispielsweise Angaben zur Schriftformatierung oder zum Hintergrund bestimmen. Für einzelne Formularelemente können Sie ebenfalls Angaben zur Schriftformatierung machen, oder auch den vorgegebenen Feldrahmen abändern.<br>
+Bei Verwendung von Stylesheets müssen Sie zunächst wissen, wie man <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../../css/formate/index.htm">CSS-Formate definieren</a> kann. Anschließend sind Sie in der Lage, CSS-Eigenschaften anzuwenden. Interessant sind zur Gestaltung von Formularen und Formularelementen folgende CSS-Eigenschaften:<br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/schrift.htm">Schriftformatierung</a><br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/randabstand.htm">Außenrand und Abstand</a><br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/innenabstand.htm">Innenabstand</a><br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/rahmen.htm">Rahmen</a><br>
+<img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/eigenschaften/hintergrund.htm">Hintergrundfarben und -bilder</a></p>
+
+<p>Das folgende Beispiel zeigt ein vollständiges, absendbares Formular, das mit Stylesheets gestaltet wurde.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/formatieren_css.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+       "http://www.w3.org/TR/html4/loose.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Formulare und Formularelemente gestalten mit CSS&lt;/title&gt;
+&lt;style type="text/css"&gt;
+form { background-image:url(background.gif); padding:20px; border:6px solid #ddd; }
+td, input, select, textarea { font-size:13px; font-family:Verdana,sans-serif; font-weight:bold; }
+input, select, textarea { color:#00c; }
+.Bereich, .Feld { background-color:#ffa; width:300px; border:6px solid #ddd; }
+.Auswahl { background-color:#dff; width:300px; border:6px solid #ddd; }
+.Check, .Radio { background-color:#ddff; border:1px solid #ddd; }
+.Button { background-color:#aaa; color:#fff; width:200px; border:6px solid #ddd; }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h1&gt;Das hier k&ouml;nnen Sie absenden!&lt;/h1&gt;
+
+&lt;p&gt;Voraussetzung ist eine Verbindung ins Internet.
+Es werden keine Daten gespeichert, das verarbeitende
+CGI-Script gibt lediglich die eingelesenen Daten aus.&lt;/p&gt;
+
+&lt;form action="http://de.selfhtml.org/cgi-bin/comments.pl"&gt;
+  &lt;table border="0" cellpadding="3" cellspacing="0"&gt;
+    &lt;tr&gt;
+      &lt;td align="right"&gt;Vorname:&lt;/td&gt;
+      &lt;td&gt;&lt;input name="Vorname" type="text" class="Feld" size="30" maxlength="30"&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td align="right"&gt;Zuname:&lt;/td&gt;
+      &lt;td&gt;&lt;input name="Zuname" type="text" class="Feld" size="30" maxlength="40"&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td align="right" valign="top"&gt;Geschlecht:&lt;/td&gt;
+      &lt;td&gt;
+        &lt;input type="radio" class="Radio" name="Geschlecht" value="m"&gt; m&auml;nnlich&lt;br&gt;
+        &lt;input type="radio" class="Radio" name="Geschlecht" value="w"&gt; weiblich
+      &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td align="right" valign="top"&gt;Eigenschaften:&lt;/td&gt;
+      &lt;td&gt;
+        &lt;input type="checkbox" class="Check" name="Eigenschaft" value="Raucher"&gt; Raucher&lt;br&gt;
+        &lt;input type="checkbox" class="Check" name="Eigenschaft" value="Autofahrer"&gt; Autofahrer&lt;br&gt;
+        &lt;input type="checkbox" class="Check" name="Eigenschaft" value="HTMLFreak"&gt; HTML-Freak
+      &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td align="right" valign="top"&gt;N&auml;chste Gro&szlig;stadt:&lt;/td&gt;
+      &lt;td&gt;
+      &lt;select name="Grossstadt" class="Auswahl" size="1"&gt;
+        &lt;option value="Hamburg"&gt;Hamburg&lt;/option&gt;
+        &lt;option value="Berlin"&gt;Berlin&lt;/option&gt;
+        &lt;option value="Frankfurt"&gt;Frankfurt&lt;/option&gt;
+        &lt;option value="Muenchen"&gt;M&uuml;nchen&lt;/option&gt;
+      &lt;/select&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td align="right" valign="top"&gt;Kommentar:&lt;/td&gt;
+      &lt;td&gt;&lt;textarea name="Text" class="Bereich" rows="10" cols="50"&gt;&lt;/textarea&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td align="right"&gt;Formular:&lt;/td&gt;
+      &lt;td&gt;
+        &lt;input type="submit" class="Button" value="Absenden"&gt;
+        &lt;input type="reset" class="Button" value="Abbrechen"&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/form&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Im Beispiel werden die CSS-Formate für die Formularelemente <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/formate/einbinden.htm#zentral">zentral für eine HTML-Datei definiert</a> in einem Style-Bereich im Dateikopf. Für die einzelnen Formularfeldtypen werden <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../css/formate/zentrale.htm#klassen">Formate für Klassen</a> definiert - das sind im Beispiel die Einträge im Style-Bereich, die mit einem Punkt (<code>.</code>) beginnen.</p>
+
+<p>Das Formular selber, also das <code>form</code>-Element, erhält im Beispiel eine Hintergrundgrafik zugewiesen, die ein Tapetenmuster bewirkt, sowie einen hellgrauen, 6 Pixel dicken Rahmen. Ein Innenabstand von 20 Pixeln sorgt für ein saubereres Aussehen.</p>
+
+<p>Für Tabellenzellen (<code>td</code>) und die Formularelemente <code>input</code>, <code>select</code> und <code>textarea</code> wird eine Schriftgröße von 13 Pixeln, die bevorzugte Schriftart Verdana und Fettschrift bestimmt. Für die drei Formularelementtypen wird ferner eine blaue Textfarbe festgelegt.</p>
+
+<p>Eingabefelder und Eingabebereiche mit der Klasse <code>Eingabe</code> (die einleitenden HTML-Tags haben dazu das <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../attribute/index.htm">Universalattribut</a> <code>class</code> notiert) erhalten eine hellgelbe Hintergrundfarbe, eine feste Breite von 300 Pixeln, und der Rahmen um die Felder erhält die gleichen Eigenschaften wie der um das Formular.</p>
+
+<p>Auswahlelemente erhalten alle ein helles Zyan-Blau als Hintergrundfarbe. Auswahllisten der Klasse <code>Auswahl</code> ebenfalls eine feste Breite von 300 Pixeln. Bei den Auswahlelementen dieser Klasse wird versucht, einen hellgrauen Rahmen der Dicke 1 Pixel zuzuweisen.</p>
+
+<p>Buttons schließlich, die im Beispiel für die beiden Buttons zum Absenden und Abbrechen benötigt werden, bekommen eine graue Hintergrundfarbe und weiße Schrift zugewiesen und sollen 200 Pixel breit sein. Auch die Buttons erhalten wieder den dicken hellgrauen Rahmen.</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="verarbeiten.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">
+<a href="verarbeiten.htm">Formulare verarbeiten</a></td>
+</tr>
+<tr>
+<td class="doc"><a href="formularbuttons.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="formularbuttons.htm">Buttons zum Absenden oder Abbrechen</a></td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">HTML/XHTML</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Formulare</a></td>
+</tr></table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

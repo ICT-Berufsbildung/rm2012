@@ -1,0 +1,305 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: Stylesheets / CSS-basierte Layouts / Fixe Bereiche</title>
+<meta name="description"    content="Fixe Bereiche mit CSS-basierten Layouts">
+<meta name="keywords"       content="SELFHTML, CSS, Stylesheets, Cascading Stylesheets, CSS-basierte Layouts">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-11-10T04:37:24+01:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/css/layouts/fixbereiche.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2004-10-01T00:00+02:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="CSS-basierte Layouts" href="index.htm">
+<link rel="next" title="CSS-basierte Navigationsleisten" href="navigationsleisten.htm">
+<link rel="prev" title="Mehrspaltige CSS-basierte Layouts" href="mehrspaltige.htm">
+<link rel="first" title="Einführung in CSS-basierte Layouts" href="einfuehrung.htm">
+<link rel="last" title="CSS-Browserweichen zum Ausschließen älterer Browser" href="browserweichen.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"> <a href="../index.htm">Stylesheets</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"> <a href="index.htm">CSS-basierte Layouts</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Fixe Bereiche mit CSS-basierten Layouts</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#sinn">Sinnvoller Einsatz fixer Bereiche</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#definieren">Layout mit fixem Bereich definieren</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#fixiert_ie">Workaround für den Internet Explorer</a>
+</p>
+</td>
+</tr><tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><a class="an" name="sinn">Sinnvoller Einsatz fixer Bereiche</a></h2>
+
+<p>Sie möchten Ihr Logo oder Ihre Navigation ständig auf Ihrer Seite anzeigen, auch wenn der Seiteninhalt ein Scrollen erfordert? Die Nachteile des Einsatzes von <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../../html/frames/index.htm">Frames</a> bzw. <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/frames/eingebettete.htm">eingebetteten&nbsp;Frames</a> hierzu haben Sie sicherlich schon entdeckt. Eine andere Möglichkeit wäre, die Seitenelemente passend für eine bestimmte Fenstergröße zu positionieren und hierin einen scrollbaren Bereich über die CSS-Eigenschaft <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../eigenschaften/positionierung.htm#overflow">overflow</a> für den Inhalt zur Verfügung zu stellen, was aber sehr unflexibel ist und seiteninterne Scrollbalken bedingt.</p>
+
+<p>Über die CSS-Eigenschaft <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../eigenschaften/positionierung.htm#position">position</a> können Sie Seitenelemente an einer bestimmten Position im Fenster fixieren, sodass sie nicht mit dem übrigen Seiteninhalt wegscrollen. Dies ist jedoch nur eingeschränkt sinnvoll: Ein am oberen Fensterrand fixiertes Element schränkt den zur Verfügung stehenden scrollbaren Bereich ein. Der Inhalt kann weniger gut übersehen werden und übermäßiges Scrollen erfordern, was die Nutzbarkeit der Seite verschlechtert. Hinzu können Probleme mit seiteninternen Ankern kommen. Stellen Sie sich daher die Frage, ob z.B. ein ständig sichtbares Logo derart informativ ist, dass diese Einschränkungen gerechtfertigt sind.</p>
+
+<p>Sinnvoll kann dagegen eine am linken (oder rechten) Fensterrand fixierte vertikale Navigationsleiste sein. Der zur Seitenanzeige genutzte Fensterbereich ist durch die Bedienelemente meist wesentlich breiter als hoch. Hinzu kommt, dass eine Beschränkung der Zeilenbreite sich positiv auf die Lesbarkeit des Textes auswirken kann und der freie Bereich unter einer seitlich platzierten Navigation meist ohnehin nicht genutzt wird. Ein ständig sichtbares Menü kann die Benutzerfreundlichkeit erhöhen und bei längeren Texten "nach oben"-Links entbehrlich machen.</p>
+
+<p>Die fixierte Positionierung ist aber selbst hierfür nicht problemlos einzusetzen. Sie eignet sich nur für relativ kurze Navigationsleisten, die selbst in sehr kleinen Browserfenstern vollständig angezeigt werden können, da sie ja wie gewünscht nicht mit der Seite scrollen. Außerdem erfordert dies einen umständlichen <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#fixiert_ie">Workaround für den Internet&nbsp;Explorer</a>, der diese Technik erst ab Version 7 unterstützt.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="definieren">Layout mit fixem Bereich definieren</a></h2>
+
+<p>Das folgende Beispiel demonstriert die Anwendung der CSS-Eigenschaft <code>position:fixed</code>, die über eine <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="browserweichen.htm#browserweichen">spezielle&nbsp;CSS-Browserweiche</a> ausschließlich modernen Browsern zugänglich gemacht wird. Für andere Browser ist <code>position:absolute</code> angegeben, sodass die Ausgangsposition der Elemente auch in veralteten Browsern wie Netscape 4 zwar gleich ist, der nicht fixierbare Bereich jedoch normal mit der Seite scrollt.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/fixiert.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+       "http://www.w3.org/TR/html4/strict.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Fixierte Navigation nur für moderne Browser&lt;/title&gt;
+&lt;style type="text/css"&gt;
+  body {
+    font: normal 100.01% Helvetica, Arial, sans-serif;
+    color: black; background-color: white;
+    min-width: 40em; /* Mindestbreite verhindert Anzeigefehler in modernen Browsern */
+  }
+  p {
+    margin: 3em 0 0 3em;  /* Positionierung des 'zurueck'-Links */
+  }
+  p  a {
+    color:black;  /* Farbe des 'zurueck'-Links */
+  }
+
+  html {
+    padding: 0;
+  }
+  <strong>body</strong> {
+    <strong>margin: 0; padding: 0;</strong>
+  }
+
+  <strong>#fixiert</strong> {
+    <strong>position: absolute;</strong>
+    top: 2.8em; left: 2em;
+    width: 18em;
+    background-color: white;
+    border: 1px solid silver;
+  }
+  html&gt;body #fixiert {  /* nur fuer moderne Browser! */
+    <strong>position: fixed;</strong>
+  }
+  #fixiert img {
+    <em>height: 6.8em;</em> float: right;
+  }
+
+  <strong>#Inhalt</strong> {
+    <strong>margin-left: 22em;</strong> padding: 0 1em;
+    border-left: 2px ridge gray; border-top: 2px ridge gray;
+  }
+  * #Inhalt {  /* versteckt vor Netscape 4 */
+    background-color: #ffffe0;
+  }
+
+  #Inhalt h2 {
+    font-size: 1.2em;
+    margin: 2em 5% 2em;
+    color: maroon;
+    border-bottom: 1px solid silver;
+  }
+  #Inhalt p {
+    font-size: 1em;
+    margin: 1em 0;
+  }
+  #Inhalt #Fusszeile {
+    font-size: 0.9em;
+    margin: 200em 0 0; padding: 0.1em;
+    text-align: center;
+    background-color: #fed; border: 1px solid silver;
+  }
+
+  h1 {
+    font-size: 1.5em;
+    margin: 0.5em; padding: 0.3em;
+    text-align: center;
+    background-color: #fed;
+    border: 2px ridge gray;
+  }
+
+  #Navigation {
+    font-size: 0.83em;
+    margin: 0 0 1.2em; padding: 0;
+  }
+  #Navigation li {
+    list-style: none;
+    margin: 0; padding: 0.5em;
+  }
+  ul#Navigation a {
+    display: block;
+    padding: 0.2em;
+    font-weight: bold;
+  }
+  ul#Navigation a:link {
+    color: black; background-color: #eee;
+  }
+  ul#Navigation a:visited {
+    color: #666; background-color: #eee;
+  }
+  ul#Navigation a:hover {
+    color: black; background-color: white;
+  }
+  ul#Navigation a:active {
+    color: white; background-color: gray;
+  }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+<strong>&lt;div id="Scrollbereich"&gt;</strong>  &lt;!-- erst fuer den folgenden Workaround benoetigt --&gt;
+  &lt;h1&gt;Fixierte Navigation&lt;/h1&gt;
+
+  &lt;div id="Inhalt"&gt;
+    &lt;h2&gt;Beispiel nur für moderne Browser&lt;/h2&gt;
+    &lt;p&gt;In diesem Beispiel ist die linke Navigation zunächst absolut positioniert
+       und wird anschließend über eine Browserweiche nur für moderne Browser fixiert.
+       Hierdurch kommt es in älteren Browsern zu keinen Fehldarstellungen und auch
+       diese setzen die erst am Ende des Quelltextes notierte Navigation nach oben.&lt;/p&gt;
+    &lt;p&gt;Für dieses Beispiel ist das &amp;quot;mehrspaltige Layout mit Kopf-
+       und Fußzeile&amp;quot; der vorherigen Seite etwas modifiziert worden.
+       Es passt sich der Fenster- und Schriftgröße an und sogar
+       das SELFHTML-Logo 'wächst' durch die Höhenangabe in &lt;strong&gt;em&lt;/strong&gt;
+       mit einer Schriftvergrößerung.&lt;/p&gt;
+    &lt;p&gt;Beachten Sie, dass der fixierte Bereich teilweise unzugänglich wird,
+       wenn die Höhe des Browserfensters sehr stark verringert
+       und/oder die Schriftgröße heraufgesetzt wird!&lt;/p&gt;
+
+    &lt;p id="Fusszeile"&gt;Sie haben tatsächlich bis hierhin gescrollt? ;-)&lt;/p&gt;
+  &lt;/div&gt;
+<strong>&lt;/div&gt;</strong>
+
+<strong>&lt;div id="fixiert"&gt;</strong>  &lt;!-- verhindert auch Anzeigefehler einer fixierten <em>ul</em> --&gt;
+  &lt;ul id="Navigation"&gt;
+    &lt;li&gt;&lt;a href="einfuehrung.htm"&gt;Einführung in CSS-basierte Layouts&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="mehrspaltige.htm"&gt;Mehrspaltige CSS-basierte Layouts&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="fixbereiche.htm"&gt;Fixe Bereiche mit CSS-basierten Layouts&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="navigationsleisten.htm"&gt;CSS-basierte Navigationsleisten&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="browserweichen.htm"&gt;CSS-Browserweichen&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;img src="../../../src/logo.gif" alt="SELFHTML"&gt;
+  &lt;p&gt;&lt;a href="../fixbereiche.htm#definieren"&gt;zurück&lt;/a&gt;&lt;/p&gt;
+<strong>&lt;/div&gt;</strong>
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Dieses Beispiel zeigt, wie simpel eine fixierte Navigation zu realisieren wäre, wenn der Internet Explorer den bereits 1998 veröffentlichten Standard CSS 2 nicht erst acht Jahre später ab Version 7 hinreichend unterstützen würde. Andererseits interpretiert der Internet Explorer schon seit Version 5.0 eine CSS-Eigenschaft, die für CSS3 zu erwarten ist und einen <img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#fixiert_ie">Workaround</a> ermöglicht.</p>
+
+<p>Dieses Beispiel demonstriert drei Vorteile sowohl fixierter als auch absoluter Positionierung:</p>
+
+<p>Es sind Überlagerungen (hier des Kopfbereichs mit der Überschrift) möglich, die bei entsprechender Umsicht für gestalterische Zwecke sinnvoll eingesetzt werden können.<br>
+Später im Quelltext notierte Elemente (hier der Navigationsbereich) können dennoch vor anderen Elementen im Fenster platziert werden, wodurch der Inhaltsbereich von textbasierten Anwendungen wie Screenreadern oder Suchmaschinen günstiger zu erreichen ist.<br>
+Absolute Positionierung ist für ältere Browser weniger problematisch als auf der CSS-Eigenschaft <code>float</code> basierende Layouts.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Fixierte oder absolute Positionierung ist nicht in jedem Fall sinnvoll einzusetzen und kann die zuvor bei den <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="mehrspaltige.htm">mehrspaltigen CSS-basierten Layouts</a> eingesetzte Eigenschaft <code>float</code> nicht in allen Belangen ersetzen.</p>
+
+<p>Fixiert positionierte Elemente sind auch dann nicht scrollbar, wenn sie durch kleinere Fenstergröße oder größeren Schriftgrad nicht mehr in den Anzeigebereich passen. Diese Art der Positionierung eignet sich daher nur für Elemente, die relativ wenig Platz benötigen. So wäre es doch sehr ungünstig, wenn bei einer umfangreicheren Navigation ausgerechnet der oft zuletzt angegebene Link zum Impressum außerhalb des Anzeigebereiches unerreichbar positioniert werden würde.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="fixiert_ie">Workaround für den Internet Explorer</a></h2>
+
+<p>Da der Internet Explorer bis zur Version 6 der einzige aktuelle (grafische) Browser ist, der <code>position:fixed</code> nicht unterstützt, reicht ein Workaround für diesen Browser, um diese CSS-Eigenschaft praxistauglich einzusetzen. Hierzu sind die folgenden Anweisungen zusätzlich im <code>&lt;head&gt;</code>-Bereich der HTML-Datei notiert:</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/fixiert_ie.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!--[if lt IE 7]&gt;&lt;style type="text/css"&gt;
+  @media screen {
+    html, body {
+      height: 100%; overflow-y: hidden;
+    }
+    #Scrollbereich {
+      height: 100%; width: 100%; overflow: auto;
+    }
+    #Inhalt {
+      position: static;
+    }
+  }
+&lt;/style&gt;&lt;![endif]--&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Um diese (noch) ungültigen CSS-Angaben nur dem Internet Explorer 5 und 6 zugänglich zu machen, werden sie über einen <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="browserweichen.htm#alternative">conditional comment</a> in der HTML-Datei eingebunden. Sie können die CSS-Definitionen in diesem <code>&lt;style&gt;</code>-Bereich auch mit <code>@import</code> auslagern oder das <code>&lt;link&gt;</code>-Element hierzu verwenden.</p>
+
+<p>Zunächst wird für den Anzeigebereich eine Höhe von <code>100%</code> definiert und über die erst für CSS 3 vorgesehene Eigenschaft <code>overflow-y:hidden</code> ein (doppelter) vertikaler Scrollbalken verhindert. Im HTML-Quelltext wurden die zu scrollenden Elemente bereits in einem <code>div#Scrollbereich</code> gruppiert, das nun den gesamten Anzeigebereich ausfüllen soll und über <code>overflow:auto</code> die Scrollfunktion übernimmt. Der hierin enthaltene Inhaltsbereich ist explizit <code>position:static</code> zu definieren, auch wenn dies eigentlich dem Initialisierungswert entspricht.<br>
+Das <code>div#fixiert</code> mit der Navigation ist im HTML-Quelltext außerhalb des nun scrollbaren Elementes notiert und (für den Internet Explorer bis zur Version 6) bereits absolut positioniert, wodurch es vom Scrollen ausgeschlossen wird und auf diese alternative Weise am Bildschirm fixiert ist.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Wichtig ist, dass Sie diesen Workaround (über <code>@media screen</code>) ausschließlich für die Bildschirmdarstellung einsetzen, da Scrollbalken im Ausdruck funktionslos wären.</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="navigationsleisten.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="navigationsleisten.htm">CSS-basierte Navigationsleisten</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="mehrspaltige.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="mehrspaltige.htm">Mehrspaltige CSS-basierte Layouts</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"> <a href="../index.htm">Stylesheets</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"> <a href="index.htm">CSS-basierte Layouts</a></td>
+</tr>
+</table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

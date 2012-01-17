@@ -1,0 +1,163 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: Internationalisierung / Computer und geschriebene Sprache</title>
+<link rel="stylesheet" type="text/css" href="../src/selfhtml.css">
+<meta name="description"    content="Wie Bits, Bytes, Zeichenkodierungen und Schriftarten zusammenspielen - mit einem Beispiel zur Verdeutlichung.">
+<meta name="keywords"       content="SELFHTML, Internationalisierung, Bytes, Zeichen, Zeichenkodierung, Zeichenvorrat, Codetabelle, ASCII, DOS-Kodierung, CP850, Windows-1252, Schriftarten, Schriftkultur, Schreibrichtung, dir, bdo">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-11-16T01:48:05+01:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/inter/sprache.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../src/favicon.ico">
+<link rel="author" title="Impressum" href="../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../index.htm">
+<link rel="up" title="Internationalisierung" href="index.htm">
+<link rel="next" title="Zeichenkodierungen (ISO-8859-Familie und andere)" href="zeichenkodierungen.htm">
+<link rel="prev" title="Modul CGI: Funktionen für die CGI-Programmierung" href="../perl/module/cgi.htm">
+<link rel="last" title="Downloadbare Schriftarten" href="downloadschriftarten.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../index.htm">SELFHTML</a>/<a href="../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Internationalisierung</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../index.htm"><img src="../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Computer und geschriebene Sprache</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#bits_bytes_zeichen">Bits, Bytes und Zeichen</a><br>
+<img src="../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#kodierungen">Beispiel für Kodierungen</a><br>
+<img src="../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#grenzen">Die Grenzen von Bytes sprengen</a><br>
+<img src="../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#schriftarten">Die Bedeutung der Schriftarten</a><br>
+<img src="../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#schriftkulturen">Schriftkulturen mit anderer Schreibrichtung</a>
+</p>
+</td>
+</tr><tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><a class="an" name="bits_bytes_zeichen">Bits, Bytes und Zeichen</a></h2>
+
+<p>Die beiden Grundeinheiten in jedem heutigen Computer sind die Einheiten <b>Bit</b> und <b>Byte</b>. Ein Byte ist bei den heute üblichen Systemen als Folge von 8 Bit definiert (man spricht auch von <b>Oktetts</b>). Da jedes Bit zwei Zustände haben kann, nämlich 0 oder 1 bzw. ja oder nein, lassen sich mit einer Folge von 8 Bit genau 256 (= 2<sup>8</sup>) unterschiedliche Zustände realisieren. Ein Byte kann also 256 unterschiedliche Werte haben. Da im Computer immer auch die 0 dazugehört, können in einem Byte dezimal ausgedrückt Werte zwischen 0 und 255 stehen.</p>
+
+<p>Wenn ein laufendes Programm im Computer eine Datei in den Arbeitsspeicher einliest, stehen im Arbeitsspeicher anschließend nur Byte-Werte. Von Zeichen unseres Alphabets ist auf dieser Ebene noch keine Rede. Damit aus den Byte-Werten lesbare Zeichen werden, die sich am Bildschirm darstellen lassen, braucht es eine Konvention, welches Zeichen mit welchem oder welchen Byte-Werten gespeichert wird. Diese Aufgabe haben die so genannten <b>Zeichenkodierungen</b>. Eine solche Zeichenkodierung greift auf eine Übersetzungstabelle (<b>Codetabelle</b>) zurück, die zunächst jedem Zeichen, das verwendet werden kann, eine fortlaufende Nummer (einen <b>Code</b>) zuweist. Die Menge der Zeichen in einer solchen Tabelle wird <b>Zeichenvorrat</b> genannt.</p>
+
+<p>Die Kodierungen sowie deren Codetabellen sind EDV-historisch gewachsene Gebilde. Bis zum Aufkommen der Personal Computer benutzten viele Rechner noch 7 Bit lange Grundeinheiten, mit denen sich nur 128 unterschiedliche Zustände darstellen lassen. Noch früher waren es auch mal 6 und 5 Bit lange Grundeinheiten. Auf der 7 Bit langen Grundeinheit beruhten die ersten Kodierungen, die historisch den Durchbruch schafften: die <var>ASCII</var>-Kodierung (American Standard Code for Information Interchange) und die <var>EBCDIC</var>-Kodierung (Extended Binary Coded Decimal Interchange Code). Dabei setzte sich vor allem die ASCII-Kodierung durch, weil sie im erfolgreichen Unix-Betriebssystem und in den aufkommenden Personal Computern zum Einsatz kam.</p>
+
+<p>In der ASCII-Codetabelle sind die ersten 32 Zeichen für Steuerzeichen reserviert, etwa für Tastatur-Impulse wie den Zeilenumbruch. Die Zeichen zwischen 32 und 127 sind darstellbare Zeichen, darunter alle Ziffern, Satzzeichen und Buchstaben, die ein Amerikaner so braucht (denn die ASCII-Kodierung kommt natürlich aus den USA). Das Umwandeln der Zeichen in Einsen und Nullen, also die eigentliche Kodierung, funktionierte einfach: Jedes Zeichen nahm bei der Speicherung genau 7 Bits in Anspruch und der binäre Zahlenwert dieser 7 Bits entsprach der Nummer des Zeichens in der ASCII-Codetabelle. Der lateinische Buchstabe "a"; beispielsweise hat in der ASCII-Codetabelle den dezimalen Wert 98, er wurde daher ASCII-kodiert als 1100010 gespeichert.</p>
+
+<p>Lange Zeit war ASCII der einzige verbreitete Standard. Da die neueren Computer aber 8 Bit lange Grundeinheiten hatten, war es folgerichtig, für die Byte-Werte zwischen 128 und 255 neue Verwendungszwecke zu finden. Dabei entwickelten sich jedoch proprietäre Lösungen. Microsoft DOS beispielsweise benutzt eine "erweiterte" ASCII-Codetabelle - dies ist aber nicht viel mehr als eine schöne Umschreibung für die Microsoft-eigene Belegung der Zeichen 128 bis 255 speziell für die Bedürfnisse von MS DOS.</p>
+
+<p>Um auch hierfür einen Standard zu schaffen, entwickelte die internationale Standardisierungs-Organisation ISO eine Reihe von Kodierungen, die sogenannte <img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="zeichenkodierungen.htm#iso8859">ISO-8859-Familie</a>. Die Codetabellen dieser Kodierungen übernehmen für die Zeichen 0 bis 127 die ASCII-Codetabelle und definieren für die Werte zwischen 128 und 255 etliche Sonderzeichen und wichtige Alphabetzeichen verschiedener europäischer Sprachen. Die in Mitteleuropa verbreitete Kodierung <b>ISO 8859-1</b>, auch <b>Latin-1</b> genannt, enthält etwa die deutschen Umlaute, französische Accent-Zeichen und spanische Zeichen mit Tilde. Dazu kommen diverse verbreitete kaufmännische und wissenschaftliche Zeichen.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>In der Fachliteratur wird oft der Begriff "Zeichensatz" (englisch <i>character set</i>) benutzt, um sowohl Zeichenkodierung (engl. <i>character encoding</i>), die Zuordnungstabelle zwischen Zeichen und Zeichencode (engl. <i>character code</i>), als auch den Zeichenvorrat (engl. <i>character repertoire</i>) zu bezeichnen. Tatsächlich sind diese drei Konzepte notwendigerweise miteinander verbunden: Beispielsweise ISO 8859-1 benutzt einen Zeichenvorrat von 256 Zeichen (darunter a, b, c usw.). Diesen Zeichen werden jeweils in der zugehörigen Codetabelle Nummern zugeordnet (a = 97, b = 98, c = 99 usw.). Die Kodierung kümmert sich dann um die Speicherung dieser Nummern in Bytes (97 = 01100001, 98 = 01100010, 99 = 01100011 usw.).</p>
+
+<p>Dennoch erleichtert eine begriffliche Unterscheidung das Verständnis, weshalb die Bezeichnung "Zeichensatz" in SELFHTML vermieden wird. Die von ISO 8859-1 verwendete Codetabelle entspricht beispielsweise dem Anfang der von UTF-8 verwendeten Codetabelle (siehe <img src="../src/down.gif" width="14" height="10" border="0" alt="nach unten">&nbsp;<a href="#grenzen">Die Grenzen von Bytes sprengen</a>). Das Zeichen "ä" hat in ISO 8859-1 daher denselben numerischen Wert wie in UTF-8, nämlich 228. Trotzdem benutzen beide Kodierungen einen unterschiedlichen Zeichenvorrat. ISO 8859-1 kann 256 verschiedene Zeichen speichern, UTF-8 kann hingegen über eine Millionen Zeichen des Unicode-Standards speichern. Die Umsetzung des Zeichens "ä" mit der Nummer 228 erfolgt daher anders: ISO 8859-1 speichert "ä" als ein Byte mit dem Wert 228, UTF-8 als eine Kette von zwei zusammengehörigen Bytes mit den Werten 195 und 164.</p>
+
+<p>Obwohl der Begriff "Zeichensatz" in der Kritik steht, wird die Angabe zur Zeichenkodierung in verschiedenen Formaten und Protokollen, darunter <img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../intro/internet/dienste.htm#www">HTTP</a>, unter dem Namen <i>charset</i> (Abkürzung für <i>character set</i>) mitgesendet. Seien Sie sich also darüber bewusst, dass mit "Zeichensatz" eine Kodierung gemeint sein kann, aber auch vereinzelt ein Zeichenvorrat mit einer entsprechenden Codetabelle unabhängig von der letztlichen Kodierung.</p>
+
+<p class="doc"><a href="#top"><img src="../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="kodierungen">Beispiel für Kodierungen</a></h2>
+
+<p>Ein Beispiel soll das Prinzip der Zeichenkodierungen verdeutlichen. Die folgende Abbildung zeigt zwei Codetabellen: Die Codetabelle der MS-DOS-Kodierung, genannt <b>Codepage 850</b>, und die Codetabelle der Windows-Kodierung für westeuropäische Systeme, genannt <b>Windows 1252</b>. Bei beiden Kodierungen entspricht ein Zeichen bei der Speicherung genau einem Byte. Somit ist der Zeichenvorrat, das heißt der Umfang der folgenden Codetabellen, auf 256 Zeichen begrenzt.</p>
+
+<p><img src="dos_windows.gif" width="641" height="396" alt="DOS- und Windows-Kodierung"></p>
+
+<p>Der Abbildung können Sie entnehmen, dass die oberen Teile (dunkler) beider Codetabellen identisch sind, da beide die ASCII-Codetabelle für die ersten 128 Zeichen übernehmen (die ersten 32 Zeichen fehlen in der Abbildung, da es sich bei diesen Zeichen um Steuerzeichen handelt, die nicht abbildbar sind). Die unteren Teile (heller) sind dagegen unterschiedlich. Wo in der Windows-Codetabelle beispielsweise ein kleines deutsches <code>ü</code> liegt, bietet die DOS-Codetabelle eine hochgestellte <code>&sup3;</code> an.</p>
+
+<p>Wenn Sie mit Microsoft Windows arbeiten, können Sie das selbst ausprobieren: Erzeugen Sie mit einem Texteditor, z.B. Notepad, eine neue Datei und tippen Sie Umlaute wie "äöü" ein. Falls Sie Windows 2000 oder XP verwenden, wählen Sie beim Speichern unter "Codierung" den Wert "ANSI" (dies ist die Microsoft-Bezeichnung für die besagte Windows-Kodierung). Anschließend rufen Sie die DOS-Eingabeaufforderung über das Startmenü auf ("Eingabeaufforderung" unter Windows 2000 und XP) und geben <kbd>edit</kbd> ein. Daraufhin öffnet sich der DOS-Texteditor. Damit öffnen Sie die zuvor im Notepad abgespeicherte Datei. Nun können Sie sehen, was der Zusammenhang zwischen Byte und Kodierung ist: Es werden zwar genauso viele Zeichen wie im Notepad angezeigt, aber es sind andere Zeichen. Der Grund ist, dass im Arbeitsspeicher und auf der Festplatte immer nur Byte-Werte stehen. Was ein Programm daraus macht, hängt davon ab, welche Kodierung es benutzt.</p>
+
+<p>Das Beispiel zwischen der DOS- und der Windows-Kodierung wurde hier bewusst ausgewählt, da es sich an ein und demselben Rechner testen lässt. Das Beispiel soll aber vor allem auch dazu ermuntern, tiefer in die Geheimnisse der Kodierungen einzusteigen und sich darüber bewusst zu werden, dass nichts von dem, was im Anzeigefenster eines Web-Browsers zu sehen ist, selbstverständlich ist, sondern dass alles auf Konventionen beruht, die computer-technisch gesehen zum Teil auf wesentlich tieferen Ebenen aufsetzen als HTML und andere standardisierte Web-Sprachen.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="grenzen">Die Grenzen von Bytes sprengen</a></h2>
+
+<p>Die verbreiteten ISO-Kodierungen deren Abwandlungen wie Microsoft 1252, die mit einem Zeichenvorrat von 256 Zeichen arbeiten und jedes Zeichen mit genau einem Byte speichern, können nur einzelne Schriftkulturen und die damit verbundenen Sprachen oder Sprachfamilien abdecken. Problematisch wird es daher, wenn mehrsprachige Dokumente erstellt werden sollen, die Zeichen ganz unterschiedlicher Schriftkulturen enthalten oder von bestimmten Sonderzeichen Gebrauch machen. Auch für nicht-alphabetische Schriftkulturen sind Kodierungen mit einem derart eingeschränkten Zeichenvorrat ungeeignet. In unseren Zeiten der Globalisierung wird es daher immer wichtiger, für solche Probleme eine standardisierte EDV-technische Lösung zu finden, die sich auf den verschiedensten Computersystemen durchsetzt. Eine solche Lösung gibt es auch schon: das <img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="unicode.htm">Unicode-System</a> und deren Kodierungen. Die Unicode-Kodierungen haben das Potenzial, mittelfristig die auf 256 Zeichen begrenzten Kodierungen abzulösen. Derzeit geschieht auch schon viel in dieser Richtung. Neuere Betriebssysteme bieten Schriftarten an, die den kompletten Unicode-Zeichenvorrat oder zumindest große Teile davon abdecken. Auch die meisten modernen Anwendungen können Texte mit der Unicode-Kodierung <b>UTF-8</b> speichern, wodurch ein Zeichen nicht mehr zwangsläufig genau einem Byte entspricht, sondern aus mehreren Bytes bestehen kann. Damit ist die Grundlage zur Unterstützung des Unicode-Systems gegeben.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="schriftarten">Die Bedeutung der Schriftarten</a></h2>
+
+<p>Schriftarten sind Beschreibungsmodelle, um auf Ausgabemedien wie Bildschirm oder Drucker Zeichen abzubilden. Jedes heute übliche Betriebssystem enthält so genannte <b>Systemschriften</b>. Das sind Schriftarten, die auf jeden Fall genau die Zeichen enthalten, die in der Codetabelle definiert sind, auf dem das Betriebssystem per Voreinstellung basiert. Unter MS Windows gibt es beispielsweise eine solche Schriftart namens <var>System</var>. Daneben gibt es auf modernen Rechnern definierte Schnittstellen für beliebige Schriftarten. Verbreitet ist z.B. die Adobe-Schnittstelle für Schriftarten (<var>PostScript</var>). Unter MS Windows kommt eine eigene Schnittstelle hinzu (<var>TrueType</var>).</p>
+
+<p>Solche Schriftarten können auf die zur Verfügung stehenden Byte-Werte beliebige Darstellungsmuster legen. So gibt es auch Schriftarten wie <var>WingDings</var> oder <var>ZapfDingbats</var>, die fast nur Symbole und Icons enthalten. Wichtig sind jedoch vor allem auch Schriftarten, die zwar ansprechend aussehen, aber gleichzeitig eine bestimmte Codetabelle unterstützen, d.h. alle Zeichen dieses Zeichenvorrats darstellen, und zwar genau auf den Byte-Werten, die in der Codetabelle dafür vorgesehen sind. Nur durch solche Schriftarten wird es möglich, bestimmte Zeichenvorräte in eine grafisch darstellbare Form zu bringen. Die folgende Abbildung zeigt ein Beispiel für diesen Zusammenhang:</p>
+
+<p><img src="byte_zeichen_schrift.gif" width="300" height="298" alt="Zusammenhang zwischen Byte, Zeichenwert und Schriftart"></p>
+
+<p>Bei modernen Schriftarten, die das ganze Unicode-System abdecken, ist das Prinzip das gleiche. Nur mit dem Unterschied, dass dort nicht nur 256 Zeichen adressiert werden können, sondern derzeit bis zu 65536 Zeichen, künftig noch viel mehr, aus dem Grund, weil dort zwei oder gar vier Bytes für Zeichenwerte verwendet werden, wodurch viel höhere Werte als 256 möglich sind.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="schriftkulturen">Schriftkulturen mit anderer Schreibrichtung</a></h2>
+
+<p>Da die Computerindustrie historisch gesehen in den USA und Europa entstand, bauen die heutigen Hardware-Systeme und Betriebssysteme auf Prinzipien auf, die zunächst als selbstverständlich galten. Wenn Sie in einem Textverarbeitungsprogramm einen Text tippen, wandert der Cursor beim Schreiben von links nach rechts. Automatische Zeilenumbrüche erfolgen nach typischen Begrenzerzeichen westlicher Sprachen wie Leerzeichen oder Silbentrennstrich.</p>
+
+<p>Es gibt jedoch etliche Schriftkulturen, die eine andere Schreibrichtung als die unsrige haben. Dazu gehören etwa die arabische Schrift, die hebräische Schrift oder die fernöstlichen Schriftkulturen. Um solche Schriftkulturen auf Computern abzubilden, sind zusätzliche Fähigkeiten der Software erforderlich. Denn es gilt nicht nur, die Schriftelemente abzubilden, sondern auch die Editierrichtung bei der Texteingabe und die Ausgaberichtung auf Medien wie Bildschirm oder Drucker an die Schreibrichtung der entsprechenden Schriftkultur anzupassen.</p>
+
+<p>In HTML gibt es deswegen Sprachbestandteile wie das Universalattribut <code>dir</code> oder das Element <code>bdo</code>, mit deren Hilfe Web-Autoren Angaben zur Schreibrichtung machen können. Die software-seitige Umsetzung "on the fly" ohne das Erfordernis, zusätzliche Spezialsoftware installieren zu müssen, funktioniert bei neueren Browsern auch schon zum Teil.</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="zeichenkodierungen.htm"><img src="../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="zeichenkodierungen.htm">Zeichenkodierungen (ISO-8859-Familie und andere)</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="../perl/module/cgi.htm"><img src="../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../perl/module/cgi.htm">Modul CGI: Funktionen für die CGI-Programmierung</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../index.htm">SELFHTML</a>/<a href="../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Internationalisierung</a></td>
+</tr>
+</table>
+
+<p>&copy; 2007 <img src="../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

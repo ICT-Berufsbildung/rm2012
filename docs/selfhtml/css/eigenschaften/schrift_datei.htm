@@ -1,0 +1,226 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: Stylesheets / CSS-Eigenschaften / Schriftformatierung mit Schriftartendatei</title>
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<meta name="description"    content="Welche CSS-Eigenschaften es gibt, um Text mit Angabe einer serverseitigen und downloadbaren Schriftart zu formatieren.">
+<meta name="keywords"       content="SELFHTML, CSS, Stylesheets, Cascading Stylesheets, HTML, CSS-Eigenschaften, Schriftart, Schriftartendatei, downloadbare Schriften, pfr, eof, PFR-Fonts, EOF-Fonts, @font-face, font-family, font-size, font-variant, font-style, unicode-range, Panose-1, Glyphen">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-10-14T15:26:04+02:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/css/eigenschaften/schrift_datei.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="CSS-Eigenschaften" href="index.htm">
+<link rel="next" title="Ausrichtung und Absatzkontrolle" href="ausrichtung.htm">
+<link rel="prev" title="Schriftformatierung" href="schrift.htm">
+<link rel="first" title="Schriftformatierung" href="schrift.htm">
+<link rel="last" title="Filter (nur Microsoft)" href="filter.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">Stylesheets (CSS)</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">CSS-Eigenschaften</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Schriftformatierung mit Schriftartendatei</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#font_face">@font-face, src, font-family</a> (Schriftformatierung mit Schriftartendatei)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#eingrenzen">Schriftformate eingrenzen</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#unicode_range">unicode-range</a> (Unicode-Bereich eingrenzen)<br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#zusatzangaben">Weitere Angaben zur Schriftquelle</a><br>
+</p>
+</td>
+</tr><tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><img src="../../src/css20.gif" width="30" height="30" alt="CSS 2.0" title="CSS 2.0"><img src="../../src/netsc4.gif" width="30" height="30" alt="Netscape 4.0" title="Netscape 4.0"><img src="../../src/msie4.gif" width="30" height="30" alt="MS IE 4.0" title="MS IE 4.0">&nbsp;<a class="an" name="font_face">@font-face, src, font-family (Schriftformatierung mit Schriftartendatei)</a></h2>
+
+<p>Von diesen in CSS2 eingeführten Angaben wurde nur <code>@font-face</code> vom Internet Explorer und Netscape 4.x unterstützt. <strong>Da sie weder in den Mozilla-Nachfolgern noch in anderen aktuellen Browsern implementiert sind, gehören sie in CSS 2.1 nicht mehr zum Standard!</strong> Sie sollten also stets auch passende Alternativ-Schriftarten angeben, wenn Ihre Seiten nicht ausschließlich von Nutzern des Internet Explorer besucht werden (die die Schriftart-Installation bei hoher Sicherheitsstufe auch bestätigen).</p>
+
+<p>Über <code>@font-face</code> können Sie für den Internet Explorer eine Schriftart definieren und dabei direkt die Daten-Ressourcen der gewünschten Schriftarten ansprechen, also bestimmte Schriftartendateien. Vorgesehen war außerdem, mit Hilfe spezieller Definitionen die Charakteristika der gewünschten Schriftart exakt beschreiben zu können. Beim Definieren der Schriftart vergeben Sie einen Namen für die Schriftart. Unter diesem Namen können Sie sie anschließend mit der Eigenschaft <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="schrift.htm#font_family">font-family</a> verwenden.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"&gt;
+&lt;html&gt;&lt;head&gt;&lt;title&gt;font-face&lt;/title&gt;
+&lt;style type="text/css"&gt;
+ @font-face { font-family:Garamond; src:url(garamond.eot), url(garamond.pfr); }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;p style="font-family:Garamond"&gt;Text in Garamond&lt;/p&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Mit <code>@font-face</code> starten Sie die Angabe einer exakten Schriftart in einem <code>style</code>-Bereich. Dahinter folgen, in geschweiften Klammern, die Daten. Die beiden wichtigsten sind der Schriftartenname <code>font-family</code> und der URI der Schriftartendatei <code>src:url(Datei)</code>.</p>
+
+<p>Den Schriftartennamen vergeben Sie mit der Angabe <code>font-family:</code> innerhalb des <code>@font-face</code>-Bereichs. Unter diesem Namen können Sie die Schriftart in HTML verwenden. Im obigen Beispiel gibt es einen Textabsatz, der mit Hilfe einer Stylesheet-Angabe die zuvor definierte Schriftart erzwingt.</p>
+
+<p>Die Schriftartendatei, die Sie für die zugehörigen <code>font-family</code>-Angaben bestimmen, geben Sie mit <code>src:url(Datei)</code> an. Wenn sich die Schriftartendatei im gleichen Verzeichnis befindet wie die HTML-Datei, genügt die Angabe des Dateinamens. Andernfalls müssen Sie die genaue Lage der Schriftartendatei entweder durch eine relative Pfadangabe oder durch eine absolute Adressierung vom Typ <code>http://...</code> angeben.</p>
+
+<p>Im obigen Beispiel sehen Sie, dass gleich zwei URI-Angaben notiert sind. Einmal wird eine eot-Datei als Schriftartenquelle angegeben, einmal eine pfr-Datei. Beide Formate sind browser-spezifisch: eot-Dateien sind Schriftartendateien, die der Internet Explorer (ab Version 4) als Web-Schriftarten erkennt; pfr-Dateien sind Schriftartendateien, die Netscape 4.x erkannte. Wenn Sie Ihre gewünschte Schriftart auch für diesen veralteten Browser zur Verfügung stellen wollen, können Sie beide Formate so einbinden wie im obigen Beispiel.</p>
+
+<p>Einzelheiten zu eot- und pfr-Schriftarten und wie Sie diese selbst erstellen können, finden Sie im Kapitel über <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../../inter/index.htm">Internationalisierung</a> im Abschnitt <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../inter/downloadschriftarten.htm">Downloadbare Schriftarten</a>.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/css20.gif" width="30" height="30" alt="CSS 2.0" title="CSS 2.0">&nbsp;<a class="an" name="eingrenzen">Schriftformate eingrenzen</a></h2>
+
+<p>In CSS2 war vorgesehen, bei der Einbindung einer Schriftartendatei auch Angaben zu den möglichen Formateigenschaften der Schrift zu machen, wie z.B. zu <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="schrift.htm#font_style">Schriftstil</a> (<code>font-style</code>), <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="schrift.htm#font_variant">Schriftvariante</a> (<code>font-variant</code>), <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="schrift.htm#font_size">Schriftgröße</a> (<code>font-size</code>) oder <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="schrift.htm#font_weight">Schriftgewicht</a> (<code>font-weight</code>). So sollte dem Browser bereits in der HTML-Datei mitgeteilt werden, welche Formateigenschaften die Schriftartendatei unterstützt. Der Browser sollte die Schriftartendatei in desem Fall nur dann zum Anwender übertragen, wenn Formatierungen in der HTML-Datei die Übertragung sinnvoll machen.<br>
+<strong>Wegen mangelnder Browserunterstützung werden diese Angaben jedoch in CSS 2.1 nicht übernommen.</strong></p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"&gt;
+&lt;html&gt;&lt;head&gt;&lt;title&gt;font-face&lt;/title&gt;
+&lt;style type="text/css"&gt;
+ @font-face { font-family:Garamond; src:url(garamond.eot); font-size:10pt,12pt,14pt; }
+ @font-face { font-family:Garamond; src:url(garamond.pfr); font-size:10pt,12pt,14pt; }
+&lt;/style&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;p style="font-family:Garamond; font-size:48pt"&gt;Text&lt;/p&gt;
+&lt;!-- Datei wird nicht übertragen --&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Mit den dafür üblichen Stylesheet-Eigenschaften sollten bei der Definition einer Schriftart mit Schriftartendatei einschränkende Angaben zur Schrift gemacht werden können.</p>
+
+<p>Folgende Besonderheiten sollten dabei beachtet werden:<br>
+Zu <code>font-style</code>, <code>font-variant</code>, <code>font-weight</code> und <code>font-size</code> konnten auch mehrere, durch Kommata getrennte Werte angegeben werden.<br>
+Bei <code>font-weight</code> waren die Angaben <code>bolder</code> und <code>lighter</code> nicht zulässig.<br>
+Bei <code>font-size</code> waren nur absolute Größenangaben und keine relativen wie Prozentangaben oder em-Angaben erlaubt.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/css20.gif" width="30" height="30" alt="CSS 2.0" title="CSS 2.0">&nbsp;<a class="an" name="unicode_range">unicode-range (Unicode-Bereich eingrenzen)</a></h2>
+
+<p>In CSS2 war vorgesehen, bei der Einbindung einer Schriftartendatei den Zeichenbereich einschränken zu können. So sollte dem Browser bereits in der HTML-Datei mitgeteilt werden, welchen Zeichenbereich die Schriftart unterstützt. Der Browser sollte die Schriftartendatei in desem Fall nur dann zum Anwender übertragen, wenn alle Zeichen eines Textes, der mit der Schriftart formatiert wird, innerhalb des definierten <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../inter/unicode.htm">Unicode</a>-Bereichs liegen.<br>
+<strong>Wegen mangelnder Browserunterstützung wird diese Eigenschaft jedoch in CSS 2.1 nicht übernommen werden.</strong></p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"&gt;
+&lt;html&gt;&lt;head&gt;&lt;title&gt;unicode-range&lt;/title&gt;
+&lt;style type="text/css"&gt;
+ @font-face { font-family:System; src:url(system.eot); unicode-range:U+0000-007F; }
+ @font-face { font-family:System; src:url(system.pfr); unicode-range:U+0000-007F; }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;p&gt;&lt;tt style="font-family:System"&gt;Text mit ß und Ü&lt;/tt&gt;&lt;/p&gt;
+&lt;!-- Datei wird nicht übertragen --&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Mit <code>unicode-range:</code> sollte der Zeichenbereich der Schriftartendatei vor dem Download bekannt gemacht werden. Im obigen Beispiel wird der Bereich <code>U+0000-007F</code> definiert. Das entspricht dem ASCII-Zeichenvorrat. Wenn nun in einem Bereich, der diese Schriftart benutzt, beispielsweise Umlaute oder andere Zeichen vorkommen, die nicht im ASCII-Zeichenvorrat vorkommen, sollte die Schriftartendatei nicht heruntergeladen werden.</p>
+
+<p>Unicode-Angaben beginnen immer mit <code>U+</code>. Dahinter folgt eine Angabe der gewünschten Zeichennummer in hexadezimaler Form. Um einen Bereich zu definieren, der aus mehreren Unicode-Zeichen besteht, können Sie als Platzhalterzeichen (Wildcard) ein Fragezeichen <code>?</code> benutzen. Bei einer Angabe wie <code>unicode-range:U+00??</code> bewirken die zwei hintereinanderstehenden Fragezeichen am Ende der Angabe, dass der gewünschte Unicode-Bereich 16 hoch 2, also 256 Zeichen ab dem Zeichen <code>U+00</code> beträgt. Da laut Unicode-System bei <code>U+0000</code> die Zeichen des der Latin-1-Codetabelle beginnen, die 256 Zeichen umfasst, deckt die Angabe in dem Beispiel genau diesen Zeichenvorrat ab. Wenn Sie einen beliebigen Unicode-Bereich bestimmen möchten, können Sie dies mit einer Angabe tun wie z.B. <code>U+AC00-D7FF</code></p>.
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/css20.gif" width="30" height="30" alt="CSS 2.0" title="CSS 2.0">&nbsp;<a class="an" name="zusatzangaben">Weitere Angaben zur Schriftquelle</a></h2>
+
+<p>Die Version 2.0 der CSS-Sprache stellte einige Stylesheet-Angaben bereit, um Schriftartenquellen möglichst vielfältig definierbar und auffindbar zu machen, <strong>die wegen mangelnder Browserunterstützung jedoch in CSS 2.1 nicht übernommen werden</strong>.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<pre>
+&lt;style type="text/css"&gt;
+ @font-face { font-family:Kino; src:local(Kino MT), url(kino.ttf) format(TrueType); }
+ @font-face { font-family:MeineArt; url(http://www.example.org/cgi-bin/myfont.pl) format(intellifont) }
+ @font-face { font-family:Alabama; url(alab.fon); panose-1: 2 4 5 2 5 4 5 9 3 3; }
+&lt;/style&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Browser sollten zuerst auf dem Rechner des Anwenders nach der gewünschten Schriftart suchen und eine auf dem Server bereit liegende Schriftart nur dann herunterladen, wenn die Schriftart lokal nicht verfügbar ist. Dazu sollte bei der Quellenangabe der Schriftartendatei (<code>src:</code>) zuerst <code>local</code> und dahinter in Klammern der gewünschte Schriftartenname notiert werden. Für den Fall, dass der Browser diese Schriftart beim Anwender nicht findet, war durch ein Komma getrennt die Schriftartendatei auf der Internetseite anzugeben - im Beispiel <code>url(kino.ttf)</code>.</p>
+
+<p>Es sollten ferner Angaben zum Format der Schriftart gemacht werden können. Der Browser sollte die Schriftartendatei in diesem Fall nur dann herunterladen, wenn sie auf dem Rechner des Anwenders ausführbar ist. Dazu war die Angabe <code>format()</code> zu notieren, durch ein Leerzeichen getrennt von den Angaben zu <code>src:local()</code> und/oder <code>src:url()</code>. Innerhalb der Klammern sollte das Format der Schriftartendatei angeben werden. Im obigen Beispiel wird eine TrueType-Schriftart angegeben.</p>
+
+<p>Folgende weitere Möglichkeiten waren vorgesehen, um die Schriftart genau einzugrenzen:</p>
+
+<p><code>panose-1:</code>, gefolgt von 10 durch Leerzeichen getrennten Zahlen, sollte eine Schriftart nach dem Panose-1-System bestimmen. Beispiel: <code>panose-1: 2 4 5 2 5 4 5 9 3 3;</code><br>
+<code>stemv:</code> und <code>stemh:</code> für die vertikale und horizontale Stammbreite der Glyphen.<br>
+<code>units-per-em:</code> für die Anzahl der Einheiten pro em-Maßeinheit. Üblich sind die Werte 250 (bei Intellifont), 1000 (bei Type-1) oder 2048 (bei TrueType). Bei Angabe von <code>stemv:</code> und/oder <code>stemh:</code> war ebenfalls <code>units-per-em:</code> anzugeben.<br>
+<code>slope:</code> für den vertikalen Winkel der Glyphen.<br>
+<code>cap-height:</code> für die Höhe der Großbuchstaben der Glyphen.<br>
+<code>x-height:</code> für die Höhe der Kleinbuchstaben der Glyphen.<br>
+<code>ascent:</code> für die maximale Höhe der akzentlosen Glyphen.<br>
+<code>descent:</code> für die maximale Tiefe der akzentlosen Glyphen.<br>
+<code>definition-src:url()</code> für eine Datei mit Schriftartendefinitionen.<br>
+<code>baseline:</code> für die untere Grundlinie der Glyphen.<br>
+<code>centerline:</code> für die zentrale Grundlinie der Glyphen.<br>
+<code>mathline:</code> für die mathematische Grundlinie der Glyphen.<br>
+<code>topline:</code> für die obere Grundlinie der Glyphen.</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="ausrichtung.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="ausrichtung.htm">Ausrichtung und Absatzkontrolle</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="schrift.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="schrift.htm">Schriftformatierung</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">Stylesheets (CSS)</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">CSS-Eigenschaften</a></td>
+</tr>
+</table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

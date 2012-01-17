@@ -1,0 +1,216 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: HTML/XHTML / Verweise (Links) / Download-Verweise und Verweise auf beliebige Dateien</title>
+<meta name="description"    content="Wie Sie in HTML Verweise auf beliebige Dateien setzen können, die der Anwender je nach Dateityp und Browser-Reaktion downloaden oder anzeigen kann.">
+<meta name="keywords"       content="SELFHTML, HTML, XHTML, Verweise, Links, Hyperlinks, a, href, type, MIME-Typ, Download-Verweise, Dateitypen">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-10-31T12:25:34+01:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/html/verweise/dateitypen.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2001-10-27T08:00+01:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="Verweise (Links)" href="index.htm">
+<link rel="next" title="Typisierte Verweise" href="typisierte.htm">
+<link rel="prev" title="E-Mail-Verweise" href="email.htm">
+<link rel="first" title="Verweise definieren und gestalten" href="definieren.htm">
+<link rel="last" title="Tabulator-Reihenfolge und Tastaturkürzel für Verweise" href="tastatur.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">HTML/XHTML</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Verweise (Links)</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">Download-Verweise und Verweise auf beliebige Dateien</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#download">Download-Verweise</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#beliebig">Verweise zu beliebigen Dateien</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#mimetype">MIME-Typ des Verweisziels angeben</a><br>
+</p>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><a class="an" name="download">Download-Verweise</a></h2>
+
+<p>Es gibt keine spezifische Notation in HTML, um Dateien beim Anklicken zum Downloaden anzubieten. Es gibt lediglich Dateitypen, die (fast) jeder Web-Browser so interpretiert, dass er dem Anwender anbietet, die Datei downzuloaden. Das bekannteste Dateiformat dafür ist heute das ZIP-Format (<var>*.zip</var>). ZIP-Dateien sind Archivdateien, die mehrere andere Dateien enthalten können, sogar ganze Verzeichnisstrukturen. Die enthaltenen Dateien werden außerdem komprimiert. Der Anwender muss die ZIP-Datei nach dem Download mit einem geeigneten Programm entpacken ("Unzip"-Programm).</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/a_href_download.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+       "http://www.w3.org/TR/html4/strict.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Download-Verweise&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h1&gt;Download-Ecke&lt;/h1&gt;
+
+&lt;p&gt;
+  &lt;a href="wavetext.zip"&gt;WaveText&lt;/a&gt;&lt;br&gt;
+  Ein Java-Applet f&amp;uuml;r Textanimationen (wavetext.zip, 2.106 Bytes)
+&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Verweise auf typische Download-Dateien wie ZIP-Dateien unterscheiden sich nicht von anderen Verweisen. Das Verweisziel ist die Datei, die zum Download angeboten wird. Wenn die Datei zum eigenen Projekt gehört, gelten die gleichen Regeln wie bei <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="projektintern.htm">projektinternen Verweisen</a>, bei entfernten Dateien die Regeln von <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="projektextern.htm">projekt-externen Verweisen</a>.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Wenn Sie Dateien anbieten, die nur für bestimmte Rechnerumgebungen gedacht sind, können Sie natürlich auch Formate verwenden, die speziell für diese Umgebungen gedacht sind. Für DOS/Windows-Umgebungen können das beispielsweise selbstentpackende EXE-Archive sein, oder für Macintosh HQX-Archive. Wenn der Web-Browser mit der Dateiendung nichts anfangen kann, sollte er den Anwender im Dialog entscheiden lassen, was er mit der Datei tun möchte - dabei sollte auch die Download-Möglichkeit angeboten werden.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="beliebig">Verweise zu beliebigen Dateien</a></h2>
+
+<p>Sie können auf jede beliebige Datei einen Verweis setzen. Es kann sich um Audio-Dateien, Tabellenkalkulations-Dateien, CAD-Dateien, Videodateien, Grafikdateien, Textverarbeitungs-Dateien, Programmdateien, Datenbankdateien handeln - was Sie wollen. Sie können auch jede beliebige Datei in Ihr eigenes Web-Projekt mit auf den Internet-Server laden und einen Verweis darauf setzen. Aus Sicht von HTML ist das kein Problem. Das Problem besteht darin, was der Web-Browser des Anwenders mit den Dateien anfangen kann, bzw. wie er ihren Inhalt korrekt anzeigen oder abspielen lassen kann.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/a_href_beliebig.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+       "http://www.w3.org/TR/html4/strict.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Verweise auf beliebige Dateien&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h1&gt;Stuff&lt;/h1&gt;
+
+&lt;p&gt;
+  &lt;a href="buch.url"&gt;buch.url&lt;/a&gt;&lt;br&gt;
+  Eine Favoritendatei, wie der Internet Explorer sie anlegt
+&lt;/p&gt;
+
+&lt;p&gt;
+  &lt;a href="fritz.vcf"&gt;fritz.vcf&lt;/a&gt;&lt;br&gt;
+  Eine Visitenkartendatei (Adressenaustauschformat)
+&lt;/p&gt;
+
+&lt;p&gt;
+  &lt;a href="einsundeins.xls"&gt;einsundeins.xls&lt;/a&gt;&lt;br&gt;
+  Eine Excel-Datei
+&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Verweise auf beliebige Dateien unterscheiden sich nicht von anderen Verweisen. Das Verweisziel ist die gewünschte Datei. Wenn die Datei zum eigenen Projekt gehört, gelten die gleichen Regeln wie bei <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="projektintern.htm">projektinternen Verweisen</a>, bei entfernten Dateien die Regeln von <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="projektextern.htm">projekt-externen Verweisen</a>.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Dateitypen wie reine Textdateien (<var>*.txt</var>) kann der Web-Browser selbst anzeigen.</p>
+
+<p>Moderne Web-Browser haben eine Plugin-Schnittstelle. Wenn der Anwender ein Plugin zur Darstellung des Dateityps besitzt, kann der Browser die Datei mit Hilfe des Plugins selbst anzeigen bzw. abspielen.</p>
+
+<p>Wenn der Anwender ein Programm besitzt, das den Dateityp verarbeiten kann, und dem Web-Browser ist die Verknüpfung zwischen Dateien mit der Endung des Verweisziels und einem Programm bekannt, das solche Dateien verarbeitet, dann kann der Browser das Programm starten. Wenn das Betriebssystem, der Web-Browser und das andere Programm den dynamischen Datenaustausch zwischen Programmen erlauben, kann das Anzeigefenster des Fremdprogramms in das Browser-Fenster eingebettet werden. Es gibt jedoch keine Möglichkeit, solche Dinge in irgendeiner Weise als Web-Autor zu beeinflussen.</p>
+
+<p>Wenn der Browser mit dem Dateityp gar nichts anfangen kann, sollte er dem Anwender einen Dialog anbieten, um zu entscheiden, was mit der Datei geschehen soll. Der Anwender sollte die Datei z.B. downloaden können.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><img src="../../src/html40.gif" width="30" height="30" alt="HTML 4.0" title="HTML 4.0">&nbsp;<a class="an" name="mimetype">MIME-Typ des Verweisziels angeben</a></h2>
+
+<p>Um dem Browser die Aufgabe zu erleichtern, um welche Art von Datei es sich handelt, können Sie den <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../diverses/mimetypen.htm">MIME-Typ</a> der Datei angeben, auf die Sie verweisen.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/a_href_type.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+       "http://www.w3.org/TR/html4/strict.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Verweise mit MIME-Typ-Angabe&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h1&gt;Stuff mit Typ&lt;/h1&gt;
+
+&lt;p&gt;
+  &lt;a href="einsundeins.xls" type="application/msexcel"&gt;einsundeins.xls&lt;/a&gt;&lt;br&gt;
+  Eine Excel-Datei
+&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Mit dem zusätzlichen Attribut <code>type</code> können Sie den MIME-Typ der Zieldatei bestimmen, im obigen Beispiel <code>application/msexcel</code> für Excel-Dateien.</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="typisierte.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="typisierte.htm">Typisierte Verweise</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="email.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="email.htm">E-Mail-Verweise</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="../index.htm">HTML/XHTML</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von">&nbsp;<a href="index.htm">Verweise (Links)</a></td>
+</tr></table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

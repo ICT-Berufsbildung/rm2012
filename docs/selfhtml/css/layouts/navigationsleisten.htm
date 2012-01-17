@@ -1,0 +1,940 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>SELFHTML: Stylesheets / CSS-basierte Layouts / Navigationsleisten</title>
+<link rel="stylesheet" type="text/css" href="../../src/selfhtml.css">
+<meta name="description"    content="CSS-basierte Navigationsleisten">
+<meta name="keywords"       content="SELFHTML, CSS, Stylesheets, Cascading Stylesheets, CSS-basierte Layouts">
+<meta name="author"         content="Redaktion SELFHTML, selfhtml81@selfhtml.org">
+<meta name="robots"         content="noindex, nofollow">
+<meta name="DC.Publisher"   content="SELFHTML e. V.">
+<meta name="DC.Date"        content="2005-11-11T23:51:48+01:00">
+<meta name="DC.Identifier"  content="http://de.selfhtml.org/css/layouts/navigationsleisten.htm">
+<meta name="DC.Language"    content="de">
+<meta name="DC.Rights"      content="../../editorial/copyright.htm">
+<meta name="DC.Date.created" content="2004-10-01T00:00+02:00">
+<meta name="SELF.Pagetype"  content="page">
+<link rel="alternate" type="application/atom+xml" title="SELFHTML-Weblog (Atom, gesamt)" href="http://aktuell.de.selfhtml.org/weblog/atom-feed">
+<link rel="alternate" type="application/rss+xml" title="SELFHTML-Weblog (RSS, Auszüge)" href="http://aktuell.de.selfhtml.org/weblog/rss-feed">
+<link rel="shortcut icon" type="image/x-icon" href="../../src/favicon.ico">
+<link rel="author" title="Impressum" href="../../editorial/impressum.htm">
+<link rel="contents" title="Inhaltsverzeichnis" href="../../navigation/inhalt.htm">
+<link rel="index" title="Stichwortverzeichnis" href="../../navigation/stichwort.htm">
+<link rel="search" title="Suche" href="../../navigation/suche/index.htm">
+<link rel="help" title="Hilfe" href="../../editorial/index.htm">
+<link rel="copyright" title="Urheberrecht" href="../../editorial/copyright.htm">
+<link rel="top" title="SELFHTML" href="../../index.htm">
+<link rel="up" title="CSS-basierte Layouts" href="index.htm">
+<link rel="next" title="CSS-Browserweichen zum Ausschließen älterer Browser" href="browserweichen.htm">
+<link rel="prev" title="Fixe Bereiche mit CSS-basierten Layouts" href="fixbereiche.htm">
+<link rel="first" title="Einführung in CSS-basierte Layouts" href="einfuehrung.htm">
+<link rel="last" title="CSS-Browserweichen zum Ausschließen älterer Browser" href="browserweichen.htm">
+</head>
+<body>
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr>
+<td colspan="2" class="nav"><a class="an" name="top"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"> <a href="../index.htm">Stylesheets</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"> <a href="index.htm">CSS-basierte Layouts</a></td>
+</tr>
+<tr>
+<td class="doc" width="110"><a href="../../index.htm"><img src="../../src/logo.gif" width="106" height="109" border="0" alt="SELFHTML"></a></td>
+<td class="docbot" width="100%"><h1 class="ph1">CSS-basierte Navigationsleisten</h1></td>
+</tr>
+<tr>
+<td class="doctop">
+<img src="../../src/dokx.gif" width="30" height="20" vspace="6" alt="Informationsseite">
+</td>
+<td valign="top" nowrap="nowrap">
+<p>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#definieren">Navigationsleiste definieren</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#vertikal">Vertikale Formatierung mit Überschriften</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#horizontal">Horizontale Formatierung</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#ebenen">Mehrere Navigationsebenen</a><br>
+<img src="../../src/down.gif" width="14" height="10" alt="nach unten">&nbsp;<a href="#modern">Dynamische CSS-Navigation für moderne Browser</a>
+</p>
+</td>
+</tr><tr><td colspan="2" class="doc">&nbsp;<a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a>&nbsp;</td></tr>
+</table>
+
+
+
+<h2><a class="an" name="definieren">Navigationsleiste definieren</a></h2>
+
+<p>In den vorangegangenen Beispielen wurde für die Navigationsleiste eine <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../html/text/listen.htm#aufzaehlung">Aufzählungsliste</a> verwendet. Hiermit haben Sie nicht nur ein strukturelles Element, das dem Sinn einer Navigation, nämlich der Auflistung von Verweisen, recht gut entspricht, sondern auch gleich drei verschachtelte Elemente, die Sie über CSS formatieren können: <code>&lt;ul&gt;</code>, <code>&lt;li&gt;</code> und <code>&lt;a&gt;</code>.</p>
+
+<p>Um eine einheitliche Darstellung zu erreichen, sind zunächst die unterschiedlichen Voreinstellungen der Browser für Listen zu überschreiben.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/nav_definieren.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+       "http://www.w3.org/TR/html4/strict.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Navigationsleisten&lt;/title&gt;
+&lt;style type="text/css"&gt;
+  body, a {
+    font: normal 100.01% Helvetica, Arial, sans-serif;
+    color: black; background-color: white;
+  }
+
+  ul#Navigation {
+    margin: 0; padding: 0;
+  }
+  ul#Navigation li {
+    list-style: none;
+    margin: 0; padding: 0;
+  }
+
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Navigationsleiste ...&lt;/h1&gt;
+
+  &lt;ul id="Navigation"&gt;
+    &lt;li&gt;&lt;a href="nav_definieren.htm"&gt;Beispiel 1&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="nav_formatieren.htm"&gt;Beispiel 2&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="nav_rollover.htm"&gt;Beispiel 3&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Die Abstände werden für <code>&lt;ul&gt;</code> und <code>&lt;li&gt;</code> auf <code>0</code> gesetzt und das Aufzählungszeichen für <code>&lt;li&gt;</code> wird über <code>list-style:none</code> beseitigt. So erhalten Sie eine Darstellung der Links ohne erkennbare Listenformatierung, aufgrund der blockbildenden Eigenschaft der Listenpunkte jedoch untereinander angeordnet.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<p>Im folgenden Beispiel werden nun die Abstände neu <a class="an" name="formatieren">bestimmt</a>, eine Breite für die Liste festgelegt sowie Rahmen und Farben hinzugefügt.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/nav_formatieren.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+  ul#Navigation {
+    width: 10em;
+    margin: 0; padding: 0.8em;
+    border: 1px solid black;
+    background-color: silver;
+  }
+  * html ul#Navigation {  /* Korrekturen fuer IE 5.x */
+    width: 11.6em;
+    w\idth: 10em;
+    padding-left: 0;
+    padd\ing-left: 0.8em;
+  }
+  ul#Navigation li {
+    list-style: none;
+    margin: 0.4em; padding: 0.2em;
+    border: 1px solid gray;
+    background-color: #eee;
+  }
+
+  ul#Navigation a {
+    text-decoration: none; font-weight: bold;
+    color: maroon; background-color: #ccc;
+  }
+  ul#Navigation a:hover {
+    color: white; background-color: gray;
+  }
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Die Zuweisung von Rahmen und Hintergrundfarben macht hier die Struktur sichtbar. Solche komplexen Listen-Formatierungen erfordern für den Internet Explorer (besonders für ältere Versionen) leider nicht selten Korrekturen über eine <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="browserweichen.htm#browserweichen">spezielle&nbsp;CSS-Browserweiche</a>; in diesen Beispielen wird hierzu der <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;"<a href="browserweichen.htm#star_html_hack">Star-HTML-Hack</a>" für ältere Versionen und später auch der <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;"<a href="browserweichen.htm#star_plus_html_hack">Star-Plus-HTML-Hack</a>" für den IE 7 verwendet.</p>
+
+<p>Auch dem <code>a</code>-Element wurde eine Hintergrundfarbe zugewiesen und diese (sowie dazu passend die Schriftfarbe) über die <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../eigenschaften/pseudoformate.htm#link_visited_focus_hover_active">Pseudoklasse</a> <code>:hover</code> geändert. Hierdurch ergibt sich ein Rollover-Effekt, der so einfacher als mit JavaScript erzeugt werden kann. Es fehlt allerdings noch das typische Balken-Aussehen, da <code>&lt;a&gt;</code> als Inline-Element nur den für seinen Inhalt erforderlichen Raum einnimmt.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<p>Um den Linkbereich auf das ganze <code>li</code>-Element auszuweiten und typische <a class="an" name="rollover">Rollover-Balken</a> zu erhalten, werden die Links mit <code>display:block</code> definiert.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/nav_rollover.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+  ul#Navigation {
+    width: 10em;
+    margin: 0; padding: 0.8em;
+    border: 1px solid black;
+    background-color: silver;
+  }
+  * html ul#Navigation {  /* Korrekturen fuer IE 5.x */
+    width: 11.6em;
+    w\idth: 10em;
+    padding-left: 0;
+    padd\ing-left: 0.8em;
+  }
+  ul#Navigation li {
+    list-style: none;
+    margin: 0.4em; padding: 0;
+  }
+
+  ul#Navigation a {
+    display:block;
+    padding: 0.2em;
+    text-decoration: none; font-weight: bold;
+    border: 1px solid black;
+    border-left-color: white; border-top-color: white;
+    color: maroon; background-color: #ccc;
+  }
+  * html ul#Navigation a {  /* Breitenangaben nur fuer IE */
+    width: 100%;
+    w\idth: 8.8em;
+  }
+  ul#Navigation a:hover {
+    border-color: white;
+    border-left-color: black; border-top-color: black;
+    color: white; background-color: gray;
+  }
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Leider benötigt der Internet Explorer bis zur Version 6 abgesehen von <code>display:block</code> noch eine Breitenangabe zur Ausdehnung des Linkbereichs. Diese ist für den IE 6 im <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../formate/box_modell.htm#doctype_switch">standardkonformen&nbsp;Modus</a> und frühere Versionen entsprechend des verwendeten Box-Modells unterschiedlich angegeben.</p>
+
+<p>Rahmen und Innenabstand von <code>&lt;li&gt;</code> sind hier dem Link zugewiesen, damit der Rollover-Effekt über den gesamten Hintergrund des Balkens geht. Über unterschiedliche Rahmenfarben ist hier auch ein räumlicher Effekt hinzugekommen.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="vertikal">Vertikale Formatierung mit Überschriften</a></h2>
+
+<p>Eine größere Anzahl von Menüpunkten in einer vertikal dargestellten Navigation ist aufgeteilt in Rubriken mit Zwischenüberschriften übersichtlicher. Hierzu werden im folgenden Beispiel <code>h2</code>-Elemente in die Liste eingefügt und ihnen gemeinsam mit den Links zunächst dieselben CSS-Eigenschaften zugewiesen.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/nav_vertikal.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+       "http://www.w3.org/TR/html4/strict.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Navigationsleiste mit Überschriften&lt;/title&gt;
+&lt;style type="text/css"&gt;
+  body {
+    font: normal 100.01% Helvetica, Arial, sans-serif;
+    color: black; background-color: #ffffe0;
+  }
+
+  ul#Navigation {
+    width: 10em;
+    margin: 0; padding: 0.2em 0.8em 0.8em;
+    border: 1px solid black;
+    background-color: silver;
+  }
+  * html ul#Navigation {  /* Korrekturen fuer IE 5.x */
+    width: 11.6em;
+    w\idth: 10em;
+    padding-left: 0;
+    padd\ing-left: 0.8em;
+  }
+  ul#Navigation li {
+    list-style: none;
+    margin: 0.4em; padding: 0;
+  }
+
+  ul#Navigation a, ul#Navigation span, ul#Navigation h2 {
+    display:block;
+    padding: 0.2em;
+    text-decoration: none; font-weight: bold;
+    border: 1px solid black;
+    border-left-color: white; border-top-color: white;
+    color: maroon; background-color: #ccc;
+  }
+  * html ul#Navigation a, * html ul#Navigation span, * html ul#Navigation h2 {
+    width: 100%;    /* Breitenangabe fuer IE 5.x */
+    w\idth: 8.8em;  /* Breitenangabe fuer IE 6 */
+  }
+  ul#Navigation a:hover, ul#Navigation span {
+    border-color: white;
+    border-left-color: black; border-top-color: black;
+    color: white; background-color: gray;
+  }
+  ul#Navigation h2 {
+    font-size: 1em;
+    margin: 1.1em 0 0;
+    border-color: gray;
+    color: black; background-color: #eee;
+  }
+
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1 id="Beispiel"&gt;Navigationsleiste mit Überschriften&lt;/h1&gt;
+
+  &lt;ul id="Navigation"&gt;
+    &lt;li&gt;&lt;h2&gt;Rubrik 1&lt;/h2&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#Beispiel"&gt;Seite 1&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#Beispiel"&gt;Seite 2&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#Beispiel"&gt;Seite 3&lt;/a&gt;&lt;/li&gt;
+
+    &lt;li&gt;&lt;h2&gt;Rubrik 2&lt;/h2&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;span&gt;aktuelle Seite&lt;/span&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#Beispiel"&gt;Seite 5&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#Beispiel"&gt;Seite 6&lt;/a&gt;&lt;/li&gt;
+
+    &lt;li&gt;&lt;h2&gt;Rubrik 3&lt;/h2&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#Beispiel"&gt;Seite 7&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#Beispiel"&gt;Seite 8&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#Beispiel"&gt;Seite 9&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Da Überschriften von den Browsern meist größer und mit voreingestellten Außenabständen dargestellt werden, sind diese Eigenschaften für <code>&lt;h2&gt;</code> explizit gesetzt. Hierbei ist für <code>margin-top</code> ein größerer Abstand gewählt, um die Rubriken optisch voneinander zu trennen. Hervorgehoben werden die Überschriften hier farblich.</p>
+
+<p>Neu in diesem Beispiel hinzugekommen ist auch, dass die <strong>aktuelle Seite nicht verlinkt</strong> wird. Dies erleichtert die Benutzbarkeit, da der Standort erkennbar ist und nicht mit einem (in diesem Fall ja nutzlosen) Link verwechselt werden kann. Hierzu wird der aktuelle Menüpunkt als <code>&lt;span&gt;</code> ausgezeichnet, dem dieselben CSS-Eigenschaften wie Verweisen zugewiesen werden, wenn diese mit der Maus überfahren werden; Sie können ihn - ausgehend von der Basisformatierung - auch noch deutlicher hervorheben.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="horizontal">Horizontale Formatierung</a></h2>
+
+<p>Sie können eine Navigationsleiste mit wenigen Menüpunkten auch horizontal anordnen. Hierfür existieren zwei verschiedene Möglichkeiten mit unterschiedlichen Vor- und Nachteilen. Die einfachere Möglichkeit ist, die <code>li</code>-Elemente per <code><strong>display:inline</strong></code> darzustellen. Dies ermöglicht auch deren Zentrierung über eine auf das Eltern-Element angewandte Eigenschafts-/Wertkombination von <code>text-align:center</code>.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/nav_inline.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+       "http://www.w3.org/TR/html4/strict.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Horizontale Navigationsleiste zentriert&lt;/title&gt;
+&lt;style type="text/css"&gt;
+  body {
+    font: normal 100.01% Helvetica, Arial, sans-serif;
+    color: black; background-color: #ffffe0;
+  }
+
+  ul#Navigation {
+    margin: 0; padding: 0.8em;
+    text-align: center;
+    border: 1px solid black;
+    background-color: silver;
+  }
+  ul#Navigation li {
+    list-style: none;
+    <strong>display: inline;</strong>
+    margin: 0.4em; padding: 0;
+  }
+
+  ul#Navigation a, ul#Navigation span {
+    padding: 0.2em 1em;
+    text-decoration: none; font-weight: bold;
+    border: 1px solid black;
+    border-left-color: white; border-top-color: white;
+    color: maroon; background-color: #ccc;
+  }
+  * html ul#Navigation a, * html ul#Navigation span {
+    width: 1em;    /* nur fuer IE 5.0x erforderlich */
+    w/idth: auto;  /* sicherheitshalber fuer IE 6 zurueckgesetzt */
+  }
+  ul#Navigation a:hover, ul#Navigation span {
+    border-color: white;
+    border-left-color: black; border-top-color: black;
+    color: white; background-color: gray;
+  }
+
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1 id="Beispiel"&gt;Horizontale Navigationsleiste zentriert&lt;/h1&gt;
+
+  &lt;ul id="Navigation"&gt;
+    &lt;li&gt;&lt;a href="#Beispiel"&gt;Seite<em>&amp;nbsp;</em>1&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#Beispiel"&gt;Seite<em>&amp;nbsp;</em>2&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#Beispiel"&gt;Seite<em>&amp;nbsp;</em>3&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;span&gt;aktuelle<em>&amp;nbsp;</em>Seite&lt;/span&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#Beispiel"&gt;Seite<em>&amp;nbsp;</em>5&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#Beispiel"&gt;Seite<em>&amp;nbsp;</em>6&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Da <code>inline</code> angezeigten Elementen keine Breite zugewiesen werden kann, richtet sich diese nach dem enthaltenen Text (die für den Internet Explorer angegebene Breite von nur 1em dient zur Fehlerkorrektur in Version 5.0). Nutzen Sie diese Formatierungs-Möglichkeit, wenn die Menüpunkte unterschiedlich breit dargestellt werden bzw. nur soviel Raum wie ihr Inhalt einnehmen sollen.</p>
+
+<p>Einen Nachteil hat diese Methode jedoch: Bei einem Umbruch der Navigationsleiste in zu kleinen Browserfenstern kommt es zu Überlagerungen. Dieser Effekt kann zwar auch bewusst zu gestalterischen Zwecken eingesetzt werden, verschlechtert allerdings die Nutzbarkeit. Achten Sie darauf, in den Menütexten keine oder nur geschützte Leerzeichen (<code>&amp;nbsp;</code>) zu verwenden, damit bei einem Umbruch der Menüpunkt nicht geteilt wird.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<p><a class="an" name="float">Einheitliche Breiten der Menüpunkte</a> unabhängig von deren Inhalten können Sie in einer horizontalen Navigationsleiste angeben, wenn Sie die CSS-Eigenschaft <code><strong>float</strong></code> verwenden. Sie können diese entweder <code>&lt;li&gt;</code> oder den hierin enthaltenen Elementen zuweisen, wobei dann <code>li {display:inline}</code> zu definieren ist. Letzteres ist aus verschiedenen Gründen günstiger.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/nav_float.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+       "http://www.w3.org/TR/html4/strict.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Horizontale Navigationsleiste mit gleichen Breiten&lt;/title&gt;
+&lt;style type="text/css"&gt;
+  body {
+    font: normal 100.01% Helvetica, Arial, sans-serif;
+    color: black; background-color: #ffffe0;
+  }
+
+  ul#Navigation {
+    margin: 0; padding: 0.8em;
+    text-align: center;
+    border: 1px solid black;
+    background-color: silver;
+  }
+  ul#Navigation li {
+    list-style: none;
+    <strong>display: inline;</strong>
+    margin: 0; padding: 0;
+  }
+
+  ul#Navigation a, ul#Navigation span {
+    <strong>float: left;</strong> <strong>width: 6em;</strong>
+    margin: 0.4em; padding: 0.2em 1em;
+    text-decoration: none; font-weight: bold;
+    border: 1px solid black;
+    border-left-color: white; border-top-color: white;
+    color: maroon; background-color: #ccc;
+  }
+  * html ul#Navigation a, * html ul#Navigation span {  /* Korrektur fuer IE 5.x */
+    width: 8em;
+    w\idth: 6em;
+  }
+  ul#Navigation a:hover, ul#Navigation span {
+    border-color: white;
+    border-left-color: black; border-top-color: black;
+    color: white; background-color: gray;
+  }
+  ul#Navigation div {
+     <strong>clear: left</strong>;
+  }
+
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1 id="Beispiel"&gt;Horizontale Navigationsleiste mit gleichen Breiten&lt;/h1&gt;
+
+  &lt;ul id="Navigation"&gt;
+    &lt;li&gt;&lt;a href="#Beispiel"&gt;Seite<em>&amp;nbsp;</em>1&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#Beispiel"&gt;Seite<em>&amp;nbsp;</em>2&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#Beispiel"&gt;Seite<em>&amp;nbsp;</em>3&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;span&gt;aktuelle<em>&amp;nbsp;</em>Seite&lt;/span&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#Beispiel"&gt;Seite<em>&amp;nbsp;</em>5&lt;/a&gt;<strong>&lt;div&gt;&lt;/div&gt;</strong>&lt;/li&gt;
+  &lt;/ul&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Auch in diesem Beispiel wird <code>display:inline</code> für die <code>li</code>-Elemente benötigt, um Zeilenumbrüche zu verhindern. Da die enthaltenen Menüpunkte über <code>float</code> Eigenschaften von Block-Elementen erhalten, können ihnen auch eine Breite (<code>width</code>) und Außenabstände (<code>margin</code>) zugewiesen werden, ferner kommt es bei einem Umbruch nicht mehr zu Überlagerungen. Um den Elementfluss wieder herzustellen und in diesem Beispiel die Menüpunkte mit Hintergrund und Rahmen der Liste zu umschließen, ist ein Element mit der CSS-Eigenschaft <code>clear</code> innerhalb der Liste erforderlich. Hierzu wird ein leeres <code>div</code>-Element ohne semantische Bedeutung verwendet. Beim Internet Explorer funktioniert dies allerdings nur, solange kein Umbruch der Navigationsleiste erfolgt.</p>
+
+<p>Sie können der Navigationsleiste <code>ul#Navigation</code> auch eine passende Breite zuweisen, um in zu kleinen Browserfenstern statt eines Umbruchs Scrollbalken anzubieten. Gemäß CSS 2.1 können Sie <code>float</code> hier auch problemlos ohne Angabe einer Breite verwenden, um Überlagerungen bei einem Umbruch zu verhindern.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="ebenen">Mehrere Navigationsebenen</a></h2>
+
+<p>Eine Navigation, die wie in <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#vertikal">obigem&nbsp;Beispiel</a> mit Zwischenüberschriften versehen ist, wird in vielen Fällen keine sequenzielle Auflistung von Links enthalten, sondern eher verschiedenen Navigationsebenen entsprechen. Die Überschriften stellen in diesem Fall die Hauptmenüpunkte dar und können selbst auch mit Übersichtsseiten für die jeweilige Rubrik verlinkt sein. Eine verschachtelte Liste eignet sich zur logischen Abbildung dieser Struktur jedoch besser.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/nav_ebenen.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+       "http://www.w3.org/TR/html4/strict.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Navigationsleiste mit mehreren Ebenen&lt;/title&gt;
+&lt;style type="text/css"&gt;
+  body {
+    font: normal 100.01% Helvetica, Arial, sans-serif;
+    color: black; background-color: #ffffe0;
+  }
+
+  ul#Navigation {
+    width: 10em;
+    margin: 0; padding: 0.8em;
+    border: 1px solid black;
+    background-color: silver;
+  }
+  * html ul#Navigation {  /* Korrekturen fuer IE 5.x */
+    width: 11.6em;
+    w\idth: 10em;
+    padding-left: 0;
+    padd\ing-left: 0.8em;
+  }
+  ul#Navigation li {
+    list-style: none;
+    margin: 0.4em; padding: 0;
+  }
+
+  ul#Navigation li ul {
+    margin: 0 0 0 1em; padding: 0;
+  }
+  ul#Navigation li ul li {
+    margin: 0.1em 0;
+  }
+  * html ul#Navigation li ul li {  /* Korrektur fuer IE 5.x */
+    margin-left: 1em;
+    ma\rgin-left: 0;
+  }
+
+  ul#Navigation a {
+    display:block;
+    padding: 0.2em;
+    text-decoration: none; font-weight: bold;
+    border: 1px solid black;
+    border-left-color: white; border-top-color: white;
+    color: maroon; background-color: #ccc;
+  }
+  * html ul#Navigation a {
+    width: 100%;    /* Breitenangabe fuer IE 5.x */
+    w\idth: 8.8em;  /* Breitenangabe fuer IE 6 */
+  }
+  * html ul#Navigation li ul li a {
+    width: 100%;    /* Breitenangabe fuer IE 5.x */
+    w\idth: 7.8em;  /* Breitenangabe fuer IE 6 */
+  }
+  ul#Navigation a:hover {
+    border-color: white;
+    border-left-color: black; border-top-color: black;
+    color: white; background-color: gray;
+  }
+
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1 id="Beispiel"&gt;Mehrere Navigationsebenen&lt;/h1&gt;
+
+  &lt;ul id="Navigation"&gt;
+    &lt;li&gt;&lt;a href="#Beispiel"&gt;Seite 1&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#Beispiel"&gt;Seite 2&lt;/a&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href="#Beispiel"&gt;Seite 2a&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#Beispiel"&gt;Seite 2b&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#Beispiel"&gt;Seite 2c&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href="#Beispiel"&gt;Seite 3&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#Beispiel"&gt;Seite 4&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p><em>In</em> das zweite <code>&lt;li&gt;</code>-Element ist hier eine weitere Liste eingefügt, da <code>&lt;ul&gt;</code> selbst keine anderen Elemente als <code>&lt;li&gt;</code> enthalten darf.</p>
+
+<p>Über die Nachkommen-Selektoren <code>ul#Navigation&nbsp;li&nbsp;ul</code> und <code>ul#Navigation&nbsp;li&nbsp;ul&nbsp;li</code> werden die CSS-Eigenschaften für die so verschachtelte Liste dahingehend geändert, dass die Menüpunkte dieser zweiten Ebene eingerückt und entsprechend schmaler sind und einen geringeren Abstand zueinander sowie zum dazugehörigen Menüpunkt der ersten Ebene aufweisen. Es sind natürlich auch andere CSS-Formatierungen möglich, um diese Struktur zu visualisieren.</p>
+
+<p>Selbst <a class="an" name="html">ohne CSS</a> wird die Struktur von verschachtelten Listen über die Browser-Voreinstellungen sehr gut deutlich, wie <img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/nav_html.htm">dieses&nbsp;Beispiel</a> zeigt.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<p>Eine verschachtelte Liste lässt sich auch <a class="an" name="geteilt"><strong>geteilt</strong></a> darstellen, sodass die Menüpunkte der <strong>ersten Ebene horizontal</strong> in einer Reihe und die der <strong>zweiten Ebene vertikal</strong> passend darunter angeordnet werden. Dazu ist es erforderlich, die <code>li</code>-Elemente der ersten Ebene per <code>float</code> nebeneinander anzuordnen und ihnen <code>position:relative</code> zuzuweisen, damit deren Positionen als Bezug für die über <code>position:absolute</code> aus dem Elementenfluss genommenen Listenpunkte der zweiten Ebene genutzt werden.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/nav_geteilt.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+       "http://www.w3.org/TR/html4/strict.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Geteilte Navigationsleisten&lt;/title&gt;
+&lt;style type="text/css"&gt;
+  body {
+    font: normal 100.01% Helvetica, Arial, sans-serif;
+    color: black; background-color: #ffffe0;
+  }
+
+  div#Rahmen {
+    width: 47.1em;
+    padding: 0.8em;
+    border: 1px solid black;
+    background-color: silver;
+  }
+  * html div#Rahmen {  /* Korrektur fuer IE 5.x */
+    width: 48.7em;
+    w\idth: 47.1em;
+  }
+  div#Rahmen <em>div</em> {
+    <em>clear: left;</em>
+  }
+  ul#Navigation {
+    margin: 0; padding: 0;
+    text-align: center;
+  }
+
+  ul#Navigation <strong>li</strong> {
+    list-style: none;
+    <strong>float: left;</strong>
+    width: 8.6em;
+    <strong>position: relative;</strong>
+    margin: 0.4em; padding: 0;
+  }
+  * html ul#Navigation li {  /* Korrektur fuer den IE 5 und 6 */
+    margin-bottom: -0.4em;
+  }
+  *:first-child+html ul#Navigation li {  /* Korrektur fuer den IE 7 */
+    margin-bottom: -0.1em;
+  }
+
+  ul#Navigation <strong>li ul</strong> {
+    margin: 0; padding: 0;
+    <strong>position: absolute;</strong>
+    top: 1.7em; left: -0.4em;
+  }
+  * html ul#Navigation li ul {  /* Korrektur fuer IE 5.x */
+    left: -1.5em;
+    lef\t: -0.4em;
+  }
+  ul#Navigation <strong>li ul li</strong> {
+    <strong>float: none;</strong>
+    <strong>display: block;</strong>
+    margin-bottom: 0.2em;
+  }
+
+  ul#Navigation a, ul#Navigation span {
+    display: block;
+    padding: 0.2em 1em;
+    text-decoration: none; font-weight: bold;
+    border: 1px solid black;
+    border-left-color: white; border-top-color: white;
+    color: maroon; background-color: #ccc;
+  }
+  * html ul#Navigation a, * html ul#Navigation span {  /* nur fuer IE erforderlich */
+    width: 100%;
+    w\idth: 6.4em;
+  }
+  ul#Navigation a:hover, ul#Navigation span, li a#aktuell {
+    border-color: white;
+    border-left-color: black; border-top-color: black;
+    color: white; background-color: gray;
+  }
+  li a#aktuell {  /* aktuelle Rubrik kennzeichnen */
+    color: maroon; background-color: silver;
+  }
+  ul#Navigation li ul span {  /* aktuelle Unterseite kennzeichnen */
+    background-color: maroon;
+  }
+
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1 id="Beispiel"&gt;Geteilte Navigationsleisten&lt;/h1&gt;
+
+  &lt;div id="Rahmen"&gt;&lt;ul id="Navigation"&gt;
+    &lt;li&gt;&lt;a href="#Beispiel"&gt;Seite 1&lt;/a&gt;&lt;/li&gt;
+
+    &lt;li&gt;&lt;a href="#Beispiel"&gt;Seite 2&lt;/a&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href="#Beispiel"&gt;Seite 2a&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#Beispiel"&gt;Seite 2b&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+
+    &lt;li&gt;&lt;a href="#Beispiel"&gt;Seite 3&lt;/a&gt;&lt;/li&gt;
+
+    &lt;li&gt;&lt;a id="aktuell" href="#Beispiel"&gt;Seite 4&lt;/a&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href="#Beispiel"&gt;Seite 4a&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;span&gt;aktuelle Seite&lt;/span&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#Beispiel"&gt;Seite 4c&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+
+    &lt;li&gt;&lt;a href="#Beispiel"&gt;Seite 5&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;<em>&lt;div&gt;&lt;/div&gt;</em>&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Bei dieser Navigationsleiste muss ein Umbruch verhindert werden, um die richtige Reihenfolge der angezeigten Menüpunkte zu gewährleisten. Dazu ist eine ausreichend große Breite anzugeben, die allerdings nicht der Liste selbst zugewiesen werden sollte, da dies in einigen Browsern zu einer fehlerhaften Darstellung führt. Daher wird ein zusätzliches Element (<code>div#Rahmen</code>) um die Navigationsleiste gesetzt, welches auch die Definitionen für den Rahmen und die Hintergrundfarbe übernimmt. Als Element ohne semantische Bedeutung hat es ohne CSS keine Auswirkung auf die Darstellung. Da die Listenpunkte über <code>float</code> aus dem Elementfluss genommen sind, muss ein zusätzliches, innerhalb des Rahmens notiertes Element mit der CSS-Eigenschaft <code>clear</code> den Elementfluss wieder herstellen. Auch hierzu wird ein leeres <code>div</code>-Element (<code>&lt;div&gt;&lt;/div&gt;</code>) verwendet.</p>
+
+<p>Die verschachtelten Listen der zweiten Ebene werden über den Nachkommen-Selektor <code>ul#Navigation li ul</code> absolut unterhalb des dazugehörigen Listenpunktes positioniert. Für die Listenpunkte der zweiten Ebene wird über den Nachkommen-Selektor <code>ul#Navigation li ul li</code> die Eigenschaft <code>float</code> aufgehoben.</p>
+
+<p>In diesem Beispiel ist ein Menüpunkt der zweiten Ebene als <em>aktuelle Seite</em> nicht verlinkt, sondern mit dem Element <code>&lt;span&gt;</code> ausgezeichnet und über CSS gesondert formatiert. Um auch den dazugehörigen Menüpunkt der ersten Ebene über CSS hervorheben zu können, wird für diesen die <code>id="aktuell"</code> angegeben.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<p>Moderne Browser ermöglichen auch, die Navigation der zweiten Ebene <a class="an" name="dynamisch"><strong>dynamisch</strong></a> einzublenden. Hierzu ist nur eine kleine Ergänzung im Stylesheet erforderlich:</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/nav_dynamisch.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+  /* Erweiterung zur dynamischen Ein-/Ausblendung */
+  ul#Navigation li>ul {
+    display: none; top: 1.6em;
+  }
+  ul#Navigation li:hover>ul, ul#Navigation li>a#aktuell+ul {
+    display: block;
+  }
+
+  /* Workaround fuer den IE 7 */
+  *:first-child+html ul#Navigation ul {
+    background-color:silver; padding-bottom:0.4em;
+  }
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Über den Kind-Selektor <code>li>ul</code> werden die Listen der zweiten Ebene zunächst mittels <code>display:none</code> ausgeblendet. Beim Überfahren mit der Maus werden sie über den Selektor <code>ul#Navigation li:hover>ul</code> mit <code>display:block</code> wieder angezeigt; ebenso die aktuell ausgewählte Liste über den komplexen Selektor <code>ul#Navigation li>a#aktuell+ul</code>, der nur die <code>ul</code>-Liste anspricht, die auf den Link <code>a#aktuell</code> folgt, welcher Kindelement eines <code>li</code> in der <code>ul#Navigation</code> ist. Damit die beim Überfahren mit der Maus eingeblendete Liste beim Ansteuern ihres ersten Menüpunktes nicht wieder ausgeblendet wird, muss sie etwas höher positioniert werden, sodass sie den Listenpunkt der ersten Ebene überlappt. Wenn Sie genau hinsehen, bemerken Sie hier einen etwas geringeren Abstand als den über <code>margin</code> für die verschachtelten Listenpunkte angegebenen.</p>
+<p>Damit dieses Beispiel auch bei mehreren Untermenüpunkten im Internet Explorer 7 noch funktioniert, ist für den IE 7 eine Hintergrundfarbe für die Unternavigation angegeben.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Dieses Beispiel funktioniert in modernen Browsern zufriedenstellend. Im Internet Explorer bis zur Version 6 und älteren Browsern sind rein auf CSS basierende dynamische Navigationsleisten grundsätzlich nicht möglich, da sie den Zustand <code>:hover</code> nur auf Links - genauer <code>a</code>-Elemente mit dem Attribut <code>href</code> - anwenden können und diese nicht ineinander verschachtelt werden dürfen. Da diese Browser aber auch die hier verwendeten Selektoren nicht interpretieren können, stellen sie dieses Beispiel wie das vorherige ohne Dynamik dar.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<h2><a class="an" name="modern">Dynamische CSS-Navigation für moderne Browser</a></h2>
+
+<p>Dieses Beispiel basiert ebenfalls auf der <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#geteilt">obigen</a> geteilt dargestellten verschachtelten Liste. Die Unternavigation ist hier ausgeblendet und wird allen modernen Browsern beim Überfahren mit der Maus angezeigt. Sofern Sie die Menüpunkte der ersten Ebene mit <strong>Übersichtsseiten für ältere Browser</strong> verlinken und damit auch einer Tastatursteuerung zugänglich machen, ist eine solche dynamische Navigationsleiste auch praktisch einsetzbar. Die Übersichtsseiten könnten neben Verweisen auf die Menüpunkte der weiteren Ebenen auch eine Einleitung zur jeweiligen Rubrik enthalten.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/nav_modern.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+  body {
+    font: normal 100.01% Helvetica, Arial, sans-serif;
+    color: black; background-color: #ffffe0;
+  }
+
+  div#Rahmen {
+    width: 47.1em;
+    padding: 0.8em;
+    border: 1px solid black;
+    background-color: silver;
+  }
+  * html div#Rahmen {  /* Korrektur fuer IE 5.x */
+    width: 48.7em;
+    w\idth: 47.1em;
+  }
+  div#Rahmen div {
+     clear: left;
+  }
+  ul#Navigation {
+    margin: 0; padding: 0;
+    text-align: center;
+  }
+
+  ul#Navigation <strong>li</strong> {
+    list-style: none;
+    <strong>float: left;</strong>  /* <strong>ohne width</strong> - nach CSS 2.1 erlaubt */
+    position: relative;
+    margin: 0.4em; padding: 0;
+  }
+  * html ul#Navigation li {  /* Korrektur fuer den IE 5 und 6 */
+    margin-bottom: -0.4em;
+  }
+  *:first-child+html ul#Navigation li {  /* Korrektur fuer den IE 7 */
+    margin-bottom: -0.1em;
+  }
+
+  ul#Navigation <strong>li ul</strong> {
+    margin: 0; padding: 0;
+    position: absolute;
+    top: 1.6em; left: -0.4em;
+    <strong>display: none;</strong>  /* Unternavigation ausblenden */
+  }
+  * html ul#Navigation li ul {  /* Korrektur fuer IE 5.x */
+    left: -1.5em;
+    lef\t: -0.4em;
+  }
+  *:first-child+html ul#Navigation ul {  /* Workaround fuer den IE 7 */
+    background-color:silver; padding-bottom:0.4em;
+  }
+  ul#Navigation <strong>li:hover ul</strong> {
+    <strong>display: block;</strong>  /* Unternavigation in modernen Browsern einblenden */
+  }
+  ul#Navigation li ul li {
+    float: none;
+    display: block;
+    margin-bottom: 0.2em;
+  }
+
+  ul#Navigation <strong>a</strong>, ul#Navigation <strong>span</strong> {
+    display: block;
+    <strong>width: 6.4em;</strong>  /* Breite den in <em>li</em> enthaltenen Elementen zuweisen */
+    padding: 0.2em 1em;
+    text-decoration: none; font-weight: bold;
+    border: 1px solid black;
+    border-left-color: white; border-top-color: white;
+    color: maroon; background-color: #ccc;
+  }
+  * html ul#Navigation a, * html ul#Navigation span {
+    <strong>width: 8.6em;</strong>   /* Breite nach altem MS-Boxmodell für IE 5.x */
+    w\idth: 6.4em;  /* korrekte Breite fuer den IE 6 im standardkonformen Modus */
+  }
+  ul#Navigation a:hover, ul#Navigation span, li a#aktuell {
+    border-color: white;
+    border-left-color: black; border-top-color: black;
+    color: white; background-color: gray;
+  }
+  li a#aktuell {  /* aktuelle Rubrik kennzeichnen */
+    color: maroon; background-color: silver;
+  }
+  ul#Navigation li ul span {  /* aktuelle Unterseite kennzeichnen */
+    background-color: maroon;
+  }
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Über den einfachen Nachkommen-Selektor <code>ul#Navigation li ul</code> wird die Unternavigation hier für <em>alle</em> nicht ganz veralteten Browser ausgeblendet. Eingeblendet wird sie dagegen nur noch von modernen Browsern beim Überfahren mit der Maus. Benutzer älterer oder diesbezüglich fehlerhafter Browser können jedoch über den Umweg der in der Hauptnavigation verlinkten Übersichtsseiten auch zum Ziel gelangen.</p>
+
+<p>Die Breite der Menüpunkte ist hier nicht für <code>&lt;li&gt;</code> angegeben, sondern für die hierin enthaltenen Elemente. Diese nach CSS 2.1 gültige Möglichkeit, <code>float</code> ohne Angabe von <code>width</code> zu verwenden, beseitigt auch die fehlerhafte Darstellung des <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#dynamisch">vorherigen&nbsp;Beispiels</a> in Opera 7. Für den Internet Explorer 5.x ist die Breite nach dem fehlerhaften Microsoft-Boxmodell angegeben.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Testen Sie eine solche Navigationsleiste in möglichst vielen Browsern, da die hier verwendete Methode einige Browser überfordern könnte!</p>
+
+<p>Um ein dynamisches Einblenden der Unternavigation auch im Internet Explorer 5 und 6 und anderen Browsern ohne ausreichende CSS-Implementierung zu ermöglichen, bleibt Ihnen derzeit nur eine Realisierung über <img src="../../src/kap.gif" width="15" height="13" alt="Kapitel">&nbsp;<a href="../../javascript/index.htm">JavaScript</a>. Es ist jedoch sinnvoll, dies mit der hier gezeigten Möglichkeit zu kombinieren.</p>
+
+
+
+<p class="doc"><a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a><a href="#bottom"><img src="../../src/down.gif" width="14" height="10" border="0" alt="nach unten"></a></p>
+
+
+
+<p>Die folgende, im <code>&lt;head&gt;</code>-Bereich des <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#modern">obigen&nbsp;Beispiels</a> eingefügte <a class="an" name="javascript">JavaScript-Funktion</a> ermöglicht die dynamische Anzeige der Unternavigation auch dem Internet Explorer 5 und 6.</p>
+
+<h3 class="xmp">Beispiel:</h3>
+
+<p><img src="../../src/dokf.gif" width="15" height="10" alt="Beispiel-Seite">&nbsp;<a href="anzeige/nav_javascript.htm">Anzeigebeispiel: So sieht's aus</a></p>
+
+<pre>
+&lt;script type="text/javascript"&gt;
+if(window.navigator.systemLanguage && !window.navigator.language) {
+  function hoverIE() {
+    var LI = document.getElementById("Navigation").firstChild;
+    do {
+      if (sucheUL(LI.firstChild)) {
+        LI.onmouseover=einblenden; LI.onmouseout=ausblenden;
+      }
+      LI = LI.nextSibling;
+    }
+    while(LI);
+  }
+
+  function sucheUL(UL) {
+    do {
+      if(UL) UL = UL.nextSibling;
+      if(UL && UL.nodeName == "UL") return UL;
+    }
+    while(UL);
+    return false;
+  }
+
+  function einblenden() {
+    var UL = sucheUL(this.firstChild);
+    UL.style.display = "block"; UL.style.backgroundColor = "silver";
+  }
+  function ausblenden() {
+    sucheUL(this.firstChild).style.display = "none";
+  }
+
+  window.onload=hoverIE;
+}
+&lt;/script&gt;
+</pre>
+
+<h3 class="xpl">Erläuterung:</h3>
+
+<p>Um unerwünschte Auswirkungen in anderen Browsern zu vermeiden, wird das Script über eine Browserweiche nur dem Internet Explorer (auch der Macintosh-Version) zugänglich gemacht. Die Funktion <code>hoverIE</code> wird vom Script mittels <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../javascript/sprache/eventhandler.htm#onload">Event-Handler</a> <code>onload</code> aufgerufen und erfordert keine weiteren Änderungen am HTML-Quelltext. Das Script durchsucht die in der <code>ul id="Navigation"</code> enthaltenen Knoten und blendet die hierin verschachtelten <code>ul</code>-Elemente über die CSS-Eigenschaft <code>display</code> beim Überfahren mit der Maus (<code>onmouseover</code>) ein bzw. beim Verlassen (<code>onmouseout</code>) wieder aus. Dies erfordert beim Internet Explorer jedoch zusätzlich eine Änderung der <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../javascript/objekte/style.htm#style_eigenschaften">Hintergrundfarbe</a> (<code>backgroundColor</code>).</p>
+<p>Um den Internet Explorer 7 von diesem Script auszuschließen, können Sie es in einen <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="browserweichen.htm#alternative">conditional comment</a> (<code>&lt;!--[if lt IE 7]&gt; &lt;![endif]--&gt;</code>) setzen, wenn Sie auf die Unterstützung der alten Macintosh-Version verzichten.</p>
+
+<h3 class="inf">Beachten Sie:</h3>
+
+<p>Da die Interpretation von JavaScript nicht grundsätzlich vorausgesetzt werden kann und auch andere ältere Browser die Unternavigation nicht darstellen, ist diese Funktionalität nur ergänzend nutzbar und Sie sollten auf die beim <img src="../../src/up.gif" width="14" height="10" alt="nach oben">&nbsp;<a href="#modern">obigen&nbsp;Beispiel</a> angesprochene alternative Verlinkung nicht verzichten.</p>
+
+
+
+<table cellpadding="4" cellspacing="0" border="0" width="100%">
+<tr><td colspan="2" class="doc">
+&nbsp;<a href="#top"><img src="../../src/up.gif" width="14" height="10" border="0" alt="nach oben"></a>
+</td></tr>
+<tr><td class="doc"><a href="browserweichen.htm"><img src="../../src/next.gif" width="10" height="10" border="0" hspace="10" alt="weiter"></a></td>
+<td width="100%"><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="browserweichen.htm">CSS-Browserweichen zum Ausschließen älterer Browser</a>
+</td></tr>
+<tr>
+<td class="doc"><a href="fixbereiche.htm"><img src="../../src/prev.gif" width="10" height="10" border="0" hspace="10" alt="zurück"></a></td>
+<td><img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="fixbereiche.htm">Fixe Bereiche mit CSS-basierten Layouts</a>
+</td>
+</tr>
+<tr><td colspan="2" class="doc">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" class="nav"><a class="an" name="bottom"><img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"></a> <a href="../../index.htm">SELFHTML</a>/<a href="../../navigation/index.htm" target="_parent" class="navh">Navigationshilfen</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"> <a href="../index.htm">Stylesheets</a> <img src="../../src/refkap.gif" width="16" height="13" alt="Teil von"> <a href="index.htm">CSS-basierte Layouts</a></td>
+</tr>
+</table>
+
+<p>&copy; 2007 <img src="../../src/dok.gif" width="15" height="10" alt="Seite">&nbsp;<a href="../../editorial/impressum.htm">Impressum</a></p>
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>Test</title>
+<style type="text/css">
+p { font-weight:bold }
+a.Navlink:link { color:#FF0000 }
+a.Navlink:visited { color:#FF0000 }
+a.Navlink:active { color:#000000 }
+</style>
+<script type="text/javascript">
+function hBeweg (LayerNum, bis_links, Pixel, Pause) {
+  var Restpixel = bis_links - document.layers[LayerNum].left;
+  if (bis_links < document.layers[LayerNum].left)
+    Pixel = 0 - Pixel;
+  if (Math.abs(Restpixel) > Math.abs(Pixel)) {
+    document.layers[LayerNum].moveBy(Pixel, 0);
+  } else {
+    document.layers[LayerNum].moveBy(Restpixel, 0);
+  }
+  if (document.layers[LayerNum].left != bis_links)
+    window.setTimeout("hBeweg(" + LayerNum + "," + bis_links + "," + Math.abs(Pixel) + ")", Pause);
+}
+
+function vBeweg (LayerNum, bis_oben, Pixel, Pause) {
+  var Restpixel = bis_oben - document.layers[LayerNum].top;
+  if (bis_oben < document.layers[LayerNum].top)
+    Pixel = 0 - Pixel;
+  if (Math.abs(Restpixel) > Math.abs(Pixel)) {
+    document.layers[LayerNum].moveBy(0, Pixel);
+  } else {
+    document.layers[LayerNum].moveBy(0, Restpixel);
+  }
+  if (document.layers[LayerNum].top != bis_oben)
+    window.setTimeout("vBeweg(" + LayerNum + "," + bis_oben + "," + Math.abs(Pixel) + ")", Pause);
+}
+</script>
+</head><body>
+<layer left="10" top="30" width="450" height="250" bgcolor="#FFFF66">
+<h1>Einen springen lassen...</h1>
+<p>Springe nach:
+<a class="Navlink" href="javascript:document.layers[0].moveTo(10, 30)">links oben</a> |
+<a class="Navlink" href="javascript:document.layers[0].moveTo(260, 30)">rechts oben</a> |
+<a class="Navlink" href="javascript:document.layers[0].moveTo(10, 260)">links unten</a> |
+<a class="Navlink" href="javascript:document.layers[0].moveTo(260, 260)">rechts unten</a><br></p>
+<p>Bewege nach:
+<a class="Navlink" href="javascript:hBeweg(0, 10, 4, 2)">links</a> |
+<a class="Navlink" href="javascript:hBeweg(0, 260, 4, 2)">rechts</a> |
+<a class="Navlink" href="javascript:vBeweg(0, 30, 4, 2)">oben</a> |
+<a class="Navlink" href="javascript:vBeweg(0, 260, 4, 2)">unten</a></p>
+</layer>
+
+<p style="font-weight:normal;"><a href="../netscape.htm#bewegen">zur&uuml;ck</a></p>
+
+</body>
+</html>

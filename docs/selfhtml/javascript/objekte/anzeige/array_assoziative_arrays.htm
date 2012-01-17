@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>Test</title>
+</head><body>
+<script type="text/javascript">
+var Mitarbeiter = new Array();
+
+Mitarbeiter[0] = new Object();
+Mitarbeiter[0]["Name"] = "Müller";
+Mitarbeiter[0]["Vorname"] = "Hans";
+Mitarbeiter[0]["Wohnort"] = "Dresden";
+
+Mitarbeiter[1] = new Object();
+Mitarbeiter[1]["Name"] = "Schulze";
+Mitarbeiter[1]["Vorname"] = "Frauke";
+Mitarbeiter[1]["Wohnort"] = "Berlin";
+
+for (var i = 0; i < Mitarbeiter.length; i++) {
+  document.write("<dl><dt>Mitarbeiter " + (i + 1) + "<\/dt>");
+  for (var Eigenschaft in Mitarbeiter[i])
+    document.write("<dd>" + Eigenschaft + ": " + Mitarbeiter[i][Eigenschaft] + "<\/dd>");
+  document.write("<\/dl>");
+}
+</script>
+
+<p><a href="../array.htm#assoziative_arrays">zur&uuml;ck</a></p>
+</body>
+</html>

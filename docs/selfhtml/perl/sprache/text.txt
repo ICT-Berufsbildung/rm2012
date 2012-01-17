@@ -1,0 +1,5 @@
+das ist \
+eine Datei mit einer Konvention.
+Ein Backslash am Ende \
+einer Zeile bedeutet: \
+keine neue Zeile!
