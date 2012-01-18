@@ -11,9 +11,9 @@
         <div class="span4">
             <h2>Summary</h2>
             <?php foreach ($summary as $product): ?>
-                <p><?php echo $product['qty']; ?>x <?php echo $product['name']; ?></p>
+                <p><?php display($product['qty']); ?>x <?php display($product['name']); ?></p>
             <?php endforeach; ?>
-            <h3>Total: CHF <?php echo $total; ?></h3>
+            <h3>Total: CHF <?php display($total); ?></h3>
             <p></p>
         </div>
         <div class="span12">

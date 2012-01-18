@@ -4,9 +4,9 @@
     <div class="span5 categories">
         <?php foreach ($categories as $category): ?>
         <h3>
-            <a href="category.php?id=<?php echo $category['id']; ?>">
-                <img src="<?php echo $category['image']; ?>" width="64" height="64" />
-                <span><?php echo $category['name']; ?></span>
+            <a href="category.php?id=<?php display($category['id']); ?>">
+                <img src="<?php display($category['image']); ?>" width="64" height="64" />
+                <span><?php display($category['name']); ?></span>
             </a>
         </h3>
         <?php endforeach; ?>

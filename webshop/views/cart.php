@@ -26,23 +26,23 @@
             <tbody>
                 <?php foreach ($summary as $product): ?>
                 <tr>
-                    <td><a href="product.php?id=<?php echo $product['id']; ?>"><?php echo $product['name']; ?></td>
-                    <td>CHF <?php echo $product['price']; ?></td>
+                    <td><a href="product.php?id=<?php display($product['id']); ?>"><?php display($product['name']); ?></td>
+                    <td>CHF <?php display($product['price']); ?></td>
                     <td>
-                        <?php $name = 'cart[' . $product['id'] . ']'; ?>
-                        <input name="<?php echo $name; ?>" value="<?php echo $product['qty']; ?>" class="span2" />
-                        <button type="submit" name="<?php echo $name; ?>" class="remove" value="0">
+                        <?php $name = 'cart[' . htmlentities($product['id'], ENT_QUOTES, 'UTF-8') . ']'; ?>
+                        <input name="<?php display($name); ?>" value="<?php display($product['qty']); ?>" class="span2" />
+                        <button type="submit" name="<?php display($name); ?>" class="remove" value="0">
                             <img src="media/images/delete.png" alt="Löschen" />
                         </button>
                     </td>
-                    <td>CHF <?php echo $product['row_total']; ?></td>
+                    <td>CHF <?php display($product['row_total']); ?></td>
                 </tr>
                 <?php endforeach; ?>
                 <tr>
                     <td colspan="3">
                         <button class="btn">Update Cart</button>
                     </td>
-                    <td><strong>CHF <?php echo $total; ?></strong></td>
+                    <td><strong>CHF <?php display($total); ?></strong></td>
                 </tr>
             </tbody>
         </table>
