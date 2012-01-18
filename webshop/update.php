@@ -25,7 +25,7 @@ foreach ($cart as $product => $qty) {
 }
 
 // notify user
-$_SESSION['success'] = 'Your cart has been refreshed.';
+$_SESSION['success'] = 'Your cart has been updated.';
 
 // redirect back to cart
 session_commit();
