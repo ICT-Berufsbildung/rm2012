@@ -16,9 +16,9 @@
     <div class="span10 home">
 
         <!-- Random product -->
-        <a href="product.php?id=2">
-            <img class="thumbnail" src="media/images/mountainrailway/harderkulm.jpg" width="520" alt="Ticket Harder-Kulm" />
-            <h2>Ticket Harder-Kulm <small>ab CHF 29.50</small></h2>
+        <a href="product.php?id=12">
+            <img class="thumbnail" src="media/images/equipment/skies.jpg" width="520" alt="Skies" />
+            <h2>Skies <small>ab CHF 60.00</small></h2>
         </a>
     </div>
 </div>
