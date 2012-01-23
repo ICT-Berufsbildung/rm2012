@@ -9,7 +9,9 @@ try {
     $database = new PDO('mysql:dbname=' . $dbname . ';host=' . $host, $user, $password);
     $database->exec("SET NAMES 'utf8'");
 } catch (PDOException $e) {
-    echo 'Create a database "webshop", import the file webshop.sql and check the file includes/database.php, database connection failed: ' . $e->getMessage();
+    echo '<h1>Setup instructions</h1>';
+    echo '<p>Create a database <code>webshop</code>, import the file <code>webshop.sql</code> and adjust the username and password in the file <code>includes/database.php</code>';
+    echo '<p>Database connection failed: <code>' . $e->getMessage() . '</code></p>';
     echo '';
     exit;
 }
