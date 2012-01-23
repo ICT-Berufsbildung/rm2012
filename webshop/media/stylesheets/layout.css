@@ -1,5 +1,6 @@
 body {
     background-image: url('../images/wood.jpg');
+    color: #eddecf;
 }
 
 .header {
@@ -33,11 +34,12 @@ body {
 }
 
 .header .basket a {
-    color: inherit;
+    color: #404040;
 }
 
 .container {
     background-color: #f5f6f7;
+    color: #404040;
     padding: 30px;
 }
 
