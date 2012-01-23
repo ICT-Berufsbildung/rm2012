@@ -32,7 +32,7 @@ class Products extends Model {
         $ids = implode(',', $ids);
 
         $statement = $this->database->prepare('SELECT * FROM `products` WHERE `id` IN (' . $ids . ')');
-        $statement->execute(array());
+        $statement->execute();
         return $statement->fetchAll();
     }
 
