@@ -51,6 +51,10 @@ h1, h2, h3 {
     font-weight: normal;
 }
 
+table {
+    background-color: #fff;
+}
+
 img.thumbnail {
     border: 1px solid #ddd;
     padding: 9px;
