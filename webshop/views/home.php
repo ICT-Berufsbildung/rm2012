@@ -2,6 +2,8 @@
 
 <div class="row">
     <div class="span5 categories">
+
+        <!-- Categories -->
         <?php foreach ($categories as $category): ?>
         <h3>
             <a href="category.php?id=<?php display($category['id']); ?>">
@@ -12,9 +14,11 @@
         <?php endforeach; ?>
     </div>
     <div class="span10 home">
+
+        <!-- Random product -->
         <a href="product.php?id=2">
-            <img class="thumbnail" src="media/images/banner.jpg" width="520"alt="Hard-Kulm" />
-            <h2>Hard-Kulm <small>ab CHF 32.00</small></h2>
+            <img class="thumbnail" src="media/images/mountainrailway/harderkulm.jpg" width="520"alt="Hard-Kulm" />
+            <h2>Hard-Kulm <small>ab CHF 29.50</small></h2>
         </a>
     </div>
 </div>
