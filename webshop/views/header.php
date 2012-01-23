@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /**
  * Helper function to display escaped output.
@@ -22,14 +22,14 @@ function display(&$value, $default = '') {
     <head>
         <meta charset="utf-8" />
         <title><?php display($title, 'Jungfrau - Top Of Europe'); ?></title>
-        
+
         <script src="media/javascripts/modernizr.custom.29803.js"></script>
         <link href="media/bootstrap/bootstrap.css" rel="stylesheet" />
         <link href="media/stylesheets/layout.css" rel="stylesheet" />
         <link rel="shortcut icon" href="favicon.ico">
     </head>
     <body>
-    
+
         <div class="header">
             <a href="./" class="logo" title="Home">Jungfrau - Top Of Europe</a>
             <h1><?php display($title, 'Webshop'); ?></h1>

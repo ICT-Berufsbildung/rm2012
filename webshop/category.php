@@ -16,7 +16,7 @@ $model = new Category($database);
 $category = $model->get($id);
 
 // redirect to home if category is not found
-if (!$category) {    
+if (!$category) {
     header('Location: ./');
 }
 

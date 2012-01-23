@@ -43,7 +43,7 @@
                 </tr>
             </tbody>
         </table>
-        
+
         <p class="actions">
             <a href="checkout.php" class="btn primary">Checkout</a>
         </p>
