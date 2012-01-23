@@ -10,6 +10,9 @@ function display(&$value, $default = '') {
     if (!isset($value)) {
         $value = $default;
     }
+    if (is_array($value)) {
+        $value = implode(' ', $value);
+    }
     echo htmlentities($value, ENT_QUOTES, 'UTF-8');
 }
 
