@@ -3,7 +3,7 @@
 /**
  * Model to fetch products from the database.
  */
-class Products extends Model {
+class Product extends Model {
 
     /**
      * Get a product by its ID.
@@ -12,7 +12,7 @@ class Products extends Model {
      * @return array Product data
      */
     public function get($id) {
-        $statement = $this->database->prepare('SELECT * FROM `products` WHERE `id` = ?');
+        $statement = $this->database->prepare('SELECT * FROM `product` WHERE `id` = ?');
         $statement->execute(array($id));
         return $statement->fetch();
     }
@@ -31,7 +31,7 @@ class Products extends Model {
         }
         $ids = implode(',', $ids);
 
-        $statement = $this->database->prepare('SELECT * FROM `products` WHERE `id` IN (' . $ids . ')');
+        $statement = $this->database->prepare('SELECT * FROM `product` WHERE `id` IN (' . $ids . ')');
         $statement->execute();
         return $statement->fetchAll();
     }
@@ -43,7 +43,7 @@ class Products extends Model {
      * @return array Products
      */
     public function category($category) {
-        $statement = $this->database->prepare('SELECT * FROM `products` WHERE `category` = ?');
+        $statement = $this->database->prepare('SELECT * FROM `product` WHERE `category` = ?');
         $statement->execute(array($category));
         return $statement->fetchAll();
     }
@@ -52,7 +52,7 @@ class Products extends Model {
 /**
  * Model to fetch categories from the database.
  */
-class Categories extends Model {
+class Category extends Model {
 
     /**
      * Get a category by its ID.
@@ -61,7 +61,7 @@ class Categories extends Model {
      * @return array Category data
      */
     public function get($id) {
-        $statement = $this->database->prepare('SELECT * FROM `categories` WHERE `id` = ?');
+        $statement = $this->database->prepare('SELECT * FROM `category` WHERE `id` = ?');
         $statement->execute(array($id));
         return $statement->fetch();
     }
@@ -72,7 +72,7 @@ class Categories extends Model {
      * @return array Categories
      */
     public function all() {
-        $statement = $this->database->prepare('SELECT * FROM `categories`');
+        $statement = $this->database->prepare('SELECT * FROM `category`');
         $statement->execute();
         return $statement->fetchAll();
     }
@@ -104,9 +104,9 @@ class Cart {
     protected $cart;
 
     /**
-     * @var Products Products model
+     * @var Product Product model
      */
-    protected $products;
+    protected $product;
 
     /**
      * @var int Total
@@ -115,11 +115,11 @@ class Cart {
 
     /**
      * @var array $cart Cart array
-     * @var Products $procuts Products model
+     * @var Product $product Product model
      */
-    public function __construct(array $cart, Products $products) {
+    public function __construct(array $cart, Product $product) {
         $this->cart = $cart;
-        $this->products = $products;
+        $this->product = $product;
     }
 
     /**
@@ -129,7 +129,7 @@ class Cart {
      */
     public function summary() {
 
-        $summary = $this->products->some(array_keys($this->cart));
+        $summary = $this->product->some(array_keys($this->cart));
 
         // calculate total
         $this->total = 0;

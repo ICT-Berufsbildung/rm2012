@@ -9,8 +9,8 @@ require_once 'includes/database.php';
 require_once 'includes/webshop.php';
 
 // load all products in cart
-$products = new Products($database);
-$cart = new Cart($_SESSION['cart'], $products);
+$model = new Product($database);
+$cart = new Cart($_SESSION['cart'], $model);
 $summary = $cart->summary();
 $total = $cart->getTotal();
 

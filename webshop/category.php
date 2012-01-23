@@ -12,8 +12,8 @@ require_once 'includes/webshop.php';
 $id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
 
 // load category
-$categories = new Categories($database);
-$category = $categories->get($id);
+$model = new Category($database);
+$category = $model->get($id);
 
 // redirect to home if category is not found
 if (!$category) {    
@@ -21,7 +21,7 @@ if (!$category) {
 }
 
 // load category products
-$model = new Products($database);
+$model = new Product($database);
 $products = $model->category($category['id']);
 
 // render category view

@@ -1,12 +1,12 @@
-DROP TABLE IF EXISTS `categories`;
-CREATE TABLE `categories` (
+DROP TABLE IF EXISTS `category`;
+CREATE TABLE `category` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL DEFAULT '',
   `image` varchar(255) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `categories` (`id`, `name`, `image`)
+INSERT INTO `category` (`id`, `name`, `image`)
 VALUES
 	(1,'Mountain Railway','media/images/bergbahn.png'),
 	(2,'Hotels','media/images/hotel.png'),
@@ -15,8 +15,8 @@ VALUES
 	UNLOCK TABLES;
 
 
-DROP TABLE IF EXISTS `products`;
-CREATE TABLE `products` (
+DROP TABLE IF EXISTS `product`;
+CREATE TABLE `product` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `sku` varchar(255) NOT NULL DEFAULT '',
   `name` varchar(255) NOT NULL DEFAULT '',
@@ -27,10 +27,10 @@ CREATE TABLE `products` (
   `qty` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `category_idxfk` (`category`),
-  CONSTRAINT `products_ibfk_1` FOREIGN KEY (`category`) REFERENCES `categories` (`id`)
+  CONSTRAINT `product_ibfk_1` FOREIGN KEY (`category`) REFERENCES `category` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `products` (`id`, `sku`, `name`, `price`, `category`, `description`, `image`, `qty`)
+INSERT INTO `product` (`id`, `sku`, `name`, `price`, `category`, `description`, `image`, `qty`)
 VALUES
 	(1,'MOUNTAINRAILWAY.JUNGFRAUJOCH','Ticket Jungfraujoch',320.00,1,'The journey to the Jungfraujoch - Top of Europe, at 3454 metres Europe’s highest altitude railway station, is the highlight of every visit to Switzerland. It offers visitors a high-Alpine wonderworld of ice, snow and rock, which can be marvelled at from vantage terraces, the Aletsch Glacier or in the Ice Palace. On clear days, views extend as far as the Vosges mountains in France and Germany’s Black Forest. \n\nThe train journey to the Jungfraujoch through the rock of the Eiger and Mönch is also an incredible experience. Visitors can enjoy stunning views from two intermediate stations, the Eigerwand (Eiger Wall) and Eismeer (Sea of Ice).','media/images/mountainrailway/funpark.jpg',900),
 	(2,'MOUNTAINRAILWAY.HARDERKULM','Ticket Harder-Kulm',29.50,1,'It takes just eight minutes to travel by funicular from Interlaken to the Harder Kulm, Interlaken’s home mountain, where the restaurant, at 1322 metres above sea level, is reminiscent of a small castle. \n\nThe Harder Kulm is the starting point for several mountain hikes. It also affords wonderful views of the Eiger, Mönch & Jungfrau as well as Lake Thun and Lake Brienz. It is a venue for regular folklore evenings. Children will love letting off steam in the playground. ','media/images/mountainrailway/harderkulm.jpg',3),
