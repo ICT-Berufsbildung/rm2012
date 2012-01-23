@@ -17,7 +17,9 @@ $products = new Products($database);
 $product = $products->get($id);
 
 // redirect to home if product is not found
-if (!$product) {    
+if (!$product) {
+    $_SESSION['error'] = 'Unknown product is unknown.';
+    session_commit();
     header('Location: ./');
 }
 
