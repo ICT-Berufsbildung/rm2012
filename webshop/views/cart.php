@@ -50,7 +50,7 @@
     </form>
 <?php else: ?>
     <div class="alert-message block-message warning">
-        <p><strong>Leerer Warenkorb.</strong> Momentan befinden sich noch keine Artikel im Warenkorb. Fügen Sie ein Produkt in den Warenkorb hinzu, indem Sie auf dessen Detailansicht auf «In den Warenkorb» klicken.</p>
+        <p><strong>Empty cart with no products.</strong> There are no products in your cart at the moment. Please add some products to your card by visiting their detail page and clicking the button labeled «Add to cart».</p>
     </div>
 <?php endif; ?>
 
