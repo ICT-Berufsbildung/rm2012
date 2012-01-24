@@ -39,6 +39,7 @@ function display(&$value, $default = '') {
 
         <div class="container">
 
+            <!-- Displays all success messages from session -->
             <?php if (isset($_SESSION['success'])): ?>
                 <div class="alert-message success">
                     <p><?php display($_SESSION['success']); ?></p>
@@ -46,6 +47,7 @@ function display(&$value, $default = '') {
                 <?php unset($_SESSION['success']); ?>
             <?php endif; ?>
 
+            <!-- Displays all error messages from session -->
             <?php if (isset($_SESSION['error'])): ?>
                 <div class="alert-message error">
                     <p><?php display($_SESSION['error']); ?></p>
