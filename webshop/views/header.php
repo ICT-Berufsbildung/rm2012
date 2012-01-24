@@ -24,6 +24,7 @@ function display(&$value, $default = '') {
         <title><?php display($title, 'Jungfrau - Top Of Europe'); ?></title>
 
         <script src="media/javascripts/modernizr.custom.29803.js"></script>
+        <script src="media/javascripts/jquery-1.7.1.min.js"></script>
         <link href="media/bootstrap/bootstrap.css" rel="stylesheet" />
         <link href="media/stylesheets/layout.css" rel="stylesheet" />
         <link rel="shortcut icon" href="favicon.ico">
