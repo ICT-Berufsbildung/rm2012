@@ -2,8 +2,8 @@
 
 $host = 'localhost';
 $dbname = 'webshop';
-$user = 'root';
-$password = '';
+$user = 'webshop';
+$password = 'Pear73';
 
 try {
     $database = new PDO('mysql:dbname=' . $dbname . ';host=' . $host, $user, $password);
