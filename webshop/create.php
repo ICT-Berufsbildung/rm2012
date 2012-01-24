@@ -1,6 +1,6 @@
 <?php
 
-/*
+/**
  * Save order.
  */
 

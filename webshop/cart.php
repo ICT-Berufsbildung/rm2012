@@ -1,6 +1,6 @@
 <?php
 
-/*
+/**
  * Shopping cart
  */
 

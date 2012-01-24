@@ -1,6 +1,6 @@
 <?php
 
-/*
+/**
  * Add product to cart.
  */
 
