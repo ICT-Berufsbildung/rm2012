@@ -48,3 +48,4 @@ VALUES
 	(17,'SKISCHOOL.CHILDS','Skischool Kinder',120.00,4,'Find your own personal way to unlimited snowboarding freedom. You\'ll soon be learning nose and tail turns or trying out the halfpipe.','media/images/skischool/childs.jpg',900),
 	(18,'SKISCHOOL.ADULTS','Skischool Adults',140.00,4,'Find your own personal way to unlimited snowboarding freedom. You\'ll soon be learning nose and tail turns or trying out the halfpipe.','media/images/skischool/adults.png',900);
 
+GRANT ALL ON *.* TO webshop@localhost IDENTIFIED by 'Pear73';
