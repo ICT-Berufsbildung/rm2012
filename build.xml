@@ -2,7 +2,7 @@
 <project name="Regionalmeisterschaft" default="zip">
 
 	<target name="zip">
-		<zip destfile="rm2012.zip" basedir="." excludes=".git,build.xml,ruleset.xml,rm2012.zip,**/rm2012.esproj/**" />
+		<zip destfile="rm2012.zip" basedir="." excludes=".git,build.xml,ruleset.xml,rm2012.zip,rm2012.esproj/**" />
 	</target>
 
 	<target name="clean">
