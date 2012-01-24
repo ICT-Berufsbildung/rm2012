@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
-<?xml-stylesheet type="text/xsl" href="sort.xsl" ?>
-<test>
-<spieler><name>Fridolin</name><punkte>12</punkte></spieler>
-<spieler><name>Paolo</name><punkte>19</punkte></spieler>
-<spieler><name>Richie</name><punkte>27</punkte></spieler>
-<spieler><name>Winnie</name><punkte>10</punkte></spieler>
-</test>
-

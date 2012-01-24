@@ -1,8 +1,0 @@
-<!ELEMENT buecher (buch)*>
-<!ELEMENT buch (#PCDATA)>
-<!ATTLIST buch
-   isbn     ID    #REQUIRED
-   titel    CDATA #REQUIRED
-   autor    CDATA #REQUIRED
->
-

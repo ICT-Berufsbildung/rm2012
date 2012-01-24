@@ -1,3 +1,0 @@
-<!ELEMENT anytext ANY>
-<!ELEMENT english (#PCDATA)>
-<!ELEMENT italiano (#PCDATA)>

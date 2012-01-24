@@ -1,5 +1,0 @@
-Name|Vorname|Strasse|PLZ|Ort|Tel|EMail
-Berger|Hans|Pfisterstr.11|38487|Grubenhausen|04987-4445631|berger@kabumm.de
-Heidenfroh|Martina|Mittelweg 123|43985|Hatzenau|04583-2398474|mh@heidenfroh.com
-Rauhbein|Eberhard|Traumstr.13|56097|Höllenbachhausen|068347-582374|-
-Truthahn|Gerlinde|Aufplatz 1|93722|Sündenstadt|032987-385750|gerlinde@metawelt.net

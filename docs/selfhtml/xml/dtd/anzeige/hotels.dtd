@@ -1,9 +1,0 @@
-<!ELEMENT hotels (hotel)*>
-<!ELEMENT hotel (#PCDATA)>
-<!ATTLIST hotel
-   name            CDATA               #REQUIRED
-   klasse          (I|II|III|IV|V)     #REQUIRED
-   einzelzimmer    (ja|nein)           #IMPLIED
-   doppelzimmer    (ja|nein) "ja"
->
-

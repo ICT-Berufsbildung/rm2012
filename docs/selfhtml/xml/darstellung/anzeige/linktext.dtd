@@ -1,2 +1,0 @@
-<!ELEMENT linktext (#PCDATA | link)*>
-<!ELEMENT link (#PCDATA)>

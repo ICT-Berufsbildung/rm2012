@@ -1,6 +1,0 @@
-<!ELEMENT text (#PCDATA | drohend | lachend | fragend | zynisch)*>
-<!ELEMENT drohend (#PCDATA)>
-<!ELEMENT lachend (#PCDATA | augenzwinkernd)*>
-<!ELEMENT fragend (#PCDATA)>
-<!ELEMENT augenzwinkernd (#PCDATA)>
-<!ELEMENT zynisch (#PCDATA)>

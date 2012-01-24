@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
-<?xml-stylesheet type="text/xsl" href="output.xsl" ?>
-<test>
-<ereignis>
-  <beschreibung>HH XY 1204 mit Tempo 95 in Zone 70</beschreibung>
-  <zeitstempel>13.05.2001,22:25</zeitstempel>
-</ereignis>
-</test>
-

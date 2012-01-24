@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="ISO-8859-1" ?>
-<!DOCTYPE anytext SYSTEM "anytext.dtd">
-<anytext>
-Das ist etwas Text, der in Englisch lautet:
-<english>this is some text</english> und in italienisch:
-<italiano>ciò è un certo testo</italiano>
-</anytext>

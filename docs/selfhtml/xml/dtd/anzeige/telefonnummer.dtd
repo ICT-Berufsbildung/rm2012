@@ -1,3 +1,0 @@
-<!ELEMENT telefonnummer (vorwahlnummer, durchwahlnummer)>
-<!ELEMENT vorwahlnummer (#PCDATA)>
-<!ELEMENT durchwahlnummer (#PCDATA)>

@@ -1,1 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?><out:stylesheet xmlns:out="http://www.w3.org/1999/XSL/Transform" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0"><out:template match="/"><html><head/><body><h1/><h1><out:text>Hallo Welt - vom Output-Stylesheet</out:text></h1></body></html></out:template></out:stylesheet>

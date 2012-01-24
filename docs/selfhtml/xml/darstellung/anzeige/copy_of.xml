@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
-<?xml-stylesheet type="text/xsl" href="copy_of.xsl" ?>
-<test>
-<titel>Telefon</titel>
-<telefon><name>Hans</name><nummer>069 - 11727349874</nummer></telefon>
-<telefon><name>Sabine</name><nummer>040 - 116343432094</nummer></telefon>
-</test>
-

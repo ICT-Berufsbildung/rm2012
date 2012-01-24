@@ -1,8 +1,0 @@
-<!ENTITY % produktdaten SYSTEM "produkt.dtd" >
-%produktdaten;
-<!ELEMENT bestellungen (bestellung)*>
-<!ELEMENT bestellung (produkt,besteller,anzahl,preis)*>
-<!ELEMENT besteller (#PCDATA)>
-<!ELEMENT anzahl (#PCDATA)>
-<!ELEMENT preis (#PCDATA)>
-

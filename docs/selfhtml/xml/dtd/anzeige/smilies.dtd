@@ -1,4 +1,0 @@
-<!ENTITY sad_smiley "&#x2369;" >
-<!ENTITY happy_smiley "&#x236A;" >
-<!ELEMENT smilies (#PCDATA)>
-

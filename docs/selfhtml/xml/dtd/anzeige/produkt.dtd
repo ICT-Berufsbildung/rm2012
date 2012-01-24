@@ -1,5 +1,0 @@
-<!ELEMENT produkt (warennummer,bezeichnung,hersteller)>
-<!ELEMENT warennummer (#PCDATA)>
-<!ELEMENT bezeichnung (#PCDATA)>
-<!ELEMENT hersteller (#PCDATA)>
-
