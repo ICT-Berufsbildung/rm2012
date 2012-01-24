@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<ruleset name="Regionalmeisterschaft">
+	<description>The Regionalmeisterschaft coding standard.</description>
+
+	<exclude-pattern>media/*</exclude-pattern>
+	<exclude-pattern>includes/classTextile.php</exclude-pattern>
+
+	<rule ref="Generic.Formatting.SpaceAfterCast"/>
+	<rule ref="Generic.Functions.CallTimePassByReference"/>
+	<rule ref="Generic.Functions.OpeningFunctionBraceKernighanRitchie"/>
+	<rule ref="Generic.PHP.LowerCaseConstant"/>
+	<rule ref="Squiz.Arrays.ArrayBracketSpacing"/>
+	<rule ref="Squiz.ControlStructures.ControlSignature"/>
+	<rule ref="Squiz.ControlStructures.ElseIfDeclaration"/>
+	<rule ref="Squiz.ControlStructures.ForEachLoopDeclaration"/>
+	<rule ref="Squiz.ControlStructures.ForLoopDeclaration"/>
+	<rule ref="Squiz.ControlStructures.LowercaseDeclaration"/>
+	<rule ref="Squiz.PHP.LowercasePHPFunctions"/>
+
+	<rule ref="Generic.Files.LineLength">
+		<properties>
+			<property name="lineLimit" value="140"/>
+			<property name="absoluteLineLimit" value="140"/>
+		</properties>
+	</rule>
+</ruleset>
