@@ -7,7 +7,10 @@
 </ul>
 
 <div class="alert-message success">
-    <p><strong>Order #<?php display($_SESSION['order']); ?> created.</strong> Your order has been successfully created and will be processed shortly. Thank you for your business!</p>
+    <p>
+        <strong>Order #<?php display($_SESSION['order']); ?> created.</strong> Your order has been successfully created 
+        and will be processed shortly. Thank you for your business!
+    </p>
 </div>
 
 <p><a href="./">Back to Home page »</a></p>

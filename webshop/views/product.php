@@ -3,7 +3,12 @@
 
 <ul class="breadcrumb">
     <li><a href="./">Home</a> <span class="divider">/</span></li>
-    <li><a href="category.php?id=<?php display($category['id']); ?>"><?php display($category['name']); ?></a> <span class="divider">/</span></li>
+    <li>
+        <a href="category.php?id=<?php display($category['id']); ?>">
+            <?php display($category['name']); ?>
+        </a>
+        <span class="divider">/</span>
+    </li>
     <li class="active"><?php display($title); ?></li>
 </ul>
 

@@ -26,11 +26,15 @@
             <tbody>
                 <?php foreach ($summary as $product): ?>
                 <tr>
-                    <td><a href="product.php?id=<?php display($product['id']); ?>"><?php display($product['name']); ?></td>
+                    <td>
+                        <a href="product.php?id=<?php display($product['id']); ?>">
+                            <?php display($product['name']); ?>
+                        </a>
+                    </td>
                     <td>CHF <?php display($product['price']); ?></td>
                     <td>
                         <?php $name = 'cart[' . htmlentities($product['id'], ENT_QUOTES, 'UTF-8') . ']'; ?>
-                        <input name="<?php display($name); ?>" value="<?php display($product['qty']); ?>" class="span2" />
+                        <input name="<?php display($name); ?>" value="<?php display($product['qty']); ?>" class="small" />
                     </td>
                     <td>CHF <?php display($product['row_total']); ?></td>
                 </tr>
@@ -50,7 +54,10 @@
     </form>
 <?php else: ?>
     <div class="alert-message block-message warning">
-        <p><strong>Empty cart with no products.</strong> There are no products in your cart at the moment. Please add some products to your card by visiting their detail page and clicking the button labeled «Add to cart».</p>
+        <p>
+            <strong>Empty cart with no products.</strong> There are no products in your cart at the moment.
+            Please add some products to your card by visiting their detail page and clicking the button labeled «Add to cart».
+        </p>
     </div>
 <?php endif; ?>
 

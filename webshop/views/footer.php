@@ -1,5 +1,5 @@
         <footer>
-            <p>&copy; 2012 Jungfraubahnen Management AG</p>
+            <p>&copy; <?php echo date('Y'); ?> Jungfraubahnen Management AG</p>
         </footer>
 
         </div>
