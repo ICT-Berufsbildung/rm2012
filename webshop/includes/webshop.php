@@ -1,5 +1,10 @@
 <?php
 
+require_once 'includes/session.php';
+require_once 'includes/competitor.php';
+require_once 'includes/database.php';
+require_once 'includes/textile.php';
+
 /**
  * Model to fetch products from the database.
  */

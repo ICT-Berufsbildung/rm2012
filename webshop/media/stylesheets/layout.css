@@ -47,6 +47,10 @@ body {
     margin-bottom: 32px;
 }
 
+.footer {
+    color: #BFBFBF;
+}
+
 h1, h2, h3 {
     font-weight: normal;
 }
