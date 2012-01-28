@@ -4,9 +4,9 @@
  * Competitor information
  */
 
-$firstname = '';
+$prename = '';
 
-$lastname = '';
+$surname = '';
 
 $email = '';
 

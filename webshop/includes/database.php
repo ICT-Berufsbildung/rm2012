@@ -28,7 +28,7 @@ if (!$database->query('SELECT * FROM `product`')) {
 }
 
 // check competitor information
-if (!isset($firstname) || trim($firstname) == '' || !isset($lastname) || trim($lastname) == '' || 
+if (!isset($prename) || trim($prename) == '' || !isset($surname) || trim($surname) == '' || 
     !isset($birthdate) || $birthdate == '' || !isset($email) || $email == '' || 
     !isset($employer) || $employer == '' || !isset($school) || $school == '') {
     echo '<h1>Project instructions</h1>';
