@@ -11,7 +11,7 @@ function display(&$value, $default = '') {
         $value = $default;
     }
     if (is_array($value)) {
-        $value = implode(' ', $value);
+        $value = implode(', ', $value);
     }
     echo htmlentities($value, ENT_QUOTES, 'UTF-8');
 }

@@ -28,9 +28,12 @@ if (!$database->query('SELECT * FROM `product`')) {
 }
 
 // check competitor information
-if (!isset($prename) || trim($prename) == '' || !isset($surname) || trim($surname) == '' || 
-    !isset($birthdate) || $birthdate == '' || !isset($email) || $email == '' || 
-    !isset($employer) || $employer == '' || !isset($school) || $school == '') {
+if (!isset($competitor['prename']) || trim($competitor['prename']) == '' ||
+    !isset($competitor['surname']) || trim($competitor['surname']) == '' ||
+    !isset($competitor['birthdate']) || $competitor['birthdate'] == '' ||
+    !isset($competitor['email']) || $competitor['email'] == '' ||
+    !isset($competitor['employer']) || $competitor['employer'] == '' ||
+    !isset($competitor['school']) || $competitor['school'] == '') {
     echo '<h1>Project instructions</h1>';
     echo '<p>Please fill out the competitor information in <strong>includes/competitor.php</strong> first!';
     exit;

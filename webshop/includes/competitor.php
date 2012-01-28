@@ -4,15 +4,15 @@
  * Competitor information
  */
 
-$prename = '';
+$competitor['prename'] = '';
 
-$surname = '';
+$competitor['surname'] = '';
 
-$email = '';
+$competitor['email'] = '';
 
-$birthdate = ''; // YYYY-MM-DD
+$competitor['birthdate'] = ''; // YYYY-MM-DD
 
-$employer = ''; // e.g. IBM
+$competitor['employer'] = ''; // e.g. IBM
 
-$school = ''; // e.g. Berufsfachschule BBB (BerufsBildungBaden)
+$competitor['school'] = ''; // e.g. Berufsfachschule BBB (BerufsBildungBaden)
 
