@@ -30,14 +30,17 @@ class Product extends Model {
      */
     public function some($ids) {
 
+        if (count($ids) == 0) {
+            return $ids;
+        }
+
         // quote ids
         foreach ($ids as $k => $id) {
             $ids[$k] = $this->database->quote($id);
         }
         $ids = implode(',', $ids);
 
-        $statement = $this->database->prepare('SELECT * FROM `product` WHERE `id` IN (' . $ids . ')');
-        $statement->execute();
+        $statement = $this->database->query('SELECT * FROM `product` WHERE `id` IN (' . $ids . ')');
         return $statement->fetchAll();
     }
 
