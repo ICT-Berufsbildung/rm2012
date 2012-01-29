@@ -1,3 +1,6 @@
+CREATE DATABASE IF NOT EXISTS `webshop`;
+USE `webshop`;
+
 DROP TABLE IF EXISTS `category`;
 CREATE TABLE `category` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
