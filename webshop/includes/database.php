@@ -12,7 +12,7 @@ try {
 } catch (PDOException $e) {
     echo '<h1>Setup instructions</h1>';
     echo '<p>Create a database <strong>webshop</strong>, import the file <strong>webshop.sql</strong>';
-    echo ' and adjust the username and password in the file <strong>includes/database.php</strong></p>';
+    echo ' and adjust the username and password in the file <strong>includes/database.php</strong> if needed.</p>';
     echo '<p>Database connection failed: <code>' . $e->getMessage() . '</code></p>';
     echo '';
     exit;
@@ -34,6 +34,7 @@ if (!isset($competitor['prename']) || trim($competitor['prename']) == '' ||
     !isset($competitor['email']) || $competitor['email'] == '' ||
     !isset($competitor['employer']) || $competitor['employer'] == '' ||
     !isset($competitor['school']) || $competitor['school'] == '') {
+    echo '<p>Regionalmeisterschaft 2012 setup complete.</p>';
     echo '<h1>Project instructions</h1>';
     echo '<p>Please fill out the competitor information in <strong>includes/competitor.php</strong> first!';
     exit;
