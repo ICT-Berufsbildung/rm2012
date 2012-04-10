@@ -23,6 +23,16 @@ class Product extends Model {
     }
 
     /**
+     * Get a random product.
+     *
+     * @return array Product data
+     */
+    public function random() {
+        $statement = $this->database->query('SELECT * FROM `product` ORDER BY RAND() LIMIT 1');
+        return $statement->fetch();
+    }
+
+    /**
      * Fetches all products for the passed IDs into an array.
      *
      * @param array $id IDs of the products

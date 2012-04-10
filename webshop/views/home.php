@@ -16,9 +16,9 @@
     <div class="span10 home">
 
         <!-- Random product -->
-        <a href="product.php?id=12">
-            <img class="thumbnail" src="media/images/equipment/skies.jpg" width="520" alt="Skies" />
-            <h2>Skies <small>ab CHF 60.00</small></h2>
+        <a href="product.php?id=<?php display($product['id']); ?>">
+            <img class="thumbnail" src="<?php display($product['image']); ?>" width="520" alt="<?php display($product['name']); ?>" />
+            <h2><?php display($product['name']); ?> <small>ab CHF <?php display($product['price']); ?></small></h2>
         </a>
     </div>
 </div>
