@@ -23,6 +23,7 @@
             <input type="hidden" name="id" value="<?php display($product['id']); ?>" />
             <div class="actions">
                 <button type="submit" class="btn primary">Add to cart</button>
+                <a href="wishlist-add.php?id=<?php display($product['id']); ?>" class="wishlist btn">Add to wish list</a>
             </div>
         </form>
     </div>

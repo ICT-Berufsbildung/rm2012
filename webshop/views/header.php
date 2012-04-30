@@ -26,6 +26,7 @@ function display(&$value, $default = '') {
         <script src="media/javascripts/modernizr.custom.29803.js"></script>
         <script src="media/javascripts/jquery-1.7.1.min.js"></script>
         <script src="media/javascripts/cart.js"></script>
+        <script src="media/javascripts/wishlist.js"></script>
         <link href="media/bootstrap/bootstrap.css" rel="stylesheet" />
         <link href="media/stylesheets/layout.css" rel="stylesheet" />
         <link rel="shortcut icon" href="favicon.ico">
@@ -35,6 +36,7 @@ function display(&$value, $default = '') {
         <div class="header">
             <a href="./" class="logo" title="Home">Jungfrau - Top Of Europe</a>
             <h1><?php display($title, 'Webshop'); ?></h1>
+            <p class="wishlist"><a href="wishlist.php?<?php echo http_build_query(array('products' => $_SESSION['wishlist'])); ?>">Wish List</a></p>
             <p class="basket"><a href="cart.php"><?php echo array_sum($_SESSION['cart']); ?> Items</a></p>
         </div>
 

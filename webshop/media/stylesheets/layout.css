@@ -26,6 +26,17 @@ body {
     top: 170px;
 }
 
+.header .wishlist {
+    position: absolute;
+    right: 180px;
+    top: 111px;
+    width: 100px;
+}
+
+.header .wishlist a {
+    color: #eee;
+}
+
 .header .basket {
     position: absolute;
     right: 0;
