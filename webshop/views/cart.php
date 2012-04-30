@@ -35,6 +35,7 @@
                     <td>
                         <?php $name = 'cart[' . htmlentities($product['id'], ENT_QUOTES, 'UTF-8') . ']'; ?>
                         <input name="<?php display($name); ?>" value="<?php display($product['qty']); ?>" class="small" />
+                        <a href="remove.php?id=<?php display($product['id']); ?>" class="remove"><img src="media/images/delete.png" width="16" height="16" alt="Remove" /></a>
                     </td>
                     <td>CHF <?php display($product['row_total']); ?></td>
                 </tr>
