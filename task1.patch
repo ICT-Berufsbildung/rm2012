@@ -1,0 +1,50 @@
+diff --git a/webshop/includes/webshop.php b/webshop/includes/webshop.php
+index 492d7fcaaad3a93ee3efef05b0b7c4845952406b..b2f62d47dddb65d579865bb0595d86c0a9b41710 100644
+--- a/webshop/includes/webshop.php
++++ b/webshop/includes/webshop.php
+@@ -23,6 +23,16 @@ class Product extends Model {
+     }
+ 
+     /**
++     * Get a random product.
++     *
++     * @return array Product data
++     */
++    public function random() {
++        $statement = $this->database->query('SELECT * FROM `product` ORDER BY RAND() LIMIT 1');
++        return $statement->fetch();
++    }
++
++    /**
+      * Fetches all products for the passed IDs into an array.
+      *
+      * @param array $id IDs of the products
+diff --git a/webshop/index.php b/webshop/index.php
+index 648b0d806aeed45e96d6f1f8e36a9d443e37e431..18443e751a4302026011f419ae3a872db7ce3ef2 100644
+--- a/webshop/index.php
++++ b/webshop/index.php
+@@ -9,4 +9,7 @@ require_once 'includes/webshop.php';
+ $model = new Category($database);
+ $categories = $model->all();
+ 
++$model = new Product($database);
++$product = $model->random();
++
+ require 'views/home.php';
+diff --git a/webshop/views/home.php b/webshop/views/home.php
+index 8efaf0ae3668eb2718e023550de0da279facf555..89a9bed1c9a46f2f39f08422db3b17f308c69bf3 100644
+--- a/webshop/views/home.php
++++ b/webshop/views/home.php
+@@ -16,9 +16,9 @@
+     <div class="span10 home">
+ 
+         <!-- Random product -->
+-        <a href="product.php?id=12">
+-            <img class="thumbnail" src="media/images/equipment/skies.jpg" width="520" alt="Skies" />
+-            <h2>Skies <small>ab CHF 60.00</small></h2>
++        <a href="product.php?id=<?php display($product['id']); ?>">
++            <img class="thumbnail" src="<?php display($product['image']); ?>" width="520" alt="<?php display($product['name']); ?>" />
++            <h2><?php display($product['name']); ?> <small>ab CHF <?php display($product['price']); ?></small></h2>
+         </a>
+     </div>
+ </div>

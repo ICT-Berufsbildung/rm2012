@@ -1,0 +1,254 @@
+diff --git a/webshop/create.php b/webshop/create.php
+index f3fc8e55b95da693cab764df1a896b42608df31e..a871cfc05dba16458ba66d0f6217476d78adf10e 100644
+--- a/webshop/create.php
++++ b/webshop/create.php
+@@ -6,11 +6,29 @@
+ 
+ require_once 'includes/webshop.php';
+ 
+-// Debugging code, remove at will
+-echo '<h2>Not implemented yet.</h2>';
+-echo '<p><a href="./">Back to Home page.</a></p>';
+-echo '<pre>';
+-var_dump($_POST);
+-echo '</pre>';
+-
+-// TODO implement save order (Task II)
++try {
++
++    $model = new Product($database);
++    $cart = new Cart($_SESSION['cart'], $model);
++
++    // save order
++    $order = new Order($database, $cart, $_POST);
++    $_SESSION['order'] = $order->save();
++
++    // clear cart
++    unset($_SESSION['cart']);
++
++    // redirect to cart
++    session_commit();
++    header('Location: success.php');
++
++} catch (ShopException $e) {
++
++    // error occured
++    $errors = $e->getErrors();
++
++    $_SESSION['error'] = 'At least one error occured during placing your order. Please fix the highlighted fields below and try again.';
++
++    // render checkout
++    require 'checkout.php';
++}
+diff --git a/webshop/includes/webshop.php b/webshop/includes/webshop.php
+index 492d7fcaaad3a93ee3efef05b0b7c4845952406b..b62cd0a91a220b0dbfd78ed4ae1a1fb49660626c 100644
+--- a/webshop/includes/webshop.php
++++ b/webshop/includes/webshop.php
+@@ -5,6 +5,138 @@ require_once 'includes/competitor.php';
+ require_once 'includes/database.php';
+ require_once 'includes/textile.php';
+ 
++
++/**
++ * Exception for shop errors.
++ */
++class ShopException extends Exception {
++
++    /**
++     * @var array Errors
++     */
++    protected $errors;
++
++    public function __construct($errors) {
++        $this->errors = $errors;
++    }
++
++    /**
++     * @return array Errors
++     */
++    public function getErrors() {
++        return $this->errors;
++    }
++}
++
++/**
++ * Model to create order.
++ */
++class Order extends Model {
++
++    /**
++     * @var array Order values
++     */
++    protected $values;
++
++    /**
++     * @var Cart
++     */
++    protected $cart;
++
++    public function __construct(PDO $database, Cart $cart, array $values) {
++        parent::__construct($database);
++
++        $this->cart = $cart;
++        $this->values = $values;
++    }
++
++    /**
++     * @param string $field Field name
++     * @return string
++     */
++    public function value($field) {
++        return isset($this->values[$field]) ? trim($this->values[$field]) : '';
++    }
++
++    /**
++     * @throws ShopException
++     */
++    public function save() {
++
++        $errors = array();
++
++        // validate prename
++        $prename = $this->value('prename');
++        if ('' == $prename) {
++            $errors['prename'] = 'Please fill out this field.';
++        }
++
++        // validate surname
++        $surname = $this->value('surname');
++        if ('' == $surname) {
++            $errors['surname'] = 'Please fill out this field.';
++        }
++
++        // validate address
++        $address = $this->value('address');
++        if ('' == $address) {
++            $errors['address'] = 'Please fill out this field.';
++        }
++
++        // validate zip
++        $zip = $this->value('zip');
++        if ('' == $zip) {
++            $errors['zip'] = 'Please fill out this field.';
++        }
++
++        // validate city
++        $city = $this->value('city');
++        if ('' == $city) {
++            $errors['city'] = 'Please fill out this field.';
++        }
++
++        // validate phone number
++        $phone = $this->value('phone');
++        if ('' == $phone) {
++            $errors['phone'] = 'Please fill out this field.';
++        } else if (preg_match('/^([0-9\(\)\/\+ \-]*)$/', $phone) === 0) {
++            $errors['phone'] = 'Please fill in a valid phone number.';
++        }
++
++        // validate email
++        $email = $this->value('email');
++        if ('' == $email) {
++            $errors['email'] = 'Please fill out this field.';
++        } else if (strpos($email, '@') === false) {
++            $errors['email'] = 'Please fill in a valid email address.';
++        }
++
++        // check if any validation error occured
++        if (count($errors) > 0) {
++
++            // validation error
++            throw new ShopException($errors);
++        }
++
++        // validation passed, save order
++        $this->database->beginTransaction();
++
++        $statement = $this->database->prepare('INSERT INTO `order` (`created`, `prename`, `surname`, `address`, `zip`, `city`, `phone`, `email`) VALUES (NOW(), ?, ?, ?, ?, ?, ?, ?)');
++        $statement->execute(array($prename, $surname, $address, $zip, $city, $phone, $email));
++        $order = $this->database->lastInsertId();
++
++        foreach ($this->cart->summary() as $product) {
++
++            $statement = $this->database->prepare('INSERT INTO `order_product` (`order`, `product`, `price`, `qty`) VALUES (?, ?, ?, ?)');
++            $statement->execute(array($order, $product['id'], $product['price'], $product['qty']));
++        }
++
++        $this->database->commit();
++
++        return $order;
++    }
++}
++
+ /**
+  * Model to fetch products from the database.
+  */
+diff --git a/webshop/views/checkout.php b/webshop/views/checkout.php
+index 5e74f835fa1c56ec98d9529f12516677840d181c..4a93430b3daeae3ed811115d252430a91ca670e5 100644
+--- a/webshop/views/checkout.php
++++ b/webshop/views/checkout.php
+@@ -30,42 +30,51 @@
+         <div class="span12">
+             <fieldset>
+                 <legend>Billing Address</legend>
+-                <div class="clearfix">
++                <div class="clearfix<?php if (isset($errors['prename'])) { echo ' error'; } ?>">
+                     <label for="prename">Prename</label>
+                     <div class="input">
+-                        <input class="xlarge" id="prename" name="prename" size="255" type="text">
++                        <input autofocus value="<?php display($_POST['prename']); ?>" class="xlarge" id="prename" name="prename" size="255" type="text">
++                        <span class="help-inline"><?php display($errors['prename']); ?></span>
+                     </div>
+                 </div>
+-                <div class="clearfix">
++                <div class="clearfix<?php if (isset($errors['surname'])) { echo ' error'; } ?>"">
+                     <label for="surname">Surname</label>
+                     <div class="input">
+-                        <input class="xlarge" id="surname" name="surname" size="255" type="text">
++                        <input value="<?php display($_POST['surname']); ?>" class="xlarge" id="surname" name="surname" size="255" type="text">
++                        <span class="help-inline"><?php display($errors['surname']); ?></span>
+                     </div>
+                 </div>
+-                <div class="clearfix">
++                <div class="clearfix<?php if (isset($errors['address'])) { echo ' error'; } ?>"">
+                     <label for="address">Street, Nr.</label>
+                     <div class="input">
+-                        <input class="xlarge" id="address" name="address" size="255" type="text">
++                        <input value="<?php display($_POST['address']); ?>" class="xlarge" id="address" name="address" size="255" type="text">
++                        <span class="help-inline"><?php display($errors['address']); ?></span>
+                     </div>
+                 </div>
+-                <div class="clearfix">
++                <div class="clearfix<?php if (isset($errors['zip']) || isset($errors['city'])) { echo ' error'; } ?>"">
+                     <label for="zip">Zip, City</label>
+                     <div class="input">
+-                        <input class="mini" id="zip" name="zip" size="10" type="text">
+-                        <input class="medium" id="city" name="city" size="255" type="text">
++                        <input value="<?php display($_POST['zip']); ?>" class="mini" id="zip" name="zip" size="10" type="text">
++                        <input value="<?php display($_POST['city']); ?>" class="medium" id="city" name="city" size="255" type="text">
++                        <?php if (!isset($errors['zip'])): ?>
++                            <span class="help-inline"><?php display($errors['city']); ?></span>
++                        <?php endif; ?>
++                        <span class="help-inline"><?php display($errors['zip']); ?></span>
+                     </div>
+                 </div>
+-                <div class="clearfix">
++                <div class="clearfix<?php if (isset($errors['phone'])) { echo ' error'; } ?>"">
+                     <label for="phone">Phone</label>
+                     <div class="input">
+-                        <input id="phone" name="phone" size="255" type="text">
++                        <input value="<?php display($_POST['phone']); ?>" id="phone" name="phone" size="255" type="text">
++                        <span class="help-inline"><?php display($errors['phone']); ?></span>
+                         <span class="help-block">e.g. 044 123 45 67</span>
+                     </div>
+                 </div>
+-                <div class="clearfix">
++                <div class="clearfix<?php if (isset($errors['email'])) { echo ' error'; } ?>"">
+                     <label for="email">Email</label>
+                     <div class="input">
+-                        <input class="xlarge" id="email" name="email" size="255" type="text">
++                        <input value="<?php display($_POST['email']); ?>" class="xlarge" id="email" name="email" size="255" type="text">
++                        <span class="help-inline"><?php display($errors['email']); ?></span>
+                     </div>
+                 </div>
+             </fieldset>

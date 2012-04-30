@@ -1,0 +1,241 @@
+diff --git a/webshop/includes/session.php b/webshop/includes/session.php
+index b0da9e9f2024f3bcb54d17c01057b718ca79ea60..f46e208b1059873afd0bdf23755967a76a7e6b30 100644
+--- a/webshop/includes/session.php
++++ b/webshop/includes/session.php
+@@ -6,3 +6,8 @@ session_start();
+ if (!isset($_SESSION['cart'])) {
+     $_SESSION['cart'] = array();
+ }
++
++// initialize wish list
++if (!isset($_SESSION['wishlist'])) {
++    $_SESSION['wishlist'] = array();
++}
+diff --git a/webshop/media/javascripts/wishlist.js b/webshop/media/javascripts/wishlist.js
+new file mode 100644
+index 0000000000000000000000000000000000000000..965520990f2f4b96db0f2f308ccc98e82a50f11e
+--- /dev/null
++++ b/webshop/media/javascripts/wishlist.js
+@@ -0,0 +1,28 @@
++$(function () {
++
++    $('.form-basket .wishlist').click(function () {
++
++        // get url from link
++        var url = $(this).attr('href');
++
++        // add product to wish list and update persistent wish list
++        $('.header .wishlist').load(url + ' .header .wishlist a');
++
++        $(this).text('Added to wish list').attr('disabled', 'disabled');
++
++        // prevent default
++        return false;
++    });
++
++    $('.table-wishlist .remove').live('click', function () {
++
++        // get url from link
++        var url = $(this).attr('href');
++
++        // remove product and reload whole page
++        $('body').load(url + ' > div');
++
++        // prevent default
++        return false;
++    });
++});
+diff --git a/webshop/media/stylesheets/layout.css b/webshop/media/stylesheets/layout.css
+index 91da406d29a33dbfb1aa3d387e366b5e0b9f59ff..01aee2dd09c76a45d8c8e3a6d759bac806da4af7 100644
+--- a/webshop/media/stylesheets/layout.css
++++ b/webshop/media/stylesheets/layout.css
+@@ -26,6 +26,17 @@ body {
+     top: 170px;
+ }
+ 
++.header .wishlist {
++    position: absolute;
++    right: 180px;
++    top: 111px;
++    width: 100px;
++}
++
++.header .wishlist a {
++    color: #eee;
++}
++
+ .header .basket {
+     position: absolute;
+     right: 0;
+diff --git a/webshop/views/header.php b/webshop/views/header.php
+index 95ee8d648d8ddc2263120a0873547d0d7f472087..53de998b3f764f50217fde0cd16f9eb7377e6bb4 100644
+--- a/webshop/views/header.php
++++ b/webshop/views/header.php
+@@ -26,6 +26,7 @@ function display(&$value, $default = '') {
+         <script src="media/javascripts/modernizr.custom.29803.js"></script>
+         <script src="media/javascripts/jquery-1.7.1.min.js"></script>
+         <script src="media/javascripts/cart.js"></script>
++        <script src="media/javascripts/wishlist.js"></script>
+         <link href="media/bootstrap/bootstrap.css" rel="stylesheet" />
+         <link href="media/stylesheets/layout.css" rel="stylesheet" />
+         <link rel="shortcut icon" href="favicon.ico">
+@@ -35,6 +36,7 @@ function display(&$value, $default = '') {
+         <div class="header">
+             <a href="./" class="logo" title="Home">Jungfrau - Top Of Europe</a>
+             <h1><?php display($title, 'Webshop'); ?></h1>
++            <p class="wishlist"><a href="wishlist.php?<?php echo http_build_query(array('products' => $_SESSION['wishlist'])); ?>">Wish List</a></p>
+             <p class="basket"><a href="cart.php"><?php echo array_sum($_SESSION['cart']); ?> Items</a></p>
+         </div>
+ 
+diff --git a/webshop/views/product.php b/webshop/views/product.php
+index 268a87a047fdb29598aa8d2eb92c2ac5e6b38430..24c1536f586daab9af9fe892bb2222bf4d6963bd 100644
+--- a/webshop/views/product.php
++++ b/webshop/views/product.php
+@@ -23,6 +23,7 @@
+             <input type="hidden" name="id" value="<?php display($product['id']); ?>" />
+             <div class="actions">
+                 <button type="submit" class="btn primary">Add to cart</button>
++                <a href="wishlist-add.php?id=<?php display($product['id']); ?>" class="wishlist btn">Add to wish list</a>
+             </div>
+         </form>
+     </div>
+diff --git a/webshop/views/wishlist.php b/webshop/views/wishlist.php
+new file mode 100644
+index 0000000000000000000000000000000000000000..7080f209c0ef5abfc045a7166c42fcffb87b2e49
+--- /dev/null
++++ b/webshop/views/wishlist.php
+@@ -0,0 +1,55 @@
++<?php $title = 'Wish List'; ?>
++<?php require 'header.php'; ?>
++
++<ul class="breadcrumb">
++    <li><a href="./">Home</a> <span class="divider">/</span></li>
++    <li class="active">Wish List</li>
++</ul>
++
++<?php if (count($products) > 0): ?>
++    <table class="table-wishlist bordered-table zebra-striped">
++        <colgroup>
++            <col width="30%" />
++            <col width="40%" />
++            <col width="20%" />
++            <col width="10%" />
++        </colgroup>
++        <thead>
++            <tr>
++                <th>Image</th>
++                <th>Product</th>
++                <th>Price</th>
++                <th>Remove</th>
++            </tr>
++        </thead>
++        <tbody>
++            <?php foreach ($products as $product): ?>
++            <tr>
++                <td>
++                    <a href="product.php?id=<?php display($product['id']); ?>">
++                        <img class="thumbnail" src="<?php display($product['image']); ?>" width="260" alt="<?php display($product['name']); ?>" />
++                    </a>
++                </td>
++                <td>
++                    <a href="product.php?id=<?php display($product['id']); ?>">
++                        <?php display($product['name']); ?>
++                    </a>
++                </td>
++                <td>CHF <?php display($product['price']); ?></td>
++                <td>
++                    <a href="wishlist-remove.php?id=<?php display($product['id']); ?>" class="remove"><img src="media/images/delete.png" width="16" height="16" alt="Remove" /></a>
++                </td>
++            </tr>
++            <?php endforeach; ?>
++        </tbody>
++    </table>
++<?php else: ?>
++    <div class="alert-message block-message warning">
++        <p>
++            <strong>Empty wish list with no products.</strong> There are no products in your wish list at the moment.
++            Please add some products to your wish list by visiting their detail page and clicking the button labeled «Add to wish list».
++        </p>
++    </div>
++<?php endif; ?>
++
++<?php require 'footer.php'; ?>
+diff --git a/webshop/wishlist-add.php b/webshop/wishlist-add.php
+new file mode 100644
+index 0000000000000000000000000000000000000000..fb536b425819fe289ea6aef5581cd88227ec575f
+--- /dev/null
++++ b/webshop/wishlist-add.php
+@@ -0,0 +1,25 @@
++<?php
++
++/**
++ * Add product to wish list.
++ */
++
++require_once 'includes/webshop.php';
++
++// product id
++$id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
++
++// init wish list for product
++if (!isset($_SESSION['wishlist'][$id])) {
++    $_SESSION['wishlist'][$id] = 1;
++}
++
++// build persistent wishlist
++$wishlist = http_build_query(array('products' => $_SESSION['wishlist']));
++
++// notify user
++$_SESSION['success'] = 'The product has been added to your wish list.';
++
++// redirect to wish list
++session_commit();
++header('Location: wishlist.php?' . $wishlist);
+diff --git a/webshop/wishlist-remove.php b/webshop/wishlist-remove.php
+new file mode 100644
+index 0000000000000000000000000000000000000000..7a547b9b556164a5dd470fc7c21fff26357fe1d5
+--- /dev/null
++++ b/webshop/wishlist-remove.php
+@@ -0,0 +1,20 @@
++<?php
++
++/**
++ * Remove item from wish list.
++ */
++
++require_once 'includes/webshop.php';
++
++// product id
++$id = isset($_GET['id']) ? $_GET['id'] : 0;
++
++// remove product
++unset($_SESSION['wishlist'][(int) $id]);
++
++// build persistent wishlist
++$wishlist = http_build_query(array('products' => $_SESSION['wishlist']));
++
++// redirect back to cart
++session_commit();
++header('Location: wishlist.php?' . $wishlist);
+diff --git a/webshop/wishlist.php b/webshop/wishlist.php
+new file mode 100644
+index 0000000000000000000000000000000000000000..b5719456fe71b0cb816874803f3633449d876a9a
+--- /dev/null
++++ b/webshop/wishlist.php
+@@ -0,0 +1,16 @@
++<?php
++
++/**
++ * Wish list
++ */
++
++require_once 'includes/webshop.php';
++
++$wishlist = isset($_GET['products']) ? array_keys($_GET['products']) : array();
++
++// load all products in wish list
++$model = new Product($database);
++$products = $model->some($wishlist);
++
++// render cart view
++require 'views/wishlist.php';

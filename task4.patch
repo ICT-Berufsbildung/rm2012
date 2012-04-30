@@ -1,0 +1,67 @@
+diff --git a/webshop/media/javascripts/cart.js b/webshop/media/javascripts/cart.js
+new file mode 100644
+index 0000000000000000000000000000000000000000..b09a4e4149a915679da4514eb85ca815cb9ea32a
+--- /dev/null
++++ b/webshop/media/javascripts/cart.js
+@@ -0,0 +1,14 @@
++$(function () {
++
++    $('.form-cart .remove').live('click', function () {
++
++        // get url from link
++        var url = $(this).attr('href');
++
++        // remove product and reload cart view
++        $('.container').load(url + ' .container > *');
++
++        // prevent default
++        return false;
++    });
++});
+diff --git a/webshop/remove.php b/webshop/remove.php
+new file mode 100644
+index 0000000000000000000000000000000000000000..465fc3b2dc6c0fb6fceadcefc82c2952225be7ff
+--- /dev/null
++++ b/webshop/remove.php
+@@ -0,0 +1,17 @@
++<?php
++
++/**
++ * Remove item from cart.
++ */
++
++require_once 'includes/webshop.php';
++
++// product id
++$id = isset($_GET['id']) ? $_GET['id'] : 0;
++
++// remove product
++unset($_SESSION['cart'][(int) $id]);
++
++// redirect back to cart
++session_commit();
++header('Location: cart.php');
+diff --git a/webshop/views/cart.php b/webshop/views/cart.php
+index 8aed147392b16cee66cc5de479be40a05c08bdbb..b7ce29e2a5f18535034f82dcf008112243b4c370 100644
+--- a/webshop/views/cart.php
++++ b/webshop/views/cart.php
+@@ -35,6 +35,7 @@
+                     <td>
+                         <?php $name = 'cart[' . htmlentities($product['id'], ENT_QUOTES, 'UTF-8') . ']'; ?>
+                         <input name="<?php display($name); ?>" value="<?php display($product['qty']); ?>" class="small" />
++                        <a href="remove.php?id=<?php display($product['id']); ?>" class="remove"><img src="media/images/delete.png" width="16" height="16" alt="Remove" /></a>
+                     </td>
+                     <td>CHF <?php display($product['row_total']); ?></td>
+                 </tr>
+diff --git a/webshop/views/header.php b/webshop/views/header.php
+index aaae279f99e03da7fa664d0c78a4509df71829a3..95ee8d648d8ddc2263120a0873547d0d7f472087 100644
+--- a/webshop/views/header.php
++++ b/webshop/views/header.php
+@@ -25,6 +25,7 @@ function display(&$value, $default = '') {
+ 
+         <script src="media/javascripts/modernizr.custom.29803.js"></script>
+         <script src="media/javascripts/jquery-1.7.1.min.js"></script>
++        <script src="media/javascripts/cart.js"></script>
+         <link href="media/bootstrap/bootstrap.css" rel="stylesheet" />
+         <link href="media/stylesheets/layout.css" rel="stylesheet" />
+         <link rel="shortcut icon" href="favicon.ico">
