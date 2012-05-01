@@ -11,8 +11,8 @@ index 0000000000000000000000000000000000000000..b09a4e4149a915679da4514eb85ca815
 +        // get url from link
 +        var url = $(this).attr('href');
 +
-+        // remove product and reload cart view
-+        $('.container').load(url + ' .container > *');
++        // remove product and reload whole page
++        $('body').load(url + ' > div');
 +
 +        // prevent default
 +        return false;

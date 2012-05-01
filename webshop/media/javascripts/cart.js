@@ -5,8 +5,8 @@ $(function () {
         // get url from link
         var url = $(this).attr('href');
 
-        // remove product and reload cart view
-        $('.container').load(url + ' .container > *');
+        // remove product and reload whole page
+        $('body').load(url + ' > div');
 
         // prevent default
         return false;
