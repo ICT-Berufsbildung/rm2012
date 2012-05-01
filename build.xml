@@ -11,6 +11,12 @@
 		</zip>
 	</target>
 
+	<target name="solution" depends="eol">
+		<zip destfile="rm2012-solution.zip">
+		    <zipfileset dir="." prefix="rm2012" excludes=".git,build.xml,ruleset.xml,rm2012.zip,rm2012.esproj/**,docs/**" />
+		</zip>
+	</target>
+
 	<target name="clean">
 		<delete file="rm2012.zip" />
 	</target>
