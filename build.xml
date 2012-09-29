@@ -3,7 +3,7 @@
 
 	<target name="zip">
 		<zip destfile="rm2012.zip">
-		    <zipfileset dir="." prefix="rm2012" excludes=".git,build.xml,ruleset.xml,rm2012.zip,rm2012.esproj/**" />
+		    <zipfileset dir="." prefix="rm2012" excludes=".git,build.xml,ruleset.xml,rm2012.zip,rm2012-solution.zip,rm2012.esproj/**" />
 		</zip>
 	</target>
 
